@@ -9,7 +9,9 @@
 ## Overview
 SoMA is a *Gaussian splat neural simulator* that models deformable object dynamics from real-world robot manipulation, enabling action-conditioned, stable long-horizon simulation with high-fidelity, multi-view-consistent rendering.
 
-![SoMA teaser](assets/demo.gif)
+<p align="center">
+  <img src="assets/demo.gif" alt="SoMA overview" width="100%">
+</p>
 
 
 ## Installation
