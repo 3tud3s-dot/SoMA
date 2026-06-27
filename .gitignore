@@ -1,0 +1,60 @@
+# Python cache / bytecode
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Packaging / editable installs
+*.egg-info/
+build/
+dist/
+*.egg
+
+# Native build artifacts
+*.so
+*.o
+*.a
+*.cuo
+
+# Test / coverage caches
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# Runtime outputs
+work_dirs/
+outcomes/
+outputs/
+runs/
+wandb/
+tensorboard/
+
+# Logs and local keepalive/debug files
+*.log
+*.log.json
+gpu*_keepalive.log
+
+# Large local assets/checkpoints should live outside git.
+data/
+ckpt/
+checkpoints/
+*.pth
+*.pt
+*.ckpt
+
+# Local third-party/build scratch directories
+third_party/
+gaussian-splatting/
+
+# Editor / OS files
+.DS_Store
+.vscode/
+.idea/
+
+# Accidental shell leftovers
+=*
+=10.1
+rjob_scripts/
+visualization/
+test/
