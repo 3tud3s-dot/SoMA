@@ -1,0 +1,23 @@
+# Core preprocessing dependencies
+numpy
+opencv-python
+open3d
+Pillow
+PyYAML
+scipy
+tqdm
+urdfpy
+networkx>=2.8
+pycollada
+trimesh
+lxml
+plyfile
+kornia
+
+# Needed by segmentation / high-resolution upscaling stages.
+# Install torch and torchvision for your CUDA version before these if needed.
+torch
+torchvision
+diffusers
+transformers
+accelerate

@@ -15,14 +15,13 @@ SoMA is a *Gaussian splat neural simulator* that models deformable object dynami
 
 
 ## Installation
-
+Clone SoMA
 ```bash
 git clone https://github.com/Wrioste/SoMA.git
 cd SoMA
 ```
 
-### H200 Environment (CUDA 11.8)
-
+Create Environment (cuda11.8 & torch2.0.0)
 ```bash
 conda create -n soma python=3.10
 conda activate soma
@@ -67,7 +66,7 @@ We provide a sample `cloth_lift_1` scene for validation. The code can also be ad
 
 2. tar -xzf soma_data_sample.tar.gz
 
-Data preprocessing code will be released in a future update.
+Data preprocessing code is available under `data_preprocess/`; see `data_preprocess/README.md` for setup and usage.
 
 
 ## Usage

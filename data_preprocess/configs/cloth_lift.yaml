@@ -1,0 +1,68 @@
+# SoMA preprocessing config. Paths are examples; edit them for your dataset.
+data_root: ../soma_data_sample/cloth_lift
+# Process only selected stages. Available stages:
+# segmentation, reconstruction, gaussian, augmentation, robot_alignment, robot_tracking
+# Default mirrors the original main_v2.py full preprocessing pipeline.
+steps:
+  - segmentation
+  - reconstruction
+  - gaussian
+  - augmentation
+  - robot_alignment
+  - robot_tracking
+
+max_cam: 3
+valid_cam_ids: [0, 1, 2]
+fixed_cam_id: 0
+mounted_cam_id: 0
+fix_camera_pose: true
+aligned_scene: left_lift_1
+
+scene_filter:
+  include: []
+  exclude: []
+
+downsample:
+  type: voxel
+  rate: 0.1
+  voxel_size: 0.006
+
+third_party:
+  grounded_sam_root: third_party/Grounded-SAM-2
+  grounding_dino_root: third_party/GroundingDINO
+  pi3_repo: third_party/Pi3
+
+checkpoints:
+  sam2: checkpoints/sam2.1_hiera_large.pt
+  grounding_dino_config: checkpoints/GroundingDINO_SwinT_OGC.py
+  grounding_dino: checkpoints/groundingdino_swint_ogc.pth
+
+sam2_model_config: configs/sam2.1/sam2.1_hiera_l.yaml
+
+upscale:
+  model_id: stabilityai/stable-diffusion-x4-upscaler
+  device: cuda
+
+gaussian:
+  script_dir: preprocess/gaussian_adapter
+  iterations: 10000
+  lambda_depth: 0
+  lambda_normal: 0
+  lambda_anisotropic: 0.0
+  lambda_seg: 0.5
+  gs_init_opt: hybrid
+  percent_dense: 0.03
+  densify_until_iter: 7000
+  densify_grad_threshold: 0.0008
+  sh_degree: 0
+  use_high_res: true
+
+robot:
+  robot_dir:
+  particle_num: 30
+
+dataset_name: cloth_lift_v2
+prompts:
+  all: "cloth. table. hand. robotic arm."
+  object: cloth
+  desk: table
