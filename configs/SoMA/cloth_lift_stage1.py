@@ -7,7 +7,7 @@ _base_ = [
     '../_base_/schedules/adam_hood.py',
     '../_base_/default_runtime.py'
 ]
-data_dir='data_soma/cloth_lift/' # PATH TO YOUR DATASET
+data_dir='data_soma_sample/cloth_lift/' # PATH TO YOUR DATASET
 
 
 n_gpu = 4

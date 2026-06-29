@@ -63,6 +63,10 @@ conda install pytorch3d -c pytorch3d -y
 ## Data
 We provide a sample `cloth_lift_1` scene for validation. The code can also be adapted to PhyTwin, DROID, or other soft-body manipulation datasets after preprocessing.
 
+1. Download the [sample data](https://drive.google.com/file/d/1E0w6WLQMVg2X4Z6AHTAAV-6Ovwo5Yv9l/view?usp=sharing).
+
+2. tar -xzf soma_data_sample.tar.gz
+
 Data preprocessing code will be released in a future update.
 
 
