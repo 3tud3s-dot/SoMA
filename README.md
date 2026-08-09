@@ -4,7 +4,11 @@
 [![Website](https://img.shields.io/badge/Website-46a546)](https://city-super.github.io/SoMA/)
 [![arXiv](https://img.shields.io/badge/arXiv-Paper-b31b1b?logo=arxiv&logoColor=b31b1b)](https://arxiv.org/abs/2602.02402)
 
-[Mu Huang](https://wrioste.github.io)<sup>1,2</sup>, [Hui Wang](https://hhuiwangg.github.io)<sup>3,2</sup>, [Kerui Ren](https://cskrren.github.io)<sup>3,2</sup>, [Linning Xu](https://eveneveno.github.io)<sup>4,2</sup>, [Yunsong Zhou](https://zhouyunsong.github.io)<sup>2</sup>, [Mulin Yu](https://mulinyu.github.io)<sup>2</sup>, [Bo Dai](https://daibo.info)<sup>5</sup>, [Jiangmiao Pang](https://oceanpang.github.io)<sup>2</sup>
+[Mu Huang](https://wrioste.github.io)<sup>1,2</sup>, [Hui Wang](https://hhuiwangg.github.io)<sup>3,2</sup>, [Kerui Ren](https://cskrren.github.io)<sup>3,2</sup>, [Linning Xu](https://eveneveno.github.io)<sup>4,2</sup>, [Yunsong Zhou](https://zhouyunsong.github.io)<sup>2</sup>, [Mulin Yu](https://mulinyu.github.io)<sup>2</sup>, [Bo Dai](https://daibo.info)<sup>5,&#8224;</sup>, [Jiangmiao Pang](https://oceanpang.github.io)<sup>2</sup>
+
+<sup>1</sup>Fudan University &nbsp; <sup>2</sup>Shanghai Artificial Intelligence Laboratory &nbsp; <sup>3</sup>Shanghai Jiao Tong University&nbsp; <sup>4</sup>The Chinese University of Hong Kong &nbsp; <sup>5</sup>The University of Hong Kong
+
+<sup>&#8224;</sup>Corresponding author.
 
 ## Overview
 SoMA is a *Gaussian splat neural simulator* that models deformable object dynamics from real-world robot manipulation, enabling action-conditioned, stable long-horizon simulation with high-fidelity, multi-view-consistent rendering.

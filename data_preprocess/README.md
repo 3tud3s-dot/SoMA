@@ -1,6 +1,6 @@
 # SoMA Data Preprocessing
 
-This directory contains the preprocessing pipeline for SoMA datasets.
+This directory provides a reference implementation of the preprocessing pipeline for SoMA datasets. It was reorganized with assistance from Codex to improve clarity and maintainability. The pipeline may be adapted to alternative or updated models and extended to other large-scale datasets. For implementation issues, AI-assisted debugging may be useful alongside standard validation.
 
 ## Expected Dataset Layout
 
