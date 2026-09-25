@@ -1,0 +1,1033 @@
+{
+  "purpose": "T10 human visual review only; not T11/T12 or trajectory contract",
+  "source_frames_inclusive": [
+    113,
+    140
+  ],
+  "frame_count": 28,
+  "snapshot_source_frames": [
+    113,
+    120,
+    130,
+    140
+  ],
+  "playback_fps": 6,
+  "source_video_metadata": {
+    "brics-odroid-023_cam0": {
+      "width": 1280.0,
+      "height": 720.0,
+      "frame_count": 357.0,
+      "fps": 30.0
+    },
+    "brics-odroid-009_cam1": {
+      "width": 1280.0,
+      "height": 720.0,
+      "frame_count": 357.0,
+      "fps": 30.0
+    }
+  },
+  "contract_sha256": {
+    "controller_single_frame_contract.json": "a2aa7684e9612d4b80eeede253fb890a63b6f8dbd87665843222170d341d733a",
+    "camera_extrinsics_contract.json": "eb9fc54cb1a029eeb1e502f6c4965dda2edf856d29e3c5ca8b86db4e196626dd",
+    "camera_intrinsics_contract.json": "3f4c3bbec096eb3ffb7dc3ee7928d68b464241bc9c383327dfc090ca9b393b97"
+  },
+  "frame_113_reproduces_T10_exactly": true,
+  "camera_timestamp_tokens_equal": true,
+  "tactile_alignment": "Published synced_tactile.npy frame indices; no independent hardware clock alignment established",
+  "sensor_grouping": "l/r sensor-name groups only; no assertion of mapping both groups to the single robot gripper",
+  "tactile_scale": [
+    0,
+    1
+  ],
+  "active_count_definition": "values > 0 in rows 0..11 and cols 0..31; all 16 rows displayed",
+  "crop_xywh": {
+    "brics-odroid-023_cam0": [
+      308,
+      85,
+      181,
+      181
+    ],
+    "brics-odroid-009_cam1": [
+      278,
+      349,
+      342,
+      342
+    ]
+  },
+  "opening_range_m": [
+    0.04323171339010967,
+    0.04635514603574312
+  ],
+  "signed_surface_gap_range_m": [
+    -0.002112756059066136,
+    0.0007503905327645288
+  ],
+  "root_displacement_first_to_last_m": 0.02788635079204509,
+  "max_root_step_m": 0.0013901736921944961,
+  "max_anchor_step_m": 0.0018571375403553247,
+  "per_frame_statistics": [
+    {
+      "source_frame": 113,
+      "opening_m": 0.04499152071070773,
+      "joint_left_m": 0.03571221967425896,
+      "signed_surface_gap_root_x_m": -0.0004995993485179141,
+      "timestamp_token": "frame_1766008308603525_000000000113",
+      "tactile": {
+        "brics-odroid_tactilel_left": {
+          "active_taxels_rows_0_11": 17,
+          "active_taxels_all_16_rows": 17,
+          "value_sum": 8.777777671813965,
+          "value_max": 1.0
+        },
+        "brics-odroid_tactilel_right": {
+          "active_taxels_rows_0_11": 12,
+          "active_taxels_all_16_rows": 12,
+          "value_sum": 6.200000286102295,
+          "value_max": 0.800000011920929
+        },
+        "brics-odroid_tactiler_left": {
+          "active_taxels_rows_0_11": 0,
+          "active_taxels_all_16_rows": 0,
+          "value_sum": 0.0,
+          "value_max": 0.0
+        },
+        "brics-odroid_tactiler_right": {
+          "active_taxels_rows_0_11": 3,
+          "active_taxels_all_16_rows": 3,
+          "value_sum": 1.6056338548660278,
+          "value_max": 0.6384976506233215
+        }
+      }
+    },
+    {
+      "source_frame": 114,
+      "opening_m": 0.045377091754987886,
+      "joint_left_m": 0.03553549961229722,
+      "signed_surface_gap_root_x_m": -0.00014615922459443494,
+      "timestamp_token": "frame_1766008308639927_000000000114",
+      "tactile": {
+        "brics-odroid_tactilel_left": {
+          "active_taxels_rows_0_11": 17,
+          "active_taxels_all_16_rows": 17,
+          "value_sum": 8.666666984558105,
+          "value_max": 1.0
+        },
+        "brics-odroid_tactilel_right": {
+          "active_taxels_rows_0_11": 12,
+          "active_taxels_all_16_rows": 12,
+          "value_sum": 6.300000190734863,
+          "value_max": 0.800000011920929
+        },
+        "brics-odroid_tactiler_left": {
+          "active_taxels_rows_0_11": 0,
+          "active_taxels_all_16_rows": 0,
+          "value_sum": 0.0,
+          "value_max": 0.0
+        },
+        "brics-odroid_tactiler_right": {
+          "active_taxels_rows_0_11": 3,
+          "active_taxels_all_16_rows": 3,
+          "value_sum": 1.4507042169570923,
+          "value_max": 0.6619718074798584
+        }
+      }
+    },
+    {
+      "source_frame": 115,
+      "opening_m": 0.04430118318703539,
+      "joint_left_m": 0.03602862437260878,
+      "signed_surface_gap_root_x_m": -0.0011324087452175575,
+      "timestamp_token": "frame_1766008308671573_000000000115",
+      "tactile": {
+        "brics-odroid_tactilel_left": {
+          "active_taxels_rows_0_11": 17,
+          "active_taxels_all_16_rows": 17,
+          "value_sum": 8.666666984558105,
+          "value_max": 1.0
+        },
+        "brics-odroid_tactilel_right": {
+          "active_taxels_rows_0_11": 12,
+          "active_taxels_all_16_rows": 12,
+          "value_sum": 6.300000190734863,
+          "value_max": 0.800000011920929
+        },
+        "brics-odroid_tactiler_left": {
+          "active_taxels_rows_0_11": 0,
+          "active_taxels_all_16_rows": 0,
+          "value_sum": 0.0,
+          "value_max": 0.0
+        },
+        "brics-odroid_tactiler_right": {
+          "active_taxels_rows_0_11": 3,
+          "active_taxels_all_16_rows": 3,
+          "value_sum": 1.4507042169570923,
+          "value_max": 0.6619718074798584
+        }
+      }
+    },
+    {
+      "source_frame": 116,
+      "opening_m": 0.04522797157122385,
+      "joint_left_m": 0.03560384636318907,
+      "signed_surface_gap_root_x_m": -0.00028285272637814003,
+      "timestamp_token": "frame_1766008308703590_000000000116",
+      "tactile": {
+        "brics-odroid_tactilel_left": {
+          "active_taxels_rows_0_11": 17,
+          "active_taxels_all_16_rows": 17,
+          "value_sum": 8.666666984558105,
+          "value_max": 1.0
+        },
+        "brics-odroid_tactilel_right": {
+          "active_taxels_rows_0_11": 12,
+          "active_taxels_all_16_rows": 12,
+          "value_sum": 6.099999904632568,
+          "value_max": 0.800000011920929
+        },
+        "brics-odroid_tactiler_left": {
+          "active_taxels_rows_0_11": 0,
+          "active_taxels_all_16_rows": 0,
+          "value_sum": 0.0,
+          "value_max": 0.0
+        },
+        "brics-odroid_tactiler_right": {
+          "active_taxels_rows_0_11": 3,
+          "active_taxels_all_16_rows": 3,
+          "value_sum": 1.5117369890213013,
+          "value_max": 0.6338028311729431
+        }
+      }
+    },
+    {
+      "source_frame": 117,
+      "opening_m": 0.04589460971794345,
+      "joint_left_m": 0.03529830387927592,
+      "signed_surface_gap_root_x_m": 0.00032823224144816303,
+      "timestamp_token": "frame_1766008308739501_000000000117",
+      "tactile": {
+        "brics-odroid_tactilel_left": {
+          "active_taxels_rows_0_11": 17,
+          "active_taxels_all_16_rows": 17,
+          "value_sum": 8.777777671813965,
+          "value_max": 1.0
+        },
+        "brics-odroid_tactilel_right": {
+          "active_taxels_rows_0_11": 12,
+          "active_taxels_all_16_rows": 12,
+          "value_sum": 6.099999904632568,
+          "value_max": 0.800000011920929
+        },
+        "brics-odroid_tactiler_left": {
+          "active_taxels_rows_0_11": 1,
+          "active_taxels_all_16_rows": 1,
+          "value_sum": 0.32093024253845215,
+          "value_max": 0.32093024253845215
+        },
+        "brics-odroid_tactiler_right": {
+          "active_taxels_rows_0_11": 4,
+          "active_taxels_all_16_rows": 4,
+          "value_sum": 1.9906103610992432,
+          "value_max": 0.6525821685791016
+        }
+      }
+    },
+    {
+      "source_frame": 118,
+      "opening_m": 0.04492041709470356,
+      "joint_left_m": 0.0357448088315942,
+      "signed_surface_gap_root_x_m": -0.0005647776631883972,
+      "timestamp_token": "frame_1766008308771584_000000000118",
+      "tactile": {
+        "brics-odroid_tactilel_left": {
+          "active_taxels_rows_0_11": 17,
+          "active_taxels_all_16_rows": 17,
+          "value_sum": 8.55555534362793,
+          "value_max": 1.0
+        },
+        "brics-odroid_tactilel_right": {
+          "active_taxels_rows_0_11": 13,
+          "active_taxels_all_16_rows": 13,
+          "value_sum": 6.5,
+          "value_max": 0.800000011920929
+        },
+        "brics-odroid_tactiler_left": {
+          "active_taxels_rows_0_11": 0,
+          "active_taxels_all_16_rows": 0,
+          "value_sum": 0.0,
+          "value_max": 0.0
+        },
+        "brics-odroid_tactiler_right": {
+          "active_taxels_rows_0_11": 4,
+          "active_taxels_all_16_rows": 4,
+          "value_sum": 2.070422649383545,
+          "value_max": 0.6478873491287231
+        }
+      }
+    },
+    {
+      "source_frame": 119,
+      "opening_m": 0.04467505749217858,
+      "joint_left_m": 0.03585726531608482,
+      "signed_surface_gap_root_x_m": -0.0007896906321696335,
+      "timestamp_token": "frame_1766008308803600_000000000119",
+      "tactile": {
+        "brics-odroid_tactilel_left": {
+          "active_taxels_rows_0_11": 17,
+          "active_taxels_all_16_rows": 17,
+          "value_sum": 8.55555534362793,
+          "value_max": 1.0
+        },
+        "brics-odroid_tactilel_right": {
+          "active_taxels_rows_0_11": 13,
+          "active_taxels_all_16_rows": 13,
+          "value_sum": 6.5,
+          "value_max": 0.800000011920929
+        },
+        "brics-odroid_tactiler_left": {
+          "active_taxels_rows_0_11": 0,
+          "active_taxels_all_16_rows": 0,
+          "value_sum": 0.0,
+          "value_max": 0.0
+        },
+        "brics-odroid_tactiler_right": {
+          "active_taxels_rows_0_11": 4,
+          "active_taxels_all_16_rows": 4,
+          "value_sum": 2.070422649383545,
+          "value_max": 0.6478873491287231
+        }
+      }
+    },
+    {
+      "source_frame": 120,
+      "opening_m": 0.04446399256849133,
+      "joint_left_m": 0.03595400340610814,
+      "signed_surface_gap_root_x_m": -0.0009831668122162757,
+      "timestamp_token": "frame_1766008308839413_000000000120",
+      "tactile": {
+        "brics-odroid_tactilel_left": {
+          "active_taxels_rows_0_11": 18,
+          "active_taxels_all_16_rows": 18,
+          "value_sum": 9.222223281860352,
+          "value_max": 1.0
+        },
+        "brics-odroid_tactilel_right": {
+          "active_taxels_rows_0_11": 13,
+          "active_taxels_all_16_rows": 13,
+          "value_sum": 6.5,
+          "value_max": 0.800000011920929
+        },
+        "brics-odroid_tactiler_left": {
+          "active_taxels_rows_0_11": 0,
+          "active_taxels_all_16_rows": 0,
+          "value_sum": 0.0,
+          "value_max": 0.0
+        },
+        "brics-odroid_tactiler_right": {
+          "active_taxels_rows_0_11": 4,
+          "active_taxels_all_16_rows": 4,
+          "value_sum": 2.1690139770507812,
+          "value_max": 0.6478873491287231
+        }
+      }
+    },
+    {
+      "source_frame": 121,
+      "opening_m": 0.04475203352832689,
+      "joint_left_m": 0.035821984632850176,
+      "signed_surface_gap_root_x_m": -0.0007191292657003513,
+      "timestamp_token": "frame_1766008308871572_000000000121",
+      "tactile": {
+        "brics-odroid_tactilel_left": {
+          "active_taxels_rows_0_11": 18,
+          "active_taxels_all_16_rows": 18,
+          "value_sum": 9.222223281860352,
+          "value_max": 1.0
+        },
+        "brics-odroid_tactilel_right": {
+          "active_taxels_rows_0_11": 11,
+          "active_taxels_all_16_rows": 11,
+          "value_sum": 5.800000190734863,
+          "value_max": 0.800000011920929
+        },
+        "brics-odroid_tactiler_left": {
+          "active_taxels_rows_0_11": 0,
+          "active_taxels_all_16_rows": 0,
+          "value_sum": 0.0,
+          "value_max": 0.0
+        },
+        "brics-odroid_tactiler_right": {
+          "active_taxels_rows_0_11": 4,
+          "active_taxels_all_16_rows": 4,
+          "value_sum": 2.1690139770507812,
+          "value_max": 0.6478873491287231
+        }
+      }
+    },
+    {
+      "source_frame": 122,
+      "opening_m": 0.04454224848530364,
+      "joint_left_m": 0.0359181361109025,
+      "signed_surface_gap_root_x_m": -0.0009114322218049965,
+      "timestamp_token": "frame_1766008308903526_000000000122",
+      "tactile": {
+        "brics-odroid_tactilel_left": {
+          "active_taxels_rows_0_11": 17,
+          "active_taxels_all_16_rows": 17,
+          "value_sum": 8.777777671813965,
+          "value_max": 1.0
+        },
+        "brics-odroid_tactilel_right": {
+          "active_taxels_rows_0_11": 11,
+          "active_taxels_all_16_rows": 11,
+          "value_sum": 5.800000190734863,
+          "value_max": 0.800000011920929
+        },
+        "brics-odroid_tactiler_left": {
+          "active_taxels_rows_0_11": 0,
+          "active_taxels_all_16_rows": 0,
+          "value_sum": 0.0,
+          "value_max": 0.0
+        },
+        "brics-odroid_tactiler_right": {
+          "active_taxels_rows_0_11": 4,
+          "active_taxels_all_16_rows": 4,
+          "value_sum": 2.239436626434326,
+          "value_max": 0.65727698802948
+        }
+      }
+    },
+    {
+      "source_frame": 123,
+      "opening_m": 0.04463371045083451,
+      "joint_left_m": 0.03587621604336751,
+      "signed_surface_gap_root_x_m": -0.0008275920867350257,
+      "timestamp_token": "frame_1766008308939580_000000000123",
+      "tactile": {
+        "brics-odroid_tactilel_left": {
+          "active_taxels_rows_0_11": 17,
+          "active_taxels_all_16_rows": 17,
+          "value_sum": 8.777777671813965,
+          "value_max": 1.0
+        },
+        "brics-odroid_tactilel_right": {
+          "active_taxels_rows_0_11": 12,
+          "active_taxels_all_16_rows": 12,
+          "value_sum": 6.099999904632568,
+          "value_max": 0.800000011920929
+        },
+        "brics-odroid_tactiler_left": {
+          "active_taxels_rows_0_11": 0,
+          "active_taxels_all_16_rows": 0,
+          "value_sum": 0.0,
+          "value_max": 0.0
+        },
+        "brics-odroid_tactiler_right": {
+          "active_taxels_rows_0_11": 4,
+          "active_taxels_all_16_rows": 4,
+          "value_sum": 2.2957746982574463,
+          "value_max": 0.6525821685791016
+        }
+      }
+    },
+    {
+      "source_frame": 124,
+      "opening_m": 0.04410959467119471,
+      "joint_left_m": 0.03611643577570242,
+      "signed_surface_gap_root_x_m": -0.0013080315514048414,
+      "timestamp_token": "frame_1766008308971563_000000000124",
+      "tactile": {
+        "brics-odroid_tactilel_left": {
+          "active_taxels_rows_0_11": 17,
+          "active_taxels_all_16_rows": 17,
+          "value_sum": 8.666666984558105,
+          "value_max": 1.0
+        },
+        "brics-odroid_tactilel_right": {
+          "active_taxels_rows_0_11": 12,
+          "active_taxels_all_16_rows": 12,
+          "value_sum": 6.099999904632568,
+          "value_max": 0.800000011920929
+        },
+        "brics-odroid_tactiler_left": {
+          "active_taxels_rows_0_11": 0,
+          "active_taxels_all_16_rows": 0,
+          "value_sum": 0.0,
+          "value_max": 0.0
+        },
+        "brics-odroid_tactiler_right": {
+          "active_taxels_rows_0_11": 4,
+          "active_taxels_all_16_rows": 4,
+          "value_sum": 2.305164337158203,
+          "value_max": 0.65727698802948
+        }
+      }
+    },
+    {
+      "source_frame": 125,
+      "opening_m": 0.04426083007757002,
+      "joint_left_m": 0.03604711954778041,
+      "signed_surface_gap_root_x_m": -0.0011693990955608125,
+      "timestamp_token": "frame_1766008309003576_000000000125",
+      "tactile": {
+        "brics-odroid_tactilel_left": {
+          "active_taxels_rows_0_11": 18,
+          "active_taxels_all_16_rows": 18,
+          "value_sum": 9.111111640930176,
+          "value_max": 1.0
+        },
+        "brics-odroid_tactilel_right": {
+          "active_taxels_rows_0_11": 12,
+          "active_taxels_all_16_rows": 12,
+          "value_sum": 6.099999904632568,
+          "value_max": 0.800000011920929
+        },
+        "brics-odroid_tactiler_left": {
+          "active_taxels_rows_0_11": 0,
+          "active_taxels_all_16_rows": 0,
+          "value_sum": 0.0,
+          "value_max": 0.0
+        },
+        "brics-odroid_tactiler_right": {
+          "active_taxels_rows_0_11": 4,
+          "active_taxels_all_16_rows": 4,
+          "value_sum": 2.305164337158203,
+          "value_max": 0.65727698802948
+        }
+      }
+    },
+    {
+      "source_frame": 126,
+      "opening_m": 0.04635514603574312,
+      "joint_left_m": 0.035087224733617736,
+      "signed_surface_gap_root_x_m": 0.0007503905327645288,
+      "timestamp_token": "frame_1766008309039576_000000000126",
+      "tactile": {
+        "brics-odroid_tactilel_left": {
+          "active_taxels_rows_0_11": 18,
+          "active_taxels_all_16_rows": 18,
+          "value_sum": 9.222222328186035,
+          "value_max": 1.0
+        },
+        "brics-odroid_tactilel_right": {
+          "active_taxels_rows_0_11": 13,
+          "active_taxels_all_16_rows": 13,
+          "value_sum": 6.5,
+          "value_max": 0.800000011920929
+        },
+        "brics-odroid_tactiler_left": {
+          "active_taxels_rows_0_11": 0,
+          "active_taxels_all_16_rows": 0,
+          "value_sum": 0.0,
+          "value_max": 0.0
+        },
+        "brics-odroid_tactiler_right": {
+          "active_taxels_rows_0_11": 4,
+          "active_taxels_all_16_rows": 4,
+          "value_sum": 2.309859037399292,
+          "value_max": 0.67136150598526
+        }
+      }
+    },
+    {
+      "source_frame": 127,
+      "opening_m": 0.0457467825880214,
+      "joint_left_m": 0.03536605798049019,
+      "signed_surface_gap_root_x_m": 0.00019272403901962436,
+      "timestamp_token": "frame_1766008309071593_000000000127",
+      "tactile": {
+        "brics-odroid_tactilel_left": {
+          "active_taxels_rows_0_11": 18,
+          "active_taxels_all_16_rows": 18,
+          "value_sum": 9.111111640930176,
+          "value_max": 1.0
+        },
+        "brics-odroid_tactilel_right": {
+          "active_taxels_rows_0_11": 11,
+          "active_taxels_all_16_rows": 11,
+          "value_sum": 5.800000190734863,
+          "value_max": 0.800000011920929
+        },
+        "brics-odroid_tactiler_left": {
+          "active_taxels_rows_0_11": 0,
+          "active_taxels_all_16_rows": 0,
+          "value_sum": 0.0,
+          "value_max": 0.0
+        },
+        "brics-odroid_tactiler_right": {
+          "active_taxels_rows_0_11": 4,
+          "active_taxels_all_16_rows": 4,
+          "value_sum": 2.323943614959717,
+          "value_max": 0.6901408433914185
+        }
+      }
+    },
+    {
+      "source_frame": 128,
+      "opening_m": 0.045075417404944626,
+      "joint_left_m": 0.03567376702273371,
+      "signed_surface_gap_root_x_m": -0.00042269404546742446,
+      "timestamp_token": "frame_1766008309103586_000000000128",
+      "tactile": {
+        "brics-odroid_tactilel_left": {
+          "active_taxels_rows_0_11": 18,
+          "active_taxels_all_16_rows": 18,
+          "value_sum": 9.111111640930176,
+          "value_max": 1.0
+        },
+        "brics-odroid_tactilel_right": {
+          "active_taxels_rows_0_11": 11,
+          "active_taxels_all_16_rows": 11,
+          "value_sum": 5.800000190734863,
+          "value_max": 0.800000011920929
+        },
+        "brics-odroid_tactiler_left": {
+          "active_taxels_rows_0_11": 0,
+          "active_taxels_all_16_rows": 0,
+          "value_sum": 0.0,
+          "value_max": 0.0
+        },
+        "brics-odroid_tactiler_right": {
+          "active_taxels_rows_0_11": 4,
+          "active_taxels_all_16_rows": 4,
+          "value_sum": 2.3333332538604736,
+          "value_max": 0.6948356628417969
+        }
+      }
+    },
+    {
+      "source_frame": 129,
+      "opening_m": 0.04502841567042475,
+      "joint_left_m": 0.035695309484388656,
+      "signed_surface_gap_root_x_m": -0.00046577896877731013,
+      "timestamp_token": "frame_1766008309139559_000000000129",
+      "tactile": {
+        "brics-odroid_tactilel_left": {
+          "active_taxels_rows_0_11": 18,
+          "active_taxels_all_16_rows": 18,
+          "value_sum": 9.000000953674316,
+          "value_max": 1.0
+        },
+        "brics-odroid_tactilel_right": {
+          "active_taxels_rows_0_11": 12,
+          "active_taxels_all_16_rows": 12,
+          "value_sum": 6.300000190734863,
+          "value_max": 0.800000011920929
+        },
+        "brics-odroid_tactiler_left": {
+          "active_taxels_rows_0_11": 0,
+          "active_taxels_all_16_rows": 0,
+          "value_sum": 0.0,
+          "value_max": 0.0
+        },
+        "brics-odroid_tactiler_right": {
+          "active_taxels_rows_0_11": 4,
+          "active_taxels_all_16_rows": 4,
+          "value_sum": 2.3521125316619873,
+          "value_max": 0.7042253613471985
+        }
+      }
+    },
+    {
+      "source_frame": 130,
+      "opening_m": 0.04526174635985733,
+      "joint_left_m": 0.035588366251732055,
+      "signed_surface_gap_root_x_m": -0.00025189250346410903,
+      "timestamp_token": "frame_1766008309171577_000000000130",
+      "tactile": {
+        "brics-odroid_tactilel_left": {
+          "active_taxels_rows_0_11": 18,
+          "active_taxels_all_16_rows": 18,
+          "value_sum": 9.000000953674316,
+          "value_max": 1.0
+        },
+        "brics-odroid_tactilel_right": {
+          "active_taxels_rows_0_11": 12,
+          "active_taxels_all_16_rows": 12,
+          "value_sum": 6.300000190734863,
+          "value_max": 0.800000011920929
+        },
+        "brics-odroid_tactiler_left": {
+          "active_taxels_rows_0_11": 0,
+          "active_taxels_all_16_rows": 0,
+          "value_sum": 0.0,
+          "value_max": 0.0
+        },
+        "brics-odroid_tactiler_right": {
+          "active_taxels_rows_0_11": 4,
+          "active_taxels_all_16_rows": 4,
+          "value_sum": 2.375586986541748,
+          "value_max": 0.7089201807975769
+        }
+      }
+    },
+    {
+      "source_frame": 131,
+      "opening_m": 0.0449340386690515,
+      "joint_left_m": 0.035738565610018064,
+      "signed_surface_gap_root_x_m": -0.0005522912200361264,
+      "timestamp_token": "frame_1766008309203929_000000000131",
+      "tactile": {
+        "brics-odroid_tactilel_left": {
+          "active_taxels_rows_0_11": 18,
+          "active_taxels_all_16_rows": 18,
+          "value_sum": 9.000000953674316,
+          "value_max": 1.0
+        },
+        "brics-odroid_tactilel_right": {
+          "active_taxels_rows_0_11": 13,
+          "active_taxels_all_16_rows": 13,
+          "value_sum": 6.5,
+          "value_max": 0.800000011920929
+        },
+        "brics-odroid_tactiler_left": {
+          "active_taxels_rows_0_11": 0,
+          "active_taxels_all_16_rows": 0,
+          "value_sum": 0.0,
+          "value_max": 0.0
+        },
+        "brics-odroid_tactiler_right": {
+          "active_taxels_rows_0_11": 4,
+          "active_taxels_all_16_rows": 4,
+          "value_sum": 2.380281686782837,
+          "value_max": 0.7136150002479553
+        }
+      }
+    },
+    {
+      "source_frame": 132,
+      "opening_m": 0.044287750371467156,
+      "joint_left_m": 0.03603478107974422,
+      "signed_surface_gap_root_x_m": -0.0011447221594884389,
+      "timestamp_token": "frame_1766008309240444_000000000132",
+      "tactile": {
+        "brics-odroid_tactilel_left": {
+          "active_taxels_rows_0_11": 18,
+          "active_taxels_all_16_rows": 18,
+          "value_sum": 9.000000953674316,
+          "value_max": 1.0
+        },
+        "brics-odroid_tactilel_right": {
+          "active_taxels_rows_0_11": 12,
+          "active_taxels_all_16_rows": 12,
+          "value_sum": 6.099999904632568,
+          "value_max": 0.800000011920929
+        },
+        "brics-odroid_tactiler_left": {
+          "active_taxels_rows_0_11": 0,
+          "active_taxels_all_16_rows": 0,
+          "value_sum": 0.0,
+          "value_max": 0.0
+        },
+        "brics-odroid_tactiler_right": {
+          "active_taxels_rows_0_11": 5,
+          "active_taxels_all_16_rows": 5,
+          "value_sum": 2.699530601501465,
+          "value_max": 0.7183098793029785
+        }
+      }
+    },
+    {
+      "source_frame": 133,
+      "opening_m": 0.04355866591088503,
+      "joint_left_m": 0.03636894479084436,
+      "signed_surface_gap_root_x_m": -0.0018130495816887238,
+      "timestamp_token": "frame_1766008309271708_000000000133",
+      "tactile": {
+        "brics-odroid_tactilel_left": {
+          "active_taxels_rows_0_11": 18,
+          "active_taxels_all_16_rows": 18,
+          "value_sum": 9.000000953674316,
+          "value_max": 1.0
+        },
+        "brics-odroid_tactilel_right": {
+          "active_taxels_rows_0_11": 12,
+          "active_taxels_all_16_rows": 12,
+          "value_sum": 6.099999904632568,
+          "value_max": 0.800000011920929
+        },
+        "brics-odroid_tactiler_left": {
+          "active_taxels_rows_0_11": 0,
+          "active_taxels_all_16_rows": 0,
+          "value_sum": 0.0,
+          "value_max": 0.0
+        },
+        "brics-odroid_tactiler_right": {
+          "active_taxels_rows_0_11": 5,
+          "active_taxels_all_16_rows": 5,
+          "value_sum": 2.699530601501465,
+          "value_max": 0.7183098793029785
+        }
+      }
+    },
+    {
+      "source_frame": 134,
+      "opening_m": 0.04332432194619134,
+      "joint_left_m": 0.03647635244132897,
+      "signed_surface_gap_root_x_m": -0.002027864882657939,
+      "timestamp_token": "frame_1766008309303502_000000000134",
+      "tactile": {
+        "brics-odroid_tactilel_left": {
+          "active_taxels_rows_0_11": 18,
+          "active_taxels_all_16_rows": 18,
+          "value_sum": 9.111111640930176,
+          "value_max": 1.0
+        },
+        "brics-odroid_tactilel_right": {
+          "active_taxels_rows_0_11": 12,
+          "active_taxels_all_16_rows": 12,
+          "value_sum": 6.099999904632568,
+          "value_max": 0.800000011920929
+        },
+        "brics-odroid_tactiler_left": {
+          "active_taxels_rows_0_11": 0,
+          "active_taxels_all_16_rows": 0,
+          "value_sum": 0.0,
+          "value_max": 0.0
+        },
+        "brics-odroid_tactiler_right": {
+          "active_taxels_rows_0_11": 5,
+          "active_taxels_all_16_rows": 5,
+          "value_sum": 2.694835662841797,
+          "value_max": 0.7276995182037354
+        }
+      }
+    },
+    {
+      "source_frame": 135,
+      "opening_m": 0.04332919020434371,
+      "joint_left_m": 0.036474121156342465,
+      "signed_surface_gap_root_x_m": -0.002023402312684929,
+      "timestamp_token": "frame_1766008309339565_000000000135",
+      "tactile": {
+        "brics-odroid_tactilel_left": {
+          "active_taxels_rows_0_11": 18,
+          "active_taxels_all_16_rows": 18,
+          "value_sum": 9.000000953674316,
+          "value_max": 1.0
+        },
+        "brics-odroid_tactilel_right": {
+          "active_taxels_rows_0_11": 12,
+          "active_taxels_all_16_rows": 12,
+          "value_sum": 6.099999904632568,
+          "value_max": 0.800000011920929
+        },
+        "brics-odroid_tactiler_left": {
+          "active_taxels_rows_0_11": 0,
+          "active_taxels_all_16_rows": 0,
+          "value_sum": 0.0,
+          "value_max": 0.0
+        },
+        "brics-odroid_tactiler_right": {
+          "active_taxels_rows_0_11": 7,
+          "active_taxels_all_16_rows": 7,
+          "value_sum": 4.309859275817871,
+          "value_max": 0.9154929518699646
+        }
+      }
+    },
+    {
+      "source_frame": 136,
+      "opening_m": 0.04323171339010967,
+      "joint_left_m": 0.03651879802953307,
+      "signed_surface_gap_root_x_m": -0.002112756059066136,
+      "timestamp_token": "frame_1766008309371577_000000000136",
+      "tactile": {
+        "brics-odroid_tactilel_left": {
+          "active_taxels_rows_0_11": 18,
+          "active_taxels_all_16_rows": 18,
+          "value_sum": 8.888890266418457,
+          "value_max": 1.0
+        },
+        "brics-odroid_tactilel_right": {
+          "active_taxels_rows_0_11": 13,
+          "active_taxels_all_16_rows": 13,
+          "value_sum": 6.5,
+          "value_max": 0.800000011920929
+        },
+        "brics-odroid_tactiler_left": {
+          "active_taxels_rows_0_11": 0,
+          "active_taxels_all_16_rows": 0,
+          "value_sum": 0.0,
+          "value_max": 0.0
+        },
+        "brics-odroid_tactiler_right": {
+          "active_taxels_rows_0_11": 7,
+          "active_taxels_all_16_rows": 7,
+          "value_sum": 4.3380279541015625,
+          "value_max": 0.920187771320343
+        }
+      }
+    },
+    {
+      "source_frame": 137,
+      "opening_m": 0.04368884285453448,
+      "joint_left_m": 0.03630928035833836,
+      "signed_surface_gap_root_x_m": -0.0016937207166767155,
+      "timestamp_token": "frame_1766008309403560_000000000137",
+      "tactile": {
+        "brics-odroid_tactilel_left": {
+          "active_taxels_rows_0_11": 18,
+          "active_taxels_all_16_rows": 18,
+          "value_sum": 9.000000953674316,
+          "value_max": 1.0
+        },
+        "brics-odroid_tactilel_right": {
+          "active_taxels_rows_0_11": 13,
+          "active_taxels_all_16_rows": 13,
+          "value_sum": 6.5,
+          "value_max": 0.800000011920929
+        },
+        "brics-odroid_tactiler_left": {
+          "active_taxels_rows_0_11": 0,
+          "active_taxels_all_16_rows": 0,
+          "value_sum": 0.0,
+          "value_max": 0.0
+        },
+        "brics-odroid_tactiler_right": {
+          "active_taxels_rows_0_11": 7,
+          "active_taxels_all_16_rows": 7,
+          "value_sum": 4.3380279541015625,
+          "value_max": 0.920187771320343
+        }
+      }
+    },
+    {
+      "source_frame": 138,
+      "opening_m": 0.043934798143328214,
+      "joint_left_m": 0.03619655085097457,
+      "signed_surface_gap_root_x_m": -0.001468261701949138,
+      "timestamp_token": "frame_1766008309439511_000000000138",
+      "tactile": {
+        "brics-odroid_tactilel_left": {
+          "active_taxels_rows_0_11": 17,
+          "active_taxels_all_16_rows": 17,
+          "value_sum": 8.666666984558105,
+          "value_max": 1.0
+        },
+        "brics-odroid_tactilel_right": {
+          "active_taxels_rows_0_11": 12,
+          "active_taxels_all_16_rows": 12,
+          "value_sum": 6.300000190734863,
+          "value_max": 0.800000011920929
+        },
+        "brics-odroid_tactiler_left": {
+          "active_taxels_rows_0_11": 0,
+          "active_taxels_all_16_rows": 0,
+          "value_sum": 0.0,
+          "value_max": 0.0
+        },
+        "brics-odroid_tactiler_right": {
+          "active_taxels_rows_0_11": 8,
+          "active_taxels_all_16_rows": 8,
+          "value_sum": 4.624413013458252,
+          "value_max": 0.9248826503753662
+        }
+      }
+    },
+    {
+      "source_frame": 139,
+      "opening_m": 0.04357186584467175,
+      "joint_left_m": 0.036362894821192114,
+      "signed_surface_gap_root_x_m": -0.001800949642384227,
+      "timestamp_token": "frame_1766008309471489_000000000139",
+      "tactile": {
+        "brics-odroid_tactilel_left": {
+          "active_taxels_rows_0_11": 17,
+          "active_taxels_all_16_rows": 17,
+          "value_sum": 8.666666984558105,
+          "value_max": 1.0
+        },
+        "brics-odroid_tactilel_right": {
+          "active_taxels_rows_0_11": 12,
+          "active_taxels_all_16_rows": 12,
+          "value_sum": 6.300000190734863,
+          "value_max": 0.800000011920929
+        },
+        "brics-odroid_tactiler_left": {
+          "active_taxels_rows_0_11": 0,
+          "active_taxels_all_16_rows": 0,
+          "value_sum": 0.0,
+          "value_max": 0.0
+        },
+        "brics-odroid_tactiler_right": {
+          "active_taxels_rows_0_11": 8,
+          "active_taxels_all_16_rows": 8,
+          "value_sum": 4.624413013458252,
+          "value_max": 0.9248826503753662
+        }
+      }
+    },
+    {
+      "source_frame": 140,
+      "opening_m": 0.0449038999908276,
+      "joint_left_m": 0.035752379170870686,
+      "signed_surface_gap_root_x_m": -0.0005799183417413718,
+      "timestamp_token": "frame_1766008309503618_000000000140",
+      "tactile": {
+        "brics-odroid_tactilel_left": {
+          "active_taxels_rows_0_11": 18,
+          "active_taxels_all_16_rows": 18,
+          "value_sum": 9.111111640930176,
+          "value_max": 1.0
+        },
+        "brics-odroid_tactilel_right": {
+          "active_taxels_rows_0_11": 12,
+          "active_taxels_all_16_rows": 12,
+          "value_sum": 6.300000190734863,
+          "value_max": 0.800000011920929
+        },
+        "brics-odroid_tactiler_left": {
+          "active_taxels_rows_0_11": 0,
+          "active_taxels_all_16_rows": 0,
+          "value_sum": 0.0,
+          "value_max": 0.0
+        },
+        "brics-odroid_tactiler_right": {
+          "active_taxels_rows_0_11": 8,
+          "active_taxels_all_16_rows": 8,
+          "value_sum": 4.610328674316406,
+          "value_max": 0.9295774698257446
+        }
+      }
+    }
+  ],
+  "input_sha256": {
+    "robot/robot.npy": "ba12216e8f9924e593bb470eda5ef33411e50262271879c38ecfc55c9f07c561",
+    "brics-odroid_tactilel_left/synced_tactile.npy": "0fee182cc92aa7473d27322b70db0e586a7bcbdaf7e86d9d5e0fd59b4150f357",
+    "brics-odroid_tactilel_right/synced_tactile.npy": "1478b2f25826c4d6353d43975ab3386c8805be2f6a328f241d50fb30d6aef9d5",
+    "brics-odroid_tactiler_left/synced_tactile.npy": "5df154c2be5db10b9dff4b3c89bc9d0d7be8ab7708407b4e72599e1ef976044b",
+    "brics-odroid_tactiler_right/synced_tactile.npy": "d7d6291e43a41dd44f4da9140ac28517a7829d1185d97ff811c0f797bd9b4ecd",
+    "brics-odroid-023_cam0/aligned_timestamps.txt": "be7beacde49ddf75c3181e112d881d6888b338c3a6d5f5dfd2df4ac83fbd8935",
+    "brics-odroid-009_cam1/aligned_timestamps.txt": "be7beacde49ddf75c3181e112d881d6888b338c3a6d5f5dfd2df4ac83fbd8935"
+  },
+  "outputs": {
+    "tactile_snapshots.jpg": {
+      "bytes": 208933,
+      "sha256": "32bd8eb2549b218bc0c53687424a6805a999046d23df56d95dfd4b99420c0ece"
+    },
+    "023_cam0_snapshots.jpg": {
+      "bytes": 482571,
+      "sha256": "9fad48cbdefb435bd2366e86b2afa6678e30f4e44d4d641f9a97bb0f735e68b5"
+    },
+    "023_cam0_anchor_overlay.mp4": {
+      "bytes": 642725,
+      "sha256": "6e6a63825cd79de2f1e7264d7f78835b02364d80ea2665ff57006028183223aa"
+    },
+    "controller_3d_view.png": {
+      "bytes": 320390,
+      "sha256": "9889e5c293da49f8dc0a9dd8025eff1086d3bee563331827b72170c24c1d3ae0"
+    },
+    "009_cam1_anchor_overlay.mp4": {
+      "bytes": 882447,
+      "sha256": "874d1f1d6aced2dc47c3a349073ecb819e7c497c0876cac8ccaf71003521a6eb"
+    },
+    "rgb_tactile_review.mp4": {
+      "bytes": 839390,
+      "sha256": "43ee701b49150abbd98611d2538e5351474a506e5007ef0cd2cac11a9bec4d44"
+    },
+    "009_cam1_snapshots.jpg": {
+      "bytes": 491994,
+      "sha256": "6ed11f6f743d56a21c8d2b04c6e02db19e73bd86041b9f7766ca5b82aec094c6"
+    }
+  }
+}

@@ -138,7 +138,7 @@ tcgs root Git 仅用于 workspace-level 资产。除非明确说明，不在 tcg
 | T7 | 选定两个固定 camera ID | PASS |
 | T8 | 只解决相机外参转换 | PASS |
 | T9 | 只解决目标分辨率对应的内参 | PASS |
-| T10 | 定义单帧 30 点 controller representation | TODO |
+| T10 | 定义单帧 30 点 controller representation | PASS |
 | T11 | 将固定 controller representation 扩展为 trajectory | TODO |
 | T12 | 确认 controller 层级分组不跨手指 | TODO |
 | T13 | 确认重力方向与世界坐标 | TODO |
@@ -897,7 +897,7 @@ Status: PASS
 
 ### T10：定义单帧 30 点 controller representation
 
-Status: TODO
+Status: PASS
 
 **问题：** 一只夹爪如何得到固定身份的 30 个几何锚点？
 
@@ -924,11 +924,34 @@ Status: TODO
 
 #### Result
 
-Not executed.
+2026-09-25：PASS。只为 `source frame 113 = local frame 0` 定义并生成单帧 `float32 [30,3]` controller representation；未生成 trajectory、cache、graph，未执行 T11/T12，未修改 model、dataset loader、training code、Deform360 或 URDF。
+
+- 新增权威 artifact：[controller_single_frame_contract.json](contracts/008-pink-cloth/episode_0/controller_single_frame_contract.json)，包含完整 30 点世界坐标、固定身份、左右标签、root 局部坐标、opening 映射、输入 hash 和验证证据。
+- 位姿来源是 `robot/robot.npy:T_worlds[113]`，直接作为 `T_world_from_eef/root`；root 对应 URDF `umi_gripper_base`。单位为米，`P_world=P_root@R.T+t`，保持发布的 annotation world 坐标，不额外叠加 EEF offset、不重定位、不翻轴。`actions[113]` 只用于交叉校验 pose/opening，不重复作为变换应用。
+- 原始 opening 为 `0.04499152071070773 m`，位于官方 `[0.04,0.112] m` 范围内，clipping 为 false。原样复用 `opening_to_umi_joints` 得到 `joint_left=+0.03571221967425896 m`、`joint_right=-0.03571221967425896 m`；两个 finger revolute joints 保持官方默认 0，不将 opening 直接当作两指点间距。
+- 本次定义 v0 稀疏几何方案：每指固定 15 点，取已有 URDF 表面几何网格的行 `[0,6,11]`、列 `[0,8,16,23,31]`，形成每指 `3×5`。这是 v0 的确定性采样设计，不是声称官方已有 30 点格式；不使用随机采样、contact active 或 tactile 数值选择点。
+- 点序固定：索引 `[0,15)` 为 `finger_left`，标签 0；`[15,30)` 为 `finger_right`，标签 1；每组按行优先、列递增。点 ID 为 `left/right_rXX_cXX`，绑定固定 URDF link/local anchor；左右表示同一夹爪的两根手指，不表示双臂或世界坐标 x 的符号。
+- URDF 中 `tactile_*` link 名仅作为已有的静态几何位置来源，没有读取 tactile 文件、数值、history 或运行 contact detector。30 点全部由本帧 robot pose/opening 和固定几何决定。
+
+实际几何记录：官方映射在本帧得到 `right_x-left_x=-0.0004995993485 m`，即两侧采样面沿 root-x 有约 0.50 mm 的交叉；独立 URDF FK 复现同样结果。保留原始 opening/offset，不按 x 排序或交换左右标签。T10 PASS 表示固定身份与运动学转换通过，不代表已证明夹爪几何无穿透、物体接触对齐或 graph 有效。
+
+2026-09-25 人工决定：v0 默认/canonical controller geometry 保持 `candidate_7mm`，优先保留官方/原始 URDF 几何假设及 T10 已定义的稀疏表示不变，作为 baseline；`candidate_5mm` 保留为后续 alternative ablation，`candidate_0mm` 保留为 reference control。7 mm 在部分近闭合帧出现负 signed gap，作为已记录的 representation limitation，本阶段不修正；这不是对物理无穿透或真实接触面拟合的认证。未修改几何数值、生成逻辑或源码，未执行 T11/T12。
 
 #### Evidence
 
-Not executed.
+- 输入：真实 `robot/robot.npy`，SHA256 `ba12216e8f9924e593bb470eda5ef33411e50262271879c38ecfc55c9f07c561`；只使用 frame 113 的 `T_worlds`、`openings`、`actions` 及 `bimanual=False`。以仓库 T4 `frame_manifest.json` 核对 `113↔0`。原始 robot 文件和引用源码/URDF 的读取前后 hash 均不变。
+- 源码证据：Deform360 `processing/urdf_render.py:39` 的 `opening_to_umi_joints`；`processing/control_points_stage.py:79` 的 `_taxel_grid_root_frame` 与 `:117` 的 `gripper_taxel_points`；`robot.py:167` 附近的 `RobotState` 对 world-from-EEF 和米制单位的说明。源码常数、函数行号及文件 hash 保存在 contract。
+- CPU 上提取执行未修改的 opening/几何函数，与 XML 中 `umi_tactile.urdf` 的 prismatic、zero-angle revolute 和 fixed anchor joint 链独立计算交叉验证。官方完整网格仅作为同一 frame 的内存参考，最终只序列化选定的 30 点；没有运行完整 processing stage。
+- 验证：shape `[30,3]`、dtype `float32`、全部 finite；30 个唯一点 ID、30 个唯一世界坐标；左右各 15 点且顺序固定。与官方几何结果最大差为 0，独立 URDF FK 世界坐标最大差 `8.327e-17 m`，float32 转换最大差 `6.667e-9 m`，世界坐标到 root 往返最大差 `1.111e-16 m`。
+- 同一 frame 重复计算逐 bit 一致；JSON 重读并显式转换为 `np.float32` 后逐 bit 一致。JSON 本身不携带二进制 dtype，因此 contract 明确 `controller_dtype=float32` 和读取方式，未额外生成 NPY。点数组按 little-endian float32 / C order 的 SHA256 为 `6d76fa3863e9d6acf96678d98f1936851e25966a005b1d32539ef9bb2636041b`。
+- SoMA `mmgs/datasets/embodied_dataset.py:611` 的 `_load_controller_cluster_mask` 仅只读参考：两组 controller 与后续 `dis_split` 连续前/后半分组支持保留 finger-major 点序；本轮未生成 cluster mask 或验证未来任意 cluster 配置。
+- Artifact：`controller_single_frame_contract.json`，30,070 bytes，SHA256 `a2aa7684e9612d4b80eeede253fb890a63b6f8dbd87665843222170d341d733a`。
+- 2026-09-25：已生成 source 113–140 的 [review visualization](visualizations/t10-review-20260925/README.md)，待人工确认；仅补充观察材料，不修改 T10 既有结论或 representation，不执行 T11/T12。
+- 2026-09-25：visual review 后对 signed gap 做了 [follow-up check](visualizations/t10-review-20260925/signed_gap_followup.md)，解释采样面位置顺序反转及实体穿透尚未验证的区别；不修改 T10 PASS，不推进 T11/T12。
+- 2026-09-25：controller geometry assumptions are now parameterized through [controller_geometry_config.json](contracts/008-pink-cloth/episode_0/controller_geometry_config.json); no canonical offset changed. 7/5/0 mm 均为固定身份的单帧静态参数检查，当前默认仍为 7 mm；未生成 trajectory，未执行 T11/T12。
+- 2026-09-25：已生成 source 113–140 的 [0/5/7 mm offset comparison review](visualizations/t10-offset-comparison-20260925/README.md)，含两路 RGB overlay、代表帧、可拖拽三维图及 gap 统计，待人工确认 canonical offset；当前默认仍为 candidate_7mm，T10 既有结论与 T11/T12 状态不变。
+- Git：所属 SoMA repository / `deform360-adaptation`。roadmap 为 tracked 文件；新 contract 当前尚未 tracked。本轮未 add/commit/push，等待单独 checkpoint 指令，后续需通过 Git 同步到服务器；本轮未更新服务器 checkout。
+- 2026-09-25 checkpoint 确认：用户已人工确认 7 mm 为 v0 canonical baseline，5 mm 为 ablation candidate，0 mm 为 reference control；决定及原因保存在 `controller_geometry_config.json:human_decision`。review 中的“待人工确认”与 config 输入 hash 保留为生成时的历史记录，本条与 config 中的人工决定为当前状态。用户授权以 `Add SoMA-D360 controller representation contract` 提交 T10 contract、roadmap 及两个 review 目录并 push；具体提交状态以 Git 记录为准，服务器 checkout 仍需后续显式 Git 同步。
 
 ### T11：将固定 controller representation 扩展为 trajectory
 

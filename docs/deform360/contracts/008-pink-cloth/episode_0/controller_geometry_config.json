@@ -1,0 +1,404 @@
+{
+  "schema_version": 1,
+  "created_on": "2026-09-25",
+  "purpose": "Define the human-confirmed v0 baseline controller geometry and retained ablation/reference candidates; no geometry values or generation logic changed.",
+  "status": "HUMAN_CONFIRMED_V0_BASELINE",
+  "dataset": "008-pink-cloth/episode_0",
+  "num_points": 30,
+  "controller_shape": [
+    30,
+    3
+  ],
+  "controller_dtype": "float32",
+  "left_indices": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14
+  ],
+  "right_indices": [
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23,
+    24,
+    25,
+    26,
+    27,
+    28,
+    29
+  ],
+  "coordinate_frame": "world",
+  "length_unit": "metre",
+  "gripper_index": 0,
+  "bimanual": false,
+  "left_right_semantics": "Two fingers of gripper 0, identified by URDF links finger_left/finger_right; not two arms, image left/right or sorted world positions.",
+  "sampling_mode": "finger_surface",
+  "sampling_mode_scope": "Fixed 3-by-5 finger-local sampling grid; candidate_0mm is a center-plane hypothesis, not a verified contact surface.",
+  "default_candidate_id": "candidate_7mm",
+  "surface_offset_mm": 7.0,
+  "parameter_resolution": "surface_offset_mm summarizes the unchanged current default and must equal candidates[default_candidate_id].offset_mm. An explicitly selected candidate supplies offset_mm to d=offset_mm/1000; no implicit candidate switch.",
+  "offset_direction": {
+    "reference_frame": "Each named finger link local frame, before Rx(pi) and world pose.",
+    "left": {
+      "finger_link": "finger_left",
+      "unit_vector": [
+        1,
+        0,
+        0
+      ]
+    },
+    "right": {
+      "finger_link": "finger_right",
+      "unit_vector": [
+        -1,
+        0,
+        0
+      ]
+    },
+    "interpretation": "Positive offset magnitude moves the left plane along local +X and the right plane along local -X. Rx(pi) leaves these X directions unchanged in the gripper root. The signed plane gap can become negative without changing point labels."
+  },
+  "source": {
+    "robot_pose": {
+      "path_relative_to_workspace": "datasets/deform360/processed/008-pink-cloth/episode_0/robot/robot.npy",
+      "sha256": "ba12216e8f9924e593bb470eda5ef33411e50262271879c38ecfc55c9f07c561",
+      "fields": [
+        "T_worlds[source_frame]",
+        "openings[source_frame]"
+      ],
+      "pose_semantics": "T_world_from_eef = T_world_from_gripper_root; the supplied pose already locates the URDF root.",
+      "length_unit": "metre"
+    },
+    "urdf_geometry": {
+      "path_relative_to_workspace": "deform360/deform360/processing/assets/umi/umi_tactile.urdf",
+      "sha256": "c3519331a389ecf77b04ec63fe69d258496a6f21721c8ad2ef445bd33ce1b88b",
+      "root_link": "umi_gripper_base",
+      "finger_links": [
+        "finger_left",
+        "finger_right"
+      ]
+    },
+    "geometry_reference": {
+      "path_relative_to_workspace": "deform360/deform360/processing/control_points_stage.py",
+      "sha256": "9ff82c86c22e38c56dd2ce5d872850afb6ffeb502da7338baf0b55108afb7373",
+      "functions": [
+        "_taxel_grid_root_frame",
+        "gripper_taxel_points"
+      ]
+    },
+    "opening_mapping": {
+      "path_relative_to_workspace": "deform360/deform360/processing/urdf_render.py",
+      "sha256": "c4d6a10e980ed4952f974d2e8a991c6fb819a3e6fdc6c121d3ce6925c94c2467",
+      "function": "opening_to_umi_joints"
+    },
+    "robot_convention": {
+      "path_relative_to_workspace": "deform360/deform360/robot.py",
+      "sha256": "376e4dec6f2340a3ee03af1a3bd5462e06e3284cc82f312872a7bedbe863825f",
+      "class_name": "RobotState"
+    },
+    "deform360_head": "d8522a4403b766aeb387510c04e89032a56fdf35",
+    "provenance_scope": "Robot hash and frozen frame-113 values are inherited from the unchanged T10 contract; raw robot data is not reloaded for this static validation. Source code/URDF hashes rechecked locally."
+  },
+  "relation_to_t10_contract": {
+    "path_relative_to_this_config": "controller_single_frame_contract.json",
+    "sha256": "a2aa7684e9612d4b80eeede253fb890a63b6f8dbd87665843222170d341d733a",
+    "source_frame": 113,
+    "local_frame": 0,
+    "t10_status_unchanged": "PASS",
+    "authority": "T10 remains the authority for the existing single-frame result. This config records geometry candidates only; candidate_5mm and candidate_0mm do not replace its points or conclusions.",
+    "unchanged_fields": [
+      "point identity/order",
+      "finger labels",
+      "Y/Z sampling grid",
+      "root/EEF pose convention",
+      "opening-to-joint mapping",
+      "world coordinate convention"
+    ],
+    "only_candidate_parameter": "finger-local X offset magnitude",
+    "canonical_offset_changed": false
+  },
+  "fixed_grid": {
+    "rows": [
+      0,
+      6,
+      11
+    ],
+    "columns": [
+      0,
+      8,
+      16,
+      23,
+      31
+    ],
+    "points_per_finger": 15,
+    "point_order": "Left first, then right; rows outer, columns inner.",
+    "point_id_rule": "{left|right}_r{row:02d}_c{column:02d}",
+    "point_ids": [
+      "left_r00_c00",
+      "left_r00_c08",
+      "left_r00_c16",
+      "left_r00_c23",
+      "left_r00_c31",
+      "left_r06_c00",
+      "left_r06_c08",
+      "left_r06_c16",
+      "left_r06_c23",
+      "left_r06_c31",
+      "left_r11_c00",
+      "left_r11_c08",
+      "left_r11_c16",
+      "left_r11_c23",
+      "left_r11_c31",
+      "right_r00_c00",
+      "right_r00_c08",
+      "right_r00_c16",
+      "right_r00_c23",
+      "right_r00_c31",
+      "right_r06_c00",
+      "right_r06_c08",
+      "right_r06_c16",
+      "right_r06_c23",
+      "right_r06_c31",
+      "right_r11_c00",
+      "right_r11_c08",
+      "right_r11_c16",
+      "right_r11_c23",
+      "right_r11_c31"
+    ],
+    "left_right_labels": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1
+    ],
+    "finger_local_position_formula_m": {
+      "left": "[+d, y0_m+y_step_m*column, z_pitch_m*(z_row_reference-row)]",
+      "right": "[-d, y0_m+y_step_m*column, z_pitch_m*(z_row_reference-row)]"
+    },
+    "y0_m": -0.056,
+    "y_step_m": -0.002,
+    "z_pitch_m": 0.0020833333333333333,
+    "z_row_reference": 11.5,
+    "zero_offset_semantics": "At 0 mm only finger-local X becomes zero. All 15 distinct Y/Z locations per finger remain; points are not collapsed to the finger origin. This is a finger-link-center-plane hypothesis.",
+    "tactile_usage": "None. Static URDF anchor geometry only; no tactile data, contact-based point selection or sensor features."
+  },
+  "kinematics": {
+    "finger_base_left_m": [
+      -0.04246242,
+      0.0835,
+      0.0097
+    ],
+    "finger_base_right_m": [
+      0.04246242,
+      0.0835,
+      0.0107
+    ],
+    "finger_to_root_rotation": [
+      [
+        1,
+        0,
+        0
+      ],
+      [
+        0,
+        -1,
+        0
+      ],
+      [
+        0,
+        0,
+        -1
+      ]
+    ],
+    "finger_revolute_positions_rad": {
+      "joint_finger_left": 0.0,
+      "joint_finger_right": 0.0
+    },
+    "opening_mapping": {
+      "clip_bounds_m": [
+        0.04,
+        0.112
+      ],
+      "joint_upper_m": 0.038,
+      "joint_lower_m": 0.005,
+      "formula": "o=clip(opening,0.04,0.112); a=(o-0.04)/(0.112-0.04); j=0.038-a*(0.038-0.005); joint_left=j; joint_right=-j"
+    },
+    "root_formula": "p_root(side)=finger_base(side)+[joint_side,0,0]+Rx(pi)@p_finger(side)",
+    "world_formula": "p_world=world_from_eef[:3,:3]@p_root+world_from_eef[:3,3]",
+    "world_convention": "Published Deform360 annotation world frame, retained without reorientation, recentering or rescaling. Same published world convention used by the camera calibration. No global up/gravity-axis inference in T10.",
+    "extra_eef_offset_applied": false
+  },
+  "candidates": [
+    {
+      "candidate_id": "candidate_7mm",
+      "offset_mm": 7.0,
+      "semantic_description": "contact-surface hypothesis; current T10 URDF-derived local X offset, not a validated physical contact surface",
+      "is_current_t10_default": true,
+      "relation_to_t10_contract": "Reproduces the existing T10 single-frame points and retains its signed-gap observation.",
+      "selection_status": "HUMAN_CONFIRMED_CANONICAL",
+      "role": "default_canonical_v0_baseline",
+      "is_canonical_for_v0_baseline": true
+    },
+    {
+      "candidate_id": "candidate_5mm",
+      "offset_mm": 5.0,
+      "semantic_description": "reduced inward-offset hypothesis; each plane moves 2 mm toward its finger-link center plane relative to T10",
+      "is_current_t10_default": false,
+      "relation_to_t10_contract": "Review alternative varying only the local X magnitude; no replacement or correction of T10. Reduced offset does not establish physical accuracy.",
+      "selection_status": "RETAINED_ALTERNATIVE_ABLATION",
+      "role": "alternative_ablation",
+      "is_canonical_for_v0_baseline": false
+    },
+    {
+      "candidate_id": "candidate_0mm",
+      "offset_mm": 0.0,
+      "semantic_description": "finger-link-center-plane hypothesis; zero local X offset with the same 15-point Y/Z grid per finger",
+      "is_current_t10_default": false,
+      "relation_to_t10_contract": "Review alternative varying only the local X magnitude; retains identities but is not the original URDF contact-anchor location.",
+      "selection_status": "RETAINED_REFERENCE_CONTROL",
+      "role": "reference_control",
+      "is_canonical_for_v0_baseline": false
+    }
+  ],
+  "constraints": {
+    "allowed_candidate_ids": [
+      "candidate_7mm",
+      "candidate_5mm",
+      "candidate_0mm"
+    ],
+    "offset_mm_must_be_finite_and_nonnegative": true,
+    "exactly_one_current_t10_default": true,
+    "default_must_reproduce_t10": true,
+    "identities_and_grid_must_match_t10": true,
+    "no_candidate_promoted_by_static_validation": true
+  },
+  "static_validation": {
+    "status": "PASS",
+    "source_frame": 113,
+    "local_frame": 0,
+    "input_scope": "Frozen pose/opening from unchanged T10 contract; no raw robot/tactile read and no other temporal frame evaluated.",
+    "execution": "Mac CPU, Python standard library; evaluate the parameterized formulas in memory for three candidates at the same frame, then pack IEEE-754 little-endian float32. No position arrays or trajectory artifact written.",
+    "python_version": "3.9.6",
+    "checks": [
+      {
+        "candidate_id": "candidate_7mm",
+        "shape": [
+          30,
+          3
+        ],
+        "dtype": "float32",
+        "finite": true,
+        "unique_point_ids": 30,
+        "unique_float32_world_points": 30,
+        "left_count": 15,
+        "right_count": 15,
+        "point_identity_and_order_match_t10": true,
+        "float32_array_sha256": "6d76fa3863e9d6acf96678d98f1936851e25966a005b1d32539ef9bb2636041b"
+      },
+      {
+        "candidate_id": "candidate_5mm",
+        "shape": [
+          30,
+          3
+        ],
+        "dtype": "float32",
+        "finite": true,
+        "unique_point_ids": 30,
+        "unique_float32_world_points": 30,
+        "left_count": 15,
+        "right_count": 15,
+        "point_identity_and_order_match_t10": true,
+        "float32_array_sha256": "2eb0a7d8c3a5dd587880808d71e2cd04bafa0a81c5918921f8d7475c4899115f"
+      },
+      {
+        "candidate_id": "candidate_0mm",
+        "shape": [
+          30,
+          3
+        ],
+        "dtype": "float32",
+        "finite": true,
+        "unique_point_ids": 30,
+        "unique_float32_world_points": 30,
+        "left_count": 15,
+        "right_count": 15,
+        "point_identity_and_order_match_t10": true,
+        "float32_array_sha256": "79e9e1a9f5c07c2cc16b03838005c3e927bf0aec4273aaac02c04ac8a3a7c739"
+      }
+    ],
+    "default_bitwise_equal_to_t10_float32": true,
+    "default_root_max_abs_error_m": 0.0,
+    "continuity": {
+      "offset_dependence": "Affine in d at fixed pose/opening, with constant point identities and no sorting or re-sampling.",
+      "numeric_check": "P(5 mm)=(2*P(0 mm)+5*P(7 mm))/7 in float64 at frame 113.",
+      "affine_interpolation_max_abs_error_m": 2.7755575615628914e-17,
+      "tolerance_m": 1e-12,
+      "opening_dependence": "Official clipping and linear joint map are continuous, with derivative changes at 0.04/0.112 m. World coordinates are continuous for continuous input poses; continuity is before float32 quantization.",
+      "scope_limit": "No temporal continuity claim, no trajectory generated and no physical contact/non-penetration or graph suitability validated."
+    },
+    "source_code_and_urdf_hashes_match_t10": true,
+    "json_dtype_note": "JSON has no binary float32 type; future coordinate consumers must explicitly cast to the declared controller_dtype.",
+    "tactile_used": false,
+    "trajectory_generated": false,
+    "graph_built": false,
+    "canonical_offset_changed": false
+  },
+  "canonical_candidate_id": "candidate_7mm",
+  "human_decision": {
+    "confirmed_on": "2026-09-25",
+    "confirmed_by": "user",
+    "canonical_candidate_id": "candidate_7mm",
+    "rationale": "Preserve the existing official/URDF-derived local geometry and T10 sparse representation unchanged as the v0 baseline.",
+    "candidate_roles": {
+      "candidate_7mm": "default/canonical for v0 baseline",
+      "candidate_5mm": "alternative ablation",
+      "candidate_0mm": "reference control"
+    },
+    "known_representation_limitation": "The 7 mm offset yields negative signed plane gap in some near-closed frames; accepted as a documented representation limitation and not corrected in this stage. This does not certify physical non-penetration.",
+    "scope": "Human baseline selection only; no point, offset, identity, opening mapping or generation-logic change; no T11/T12 execution.",
+    "pre_confirmation_config_sha256": "6cca33d53e44487b5c907b0a193e738109943d68a76b7d3b1eda46aecb828fce",
+    "review_hash_note": "Earlier review metadata records the pre-confirmation config hash as historical input provenance."
+  }
+}

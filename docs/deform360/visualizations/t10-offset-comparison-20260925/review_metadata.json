@@ -1,0 +1,422 @@
+{
+  "purpose": "Human offset review only; not T11/T12 or a controller trajectory contract",
+  "canonical_default_unchanged": "candidate_7mm",
+  "source_frames_inclusive": [
+    113,
+    140
+  ],
+  "snapshot_source_frames": [
+    113,
+    120,
+    130,
+    140
+  ],
+  "camera_ids": [
+    "brics-odroid-023_cam0",
+    "brics-odroid-009_cam1"
+  ],
+  "candidate_order": [
+    "candidate_0mm",
+    "candidate_5mm",
+    "candidate_7mm"
+  ],
+  "contract_inputs_sha256": {
+    "controller_geometry_config.json": "6cca33d53e44487b5c907b0a193e738109943d68a76b7d3b1eda46aecb828fce",
+    "controller_single_frame_contract.json": "a2aa7684e9612d4b80eeede253fb890a63b6f8dbd87665843222170d341d733a",
+    "camera_extrinsics_contract.json": "eb9fc54cb1a029eeb1e502f6c4965dda2edf856d29e3c5ca8b86db4e196626dd",
+    "camera_intrinsics_contract.json": "3f4c3bbec096eb3ffb7dc3ee7928d68b464241bc9c383327dfc090ca9b393b97",
+    "review_metadata.json": "5e2457a522aa2a7222616b94e4c25570eecfa0bbb5a685934a08bc763678967d"
+  },
+  "input_sha256": {
+    "robot/robot.npy": "ba12216e8f9924e593bb470eda5ef33411e50262271879c38ecfc55c9f07c561",
+    "metadata.json": "2ba974cfa331b59d201774fbfc864ee4e4c1c72d76a2b51d469d646067648608",
+    "metric_params_refined_undistorted.txt": "d5fcb17f1e25fffd4f633753ea88a580dc2dae9ab67ab0c9f9fcad3aca1b9620",
+    "brics-odroid-023_cam0/aligned_timestamps.txt": "be7beacde49ddf75c3181e112d881d6888b338c3a6d5f5dfd2df4ac83fbd8935",
+    "brics-odroid-009_cam1/aligned_timestamps.txt": "be7beacde49ddf75c3181e112d881d6888b338c3a6d5f5dfd2df4ac83fbd8935"
+  },
+  "video_metadata": {
+    "brics-odroid-023_cam0": {
+      "width": 1280.0,
+      "height": 720.0,
+      "fps": 30.0,
+      "frame_count": 357.0,
+      "bytes": 5012157,
+      "mtime_ns": 1790176766100702555
+    },
+    "brics-odroid-009_cam1": {
+      "width": 1280.0,
+      "height": 720.0,
+      "fps": 30.0,
+      "frame_count": 357.0,
+      "bytes": 6761510,
+      "mtime_ns": 1790176764697699254
+    }
+  },
+  "decoded_bgr_frame_sha256": {
+    "brics-odroid-023_cam0": {
+      "113": "a0695f7e46866e14baf29334933dbbeea109f4c6f6b1b3f1d1f97f81b7a32483",
+      "114": "e80e4782bf92b8e174cc92c8a5160bc767fa07115fc0d1697dc9c253fb12c2d4",
+      "115": "9a31bc076315af54d4a26bce1354a453986bdb4ded0202846dd372ff18a67c60",
+      "116": "c702cab4a94be1c1d57b0d4f1373bbf2adc802eb5d535f5cdec79620193c1153",
+      "117": "1490607a0b06047a7c222279902bfb24efea04cf963c5641db77ec41d21151a2",
+      "118": "b9d258e22950f2e47a7c11fb9788d2ff98e0e260f43cbc25a1b3c9a047388849",
+      "119": "4b08da410c5ca1af30302f2a531c6e268f5c54237fa02db98d83ff5a2b1c71f5",
+      "120": "530224553432b2dbabd17f2eb4506c63a2d26650a6099ef8d42be90ba83ec225",
+      "121": "526caf6b6055527ccfdd2aa8cd3fad72cbf1dddc9523964de961d807d39db3b0",
+      "122": "111ee2a9dd12ffe0e0a86dd68a93df07952d4ab41131371b6f88371927203b7e",
+      "123": "9ee40667980845565ce3b0169e3541b4b49db175c8460428fa82dabd2fefe3d8",
+      "124": "342e6c9ed519274af92cfd1ee95fedf3b2b8f0e753fdea5128b0f063879d0330",
+      "125": "e14203125574607342ed9a1b35595c22e30eaf252c722bfd3ebbb3daac0f3d11",
+      "126": "ea6b8655e539374d4b778a1675a2a36cb5c10711cb18eb0bb2912680b462abad",
+      "127": "b82444d5999f3f84c94084d4ad8869463159fe4a8a6596b88688876785d2bb3d",
+      "128": "427a4aedca60561b54f6de5a0d8a4e290de0af6731187fb547cc6e2804a938e4",
+      "129": "2b2da2e128273e764c86f4e00f56ee302c390315c48f916579d502a88850acab",
+      "130": "6ebc4f757a93ac76ad8416f639b334ab9ec0119e22bc50b5848bceda0716cdf7",
+      "131": "393e4859b6de75d92e65e3552f4af919b61056c4a74d1e8c99515151f039f456",
+      "132": "b6288be2d1a3a2aa279fdcc56dd5aa42d7a69f0aae6595be6ee3e252beada7de",
+      "133": "472f29e814ab590777f5c7746d635f5a83395d4502a48003202523d4fa802cae",
+      "134": "0bde81bc238d983ad0fc4faca6a2b4044408ca1bd22502733f32812e62f953b0",
+      "135": "417f009456d2f9c7a0008f301f0bf7434d5f2f2df8303302ea1b0401ed441a49",
+      "136": "212ebb9b890d0b12f037caf05211b3a34d0ea9747594b4effca975b61bf30805",
+      "137": "b978ad95afed1704fc82bbc083204f23663ba81a99224697705f911021c2251b",
+      "138": "c8a1088ae05e31e636f7c33e5e606522493bc327d5be4b122c5af34279ef1b32",
+      "139": "9ceb2a738c0832d46c8583ce7a33c45367c9bc1b7e3ebc05f1caeaf542274a94",
+      "140": "ecb4d69405ad12c65059956228c3f98effee80c50a30bdd6d3462e01d10ba10c"
+    },
+    "brics-odroid-009_cam1": {
+      "113": "eceff91b8aa6c32938f8df72c16d65c9fe537b6aac169a0495c08b33f720204c",
+      "114": "d6116264b18d54466ca9fd14b9e8a4fee163a98f6943fcbc323fc3f46361b93e",
+      "115": "513d9673145d437219bbfe25ee70d174d2ce36cd9562b573fdef80ea459987d8",
+      "116": "70e464328e646f2a094a1b58081042ba0f95fe16efa3744ea580910abffe3cb5",
+      "117": "cda525de696a2fb818ad84365fa90eadcc39481018af65c73b0d5f3b3a1b3eff",
+      "118": "ea75cabd76fa0ada1269acd2931654754acc4919eee3a63b5c66b2bc08cfc492",
+      "119": "cfb865fb09d15bc8bf2aae7a60c1e3bd0c6dcf1535f0f20f49419d7b7cb7d2f1",
+      "120": "c87ae3ec37204967871efe25a7f0e216151a3ace8b7f9d2ce7d2c6a7f03dc94b",
+      "121": "f762085348993feb129b4c6083279d882c819919fef173bfa96f4f86f43f9a76",
+      "122": "64d01b3ce6c66b5f1983a9eb29c5dc79450162c8b39d5b1c2def7e5714ac4696",
+      "123": "7a483c251e46be1037610cfb2c1f1f9e3923e497a3afc5e5558c2214fed79704",
+      "124": "7c61e795ea1fcfed75d6384f26d88b2781bbb6a0ef6f0719b8e49b71d475c2c2",
+      "125": "d58126ad8c5c1ef2fbce28b828bde5cff0ab26233fd7774d81777349842a4c1e",
+      "126": "f8afc9ba18da808c5198d5269c3f444427d765a70be889d56312bc79238c6e09",
+      "127": "0e52baed6bd9c804742719c2810e6aaf62dd0ba68c9e38981bffb0155a9bbf1e",
+      "128": "4ca2ff4c842b77f734461a3a06ea4b6a4c46b06b46d39fb18624b3e21401750b",
+      "129": "d908920f7f7204b84ccbb47f714e254679691dee43daaf5121b9fc3268dda7b7",
+      "130": "264a5a60992e532e135be47027372d0bea6cbeac0d210c93797b1a2ddcf74a51",
+      "131": "1ee4286bcffefeb810bc853effee3a4309be3bc9bfba02b619b12a90ae80d040",
+      "132": "ebeff681107207219237f8d9a608234036fea25d937ad9d02806d539c4dd5a1b",
+      "133": "4da34019cde113d6ed6cdfdaf2dd0b6391ec8788e0ece10c7f6db4953aabe3d2",
+      "134": "c492ea917a2956583cb9dd46caae0000b7e875dae3ebe1613a3dae9859fc6d14",
+      "135": "8301cd82c161d4dcc8b3003823e52504672c3ed134de264d8a9d21236c99cfb6",
+      "136": "c83876137181ffdaa7739ccc8709f9ab0e5e7b0f34f3f47cb8f89ef078519dce",
+      "137": "4cfe2cf82b5aa511ddeb4e18d1205c6b86ab42c10bbdb7f86ae5ef057cead7a9",
+      "138": "b3625500ca91cfe805aa82461398a67012a60c1a098357e9d6d275787c26b230",
+      "139": "02010886d67af1b6f74a071d124028be4165d7d2d1dbaf876908ac0af8d80a6f",
+      "140": "0960a9b679bf42f213c4f7d7364573e106a45cf395d6c026846ec8225b7a9fc8"
+    }
+  },
+  "crop_xywh": {
+    "brics-odroid-023_cam0": [
+      308,
+      85,
+      181,
+      181
+    ],
+    "brics-odroid-009_cam1": [
+      278,
+      349,
+      342,
+      342
+    ]
+  },
+  "display_crop_size": 368,
+  "display_pixel_mapping": "(source_uv - crop_xy + 0.5) * (368/crop_width) - 0.5 + panel_crop_xy",
+  "3d_frame": "gripper root, mm, equal metric aspect, shared limits and view",
+  "signed_gap_summary": {
+    "candidate_0mm": {
+      "offset_mm": 0.0,
+      "min_mm": 11.887243940933864,
+      "max_mm": 14.750390532764529,
+      "median_mm": 13.191358640547671,
+      "negative_frames": 0,
+      "frame_count": 28,
+      "min_frame": 136,
+      "max_frame": 126,
+      "negative_frame_ids": []
+    },
+    "candidate_5mm": {
+      "offset_mm": 5.0,
+      "min_mm": 1.8872439409338642,
+      "max_mm": 4.750390532764529,
+      "median_mm": 3.1913586405476706,
+      "negative_frames": 0,
+      "frame_count": 28,
+      "min_frame": 136,
+      "max_frame": 126,
+      "negative_frame_ids": []
+    },
+    "candidate_7mm": {
+      "offset_mm": 7.0,
+      "min_mm": -2.112756059066136,
+      "max_mm": 0.7503905327645287,
+      "median_mm": -0.8086413594523296,
+      "negative_frames": 25,
+      "frame_count": 28,
+      "min_frame": 136,
+      "max_frame": 126,
+      "negative_frame_ids": [
+        113,
+        114,
+        115,
+        116,
+        118,
+        119,
+        120,
+        121,
+        122,
+        123,
+        124,
+        125,
+        128,
+        129,
+        130,
+        131,
+        132,
+        133,
+        134,
+        135,
+        136,
+        137,
+        138,
+        139,
+        140
+      ]
+    }
+  },
+  "checks": {
+    "config7_frame113_bitwise_equal_t10": true,
+    "config7_gap_all28_matches_previous_review": true,
+    "points_per_frame": 30,
+    "left_indices": [
+      0,
+      14
+    ],
+    "right_indices": [
+      15,
+      29
+    ],
+    "index_ranges": "inclusive",
+    "point_order_unchanged": true,
+    "finite_and_unique_points_all_candidates_all28": true,
+    "max_fixed_finger_local_recovery_error_m": 1.3877787807814457e-17,
+    "max_world_root_roundtrip_error_m": 2.220446049250313e-16,
+    "max_adjacent_anchor_displacement_mm": {
+      "candidate_0mm": 1.8586659019127025,
+      "candidate_5mm": 1.857571429591772,
+      "candidate_7mm": 1.8571361530698771
+    },
+    "camera_timestamp_tokens_equal": true,
+    "source_small_files_hashes_unchanged": true,
+    "source_videos_size_mtime_unchanged": true,
+    "no_data_dependent_relabeling": true,
+    "no_tactile_values_read": true,
+    "interactive_ui_review": {
+      "page_loaded": true,
+      "drag_rotation_verified": true,
+      "linked_view_rotation_observed": true,
+      "slider_checked_source_frame": 126,
+      "slider_displayed_gaps_mm": [
+        14.75,
+        4.75,
+        0.75
+      ]
+    },
+    "representative_images_visually_reviewed": [
+      113,
+      120,
+      130,
+      140
+    ]
+  },
+  "projection_5mm_vs_7mm": {
+    "brics-odroid-023_cam0": {
+      "5mm_vs_7mm_source_pixels_min": 2.0963580104068593,
+      "median": 2.1689304794405766,
+      "max": 2.2563762757652053
+    },
+    "brics-odroid-009_cam1": {
+      "5mm_vs_7mm_source_pixels_min": 3.8433646955091243,
+      "median": 4.056390550446505,
+      "max": 4.337198353743717
+    }
+  },
+  "video_verification": {
+    "candidate_0mm_009_cam1_overlay.mp4": {
+      "codec_name": "h264",
+      "width": 640,
+      "height": 448,
+      "avg_frame_rate": "6/1",
+      "duration": "4.666667",
+      "nb_read_frames": "28"
+    },
+    "candidate_0mm_023_cam0_overlay.mp4": {
+      "codec_name": "h264",
+      "width": 640,
+      "height": 448,
+      "avg_frame_rate": "6/1",
+      "duration": "4.666667",
+      "nb_read_frames": "28"
+    },
+    "candidate_5mm_009_cam1_overlay.mp4": {
+      "codec_name": "h264",
+      "width": 640,
+      "height": 448,
+      "avg_frame_rate": "6/1",
+      "duration": "4.666667",
+      "nb_read_frames": "28"
+    },
+    "candidate_5mm_023_cam0_overlay.mp4": {
+      "codec_name": "h264",
+      "width": 640,
+      "height": 448,
+      "avg_frame_rate": "6/1",
+      "duration": "4.666667",
+      "nb_read_frames": "28"
+    },
+    "candidate_7mm_009_cam1_overlay.mp4": {
+      "codec_name": "h264",
+      "width": 640,
+      "height": 448,
+      "avg_frame_rate": "6/1",
+      "duration": "4.666667",
+      "nb_read_frames": "28"
+    },
+    "candidate_7mm_023_cam0_overlay.mp4": {
+      "codec_name": "h264",
+      "width": 640,
+      "height": 448,
+      "avg_frame_rate": "6/1",
+      "duration": "4.666667",
+      "nb_read_frames": "28"
+    },
+    "offset_comparison.mp4": {
+      "codec_name": "h264",
+      "width": 1920,
+      "height": 1320,
+      "avg_frame_rate": "6/1",
+      "duration": "4.666667",
+      "nb_read_frames": "28"
+    }
+  },
+  "limitations": [
+    "No occlusion test: hidden anchors are drawn.",
+    "Signed gap is between parallel grid planes; not a collision-mesh test.",
+    "Root-space 3D intentionally removes rigid pose motion; RGB overlays retain it.",
+    "Only review-frame coordinates computed in memory or embedded for interactive plotting; no formal trajectory/cache/graph produced.",
+    "Sensor-to-finger physical correspondence and subpixel contact alignment remain unverified."
+  ],
+  "execution": "Server CPU NumPy/OpenCV/Matplotlib/Plotly/ffmpeg only; no CUDA initialization",
+  "review_generator_sha256": "85d5e65137c0adef21c4cfaf8b8cdd020d965de0eb019dd7513cd8df2deccee9",
+  "outputs": {
+    "README.md": {
+      "bytes": 7210,
+      "sha256": "67c4797d62108c3a5daf96fc97feadb71ae0584d1985e6c0772d11d02cd621d6"
+    },
+    "camera_context_source_113.jpg": {
+      "bytes": 217604,
+      "sha256": "7014611ae33041c1e28e694ce0a2ed277272009426e30bc09a14361875426b6e"
+    },
+    "candidate_0mm_009_cam1_overlay.mp4": {
+      "bytes": 465009,
+      "sha256": "27fb5b9b6ed947e2e44d57dbe18244dd998f101bc340dd919265e7940af5f478"
+    },
+    "candidate_0mm_023_cam0_overlay.mp4": {
+      "bytes": 309318,
+      "sha256": "1c75045895312c658216f5e54f6235cce1cf67731bee0c14b71b7c5a4206bee6"
+    },
+    "candidate_5mm_009_cam1_overlay.mp4": {
+      "bytes": 452072,
+      "sha256": "c5ed68e7760d5687f9cb3e6116c6a0523d86d7d611e21ccf246215fda105efd0"
+    },
+    "candidate_5mm_023_cam0_overlay.mp4": {
+      "bytes": 307725,
+      "sha256": "f7a133b6833ac1c1826d42c93156c5f89b03074578301a823bc6000e80727c20"
+    },
+    "candidate_7mm_009_cam1_overlay.mp4": {
+      "bytes": 449593,
+      "sha256": "7d3278a0f036d52a9ca3aff388f6a8fd6eac1b46a0f3c7444fd9bd2d293a23d3"
+    },
+    "candidate_7mm_023_cam0_overlay.mp4": {
+      "bytes": 308690,
+      "sha256": "b6c171ad28f9cf1ef623d9e25979e675ddf9749aaf01e22d637774a17c28b386"
+    },
+    "comparison_source_113.jpg": {
+      "bytes": 597027,
+      "sha256": "f613fcef2df14d5c853c12c4a818e97bf0b3007f7c1cd806cf4ec68c3f545411"
+    },
+    "comparison_source_120.jpg": {
+      "bytes": 594300,
+      "sha256": "b20a330c916831a7d8d931bccd3cf403f376472598e144df7205e4b7eb72118e"
+    },
+    "comparison_source_130.jpg": {
+      "bytes": 580746,
+      "sha256": "c655b6435297c04db63c6f45e76cf1392e2f65ba69449c3bed9305fcf635becf"
+    },
+    "comparison_source_140.jpg": {
+      "bytes": 579225,
+      "sha256": "9b705128dd1f380c52d708d358f7b915e9451b4c1f81b7edd35400305d0837eb"
+    },
+    "gap_comparison.png": {
+      "bytes": 124477,
+      "sha256": "3bb6efc1d43cdf47caaec71805409b48294de042e2a23a62daeb3a68796464c4"
+    },
+    "gap_per_frame.csv": {
+      "bytes": 5125,
+      "sha256": "c291d16535d62d9b06d97802f52033c161e2f3c227f7ec5f7b7062b61fdf3334"
+    },
+    "gap_statistics.json": {
+      "bytes": 16944,
+      "sha256": "d34f635757291489e6bdb37190946a675b54bb569c38ffedb594f710502a60eb"
+    },
+    "geometry_source_113.png": {
+      "bytes": 133145,
+      "sha256": "765dd4f5ead463c2083c853872fbbc65d4937d66c7e382ed127859bf8f6cb352"
+    },
+    "geometry_source_120.png": {
+      "bytes": 133223,
+      "sha256": "20238a1463dedc61e45c0e968d6a84ee411aba7c62a3ac0c01cb83d9c80b01fa"
+    },
+    "geometry_source_130.png": {
+      "bytes": 132800,
+      "sha256": "60b72efbd5fdb3a6ef09a830ef6c36b3085f364590827c79e712e027de50748e"
+    },
+    "geometry_source_140.png": {
+      "bytes": 133161,
+      "sha256": "8ae71559367984cc09b26acf6df4b75c30d58831c22d868e37aac0dac2747e3e"
+    },
+    "interactive_geometry_comparison.html": {
+      "bytes": 5146428,
+      "sha256": "2eedcb8df65ea8aa4299117c5187b55f3efbcc820b0a512524fa3f039e299d0d"
+    },
+    "offset_comparison.mp4": {
+      "bytes": 2443252,
+      "sha256": "ccbb4d49582782150ed1e6f5cd44e845255c1b348ce852c8bb205841730829b3"
+    }
+  },
+  "interactive_layout_adjustments": {
+    "body_min_width_px": 1200,
+    "scene_aspectmode": "manual",
+    "scene_aspectratio": {
+      "x": 0.16,
+      "y": 0.9,
+      "z": 0.26666666666666666
+    },
+    "equal_metric_scale": "axis display lengths are proportional to data spans [24,135,40] mm; all three scenes identical",
+    "camera_eye": {
+      "x": 1.7,
+      "y": -1.5,
+      "z": 1.1
+    },
+    "buttons_position": "right of title",
+    "scope": "Display-only adjustment after screenshot review; no geometry values changed."
+  }
+}

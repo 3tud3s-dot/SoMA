@@ -1,0 +1,1113 @@
+{
+  "schema_version": 1,
+  "task": "T10: single-frame 30-point controller representation",
+  "status": "PASS",
+  "created_on": "2026-09-25",
+  "dataset": "008-pink-cloth/episode_0",
+  "source_frame": 113,
+  "local_frame": 0,
+  "gripper_index": 0,
+  "bimanual": false,
+  "controller_shape": [
+    30,
+    3
+  ],
+  "controller_dtype": "float32",
+  "authority": "Repository-owned definition of one fixed 30-anchor representation and its source-frame-113 world positions. Future trajectory work must reuse these point identities and ordering. No trajectory, cache or graph is generated in T10.",
+  "coordinate_convention": {
+    "length_unit": "metre",
+    "root_link": "umi_gripper_base",
+    "pose_source": "robot/robot.npy:T_worlds[113]",
+    "pose_semantics": "T_world_from_eef = T_world_from_gripper_root; the supplied pose already locates the URDF root.",
+    "world_frame": "Published Deform360 annotation world frame, retained without reorientation, recentering or rescaling. Same published world convention used by the camera calibration. No global up/gravity-axis inference in T10.",
+    "column_vector_formula": "[p_world,1] = T_world_from_eef @ [p_root,1]",
+    "row_vector_formula": "P_world = P_root @ T_worlds[113,:3,:3].T + T_worlds[113,:3,3]",
+    "extra_eef_offset_applied": false,
+    "actions_role": "actions[113] is checked against the pose/opening as redundant data; it is not composed as an additional transform.",
+    "finger_frame_to_root_rotation": "Rx(pi) = diag(1,-1,-1), composing the two URDF Rx(pi/2) joint origins; finger revolute joints remain at their source default zero angle.",
+    "world_from_eef": [
+      [
+        -0.9879855373307408,
+        -0.054375376187363475,
+        -0.1446647728017065,
+        0.07093071043168679
+      ],
+      [
+        -0.056910072583598315,
+        -0.7422803457712006,
+        0.6676684296267996,
+        0.14716030297054572
+      ],
+      [
+        -0.1436865396055463,
+        0.6678796349240408,
+        0.7302677396612243,
+        0.016036387608061885
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ]
+  },
+  "opening_and_joints": {
+    "opening_source": "robot/robot.npy:openings[113]",
+    "opening_units": "metre",
+    "raw_opening_m": 0.04499152071070773,
+    "clip_bounds_m": [
+      0.04,
+      0.112
+    ],
+    "clipped_opening_m": 0.04499152071070773,
+    "clipping_applied": false,
+    "official_function": "deform360/deform360/processing/urdf_render.py:opening_to_umi_joints",
+    "formula": "o=clip(opening,0.04,0.112); a=(o-0.04)/(0.112-0.04); j=0.038-a*(0.038-0.005); joint_left=j; joint_right=-j",
+    "joint_positions_m": {
+      "joint_left": 0.03571221967425896,
+      "joint_right": -0.03571221967425896
+    },
+    "finger_revolute_positions_rad": {
+      "joint_finger_left": 0.0,
+      "joint_finger_right": 0.0
+    },
+    "interpretation": "Use the published calibrated opening-to-joint mapping, not a new assumption that fingertip separation equals opening/2."
+  },
+  "representation": {
+    "name": "fixed_15_per_finger_urdf_surface_anchors_v0",
+    "definition_type": "New v0 sparse geometry design using existing URDF anchor positions; not a pre-existing official 30-point format.",
+    "points_per_finger": 15,
+    "selected_grid_rows": [
+      0,
+      6,
+      11
+    ],
+    "selected_grid_columns": [
+      0,
+      8,
+      16,
+      23,
+      31
+    ],
+    "selection_rationale": "A fixed 3-by-5 subset spans each finger surface from the existing 12-by-32 geometric grid. Endpoints and near-uniform interior indices are specified literally; no random sampling, nearest-point matching or contact-dependent selection.",
+    "point_id_rule": "{left|right}_r{row:02d}_c{col:02d}; identity is the URDF link and fixed local anchor, not world coordinates.",
+    "point_order": "All left points first, then all right points; within each finger iterate rows [0,6,11], then columns [0,8,16,23,31].",
+    "left_indices_half_open": [
+      0,
+      15
+    ],
+    "right_indices_half_open": [
+      15,
+      30
+    ],
+    "finger_label_mapping": {
+      "0": "finger_left",
+      "1": "finger_right"
+    },
+    "left_right_meaning": "Two fingers of gripper 0, not two robot arms and not left/right in the image or signs of world/root x.",
+    "left_right_labels": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1
+    ],
+    "tactile_usage": "URDF links named tactile_* provide static geometric anchor locations only. No tactile file, activation, value, history or contact detector is read or used.",
+    "geometric_constants_m": {
+      "finger_base_left": [
+        -0.04246242,
+        0.0835,
+        0.0097
+      ],
+      "finger_base_right": [
+        0.04246242,
+        0.0835,
+        0.0107
+      ],
+      "anchor_x_left_right": [
+        0.007,
+        -0.007
+      ],
+      "anchor_y_formula": "-0.056 - 0.002*column",
+      "anchor_z_formula": "(0.025/12)*(11.5-row)"
+    },
+    "root_position_formula": {
+      "left": "[-0.04246242+j+0.007, 0.0835+0.056+0.002*c, 0.0097-(0.025/12)*(11.5-r)]",
+      "right": "[0.04246242-j-0.007, 0.0835+0.056+0.002*c, 0.0107-(0.025/12)*(11.5-r)]"
+    },
+    "soma_read_only_reference": "mmgs/datasets/embodied_dataset.py:_load_controller_cluster_mask has a two-controller grouping and, for later dis_split levels, splits contiguous first/second halves. Finger-major ordering preserves explicit left/right ownership; no cluster mask or graph is generated, and arbitrary future cluster settings are not validated here."
+  },
+  "point_ordering": [
+    {
+      "index": 0,
+      "point_id": "left_r00_c00",
+      "finger": "left",
+      "finger_label": 0,
+      "finger_link": "finger_left",
+      "urdf_anchor_link": "tactile_left_0_0",
+      "row": 0,
+      "col": 0,
+      "official_interleaved_grid_index": 0,
+      "finger_local_position_m": [
+        0.007,
+        -0.056,
+        0.02395833333333333
+      ]
+    },
+    {
+      "index": 1,
+      "point_id": "left_r00_c08",
+      "finger": "left",
+      "finger_label": 0,
+      "finger_link": "finger_left",
+      "urdf_anchor_link": "tactile_left_0_8",
+      "row": 0,
+      "col": 8,
+      "official_interleaved_grid_index": 16,
+      "finger_local_position_m": [
+        0.007,
+        -0.07200000000000001,
+        0.02395833333333333
+      ]
+    },
+    {
+      "index": 2,
+      "point_id": "left_r00_c16",
+      "finger": "left",
+      "finger_label": 0,
+      "finger_link": "finger_left",
+      "urdf_anchor_link": "tactile_left_0_16",
+      "row": 0,
+      "col": 16,
+      "official_interleaved_grid_index": 32,
+      "finger_local_position_m": [
+        0.007,
+        -0.088,
+        0.02395833333333333
+      ]
+    },
+    {
+      "index": 3,
+      "point_id": "left_r00_c23",
+      "finger": "left",
+      "finger_label": 0,
+      "finger_link": "finger_left",
+      "urdf_anchor_link": "tactile_left_0_23",
+      "row": 0,
+      "col": 23,
+      "official_interleaved_grid_index": 46,
+      "finger_local_position_m": [
+        0.007,
+        -0.10200000000000001,
+        0.02395833333333333
+      ]
+    },
+    {
+      "index": 4,
+      "point_id": "left_r00_c31",
+      "finger": "left",
+      "finger_label": 0,
+      "finger_link": "finger_left",
+      "urdf_anchor_link": "tactile_left_0_31",
+      "row": 0,
+      "col": 31,
+      "official_interleaved_grid_index": 62,
+      "finger_local_position_m": [
+        0.007,
+        -0.118,
+        0.02395833333333333
+      ]
+    },
+    {
+      "index": 5,
+      "point_id": "left_r06_c00",
+      "finger": "left",
+      "finger_label": 0,
+      "finger_link": "finger_left",
+      "urdf_anchor_link": "tactile_left_6_0",
+      "row": 6,
+      "col": 0,
+      "official_interleaved_grid_index": 384,
+      "finger_local_position_m": [
+        0.007,
+        -0.056,
+        0.011458333333333333
+      ]
+    },
+    {
+      "index": 6,
+      "point_id": "left_r06_c08",
+      "finger": "left",
+      "finger_label": 0,
+      "finger_link": "finger_left",
+      "urdf_anchor_link": "tactile_left_6_8",
+      "row": 6,
+      "col": 8,
+      "official_interleaved_grid_index": 400,
+      "finger_local_position_m": [
+        0.007,
+        -0.07200000000000001,
+        0.011458333333333333
+      ]
+    },
+    {
+      "index": 7,
+      "point_id": "left_r06_c16",
+      "finger": "left",
+      "finger_label": 0,
+      "finger_link": "finger_left",
+      "urdf_anchor_link": "tactile_left_6_16",
+      "row": 6,
+      "col": 16,
+      "official_interleaved_grid_index": 416,
+      "finger_local_position_m": [
+        0.007,
+        -0.088,
+        0.011458333333333333
+      ]
+    },
+    {
+      "index": 8,
+      "point_id": "left_r06_c23",
+      "finger": "left",
+      "finger_label": 0,
+      "finger_link": "finger_left",
+      "urdf_anchor_link": "tactile_left_6_23",
+      "row": 6,
+      "col": 23,
+      "official_interleaved_grid_index": 430,
+      "finger_local_position_m": [
+        0.007,
+        -0.10200000000000001,
+        0.011458333333333333
+      ]
+    },
+    {
+      "index": 9,
+      "point_id": "left_r06_c31",
+      "finger": "left",
+      "finger_label": 0,
+      "finger_link": "finger_left",
+      "urdf_anchor_link": "tactile_left_6_31",
+      "row": 6,
+      "col": 31,
+      "official_interleaved_grid_index": 446,
+      "finger_local_position_m": [
+        0.007,
+        -0.118,
+        0.011458333333333333
+      ]
+    },
+    {
+      "index": 10,
+      "point_id": "left_r11_c00",
+      "finger": "left",
+      "finger_label": 0,
+      "finger_link": "finger_left",
+      "urdf_anchor_link": "tactile_left_11_0",
+      "row": 11,
+      "col": 0,
+      "official_interleaved_grid_index": 704,
+      "finger_local_position_m": [
+        0.007,
+        -0.056,
+        0.0010416666666666667
+      ]
+    },
+    {
+      "index": 11,
+      "point_id": "left_r11_c08",
+      "finger": "left",
+      "finger_label": 0,
+      "finger_link": "finger_left",
+      "urdf_anchor_link": "tactile_left_11_8",
+      "row": 11,
+      "col": 8,
+      "official_interleaved_grid_index": 720,
+      "finger_local_position_m": [
+        0.007,
+        -0.07200000000000001,
+        0.0010416666666666667
+      ]
+    },
+    {
+      "index": 12,
+      "point_id": "left_r11_c16",
+      "finger": "left",
+      "finger_label": 0,
+      "finger_link": "finger_left",
+      "urdf_anchor_link": "tactile_left_11_16",
+      "row": 11,
+      "col": 16,
+      "official_interleaved_grid_index": 736,
+      "finger_local_position_m": [
+        0.007,
+        -0.088,
+        0.0010416666666666667
+      ]
+    },
+    {
+      "index": 13,
+      "point_id": "left_r11_c23",
+      "finger": "left",
+      "finger_label": 0,
+      "finger_link": "finger_left",
+      "urdf_anchor_link": "tactile_left_11_23",
+      "row": 11,
+      "col": 23,
+      "official_interleaved_grid_index": 750,
+      "finger_local_position_m": [
+        0.007,
+        -0.10200000000000001,
+        0.0010416666666666667
+      ]
+    },
+    {
+      "index": 14,
+      "point_id": "left_r11_c31",
+      "finger": "left",
+      "finger_label": 0,
+      "finger_link": "finger_left",
+      "urdf_anchor_link": "tactile_left_11_31",
+      "row": 11,
+      "col": 31,
+      "official_interleaved_grid_index": 766,
+      "finger_local_position_m": [
+        0.007,
+        -0.118,
+        0.0010416666666666667
+      ]
+    },
+    {
+      "index": 15,
+      "point_id": "right_r00_c00",
+      "finger": "right",
+      "finger_label": 1,
+      "finger_link": "finger_right",
+      "urdf_anchor_link": "tactile_right_0_0",
+      "row": 0,
+      "col": 0,
+      "official_interleaved_grid_index": 1,
+      "finger_local_position_m": [
+        -0.007,
+        -0.056,
+        0.02395833333333333
+      ]
+    },
+    {
+      "index": 16,
+      "point_id": "right_r00_c08",
+      "finger": "right",
+      "finger_label": 1,
+      "finger_link": "finger_right",
+      "urdf_anchor_link": "tactile_right_0_8",
+      "row": 0,
+      "col": 8,
+      "official_interleaved_grid_index": 17,
+      "finger_local_position_m": [
+        -0.007,
+        -0.07200000000000001,
+        0.02395833333333333
+      ]
+    },
+    {
+      "index": 17,
+      "point_id": "right_r00_c16",
+      "finger": "right",
+      "finger_label": 1,
+      "finger_link": "finger_right",
+      "urdf_anchor_link": "tactile_right_0_16",
+      "row": 0,
+      "col": 16,
+      "official_interleaved_grid_index": 33,
+      "finger_local_position_m": [
+        -0.007,
+        -0.088,
+        0.02395833333333333
+      ]
+    },
+    {
+      "index": 18,
+      "point_id": "right_r00_c23",
+      "finger": "right",
+      "finger_label": 1,
+      "finger_link": "finger_right",
+      "urdf_anchor_link": "tactile_right_0_23",
+      "row": 0,
+      "col": 23,
+      "official_interleaved_grid_index": 47,
+      "finger_local_position_m": [
+        -0.007,
+        -0.10200000000000001,
+        0.02395833333333333
+      ]
+    },
+    {
+      "index": 19,
+      "point_id": "right_r00_c31",
+      "finger": "right",
+      "finger_label": 1,
+      "finger_link": "finger_right",
+      "urdf_anchor_link": "tactile_right_0_31",
+      "row": 0,
+      "col": 31,
+      "official_interleaved_grid_index": 63,
+      "finger_local_position_m": [
+        -0.007,
+        -0.118,
+        0.02395833333333333
+      ]
+    },
+    {
+      "index": 20,
+      "point_id": "right_r06_c00",
+      "finger": "right",
+      "finger_label": 1,
+      "finger_link": "finger_right",
+      "urdf_anchor_link": "tactile_right_6_0",
+      "row": 6,
+      "col": 0,
+      "official_interleaved_grid_index": 385,
+      "finger_local_position_m": [
+        -0.007,
+        -0.056,
+        0.011458333333333333
+      ]
+    },
+    {
+      "index": 21,
+      "point_id": "right_r06_c08",
+      "finger": "right",
+      "finger_label": 1,
+      "finger_link": "finger_right",
+      "urdf_anchor_link": "tactile_right_6_8",
+      "row": 6,
+      "col": 8,
+      "official_interleaved_grid_index": 401,
+      "finger_local_position_m": [
+        -0.007,
+        -0.07200000000000001,
+        0.011458333333333333
+      ]
+    },
+    {
+      "index": 22,
+      "point_id": "right_r06_c16",
+      "finger": "right",
+      "finger_label": 1,
+      "finger_link": "finger_right",
+      "urdf_anchor_link": "tactile_right_6_16",
+      "row": 6,
+      "col": 16,
+      "official_interleaved_grid_index": 417,
+      "finger_local_position_m": [
+        -0.007,
+        -0.088,
+        0.011458333333333333
+      ]
+    },
+    {
+      "index": 23,
+      "point_id": "right_r06_c23",
+      "finger": "right",
+      "finger_label": 1,
+      "finger_link": "finger_right",
+      "urdf_anchor_link": "tactile_right_6_23",
+      "row": 6,
+      "col": 23,
+      "official_interleaved_grid_index": 431,
+      "finger_local_position_m": [
+        -0.007,
+        -0.10200000000000001,
+        0.011458333333333333
+      ]
+    },
+    {
+      "index": 24,
+      "point_id": "right_r06_c31",
+      "finger": "right",
+      "finger_label": 1,
+      "finger_link": "finger_right",
+      "urdf_anchor_link": "tactile_right_6_31",
+      "row": 6,
+      "col": 31,
+      "official_interleaved_grid_index": 447,
+      "finger_local_position_m": [
+        -0.007,
+        -0.118,
+        0.011458333333333333
+      ]
+    },
+    {
+      "index": 25,
+      "point_id": "right_r11_c00",
+      "finger": "right",
+      "finger_label": 1,
+      "finger_link": "finger_right",
+      "urdf_anchor_link": "tactile_right_11_0",
+      "row": 11,
+      "col": 0,
+      "official_interleaved_grid_index": 705,
+      "finger_local_position_m": [
+        -0.007,
+        -0.056,
+        0.0010416666666666667
+      ]
+    },
+    {
+      "index": 26,
+      "point_id": "right_r11_c08",
+      "finger": "right",
+      "finger_label": 1,
+      "finger_link": "finger_right",
+      "urdf_anchor_link": "tactile_right_11_8",
+      "row": 11,
+      "col": 8,
+      "official_interleaved_grid_index": 721,
+      "finger_local_position_m": [
+        -0.007,
+        -0.07200000000000001,
+        0.0010416666666666667
+      ]
+    },
+    {
+      "index": 27,
+      "point_id": "right_r11_c16",
+      "finger": "right",
+      "finger_label": 1,
+      "finger_link": "finger_right",
+      "urdf_anchor_link": "tactile_right_11_16",
+      "row": 11,
+      "col": 16,
+      "official_interleaved_grid_index": 737,
+      "finger_local_position_m": [
+        -0.007,
+        -0.088,
+        0.0010416666666666667
+      ]
+    },
+    {
+      "index": 28,
+      "point_id": "right_r11_c23",
+      "finger": "right",
+      "finger_label": 1,
+      "finger_link": "finger_right",
+      "urdf_anchor_link": "tactile_right_11_23",
+      "row": 11,
+      "col": 23,
+      "official_interleaved_grid_index": 751,
+      "finger_local_position_m": [
+        -0.007,
+        -0.10200000000000001,
+        0.0010416666666666667
+      ]
+    },
+    {
+      "index": 29,
+      "point_id": "right_r11_c31",
+      "finger": "right",
+      "finger_label": 1,
+      "finger_link": "finger_right",
+      "urdf_anchor_link": "tactile_right_11_31",
+      "row": 11,
+      "col": 31,
+      "official_interleaved_grid_index": 767,
+      "finger_local_position_m": [
+        -0.007,
+        -0.118,
+        0.0010416666666666667
+      ]
+    }
+  ],
+  "controller_points_root_float64_m": [
+    [
+      0.00024979967425895703,
+      0.1395,
+      -0.014258333333333331
+    ],
+    [
+      0.00024979967425895703,
+      0.15550000000000003,
+      -0.014258333333333331
+    ],
+    [
+      0.00024979967425895703,
+      0.17149999999999999,
+      -0.014258333333333331
+    ],
+    [
+      0.00024979967425895703,
+      0.1855,
+      -0.014258333333333331
+    ],
+    [
+      0.00024979967425895703,
+      0.2015,
+      -0.014258333333333331
+    ],
+    [
+      0.00024979967425895703,
+      0.1395,
+      -0.0017583333333333322
+    ],
+    [
+      0.00024979967425895703,
+      0.15550000000000003,
+      -0.0017583333333333322
+    ],
+    [
+      0.00024979967425895703,
+      0.17149999999999999,
+      -0.0017583333333333322
+    ],
+    [
+      0.00024979967425895703,
+      0.1855,
+      -0.0017583333333333322
+    ],
+    [
+      0.00024979967425895703,
+      0.2015,
+      -0.0017583333333333322
+    ],
+    [
+      0.00024979967425895703,
+      0.1395,
+      0.008658333333333334
+    ],
+    [
+      0.00024979967425895703,
+      0.15550000000000003,
+      0.008658333333333334
+    ],
+    [
+      0.00024979967425895703,
+      0.17149999999999999,
+      0.008658333333333334
+    ],
+    [
+      0.00024979967425895703,
+      0.1855,
+      0.008658333333333334
+    ],
+    [
+      0.00024979967425895703,
+      0.2015,
+      0.008658333333333334
+    ],
+    [
+      -0.00024979967425895703,
+      0.1395,
+      -0.013258333333333332
+    ],
+    [
+      -0.00024979967425895703,
+      0.15550000000000003,
+      -0.013258333333333332
+    ],
+    [
+      -0.00024979967425895703,
+      0.17149999999999999,
+      -0.013258333333333332
+    ],
+    [
+      -0.00024979967425895703,
+      0.1855,
+      -0.013258333333333332
+    ],
+    [
+      -0.00024979967425895703,
+      0.2015,
+      -0.013258333333333332
+    ],
+    [
+      -0.00024979967425895703,
+      0.1395,
+      -0.0007583333333333331
+    ],
+    [
+      -0.00024979967425895703,
+      0.15550000000000003,
+      -0.0007583333333333331
+    ],
+    [
+      -0.00024979967425895703,
+      0.17149999999999999,
+      -0.0007583333333333331
+    ],
+    [
+      -0.00024979967425895703,
+      0.1855,
+      -0.0007583333333333331
+    ],
+    [
+      -0.00024979967425895703,
+      0.2015,
+      -0.0007583333333333331
+    ],
+    [
+      -0.00024979967425895703,
+      0.1395,
+      0.009658333333333333
+    ],
+    [
+      -0.00024979967425895703,
+      0.15550000000000003,
+      0.009658333333333333
+    ],
+    [
+      -0.00024979967425895703,
+      0.17149999999999999,
+      0.009658333333333333
+    ],
+    [
+      -0.00024979967425895703,
+      0.1855,
+      0.009658333333333333
+    ],
+    [
+      -0.00024979967425895703,
+      0.2015,
+      0.009658333333333333
+    ]
+  ],
+  "controller_points": [
+    [
+      0.06516122817993164,
+      0.03407813981175423,
+      0.098757304251194
+    ],
+    [
+      0.06429121643304825,
+      0.022201653569936752,
+      0.10944337397813797
+    ],
+    [
+      0.06342121213674545,
+      0.010325168259441853,
+      0.12012945115566254
+    ],
+    [
+      0.06265995651483536,
+      -6.675631448160857e-05,
+      0.1294797658920288
+    ],
+    [
+      0.06178995221853256,
+      -0.011943241581320763,
+      0.14016583561897278
+    ],
+    [
+      0.06335291266441345,
+      0.04242399334907532,
+      0.10788565129041672
+    ],
+    [
+      0.06248290836811066,
+      0.030547508969902992,
+      0.11857172101736069
+    ],
+    [
+      0.06161290407180786,
+      0.018671024590730667,
+      0.12925779819488525
+    ],
+    [
+      0.060851648449897766,
+      0.008279099129140377,
+      0.13860811293125153
+    ],
+    [
+      0.05998164415359497,
+      -0.0035973864141851664,
+      0.1492941826581955
+    ],
+    [
+      0.061845991760492325,
+      0.04937887564301491,
+      0.11549260467290878
+    ],
+    [
+      0.06097598373889923,
+      0.037502389401197433,
+      0.12617868185043335
+    ],
+    [
+      0.060105979442596436,
+      0.02562590315937996,
+      0.13686475157737732
+    ],
+    [
+      0.05934472382068634,
+      0.015233978629112244,
+      0.1462150663137436
+    ],
+    [
+      0.058474719524383545,
+      0.0033574930857867002,
+      0.15690113604068756
+    ],
+    [
+      0.06551016122102737,
+      0.03477424010634422,
+      0.09955935925245285
+    ],
+    [
+      0.06464014947414398,
+      0.02289775386452675,
+      0.11024542897939682
+    ],
+    [
+      0.06377014517784119,
+      0.011021269485354424,
+      0.12093150615692139
+    ],
+    [
+      0.06300888955593109,
+      0.0006293443730100989,
+      0.13028182089328766
+    ],
+    [
+      0.062138885259628296,
+      -0.011247141286730766,
+      0.14096789062023163
+    ],
+    [
+      0.06370184570550919,
+      0.04312009736895561,
+      0.10868770629167557
+    ],
+    [
+      0.06283184140920639,
+      0.03124360926449299,
+      0.11937377601861954
+    ],
+    [
+      0.061961837112903595,
+      0.019367124885320663,
+      0.1300598531961441
+    ],
+    [
+      0.0612005814909935,
+      0.008975199423730373,
+      0.13941016793251038
+    ],
+    [
+      0.060330573469400406,
+      -0.0029012858867645264,
+      0.15009623765945435
+    ],
+    [
+      0.06219492480158806,
+      0.050074975937604904,
+      0.11629465967416763
+    ],
+    [
+      0.061324916779994965,
+      0.03819848969578743,
+      0.1269807368516922
+    ],
+    [
+      0.06045491248369217,
+      0.026322003453969955,
+      0.13766680657863617
+    ],
+    [
+      0.059693656861782074,
+      0.01593007892370224,
+      0.14701712131500244
+    ],
+    [
+      0.05882364884018898,
+      0.00405359361320734,
+      0.1577031910419464
+    ]
+  ],
+  "serialization": {
+    "format": "JSON numeric rows with explicit float32 dtype contract",
+    "read_as": "np.asarray(contract[\"controller_points\"], dtype=np.float32)",
+    "array_bytes_format": "little-endian float32, C order, shape [30,3]",
+    "array_sha256": "6d76fa3863e9d6acf96678d98f1936851e25966a005b1d32539ef9bb2636041b",
+    "roundtrip_verified": true,
+    "note": "JSON itself has no binary dtype; values were calculated/cast to float32 before serialization and must be reconstructed with the declared dtype. No separate NPY artifact was written."
+  },
+  "validation": {
+    "shape": [
+      30,
+      3
+    ],
+    "dtype": "float32",
+    "finite": true,
+    "unique_point_ids": 30,
+    "unique_world_points": 30,
+    "left_count": 15,
+    "right_count": 15,
+    "ordering": "indices 0..14 left; 15..29 right; row-major within each side",
+    "world_rotation_orthogonality_max_abs": 7.771561172376096e-16,
+    "world_rotation_determinant": 0.9999999999999998,
+    "source_actions_pose_opening_match": true,
+    "official_closed_form_world_max_abs_m": 0.0,
+    "urdf_fk_root_max_abs_m": 6.245004513516506e-17,
+    "urdf_fk_world_max_abs_m": 8.326672684688674e-17,
+    "float32_cast_max_abs_m": 6.66634644708175e-09,
+    "world_to_root_roundtrip_max_abs_m": 1.1102230246251565e-16,
+    "float32_roundtrip_json_equal": true,
+    "repeat_same_frame_bitwise_equal": true,
+    "robot_sha256_unchanged": true,
+    "tactile_values_read": false
+  },
+  "validation_tolerances": {
+    "official_geometry_vs_selected_closed_form_max_abs_m": 1e-12,
+    "independent_urdf_fk_max_abs_m": 1e-12,
+    "float32_cast_max_abs_m": 1e-07,
+    "world_to_root_roundtrip_max_abs_m": 1e-10,
+    "source_rotation_orthogonality_max_abs": 1e-08,
+    "source_rotation_determinant_error": 1e-08
+  },
+  "geometry_observation": {
+    "signed_right_minus_left_anchor_plane_gap_root_x_m": -0.0004995993485179141,
+    "interpretation": "At frame 113, the official mapping places the two anchor planes about 0.50 mm past each other along root x. This reproduces the original URDF/mapping, not a numerical conversion error. Labels remain defined by finger links; no sorting, swapping, offset correction or opening modification is applied.",
+    "scope_limit": "T10 validates deterministic representation and kinematics, not collision-free gripper geometry, object contact alignment, graph suitability or training behavior. These results do not establish physical non-penetration."
+  },
+  "world_bounds_min_max_m": [
+    [
+      0.058474719524383545,
+      -0.011943241581320763,
+      0.098757304251194
+    ],
+    [
+      0.06551016122102737,
+      0.050074975937604904,
+      0.1577031910419464
+    ]
+  ],
+  "provenance": {
+    "robot_path_relative_to_workspace": "datasets/deform360/processed/008-pink-cloth/episode_0/robot/robot.npy",
+    "robot_sha256": "ba12216e8f9924e593bb470eda5ef33411e50262271879c38ecfc55c9f07c561",
+    "robot_access": "Legacy NPY dict loaded read-only; only frame 113 pose/opening/actions are used in computation. No other frame controller positions are generated.",
+    "frame_manifest_path_relative_to_this_contract": "frame_manifest.json",
+    "frame_manifest_sha256": "d48338cf7a606b1ee4bc2e5a560b5a53c017efdc9880a1db282a8494b1b013db",
+    "source_files_sha256_relative_to_workspace": {
+      "deform360/deform360/processing/control_points_stage.py": "9ff82c86c22e38c56dd2ce5d872850afb6ffeb502da7338baf0b55108afb7373",
+      "deform360/deform360/processing/urdf_render.py": "c4d6a10e980ed4952f974d2e8a991c6fb819a3e6fdc6c121d3ce6925c94c2467",
+      "deform360/deform360/processing/assets/umi/umi_tactile.urdf": "c3519331a389ecf77b04ec63fe69d258496a6f21721c8ad2ef445bd33ce1b88b",
+      "deform360/deform360/robot.py": "376e4dec6f2340a3ee03af1a3bd5462e06e3284cc82f312872a7bedbe863825f"
+    },
+    "source_references": [
+      {
+        "path_relative_to_workspace": "deform360/deform360/processing/urdf_render.py",
+        "name": "MIN_OPENING_M",
+        "line": 33
+      },
+      {
+        "path_relative_to_workspace": "deform360/deform360/processing/urdf_render.py",
+        "name": "MAX_OPENING_M",
+        "line": 34
+      },
+      {
+        "path_relative_to_workspace": "deform360/deform360/processing/urdf_render.py",
+        "name": "JOINT_UPPER_M",
+        "line": 35
+      },
+      {
+        "path_relative_to_workspace": "deform360/deform360/processing/urdf_render.py",
+        "name": "JOINT_LOWER_M",
+        "line": 36
+      },
+      {
+        "path_relative_to_workspace": "deform360/deform360/processing/urdf_render.py",
+        "name": "opening_to_umi_joints",
+        "line": 39
+      },
+      {
+        "path_relative_to_workspace": "deform360/deform360/processing/control_points_stage.py",
+        "name": "TAXEL_ROWS",
+        "line": 56
+      },
+      {
+        "path_relative_to_workspace": "deform360/deform360/processing/control_points_stage.py",
+        "name": "TAXEL_COLS",
+        "line": 57
+      },
+      {
+        "path_relative_to_workspace": "deform360/deform360/processing/control_points_stage.py",
+        "name": "TAXELS_PER_GRIPPER",
+        "line": 58
+      },
+      {
+        "path_relative_to_workspace": "deform360/deform360/processing/control_points_stage.py",
+        "name": "_FINGER_BASE_LEFT",
+        "line": 69
+      },
+      {
+        "path_relative_to_workspace": "deform360/deform360/processing/control_points_stage.py",
+        "name": "_FINGER_BASE_RIGHT",
+        "line": 70
+      },
+      {
+        "path_relative_to_workspace": "deform360/deform360/processing/control_points_stage.py",
+        "name": "_TAXEL_X_M",
+        "line": 73
+      },
+      {
+        "path_relative_to_workspace": "deform360/deform360/processing/control_points_stage.py",
+        "name": "_TAXEL_Y0_M",
+        "line": 74
+      },
+      {
+        "path_relative_to_workspace": "deform360/deform360/processing/control_points_stage.py",
+        "name": "_TAXEL_Y_STEP_M",
+        "line": 75
+      },
+      {
+        "path_relative_to_workspace": "deform360/deform360/processing/control_points_stage.py",
+        "name": "_TAXEL_Z_PITCH_M",
+        "line": 76
+      },
+      {
+        "path_relative_to_workspace": "deform360/deform360/processing/control_points_stage.py",
+        "name": "_taxel_grid_root_frame",
+        "line": 79
+      },
+      {
+        "path_relative_to_workspace": "deform360/deform360/processing/control_points_stage.py",
+        "name": "gripper_taxel_points",
+        "line": 117
+      }
+    ],
+    "soma_head": "79ab9be03a02171d4bf3b44560b0031b4dffc1ea",
+    "deform360_head": "d8522a4403b766aeb387510c04e89032a56fdf35",
+    "execution": "Server CPU/NumPy only. AST-extracted unchanged opening_to_umi_joints and geometric functions. Independently composed the selected URDF joint chains from XML. The official full grid was used only as an in-memory same-frame reference; only the selected 30 positions are serialized. No processing stage, renderer, tactile data access, trajectory, cache or graph execution.",
+    "source_inputs_unchanged": true,
+    "environment": {
+      "python": "3.10.21",
+      "numpy": "1.26.4"
+    }
+  }
+}

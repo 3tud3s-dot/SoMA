@@ -1,0 +1,493 @@
+{
+  "purpose": "T10 signed gap explanatory follow-up; not a trajectory contract, geometry change or acceptance",
+  "input_sha256": {
+    "controller_single_frame_contract.json": "a2aa7684e9612d4b80eeede253fb890a63b6f8dbd87665843222170d341d733a",
+    "review_metadata.json": "5e2457a522aa2a7222616b94e4c25570eecfa0bbb5a685934a08bc763678967d",
+    "deform360_control_points_stage.py": "9ff82c86c22e38c56dd2ce5d872850afb6ffeb502da7338baf0b55108afb7373",
+    "deform360_urdf_render.py": "c4d6a10e980ed4952f974d2e8a991c6fb819a3e6fdc6c121d3ce6925c94c2467"
+  },
+  "definition": {
+    "measurement_axis_root": [
+      1,
+      0,
+      0
+    ],
+    "gap": "g = dot([1,0,0], center_right - center_left) = x_right - x_left",
+    "measured_geometry": "Uniform-x sampling planes; equals any matching row/column pair x difference or centroid x difference, not minimum mesh distance.",
+    "left_surface_x_m": "-0.03546242 + j",
+    "right_surface_x_m": "+0.03546242 - j",
+    "gap_m": "0.07092484 - 2*j",
+    "equivalent_gap_m": "-0.00507516 + (11/12)*(clip(opening,0.04,0.112)-0.04)",
+    "zero_gap_opening_mm": 45.53653818181818,
+    "derivatives_inside_unclipped_range": {
+      "d_joint_d_opening": -0.4583333333333333,
+      "d_left_x_d_opening": -0.4583333333333333,
+      "d_right_x_d_opening": 0.4583333333333333,
+      "d_gap_d_opening": 0.9166666666666666
+    }
+  },
+  "normals": {
+    "T10_contains_normals": false,
+    "geometric_plane_normal_sign_ambiguous": true,
+    "inward_root_left": [
+      1,
+      0,
+      0
+    ],
+    "inward_root_right": [
+      -1,
+      0,
+      0
+    ],
+    "orientation_basis": "Review-oriented normals inferred from the inward +/-7 mm local offsets at an open configuration; not an added model feature.",
+    "both_finger_rotation_to_root": [
+      [
+        1,
+        0,
+        0
+      ],
+      [
+        0,
+        -1,
+        0
+      ],
+      [
+        0,
+        0,
+        -1
+      ]
+    ],
+    "world_inward_left": "T_worlds[:3,:3] @ [1,0,0]",
+    "world_inward_right": "T_worlds[:3,:3] @ [-1,0,0]",
+    "ordering_caution": "Same row/column traversal on both planes gives the same algebraic normal (column tangent cross row tangent = +root X). It is not the inward normal of both fingers. Gap uses fixed root X, not an estimated winding normal."
+  },
+  "surface_extents_root_mm": {
+    "y_both": [
+      139.5,
+      201.5
+    ],
+    "z_left": [
+      -14.258333333333333,
+      8.658333333333333
+    ],
+    "z_right": [
+      -13.258333333333333,
+      9.658333333333333
+    ],
+    "overlap_y_length": 62.0,
+    "overlap_z_length": 21.916666666666668,
+    "matching_anchor_delta_right_minus_left_m": "[g,0,0.001]"
+  },
+  "statistics": {
+    "negative_count": 25,
+    "positive_count": 3,
+    "zero_count": 0,
+    "frame_count": 28,
+    "positive_frames": [
+      117,
+      126,
+      127
+    ],
+    "all_unclipped": true,
+    "representative_frames": {
+      "initial": {
+        "source_frame": 113,
+        "opening_mm": 44.99152071070773,
+        "joint_left_mm": 35.71221967425896,
+        "finger_origin_separation_x_mm": 13.500400651482087,
+        "left_surface_x_root_mm": 0.24979967425895702,
+        "right_surface_x_root_mm": -0.24979967425895702,
+        "signed_gap_mm": -0.49959934851791404,
+        "unsigned_plane_distance_mm": 0.49959934851791404,
+        "matching_anchor_euclidean_distance_mm": 1.1178548693992096,
+        "clipping_applied": false
+      },
+      "most_negative": {
+        "source_frame": 136,
+        "opening_mm": 43.231713390109675,
+        "joint_left_mm": 36.518798029533066,
+        "finger_origin_separation_x_mm": 11.887243940933864,
+        "left_surface_x_root_mm": 1.056378029533068,
+        "right_surface_x_root_mm": -1.056378029533068,
+        "signed_gap_mm": -2.112756059066136,
+        "unsigned_plane_distance_mm": 2.112756059066136,
+        "matching_anchor_euclidean_distance_mm": 2.3374640457386007,
+        "clipping_applied": false
+      },
+      "nearest_zero": {
+        "source_frame": 114,
+        "opening_mm": 45.37709175498789,
+        "joint_left_mm": 35.535499612297215,
+        "finger_origin_separation_x_mm": 13.853840775405565,
+        "left_surface_x_root_mm": 0.07307961229721746,
+        "right_surface_x_root_mm": -0.07307961229721746,
+        "signed_gap_mm": -0.14615922459443492,
+        "unsigned_plane_distance_mm": 0.14615922459443492,
+        "matching_anchor_euclidean_distance_mm": 1.010624816108355,
+        "clipping_applied": false
+      },
+      "maximum_positive": {
+        "source_frame": 126,
+        "opening_mm": 46.35514603574312,
+        "joint_left_mm": 35.08722473361774,
+        "finger_origin_separation_x_mm": 14.750390532764529,
+        "left_surface_x_root_mm": -0.37519526638226436,
+        "right_surface_x_root_mm": 0.37519526638226436,
+        "signed_gap_mm": 0.7503905327645287,
+        "unsigned_plane_distance_mm": 0.7503905327645287,
+        "matching_anchor_euclidean_distance_mm": 1.250234358695454,
+        "clipping_applied": false
+      }
+    }
+  },
+  "frames": [
+    {
+      "source_frame": 113,
+      "opening_mm": 44.99152071070773,
+      "joint_left_mm": 35.71221967425896,
+      "finger_origin_separation_x_mm": 13.500400651482087,
+      "left_surface_x_root_mm": 0.24979967425895702,
+      "right_surface_x_root_mm": -0.24979967425895702,
+      "signed_gap_mm": -0.49959934851791404,
+      "unsigned_plane_distance_mm": 0.49959934851791404,
+      "matching_anchor_euclidean_distance_mm": 1.1178548693992096,
+      "clipping_applied": false
+    },
+    {
+      "source_frame": 114,
+      "opening_mm": 45.37709175498789,
+      "joint_left_mm": 35.535499612297215,
+      "finger_origin_separation_x_mm": 13.853840775405565,
+      "left_surface_x_root_mm": 0.07307961229721746,
+      "right_surface_x_root_mm": -0.07307961229721746,
+      "signed_gap_mm": -0.14615922459443492,
+      "unsigned_plane_distance_mm": 0.14615922459443492,
+      "matching_anchor_euclidean_distance_mm": 1.010624816108355,
+      "clipping_applied": false
+    },
+    {
+      "source_frame": 115,
+      "opening_mm": 44.30118318703539,
+      "joint_left_mm": 36.02862437260878,
+      "finger_origin_separation_x_mm": 12.867591254782443,
+      "left_surface_x_root_mm": 0.5662043726087788,
+      "right_surface_x_root_mm": -0.5662043726087788,
+      "signed_gap_mm": -1.1324087452175575,
+      "unsigned_plane_distance_mm": 1.1324087452175575,
+      "matching_anchor_euclidean_distance_mm": 1.5107447058471535,
+      "clipping_applied": false
+    },
+    {
+      "source_frame": 116,
+      "opening_mm": 45.227971571223854,
+      "joint_left_mm": 35.60384636318907,
+      "finger_origin_separation_x_mm": 13.71714727362186,
+      "left_surface_x_root_mm": 0.14142636318907,
+      "right_surface_x_root_mm": -0.14142636318907,
+      "signed_gap_mm": -0.28285272637814,
+      "unsigned_plane_distance_mm": 0.28285272637814,
+      "matching_anchor_euclidean_distance_mm": 1.0392332100253276,
+      "clipping_applied": false
+    },
+    {
+      "source_frame": 117,
+      "opening_mm": 45.89460971794345,
+      "joint_left_mm": 35.29830387927592,
+      "finger_origin_separation_x_mm": 14.328232241448163,
+      "left_surface_x_root_mm": -0.16411612072408152,
+      "right_surface_x_root_mm": 0.16411612072408152,
+      "signed_gap_mm": 0.32823224144816304,
+      "unsigned_plane_distance_mm": 0.32823224144816304,
+      "matching_anchor_euclidean_distance_mm": 1.0524905720841804,
+      "clipping_applied": false
+    },
+    {
+      "source_frame": 118,
+      "opening_mm": 44.92041709470356,
+      "joint_left_mm": 35.7448088315942,
+      "finger_origin_separation_x_mm": 13.435222336811602,
+      "left_surface_x_root_mm": 0.28238883159419864,
+      "right_surface_x_root_mm": -0.28238883159419864,
+      "signed_gap_mm": -0.5647776631883973,
+      "unsigned_plane_distance_mm": 0.5647776631883973,
+      "matching_anchor_euclidean_distance_mm": 1.148465850095921,
+      "clipping_applied": false
+    },
+    {
+      "source_frame": 119,
+      "opening_mm": 44.67505749217858,
+      "joint_left_mm": 35.85726531608482,
+      "finger_origin_separation_x_mm": 13.210309367830368,
+      "left_surface_x_root_mm": 0.39484531608481677,
+      "right_surface_x_root_mm": -0.39484531608481677,
+      "signed_gap_mm": -0.7896906321696335,
+      "unsigned_plane_distance_mm": 0.7896906321696335,
+      "matching_anchor_euclidean_distance_mm": 1.2742100668792706,
+      "clipping_applied": false
+    },
+    {
+      "source_frame": 120,
+      "opening_mm": 44.46399256849133,
+      "joint_left_mm": 35.954003406108136,
+      "finger_origin_separation_x_mm": 13.016833187783725,
+      "left_surface_x_root_mm": 0.4915834061081379,
+      "right_surface_x_root_mm": -0.4915834061081379,
+      "signed_gap_mm": -0.9831668122162758,
+      "unsigned_plane_distance_mm": 0.9831668122162758,
+      "matching_anchor_euclidean_distance_mm": 1.4023612161791674,
+      "clipping_applied": false
+    },
+    {
+      "source_frame": 121,
+      "opening_mm": 44.75203352832689,
+      "joint_left_mm": 35.821984632850175,
+      "finger_origin_separation_x_mm": 13.280870734299649,
+      "left_surface_x_root_mm": 0.35956463285017565,
+      "right_surface_x_root_mm": -0.35956463285017565,
+      "signed_gap_mm": -0.7191292657003513,
+      "unsigned_plane_distance_mm": 0.7191292657003513,
+      "matching_anchor_euclidean_distance_mm": 1.231725172587914,
+      "clipping_applied": false
+    },
+    {
+      "source_frame": 122,
+      "opening_mm": 44.54224848530364,
+      "joint_left_mm": 35.9181361109025,
+      "finger_origin_separation_x_mm": 13.088567778195003,
+      "left_surface_x_root_mm": 0.45571611090249825,
+      "right_surface_x_root_mm": -0.45571611090249825,
+      "signed_gap_mm": -0.9114322218049965,
+      "unsigned_plane_distance_mm": 0.9114322218049965,
+      "matching_anchor_euclidean_distance_mm": 1.3530368416803709,
+      "clipping_applied": false
+    },
+    {
+      "source_frame": 123,
+      "opening_mm": 44.633710450834506,
+      "joint_left_mm": 35.87621604336751,
+      "finger_origin_separation_x_mm": 13.172407913264975,
+      "left_surface_x_root_mm": 0.41379604336751286,
+      "right_surface_x_root_mm": -0.41379604336751286,
+      "signed_gap_mm": -0.8275920867350257,
+      "unsigned_plane_distance_mm": 0.8275920867350257,
+      "matching_anchor_euclidean_distance_mm": 1.2980403160250586,
+      "clipping_applied": false
+    },
+    {
+      "source_frame": 124,
+      "opening_mm": 44.109594671194714,
+      "joint_left_mm": 36.11643577570242,
+      "finger_origin_separation_x_mm": 12.691968448595158,
+      "left_surface_x_root_mm": 0.6540157757024206,
+      "right_surface_x_root_mm": -0.6540157757024206,
+      "signed_gap_mm": -1.3080315514048413,
+      "unsigned_plane_distance_mm": 1.3080315514048413,
+      "matching_anchor_euclidean_distance_mm": 1.6464952291065273,
+      "clipping_applied": false
+    },
+    {
+      "source_frame": 125,
+      "opening_mm": 44.26083007757002,
+      "joint_left_mm": 36.047119547780405,
+      "finger_origin_separation_x_mm": 12.830600904439187,
+      "left_surface_x_root_mm": 0.5846995477804062,
+      "right_surface_x_root_mm": -0.5846995477804062,
+      "signed_gap_mm": -1.1693990955608125,
+      "unsigned_plane_distance_mm": 1.1693990955608125,
+      "matching_anchor_euclidean_distance_mm": 1.5386663851200644,
+      "clipping_applied": false
+    },
+    {
+      "source_frame": 126,
+      "opening_mm": 46.35514603574312,
+      "joint_left_mm": 35.08722473361774,
+      "finger_origin_separation_x_mm": 14.750390532764529,
+      "left_surface_x_root_mm": -0.37519526638226436,
+      "right_surface_x_root_mm": 0.37519526638226436,
+      "signed_gap_mm": 0.7503905327645287,
+      "unsigned_plane_distance_mm": 0.7503905327645287,
+      "matching_anchor_euclidean_distance_mm": 1.250234358695454,
+      "clipping_applied": false
+    },
+    {
+      "source_frame": 127,
+      "opening_mm": 45.746782588021404,
+      "joint_left_mm": 35.36605798049019,
+      "finger_origin_separation_x_mm": 14.192724039019625,
+      "left_surface_x_root_mm": -0.09636201950981219,
+      "right_surface_x_root_mm": 0.09636201950981219,
+      "signed_gap_mm": 0.19272403901962437,
+      "unsigned_plane_distance_mm": 0.19272403901962437,
+      "matching_anchor_euclidean_distance_mm": 1.0184019615142332,
+      "clipping_applied": false
+    },
+    {
+      "source_frame": 128,
+      "opening_mm": 45.07541740494462,
+      "joint_left_mm": 35.67376702273371,
+      "finger_origin_separation_x_mm": 13.577305954532576,
+      "left_surface_x_root_mm": 0.21134702273371223,
+      "right_surface_x_root_mm": -0.21134702273371223,
+      "signed_gap_mm": -0.42269404546742445,
+      "unsigned_plane_distance_mm": 0.42269404546742445,
+      "matching_anchor_euclidean_distance_mm": 1.0856658123352771,
+      "clipping_applied": false
+    },
+    {
+      "source_frame": 129,
+      "opening_mm": 45.02841567042475,
+      "joint_left_mm": 35.69530948438866,
+      "finger_origin_separation_x_mm": 13.53422103122269,
+      "left_surface_x_root_mm": 0.23288948438865506,
+      "right_surface_x_root_mm": -0.23288948438865506,
+      "signed_gap_mm": -0.4657789687773101,
+      "unsigned_plane_distance_mm": 0.4657789687773101,
+      "matching_anchor_euclidean_distance_mm": 1.103154589237272,
+      "clipping_applied": false
+    },
+    {
+      "source_frame": 130,
+      "opening_mm": 45.26174635985733,
+      "joint_left_mm": 35.588366251732054,
+      "finger_origin_separation_x_mm": 13.74810749653589,
+      "left_surface_x_root_mm": 0.1259462517320545,
+      "right_surface_x_root_mm": -0.1259462517320545,
+      "signed_gap_mm": -0.251892503464109,
+      "unsigned_plane_distance_mm": 0.251892503464109,
+      "matching_anchor_euclidean_distance_mm": 1.0312370403071334,
+      "clipping_applied": false
+    },
+    {
+      "source_frame": 131,
+      "opening_mm": 44.934038669051496,
+      "joint_left_mm": 35.738565610018064,
+      "finger_origin_separation_x_mm": 13.447708779963873,
+      "left_surface_x_root_mm": 0.2761456100180632,
+      "right_surface_x_root_mm": -0.2761456100180632,
+      "signed_gap_mm": -0.5522912200361264,
+      "unsigned_plane_distance_mm": 0.5522912200361264,
+      "matching_anchor_euclidean_distance_mm": 1.1423771670201541,
+      "clipping_applied": false
+    },
+    {
+      "source_frame": 132,
+      "opening_mm": 44.287750371467155,
+      "joint_left_mm": 36.03478107974422,
+      "finger_origin_separation_x_mm": 12.855277840511562,
+      "left_surface_x_root_mm": 0.5723610797442195,
+      "right_surface_x_root_mm": -0.5723610797442195,
+      "signed_gap_mm": -1.144722159488439,
+      "unsigned_plane_distance_mm": 1.144722159488439,
+      "matching_anchor_euclidean_distance_mm": 1.5199963231613014,
+      "clipping_applied": false
+    },
+    {
+      "source_frame": 133,
+      "opening_mm": 43.55866591088503,
+      "joint_left_mm": 36.36894479084436,
+      "finger_origin_separation_x_mm": 12.186950418311277,
+      "left_surface_x_root_mm": 0.9065247908443619,
+      "right_surface_x_root_mm": -0.9065247908443619,
+      "signed_gap_mm": -1.8130495816887238,
+      "unsigned_plane_distance_mm": 1.8130495816887238,
+      "matching_anchor_euclidean_distance_mm": 2.0705431136930366,
+      "clipping_applied": false
+    },
+    {
+      "source_frame": 134,
+      "opening_mm": 43.32432194619134,
+      "joint_left_mm": 36.47635244132897,
+      "finger_origin_separation_x_mm": 11.972135117342061,
+      "left_surface_x_root_mm": 1.0139324413289694,
+      "right_surface_x_root_mm": -1.0139324413289694,
+      "signed_gap_mm": -2.027864882657939,
+      "unsigned_plane_distance_mm": 2.027864882657939,
+      "matching_anchor_euclidean_distance_mm": 2.2610254271717722,
+      "clipping_applied": false
+    },
+    {
+      "source_frame": 135,
+      "opening_mm": 43.32919020434371,
+      "joint_left_mm": 36.47412115634246,
+      "finger_origin_separation_x_mm": 11.97659768731507,
+      "left_surface_x_root_mm": 1.0117011563424645,
+      "right_surface_x_root_mm": -1.0117011563424645,
+      "signed_gap_mm": -2.023402312684929,
+      "unsigned_plane_distance_mm": 2.023402312684929,
+      "matching_anchor_euclidean_distance_mm": 2.2570239074894,
+      "clipping_applied": false
+    },
+    {
+      "source_frame": 136,
+      "opening_mm": 43.231713390109675,
+      "joint_left_mm": 36.518798029533066,
+      "finger_origin_separation_x_mm": 11.887243940933864,
+      "left_surface_x_root_mm": 1.056378029533068,
+      "right_surface_x_root_mm": -1.056378029533068,
+      "signed_gap_mm": -2.112756059066136,
+      "unsigned_plane_distance_mm": 2.112756059066136,
+      "matching_anchor_euclidean_distance_mm": 2.3374640457386007,
+      "clipping_applied": false
+    },
+    {
+      "source_frame": 137,
+      "opening_mm": 43.688842854534485,
+      "joint_left_mm": 36.309280358338356,
+      "finger_origin_separation_x_mm": 12.306279283323285,
+      "left_surface_x_root_mm": 0.8468603583383577,
+      "right_surface_x_root_mm": -0.8468603583383577,
+      "signed_gap_mm": -1.6937207166767154,
+      "unsigned_plane_distance_mm": 1.6937207166767154,
+      "matching_anchor_euclidean_distance_mm": 1.966898539859107,
+      "clipping_applied": false
+    },
+    {
+      "source_frame": 138,
+      "opening_mm": 43.934798143328216,
+      "joint_left_mm": 36.19655085097457,
+      "finger_origin_separation_x_mm": 12.531738298050863,
+      "left_surface_x_root_mm": 0.734130850974569,
+      "right_surface_x_root_mm": -0.734130850974569,
+      "signed_gap_mm": -1.468261701949138,
+      "unsigned_plane_distance_mm": 1.468261701949138,
+      "matching_anchor_euclidean_distance_mm": 1.7764550164331716,
+      "clipping_applied": false
+    },
+    {
+      "source_frame": 139,
+      "opening_mm": 43.57186584467175,
+      "joint_left_mm": 36.362894821192114,
+      "finger_origin_separation_x_mm": 12.199050357615773,
+      "left_surface_x_root_mm": 0.9004748211921135,
+      "right_surface_x_root_mm": -0.9004748211921135,
+      "signed_gap_mm": -1.800949642384227,
+      "unsigned_plane_distance_mm": 1.800949642384227,
+      "matching_anchor_euclidean_distance_mm": 2.0599562166230316,
+      "clipping_applied": false
+    },
+    {
+      "source_frame": 140,
+      "opening_mm": 44.9038999908276,
+      "joint_left_mm": 35.75237917087069,
+      "finger_origin_separation_x_mm": 13.420081658258628,
+      "left_surface_x_root_mm": 0.2899591708706859,
+      "right_surface_x_root_mm": -0.2899591708706859,
+      "signed_gap_mm": -0.5799183417413718,
+      "unsigned_plane_distance_mm": 0.5799183417413718,
+      "matching_anchor_euclidean_distance_mm": 1.1559867140620876,
+      "clipping_applied": false
+    }
+  ],
+  "conclusions": {
+    "sign_only": false,
+    "finger_labels_swapped": false,
+    "inward_normals_opposed": true,
+    "sampling_surface_order_reversal": true,
+    "zero_thickness_planes_intersect_when": "g=0 within overlapping yz footprints; for a fixed nonzero g they remain distinct parallel planes even when g<0.",
+    "negative_clearance_interpretation": "Under the facing-surface interpretation, negative g is signed overlap past expected closure. This does not establish collision depth of the actual finger meshes.",
+    "solid_mesh_penetration_test_performed": false,
+    "acceptability": "No physical/calibration tolerance was established, so millimetre-scale magnitude alone is insufficient to call it acceptable.",
+    "trajectory_implication": "Fixed-identity point positions remain finite and continuous functions of pose/opening. Negative gap does not imply index flips or a trajectory format failure. Close/crossed controller groups may alter geometric neighbor/contact relationships; no graph or training evaluation was performed.",
+    "commit_recommendation": "Do not treat this as a human-accepted, collision-free T10 representation yet. Await explicit review disposition of the geometry deviation; an audit-only checkpoint would have to preserve this limitation."
+  }
+}
