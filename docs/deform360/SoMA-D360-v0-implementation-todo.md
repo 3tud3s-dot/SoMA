@@ -27,7 +27,7 @@ Deform360 HEAD:
 d8522a4403b766aeb387510c04e89032a56fdf35
 
 Current task:
-T16
+T16.5
 
 Current status:
 PASS
@@ -145,7 +145,7 @@ tcgs root Git 仅用于 workspace-level 资产。除非明确说明，不在 tcg
 | T14 | 只导出 RGB | PASS |
 | T15 | 只导出 object mask | PASS |
 | T16 | 明确 object mask 与遮挡 loss 的边界 | PASS |
-| T16.5 | 批量生成 SH0 compatible Gaussian sequence | TODO |
+| T16.5 | 批量生成 SH0 compatible Gaussian sequence | PASS |
 | T17 | 只组装 SoMA scene metadata 与目录契约 | TODO |
 | T18 | 验证初始静态渲染的几何对齐 | TODO |
 | T19 | 让 EmbodiedDataset 读取一个 sample | TODO |
@@ -1247,7 +1247,7 @@ v0 接受以上已知 limitation，不修 loss/loader。若以后要求完整遮
 
 ### T16.5：批量生成 SH0 compatible Gaussian sequence
 
-Status: TODO
+Status: PASS
 
 **问题：** 如何将 Deform360 的 Gaussian sequence 转换为 SoMA 使用的统一 SH0 representation？
 
@@ -1280,11 +1280,23 @@ Status: TODO
 
 #### Result
 
-Not executed.
+2026-09-26：PASS。source 113–306 ↔ local 0–193 的 194 个 PLY 全部通过整段预检、SH0 转换、逐字段保真检查及 Slurm GPU allocation 内原始 GaussianModel(0) 加载验证。
+
+所有输入的 f_rest_0…44 均严格等于 0；仅移除这 45 个属性，保留 xyz、normals、SH DC、opacity、scale、rotation 的名称、property 顺序、dtype、逐行字节和 vertex order。无 NaN/Inf，原始文件和 loader 执行前后 SHA256 不变。
+
+派生文件位于服务器 `datasets/deform360/derived/008-pink-cloth/episode_0/t16_5_sh0/`，共 194 个，文件大小合计 171,368,354 bytes（约 163.43 MiB；du 显示 164M）。没有复制 PLY 到 Mac，也没有纳入 Git。
+
+identity 一致仅指同一 source frame 转换前后；本窗口各帧点数范围 12,475–13,731，不能据此建立跨帧固定 Gaussian identity。不得使用 future reconstructed PLY 作为 rollout reset state。未组装 scene、未训练、未执行 T17；T2/T3 历史结论不变。
 
 #### Evidence
 
-Not executed.
+- Git-managed 小型 contract（当前未跟踪、待审阅提交）：[gaussian_sequence_sh0_contract.json](contracts/008-pink-cloth/episode_0/gaussian_sequence_sh0_contract.json)，包含全部 194 帧 source/output 路径、SHA256、vertex count、schema/zero-SH/finite/bitwise equality/loader 检查结果及 T4 manifest hash。
+- 独立工具：`tools/deform360_adapter/convert_gaussian_sequence_sh0.py`。先预检完整窗口，再创建独占输出；非零高阶 SH、schema/dtype/order 差异、非有限值、损坏文件或已有输出均报错停止，不静默覆盖/续转。执行副本为服务器 `/tmp/tcgs_t16_5_convert_20260926.py`，hash 与 Mac 工具一致并记入 contract。
+- Slurm job `25821`：`srun -p 5090 --gres=gpu:1 --ntasks=1 --cpus-per-task=1 --mem=8G --time=00:10:00 --job-name=tcgs-t16-5 /data1/userdata/tcweng/miniconda3/envs/soma/bin/python -B /tmp/tcgs_t16_5_convert_20260926.py --workspace /data1/userdata/tcweng/projects/tcgs --output /data1/userdata/tcweng/projects/tcgs/datasets/deform360/derived/008-pink-cloth/episode_0/t16_5_sh0 --contract /tmp/tcgs_t16_5_contract_20260926.json`，退出码 0。nvidia-smi、torch.cuda.is_available()、GaussianModel(0) 均在 allocation 内执行；RTX 5090，PyTorch 2.7.1+cu128。
+- 每帧 loader tensor：xyz=[N,3]，DC=[N,1,3]，rest=[N,0,3]，opacity=[N,1]，scale=[N,3]，rotation=[N,4]；全部 float32/CUDA/finite。N 对应该帧的原始 vertex count。
+- frame 113 派生 SHA256=`fd79797c7b7da6ba5db02a4de5fe3c5e463cb7db1eabbe6a6a57bc283e51f7de`，与 T2 派生文件完全相同。loader SHA256=`546ba41528a879af4d83bd280a3ef3cbcca9a5e9132204185aaa8f8ee9ffa310`，未修改。
+- 服务器日志：`/tmp/tcgs_t16_5_20260926.log`；完整验证与逐帧 hash 已持久记录于上述仓库 contract，日志不是唯一证据。
+- T16 checkpoint `a15db49de10fee8b1f50f307ae6fd53a11d5ce1c` 已 push；开始本任务前 Mac ahead/behind=0/0 且 clean，服务器 clean 后 fast-forward 到同一 HEAD。T16.5 修改属于 SoMA / deform360-adaptation，尚未 commit/push；服务器执行工具在 /tmp，checkout 仍 clean。小型文件待确认后通过 Git 同步；PLY 永远 server-only。
 
 ### T17：只组装 SoMA scene metadata 与目录契约
 
