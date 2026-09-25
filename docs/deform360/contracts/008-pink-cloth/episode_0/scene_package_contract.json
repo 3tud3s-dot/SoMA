@@ -1,0 +1,567 @@
+{
+  "task": "T17",
+  "status": "PASS",
+  "validation_scope": "Static schema/path/hash only; no dataset/Camera/model instantiation, CUDA, render, forward or training.",
+  "workspace_path_base": "/data1/userdata/tcweng/projects/tcgs",
+  "package_root": "datasets/deform360/derived/t17_scene_packages/pink_cloth_episode_0",
+  "provenance": {
+    "repository_head": "496973fc5e524b55ee6eee3b2ff8b80d60d40fc1",
+    "input_contract_sha256": {
+      "SoMA/docs/deform360/contracts/008-pink-cloth/episode_0/frame_manifest.json": "d48338cf7a606b1ee4bc2e5a560b5a53c017efdc9880a1db282a8494b1b013db",
+      "SoMA/docs/deform360/contracts/008-pink-cloth/episode_0/split_contract.json": "fd1370b2202836c2c8be2589955bca33bbe88e38a067fb00bb937e48500debd1",
+      "SoMA/docs/deform360/contracts/008-pink-cloth/episode_0/camera_config_2cam.json": "c4cce05912007b6213ba1ad458ee3e7d5b8d2a02dc576f1de60b7704db997e5f",
+      "SoMA/docs/deform360/contracts/008-pink-cloth/episode_0/camera_config_3cam.json": "4ed54cb6081bf0c27a92d7dcea7cd5d6456031cfc89edd5f70a4c44259f3802a",
+      "SoMA/docs/deform360/contracts/008-pink-cloth/episode_0/camera_extrinsics_contract.json": "eb9fc54cb1a029eeb1e502f6c4965dda2edf856d29e3c5ca8b86db4e196626dd",
+      "SoMA/docs/deform360/contracts/008-pink-cloth/episode_0/camera_intrinsics_contract.json": "3f4c3bbec096eb3ffb7dc3ee7928d68b464241bc9c383327dfc090ca9b393b97",
+      "SoMA/docs/deform360/contracts/008-pink-cloth/episode_0/controller_trajectory_contract.json": "96e73b1c0a2573e33a32f675b899c147e32c0f00b9d228a16034e4608a65d32d",
+      "SoMA/docs/deform360/contracts/008-pink-cloth/episode_0/controller_grouping_contract.json": "975f93cb92fd638d5fe9eda94a7581e5aae5887813984e3982991297246f5645",
+      "SoMA/docs/deform360/contracts/008-pink-cloth/episode_0/gravity_world_frame_contract.json": "e471f15cc562628608f711a5233d32186927d79eac5a68872eaaa40dbe45cd3d",
+      "SoMA/docs/deform360/contracts/008-pink-cloth/episode_0/rgb_export_contract.json": "e73cab0c621a144d60d4c8acda2c96cad3538764da2e52e53d268896ee1b6b30",
+      "SoMA/docs/deform360/contracts/008-pink-cloth/episode_0/mask_export_contract.json": "7a942fafbd53e36a3085ea2fe3b61329e840806f940de800a12e256e0077a577",
+      "SoMA/docs/deform360/contracts/008-pink-cloth/episode_0/supervision_mask_contract.json": "fc5d58a863c24a0082f54f8c600ec33dca09dc29ce30803a4a267a99eb1fdf83",
+      "SoMA/docs/deform360/contracts/008-pink-cloth/episode_0/gaussian_sequence_sh0_contract.json": "63ee2ab48647503d1fb54a1907d3585fa31f72aea8b5518715ccf42f6e938df9"
+    },
+    "loader_source_sha256": {
+      "mmgs/datasets/embodied_dataset.py": "ed74d81ca80e051491aa9045b83ab9caa5f7f3e7b44a8ec6f82026e5359f7858",
+      "mmgs/datasets/utils/io.py": "ac78c49b4d2d77649ba6a8ea082e98a641c8037f6bfd423d8e8a07db1e0c9f6a",
+      "configs/SoMA/cloth_lift_stage1.py": "e97ca667c997cdd30a03801d7048baa5384d9744ce7abc12d0fb946e029c150d"
+    },
+    "packager_sha256": "551035d7fd4ec36f740f60369618f8fa7cee8df5bf19b1d31252b05e036c5668"
+  },
+  "configurations": {
+    "A": {
+      "scene_directory": "datasets/deform360/derived/t17_scene_packages/pink_cloth_episode_0/config_a_2cam",
+      "camera_ids": [
+        "brics-odroid-023_cam0",
+        "brics-odroid-009_cam1"
+      ],
+      "numeric_camera_mapping": {
+        "0": "brics-odroid-023_cam0",
+        "1": "brics-odroid-009_cam1"
+      },
+      "metadata": {
+        "intrinsics": [
+          [
+            [
+              441.7660461483485,
+              0.0,
+              319.5
+            ],
+            [
+              0.0,
+              442.9798244218355,
+              179.5
+            ],
+            [
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          [
+            [
+              497.0052979235585,
+              0.0,
+              319.5
+            ],
+            [
+              0.0,
+              494.170432804893,
+              179.5
+            ],
+            [
+              0.0,
+              0.0,
+              1.0
+            ]
+          ]
+        ],
+        "serial_numbers": [
+          "brics-odroid-023_cam0",
+          "brics-odroid-009_cam1"
+        ],
+        "fps": 30,
+        "WH": [
+          640,
+          360
+        ],
+        "frame_num": 194
+      },
+      "interface": {
+        "purpose": "T17 partial interface contract; not a runnable training config or executed dataset.",
+        "env_cfg_common": {
+          "data_dir": "/data1/userdata/tcweng/projects/tcgs/datasets/deform360/derived/t17_scene_packages/pink_cloth_episode_0",
+          "scene_list": [
+            "config_a_2cam"
+          ],
+          "sub_img_dir": "color",
+          "sub_video_dir": "color",
+          "cam_transform_fn": null,
+          "resolution": [
+            360,
+            640
+          ],
+          "load_imgs": false,
+          "scale_x_angle": 1.0,
+          "max_cam_num": 2,
+          "max_cam_total": 2,
+          "max_seq": 1,
+          "pad_cam": false,
+          "llffhold": 0,
+          "tracking_pcd": "track_process_data.pkl",
+          "prompt_dict": {
+            "object": [
+              "cloth"
+            ],
+            "obstacle": []
+          },
+          "bounding_box": null,
+          "use_random_background": {
+            "config_a_2cam": false
+          },
+          "const_white_bg": {
+            "config_a_2cam": false
+          },
+          "controller_cfg": {
+            "config_a_2cam": [
+              {
+                "num_cluster": 10
+              },
+              {
+                "downsample_rate": 0.5
+              }
+            ]
+          },
+          "cluster_type": "dis_split",
+          "gravity": [
+            0.0,
+            0.0,
+            -9.8
+          ],
+          "rot_est": {
+            "config_a_2cam": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          },
+          "dt": 0.03333333333333333,
+          "real_dt": {
+            "config_a_2cam": 0.06666666666666667
+          }
+        },
+        "stage_dataset_frame_gap": {
+          "stage1": 10,
+          "stage2": 1
+        },
+        "train_split_list": {
+          "config_a_2cam": [
+            [
+              0,
+              155
+            ]
+          ]
+        },
+        "continuous_evaluation_split_list": {
+          "config_a_2cam": [
+            [
+              0,
+              194
+            ]
+          ]
+        },
+        "score_local_half_open": [
+          155,
+          194
+        ],
+        "warmup_local_half_open": [
+          0,
+          155
+        ],
+        "evaluation_warning": "Scoring mask must be integrated later; never train on evaluation range or use [155,194] as a reset segment.",
+        "initial_gaussian": {
+          "model_path": "/data1/userdata/tcweng/projects/tcgs/datasets/deform360/derived/t17_scene_packages/pink_cloth_episode_0/config_a_2cam/pi3/gs/point_cloud/iteration_10000/point_cloud.ply",
+          "sh_degree": 0,
+          "source_frame": 113,
+          "local_frame": 0
+        },
+        "future_reconstructed_gaussian_reset_allowed": false,
+        "gravity_result_after_dataset_only": [
+          0.0,
+          0.0,
+          -39.2
+        ],
+        "gravity_limitation": "User-approved -Z engineering convention, not measured physical vertical; same for tactile/no-tactile.",
+        "grouping_counts": [
+          30,
+          10,
+          2,
+          1
+        ],
+        "not_generated": [
+          "Gaussian/controller cluster caches",
+          "graph",
+          "Stage-1 cache",
+          "training configuration"
+        ],
+        "remaining_training_config": "Model/object cluster_cfg/volume_scalar and runtime schedule belong to later tasks; this interface does not fabricate them."
+      }
+    },
+    "B": {
+      "scene_directory": "datasets/deform360/derived/t17_scene_packages/pink_cloth_episode_0/config_b_3cam",
+      "camera_ids": [
+        "brics-odroid-023_cam0",
+        "brics-odroid-009_cam1",
+        "brics-odroid-014_cam1"
+      ],
+      "numeric_camera_mapping": {
+        "0": "brics-odroid-023_cam0",
+        "1": "brics-odroid-009_cam1",
+        "2": "brics-odroid-014_cam1"
+      },
+      "metadata": {
+        "intrinsics": [
+          [
+            [
+              441.7660461483485,
+              0.0,
+              319.5
+            ],
+            [
+              0.0,
+              442.9798244218355,
+              179.5
+            ],
+            [
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          [
+            [
+              497.0052979235585,
+              0.0,
+              319.5
+            ],
+            [
+              0.0,
+              494.170432804893,
+              179.5
+            ],
+            [
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          [
+            [
+              471.1822485583385,
+              0.0,
+              319.5
+            ],
+            [
+              0.0,
+              468.925337851113,
+              179.5
+            ],
+            [
+              0.0,
+              0.0,
+              1.0
+            ]
+          ]
+        ],
+        "serial_numbers": [
+          "brics-odroid-023_cam0",
+          "brics-odroid-009_cam1",
+          "brics-odroid-014_cam1"
+        ],
+        "fps": 30,
+        "WH": [
+          640,
+          360
+        ],
+        "frame_num": 194
+      },
+      "interface": {
+        "purpose": "T17 partial interface contract; not a runnable training config or executed dataset.",
+        "env_cfg_common": {
+          "data_dir": "/data1/userdata/tcweng/projects/tcgs/datasets/deform360/derived/t17_scene_packages/pink_cloth_episode_0",
+          "scene_list": [
+            "config_b_3cam"
+          ],
+          "sub_img_dir": "color",
+          "sub_video_dir": "color",
+          "cam_transform_fn": null,
+          "resolution": [
+            360,
+            640
+          ],
+          "load_imgs": false,
+          "scale_x_angle": 1.0,
+          "max_cam_num": 3,
+          "max_cam_total": 3,
+          "max_seq": 1,
+          "pad_cam": false,
+          "llffhold": 0,
+          "tracking_pcd": "track_process_data.pkl",
+          "prompt_dict": {
+            "object": [
+              "cloth"
+            ],
+            "obstacle": []
+          },
+          "bounding_box": null,
+          "use_random_background": {
+            "config_b_3cam": false
+          },
+          "const_white_bg": {
+            "config_b_3cam": false
+          },
+          "controller_cfg": {
+            "config_b_3cam": [
+              {
+                "num_cluster": 10
+              },
+              {
+                "downsample_rate": 0.5
+              }
+            ]
+          },
+          "cluster_type": "dis_split",
+          "gravity": [
+            0.0,
+            0.0,
+            -9.8
+          ],
+          "rot_est": {
+            "config_b_3cam": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          },
+          "dt": 0.03333333333333333,
+          "real_dt": {
+            "config_b_3cam": 0.06666666666666667
+          }
+        },
+        "stage_dataset_frame_gap": {
+          "stage1": 10,
+          "stage2": 1
+        },
+        "train_split_list": {
+          "config_b_3cam": [
+            [
+              0,
+              155
+            ]
+          ]
+        },
+        "continuous_evaluation_split_list": {
+          "config_b_3cam": [
+            [
+              0,
+              194
+            ]
+          ]
+        },
+        "score_local_half_open": [
+          155,
+          194
+        ],
+        "warmup_local_half_open": [
+          0,
+          155
+        ],
+        "evaluation_warning": "Scoring mask must be integrated later; never train on evaluation range or use [155,194] as a reset segment.",
+        "initial_gaussian": {
+          "model_path": "/data1/userdata/tcweng/projects/tcgs/datasets/deform360/derived/t17_scene_packages/pink_cloth_episode_0/config_b_3cam/pi3/gs/point_cloud/iteration_10000/point_cloud.ply",
+          "sh_degree": 0,
+          "source_frame": 113,
+          "local_frame": 0
+        },
+        "future_reconstructed_gaussian_reset_allowed": false,
+        "gravity_result_after_dataset_only": [
+          0.0,
+          0.0,
+          -39.2
+        ],
+        "gravity_limitation": "User-approved -Z engineering convention, not measured physical vertical; same for tactile/no-tactile.",
+        "grouping_counts": [
+          30,
+          10,
+          2,
+          1
+        ],
+        "not_generated": [
+          "Gaussian/controller cluster caches",
+          "graph",
+          "Stage-1 cache",
+          "training configuration"
+        ],
+        "remaining_training_config": "Model/object cluster_cfg/volume_scalar and runtime schedule belong to later tasks; this interface does not fabricate them."
+      }
+    }
+  },
+  "generated_files": {
+    "datasets/deform360/derived/t17_scene_packages/pink_cloth_episode_0/config_b_3cam/scene_interface.json": {
+      "sha256": "25633f44cd10bb3e85e525c1b7444a6efa37b0bf324789b4bbd2460438d349b0",
+      "bytes": 2750
+    },
+    "datasets/deform360/derived/t17_scene_packages/pink_cloth_episode_0/config_b_3cam/scene_info.json": {
+      "sha256": "a24a819d34be51700e081362fe95a76fc0ab3100e50b9061bf036f2bd0c3b8f3",
+      "bytes": 67
+    },
+    "datasets/deform360/derived/t17_scene_packages/pink_cloth_episode_0/config_b_3cam/calibrate.pkl": {
+      "sha256": "d07742e16a0f425b3b0b504e16d13c2088de9a0b926de7dff09a659b9103d3ed",
+      "bytes": 538
+    },
+    "datasets/deform360/derived/t17_scene_packages/pink_cloth_episode_0/config_b_3cam/metadata.json": {
+      "sha256": "765157ff7932e90c0459a8c6c1d876b9dbb0af2c75bbd10344a1fa81585225e6",
+      "bytes": 828
+    },
+    "datasets/deform360/derived/t17_scene_packages/pink_cloth_episode_0/config_b_3cam/mask/mask_info_2.json": {
+      "sha256": "6a8f16ad73e218830d7819b0445a0194f40ec78e97f5119b79fcf05f6e04957e",
+      "bytes": 19
+    },
+    "datasets/deform360/derived/t17_scene_packages/pink_cloth_episode_0/config_b_3cam/mask/mask_info_1.json": {
+      "sha256": "6a8f16ad73e218830d7819b0445a0194f40ec78e97f5119b79fcf05f6e04957e",
+      "bytes": 19
+    },
+    "datasets/deform360/derived/t17_scene_packages/pink_cloth_episode_0/config_b_3cam/mask/mask_info_0.json": {
+      "sha256": "6a8f16ad73e218830d7819b0445a0194f40ec78e97f5119b79fcf05f6e04957e",
+      "bytes": 19
+    },
+    "datasets/deform360/derived/t17_scene_packages/pink_cloth_episode_0/shared/track_process_data.pkl": {
+      "sha256": "8f51ed85109e5ed4b97d29263b7576470dca290f9ab7723bb7fb1795ef7ce37a",
+      "bytes": 70026
+    },
+    "datasets/deform360/derived/t17_scene_packages/pink_cloth_episode_0/config_a_2cam/scene_interface.json": {
+      "sha256": "3fcc0a397e5bff314c52fa6045fcfe5afeb491a8b7fe529cfa9d093ac08dd95e",
+      "bytes": 2750
+    },
+    "datasets/deform360/derived/t17_scene_packages/pink_cloth_episode_0/config_a_2cam/scene_info.json": {
+      "sha256": "a24a819d34be51700e081362fe95a76fc0ab3100e50b9061bf036f2bd0c3b8f3",
+      "bytes": 67
+    },
+    "datasets/deform360/derived/t17_scene_packages/pink_cloth_episode_0/config_a_2cam/calibrate.pkl": {
+      "sha256": "60553af39732ed45eff694ef3c90dee1f5b5c7139127dc1b3367ed2bffab7c7f",
+      "bytes": 410
+    },
+    "datasets/deform360/derived/t17_scene_packages/pink_cloth_episode_0/config_a_2cam/metadata.json": {
+      "sha256": "fc0e08fcd9b115a6ba6686e83b7dfacf68e5286fbd55962755dcb2b8b1af053f",
+      "bytes": 591
+    },
+    "datasets/deform360/derived/t17_scene_packages/pink_cloth_episode_0/config_a_2cam/mask/mask_info_1.json": {
+      "sha256": "6a8f16ad73e218830d7819b0445a0194f40ec78e97f5119b79fcf05f6e04957e",
+      "bytes": 19
+    },
+    "datasets/deform360/derived/t17_scene_packages/pink_cloth_episode_0/config_a_2cam/mask/mask_info_0.json": {
+      "sha256": "6a8f16ad73e218830d7819b0445a0194f40ec78e97f5119b79fcf05f6e04957e",
+      "bytes": 19
+    }
+  },
+  "symlink_mapping": {
+    "datasets/deform360/derived/t17_scene_packages/pink_cloth_episode_0/config_b_3cam/track_process_data.pkl": "datasets/deform360/derived/t17_scene_packages/pink_cloth_episode_0/shared/track_process_data.pkl",
+    "datasets/deform360/derived/t17_scene_packages/pink_cloth_episode_0/config_b_3cam/color/0": "datasets/deform360/derived/008-pink-cloth/episode_0/t14_rgb/brics-odroid-023_cam0",
+    "datasets/deform360/derived/t17_scene_packages/pink_cloth_episode_0/config_b_3cam/color/2": "datasets/deform360/derived/008-pink-cloth/episode_0/t14_rgb/brics-odroid-014_cam1",
+    "datasets/deform360/derived/t17_scene_packages/pink_cloth_episode_0/config_b_3cam/color/1": "datasets/deform360/derived/008-pink-cloth/episode_0/t14_rgb/brics-odroid-009_cam1",
+    "datasets/deform360/derived/t17_scene_packages/pink_cloth_episode_0/config_b_3cam/pi3/gs/point_cloud/iteration_10000/point_cloud.ply": "datasets/deform360/derived/008-pink-cloth/episode_0/t16_5_sh0/splat_113_sh0.ply",
+    "datasets/deform360/derived/t17_scene_packages/pink_cloth_episode_0/config_b_3cam/mask/0/1": "datasets/deform360/derived/008-pink-cloth/episode_0/t15_mask/brics-odroid-023_cam0",
+    "datasets/deform360/derived/t17_scene_packages/pink_cloth_episode_0/config_b_3cam/mask/2/1": "datasets/deform360/derived/008-pink-cloth/episode_0/t15_mask/brics-odroid-014_cam1",
+    "datasets/deform360/derived/t17_scene_packages/pink_cloth_episode_0/config_b_3cam/mask/1/1": "datasets/deform360/derived/008-pink-cloth/episode_0/t15_mask/brics-odroid-009_cam1",
+    "datasets/deform360/derived/t17_scene_packages/pink_cloth_episode_0/config_a_2cam/track_process_data.pkl": "datasets/deform360/derived/t17_scene_packages/pink_cloth_episode_0/shared/track_process_data.pkl",
+    "datasets/deform360/derived/t17_scene_packages/pink_cloth_episode_0/config_a_2cam/color/0": "datasets/deform360/derived/008-pink-cloth/episode_0/t14_rgb/brics-odroid-023_cam0",
+    "datasets/deform360/derived/t17_scene_packages/pink_cloth_episode_0/config_a_2cam/color/1": "datasets/deform360/derived/008-pink-cloth/episode_0/t14_rgb/brics-odroid-009_cam1",
+    "datasets/deform360/derived/t17_scene_packages/pink_cloth_episode_0/config_a_2cam/pi3/gs/point_cloud/iteration_10000/point_cloud.ply": "datasets/deform360/derived/008-pink-cloth/episode_0/t16_5_sh0/splat_113_sh0.ply",
+    "datasets/deform360/derived/t17_scene_packages/pink_cloth_episode_0/config_a_2cam/mask/0/1": "datasets/deform360/derived/008-pink-cloth/episode_0/t15_mask/brics-odroid-023_cam0",
+    "datasets/deform360/derived/t17_scene_packages/pink_cloth_episode_0/config_a_2cam/mask/1/1": "datasets/deform360/derived/008-pink-cloth/episode_0/t15_mask/brics-odroid-009_cam1"
+  },
+  "controller": {
+    "canonical_input": {
+      "path_relative_to_workspace": "datasets/deform360/derived/008-pink-cloth/episode_0/t11_controller_candidate_7mm/controller_points.npy",
+      "server_absolute_path": "/data1/userdata/tcweng/projects/tcgs/datasets/deform360/derived/008-pink-cloth/episode_0/t11_controller_candidate_7mm/controller_points.npy",
+      "format": "NPY; no pickle",
+      "shape": [
+        194,
+        30,
+        3
+      ],
+      "dtype": "float32",
+      "bytes": 69968,
+      "sha256": "d0575b90ebb8aaeb8d4e9154a2ac20985bc3ca1d650432a25110011414d72820",
+      "array_bytes_sha256": "5682358def9df9bd52a27715f515acc61c935e645b8f341bd0c6ebde008a0dc6",
+      "git_policy": "server-only; do not add NPY to Git"
+    },
+    "packaged_file": "datasets/deform360/derived/t17_scene_packages/pink_cloth_episode_0/shared/track_process_data.pkl",
+    "array_values_and_dtype_unchanged": true
+  },
+  "initial_gaussian": {
+    "source_frame": 113,
+    "local_frame": 0,
+    "source_path": "datasets/deform360/processed/008-pink-cloth/episode_0/splatfacto/splat_113.ply",
+    "source_sha256": "58f684ff02881821e7d2c91ae69983a5ec7bd88ad1949e41a4994505e81020c7",
+    "vertex_count": 12861,
+    "schema_check": "PASS",
+    "finite_check": "PASS",
+    "zero_SH_check": "PASS",
+    "output_path": "datasets/deform360/derived/008-pink-cloth/episode_0/t16_5_sh0/splat_113_sh0.ply",
+    "output_sha256": "fd79797c7b7da6ba5db02a4de5fe3c5e463cb7db1eabbe6a6a57bc283e51f7de",
+    "output_bytes": 875025,
+    "retained_fields_bitwise_equal": true,
+    "vertex_order_preserved": true,
+    "derived_f_rest_count": 0,
+    "loader_validation": "PASS"
+  },
+  "checked_image_assets": {
+    "rgb_export_contract:brics-odroid-023_cam0": 194,
+    "rgb_export_contract:brics-odroid-009_cam1": 194,
+    "rgb_export_contract:brics-odroid-014_cam1": 194,
+    "mask_export_contract:brics-odroid-023_cam0": 194,
+    "mask_export_contract:brics-odroid-009_cam1": 194,
+    "mask_export_contract:brics-odroid-014_cam1": 194
+  },
+  "frame_mapping_reference": "SoMA/docs/deform360/contracts/008-pink-cloth/episode_0/frame_manifest.json",
+  "split_reference": "SoMA/docs/deform360/contracts/008-pink-cloth/episode_0/split_contract.json",
+  "validation": {
+    "all_paths_resolve": true,
+    "camera_order_preserved": true,
+    "WH": [
+      640,
+      360
+    ],
+    "frames": 194,
+    "controller_shape": [
+      194,
+      30,
+      3
+    ],
+    "PKL_JSON_roundtrip": true,
+    "input_hashes_match": true,
+    "sole_object_label": {
+      "1": "cloth"
+    },
+    "large_assets_copied": false
+  },
+  "loader_evidence": {
+    "camera": "embodied_dataset.py:211-260,976-1024; c2w array, intrinsics/WH/frame_num",
+    "controller": "embodied_dataset.py:611-626,918-919; controller_points only",
+    "gaussian": "embodied_dataset.py:513-518; fixed pi3 path",
+    "mask": "utils/io.py:367-456; numeric camera/mask_info_ID.json and object label directory",
+    "gravity": "embodied_dataset.py:921-934; raw gravity times ratio squared once, inverse identity rotation",
+    "sample": "datasets/soma_sample/soma_data_sample/cloth_lift/left_lift_1; actual JSON/PKL schemas read before packaging"
+  },
+  "limitations": [
+    "PASS is packaging only, not a training/loader execution PASS.",
+    "Training loader may permute camera batching; stored calibration and asset order remain fixed.",
+    "T16 no-obstacle-mask semantics retained; object mask is not a robot mask.",
+    "Package path avoids /0,/1,/2 parent collisions in current mask-info string replacement.",
+    "Only initial source113 PLY linked; no future reconstruction/reset paths.",
+    "Continuous evaluation scoring integration remains a later task."
+  ]
+}

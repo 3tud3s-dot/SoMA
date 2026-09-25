@@ -27,7 +27,7 @@ Deform360 HEAD:
 d8522a4403b766aeb387510c04e89032a56fdf35
 
 Current task:
-T16.5
+T17
 
 Current status:
 PASS
@@ -146,7 +146,7 @@ tcgs root Git 仅用于 workspace-level 资产。除非明确说明，不在 tcg
 | T15 | 只导出 object mask | PASS |
 | T16 | 明确 object mask 与遮挡 loss 的边界 | PASS |
 | T16.5 | 批量生成 SH0 compatible Gaussian sequence | PASS |
-| T17 | 只组装 SoMA scene metadata 与目录契约 | TODO |
+| T17 | 只组装 SoMA scene metadata 与目录契约 | PASS |
 | T18 | 验证初始静态渲染的几何对齐 | TODO |
 | T19 | 让 EmbodiedDataset 读取一个 sample | TODO |
 | T20 | 只验证 graph construction | TODO |
@@ -1300,7 +1300,7 @@ identity 一致仅指同一 source frame 转换前后；本窗口各帧点数范
 
 ### T17：只组装 SoMA scene metadata 与目录契约
 
-Status: TODO
+Status: PASS
 
 **问题：** 独立组件还需要满足 loader 的文件名、目录和字段要求。
 
@@ -1325,11 +1325,27 @@ Status: TODO
 
 #### Result
 
-Not executed.
+2026-09-26：PASS（仅静态 scene packaging / interface contract，不是 dataset/model 执行或训练 PASS）。服务器生成 Config A/B 两个轻量 scene，固定顺序分别为 023_cam0、009_cam1 和 023_cam0、009_cam1、014_cam1。
+
+Package 根目录：`datasets/deform360/derived/t17_scene_packages/pink_cloth_episode_0/`；入口为 `config_a_2cam/`、`config_b_3cam/`。两者的 color/<index> 链接 T14 canonical RGB，mask/<index>/1 链接 T15 canonical mask；各 mask_info_<index>.json 仅含 {"1":"cloth"}，不伪造 robot/obstacle mask。
+
+共享 `shared/track_process_data.pkl` 仅封装 T11 controller_points；两入口链接该文件，float32 [194,30,3] 逐值/字节不变。每入口 calibrate.pkl 为 T8 c2w 的 [N,4,4] 数组，metadata.json 的 intrinsics 来自 T9，WH=[640,360]、frame_num=194。固定 pi3/gs/point_cloud/iteration_10000/point_cloud.ply 链接 T16.5 source 113 SH0，没有 future reconstructed PLY 路径或 rollout reset。
+
+scene_info.json 只保存真实配置读取的 gravity_rot_quat=[0,0,0,1]；没有虚构平面尺寸/法向。scene_interface.json 记录 T12 controller_cfg、T13 raw gravity=[0,0,-9.8]、comp_dt=1/30、real_dt=1/15，dataset 只乘一次 ×4 得 [0,0,-39.2]。此为用户批准的工程约定，不宣称真实物理竖直。
+
+训练 split_list 为 [[0,155]]；连续评估入口为 [[0,194]]，另记录 warm-up [0,155)、评分 [155,194)。该接口文件不是可执行训练配置，评分逻辑需后续集成；不得直接使用 [[155,194]] 作为测试重置段。T6 Stage 1/2 dataset gap=10/1 原样记录。未生成 cluster/cache/graph，未实例化 dataset/Camera/model，未运行 CUDA、render、forward 或训练；未执行 T18。
 
 #### Evidence
 
-Not executed.
+- 新工具：`tools/deform360_adapter/package_scene.py`。新 contract：[scene_package_contract.json](contracts/008-pink-cloth/episode_0/scene_package_contract.json)，包含 A/B metadata 与接口定义、13 份输入 contract hash、生成 PKL/JSON hash、全部符号链接映射、controller/initial Gaussian provenance 和验证范围。
+- 实际官方 sample：`datasets/soma_sample/soma_data_sample/cloth_lift/left_lift_1/`；只读检查 metadata.json、scene_info.json、mask/mask_info_0.json、calibrate.pkl（[3,4,4] ndarray）、track_process_data.pkl（仅 controller_points）。未复制官方 sample 的 calibration/gravity 或多类 mask 标签。
+- 源码依据：`mmgs/datasets/embodied_dataset.py` readEmbodiedCameras 第 211–260 行按数字 camera 索引读取 color/<index>/<start>.png，c2w 由 extract_extrinsics 第 184 行求逆；_parse_dataset 第 384–396 行使用 joblib.load(calibrate.pkl)；_read_camera_transforms_embodied 第 986–1024 行读取 intrinsics/WH/frame_num。resolution 使用 [H,W]=[360,640]，防止 static image loader 第 46–68 行二次错误缩放。
+- Initial Gaussian 路径依据 embodied_dataset.py 第 513–518 行；controller PKL 依据第 611–626、918–919 行。T12 grouping scheme 原样写入接口 controller_cfg，未执行聚类。scene_info gravity_rot_quat 由 cloth_lift_stage1.py 配置读取。
+- mask 接口依据 `mmgs/datasets/utils/io.py` 第 367–456 行。其 mask_dir.replace("/<camera-index>", ...) 会替换所有匹配片段；因此 package 父路径避免 `/008-pink-cloth/` 中 `/0` 冲突，底层 canonical 资产仍在原目录。已对 A/B 每相机执行同一字符串构造并核验实际 JSON 路径和唯一 object 标签。
+- 静态验证：582 RGB + 582 mask 的文件 SHA256 与 T14/T15 manifest 一致；全为 640×360，RGB mode=RGB、mask mode=L；两个入口所有 194 local paths 可解析。controller NPY/file/array hash 与 T11 一致；PKL 重读仅含 controller_points，shape/dtype/bytes 不变。calibrate.pkl 经 joblib 重读与 T8 数组逐值相等；所有 JSON 重读一致；T4/T5 映射边界一致；initial SH0 hash 与 T16.5 一致。
+- 共新增 14 个实际文件、14 个符号链接，实际文件合计 78,122 bytes。RGB/mask/Gaussian 不复制，controller 仅增加一份 loader 必需的 PKL 封装。大资产和 PKL 留服务器，定义及 hash 由 Git-managed contract/tool 追踪。
+- 执行：服务器 soma Python CPU-only 运行 `/tmp/tcgs_t17_package_scene_20260926.py --workspace /data1/userdata/tcweng/projects/tcgs --output /data1/userdata/tcweng/projects/tcgs/datasets/deform360/derived/t17_scene_packages/pink_cloth_episode_0 --contract /tmp/tcgs_t17_scene_contract_20260926.json`，退出码 0。未初始化 CUDA，无 Slurm GPU 作业。
+- workspace skill checkpoint `cd45c7aedcb251c681d177e0a73d1834e542da8a` 已 push，root main clean/0–0；SoMA 本轮开始 HEAD=496973fc5e524b55ee6eee3b2ff8b80d60d40fc1，Mac clean 且与 origin 一致，服务器 clean 后 fast-forward 到同一 HEAD。T17 修改所属 SoMA/deform360-adaptation：roadmap 已 tracked，tool/contract 当前未跟踪，尚未 commit/push；后续小型文件需 Git 同步。
 
 ---
 
