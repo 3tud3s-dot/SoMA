@@ -1,0 +1,1587 @@
+# SoMA-D360-v0 implementation TODO
+
+最后更新时间：2026-09-24。
+
+本文件是 **SoMA-D360-v0 implementation 的唯一 TODO source of truth**。后续执行任何 TODO 前，必须先读取本文件，确认当前任务、前置依赖、允许修改的范围、验证方法和 PASS / FAIL 条件，不依赖聊天记录重新猜测任务内容。
+
+## 当前项目状态
+
+```text
+Project:
+SoMA-D360-v0
+
+Goal:
+Deform360 → SoMA no-tactile baseline
+之后再加入 tactile conditioning
+
+Dataset:
+008-pink-cloth / episode_0
+
+SoMA branch:
+deform360-adaptation
+
+SoMA HEAD:
+8e8772a98f5eeb332745d9b6dd008e6927f050af
+
+Deform360 HEAD:
+d8522a4403b766aeb387510c04e89032a56fdf35
+
+Current task:
+T6
+
+Current status:
+TODO
+```
+
+以上 HEAD 为本 roadmap 建立时的源码基线，不表示本文档已经 commit。T0–T5 已 PASS，具体结论及证据保留于各项历史 Result / Evidence。Current task 为 T6，状态 TODO：尚未执行，须收到明确指令后才能开始；T6–T32 均未执行。
+
+## 执行规则
+
+- 一次只允许执行一个 TODO。只有明确收到“执行 Tn”的指令，才执行对应任务。
+- 当前 TODO PASS / FAIL 并汇报以后必须停止。未经明确指令不得自动进入下一项。
+- 执行前读取本文件和适用的 AGENTS.md，确认当前任务及前置依赖。前置依赖以既定顺序、各项输入文件和正文引用的 TODO 产物为准。
+- 每次只解决对应 TODO 的问题，遵守该项允许修改的范围；FAIL 时仅定位当前问题，不自动进入下一项。
+- 不因执行一个 TODO 而删减、合并、重排或重写 roadmap，不提前改变技术方案。
+- 状态只允许使用：`TODO`、`IN_PROGRESS`、`PASS`、`FAIL`、`BLOCKED`。
+- 历史审计和聊天中的分析不是执行结果。T0–T5 的执行结果见对应 Result / Evidence；T6–T32 仍未执行。
+
+### 后续更新规则
+
+执行某个 TODO 后，只允许修改：
+
+1. 对应 TODO 的 Status。
+2. 对应 TODO 下的 Result / Evidence。
+3. 顶部 Progress 表格。
+4. Current task。
+
+不得因为执行一个 TODO 而重写整个 roadmap。执行后按以下格式汇报，并停止：
+
+```text
+Tn: <名称>
+
+检查/修改：
+...
+
+验证：
+...
+
+结果：
+PASS / FAIL
+
+证据：
+...
+
+Git diff：
+...
+
+下一步：
+下一 TODO 的 ID 和名称；仅列出，不执行。
+```
+
+## Slurm GPU execution rule
+
+在本项目中，任何需要 CUDA 初始化的操作均不允许直接在 SSH login node 执行，包括但不限于：
+
+- `torch.cuda` 调用；
+- GaussianModel GPU load；
+- CUDA tensor 创建；
+- 使用 `nvidia-smi` 验证 GPU 状态。
+
+必须通过 Slurm GPU allocation 获得 GPU 后再执行：
+
+- 短任务：`srun -p <partition> --gres=gpu:<num> ...`。
+- 长任务：`sbatch`，在作业脚本中申请 GPU，并在获配 GPU 的作业内执行。
+
+如果 CUDA 初始化失败，必须首先依次确认：
+
+1. 当前 shell 是否位于 GPU allocation 内。
+2. `nvidia-smi` 是否在该 allocation 内正常。
+3. `torch.cuda.is_available()` 是否在该 allocation 内正常。
+
+不要把 login node 的 CUDA failure 误判为数据错误、PLY schema 错误、CUDA 环境损坏或 GPU 故障。
+
+## Artifact and synchronization rule
+
+1. **小型定义性 artifact 必须进入 Git 管理。** 包括 `*.md`、`*.json`、`*.yaml`、`*.py`、`*.sh`，以及 manifest、contract 文件。例如 `frame_manifest.json`、`split_contract.json`、`camera_manifest.json` 和 scene metadata contract。
+2. **大型数据文件不进入 Git。** 包括 `*.ply`、`*.mp4`、`*.h5`、`*.npy`、checkpoints 和 cache。大型数据保留在服务器，但必须有纳入 Git 管理的可追踪 manifest/hash 记录。
+3. **Mac 与服务器的同步分工：** 代码、文档和小型 artifact 使用 Git 同步；数据集和训练产物保留服务器。不允许只在服务器生成长期需要的小型 JSON 而不将其纳入 Git 管理。纳入独立源码仓库管理，不在 tcgs root 初始化 Git 仓库；同步时仍须遵守 dirty working tree 保护规则。
+4. **每个 TODO 完成后必须汇报：** 新增/修改文件、各文件是否 tracked by Git，以及是否需要同步到另一端。明确区分已纳入 Git 管理与尚未跟踪、已同步与待同步，不把服务器文件存在视为已进入版本管理。
+
+## Contract 权威版本
+
+长期 contract 的权威版本位于 `SoMA/docs/deform360/contracts/008-pink-cloth/episode_0/`：`frame_manifest.json` 与 `split_contract.json`。本次归档保留 JSON 原始字节和 provenance/hash；路径解析及旧服务器路径与仓库路径的对应关系见该目录的 `README.md`。后续任务应读取仓库内版本，不将服务器生成位置作为唯一引用。T0–T5 历史 Result / Evidence 中的路径保留为当时的执行记录。
+
+## Progress
+
+| ID | Task | Status |
+|----|------|--------|
+| T0 | 确认 frame 113 是否应该作为 SoMA-D360-v0 的 initial frame | PASS |
+| T1 | 定位原始 PLY 与 SoMA loader 的兼容性阻塞 | PASS |
+| T2 | 仅解决零高阶 SH 的文件兼容 | PASS |
+| T3 | 确认 scale、opacity、rotation 的解释保持一致 | PASS |
+| T4 | 固定原始 frame 与本地 frame 的一一映射 | PASS |
+| T5 | 固定训练／测试边界 | PASS |
+| T6 | 明确采样间隔与模型内部时间尺度 | TODO |
+| T7 | 选定两个固定 camera ID | TODO |
+| T8 | 只解决相机外参转换 | TODO |
+| T9 | 只解决目标分辨率对应的内参 | TODO |
+| T10 | 定义单帧 30 点 controller representation | TODO |
+| T11 | 将固定 controller representation 扩展为 trajectory | TODO |
+| T12 | 确认 controller 层级分组不跨手指 | TODO |
+| T13 | 确认重力方向与世界坐标 | TODO |
+| T14 | 只导出 RGB | TODO |
+| T15 | 只导出 object mask | TODO |
+| T16 | 明确 object mask 与遮挡 loss 的边界 | TODO |
+| T17 | 只组装 SoMA scene metadata 与目录契约 | TODO |
+| T18 | 验证初始静态渲染的几何对齐 | TODO |
+| T19 | 让 EmbodiedDataset 读取一个 sample | TODO |
+| T20 | 只验证 graph construction | TODO |
+| T21 | 只运行一次 forward/render/loss | TODO |
+| T22 | 只验证一次 backward 与 optimizer step | TODO |
+| T23 | 只验证 rollout=3 | TODO |
+| T24 | 验证 checkpoint 保存与恢复 | TODO |
+| T25 | 冻结首个 baseline 的运行协议 | TODO |
+| T26 | 执行约定预算的 Stage 1 训练 | TODO |
+| T27 | 只生成并核验 Stage-1 cache | TODO |
+| T28 | 只串联一个 Stage 2 子窗口 | TODO |
+| T29 | 只验证 Stage 2 一个优化步骤 | TODO |
+| T30 | 执行固定预算的 Stage 2 训练 | TODO |
+| T31 | 验证真正的 continuous rollout | TODO |
+| T32 | 汇总首个 no-tactile baseline 结果 | TODO |
+
+## 路径与边界
+
+所有路径均相对于 **tcgs root**，路径本身不再添加 workspace 目录名前缀。路径以行内代码展示，不使用依赖本文档所在目录的相对超链接。
+
+- 输入 episode：`datasets/deform360/processed/008-pink-cloth/episode_0`。
+- 拟新增的单组件工具目录：`SoMA/tools/deform360_adapter/`；目前不创建，具体工具文件名尚未确定，不预设文件名。
+- 拟新增的 Stage 1 配置：`SoMA/configs/SoMA/deform360_v0_stage1.py`。
+- 拟新增的 Stage 2 配置：`SoMA/configs/SoMA/deform360_v0_stage2.py`。
+- Gaussian loader 的 workspace 内路径：`SoMA/gaussian-splatting/scene/gaussian_model.py`；该依赖实际在服务器执行，不要求 Mac 上存在或运行 CUDA 环境。
+- `<camera_id>` 表示对应 TODO 中选定或核验的真实相机目录名。派生 scene、cache、checkpoint 等输出路径未确定时，明确引用其产生 TODO 的产物，不虚构具体文件名。
+
+后续派生数据写入服务器的**独立新目录**，保留 `datasets/deform360/processed/008-pink-cloth/episode_0` 不变。原则上通过派生文件和独立配置满足现有接口；源码修改必须有当前 TODO 的失败证据支持。
+
+---
+
+## 第一阶段：初始状态与时间定义
+
+### T0：确认 frame 113 是否应该作为 SoMA-D360-v0 的 initial frame
+
+Status: PASS
+
+**问题：** 113 是否在局部检查中确实对应官方 contact-start？
+
+**为什么现在解决：** initial Gaussian、controller 初态和时间编号都依赖这个原点。
+
+**输入文件：**
+
+- `datasets/deform360/processed/008-pink-cloth/episode_0/brics-odroid_tactilel_left/synced_tactile.npy`
+- `datasets/deform360/processed/008-pink-cloth/episode_0/brics-odroid_tactilel_right/synced_tactile.npy`
+- `datasets/deform360/processed/008-pink-cloth/episode_0/brics-odroid_tactiler_left/synced_tactile.npy`
+- `datasets/deform360/processed/008-pink-cloth/episode_0/brics-odroid_tactiler_right/synced_tactile.npy`
+- `datasets/deform360/processed/008-pink-cloth/episode_0/metadata.json`
+- `datasets/deform360/processed/008-pink-cloth/episode_0/split.json`
+- 可辅助读取 `datasets/deform360/processed/008-pink-cloth/episode_0/robot/robot.npy`。
+
+**预计涉及文件：**
+
+- 无。
+
+**最小修改：** 无；只读检查 108–118，不调用 Deform360 processing pipeline。
+
+**验证方法：** 严格复用 `deform360/deform360/processing/control_points_stage.py` 中的 `_active_taxel_counts`、`_episode_active_frames`（第 131 行附近）的规则：
+
+- 只统计 sensor 的前 12 行，值 **`>0`** 的 taxel；
+- 同一 gripper 的左右 sensor 计数相加，**合计 `>1`** 才 active；
+- 各 gripper 的 active 取 OR；
+- `CONTACT_PATIENCE=5` 用于 contact 结束判定，不要求开始前连续 active 五帧。
+
+输出 108–118 的四 sensor 计数、两个 gripper 的聚合结果、episode active、窗口内首个 active frame。可附 opening 和相邻 EEF translation delta。
+
+**PASS：** 108–112 均 inactive，113 active，窗口内首个 active 为 113，且与发布 metadata/split 起点一致。
+
+**FAIL 后检查：** sensor 分组、12 行截取、数组索引和发布版本差异；不改阈值、不换 initial frame、不进入 T1。
+
+**证据边界：** 这验证局部 contact-start sanity。仅检查 108–118，不能证明整个 episode 在 108 之前从未 active；若必须证明全局最早起点，需要另行明确扩大只读范围。
+
+#### Result
+
+2026-09-24：PASS — adopt official processed start frame。根据用户明确确认，T0 的最终目标是确定数据时间原点，而不是重新定义 contact onset：**source frame 113 = SoMA-D360-v0 local frame 0**。
+
+- detector first active in checked range: **108**（检查范围 108–118；不代表全局首次物理接触）。
+- official processed start frame: **113**。
+- adopted initial frame: **113**。
+
+采用原因：官方 split/metadata 已以 113 作为有效 dynamics window 起点；按用户确认的项目约定，Gaussian、robot、tactile、train/test split 均围绕 113–306 对齐。本 PASS 表示采用官方 processed 时间原点，不表示 113 是 first physical contact，也不表示先前 detector 的结果被推翻。
+
+上述用户确认取代本项原始“108–112 inactive、113 首次 active”的验收要求；原始条件与实测记录保留以追溯差异。无需为通过 T0 调整 detector、阈值或 sensor 分组。下一步准备 T1，本次不执行 T1。
+
+#### Evidence
+
+- 用户于 2026-09-24 明确确认采用官方 processed start frame：detector first active in checked range = 108；official processed start frame = 113；adopted initial frame = 113；source frame 113 映射为 local frame 0。
+- 以下为此前真实检查证据，本次仅记录时间原点决策，未重新计算数据。当前源码 detector 与发布窗口的差异保留，不再作为采用官方起点的阻塞。
+- 运行位置：服务器 tcgs root；解释器为现有 soma 环境 Python，以 `-B` 禁止写入字节码。NumPy 以 `mmap_mode='r'` 打开四份输入，只计算 `[108:119]`，未调用 processing pipeline、未生成数据。
+- 通过 AST 从服务器当前 `deform360/deform360/processing/control_points_stage.py` 提取原始纯函数及常量执行，没有重新实现判据：`_active_taxel_counts`（131）、`_contact_range_from_active`（140）、`_gripper_group`（193）、`_episode_active_frames`（202）。源码 SHA256：`9ff82c86c22e38c56dd2ce5d872850afb6ffeb502da7338baf0b55108afb7373`。
+- 判据：行 0–11 的值 > 0；同一 gripper 两 sensor 计数相加 > 1；gripper 间 OR；CONTACT_PATIENCE=5 仅影响结束判定。
+- 四份输入 shape 均为 `[357,16,32]`，dtype 均为 `float32`。下表 LL/LR/RL/RR 依次对应输入列表中的 tactilel_left、tactilel_right、tactiler_left、tactiler_right；L/R 仅表示文件名分组，不推断实际执行机械臂身份。
+
+| Frame | LL | LR | RL | RR | L sum | L active | R sum | R active | Episode active |
+|---|---|---|---|---|---|---|---|---|---|
+| 108 | 18 | 14 | 0 | 1 | 32 | true | 1 | false | true |
+| 109 | 18 | 14 | 0 | 1 | 32 | true | 1 | false | true |
+| 110 | 18 | 14 | 0 | 1 | 32 | true | 1 | false | true |
+| 111 | 18 | 12 | 0 | 1 | 30 | true | 1 | false | true |
+| 112 | 17 | 12 | 0 | 1 | 29 | true | 1 | false | true |
+| 113 | 17 | 12 | 0 | 3 | 29 | true | 3 | true | true |
+| 114 | 17 | 12 | 0 | 3 | 29 | true | 3 | true | true |
+| 115 | 17 | 12 | 0 | 3 | 29 | true | 3 | true | true |
+| 116 | 17 | 12 | 0 | 3 | 29 | true | 3 | true | true |
+| 117 | 17 | 12 | 1 | 4 | 29 | true | 5 | true | true |
+| 118 | 17 | 13 | 0 | 4 | 30 | true | 4 | true | true |
+
+- 实际 `datasets/deform360/processed/008-pink-cloth/episode_0/metadata.json`：start_frame=113、end_frame=306、frame_num=194；同目录 `split.json`：frame_len=194、train=[113,268]、test=[268,307]。
+- 先前 detector 验收 FAIL 的定位（实测不变）：sensor 按 `_left`/`_right` 后缀剥离分组，截取原始数组的 108–118 并统计前 12 行；当前源码第 293、322–328 行加载全部 streams 并取 OR，未按 bimanual 过滤 contact sensor。`deform360/deform360/layout.py` 第 56–61 行只按目录名称列出 sensor，不赋予机械臂语义。发布窗口采用的生成版本/选组规则仍未确认，不能擅自把 tactilel 组排除。
+- 首次临时诊断命令因 AST 新节点缺少 lineno 在加载数据前退出；补上 `ast.fix_missing_locations` 后成功运行，未改动源码或判据。
+- 两端 SoMA HEAD：`8e8772a98f5eeb332745d9b6dd008e6927f050af`，branch `deform360-adaptation`；两端 deform360 HEAD：`d8522a4403b766aeb387510c04e89032a56fdf35`。执行前服务器两仓库 clean；本地仅本 roadmap 未跟踪，tracked/staged diff 均为空。
+- 本轮仅更新本地 roadmap 的 T0 Status、Result / Evidence、Progress 行。未同步文档、未修改源码/config、未运行训练、未 commit/push，T1–T32 未执行。
+
+### T1：定位原始 PLY 与 SoMA loader 的兼容性阻塞
+
+Status: PASS
+
+**问题：** 原始 `datasets/deform360/processed/008-pink-cloth/episode_0/splatfacto/splat_113.ply` 能被哪些实际 loader 设置读取？
+
+**为什么现在解决：** 区分文件损坏、SH 配置不匹配与其他属性问题。
+
+**输入文件：**
+
+- `datasets/deform360/processed/008-pink-cloth/episode_0/splatfacto/splat_113.ply`
+
+**预计涉及文件：**
+
+- `SoMA/gaussian-splatting/scene/gaussian_model.py`：只读检查 `load_ply`。
+- `SoMA/mmgs/datasets/embodied_dataset.py`：只读检查 `_load_cluster_mask`。
+
+**最小修改：** 无模型修改；仅建立隔离的加载诊断。
+
+**验证方法：** 服务器上分别检查 `GaussianModel(3)` 和当前 `GaussianModel(0)` 路径，记录完整异常与 tensor shape。
+
+**PASS：** SH3 正常读取 12,861 点；SH0 的预期阻塞被准确定位到 45 个 `f_rest_*` 与 degree 不匹配，没有混入路径或环境错误。
+
+**FAIL 后检查：** 实际 import 来源、PLY 属性数量、loader 参数和异常栈；不同时调整 SH、scale 或环境。
+
+这里的 PASS 指**诊断完成**，不表示原始 PLY 已兼容当前 SH0 配置。
+
+#### Result
+
+2026-09-24：PASS（加载诊断完成）。通过 Slurm 获配 GPU 的 job 25620 实际测试同一原始 PLY：GaussianModel(3) 成功读取 12,861 个 Gaussian；GaussianModel(0) 在 load_ply 第 288 行因 45 个 f_rest_* 与 SH0 要求的 0 个不匹配而触发 AssertionError。SH3 要求的数量为 45，与文件一致。
+
+同一文件和真实 loader 在同一获配 GPU 的进程中 SH3 成功，排除了路径错误和本次 GPU 环境不可用。PASS 表示诊断完成，不表示原始文件兼容 SH0。未修改 PLY、loader 或环境，未执行 T2。
+
+#### Evidence
+
+- 命令：在服务器 SoMA 目录运行 `srun -p 5090 --gres=gpu:1 --ntasks=1 --cpus-per-task=1 --mem=4G --time=00:02:00 --job-name=tcgs-t1-load <soma-env>/bin/python -B -`，诊断脚本经标准输入执行，未调用训练、dataset pipeline 或写文件方法。
+- Job 25620，host amax，CUDA_VISIBLE_DEVICES=0，CUDA_AVAILABLE=True，RTX 5090，PyTorch 2.7.1+cu128；进程退出码 0（捕获并记录 SH0 预期异常）。
+- 纠正此前 BLOCKED 的解释：此前未通过 Slurm 申请 GPU，直接 SSH 进程无法访问 GPU，不能据此断言服务器 GPU 故障。本次获配 GPU 后 SH3 成功，无需修改驱动或 CUDA 环境。
+- 两端 SoMA branch deform360-adaptation，HEAD 8e8772a98f5eeb332745d9b6dd008e6927f050af；执行前服务器 clean，本地仅 roadmap 未跟踪。没有干预其他运行作业。
+- `SoMA/mmgs/datasets/embodied_dataset.py` 第 515 行附近首选 GaussianModel(0)，异常后改用另一文件的 GaussianModel(3)；本诊断两种 degree 使用同一个指定 PLY，未依赖备用路径。
+- PLY 和 loader 执行前后 SHA256 一致。以下保存实际 tensor shape 和完整异常栈；仅将 workspace 前缀移除、环境前缀替换为 <soma-env>。
+
+```text
+JOB 25620 HOST amax CUDA_VISIBLE_DEVICES 0
+PYTHON <soma-env>/bin/python TORCH 2.7.1+cu128
+LOADER SoMA/gaussian-splatting/scene/gaussian_model.py CUDA_AVAILABLE True
+GPU NVIDIA GeForce RTX 5090
+SHA256_BEFORE {"datasets/deform360/processed/008-pink-cloth/episode_0/splatfacto/splat_113.ply": "58f684ff02881821e7d2c91ae69983a5ec7bd88ad1949e41a4994505e81020c7", "SoMA/gaussian-splatting/scene/gaussian_model.py": "546ba41528a879af4d83bd280a3ef3cbcca9a5e9132204185aaa8f8ee9ffa310"}
+VERTEX_COUNT 12861 REST_COUNT 45
+DEGREE 3
+SUCCESS
+_xyz (12861, 3) torch.float32 cuda:0
+_features_dc (12861, 1, 3) torch.float32 cuda:0
+_features_rest (12861, 15, 3) torch.float32 cuda:0
+_opacity (12861, 1) torch.float32 cuda:0
+_scaling (12861, 3) torch.float32 cuda:0
+_rotation (12861, 4) torch.float32 cuda:0
+DEGREE 0
+FAILURE
+Traceback (most recent call last):
+  File "<stdin>", line 22, in <module>
+  File "SoMA/gaussian-splatting/scene/gaussian_model.py", line 288, in load_ply
+    assert len(extra_f_names)==3*(self.max_sh_degree + 1) ** 2 - 3
+AssertionError
+
+_xyz (0,) torch.float32 cpu
+_features_dc (0,) torch.float32 cpu
+_features_rest (0,) torch.float32 cpu
+_opacity (0,) torch.float32 cpu
+_scaling (0,) torch.float32 cpu
+_rotation (0,) torch.float32 cpu
+SHA256_AFTER {"datasets/deform360/processed/008-pink-cloth/episode_0/splatfacto/splat_113.ply": "58f684ff02881821e7d2c91ae69983a5ec7bd88ad1949e41a4994505e81020c7", "SoMA/gaussian-splatting/scene/gaussian_model.py": "546ba41528a879af4d83bd280a3ef3cbcca9a5e9132204185aaa8f8ee9ffa310"}
+UNCHANGED True
+```
+
+### T2：仅解决零高阶 SH 的文件兼容
+
+Status: PASS
+
+**问题：** 当前文件有 45 个全零 `f_rest_*`，而 dataset 聚类入口要求 SH0。
+
+**为什么现在解决：** 这是已知最小文件层阻塞。
+
+**输入文件：**
+
+- `datasets/deform360/processed/008-pink-cloth/episode_0/splatfacto/splat_113.ply`
+- T1 的加载诊断结果。
+
+**预计涉及文件：**
+
+- `SoMA/tools/deform360_adapter/`：拟新增的独立 Gaussian 导出工具，文件名尚未确定。
+- `SoMA/gaussian-splatting/scene/gaussian_model.py`：SH0 loader 验证入口。
+- `SoMA/mmgs/datasets/embodied_dataset.py`：dataset 加载验证入口。
+
+**最小修改：** 生成独立 SH0 派生 PLY，仅移除已确认全零的 `f_rest_*`；保留原文件。
+
+**验证方法：** 逐字段比较保留属性、点数和行顺序，再用 `SoMA/gaussian-splatting/scene/gaussian_model.py` 的 SH0 loader 读取。
+
+**PASS：** 12,861 点及全部保留属性数值不变，SH0 加载成功。
+
+**FAIL 后检查：** 是否存在非零高阶项、PLY writer 精度或 property 顺序问题；不修改 loader 来掩盖导出错误。
+
+#### Result
+
+2026-09-24：PASS。已生成独立 SH0 派生文件 `datasets/soma_d360_v0/008-pink-cloth/episode_0/t2_sh0/splat_113_sh0.ply`（875025 bytes，server-only），未覆盖任何已有文件。
+
+仅移除经实际检查全部严格等于 0 的 45 个 f_rest_0…f_rest_44 属性。保留 12,861 点、点顺序，以及全部其他属性的名称、顺序、dtype 和逐字段逐行数值；重新读取派生文件后按字段字节比较全部一致。原始 PLY 和 Gaussian loader 保持不变。
+
+在 Slurm job 25623 中，原始 PLY 的 GaussianModel(3) 和派生 PLY 的 GaussianModel(0) 均成功加载。不执行 T3。
+
+#### Evidence
+
+- 转换输入：`datasets/deform360/processed/008-pink-cloth/episode_0/splatfacto/splat_113.ply`。通过现有 soma 环境 Python/plyfile/NumPy 的一次性标准输入脚本执行；未新增或修改源码工具，未安装环境。
+- 转换前断言：vertex=12861，f_rest 属性数=45，每一个值严格等于 0（非零或 NaN 均会中止）。按原 property 顺序复制全部非 f_rest 属性，保持 PLY text/byte_order/comments/obj_info；输出以独占创建模式写入，不覆盖已有文件。
+- 保留属性：x/y/z、nx/ny/nz、f_dc_0…2、opacity、scale_0…2、rot_0…3。重新读取输出，逐字段核验 dtype 和原始行序下 tobytes 完全一致；没有排序、筛点、重新量化或改变任何保留值。
+- 原始 SHA256：`58f684ff02881821e7d2c91ae69983a5ec7bd88ad1949e41a4994505e81020c7`；派生 SHA256：`fd79797c7b7da6ba5db02a4de5fe3c5e463cb7db1eabbe6a6a57bc283e51f7de`；loader SHA256：`546ba41528a879af4d83bd280a3ef3cbcca9a5e9132204185aaa8f8ee9ffa310`。原文件与 loader 转换前后 hash 一致；三者 GPU 验证前后 hash 也一致。
+- CUDA 验证命令：在服务器 SoMA 目录执行 `srun -p 5090 --gres=gpu:1 --ntasks=1 --cpus-per-task=1 --mem=4G --time=00:02:00 --job-name=tcgs-t2-load <soma-env>/bin/python -B -`。job 25623，进程退出码 0；真实 loader 无 mock/改写。没有启动 dataset pipeline、训练或 T3 数值解释检查。
+- 两端 SoMA branch deform360-adaptation，HEAD 8e8772a98f5eeb332745d9b6dd008e6927f050af；仅本地 roadmap 更新，派生 PLY 保留服务器。此前 SSH 阻塞已解除。
+- 完整加载输出（workspace 前缀省略）：
+
+```text
+JOB 25623 CUDA_AVAILABLE True GPU NVIDIA GeForce RTX 5090 TORCH 2.7.1+cu128
+LOADER SoMA/gaussian-splatting/scene/gaussian_model.py
+SUCCESS 3 datasets/deform360/processed/008-pink-cloth/episode_0/splatfacto/splat_113.ply
+_xyz (12861, 3) torch.float32 cuda:0
+_features_dc (12861, 1, 3) torch.float32 cuda:0
+_features_rest (12861, 15, 3) torch.float32 cuda:0
+_opacity (12861, 1) torch.float32 cuda:0
+_scaling (12861, 3) torch.float32 cuda:0
+_rotation (12861, 4) torch.float32 cuda:0
+SUCCESS 0 datasets/soma_d360_v0/008-pink-cloth/episode_0/t2_sh0/splat_113_sh0.ply
+_xyz (12861, 3) torch.float32 cuda:0
+_features_dc (12861, 1, 3) torch.float32 cuda:0
+_features_rest (12861, 0, 3) torch.float32 cuda:0
+_opacity (12861, 1) torch.float32 cuda:0
+_scaling (12861, 3) torch.float32 cuda:0
+_rotation (12861, 4) torch.float32 cuda:0
+UNCHANGED_SHA256 ['58f684ff02881821e7d2c91ae69983a5ec7bd88ad1949e41a4994505e81020c7', 'fd79797c7b7da6ba5db02a4de5fe3c5e463cb7db1eabbe6a6a57bc283e51f7de', '546ba41528a879af4d83bd280a3ef3cbcca9a5e9132204185aaa8f8ee9ffa310']
+```
+
+### T3：确认 scale、opacity、rotation 的解释保持一致
+
+Status: PASS
+
+**问题：** 文件能读取，不代表 Gaussian 的数值含义正确。
+
+**为什么现在解决：** 避免重复 exp/sigmoid、错误 quaternion 顺序或几何缩放。
+
+**输入文件：**
+
+- 原始 PLY：`datasets/deform360/processed/008-pink-cloth/episode_0/splatfacto/splat_113.ply`
+- T2 生成的 SH0 派生 PLY；实际输出路径以 T2 记录为准。
+
+**预计涉及文件：**
+
+- `SoMA/gaussian-splatting/scene/gaussian_model.py`：属性 activation、covariance 计算。
+- `SoMA/tools/deform360_adapter/`：Gaussian 数值验证部分，文件名尚未确定。
+
+**最小修改：** 仅新增这一组数值验证，不再转换属性。
+
+**验证方法：** 比较 xyz、SH DC、activated scale/opacity、rotation 和 covariance。
+
+**PASS：** xyz/点序一致；scale 为正、opacity 有限且在合法范围；两份文件产生一致的旋转和 covariance。
+
+**FAIL 后检查：** log/raw 值混淆、wxyz/xyzw、零 quaternion、单位或序列化精度。
+
+#### Result
+
+2026-09-24：PASS。原始 SH3 与 T2 派生 SH0 在真实 SoMA GaussianModel 加载后，12,861 点的 xyz/点序、SH DC、raw/activated scale、raw/activated opacity、raw/normalized quaternion、rotation matrix 和 covariance 全部逐元素完全相等（max absolute difference=0）。
+
+scale 经 exp 后均为正且有限；opacity 经 sigmoid 后有限且在 [0,1] 内；无零 quaternion，SoMA 按 wxyz 解释并归一化；默认 scaling_modifier=1 的 covariance 一致。原始和派生文件、loader 均未改动；未执行 T4。
+
+#### Evidence
+
+- 输入：`datasets/deform360/processed/008-pink-cloth/episode_0/splatfacto/splat_113.ply` 与 `datasets/soma_d360_v0/008-pink-cloth/episode_0/t2_sh0/splat_113_sh0.ply`。
+- 运行命令：服务器 SoMA 目录，`srun -p 5090 --gres=gpu:1 --ntasks=1 --cpus-per-task=1 --mem=4G --time=00:02:00 --job-name=tcgs-t3-values <soma-env>/bin/python -B -`；一次性标准输入脚本，torch.no_grad()，未新增源码工具。Job 25624，RTX 5090，退出码 0。
+- 源码依据：`SoMA/gaussian-splatting/scene/gaussian_model.py` setup_functions 第 32 行（exp、sigmoid、normalize），load_ply 第 263 行（原始字段直接载入），get_covariance 第 142 行；`SoMA/gaussian-splatting/utils/general_utils.py` build_rotation 第 78 行（wxyz）与 build_scaling_rotation 第 101 行（R @ diag(scale)）。
+- 两份 PLY 分别用 GaussianModel(3)/GaussianModel(0) 加载；逐行核验模型 raw xyz/DC/scale/opacity/rotation 与各自 PLY 字段完全相等，排除重排和加载时重复激活。再核验 get_scaling=exp(raw_scale)、get_opacity=sigmoid(raw_opacity)，两模型输出逐元素比较使用 torch.equal。
+- activated scale 范围约 [9.80978075e-05, 0.0116145378]；opacity 范围 [0.0123573467,1.0]（float32 sigmoid 可饱和到 1）；raw quaternion norm 范围 [0.9999999404,1.0]，归一化后 norm 最大误差 1.1920929e-07。
+- 默认 covariance 为 R diag(exp(raw_scale)^2) R^T 的压缩表示；两模型的 [12861,6] covariance 完全相等。使用另一乘法顺序核验该公式，最大绝对误差 1.4551915e-11，满足 rtol=1e-5、atol=1e-10。这里仅确认 T2 转换前后在 SoMA 中的解释一致，不扩展为外部坐标系/物理单位的验证。
+- 两端 SoMA branch deform360-adaptation，HEAD 8e8772a98f5eeb332745d9b6dd008e6927f050af。以下输出包含输入与实现文件执行前后不变的 SHA256。仅更新本地 T3 记录与 Progress，未训练、未 commit/push。
+
+```text
+JOB 25624 CUDA True GPU NVIDIA GeForce RTX 5090
+SOURCE_LINES {'setup_functions': 32, 'load_ply': 263, 'get_covariance': 142, 'build_rotation': 78, 'build_scaling_rotation': 101}
+DEGREE 3 SCALE_RANGE 9.809780749492347e-05 0.011614537797868252 OPACITY_RANGE 0.012357346713542938 1.0 RAW_Q_NORM_RANGE 0.9999999403953552 1.0 NORMALIZED_Q_NORM_MAX_ERROR 1.1920928955078125e-07
+DEGREE 0 SCALE_RANGE 9.809780749492347e-05 0.011614537797868252 OPACITY_RANGE 0.012357346713542938 1.0 RAW_Q_NORM_RANGE 0.9999999403953552 1.0 NORMALIZED_Q_NORM_MAX_ERROR 1.1920928955078125e-07
+EQUAL xyz shape [12861, 3] max_abs_diff 0.0
+EQUAL SH_DC shape [12861, 1, 3] max_abs_diff 0.0
+EQUAL raw_scale shape [12861, 3] max_abs_diff 0.0
+EQUAL activated_scale shape [12861, 3] max_abs_diff 0.0
+EQUAL raw_opacity shape [12861, 1] max_abs_diff 0.0
+EQUAL activated_opacity shape [12861, 1] max_abs_diff 0.0
+EQUAL raw_quaternion_wxyz shape [12861, 4] max_abs_diff 0.0
+EQUAL normalized_quaternion shape [12861, 4] max_abs_diff 0.0
+EQUAL rotation_matrix shape [12861, 3, 3] max_abs_diff 0.0
+EQUAL covariance_packed_modifier_1 shape [12861, 6] max_abs_diff 0.0
+COVARIANCE_FORMULA_CHECK_MAX_ABS 1.4551915228366852e-11
+COVARIANCE_FORMULA_CHECK_MAX_ABS 1.4551915228366852e-11
+UNCHANGED_SHA256 {"datasets/deform360/processed/008-pink-cloth/episode_0/splatfacto/splat_113.ply": "58f684ff02881821e7d2c91ae69983a5ec7bd88ad1949e41a4994505e81020c7", "datasets/soma_d360_v0/008-pink-cloth/episode_0/t2_sh0/splat_113_sh0.ply": "fd79797c7b7da6ba5db02a4de5fe3c5e463cb7db1eabbe6a6a57bc283e51f7de", "SoMA/gaussian-splatting/scene/gaussian_model.py": "546ba41528a879af4d83bd280a3ef3cbcca9a5e9132204185aaa8f8ee9ffa310", "SoMA/gaussian-splatting/utils/general_utils.py": "97553507caa4f3e6849919d9658b0b0da064e6c8f19142045da79072171ffa51"}
+PASS
+```
+
+### T4：固定原始 frame 与本地 frame 的一一映射
+
+Status: PASS
+
+**问题：** 原始 113 应如何成为 SoMA scene 的 frame 0？
+
+**为什么现在解决：** 所有导出组件必须共享同一编号。
+
+**输入文件：**
+
+- T0 结论。
+- `datasets/deform360/processed/008-pink-cloth/episode_0/metadata.json`
+- `datasets/deform360/processed/008-pink-cloth/episode_0/<camera_id>/aligned_timestamps.txt`
+
+**预计涉及文件：**
+
+- `SoMA/tools/deform360_adapter/`：拟新增的独立 frame manifest 工具，文件名尚未确定。
+- `SoMA/mmgs/datasets/embodied_dataset.py`：`__getitem__`。
+
+**最小修改：** 建立 `local=source−113` 的映射，不导出图像或 controller。
+
+**验证方法：** 检查正反映射和 timestamps；明确保留窗口内每一帧，不按 tactile active 再删帧。
+
+**PASS：** `113↔0`、`306↔193`，194 条连续、无重复、可逆。
+
+**FAIL 后检查：** inclusive/exclusive 边界、额外减偏移、按 contact-active 压缩帧的问题。
+
+#### Result
+
+2026-09-24：PASS。建立并持久化 source_frame ↔ local_frame 映射：local=source−113，source=local+113；113↔0，306↔193，共 194 条连续、无重复、可逆记录。
+
+产物：`datasets/soma_d360_v0/008-pink-cloth/episode_0/t4_frame_mapping/frame_manifest.json`（服务器，528101 bytes）。每条记录包含 source/local frame 及 36 个 camera 的原始 timestamp token。保留窗口内每一帧；没有读取 tactile 数值、按 active 筛帧或压缩时间轴。未执行 T5。
+
+#### Evidence
+
+- 以实际 metadata 的 start_frame=113、end_frame=306、frame_num=194 和 T0 已确认的官方 processed 起点为依据；未解析或修改 train/test 划分。
+- 输入为 `datasets/deform360/processed/008-pink-cloth/episode_0/metadata.json` 与该目录中 36 个 camera 的 aligned_timestamps.txt；每个文件 357 行。source_frame 明确定义为从 0 起算的行号。
+- 原始行格式为 frame_<integer_timestamp>_<frame_id>。逐 camera 核验选中窗口中 token 和整数 timestamp 均无重复、严格递增，内嵌 frame_id 与 source 行号一致（36/36 cameras）。不假定各相机 timestamp 完全相同，不插值、不重新计时，也不推断未核验的时间单位。
+- 建立 194 条连续 source=113…306/local=0…193；对每个 camera 每条记录验证 (camera_id,timestamp token)→(source,local) 的反向查找；原始 timestamp 字符串精确保留。manifest 序列化后重新读取并与内存对象全量比较一致。
+- `brics-odroid-001_cam0` 示例：local 0/source 113 = frame_1766008308603525_000000000113；local 193/source 306 = frame_1766008315035710_000000000306。
+- manifest 保存全部 36 个 timestamp 输入文件 SHA256，运行前后均一致；输出 SHA256 为 d48338cf7a606b1ee4bc2e5a560b5a53c017efdc9880a1db282a8494b1b013db。独占创建输出，没有覆盖已有文件。
+- 通过既有 soma 环境 Python -B 的一次性标准输入脚本完成纯 CPU manifest 操作；未初始化 CUDA、未修改 Gaussian/controller/camera 或任何源码，未导出图像。没有新增独立工具源码。
+- 只读查看 `SoMA/mmgs/datasets/embodied_dataset.py` __getitem__ 第 798 行及 video_range 第 826 行；本轮不修改 loader、split 或 frame_gap，不进行 T5。
+- 两端 SoMA branch deform360-adaptation，HEAD 8e8772a98f5eeb332745d9b6dd008e6927f050af。本轮仅新增服务器 manifest 并更新本地 T4 记录/Progress；不 commit/push。
+
+```json
+{
+  "output": "datasets/soma_d360_v0/008-pink-cloth/episode_0/t4_frame_mapping/frame_manifest.json",
+  "bytes": 528101,
+  "sha256": "d48338cf7a606b1ee4bc2e5a560b5a53c017efdc9880a1db282a8494b1b013db",
+  "count": 194,
+  "cameras": 36,
+  "endpoints": [
+    [
+      113,
+      0
+    ],
+    [
+      306,
+      193
+    ]
+  ],
+  "all_cameras_timestamps_unique_strictly_increasing_reversible": true,
+  "source_files_unchanged": true,
+  "embedded_id_matches_row_camera_count": 36,
+  "first_camera_example": {
+    "brics-odroid-001_cam0": {
+      "first": "frame_1766008308603525_000000000113",
+      "last": "frame_1766008315035710_000000000306",
+      "embedded_id_equals_source_row": true
+    }
+  }
+}
+```
+
+### T5：固定训练／测试边界
+
+Status: PASS
+
+**问题：** 官方 split 如何映射，如何避免测试监督进入训练？
+
+**为什么现在解决：** 后续采样、cache 和 Stage 2 子窗口都受其约束。
+
+**输入文件：**
+
+- `datasets/deform360/processed/008-pink-cloth/episode_0/split.json`
+- T4 生成的 frame manifest；实际输出路径以 T4 记录为准。
+
+**预计涉及文件：**
+
+- `SoMA/configs/SoMA/deform360_v0_stage1.py`（拟新增）：split 定义。
+- `SoMA/configs/SoMA/deform360_v0_stage2.py`（拟新增）：split 定义。
+- 本项先形成 split contract。
+
+**最小修改：** 只定义边界：训练本地 `[0,155)`，测试 `[155,194)`。
+
+**验证方法：** 枚举 frame_gap=10 的训练 target，以及 gap=1 的目标集合；明确评估 warm-up 与评分窗口。
+
+**PASS：** 训练监督不含 source frame ≥268；测试评分仅对应 268–306；不把 268 的重建 Gaussian 当测试初态。
+
+**FAIL 后检查：** Python range 端点、最后一个子窗口、validation/test 配置混用。
+
+#### Result
+
+2026-09-24：PASS（split contract 与索引集合验证）。产物：`datasets/soma_d360_v0/008-pink-cloth/episode_0/t5_split_contract/split_contract.json`，保存在服务器。
+
+官方 source train=[113,268)、test=[268,307)，分别对应 local train=[0,155)、test=[155,194)。训练 155 帧、测试 39 帧，互不重叠且覆盖 T4 的全部 194 帧。合同规定任何训练监督不得使用 source≥268；测试评分仅为 source 268–306。
+
+评估从 source 113/local 0 的 T2 initial Gaussian 连续推进；local [0,155) 为不计分 warm-up，local [155,194) 为评分窗口。不得把 source 268 的重建 Gaussian 用作测试初态，也不得在测试边界重置或注入重建/GT Gaussian。
+
+本 PASS 仅证明 contract 和枚举集合满足约束；未集成 loader/config，因此不声称已验证未来训练运行时的数据隔离。未执行 T6。
+
+#### Evidence
+
+- 读取官方 `datasets/deform360/processed/008-pink-cloth/episode_0/split.json`：frame_len=194、train=[113,268]、test=[268,307]，按左闭右开解释。
+- 读取并逐条核验 T4 的 `datasets/soma_d360_v0/008-pink-cloth/episode_0/t4_frame_mapping/frame_manifest.json`：194 条，source=local+113；训练/测试集合交集为空，合集为 local 0…193，source 测试端点为 268、306。
+- frame_gap=10，从 local 0 起采样的训练序列为 0,10,…,150；0 为初态，预测 target 为 local 10,20,…,150，对应 source 123,133,…,263（15 个），没有 source≥268。
+- gap=1，从 local 0 起采样的预测 target 为 local 1…154，对应 source 114…267（154 个）。local 0 属于训练允许范围，但在上述 rollout 枚举中是初态而非未来预测 target。
+- contract 保存完整 sampled frame/target 集合及边界断言；后续任意训练子窗口、Stage-1 cache 与 Stage-2 训练窗口均必须遵守训练边界，跨 local 155 的末尾窗口必须拒绝，test 评分不能混入训练 loss/gradient。这些是后续集成要求，不是本轮已运行的训练验证。
+- 输出独占创建并重新读回全量核验；输入 split/manifest 的 SHA256 已写入 contract，执行前后均不变；输出 SHA256：fd1370b2202836c2c8be2589955bca33bbe88e38a067fb00bb937e48500debd1。
+- 纯 CPU Python -B 一次性标准输入脚本，没有 CUDA 初始化、没有读取 source 268 的 Gaussian、没有修改 dataset loader/config 或新增工具源码。
+- 两端 SoMA branch deform360-adaptation，HEAD 8e8772a98f5eeb332745d9b6dd008e6927f050af；本轮仅创建服务器 contract 并更新本地 T5 记录/Progress，未 commit/push。
+
+```json
+{
+  "output": "datasets/soma_d360_v0/008-pink-cloth/episode_0/t5_split_contract/split_contract.json",
+  "sha256": "fd1370b2202836c2c8be2589955bca33bbe88e38a067fb00bb937e48500debd1",
+  "counts": {
+    "train": 155,
+    "test": 39
+  },
+  "local_split": {
+    "train": [
+      0,
+      155
+    ],
+    "test": [
+      155,
+      194
+    ]
+  },
+  "gap10_prediction_targets_local": [
+    10,
+    20,
+    30,
+    40,
+    50,
+    60,
+    70,
+    80,
+    90,
+    100,
+    110,
+    120,
+    130,
+    140,
+    150
+  ],
+  "gap10_prediction_targets_source": [
+    123,
+    133,
+    143,
+    153,
+    163,
+    173,
+    183,
+    193,
+    203,
+    213,
+    223,
+    233,
+    243,
+    253,
+    263
+  ],
+  "gap1_prediction_target_count": 154,
+  "gap1_prediction_source_endpoints": [
+    114,
+    267
+  ],
+  "test_source_endpoints": [
+    268,
+    306
+  ],
+  "overlap": false,
+  "inputs_unchanged": true,
+  "PASS": true
+}
+```
+
+### T6：明确采样间隔与模型内部时间尺度
+
+Status: TODO
+
+**问题：** 数据间隔、模型 `dt`、dataset `real_dt/env_cfg.dt` 不是同一个量。
+
+**为什么现在解决：** 官方配置包含 `/5` 和重力时间缩放，不能直接套 FPS。
+
+**输入文件：**
+
+- T4 确认的时间映射和 `datasets/deform360/processed/008-pink-cloth/episode_0/<camera_id>/aligned_timestamps.txt`。
+- 官方 Stage 1 时间配置：`SoMA/configs/SoMA/cloth_lift_stage1.py`
+- 官方 Stage 2 时间配置：`SoMA/configs/SoMA/cloth_lift_stage2.py`
+
+**预计涉及文件：**
+
+- `SoMA/configs/SoMA/deform360_v0_stage1.py`（拟新增）：时间参数。
+- `SoMA/configs/SoMA/deform360_v0_stage2.py`（拟新增）：时间参数。
+- `SoMA/mmgs/datasets/embodied_dataset.py`：重力缩放。
+- `SoMA/mmgs/models/heads/acc_decoder.py`：decoder 的 `dt` 使用。
+
+**最小修改：** 单独形成时间参数约定；必要时只设置对应配置项。
+
+**验证方法：** 列出一个 Stage 1 步和一个 Stage 2 步对应的 source frame、观测时间间隔及模型内部参数。
+
+**PASS：** 各参数用途明确、无重复缩放；Stage 2 gap=1 没有被误解成 Stage 1 gap=10。
+
+**FAIL 后检查：** 配置继承、decoder/backbone 时间参数和 gravity scaling；不同时调整重力方向。
+
+#### Result
+
+Not executed.
+
+#### Evidence
+
+Not executed.
+
+---
+
+## 第二阶段：分别实现空间与数据组件
+
+### T7：选定两个固定 camera ID
+
+Status: TODO
+
+**问题：** 哪两个训练视角适合作为 v0 的固定监督？
+
+**为什么现在解决：** calibration、RGB、mask 必须使用同一份相机名单。
+
+**输入文件：**
+
+- 现有 inventory：`datasets/deform360/inventory_episode_0/`
+- 训练区间少量 RGB：`datasets/deform360/processed/008-pink-cloth/episode_0/<camera_id>/undistorted.mp4`
+- 训练区间对应 mask：`datasets/deform360/processed/008-pink-cloth/episode_0/<camera_id>/mask_refined.h5`
+- `datasets/deform360/processed/008-pink-cloth/episode_0/metadata.json`
+- `datasets/deform360/processed/008-pink-cloth/episode_0/metric_params_refined_undistorted.txt`
+
+**预计涉及文件：**
+
+- `SoMA/tools/deform360_adapter/`：camera manifest，具体文件名尚未确定；暂不改 loader。
+
+**最小修改：** 固定两个 ID 和顺序，排除 `016_cam0`。
+
+**验证方法：** 检查训练区间 mask 有效性、代表帧遮挡及视角互补性；不利用测试表现挑相机。
+
+**PASS：** 两个不同且标定齐全的相机，训练窗口 mask 非空，选择依据和顺序可复核。
+
+**FAIL 后检查：** 空 mask、遮挡、裁边或视角重复；只重新选相机。
+
+#### Result
+
+Not executed.
+
+#### Evidence
+
+Not executed.
+
+### T8：只解决相机外参转换
+
+Status: TODO
+
+**问题：** 实际发布的是 qvec/tvec 文本，而非现成 c2w `.npy`。
+
+**为什么现在解决：** SoMA embodied reader 明确接收 c2w。
+
+**输入文件：**
+
+- `datasets/deform360/processed/008-pink-cloth/episode_0/metric_params_refined_undistorted.txt`
+- T7 固定的相机名单。
+
+**预计涉及文件：**
+
+- `SoMA/tools/deform360_adapter/`：calibration 工具，具体文件名尚未确定。
+- `SoMA/mmgs/datasets/embodied_dataset.py`：`extract_extrinsics`。
+
+**最小修改：** 按 camera name 解析外参并形成选定相机的 c2w；不改内参或图像。
+
+**验证方法：** 确认发布格式的 quaternion/translation convention，检查逆矩阵、旋转正交性和投影方向。
+
+**PASS：** 两个 `[4,4]` c2w 与相机身份一致，变换往返正确，投影方向有证据支持。
+
+**FAIL 后检查：** w2c/c2w、quaternion 顺序、矩阵转置、camera 行匹配；不靠试翻轴选择“看起来对”的结果。
+
+#### Result
+
+Not executed.
+
+#### Evidence
+
+Not executed.
+
+### T9：只解决目标分辨率对应的内参
+
+Status: TODO
+
+**问题：** 1280×720→640×360 后如何保持像素中心 convention？
+
+**为什么现在解决：** RGB/mask 导出必须使用同一几何规则。
+
+**输入文件：**
+
+- `datasets/deform360/processed/008-pink-cloth/episode_0/metadata.json` 中的 K。
+- T7 固定的相机名单。
+
+**预计涉及文件：**
+
+- `SoMA/tools/deform360_adapter/`：calibration 部分，具体文件名尚未确定。
+- `SoMA/mmgs/datasets/embodied_dataset.py`：`extract_intrinsics`。
+- `SoMA/mmgs/datasets/utils/cameras.py`：相机投影。
+
+**最小修改：** 仅定义目标 K、WH 和 resize convention。
+
+**验证方法：** 比较原图投影经 resize 后的位置与目标相机投影；检查已有主点 `639.5/359.5` 的映射。
+
+**PASS：** fx/fy、主点、WH 与实际 resize 一致；SoMA 投影误差控制在约定的 1 像素内。
+
+**FAIL 后检查：** 半像素偏移、H/W 顺序和 SoMA 对称投影；不先增加图像 warp。
+
+#### Result
+
+Not executed.
+
+#### Evidence
+
+Not executed.
+
+### T10：定义单帧 30 点 controller representation
+
+Status: TODO
+
+**问题：** 一只夹爪如何得到固定身份的 30 个几何锚点？
+
+**为什么现在解决：** 先确定 representation，再批量生成 trajectory。
+
+**输入文件：**
+
+- `datasets/deform360/processed/008-pink-cloth/episode_0/robot/robot.npy` 中 frame 113 的 pose/opening。
+- 夹爪运动学：`deform360/deform360/processing/control_points_stage.py`。
+- opening 映射：`deform360/deform360/processing/urdf_render.py`。
+
+**预计涉及文件：**
+
+- `SoMA/tools/deform360_adapter/`：拟新增的 controller 工具，文件名尚未确定。
+- `SoMA/mmgs/datasets/embodied_dataset.py`：controller cluster 规则，只读。
+
+**最小修改：** 只生成一个 frame 的 30 点和左右手指标签。
+
+**验证方法：** 复用 `deform360/deform360/processing/urdf_render.py` 中的 `opening_to_umi_joints`（第 39 行附近）与固定几何关系；记录 opening clipping；核验手指归属和世界坐标。
+
+**PASS：** `[30,3]` 有限、点身份固定、左右分组明确；没有读取 tactile 数值来选择点。
+
+**FAIL 后检查：** EEF/root 坐标、opening 单位与 clipping、URDF offset；不改机器人轨迹。
+
+#### Result
+
+Not executed.
+
+#### Evidence
+
+Not executed.
+
+### T11：将固定 controller representation 扩展为 trajectory
+
+Status: TODO
+
+**问题：** 固定 30 点能否随 pose/opening 正确运动？
+
+**为什么现在解决：** representation 已由 T10 固定。
+
+**输入文件：**
+
+- `datasets/deform360/processed/008-pink-cloth/episode_0/robot/robot.npy`
+- T4 frame manifest。
+- T10 固定锚点及其标签。
+
+**预计涉及文件：**
+
+- `SoMA/tools/deform360_adapter/`：controller 工具，文件名尚未确定。
+- `SoMA/mmgs/datasets/embodied_dataset.py`：trajectory 读取。
+
+**最小修改：** 输出 `controller_points [194,30,3] float32`。
+
+**验证方法：** 首尾及抽样帧独立计算；逐帧检查点身份和 source frame 对应。
+
+**PASS：** shape、dtype、有限性全部正确，local 0 对应 source 113，没有重排或跨帧重新采样锚点。
+
+**FAIL 后检查：** 位姿乘法方向、索引偏移、广播和点序。
+
+#### Result
+
+Not executed.
+
+#### Evidence
+
+Not executed.
+
+### T12：确认 controller 层级分组不跨手指
+
+Status: TODO
+
+**问题：** SoMA 默认连续分组可能把 15+15 点切成 14+16。
+
+**为什么现在解决：** trajectory 正确不代表图中的 controller cluster 正确。
+
+**输入文件：**
+
+- T10 标签。
+- T11 controller trajectory；实际输出路径以 T11 记录为准。
+- 现有 controller scheme，参照 `SoMA/configs/SoMA/cloth_lift_stage1.py`。
+
+**预计涉及文件：**
+
+- `SoMA/mmgs/datasets/embodied_dataset.py`：`_load_controller_cluster_mask`。
+- `SoMA/configs/SoMA/deform360_v0_stage1.py`（拟新增）：controller scheme。
+- `SoMA/configs/SoMA/deform360_v0_stage2.py`（拟新增）：controller scheme。
+
+**最小修改：** 只调整点排列或 controller scheme 中的一项，使之符合已选 representation。
+
+**验证方法：** 打印每层每个 cluster 的原始点 ID 和手指标签。
+
+**PASS：** 两个顶层 cluster 分别属于两个手指，层级映射合法，没有跨指混合。
+
+**FAIL 后检查：** 连续分组边界、第一层 cluster 数和旧 cache；不改 controller 几何。
+
+#### Result
+
+Not executed.
+
+#### Evidence
+
+Not executed.
+
+### T13：确认重力方向与世界坐标
+
+Status: TODO
+
+**问题：** 不能直接沿用官方 sample 的 gravity quaternion。
+
+**为什么现在解决：** 错误重力会污染后续动力学验证。
+
+**输入文件：**
+
+- Gaussian 坐标依据：`datasets/deform360/processed/008-pink-cloth/episode_0/splatfacto/splat_113.ply` 及对应格式说明。
+- Robot 坐标依据：`datasets/deform360/processed/008-pink-cloth/episode_0/robot/robot.npy` 及对应坐标说明。
+- 发布标定：`datasets/deform360/processed/008-pink-cloth/episode_0/metric_params_refined_undistorted.txt`
+- T6 时间约定。
+
+**预计涉及文件：**
+
+- `SoMA/mmgs/datasets/embodied_dataset.py`：gravity 处理。
+- `SoMA/configs/SoMA/deform360_v0_stage1.py`（拟新增）：`rot_est`。
+- `SoMA/configs/SoMA/deform360_v0_stage2.py`（拟新增）：`rot_est`。
+
+**最小修改：** 仅确定并输出本 scene 的重力方向描述。
+
+**验证方法：** 建立坐标方向证据，验证 SciPy xyzw 和 inverse rotation 后的实际重力向量。
+
+**PASS：** 向量方向、模长及时间缩放可明确解释；Gaussian、controller、camera 使用同一世界坐标。
+
+**FAIL 后检查：** 坐标定义、旋转方向和四元数顺序；不独立旋转某一种模态。
+
+#### Result
+
+Not executed.
+
+#### Evidence
+
+Not executed.
+
+### T14：只导出 RGB
+
+Status: TODO
+
+**问题：** SoMA 需要逐帧图像文件。
+
+**为什么现在解决：** 时间与相机几何规则已经固定。
+
+**输入文件：**
+
+- T7 选定两个相机的 `datasets/deform360/processed/008-pink-cloth/episode_0/<camera_id>/undistorted.mp4`。
+- T4 时间映射、T7 相机顺序、T9 resize/内参约定。
+
+**预计涉及文件：**
+
+- `SoMA/tools/deform360_adapter/`：拟新增的 RGB 工具，文件名尚未确定。
+- `SoMA/mmgs/datasets/utils/io.py`：读取接口。
+
+**最小修改：** 导出两个相机的 194 张 640×360 RGB PNG。
+
+**验证方法：** 顺序解码，抽查首尾、split 边界以及 gap=10 采样帧。
+
+**PASS：** 每相机文件名连续 `0.png…193.png`，尺寸/色序正确，source frame 映射一致。
+
+**FAIL 后检查：** 视频 seek 偏差、BGR/RGB、编号或 resize；不同时处理 mask。
+
+#### Result
+
+Not executed.
+
+#### Evidence
+
+Not executed.
+
+### T15：只导出 object mask
+
+Status: TODO
+
+**问题：** 真实 HDF5 是 0/1，而 SoMA 图像 reader 按 255 归一化。
+
+**为什么现在解决：** 防止监督图像被缩暗到原来的 1/255。
+
+**输入文件：**
+
+- T7 选定两个相机的 `datasets/deform360/processed/008-pink-cloth/episode_0/<camera_id>/mask_refined.h5`。
+- T4 时间映射、T7 相机顺序、T9 resize/内参约定。
+
+**预计涉及文件：**
+
+- `SoMA/tools/deform360_adapter/`：拟新增的 mask 工具，文件名尚未确定。
+- `SoMA/mmgs/datasets/utils/io.py`：mask 读取。
+
+**最小修改：** 最近邻 resize，输出单通道 0/255 PNG。
+
+**验证方法：** 检查全部输出取值、尺寸、对应帧及 RGB/mask 叠图。
+
+**PASS：** 每相机 194 张、仅 0/255、与 RGB 对齐，无意外空 mask。
+
+**FAIL 后检查：** HDF5 key、帧偏移、插值方式、通道数；不重跑 segmentation。
+
+#### Result
+
+Not executed.
+
+#### Evidence
+
+Not executed.
+
+### T16：明确 object mask 与遮挡 loss 的边界
+
+Status: TODO
+
+**问题：** 现有包没有单独的 robot obstacle mask；object mask 不等于 robot mask。
+
+**为什么现在解决：** 避免 loader 能跑，但监督语义被误述。
+
+**输入文件：**
+
+- T15 导出的 object mask；实际输出路径以 T15 记录为准。
+- 现有 render loss 实现：`SoMA/mmgs/models/heads/acc_decoder.py`、`SoMA/mmgs/models/losses/ssim_loss.py`。
+
+**预计涉及文件：**
+
+- `SoMA/mmgs/datasets/utils/io.py`：GT/mask 读取。
+- `SoMA/mmgs/models/heads/acc_decoder.py`：`forward_train`，第 193 行附近。
+- `SoMA/mmgs/models/losses/ssim_loss.py`：`forward`，第 57 行附近。
+
+**最小修改：** 单独固定 v0 的监督约定，默认保留现有 loss；不伪造 obstacle mask。
+
+**验证方法：** 检查 object masked GT、空 obstacle 分支、L2/SSIM 的实际权重处理。
+
+**PASS：** 明确哪些像素参与哪些 loss，记录当前 SSIM 不使用 `mask_weights` 的限制；没有宣称已实现完整遮挡处理。
+
+**FAIL 后检查：** 类别标签、mask 分支或 loss 参数传递；若确需改 loss，另列单项，不混入 adapter。
+
+#### Result
+
+Not executed.
+
+#### Evidence
+
+Not executed.
+
+### T17：只组装 SoMA scene metadata 与目录契约
+
+Status: TODO
+
+**问题：** 独立组件还需要满足 loader 的文件名、目录和字段要求。
+
+**为什么现在解决：** 所有组件已经各自验证。
+
+**输入文件：**
+
+- T2、T4–T16 的已批准产物；各实际输出路径以相应 TODO 的记录为准。
+
+**预计涉及文件：**
+
+- `SoMA/tools/deform360_adapter/`：scene packager，具体文件名尚未确定。
+- `SoMA/mmgs/datasets/embodied_dataset.py`：路径和 metadata 读取。
+
+**最小修改：** 组装 canonical PLY 路径，以及文件名为 `track_process_data.pkl`、`calibrate.pkl` 的产物、metadata、scene_info、mask 标签；这些派生产物的输出目录尚未确定，不预设具体路径。
+
+**验证方法：** 仅执行静态 schema/path 检查，不实例化模型。
+
+**PASS：** 所有必需文件可定位，camera 顺序一致，`WH=[640,360]`，标签恰好匹配一个 object。
+
+**FAIL 后检查：** 硬编码路径、mask_info 命名、序列长度或配置字段；不改已验证的内容转换。
+
+#### Result
+
+Not executed.
+
+#### Evidence
+
+Not executed.
+
+---
+
+## 第三阶段：从单 sample 到极小 rollout
+
+### T18：验证初始静态渲染的几何对齐
+
+Status: TODO
+
+**问题：** PLY、camera、RGB/mask 是否真正处在同一几何系统？
+
+**为什么现在解决：** 应在动力学训练前排除投影错误。
+
+**输入文件：**
+
+- T17 组装的派生 scene 的 local frame 0；实际路径以 T17 记录为准。
+
+**预计涉及文件：**
+
+- `SoMA/gaussian-splatting/scene/gaussian_model.py`：Gaussian 加载。
+- `SoMA/mmgs/datasets/utils/cameras.py`：相机投影。
+- `SoMA/mmgs/models/utils/render.py`：静态渲染。
+
+**最小修改：** 仅增加静态渲染检查入口，不构建动力学 rollout。
+
+**验证方法：** 两相机初始 render 叠图；独立数值投影对照。
+
+**PASS：** 投影误差符合 T9 约定，初始物体无镜像、轴翻转或明显整体偏移；输出有限。
+
+**FAIL 后检查：** 按 camera convention→单位→frame 选择顺序定位；不通过训练补偿错位。
+
+#### Result
+
+Not executed.
+
+#### Evidence
+
+Not executed.
+
+### T19：让 EmbodiedDataset 读取一个 sample
+
+Status: TODO
+
+**问题：** 完整 scene 是否满足实际 dataset contract？
+
+**为什么现在解决：** 静态文件验证不能代替真实 loader。
+
+**输入文件：**
+
+- T17 组装的派生 scene；实际路径以 T17 记录为准。
+- 已确定的时间与 split 参数（T5、T6）。
+
+**预计涉及文件：**
+
+- `SoMA/configs/SoMA/deform360_v0_stage1.py`（拟新增）：dataset 部分。
+- `SoMA/mmgs/datasets/embodied_dataset.py`：实际 dataset 读取。
+
+**最小修改：** 仅串联 dataset 配置，读取一个 sample；cache 只能写派生 scene。
+
+**验证方法：** 检查 images、GT、controller、camera、gravity、`gs_aligned_frame`、`seq_num`。
+
+**PASS：** 首状态为 local 0；gap=10 的训练 sample 对应 source 113、123…263；shape 与 camera 顺序正确。
+
+**FAIL 后检查：** 配置继承、`resolution` 的 H/W、split、路径和缓存键。
+
+#### Result
+
+Not executed.
+
+#### Evidence
+
+Not executed.
+
+### T20：只验证 graph construction
+
+Status: TODO
+
+**问题：** object/controller 层级能否形成合法图？
+
+**为什么现在解决：** 将图问题与模型 forward 问题分开。
+
+**输入文件：**
+
+- T19 实际读取的 sample。
+
+**预计涉及文件：**
+
+- `SoMA/mmgs/models/simulators/gs_simulator_embodied.py`：`_preprocess`。
+- `SoMA/mmgs/models/utils/dgl_graph.py`：graph construction。
+
+**最小修改：** 仅串联预处理并记录各层 node/edge/mapping。
+
+**验证方法：** 检查索引范围、controller pin、特征有限性和 cluster 覆盖。
+
+**PASS：** 无非法索引/NaN，全部 Gaussian 都有合法层级映射，controller 分组与 T12 一致。
+
+**FAIL 后检查：** 单位、cluster 阈值、mapping 和 cache；不调整模型层数或显存策略。
+
+#### Result
+
+Not executed.
+
+#### Evidence
+
+Not executed.
+
+### T21：只运行一次 forward/render/loss
+
+Status: TODO
+
+**问题：** 一个预测步是否贯通？
+
+**为什么现在解决：** 尚未验证目标帧选择与损失计算。
+
+**输入文件：**
+
+- T20 构建的 graph。
+- T19 sample 中对应 next-frame GT。
+
+**预计涉及文件：**
+
+- `SoMA/mmgs/models/simulators/gs_simulator_embodied.py`：单步前向。
+- `SoMA/mmgs/models/heads/acc_decoder.py`：decode head。
+- `SoMA/configs/SoMA/deform360_v0_stage1.py`（拟新增）：单步 smoke 设置。
+
+**最小修改：** 单步前向验证入口，不 backward、不更新权重。
+
+**验证方法：** 记录预测 shape、目标 source frame、各 loss 和 render。
+
+**PASS：** 预测点数固定，所有输出/loss 有限；第一个 target 是 source 123，而不是 initial 113。
+
+**FAIL 后检查：** controller future/current 索引、GT 索引、render 参数和 loss 输入。
+
+#### Result
+
+Not executed.
+
+#### Evidence
+
+Not executed.
+
+### T22：只验证一次 backward 与 optimizer step
+
+Status: TODO
+
+**问题：** 损失是否能正确更新动力学参数？
+
+**为什么现在解决：** forward 成功不代表训练成立。
+
+**输入文件：**
+
+- T21 验证过的同一个 sample。
+
+**预计涉及文件：**
+
+- `SoMA/configs/SoMA/deform360_v0_stage1.py`（拟新增）：单步训练入口。
+- 现有 optimizer hook；运行环境依赖中的具体文件路径执行时定位，不预设 workspace 内的新文件。
+
+**最小修改：** 只增加一次 backward/step。
+
+**验证方法：** 检查梯度有限性、预期参数的梯度与更新前后差异。
+
+**PASS：** backward/step 成功，目标模型参数得到非零有限更新，数据文件不变。
+
+**FAIL 后检查：** detach、参数注册、loss 梯度路径和 optimizer 参数集合。
+
+#### Result
+
+Not executed.
+
+#### Evidence
+
+Not executed.
+
+### T23：只验证 rollout=3
+
+Status: TODO
+
+**问题：** 自回归状态和多步监督是否连续正确？
+
+**为什么现在解决：** 单步检查无法发现跨步索引问题。
+
+**输入文件：**
+
+- 已验证 sample。
+- T22 配置：`SoMA/configs/SoMA/deform360_v0_stage1.py`。
+
+**预计涉及文件：**
+
+- `SoMA/configs/SoMA/deform360_v0_stage1.py`（拟新增）：rollout 上限。
+- `SoMA/mmgs/models/simulators/gs_simulator_embodied.py`：多步状态传递。
+
+**最小修改：** 只将 rollout 从 1 改为 3。
+
+**验证方法：** 逐步记录 source target 123、133、143，检查前一步预测如何进入下一步。
+
+**PASS：** 三步 forward/backward 有限、Gaussian identity 不变、状态传递与既有 detach 规则一致。
+
+**FAIL 后检查：** 状态更新、目标索引、共享图或实际报错位置；OOM 时停止，不自动优化显存或改其他变量。
+
+#### Result
+
+Not executed.
+
+#### Evidence
+
+Not executed.
+
+### T24：验证 checkpoint 保存与恢复
+
+Status: TODO
+
+**问题：** 训练状态能否可靠恢复？
+
+**为什么现在解决：** 正式训练前需要可复查、可继续的运行基础。
+
+**输入文件：**
+
+- T23 的短运行状态；保存位置以 T23 运行记录为准。
+
+**预计涉及文件：**
+
+- 现有 runner/checkpoint 实现；运行环境依赖中的具体文件路径执行时定位，不预设 workspace 内的新文件。
+
+**最小修改：** 只增加 save/reload 验证，不继续训练。
+
+**验证方法：** 比较恢复前后的参数、optimizer/计数器，以及固定输入的输出。
+
+**PASS：** 需要恢复的状态一致，预测在预先约定的数值容差内一致。
+
+**FAIL 后检查：** checkpoint 缺项、scene 初始化、normalizer 状态和随机性。
+
+#### Result
+
+Not executed.
+
+#### Evidence
+
+Not executed.
+
+---
+
+## 第四阶段：建立可复查的 no-tactile baseline
+
+### T25：冻结首个 baseline 的运行协议
+
+Status: TODO
+
+**问题：** smoke PASS 后，训练预算与评价方式还未固定。
+
+**为什么现在解决：** 防止边跑边同时改多个变量。
+
+**输入文件：**
+
+- T5 split contract。
+- T23/T24 验证结果。
+- T17 固定的派生 scene；实际路径以 T17 记录为准。
+
+**预计涉及文件：**
+
+- `SoMA/configs/SoMA/deform360_v0_stage1.py`（拟新增）：运行 schedule。
+- 实验记录；实际文件路径由对应运行确定。
+
+**最小修改：** 只固定种子、步数预算、rollout 上限、日志/输出路径、checkpoint 选择规则。
+
+**验证方法：** 展开最终配置，检查训练 target 与测试边界。
+
+**PASS：** 每个参数有确定值；测试段不用于调参或选 checkpoint；所有模型输入均不含 tactile。
+
+**FAIL 后检查：** 默认 rollout 自动增长、重复 dataset 次数、validation/test 路由或未固定参数。
+
+#### Result
+
+Not executed.
+
+#### Evidence
+
+Not executed.
+
+### T26：执行约定预算的 Stage 1 训练
+
+Status: TODO
+
+**问题：** 已贯通的流程能否完成一个有明确预算的训练运行？
+
+**为什么现在解决：** 前置加载、梯度、rollout 和恢复已分别通过。
+
+**输入文件：**
+
+- T25 冻结的 `SoMA/configs/SoMA/deform360_v0_stage1.py` 及对应运行记录。
+
+**预计涉及文件：**
+
+- `SoMA/configs/SoMA/deform360_v0_stage1.py`（拟新增）：冻结配置。
+- `SoMA/tools/train.py`：现有训练入口。
+
+**最小修改：** 不改模型或组件，只执行该运行。
+
+**验证方法：** 核对完成步数、loss/梯度有限性、checkpoint、训练帧范围和日志。
+
+**PASS：** 完成预定预算并产出可恢复 checkpoint；如实记录收敛情况。
+
+**FAIL 后检查：** 首个异常 step、输入和运行状态；不把“运行完成”写成预测质量已验证。
+
+#### Result
+
+Not executed.
+
+#### Evidence
+
+Not executed.
+
+### T27：只生成并核验 Stage-1 cache
+
+Status: TODO
+
+**问题：** Stage 2 需要按帧定位的预测初态。
+
+**为什么现在解决：** 不能用 Deform360 的后续重建 Gaussian 替代这个 cache。
+
+**输入文件：**
+
+- T26 checkpoint；实际路径以 T26 记录为准。
+- 已批准的训练区间数据（T5、T17）。
+
+**预计涉及文件：**
+
+- `SoMA/mmgs/models/simulators/gs_simulator_embodied.py`：`save_gaussian` 及 cache 生成入口。
+
+**最小修改：** 只导出 Stage-1 预测 cache。
+
+**验证方法：** 检查 local frame 0 和 Stage 2 所需起点、`pred_pos/pred_cov`、N 和来源记录。
+
+**PASS：** 所需 cache 全部存在、有限、identity 固定，源于该 checkpoint；不包含测试真值初始化。
+
+**FAIL 后检查：** frame_gap、文件编号、首帧 cache、导出开关；不开始 Stage 2。
+
+#### Result
+
+Not executed.
+
+#### Evidence
+
+Not executed.
+
+### T28：只串联一个 Stage 2 子窗口
+
+Status: TODO
+
+**问题：** dense frame 与 coarse cache 起点是否正确对应？
+
+**为什么现在解决：** Stage 2 有独立的子窗口和初始化逻辑。
+
+**输入文件：**
+
+- T27 Stage-1 cache；实际路径以 T27 记录为准。
+- T5 split contract。
+- T17 派生 scene 中按 gap=1 读取的数据；实际路径以 T17 记录为准。
+
+**预计涉及文件：**
+
+- `SoMA/configs/SoMA/deform360_v0_stage2.py`（拟新增）：dataset/cache 配置。
+- `SoMA/mmgs/models/simulators/gs_simulator_embodied_stage2.py`：Stage 2 子窗口及 cache 初始化。
+
+**最小修改：** 只读取一个训练子窗口并加载对应 cache。
+
+**验证方法：** 打印窗口起止、source/local 索引、cache key、controller 和 GT 首尾。
+
+**PASS：** cache 与子窗口起点一致；窗口完全位于训练段；至少有一个有效预测 target。
+
+**FAIL 后检查：** coarse/dense gap 混淆、末尾窗口截断、cache key 和多余偏移。
+
+#### Result
+
+Not executed.
+
+#### Evidence
+
+Not executed.
+
+### T29：只验证 Stage 2 一个优化步骤
+
+Status: TODO
+
+**问题：** Stage 2 的 dense-step 梯度路径是否成立？
+
+**为什么现在解决：** Stage 1 的 smoke 不能替代 Stage 2。
+
+**输入文件：**
+
+- T28 已核验的子窗口。
+- 对应权重及 T27 cache；实际路径以相应 TODO 记录为准。
+
+**预计涉及文件：**
+
+- `SoMA/configs/SoMA/deform360_v0_stage2.py`（拟新增）：单步 smoke 设置。
+- `SoMA/mmgs/models/simulators/gs_simulator_embodied_stage2.py`：Stage 2 优化步骤。
+
+**最小修改：** 只运行一个 forward/backward/step。
+
+**验证方法：** 检查 dense target、loss、梯度、更新参数与 cache 使用。
+
+**PASS：** 目标帧正确，梯度和输出有限，optimizer 正常更新。
+
+**FAIL 后检查：** Stage 2 时间尺度、cache 初态、模板状态和梯度路径。
+
+#### Result
+
+Not executed.
+
+#### Evidence
+
+Not executed.
+
+### T30：执行固定预算的 Stage 2 训练
+
+Status: TODO
+
+**问题：** 能否得到用于连续 rollout 的 dense dynamics checkpoint？
+
+**为什么现在解决：** Stage 2 单窗口已经通过验证。
+
+**输入文件：**
+
+- T29 已验证的 `SoMA/configs/SoMA/deform360_v0_stage2.py` 配置。
+- T27 cache；实际路径以 T27 记录为准。
+
+**预计涉及文件：**
+
+- `SoMA/configs/SoMA/deform360_v0_stage2.py`（拟新增）：运行 schedule。
+
+**最小修改：** 固定并执行一个 Stage 2 预算，不改其他组件。
+
+**验证方法：** 检查所有训练窗口、完成步数、loss 和最终 checkpoint。
+
+**PASS：** 完成预算，无测试监督进入训练，checkpoint 可恢复。
+
+**FAIL 后检查：** 第一个失败窗口、cache 边界和状态更新；不同时更换 loss 或数据。
+
+#### Result
+
+Not executed.
+
+#### Evidence
+
+Not executed.
+
+### T31：验证真正的 continuous rollout
+
+Status: TODO
+
+**问题：** 推理是否持续依赖预测状态，而非分段借用未来状态？
+
+**为什么现在解决：** segmented rollout 不能代替目标中的 continuous prediction。
+
+**输入文件：**
+
+- T30 checkpoint；实际路径以 T30 记录为准。
+- T2 派生并由 T17 组装的 initial Gaussian。
+- T11 固定 controller trajectory。
+
+**预计涉及文件：**
+
+- `SoMA/mmgs/models/simulators/gs_simulator_embodied_stage2.py`：continuous 路径。
+- `SoMA/tools/test.py`：现有测试入口。
+
+**最小修改：** 只启用并验证 continuous 推理协议。
+
+**验证方法：** 追踪各模板边界的状态来源；从 local 0 起滚动，检查 155–193 测试段。
+
+**PASS：** 后续模板来自在线预测更新；不读取后续重建 PLY、不注入测试真值状态，完成到 source 306。
+
+**FAIL 后检查：** `test_rollout_mode`、online cache 更新、边界重置和预测起止索引。
+
+#### Result
+
+Not executed.
+
+#### Evidence
+
+Not executed.
+
+### T32：汇总首个 no-tactile baseline 结果
+
+Status: TODO
+
+**问题：** 是否已形成可复查、可供后续 tactile 消融比较的 baseline？
+
+**为什么现在解决：** “能训练”和“有可解释评估结果”需要分别确认。
+
+**输入文件：**
+
+- T26/T30 checkpoint；实际路径以对应 TODO 记录为准。
+- T31 predictions；实际路径以 T31 记录为准。
+- 固定测试 GT（T5、T14、T15）。
+- 对应运行记录。
+
+**预计涉及文件：**
+
+- 独立评估/报告入口，具体文件路径尚未确定；不再改训练组件。
+
+**最小修改：** 只计算固定协议下的指标并整理证据。
+
+**验证方法：** 核对评分帧、相机、分辨率、mask 规则和预测状态来源。
+
+**PASS：** 结果可追溯到唯一数据 manifest、配置和 checkpoint；区分 train/test、Stage 1/2、smoke/完整预算；明确无 tactile conditioning。
+
+**FAIL 后检查：** 评价索引、mask、checkpoint 来源或缺失输出；不通过改模型补齐报告。
+
+#### Result
+
+Not executed.
+
+#### Evidence
+
+Not executed.
+
+---
+
+主线不包含显存优化或 tactile conditioning。T0 使用 tactile 仅用于核验**官方已有 contact-window 起点**；后续 controller 选择、帧序列和模型输入不以 tactile 数值为条件。
+
+**当前全部 TODO 均未执行；第一项是 T0。**
