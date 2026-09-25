@@ -27,13 +27,13 @@ Deform360 HEAD:
 d8522a4403b766aeb387510c04e89032a56fdf35
 
 Current task:
-T7
+T11
 
 Current status:
-TODO
+PASS
 ```
 
-以上 HEAD 为本 roadmap 建立时的源码基线。T0–T6 已 PASS，具体结论及证据保留于各项历史 Result / Evidence。Current task 为 T7，顶部 Current status 按本次指令设为 TODO，等待后续明确执行指令；本次不执行 T7，T7 正文及已有状态记录保持不变。
+以上 HEAD 为本 roadmap 建立时的源码基线。T0–T11 已 PASS，具体结论及证据保留于各项历史 Result / Evidence。当前 T11 已完成并停止；T12 尚未执行，未经明确指令不得进入下一项。
 
 ## 执行规则
 
@@ -139,7 +139,7 @@ tcgs root Git 仅用于 workspace-level 资产。除非明确说明，不在 tcg
 | T8 | 只解决相机外参转换 | PASS |
 | T9 | 只解决目标分辨率对应的内参 | PASS |
 | T10 | 定义单帧 30 点 controller representation | PASS |
-| T11 | 将固定 controller representation 扩展为 trajectory | TODO |
+| T11 | 将固定 controller representation 扩展为 trajectory | PASS |
 | T12 | 确认 controller 层级分组不跨手指 | TODO |
 | T13 | 确认重力方向与世界坐标 | TODO |
 | T14 | 只导出 RGB | TODO |
@@ -955,7 +955,7 @@ Status: PASS
 
 ### T11：将固定 controller representation 扩展为 trajectory
 
-Status: TODO
+Status: PASS
 
 **问题：** 固定 30 点能否随 pose/opening 正确运动？
 
@@ -982,11 +982,24 @@ Status: TODO
 
 #### Result
 
-Not executed.
+2026-09-25：PASS。仅将 canonical `candidate_7mm` 的固定单帧定义扩展为完整 controller trajectory，保留原始 opening mapping 与已知 signed-gap limitation；未修改 loader/training code，未读取 tactile，未生成 `track_process_data.pkl`、cache、graph 或 cluster，未执行 T12。
+
+- 新增 [build_controller_trajectory.py](../../tools/deform360_adapter/build_controller_trajectory.py)，从 geometry config 读取 offset、局部方向、Y/Z 网格、finger base、opening 参数及 world 变换约定；固定网格只构建一次，不跨帧重采样或重排。
+- 使用 T4 `frame_manifest.json` 的逐帧映射：source 113–306 ↔ local 0–193，输出 `controller_points [194,30,3] float32`。left indices 0–14 / right indices 15–29，全部 point ID 与 T10 一致。
+- 服务器派生数据：`datasets/deform360/derived/008-pink-cloth/episode_0/t11_controller_candidate_7mm/controller_points.npy`，69,968 bytes；不纳入 Git、不复制到 Mac。
+- 新增权威小型记录：[controller_trajectory_contract.json](contracts/008-pink-cloth/episode_0/controller_trajectory_contract.json)，包含输入/hash、canonical candidate、frame mapping、点序、服务器输出路径/hash、验证结果与执行工具 hash。
+- 完整窗口中 136 帧触发官方 `[0.04,0.112] m` opening clipping，194 帧的 joint 映射与官方函数逐值一致。186 帧 signed gap 为负，min/median/max 为 −5.075160 / −5.075160 / +3.258952 mm；不修改 clipping、offset 或左右标签，不据此声称实体穿透已验证。
+- T11 checkpoint 人工决定：继续使用 canonical `candidate_7mm`，不修正 negative signed gap 或官方 opening clipping；两者作为 v0 baseline 的已知 representation limitation 保留，不据此宣称真实接触几何无误。
 
 #### Evidence
 
-Not executed.
+- 准备动作：按用户指令删除未跟踪的 `t10-review-20260925.zip` 后，Mac SoMA working tree clean；服务器原 working tree clean，以 fetch + `merge --ff-only` 从 `8e8772a` 同步到 `b615c0b094ec340c29dedd75967aef4f88d03ade`，同步后仍 clean，无覆盖未提交修改。
+- 使用服务器现有 Python 3.10.21 / NumPy 1.26.4，CPU 执行。新工具经逐文件复制到服务器临时执行目录，未通过未提交源码覆盖服务器 checkout；长期版本保存在 Mac SoMA tools 目录，等待用户确认后 Git 同步。
+- 验证 shape `[194,30,3]`、dtype float32、全部 finite、每帧 30 个唯一点、固定 identity/order、无删除 frame；NPY 保存并重读逐 bit 相同，trajectory[0] 与 T10 source 113 float32 坐标逐 bit 相同。
+- 独立验证：AST 提取未修改的 `opening_to_umi_joints`，与配置驱动的 194 帧 joint 值比较，最大误差 0。另从原始 URDF XML 组合 joint-chain FK，对 source 113、114、140、170、200、233、267、268、306 重算；float64 世界坐标最大误差 `5.551115123125783e-17 m`，转为 float32 后九帧全部逐值一致，包括 local 0 与 local 193。
+- 所有输入文件/hash 在执行前后不变；T10 单帧 contract 与 geometry config 未修改。pose rotation 最大正交误差 `1.5543122344752192e-15`，determinant 最大误差 `1.7763568394002505e-15`。
+- 输出 NPY 文件 SHA256：`d0575b90ebb8aaeb8d4e9154a2ac20985bc3ca1d650432a25110011414d72820`；数组 little-endian float32 / C order bytes SHA256：`5682358def9df9bd52a27715f515acc61c935e645b8f341bd0c6ebde008a0dc6`。
+- Git：SoMA / `deform360-adaptation`。roadmap 为 tracked 修改，新工具和 trajectory contract 尚未 tracked；本轮未 add/commit/push。服务器数据保持 server-only，Mac 小型文件等待用户确认后提交并通过 Git 同步。T11 已完成并停止，T12 TODO 不变。
 
 ### T12：确认 controller 层级分组不跨手指
 

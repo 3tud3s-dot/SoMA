@@ -1,0 +1,232 @@
+{
+  "schema_version": 1,
+  "task": "T11: fixed controller trajectory",
+  "status": "PASS",
+  "authority": "Repository-owned trajectory provenance/validation contract; the NPY remains server-only.",
+  "canonical_geometry_candidate": "candidate_7mm",
+  "surface_offset_mm": 7.0,
+  "input_sha256_relative_to_workspace": {
+    "SoMA/docs/deform360/contracts/008-pink-cloth/episode_0/controller_geometry_config.json": "0be8b35dbd22d82b41f5f3b3d2ef1582e60140ac6d4d8c9517f285c41cad202c",
+    "SoMA/docs/deform360/contracts/008-pink-cloth/episode_0/controller_single_frame_contract.json": "a2aa7684e9612d4b80eeede253fb890a63b6f8dbd87665843222170d341d733a",
+    "SoMA/docs/deform360/contracts/008-pink-cloth/episode_0/frame_manifest.json": "d48338cf7a606b1ee4bc2e5a560b5a53c017efdc9880a1db282a8494b1b013db",
+    "datasets/deform360/processed/008-pink-cloth/episode_0/robot/robot.npy": "ba12216e8f9924e593bb470eda5ef33411e50262271879c38ecfc55c9f07c561",
+    "deform360/deform360/processing/urdf_render.py": "c4d6a10e980ed4952f974d2e8a991c6fb819a3e6fdc6c121d3ce6925c94c2467",
+    "deform360/deform360/processing/assets/umi/umi_tactile.urdf": "c3519331a389ecf77b04ec63fe69d258496a6f21721c8ad2ef445bd33ce1b88b",
+    "deform360/deform360/processing/control_points_stage.py": "9ff82c86c22e38c56dd2ce5d872850afb6ffeb502da7338baf0b55108afb7373"
+  },
+  "source_frames_inclusive": [
+    113,
+    306
+  ],
+  "local_frames_inclusive": [
+    0,
+    193
+  ],
+  "frame_count": 194,
+  "mapping_reference": "frame_manifest.json",
+  "mapping": "source_frame = local_frame + 113",
+  "coordinate_frame": "world",
+  "length_unit": "metre",
+  "point_ordering": {
+    "point_ids": [
+      "left_r00_c00",
+      "left_r00_c08",
+      "left_r00_c16",
+      "left_r00_c23",
+      "left_r00_c31",
+      "left_r06_c00",
+      "left_r06_c08",
+      "left_r06_c16",
+      "left_r06_c23",
+      "left_r06_c31",
+      "left_r11_c00",
+      "left_r11_c08",
+      "left_r11_c16",
+      "left_r11_c23",
+      "left_r11_c31",
+      "right_r00_c00",
+      "right_r00_c08",
+      "right_r00_c16",
+      "right_r00_c23",
+      "right_r00_c31",
+      "right_r06_c00",
+      "right_r06_c08",
+      "right_r06_c16",
+      "right_r06_c23",
+      "right_r06_c31",
+      "right_r11_c00",
+      "right_r11_c08",
+      "right_r11_c16",
+      "right_r11_c23",
+      "right_r11_c31"
+    ],
+    "left_indices": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14
+    ],
+    "right_indices": [
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23,
+      24,
+      25,
+      26,
+      27,
+      28,
+      29
+    ],
+    "definition_reference": "controller_single_frame_contract.json:point_ordering",
+    "fixed_grid_reference": "controller_geometry_config.json:fixed_grid",
+    "resampling": false,
+    "reordering": false
+  },
+  "output": {
+    "path_relative_to_workspace": "datasets/deform360/derived/008-pink-cloth/episode_0/t11_controller_candidate_7mm/controller_points.npy",
+    "server_absolute_path": "/data1/userdata/tcweng/projects/tcgs/datasets/deform360/derived/008-pink-cloth/episode_0/t11_controller_candidate_7mm/controller_points.npy",
+    "format": "NPY; no pickle",
+    "shape": [
+      194,
+      30,
+      3
+    ],
+    "dtype": "float32",
+    "bytes": 69968,
+    "sha256": "d0575b90ebb8aaeb8d4e9154a2ac20985bc3ca1d650432a25110011414d72820",
+    "array_bytes_sha256": "5682358def9df9bd52a27715f515acc61c935e645b8f341bd0c6ebde008a0dc6",
+    "git_policy": "server-only; do not add NPY to Git"
+  },
+  "validation": {
+    "finite": true,
+    "all_frames_30_unique_points": true,
+    "point_identity_order_matches_t10": true,
+    "first_frame_float32_bitwise_equal_t10": true,
+    "npy_roundtrip_equal": true,
+    "all_194_opening_values_match_official_function": true,
+    "opening_mapping_max_abs_error_m": 0.0,
+    "opening_clipped_frame_count": 136,
+    "pose_rotation_orthogonality_max_abs": 1.5543122344752192e-15,
+    "pose_rotation_determinant_max_error": 1.7763568394002505e-15,
+    "independent_method": "Compose XML URDF joint chains using the unchanged official opening_to_umi_joints, original anchor links and raw source pose; independent of the config closed-form geometry.",
+    "independent_samples": [
+      {
+        "local_frame": 0,
+        "source_frame": 113,
+        "world_float64_max_abs_error_m": 5.551115123125783e-17,
+        "float32_max_abs_error_m": 0.0,
+        "float32_equal": true
+      },
+      {
+        "local_frame": 1,
+        "source_frame": 114,
+        "world_float64_max_abs_error_m": 5.551115123125783e-17,
+        "float32_max_abs_error_m": 0.0,
+        "float32_equal": true
+      },
+      {
+        "local_frame": 27,
+        "source_frame": 140,
+        "world_float64_max_abs_error_m": 5.551115123125783e-17,
+        "float32_max_abs_error_m": 0.0,
+        "float32_equal": true
+      },
+      {
+        "local_frame": 57,
+        "source_frame": 170,
+        "world_float64_max_abs_error_m": 5.551115123125783e-17,
+        "float32_max_abs_error_m": 0.0,
+        "float32_equal": true
+      },
+      {
+        "local_frame": 87,
+        "source_frame": 200,
+        "world_float64_max_abs_error_m": 5.551115123125783e-17,
+        "float32_max_abs_error_m": 0.0,
+        "float32_equal": true
+      },
+      {
+        "local_frame": 120,
+        "source_frame": 233,
+        "world_float64_max_abs_error_m": 5.551115123125783e-17,
+        "float32_max_abs_error_m": 0.0,
+        "float32_equal": true
+      },
+      {
+        "local_frame": 154,
+        "source_frame": 267,
+        "world_float64_max_abs_error_m": 5.551115123125783e-17,
+        "float32_max_abs_error_m": 0.0,
+        "float32_equal": true
+      },
+      {
+        "local_frame": 155,
+        "source_frame": 268,
+        "world_float64_max_abs_error_m": 5.551115123125783e-17,
+        "float32_max_abs_error_m": 0.0,
+        "float32_equal": true
+      },
+      {
+        "local_frame": 193,
+        "source_frame": 306,
+        "world_float64_max_abs_error_m": 5.551115123125783e-17,
+        "float32_max_abs_error_m": 0.0,
+        "float32_equal": true
+      }
+    ],
+    "independent_float64_tolerance_m": 1e-12,
+    "independent_float32_tolerance_m": 1e-07,
+    "inputs_hashes_unchanged": true,
+    "tactile_read": false,
+    "frames_deleted": false
+  },
+  "known_limitation": {
+    "description": "Retain canonical 7 mm signed-gap limitation; not a collision or physical-contact validation.",
+    "negative_gap_frame_count": 186,
+    "gap_min_median_max_mm": [
+      -5.075159999999997,
+      -5.075159999999997,
+      3.2589517213114356
+    ],
+    "gap_corrected": false
+  },
+  "execution": {
+    "python": "3.10.21",
+    "numpy": "1.26.4",
+    "device": "CPU only",
+    "soma_head": "b615c0b094ec340c29dedd75967aef4f88d03ade",
+    "generator_repository_path": "tools/deform360_adapter/build_controller_trajectory.py",
+    "generator_sha256": "1d6d46b371be140b54c0d19a89b6f777ffe63037e86ac5db29431dd020c19c49",
+    "argv": [
+      "/tmp/tcgs-t11-1G97r3cG/build_controller_trajectory.py",
+      "--workspace-root",
+      "/data1/userdata/tcweng/projects/tcgs",
+      "--contract-dir",
+      "/data1/userdata/tcweng/projects/tcgs/SoMA/docs/deform360/contracts/008-pink-cloth/episode_0",
+      "--output",
+      "/data1/userdata/tcweng/projects/tcgs/datasets/deform360/derived/008-pink-cloth/episode_0/t11_controller_candidate_7mm/controller_points.npy",
+      "--report",
+      "/data1/userdata/tcweng/projects/tcgs/datasets/deform360/derived/008-pink-cloth/episode_0/t11_controller_candidate_7mm/controller_trajectory_contract.json"
+    ],
+    "commit_push_performed": false,
+    "pkl_generated": false,
+    "graph_or_cluster_built": false
+  }
+}
