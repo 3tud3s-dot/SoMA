@@ -27,7 +27,7 @@ Deform360 HEAD:
 d8522a4403b766aeb387510c04e89032a56fdf35
 
 Current task:
-T19
+T23
 
 Current status:
 PASS
@@ -149,10 +149,10 @@ tcgs root Git 仅用于 workspace-level 资产。除非明确说明，不在 tcg
 | T17 | 只组装 SoMA scene metadata 与目录契约 | PASS |
 | T18 | 验证初始静态渲染的几何对齐 | PASS |
 | T19 | 让 EmbodiedDataset 读取一个 sample | PASS |
-| T20 | 只验证 graph construction | TODO |
-| T21 | 只运行一次 forward/render/loss | TODO |
-| T22 | 只验证一次 backward 与 optimizer step | TODO |
-| T23 | 只验证 rollout=3 | TODO |
+| T20 | 只验证 graph construction | PASS |
+| T21 | 只运行一次 forward/render/loss | PASS |
+| T22 | 只验证一次 backward 与 optimizer step | PASS |
+| T23 | 只验证 rollout=3 | PASS |
 | T24 | 验证 checkpoint 保存与恢复 | TODO |
 | T25 | 冻结首个 baseline 的运行协议 | TODO |
 | T26 | 执行约定预算的 Stage 1 训练 | TODO |
@@ -1446,7 +1446,7 @@ seq_num=[10] 是源码定义的 video_range[1]−video_range[0]（采样帧步�
 
 ### T20：只验证 graph construction
 
-Status: TODO
+Status: PASS
 
 **问题：** object/controller 层级能否形成合法图？
 
@@ -1471,15 +1471,20 @@ Status: TODO
 
 #### Result
 
-Not executed.
+2026-09-26：PASS。真实 Config A EmbodiedDataset sample → GsSimulatorEmbodied._preprocess → GsHieEmbodiedDGLProcessor。四层 object/controller/edge 数分别为 12861/30/0、640/10/9768、7/2/72、1/1/2；层级连接图另记录在 report.json。leaf spatial edge=0 是官方 forward_last_layer=False 路径，并非整图无边。controller 实际层级严格为 30→10→2→1。
+
+逐层检查 pin mask、node/edge index 范围、p2c shape/全覆盖、所有特征 finite；leaf object/point order 与 initial Gaussian 一致，controller 前30行与目标帧控制点一致。没有非法索引、NaN/Inf。
 
 #### Evidence
 
-Not executed.
+- 本次用户明确授权 T20→T21→T22→T23 严格串行 batch；前项 PASS 后才进入本项。Slurm job 25824，RTX5090 32607MiB；本项耗时 7.656s，peak allocated=277390336 bytes（0.258GiB），peak reserved=304087040 bytes。T20耗时含初始化，其余为阶段墙钟时间，非性能benchmark。
+- [完整report](validation/t20-t23-smoke-20260926/report.json) 的 stages.T20 独立记录结果；[说明](validation/t20-t23-smoke-20260926/README.md)、[原始日志](validation/t20-t23-smoke-20260926/run.txt)。独立工具 tools/deform360_adapter/smoke_dynamics_batch.py；原始SoMA源码hash执行前后不变。
+- 固定Config A（023_cam0、009_cam1），T19训练sample source113…263、gap10，T11 7mm轨迹逐值核验，T12 grouping、T13 external=[0,0,-39.2]、T14/T15资产不变。官方模型结构、loss与dt保留，完整有效配置在report；无未来PLY读取入口。
+- T19 checkpoint 2cd8dd6cfafe329499930c4c6bf52763beb796ab 已push，batch开始前Mac clean/0–0，服务器clean后fast-forward。新增工具/小型报告属于SoMA/deform360-adaptation，当前untracked；roadmap tracked修改。batch尚未commit/push；未执行T24、未保存checkpoint或正式训练。
 
 ### T21：只运行一次 forward/render/loss
 
-Status: TODO
+Status: PASS
 
 **问题：** 一个预测步是否贯通？
 
@@ -1506,15 +1511,20 @@ Status: TODO
 
 #### Result
 
-Not executed.
+2026-09-26：PASS。直接在 T20 的 graph 上调用真实 encode_decode 和 _encode_decode_train，无 backward。initial source113/local0，controller prev/current=113/123，GT target=source123/local10，不是113自监督。12861个object Gaussian输出保持[12861,3]，两camera render均[3,360,640]，位置/covariance/render/depth/各loss均finite。
+
+Total loss=59908.2734375；完整分项见 report.json。未更新权重；但原实现训练路径/ register_norm=True会更新normalizer统计，因此与后续loss不构成学习改善对照。
 
 #### Evidence
 
-Not executed.
+- 本次用户明确授权 T20→T21→T22→T23 严格串行 batch；前项 PASS 后才进入本项。Slurm job 25824，RTX5090 32607MiB；本项耗时 0.469s，peak allocated=1489330688 bytes（1.387GiB），peak reserved=1593835520 bytes。T20耗时含初始化，其余为阶段墙钟时间，非性能benchmark。
+- [完整report](validation/t20-t23-smoke-20260926/report.json) 的 stages.T21 独立记录结果；[说明](validation/t20-t23-smoke-20260926/README.md)、[原始日志](validation/t20-t23-smoke-20260926/run.txt)。独立工具 tools/deform360_adapter/smoke_dynamics_batch.py；原始SoMA源码hash执行前后不变。
+- 固定Config A（023_cam0、009_cam1），T19训练sample source113…263、gap10，T11 7mm轨迹逐值核验，T12 grouping、T13 external=[0,0,-39.2]、T14/T15资产不变。官方模型结构、loss与dt保留，完整有效配置在report；无未来PLY读取入口。
+- T19 checkpoint 2cd8dd6cfafe329499930c4c6bf52763beb796ab 已push，batch开始前Mac clean/0–0，服务器clean后fast-forward。新增工具/小型报告属于SoMA/deform360-adaptation，当前untracked；roadmap tracked修改。batch尚未commit/push；未执行T24、未保存checkpoint或正式训练。
 
 ### T22：只验证一次 backward 与 optimizer step
 
-Status: TODO
+Status: PASS
 
 **问题：** 损失是否能正确更新动力学参数？
 
@@ -1539,15 +1549,20 @@ Status: TODO
 
 #### Result
 
-Not executed.
+2026-09-26：PASS。同一sample/config重新构图，执行一次forward、backward、Adam.step。total loss=23067.3828125；梯度global norm=81870.2374，275个参数有非零有限梯度，275个参数发生有限更新，包含backbone。optimizer参数集合与requires_grad模型参数精确一致，scene Gaussian输入不在optimizer中；Gaussian tensors/源数据hash保持不变。
+
+两项encoder.emb_norm.weight/bias没有梯度，源码只定义未在该路径调用，完整missing列表已记录；不宣称所有注册参数都获梯度，也不擅自修改。Adam lr=0.0004沿用官方配置，此处仅证明连通性。
 
 #### Evidence
 
-Not executed.
+- 本次用户明确授权 T20→T21→T22→T23 严格串行 batch；前项 PASS 后才进入本项。Slurm job 25824，RTX5090 32607MiB；本项耗时 0.762s，peak allocated=1492045312 bytes（1.390GiB），peak reserved=1610612736 bytes。T20耗时含初始化，其余为阶段墙钟时间，非性能benchmark。
+- [完整report](validation/t20-t23-smoke-20260926/report.json) 的 stages.T22 独立记录结果；[说明](validation/t20-t23-smoke-20260926/README.md)、[原始日志](validation/t20-t23-smoke-20260926/run.txt)。独立工具 tools/deform360_adapter/smoke_dynamics_batch.py；原始SoMA源码hash执行前后不变。
+- 固定Config A（023_cam0、009_cam1），T19训练sample source113…263、gap10，T11 7mm轨迹逐值核验，T12 grouping、T13 external=[0,0,-39.2]、T14/T15资产不变。官方模型结构、loss与dt保留，完整有效配置在report；无未来PLY读取入口。
+- T19 checkpoint 2cd8dd6cfafe329499930c4c6bf52763beb796ab 已push，batch开始前Mac clean/0–0，服务器clean后fast-forward。新增工具/小型报告属于SoMA/deform360-adaptation，当前untracked；roadmap tracked修改。batch尚未commit/push；未执行T24、未保存checkpoint或正式训练。
 
 ### T23：只验证 rollout=3
 
-Status: TODO
+Status: PASS
 
 **问题：** 自回归状态和多步监督是否连续正确？
 
@@ -1573,11 +1588,16 @@ Status: TODO
 
 #### Result
 
-Not executed.
+2026-09-26：PASS。使用T22更新后的同一模型实例，真实forward_train rollout=3；initial113，依次target123、133、143（local10/20/30）。三步forward与汇总loss backward成功，无额外optimizer step。total loss=18705.154296875，梯度global norm=136866.0205；所有逐步输出/loss/gradient有限，无OOM。
+
+观察包装逐值核验：step2/3 cur_state来自上一step的pred_pos[30:]，prev_state来自前一步输入；controller和GT使用对应帧，未从未来重建PLY重置。12861点数及结构行序保持。保留官方accumulate_gradient=False的detach规则（不是完整跨步BPTT），并保留源码当前cur_cov不随pred_cov更新的行为；未改变算法语义。
 
 #### Evidence
 
-Not executed.
+- 本次用户明确授权 T20→T21→T22→T23 严格串行 batch；前项 PASS 后才进入本项。Slurm job 25824，RTX5090 32607MiB；本项耗时 0.758s，peak allocated=3892000768 bytes（3.625GiB），peak reserved=4221566976 bytes。T20耗时含初始化，其余为阶段墙钟时间，非性能benchmark。
+- [完整report](validation/t20-t23-smoke-20260926/report.json) 的 stages.T23 独立记录结果；[说明](validation/t20-t23-smoke-20260926/README.md)、[原始日志](validation/t20-t23-smoke-20260926/run.txt)。独立工具 tools/deform360_adapter/smoke_dynamics_batch.py；原始SoMA源码hash执行前后不变。
+- 固定Config A（023_cam0、009_cam1），T19训练sample source113…263、gap10，T11 7mm轨迹逐值核验，T12 grouping、T13 external=[0,0,-39.2]、T14/T15资产不变。官方模型结构、loss与dt保留，完整有效配置在report；无未来PLY读取入口。
+- T19 checkpoint 2cd8dd6cfafe329499930c4c6bf52763beb796ab 已push，batch开始前Mac clean/0–0，服务器clean后fast-forward。新增工具/小型报告属于SoMA/deform360-adaptation，当前untracked；roadmap tracked修改。batch尚未commit/push；未执行T24、未保存checkpoint或正式训练。
 
 ### T24：验证 checkpoint 保存与恢复
 

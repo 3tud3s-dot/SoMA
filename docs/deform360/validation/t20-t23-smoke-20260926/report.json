@@ -1,0 +1,2648 @@
+{
+  "stages": {
+    "T20": {
+      "status": "PASS",
+      "seconds": 7.655576952995034,
+      "layers": [
+        {
+          "nodes": 12891,
+          "edges": 0,
+          "edge_index_minmax": null,
+          "node_features": {
+            "attr": {
+              "shape": [
+                12891,
+                5
+              ],
+              "dtype": "torch.float32",
+              "finite": true
+            },
+            "diag_volume": {
+              "shape": [
+                12891,
+                1
+              ],
+              "dtype": "torch.float32",
+              "finite": true
+            },
+            "prev_state": {
+              "shape": [
+                12891,
+                3
+              ],
+              "dtype": "torch.float32",
+              "finite": true
+            },
+            "cur_state": {
+              "shape": [
+                12891,
+                3
+              ],
+              "dtype": "torch.float32",
+              "finite": true
+            },
+            "template_state": {
+              "shape": [
+                12891,
+                3
+              ],
+              "dtype": "torch.float32",
+              "finite": true
+            },
+            "orig_template_state": {
+              "shape": [
+                12891,
+                3
+              ],
+              "dtype": "torch.float32",
+              "finite": true
+            },
+            "pin_mask": {
+              "shape": [
+                12891,
+                1
+              ],
+              "dtype": "torch.float32",
+              "finite": true
+            },
+            "external": {
+              "shape": [
+                12891,
+                3
+              ],
+              "dtype": "torch.float32",
+              "finite": true
+            },
+            "anchor_prev_state": {
+              "shape": [
+                12891,
+                3
+              ],
+              "dtype": "torch.float32",
+              "finite": true
+            },
+            "anchor_cur_state": {
+              "shape": [
+                12891,
+                3
+              ],
+              "dtype": "torch.float32",
+              "finite": true
+            },
+            "anchor_template_state": {
+              "shape": [
+                12891,
+                3
+              ],
+              "dtype": "torch.float32",
+              "finite": true
+            },
+            "anchor_orig_template_state": {
+              "shape": [
+                12891,
+                3
+              ],
+              "dtype": "torch.float32",
+              "finite": true
+            },
+            "cur_cov": {
+              "shape": [
+                12891,
+                6
+              ],
+              "dtype": "torch.float32",
+              "finite": true
+            }
+          },
+          "edge_features": {},
+          "controller_nodes": 30,
+          "object_nodes": 12861,
+          "layer": 0
+        },
+        {
+          "nodes": 650,
+          "edges": 9768,
+          "edge_index_minmax": [
+            0,
+            649
+          ],
+          "node_features": {
+            "diag_volume": {
+              "shape": [
+                650,
+                1
+              ],
+              "dtype": "torch.float32",
+              "finite": true
+            },
+            "attr": {
+              "shape": [
+                650,
+                5
+              ],
+              "dtype": "torch.float32",
+              "finite": true
+            },
+            "pin_mask": {
+              "shape": [
+                650,
+                1
+              ],
+              "dtype": "torch.float32",
+              "finite": true
+            },
+            "external": {
+              "shape": [
+                650,
+                3
+              ],
+              "dtype": "torch.float32",
+              "finite": true
+            },
+            "prev_state": {
+              "shape": [
+                650,
+                3
+              ],
+              "dtype": "torch.float32",
+              "finite": true
+            },
+            "cur_state": {
+              "shape": [
+                650,
+                3
+              ],
+              "dtype": "torch.float32",
+              "finite": true
+            },
+            "template_state": {
+              "shape": [
+                650,
+                3
+              ],
+              "dtype": "torch.float32",
+              "finite": true
+            },
+            "orig_template_state": {
+              "shape": [
+                650,
+                3
+              ],
+              "dtype": "torch.float32",
+              "finite": true
+            },
+            "anchor_prev_state": {
+              "shape": [
+                650,
+                3
+              ],
+              "dtype": "torch.float32",
+              "finite": true
+            },
+            "anchor_cur_state": {
+              "shape": [
+                650,
+                3
+              ],
+              "dtype": "torch.float32",
+              "finite": true
+            },
+            "anchor_template_state": {
+              "shape": [
+                650,
+                3
+              ],
+              "dtype": "torch.float32",
+              "finite": true
+            },
+            "anchor_orig_template_state": {
+              "shape": [
+                650,
+                3
+              ],
+              "dtype": "torch.float32",
+              "finite": true
+            }
+          },
+          "edge_features": {},
+          "controller_nodes": 10,
+          "object_nodes": 640,
+          "layer": 1
+        },
+        {
+          "nodes": 9,
+          "edges": 72,
+          "edge_index_minmax": [
+            0,
+            8
+          ],
+          "node_features": {
+            "diag_volume": {
+              "shape": [
+                9,
+                1
+              ],
+              "dtype": "torch.float32",
+              "finite": true
+            },
+            "attr": {
+              "shape": [
+                9,
+                5
+              ],
+              "dtype": "torch.float32",
+              "finite": true
+            },
+            "pin_mask": {
+              "shape": [
+                9,
+                1
+              ],
+              "dtype": "torch.float32",
+              "finite": true
+            },
+            "external": {
+              "shape": [
+                9,
+                3
+              ],
+              "dtype": "torch.float32",
+              "finite": true
+            },
+            "prev_state": {
+              "shape": [
+                9,
+                3
+              ],
+              "dtype": "torch.float32",
+              "finite": true
+            },
+            "cur_state": {
+              "shape": [
+                9,
+                3
+              ],
+              "dtype": "torch.float32",
+              "finite": true
+            },
+            "template_state": {
+              "shape": [
+                9,
+                3
+              ],
+              "dtype": "torch.float32",
+              "finite": true
+            },
+            "orig_template_state": {
+              "shape": [
+                9,
+                3
+              ],
+              "dtype": "torch.float32",
+              "finite": true
+            },
+            "anchor_prev_state": {
+              "shape": [
+                9,
+                3
+              ],
+              "dtype": "torch.float32",
+              "finite": true
+            },
+            "anchor_cur_state": {
+              "shape": [
+                9,
+                3
+              ],
+              "dtype": "torch.float32",
+              "finite": true
+            },
+            "anchor_template_state": {
+              "shape": [
+                9,
+                3
+              ],
+              "dtype": "torch.float32",
+              "finite": true
+            },
+            "anchor_orig_template_state": {
+              "shape": [
+                9,
+                3
+              ],
+              "dtype": "torch.float32",
+              "finite": true
+            }
+          },
+          "edge_features": {},
+          "controller_nodes": 2,
+          "object_nodes": 7,
+          "layer": 2
+        },
+        {
+          "nodes": 2,
+          "edges": 2,
+          "edge_index_minmax": [
+            0,
+            1
+          ],
+          "node_features": {
+            "diag_volume": {
+              "shape": [
+                2,
+                1
+              ],
+              "dtype": "torch.float32",
+              "finite": true
+            },
+            "attr": {
+              "shape": [
+                2,
+                5
+              ],
+              "dtype": "torch.float32",
+              "finite": true
+            },
+            "pin_mask": {
+              "shape": [
+                2,
+                1
+              ],
+              "dtype": "torch.float32",
+              "finite": true
+            },
+            "external": {
+              "shape": [
+                2,
+                3
+              ],
+              "dtype": "torch.float32",
+              "finite": true
+            },
+            "prev_state": {
+              "shape": [
+                2,
+                3
+              ],
+              "dtype": "torch.float32",
+              "finite": true
+            },
+            "cur_state": {
+              "shape": [
+                2,
+                3
+              ],
+              "dtype": "torch.float32",
+              "finite": true
+            },
+            "template_state": {
+              "shape": [
+                2,
+                3
+              ],
+              "dtype": "torch.float32",
+              "finite": true
+            },
+            "orig_template_state": {
+              "shape": [
+                2,
+                3
+              ],
+              "dtype": "torch.float32",
+              "finite": true
+            }
+          },
+          "edge_features": {},
+          "controller_nodes": 1,
+          "object_nodes": 1,
+          "layer": 3
+        }
+      ],
+      "connections": [
+        {
+          "nodes": 13541,
+          "edges": 25782,
+          "edge_index_minmax": [
+            0,
+            13540
+          ],
+          "node_features": {
+            "point_mask": {
+              "shape": [
+                13541,
+                1
+              ],
+              "dtype": "torch.float32",
+              "finite": true
+            },
+            "cluster_mask": {
+              "shape": [
+                13541,
+                1
+              ],
+              "dtype": "torch.float32",
+              "finite": true
+            },
+            "diag_volume": {
+              "shape": [
+                13541,
+                1
+              ],
+              "dtype": "torch.float32",
+              "finite": true
+            },
+            "attr": {
+              "shape": [
+                13541,
+                5
+              ],
+              "dtype": "torch.float32",
+              "finite": true
+            },
+            "density": {
+              "shape": [
+                13541,
+                1
+              ],
+              "dtype": "torch.float32",
+              "finite": true
+            },
+            "pin_mask": {
+              "shape": [
+                13541,
+                1
+              ],
+              "dtype": "torch.float32",
+              "finite": true
+            },
+            "external": {
+              "shape": [
+                13541,
+                3
+              ],
+              "dtype": "torch.float32",
+              "finite": true
+            },
+            "prev_state": {
+              "shape": [
+                13541,
+                3
+              ],
+              "dtype": "torch.float32",
+              "finite": true
+            },
+            "cur_state": {
+              "shape": [
+                13541,
+                3
+              ],
+              "dtype": "torch.float32",
+              "finite": true
+            },
+            "template_state": {
+              "shape": [
+                13541,
+                3
+              ],
+              "dtype": "torch.float32",
+              "finite": true
+            },
+            "orig_template_state": {
+              "shape": [
+                13541,
+                3
+              ],
+              "dtype": "torch.float32",
+              "finite": true
+            },
+            "anchor_prev_state": {
+              "shape": [
+                13541,
+                3
+              ],
+              "dtype": "torch.float32",
+              "finite": true
+            },
+            "anchor_cur_state": {
+              "shape": [
+                13541,
+                3
+              ],
+              "dtype": "torch.float32",
+              "finite": true
+            },
+            "anchor_template_state": {
+              "shape": [
+                13541,
+                3
+              ],
+              "dtype": "torch.float32",
+              "finite": true
+            },
+            "anchor_orig_template_state": {
+              "shape": [
+                13541,
+                3
+              ],
+              "dtype": "torch.float32",
+              "finite": true
+            }
+          },
+          "edge_features": {
+            "p2c_mask": {
+              "shape": [
+                25782,
+                1
+              ],
+              "dtype": "torch.float32",
+              "finite": true
+            },
+            "c2p_mask": {
+              "shape": [
+                25782,
+                1
+              ],
+              "dtype": "torch.float32",
+              "finite": true
+            }
+          }
+        },
+        {
+          "nodes": 659,
+          "edges": 1300,
+          "edge_index_minmax": [
+            0,
+            658
+          ],
+          "node_features": {
+            "point_mask": {
+              "shape": [
+                659,
+                1
+              ],
+              "dtype": "torch.float32",
+              "finite": true
+            },
+            "cluster_mask": {
+              "shape": [
+                659,
+                1
+              ],
+              "dtype": "torch.float32",
+              "finite": true
+            },
+            "diag_volume": {
+              "shape": [
+                659,
+                1
+              ],
+              "dtype": "torch.float32",
+              "finite": true
+            },
+            "attr": {
+              "shape": [
+                659,
+                5
+              ],
+              "dtype": "torch.float32",
+              "finite": true
+            },
+            "density": {
+              "shape": [
+                659,
+                1
+              ],
+              "dtype": "torch.float32",
+              "finite": true
+            },
+            "pin_mask": {
+              "shape": [
+                659,
+                1
+              ],
+              "dtype": "torch.float32",
+              "finite": true
+            },
+            "external": {
+              "shape": [
+                659,
+                3
+              ],
+              "dtype": "torch.float32",
+              "finite": true
+            },
+            "prev_state": {
+              "shape": [
+                659,
+                3
+              ],
+              "dtype": "torch.float32",
+              "finite": true
+            },
+            "cur_state": {
+              "shape": [
+                659,
+                3
+              ],
+              "dtype": "torch.float32",
+              "finite": true
+            },
+            "template_state": {
+              "shape": [
+                659,
+                3
+              ],
+              "dtype": "torch.float32",
+              "finite": true
+            },
+            "orig_template_state": {
+              "shape": [
+                659,
+                3
+              ],
+              "dtype": "torch.float32",
+              "finite": true
+            },
+            "anchor_prev_state": {
+              "shape": [
+                659,
+                3
+              ],
+              "dtype": "torch.float32",
+              "finite": true
+            },
+            "anchor_cur_state": {
+              "shape": [
+                659,
+                3
+              ],
+              "dtype": "torch.float32",
+              "finite": true
+            },
+            "anchor_template_state": {
+              "shape": [
+                659,
+                3
+              ],
+              "dtype": "torch.float32",
+              "finite": true
+            },
+            "anchor_orig_template_state": {
+              "shape": [
+                659,
+                3
+              ],
+              "dtype": "torch.float32",
+              "finite": true
+            }
+          },
+          "edge_features": {
+            "p2c_mask": {
+              "shape": [
+                1300,
+                1
+              ],
+              "dtype": "torch.float32",
+              "finite": true
+            },
+            "c2p_mask": {
+              "shape": [
+                1300,
+                1
+              ],
+              "dtype": "torch.float32",
+              "finite": true
+            }
+          }
+        },
+        {
+          "nodes": 11,
+          "edges": 18,
+          "edge_index_minmax": [
+            0,
+            10
+          ],
+          "node_features": {
+            "point_mask": {
+              "shape": [
+                11,
+                1
+              ],
+              "dtype": "torch.float32",
+              "finite": true
+            },
+            "cluster_mask": {
+              "shape": [
+                11,
+                1
+              ],
+              "dtype": "torch.float32",
+              "finite": true
+            },
+            "diag_volume": {
+              "shape": [
+                11,
+                1
+              ],
+              "dtype": "torch.float32",
+              "finite": true
+            },
+            "attr": {
+              "shape": [
+                11,
+                5
+              ],
+              "dtype": "torch.float32",
+              "finite": true
+            },
+            "density": {
+              "shape": [
+                11,
+                1
+              ],
+              "dtype": "torch.float32",
+              "finite": true
+            },
+            "pin_mask": {
+              "shape": [
+                11,
+                1
+              ],
+              "dtype": "torch.float32",
+              "finite": true
+            },
+            "external": {
+              "shape": [
+                11,
+                3
+              ],
+              "dtype": "torch.float32",
+              "finite": true
+            },
+            "prev_state": {
+              "shape": [
+                11,
+                3
+              ],
+              "dtype": "torch.float32",
+              "finite": true
+            },
+            "cur_state": {
+              "shape": [
+                11,
+                3
+              ],
+              "dtype": "torch.float32",
+              "finite": true
+            },
+            "template_state": {
+              "shape": [
+                11,
+                3
+              ],
+              "dtype": "torch.float32",
+              "finite": true
+            },
+            "orig_template_state": {
+              "shape": [
+                11,
+                3
+              ],
+              "dtype": "torch.float32",
+              "finite": true
+            },
+            "anchor_prev_state": {
+              "shape": [
+                11,
+                3
+              ],
+              "dtype": "torch.float32",
+              "finite": true
+            },
+            "anchor_cur_state": {
+              "shape": [
+                11,
+                3
+              ],
+              "dtype": "torch.float32",
+              "finite": true
+            },
+            "anchor_template_state": {
+              "shape": [
+                11,
+                3
+              ],
+              "dtype": "torch.float32",
+              "finite": true
+            },
+            "anchor_orig_template_state": {
+              "shape": [
+                11,
+                3
+              ],
+              "dtype": "torch.float32",
+              "finite": true
+            }
+          },
+          "edge_features": {
+            "p2c_mask": {
+              "shape": [
+                18,
+                1
+              ],
+              "dtype": "torch.float32",
+              "finite": true
+            },
+            "c2p_mask": {
+              "shape": [
+                18,
+                1
+              ],
+              "dtype": "torch.float32",
+              "finite": true
+            }
+          }
+        }
+      ],
+      "p2c": [
+        {
+          "controller_shape": [
+            30
+          ],
+          "object_shape": [
+            12861
+          ],
+          "min": 0,
+          "max": 649
+        },
+        {
+          "controller_shape": [
+            10
+          ],
+          "object_shape": [
+            640
+          ],
+          "min": 0,
+          "max": 8
+        },
+        {
+          "controller_shape": [
+            2
+          ],
+          "object_shape": [
+            7
+          ],
+          "min": 0,
+          "max": 1
+        },
+        {
+          "controller_shape": [
+            1
+          ],
+          "object_shape": [
+            1
+          ],
+          "min": 0,
+          "max": 0
+        }
+      ],
+      "controller_hierarchy": [
+        30,
+        10,
+        2,
+        1
+      ],
+      "Gaussian_identity_unchanged": true,
+      "memory": {
+        "allocated_bytes": 276968448,
+        "reserved_bytes": 304087040,
+        "peak_allocated_bytes": 277390336,
+        "peak_reserved_bytes": 304087040
+      }
+    },
+    "T21": {
+      "status": "PASS",
+      "seconds": 0.4689578460092889,
+      "input_source": 113,
+      "target_source": 123,
+      "target_local": 10,
+      "controller_prev_source": 113,
+      "controller_cur_source": 123,
+      "object_shape": [
+        12861,
+        3
+      ],
+      "render_shapes": [
+        [
+          3,
+          360,
+          640
+        ],
+        [
+          3,
+          360,
+          640
+        ]
+      ],
+      "losses": {
+        "decode.loss_mse_momentum": 21444.81640625,
+        "decode.loss_ssim_render": 4712.59228515625,
+        "decode.loss_l2_render": 33750.86328125,
+        "decode.acc_l2_render.acc": 0.14384524524211884,
+        "decode.acc_l1_render.acc": 0.225480854511261,
+        "decode.acc_ssim_render.acc": 0.9318201541900635,
+        "decode.acc_psnr_render.acc": 12.821462631225586
+      },
+      "memory": {
+        "allocated_bytes": 1467197952,
+        "reserved_bytes": 1593835520,
+        "peak_allocated_bytes": 1489330688,
+        "peak_reserved_bytes": 1593835520
+      },
+      "total_loss": 59908.2734375
+    },
+    "T22": {
+      "status": "PASS",
+      "seconds": 0.7615407240082277,
+      "total_loss": 23067.3828125,
+      "gradients": {
+        "global_norm": 81870.2374027654,
+        "nonzero": {
+          "scene_attr.rope": 477.4971504758528,
+          "backbone.node_encoder.layers.0.0.weight": 23.321890946936026,
+          "backbone.node_encoder.layers.0.0.bias": 875.1564861967918,
+          "backbone.node_encoder.layers.1.0.weight": 2612.5261755314586,
+          "backbone.node_encoder.layers.1.0.bias": 2082.7659684476575,
+          "backbone.node_encoder.layers.2.weight": 2974.2896410350736,
+          "backbone.node_encoder.layers.2.bias": 5027.042826329573,
+          "backbone.edge_encoder.layers.0.0.weight": 1695.074657084501,
+          "backbone.edge_encoder.layers.0.0.bias": 541.5709506985468,
+          "backbone.edge_encoder.layers.1.0.weight": 7647.21347190163,
+          "backbone.edge_encoder.layers.1.0.bias": 1582.4922952971574,
+          "backbone.edge_encoder.layers.2.weight": 8389.23960264779,
+          "backbone.edge_encoder.layers.2.bias": 4111.350747697088,
+          "backbone.encoder.layers.0.norms.0.weight": 286.3641163972942,
+          "backbone.encoder.layers.0.norms.0.bias": 299.4493942876079,
+          "backbone.encoder.layers.0.norms.1.weight": 345.58233335227357,
+          "backbone.encoder.layers.0.norms.1.bias": 343.1561394996587,
+          "backbone.encoder.layers.0.edge_weight.layers.0.0.weight": 9638.067760060807,
+          "backbone.encoder.layers.0.edge_weight.layers.0.0.bias": 535.2064954488002,
+          "backbone.encoder.layers.0.edge_weight.layers.1.0.weight": 6053.358136241299,
+          "backbone.encoder.layers.0.edge_weight.layers.1.0.bias": 1670.022182317474,
+          "backbone.encoder.layers.0.edge_weight.layers.2.weight": 6300.244409116141,
+          "backbone.encoder.layers.0.edge_weight.layers.2.bias": 5913.415535449579,
+          "backbone.encoder.layers.0.node_weight.layers.0.0.weight": 9475.2613313612,
+          "backbone.encoder.layers.0.node_weight.layers.0.0.bias": 597.6152793331154,
+          "backbone.encoder.layers.0.node_weight.layers.1.0.weight": 5880.774768934249,
+          "backbone.encoder.layers.0.node_weight.layers.1.0.bias": 1609.398441293412,
+          "backbone.encoder.layers.0.node_weight.layers.2.weight": 6680.8808551646025,
+          "backbone.encoder.layers.0.node_weight.layers.2.bias": 5471.779071661312,
+          "backbone.encoder.layers.1.norms.0.weight": 274.491870694715,
+          "backbone.encoder.layers.1.norms.0.bias": 270.069652546617,
+          "backbone.encoder.layers.1.norms.1.weight": 259.40441911806494,
+          "backbone.encoder.layers.1.norms.1.bias": 251.5049436683939,
+          "backbone.encoder.layers.1.edge_weight.layers.0.0.weight": 8458.466279373917,
+          "backbone.encoder.layers.1.edge_weight.layers.0.0.bias": 448.5476368603494,
+          "backbone.encoder.layers.1.edge_weight.layers.1.0.weight": 4500.016486662175,
+          "backbone.encoder.layers.1.edge_weight.layers.1.0.bias": 1407.5852732016344,
+          "backbone.encoder.layers.1.edge_weight.layers.2.weight": 4320.905922189501,
+          "backbone.encoder.layers.1.edge_weight.layers.2.bias": 4357.207073996939,
+          "backbone.encoder.layers.1.node_weight.layers.0.0.weight": 7329.508811408952,
+          "backbone.encoder.layers.1.node_weight.layers.0.0.bias": 459.51002712488645,
+          "backbone.encoder.layers.1.node_weight.layers.1.0.weight": 6310.347647115083,
+          "backbone.encoder.layers.1.node_weight.layers.1.0.bias": 1560.6759093349797,
+          "backbone.encoder.layers.1.node_weight.layers.2.weight": 5326.2852566518295,
+          "backbone.encoder.layers.1.node_weight.layers.2.bias": 4726.887877649903,
+          "backbone.encoder.layers.2.norms.0.weight": 223.41109699914676,
+          "backbone.encoder.layers.2.norms.0.bias": 233.20474022604583,
+          "backbone.encoder.layers.2.norms.1.weight": 263.6003625996447,
+          "backbone.encoder.layers.2.norms.1.bias": 235.42667194148686,
+          "backbone.encoder.layers.2.edge_weight.layers.0.0.weight": 7455.035879758931,
+          "backbone.encoder.layers.2.edge_weight.layers.0.0.bias": 392.73315815401406,
+          "backbone.encoder.layers.2.edge_weight.layers.1.0.weight": 3555.9553073531692,
+          "backbone.encoder.layers.2.edge_weight.layers.1.0.bias": 1144.5850723135384,
+          "backbone.encoder.layers.2.edge_weight.layers.2.weight": 4002.2638279349894,
+          "backbone.encoder.layers.2.edge_weight.layers.2.bias": 3886.244611982856,
+          "backbone.encoder.layers.2.node_weight.layers.0.0.weight": 5995.616747896451,
+          "backbone.encoder.layers.2.node_weight.layers.0.0.bias": 374.7024718906821,
+          "backbone.encoder.layers.2.node_weight.layers.1.0.weight": 4042.709595175326,
+          "backbone.encoder.layers.2.node_weight.layers.1.0.bias": 1168.3375297191965,
+          "backbone.encoder.layers.2.node_weight.layers.2.weight": 4264.150477980747,
+          "backbone.encoder.layers.2.node_weight.layers.2.bias": 4340.270126662472,
+          "backbone.encoder.layers.3.norms.0.weight": 166.13760798925153,
+          "backbone.encoder.layers.3.norms.0.bias": 172.82321428463368,
+          "backbone.encoder.layers.3.norms.1.weight": 274.8581731922849,
+          "backbone.encoder.layers.3.norms.1.bias": 204.17473953591642,
+          "backbone.encoder.layers.3.edge_weight.layers.0.0.weight": 5675.496434131044,
+          "backbone.encoder.layers.3.edge_weight.layers.0.0.bias": 292.68140245848076,
+          "backbone.encoder.layers.3.edge_weight.layers.1.0.weight": 3309.569356954801,
+          "backbone.encoder.layers.3.edge_weight.layers.1.0.bias": 986.6523448118403,
+          "backbone.encoder.layers.3.edge_weight.layers.2.weight": 3722.03323641372,
+          "backbone.encoder.layers.3.edge_weight.layers.2.bias": 3549.7592971816957,
+          "backbone.encoder.layers.3.node_weight.layers.0.0.weight": 5602.451880717514,
+          "backbone.encoder.layers.3.node_weight.layers.0.0.bias": 348.09425913974354,
+          "backbone.encoder.layers.3.node_weight.layers.1.0.weight": 4275.9594802096635,
+          "backbone.encoder.layers.3.node_weight.layers.1.0.bias": 1155.4837193218061,
+          "backbone.encoder.layers.3.node_weight.layers.2.weight": 4407.937985466514,
+          "backbone.encoder.layers.3.node_weight.layers.2.bias": 4274.475143927937,
+          "backbone.encoder.layers.4.norms.0.weight": 192.2788685278533,
+          "backbone.encoder.layers.4.norms.0.bias": 186.85024242754696,
+          "backbone.encoder.layers.4.norms.1.weight": 265.3032266888076,
+          "backbone.encoder.layers.4.norms.1.bias": 253.77335581337738,
+          "backbone.encoder.layers.4.edge_weight.layers.0.0.weight": 6604.579505832438,
+          "backbone.encoder.layers.4.edge_weight.layers.0.0.bias": 344.7959341513861,
+          "backbone.encoder.layers.4.edge_weight.layers.1.0.weight": 3070.453781206204,
+          "backbone.encoder.layers.4.edge_weight.layers.1.0.bias": 918.6225808567091,
+          "backbone.encoder.layers.4.edge_weight.layers.2.weight": 3600.718854531702,
+          "backbone.encoder.layers.4.edge_weight.layers.2.bias": 3303.879928097112,
+          "backbone.encoder.layers.4.node_weight.layers.0.0.weight": 6744.206326576842,
+          "backbone.encoder.layers.4.node_weight.layers.0.0.bias": 423.97889579570193,
+          "backbone.encoder.layers.4.node_weight.layers.1.0.weight": 4344.217156720985,
+          "backbone.encoder.layers.4.node_weight.layers.1.0.bias": 1202.605735086444,
+          "backbone.encoder.layers.4.node_weight.layers.2.weight": 4706.342712444933,
+          "backbone.encoder.layers.4.node_weight.layers.2.bias": 4167.873059741303,
+          "backbone.encoder.layers.5.norms.0.weight": 168.0613935411698,
+          "backbone.encoder.layers.5.norms.0.bias": 163.7468951055072,
+          "backbone.encoder.layers.5.norms.1.weight": 217.6479239471423,
+          "backbone.encoder.layers.5.norms.1.bias": 191.48522319192858,
+          "backbone.encoder.layers.5.edge_weight.layers.0.0.weight": 5506.006497828295,
+          "backbone.encoder.layers.5.edge_weight.layers.0.0.bias": 285.8410264844435,
+          "backbone.encoder.layers.5.edge_weight.layers.1.0.weight": 3348.264151301773,
+          "backbone.encoder.layers.5.edge_weight.layers.1.0.bias": 871.1117196466182,
+          "backbone.encoder.layers.5.edge_weight.layers.2.weight": 3411.288902673379,
+          "backbone.encoder.layers.5.edge_weight.layers.2.bias": 2765.924791079403,
+          "backbone.encoder.layers.5.node_weight.layers.0.0.weight": 5227.580836839371,
+          "backbone.encoder.layers.5.node_weight.layers.0.0.bias": 326.0452589899536,
+          "backbone.encoder.layers.5.node_weight.layers.1.0.weight": 3899.1397233885464,
+          "backbone.encoder.layers.5.node_weight.layers.1.0.bias": 1274.694655312156,
+          "backbone.encoder.layers.5.node_weight.layers.2.weight": 3861.1749715802816,
+          "backbone.encoder.layers.5.node_weight.layers.2.bias": 4122.233396546558,
+          "backbone.encoder.layers.6.norms.0.weight": 149.65063892917044,
+          "backbone.encoder.layers.6.norms.0.bias": 148.84508031021372,
+          "backbone.encoder.layers.6.norms.1.weight": 238.12100533912763,
+          "backbone.encoder.layers.6.norms.1.bias": 219.01329149729239,
+          "backbone.encoder.layers.6.edge_weight.layers.0.0.weight": 5095.665277890618,
+          "backbone.encoder.layers.6.edge_weight.layers.0.0.bias": 263.5261998461613,
+          "backbone.encoder.layers.6.edge_weight.layers.1.0.weight": 2911.280727439311,
+          "backbone.encoder.layers.6.edge_weight.layers.1.0.bias": 829.7573613044898,
+          "backbone.encoder.layers.6.edge_weight.layers.2.weight": 3017.664326569779,
+          "backbone.encoder.layers.6.edge_weight.layers.2.bias": 2675.347728630015,
+          "backbone.encoder.layers.6.node_weight.layers.0.0.weight": 6164.22214314874,
+          "backbone.encoder.layers.6.node_weight.layers.0.0.bias": 385.2755231696248,
+          "backbone.encoder.layers.6.node_weight.layers.1.0.weight": 4150.041139326411,
+          "backbone.encoder.layers.6.node_weight.layers.1.0.bias": 1235.6515122269989,
+          "backbone.encoder.layers.6.node_weight.layers.2.weight": 4047.0602641140486,
+          "backbone.encoder.layers.6.node_weight.layers.2.bias": 3995.7298559809656,
+          "backbone.encoder.layers.7.norms.0.weight": 126.15162191544084,
+          "backbone.encoder.layers.7.norms.0.bias": 123.25809979646687,
+          "backbone.encoder.layers.7.norms.1.weight": 147.90841608796572,
+          "backbone.encoder.layers.7.norms.1.bias": 168.03729256460184,
+          "backbone.encoder.layers.7.edge_weight.layers.0.0.weight": 4262.6234548797,
+          "backbone.encoder.layers.7.edge_weight.layers.0.0.bias": 219.11577457176307,
+          "backbone.encoder.layers.7.edge_weight.layers.1.0.weight": 2329.5409246569043,
+          "backbone.encoder.layers.7.edge_weight.layers.1.0.bias": 674.4023811147437,
+          "backbone.encoder.layers.7.edge_weight.layers.2.weight": 2634.418095712495,
+          "backbone.encoder.layers.7.edge_weight.layers.2.bias": 2382.623325224021,
+          "backbone.encoder.layers.7.node_weight.layers.0.0.weight": 4840.620038365096,
+          "backbone.encoder.layers.7.node_weight.layers.0.0.bias": 301.0004632811552,
+          "backbone.encoder.layers.7.node_weight.layers.1.0.weight": 3327.2365093854737,
+          "backbone.encoder.layers.7.node_weight.layers.1.0.bias": 1053.3718332848666,
+          "backbone.encoder.layers.7.node_weight.layers.2.weight": 3952.9050532885162,
+          "backbone.encoder.layers.7.node_weight.layers.2.bias": 3992.136852401666,
+          "backbone.encoder.layers.8.norms.0.weight": 152.13269469345644,
+          "backbone.encoder.layers.8.norms.0.bias": 148.0201840440794,
+          "backbone.encoder.layers.8.norms.1.weight": 218.3664279231193,
+          "backbone.encoder.layers.8.norms.1.bias": 229.62064124079845,
+          "backbone.encoder.layers.8.edge_weight.layers.0.0.weight": 4867.822566717443,
+          "backbone.encoder.layers.8.edge_weight.layers.0.0.bias": 252.45144437065775,
+          "backbone.encoder.layers.8.edge_weight.layers.1.0.weight": 2866.8194800447004,
+          "backbone.encoder.layers.8.edge_weight.layers.1.0.bias": 701.5124863363623,
+          "backbone.encoder.layers.8.edge_weight.layers.2.weight": 3072.4804348674725,
+          "backbone.encoder.layers.8.edge_weight.layers.2.bias": 2334.200870384981,
+          "backbone.encoder.layers.8.node_weight.layers.0.0.weight": 6410.225232512219,
+          "backbone.encoder.layers.8.node_weight.layers.0.0.bias": 399.2387626706283,
+          "backbone.encoder.layers.8.node_weight.layers.1.0.weight": 4350.230708506227,
+          "backbone.encoder.layers.8.node_weight.layers.1.0.bias": 1154.515768380969,
+          "backbone.encoder.layers.8.node_weight.layers.2.weight": 4528.896157923194,
+          "backbone.encoder.layers.8.node_weight.layers.2.bias": 3983.519519880888,
+          "backbone.encoder.layers.9.norms.0.weight": 120.55668489051091,
+          "backbone.encoder.layers.9.norms.0.bias": 122.27452890454212,
+          "backbone.encoder.layers.9.norms.1.weight": 177.86987929942762,
+          "backbone.encoder.layers.9.norms.1.bias": 189.93261796170086,
+          "backbone.encoder.layers.9.edge_weight.layers.0.0.weight": 4275.43720737316,
+          "backbone.encoder.layers.9.edge_weight.layers.0.0.bias": 220.85822717660298,
+          "backbone.encoder.layers.9.edge_weight.layers.1.0.weight": 2335.147635937886,
+          "backbone.encoder.layers.9.edge_weight.layers.1.0.bias": 616.1963753862028,
+          "backbone.encoder.layers.9.edge_weight.layers.2.weight": 2477.955553983058,
+          "backbone.encoder.layers.9.edge_weight.layers.2.bias": 2170.039772800514,
+          "backbone.encoder.layers.9.node_weight.layers.0.0.weight": 5340.265213620104,
+          "backbone.encoder.layers.9.node_weight.layers.0.0.bias": 330.72756293224813,
+          "backbone.encoder.layers.9.node_weight.layers.1.0.weight": 4251.541319032825,
+          "backbone.encoder.layers.9.node_weight.layers.1.0.bias": 1166.9318151515324,
+          "backbone.encoder.layers.9.node_weight.layers.2.weight": 4458.514436091638,
+          "backbone.encoder.layers.9.node_weight.layers.2.bias": 3971.560128729713,
+          "backbone.encoder.layers.10.norms.0.weight": 107.98024882208821,
+          "backbone.encoder.layers.10.norms.0.bias": 112.01803785671382,
+          "backbone.encoder.layers.10.norms.1.weight": 256.07756876690564,
+          "backbone.encoder.layers.10.norms.1.bias": 224.29261149307933,
+          "backbone.encoder.layers.10.edge_weight.layers.0.0.weight": 3919.622258642747,
+          "backbone.encoder.layers.10.edge_weight.layers.0.0.bias": 202.32481372449976,
+          "backbone.encoder.layers.10.edge_weight.layers.1.0.weight": 2014.6591428259483,
+          "backbone.encoder.layers.10.edge_weight.layers.1.0.bias": 590.4832782016249,
+          "backbone.encoder.layers.10.edge_weight.layers.2.weight": 2022.0489596722016,
+          "backbone.encoder.layers.10.edge_weight.layers.2.bias": 2074.5495023727644,
+          "backbone.encoder.layers.10.node_weight.layers.0.0.weight": 5795.752007167447,
+          "backbone.encoder.layers.10.node_weight.layers.0.0.bias": 362.2285998707045,
+          "backbone.encoder.layers.10.node_weight.layers.1.0.weight": 3941.4564089019827,
+          "backbone.encoder.layers.10.node_weight.layers.1.0.bias": 1125.8092011293302,
+          "backbone.encoder.layers.10.node_weight.layers.2.weight": 4119.733028370403,
+          "backbone.encoder.layers.10.node_weight.layers.2.bias": 4015.6413849512046,
+          "backbone.encoder.layers.11.norms.0.weight": 115.61042433945899,
+          "backbone.encoder.layers.11.norms.0.bias": 116.80417818410001,
+          "backbone.encoder.layers.11.norms.1.weight": 173.84513031372984,
+          "backbone.encoder.layers.11.norms.1.bias": 174.56991575487535,
+          "backbone.encoder.layers.11.edge_weight.layers.0.0.weight": 3875.4056390772776,
+          "backbone.encoder.layers.11.edge_weight.layers.0.0.bias": 199.98679312739955,
+          "backbone.encoder.layers.11.edge_weight.layers.1.0.weight": 2331.0177290798147,
+          "backbone.encoder.layers.11.edge_weight.layers.1.0.bias": 570.1488045722434,
+          "backbone.encoder.layers.11.edge_weight.layers.2.weight": 2127.503022340909,
+          "backbone.encoder.layers.11.edge_weight.layers.2.bias": 1814.6623076505653,
+          "backbone.encoder.layers.11.node_weight.layers.0.0.weight": 4882.210512355474,
+          "backbone.encoder.layers.11.node_weight.layers.0.0.bias": 302.9353876299236,
+          "backbone.encoder.layers.11.node_weight.layers.1.0.weight": 3341.5592265505734,
+          "backbone.encoder.layers.11.node_weight.layers.1.0.bias": 1052.120704284001,
+          "backbone.encoder.layers.11.node_weight.layers.2.weight": 3726.1383834549097,
+          "backbone.encoder.layers.11.node_weight.layers.2.bias": 3972.634076521899,
+          "backbone.encoder.layers.12.norms.0.weight": 92.54692998198766,
+          "backbone.encoder.layers.12.norms.0.bias": 94.64514025704794,
+          "backbone.encoder.layers.12.norms.1.weight": 257.79901720823324,
+          "backbone.encoder.layers.12.norms.1.bias": 203.73343905595033,
+          "backbone.encoder.layers.12.edge_weight.layers.0.0.weight": 3048.233407630587,
+          "backbone.encoder.layers.12.edge_weight.layers.0.0.bias": 157.43294205979848,
+          "backbone.encoder.layers.12.edge_weight.layers.1.0.weight": 1931.4021555325396,
+          "backbone.encoder.layers.12.edge_weight.layers.1.0.bias": 494.980483325236,
+          "backbone.encoder.layers.12.edge_weight.layers.2.weight": 2098.4724007014447,
+          "backbone.encoder.layers.12.edge_weight.layers.2.bias": 1670.1754616651212,
+          "backbone.encoder.layers.12.node_weight.layers.0.0.weight": 5556.085665146608,
+          "backbone.encoder.layers.12.node_weight.layers.0.0.bias": 344.30620937895463,
+          "backbone.encoder.layers.12.node_weight.layers.1.0.weight": 3992.013614493136,
+          "backbone.encoder.layers.12.node_weight.layers.1.0.bias": 1142.3414102496956,
+          "backbone.encoder.layers.12.node_weight.layers.2.weight": 4377.206668049909,
+          "backbone.encoder.layers.12.node_weight.layers.2.bias": 3932.906220575658,
+          "backbone.encoder.layers.13.norms.0.weight": 85.81483044685459,
+          "backbone.encoder.layers.13.norms.0.bias": 83.23957789276294,
+          "backbone.encoder.layers.13.norms.1.weight": 162.60206702912595,
+          "backbone.encoder.layers.13.norms.1.bias": 211.9342235308455,
+          "backbone.encoder.layers.13.edge_weight.layers.0.0.weight": 2836.6700131363964,
+          "backbone.encoder.layers.13.edge_weight.layers.0.0.bias": 146.5311146899952,
+          "backbone.encoder.layers.13.edge_weight.layers.1.0.weight": 1556.2480955296526,
+          "backbone.encoder.layers.13.edge_weight.layers.1.0.bias": 406.70744931101535,
+          "backbone.encoder.layers.13.edge_weight.layers.2.weight": 1461.6493629066524,
+          "backbone.encoder.layers.13.edge_weight.layers.2.bias": 1340.44030335645,
+          "backbone.encoder.layers.13.node_weight.layers.0.0.weight": 6278.550844368868,
+          "backbone.encoder.layers.13.node_weight.layers.0.0.bias": 392.7137935253913,
+          "backbone.encoder.layers.13.node_weight.layers.1.0.weight": 3765.953952184064,
+          "backbone.encoder.layers.13.node_weight.layers.1.0.bias": 1145.4355313930455,
+          "backbone.encoder.layers.13.node_weight.layers.2.weight": 3892.763227688222,
+          "backbone.encoder.layers.13.node_weight.layers.2.bias": 3898.836880039563,
+          "backbone.encoder.layers.14.norms.0.weight": 47.42918796668066,
+          "backbone.encoder.layers.14.norms.0.bias": 48.22147973619687,
+          "backbone.encoder.layers.14.norms.1.weight": 170.4212506897741,
+          "backbone.encoder.layers.14.norms.1.bias": 193.08325222637032,
+          "backbone.encoder.layers.14.edge_weight.layers.0.0.weight": 1603.7364043569273,
+          "backbone.encoder.layers.14.edge_weight.layers.0.0.bias": 82.49961333018459,
+          "backbone.encoder.layers.14.edge_weight.layers.1.0.weight": 934.7394102937828,
+          "backbone.encoder.layers.14.edge_weight.layers.1.0.bias": 270.38766769570043,
+          "backbone.encoder.layers.14.edge_weight.layers.2.weight": 907.0964865626194,
+          "backbone.encoder.layers.14.edge_weight.layers.2.bias": 981.8804068016575,
+          "backbone.encoder.layers.14.node_weight.layers.0.0.weight": 6106.863462777618,
+          "backbone.encoder.layers.14.node_weight.layers.0.0.bias": 382.57019319618735,
+          "backbone.encoder.layers.14.node_weight.layers.1.0.weight": 4405.190781146111,
+          "backbone.encoder.layers.14.node_weight.layers.1.0.bias": 1315.0237379577748,
+          "backbone.encoder.layers.14.node_weight.layers.2.weight": 3862.1044036724306,
+          "backbone.encoder.layers.14.node_weight.layers.2.bias": 3905.7106801421214,
+          "backbone.encoder.layers.15.norms.0.weight": 42.64224708473902,
+          "backbone.encoder.layers.15.norms.0.bias": 45.039493619134795,
+          "backbone.encoder.layers.15.norms.1.weight": 202.5571577741889,
+          "backbone.encoder.layers.15.norms.1.bias": 211.48213308739196,
+          "backbone.encoder.layers.15.edge_weight.layers.0.0.weight": 1545.893281954676,
+          "backbone.encoder.layers.15.edge_weight.layers.0.0.bias": 80.0205861488486,
+          "backbone.encoder.layers.15.edge_weight.layers.1.0.weight": 826.275700492202,
+          "backbone.encoder.layers.15.edge_weight.layers.1.0.bias": 241.4912888458736,
+          "backbone.encoder.layers.15.edge_weight.layers.2.weight": 750.1405204109708,
+          "backbone.encoder.layers.15.edge_weight.layers.2.bias": 725.0717855129333,
+          "backbone.encoder.layers.15.node_weight.layers.0.0.weight": 6193.303383841882,
+          "backbone.encoder.layers.15.node_weight.layers.0.0.bias": 387.8313874872288,
+          "backbone.encoder.layers.15.node_weight.layers.1.0.weight": 4093.0634155711455,
+          "backbone.encoder.layers.15.node_weight.layers.1.0.bias": 1128.3357495456964,
+          "backbone.encoder.layers.15.node_weight.layers.2.weight": 4085.045398343418,
+          "backbone.encoder.layers.15.node_weight.layers.2.bias": 3900.196594707357,
+          "decode_head.dynamic_proj.layers.0.0.weight": 21978.815815620645,
+          "decode_head.dynamic_proj.layers.0.0.bias": 7163.773726911655,
+          "decode_head.dynamic_proj.layers.1.0.weight": 17525.651857572673,
+          "decode_head.dynamic_proj.layers.1.0.bias": 20770.593342264947,
+          "decode_head.dynamic_proj.layers.2.weight": 18960.86980317753,
+          "decode_head.dynamic_proj.layers.2.bias": 49040.30189112952
+        },
+        "zero": [],
+        "missing": [
+          "backbone.encoder.emb_norm.weight",
+          "backbone.encoder.emb_norm.bias"
+        ]
+      },
+      "changed_parameters_max_abs": {
+        "scene_attr.rope": 0.0004000000189989805,
+        "backbone.node_encoder.layers.0.0.weight": 0.0004000067710876465,
+        "backbone.node_encoder.layers.0.0.bias": 0.0004000067710876465,
+        "backbone.node_encoder.layers.1.0.weight": 0.000400003045797348,
+        "backbone.node_encoder.layers.1.0.bias": 0.0004000002518296242,
+        "backbone.node_encoder.layers.2.weight": 0.000400003045797348,
+        "backbone.node_encoder.layers.2.bias": 0.0004000002518296242,
+        "backbone.edge_encoder.layers.0.0.weight": 0.0004000067710876465,
+        "backbone.edge_encoder.layers.0.0.bias": 0.0004000067710876465,
+        "backbone.edge_encoder.layers.1.0.weight": 0.000400003045797348,
+        "backbone.edge_encoder.layers.1.0.bias": 0.0004000002518296242,
+        "backbone.edge_encoder.layers.2.weight": 0.000400003045797348,
+        "backbone.edge_encoder.layers.2.bias": 0.0004000011831521988,
+        "backbone.encoder.layers.0.norms.0.weight": 0.0004000067710876465,
+        "backbone.encoder.layers.0.norms.0.bias": 0.000400000048102811,
+        "backbone.encoder.layers.0.norms.1.weight": 0.0004000067710876465,
+        "backbone.encoder.layers.0.norms.1.bias": 0.000400000048102811,
+        "backbone.encoder.layers.0.edge_weight.layers.0.0.weight": 0.0004000011831521988,
+        "backbone.encoder.layers.0.edge_weight.layers.0.0.bias": 0.0004000002518296242,
+        "backbone.encoder.layers.0.edge_weight.layers.1.0.weight": 0.000400003045797348,
+        "backbone.encoder.layers.0.edge_weight.layers.1.0.bias": 0.0004000002518296242,
+        "backbone.encoder.layers.0.edge_weight.layers.2.weight": 0.000400003045797348,
+        "backbone.encoder.layers.0.edge_weight.layers.2.bias": 0.0004000002518296242,
+        "backbone.encoder.layers.0.node_weight.layers.0.0.weight": 0.0004000002518296242,
+        "backbone.encoder.layers.0.node_weight.layers.0.0.bias": 0.0004000002518296242,
+        "backbone.encoder.layers.0.node_weight.layers.1.0.weight": 0.000400003045797348,
+        "backbone.encoder.layers.0.node_weight.layers.1.0.bias": 0.0004000002518296242,
+        "backbone.encoder.layers.0.node_weight.layers.2.weight": 0.000400003045797348,
+        "backbone.encoder.layers.0.node_weight.layers.2.bias": 0.0004000002518296242,
+        "backbone.encoder.layers.1.norms.0.weight": 0.0004000067710876465,
+        "backbone.encoder.layers.1.norms.0.bias": 0.000400000048102811,
+        "backbone.encoder.layers.1.norms.1.weight": 0.0004000067710876465,
+        "backbone.encoder.layers.1.norms.1.bias": 0.000400000048102811,
+        "backbone.encoder.layers.1.edge_weight.layers.0.0.weight": 0.0004000011831521988,
+        "backbone.encoder.layers.1.edge_weight.layers.0.0.bias": 0.0004000002518296242,
+        "backbone.encoder.layers.1.edge_weight.layers.1.0.weight": 0.000400003045797348,
+        "backbone.encoder.layers.1.edge_weight.layers.1.0.bias": 0.0004000002518296242,
+        "backbone.encoder.layers.1.edge_weight.layers.2.weight": 0.000400003045797348,
+        "backbone.encoder.layers.1.edge_weight.layers.2.bias": 0.0004000002518296242,
+        "backbone.encoder.layers.1.node_weight.layers.0.0.weight": 0.0004000002518296242,
+        "backbone.encoder.layers.1.node_weight.layers.0.0.bias": 0.0004000002518296242,
+        "backbone.encoder.layers.1.node_weight.layers.1.0.weight": 0.000400003045797348,
+        "backbone.encoder.layers.1.node_weight.layers.1.0.bias": 0.0004000011831521988,
+        "backbone.encoder.layers.1.node_weight.layers.2.weight": 0.000400003045797348,
+        "backbone.encoder.layers.1.node_weight.layers.2.bias": 0.0004000002518296242,
+        "backbone.encoder.layers.2.norms.0.weight": 0.0004000067710876465,
+        "backbone.encoder.layers.2.norms.0.bias": 0.000400000048102811,
+        "backbone.encoder.layers.2.norms.1.weight": 0.0004000067710876465,
+        "backbone.encoder.layers.2.norms.1.bias": 0.000400000048102811,
+        "backbone.encoder.layers.2.edge_weight.layers.0.0.weight": 0.0004000011831521988,
+        "backbone.encoder.layers.2.edge_weight.layers.0.0.bias": 0.0004000002518296242,
+        "backbone.encoder.layers.2.edge_weight.layers.1.0.weight": 0.000400003045797348,
+        "backbone.encoder.layers.2.edge_weight.layers.1.0.bias": 0.0004000002518296242,
+        "backbone.encoder.layers.2.edge_weight.layers.2.weight": 0.000400003045797348,
+        "backbone.encoder.layers.2.edge_weight.layers.2.bias": 0.0004000011831521988,
+        "backbone.encoder.layers.2.node_weight.layers.0.0.weight": 0.0004000002518296242,
+        "backbone.encoder.layers.2.node_weight.layers.0.0.bias": 0.0004000002518296242,
+        "backbone.encoder.layers.2.node_weight.layers.1.0.weight": 0.000400003045797348,
+        "backbone.encoder.layers.2.node_weight.layers.1.0.bias": 0.0004000002518296242,
+        "backbone.encoder.layers.2.node_weight.layers.2.weight": 0.000400003045797348,
+        "backbone.encoder.layers.2.node_weight.layers.2.bias": 0.0004000002518296242,
+        "backbone.encoder.layers.3.norms.0.weight": 0.0004000067710876465,
+        "backbone.encoder.layers.3.norms.0.bias": 0.000400000048102811,
+        "backbone.encoder.layers.3.norms.1.weight": 0.0004000067710876465,
+        "backbone.encoder.layers.3.norms.1.bias": 0.000400000048102811,
+        "backbone.encoder.layers.3.edge_weight.layers.0.0.weight": 0.0004000011831521988,
+        "backbone.encoder.layers.3.edge_weight.layers.0.0.bias": 0.0004000011831521988,
+        "backbone.encoder.layers.3.edge_weight.layers.1.0.weight": 0.000400003045797348,
+        "backbone.encoder.layers.3.edge_weight.layers.1.0.bias": 0.0004000002518296242,
+        "backbone.encoder.layers.3.edge_weight.layers.2.weight": 0.000400003045797348,
+        "backbone.encoder.layers.3.edge_weight.layers.2.bias": 0.0004000011831521988,
+        "backbone.encoder.layers.3.node_weight.layers.0.0.weight": 0.0004000002518296242,
+        "backbone.encoder.layers.3.node_weight.layers.0.0.bias": 0.0004000002518296242,
+        "backbone.encoder.layers.3.node_weight.layers.1.0.weight": 0.000400003045797348,
+        "backbone.encoder.layers.3.node_weight.layers.1.0.bias": 0.0004000011831521988,
+        "backbone.encoder.layers.3.node_weight.layers.2.weight": 0.000400003045797348,
+        "backbone.encoder.layers.3.node_weight.layers.2.bias": 0.0004000011831521988,
+        "backbone.encoder.layers.4.norms.0.weight": 0.0004000067710876465,
+        "backbone.encoder.layers.4.norms.0.bias": 0.000400000048102811,
+        "backbone.encoder.layers.4.norms.1.weight": 0.0004000067710876465,
+        "backbone.encoder.layers.4.norms.1.bias": 0.000400000048102811,
+        "backbone.encoder.layers.4.edge_weight.layers.0.0.weight": 0.0004000011831521988,
+        "backbone.encoder.layers.4.edge_weight.layers.0.0.bias": 0.0004000011831521988,
+        "backbone.encoder.layers.4.edge_weight.layers.1.0.weight": 0.000400003045797348,
+        "backbone.encoder.layers.4.edge_weight.layers.1.0.bias": 0.0004000002518296242,
+        "backbone.encoder.layers.4.edge_weight.layers.2.weight": 0.000400003045797348,
+        "backbone.encoder.layers.4.edge_weight.layers.2.bias": 0.0004000002518296242,
+        "backbone.encoder.layers.4.node_weight.layers.0.0.weight": 0.0004000002518296242,
+        "backbone.encoder.layers.4.node_weight.layers.0.0.bias": 0.0004000002518296242,
+        "backbone.encoder.layers.4.node_weight.layers.1.0.weight": 0.000400003045797348,
+        "backbone.encoder.layers.4.node_weight.layers.1.0.bias": 0.000400003045797348,
+        "backbone.encoder.layers.4.node_weight.layers.2.weight": 0.000400003045797348,
+        "backbone.encoder.layers.4.node_weight.layers.2.bias": 0.0004000002518296242,
+        "backbone.encoder.layers.5.norms.0.weight": 0.0004000067710876465,
+        "backbone.encoder.layers.5.norms.0.bias": 0.000400000048102811,
+        "backbone.encoder.layers.5.norms.1.weight": 0.0004000067710876465,
+        "backbone.encoder.layers.5.norms.1.bias": 0.000400000048102811,
+        "backbone.encoder.layers.5.edge_weight.layers.0.0.weight": 0.0004000011831521988,
+        "backbone.encoder.layers.5.edge_weight.layers.0.0.bias": 0.0004000002518296242,
+        "backbone.encoder.layers.5.edge_weight.layers.1.0.weight": 0.000400003045797348,
+        "backbone.encoder.layers.5.edge_weight.layers.1.0.bias": 0.0004000002518296242,
+        "backbone.encoder.layers.5.edge_weight.layers.2.weight": 0.000400003045797348,
+        "backbone.encoder.layers.5.edge_weight.layers.2.bias": 0.0004000002518296242,
+        "backbone.encoder.layers.5.node_weight.layers.0.0.weight": 0.0004000002518296242,
+        "backbone.encoder.layers.5.node_weight.layers.0.0.bias": 0.0004000002518296242,
+        "backbone.encoder.layers.5.node_weight.layers.1.0.weight": 0.000400003045797348,
+        "backbone.encoder.layers.5.node_weight.layers.1.0.bias": 0.0004000002518296242,
+        "backbone.encoder.layers.5.node_weight.layers.2.weight": 0.000400003045797348,
+        "backbone.encoder.layers.5.node_weight.layers.2.bias": 0.0004000011831521988,
+        "backbone.encoder.layers.6.norms.0.weight": 0.0004000067710876465,
+        "backbone.encoder.layers.6.norms.0.bias": 0.000400000048102811,
+        "backbone.encoder.layers.6.norms.1.weight": 0.0004000067710876465,
+        "backbone.encoder.layers.6.norms.1.bias": 0.000400000048102811,
+        "backbone.encoder.layers.6.edge_weight.layers.0.0.weight": 0.0004000011831521988,
+        "backbone.encoder.layers.6.edge_weight.layers.0.0.bias": 0.0004000002518296242,
+        "backbone.encoder.layers.6.edge_weight.layers.1.0.weight": 0.000400003045797348,
+        "backbone.encoder.layers.6.edge_weight.layers.1.0.bias": 0.0004000011831521988,
+        "backbone.encoder.layers.6.edge_weight.layers.2.weight": 0.000400003045797348,
+        "backbone.encoder.layers.6.edge_weight.layers.2.bias": 0.0004000002518296242,
+        "backbone.encoder.layers.6.node_weight.layers.0.0.weight": 0.0004000002518296242,
+        "backbone.encoder.layers.6.node_weight.layers.0.0.bias": 0.0004000002518296242,
+        "backbone.encoder.layers.6.node_weight.layers.1.0.weight": 0.000400003045797348,
+        "backbone.encoder.layers.6.node_weight.layers.1.0.bias": 0.0004000002518296242,
+        "backbone.encoder.layers.6.node_weight.layers.2.weight": 0.000400003045797348,
+        "backbone.encoder.layers.6.node_weight.layers.2.bias": 0.0004000002518296242,
+        "backbone.encoder.layers.7.norms.0.weight": 0.0004000067710876465,
+        "backbone.encoder.layers.7.norms.0.bias": 0.000400000048102811,
+        "backbone.encoder.layers.7.norms.1.weight": 0.0004000067710876465,
+        "backbone.encoder.layers.7.norms.1.bias": 0.0004000000189989805,
+        "backbone.encoder.layers.7.edge_weight.layers.0.0.weight": 0.0004000011831521988,
+        "backbone.encoder.layers.7.edge_weight.layers.0.0.bias": 0.0004000002518296242,
+        "backbone.encoder.layers.7.edge_weight.layers.1.0.weight": 0.000400003045797348,
+        "backbone.encoder.layers.7.edge_weight.layers.1.0.bias": 0.0004000002518296242,
+        "backbone.encoder.layers.7.edge_weight.layers.2.weight": 0.000400003045797348,
+        "backbone.encoder.layers.7.edge_weight.layers.2.bias": 0.0004000002518296242,
+        "backbone.encoder.layers.7.node_weight.layers.0.0.weight": 0.0004000002518296242,
+        "backbone.encoder.layers.7.node_weight.layers.0.0.bias": 0.0004000002518296242,
+        "backbone.encoder.layers.7.node_weight.layers.1.0.weight": 0.000400003045797348,
+        "backbone.encoder.layers.7.node_weight.layers.1.0.bias": 0.0004000002518296242,
+        "backbone.encoder.layers.7.node_weight.layers.2.weight": 0.000400003045797348,
+        "backbone.encoder.layers.7.node_weight.layers.2.bias": 0.0004000002518296242,
+        "backbone.encoder.layers.8.norms.0.weight": 0.0004000067710876465,
+        "backbone.encoder.layers.8.norms.0.bias": 0.000400000048102811,
+        "backbone.encoder.layers.8.norms.1.weight": 0.0004000067710876465,
+        "backbone.encoder.layers.8.norms.1.bias": 0.000400000048102811,
+        "backbone.encoder.layers.8.edge_weight.layers.0.0.weight": 0.0004000011831521988,
+        "backbone.encoder.layers.8.edge_weight.layers.0.0.bias": 0.0004000002518296242,
+        "backbone.encoder.layers.8.edge_weight.layers.1.0.weight": 0.000400003045797348,
+        "backbone.encoder.layers.8.edge_weight.layers.1.0.bias": 0.0004000002518296242,
+        "backbone.encoder.layers.8.edge_weight.layers.2.weight": 0.000400003045797348,
+        "backbone.encoder.layers.8.edge_weight.layers.2.bias": 0.000400003045797348,
+        "backbone.encoder.layers.8.node_weight.layers.0.0.weight": 0.0004000002518296242,
+        "backbone.encoder.layers.8.node_weight.layers.0.0.bias": 0.0004000002518296242,
+        "backbone.encoder.layers.8.node_weight.layers.1.0.weight": 0.000400003045797348,
+        "backbone.encoder.layers.8.node_weight.layers.1.0.bias": 0.0004000002518296242,
+        "backbone.encoder.layers.8.node_weight.layers.2.weight": 0.000400003045797348,
+        "backbone.encoder.layers.8.node_weight.layers.2.bias": 0.0004000002518296242,
+        "backbone.encoder.layers.9.norms.0.weight": 0.0004000067710876465,
+        "backbone.encoder.layers.9.norms.0.bias": 0.000400000048102811,
+        "backbone.encoder.layers.9.norms.1.weight": 0.0004000067710876465,
+        "backbone.encoder.layers.9.norms.1.bias": 0.000400000048102811,
+        "backbone.encoder.layers.9.edge_weight.layers.0.0.weight": 0.0004000011831521988,
+        "backbone.encoder.layers.9.edge_weight.layers.0.0.bias": 0.0004000002518296242,
+        "backbone.encoder.layers.9.edge_weight.layers.1.0.weight": 0.000400003045797348,
+        "backbone.encoder.layers.9.edge_weight.layers.1.0.bias": 0.0004000002518296242,
+        "backbone.encoder.layers.9.edge_weight.layers.2.weight": 0.000400003045797348,
+        "backbone.encoder.layers.9.edge_weight.layers.2.bias": 0.0004000011831521988,
+        "backbone.encoder.layers.9.node_weight.layers.0.0.weight": 0.0004000002518296242,
+        "backbone.encoder.layers.9.node_weight.layers.0.0.bias": 0.0004000002518296242,
+        "backbone.encoder.layers.9.node_weight.layers.1.0.weight": 0.000400003045797348,
+        "backbone.encoder.layers.9.node_weight.layers.1.0.bias": 0.000400003045797348,
+        "backbone.encoder.layers.9.node_weight.layers.2.weight": 0.000400003045797348,
+        "backbone.encoder.layers.9.node_weight.layers.2.bias": 0.0004000002518296242,
+        "backbone.encoder.layers.10.norms.0.weight": 0.0004000067710876465,
+        "backbone.encoder.layers.10.norms.0.bias": 0.000400000048102811,
+        "backbone.encoder.layers.10.norms.1.weight": 0.0004000067710876465,
+        "backbone.encoder.layers.10.norms.1.bias": 0.000400000048102811,
+        "backbone.encoder.layers.10.edge_weight.layers.0.0.weight": 0.0004000011831521988,
+        "backbone.encoder.layers.10.edge_weight.layers.0.0.bias": 0.0004000011831521988,
+        "backbone.encoder.layers.10.edge_weight.layers.1.0.weight": 0.000400003045797348,
+        "backbone.encoder.layers.10.edge_weight.layers.1.0.bias": 0.0004000011831521988,
+        "backbone.encoder.layers.10.edge_weight.layers.2.weight": 0.000400003045797348,
+        "backbone.encoder.layers.10.edge_weight.layers.2.bias": 0.0004000002518296242,
+        "backbone.encoder.layers.10.node_weight.layers.0.0.weight": 0.0004000002518296242,
+        "backbone.encoder.layers.10.node_weight.layers.0.0.bias": 0.0004000002518296242,
+        "backbone.encoder.layers.10.node_weight.layers.1.0.weight": 0.000400003045797348,
+        "backbone.encoder.layers.10.node_weight.layers.1.0.bias": 0.0004000002518296242,
+        "backbone.encoder.layers.10.node_weight.layers.2.weight": 0.000400003045797348,
+        "backbone.encoder.layers.10.node_weight.layers.2.bias": 0.0004000002518296242,
+        "backbone.encoder.layers.11.norms.0.weight": 0.0004000067710876465,
+        "backbone.encoder.layers.11.norms.0.bias": 0.000400000048102811,
+        "backbone.encoder.layers.11.norms.1.weight": 0.0004000067710876465,
+        "backbone.encoder.layers.11.norms.1.bias": 0.000400000048102811,
+        "backbone.encoder.layers.11.edge_weight.layers.0.0.weight": 0.0004000011831521988,
+        "backbone.encoder.layers.11.edge_weight.layers.0.0.bias": 0.0004000002518296242,
+        "backbone.encoder.layers.11.edge_weight.layers.1.0.weight": 0.000400003045797348,
+        "backbone.encoder.layers.11.edge_weight.layers.1.0.bias": 0.0004000002518296242,
+        "backbone.encoder.layers.11.edge_weight.layers.2.weight": 0.000400003045797348,
+        "backbone.encoder.layers.11.edge_weight.layers.2.bias": 0.0004000002518296242,
+        "backbone.encoder.layers.11.node_weight.layers.0.0.weight": 0.0004000002518296242,
+        "backbone.encoder.layers.11.node_weight.layers.0.0.bias": 0.0004000002518296242,
+        "backbone.encoder.layers.11.node_weight.layers.1.0.weight": 0.000400003045797348,
+        "backbone.encoder.layers.11.node_weight.layers.1.0.bias": 0.0004000002518296242,
+        "backbone.encoder.layers.11.node_weight.layers.2.weight": 0.000400003045797348,
+        "backbone.encoder.layers.11.node_weight.layers.2.bias": 0.0004000002518296242,
+        "backbone.encoder.layers.12.norms.0.weight": 0.0004000067710876465,
+        "backbone.encoder.layers.12.norms.0.bias": 0.000400000048102811,
+        "backbone.encoder.layers.12.norms.1.weight": 0.0004000067710876465,
+        "backbone.encoder.layers.12.norms.1.bias": 0.000400000048102811,
+        "backbone.encoder.layers.12.edge_weight.layers.0.0.weight": 0.0004000011831521988,
+        "backbone.encoder.layers.12.edge_weight.layers.0.0.bias": 0.0004000002518296242,
+        "backbone.encoder.layers.12.edge_weight.layers.1.0.weight": 0.000400003045797348,
+        "backbone.encoder.layers.12.edge_weight.layers.1.0.bias": 0.0004000002518296242,
+        "backbone.encoder.layers.12.edge_weight.layers.2.weight": 0.000400003045797348,
+        "backbone.encoder.layers.12.edge_weight.layers.2.bias": 0.0004000002518296242,
+        "backbone.encoder.layers.12.node_weight.layers.0.0.weight": 0.0004000002518296242,
+        "backbone.encoder.layers.12.node_weight.layers.0.0.bias": 0.0004000002518296242,
+        "backbone.encoder.layers.12.node_weight.layers.1.0.weight": 0.000400003045797348,
+        "backbone.encoder.layers.12.node_weight.layers.1.0.bias": 0.0004000002518296242,
+        "backbone.encoder.layers.12.node_weight.layers.2.weight": 0.000400003045797348,
+        "backbone.encoder.layers.12.node_weight.layers.2.bias": 0.0004000002518296242,
+        "backbone.encoder.layers.13.norms.0.weight": 0.0004000067710876465,
+        "backbone.encoder.layers.13.norms.0.bias": 0.000400000048102811,
+        "backbone.encoder.layers.13.norms.1.weight": 0.0004000067710876465,
+        "backbone.encoder.layers.13.norms.1.bias": 0.0004000000189989805,
+        "backbone.encoder.layers.13.edge_weight.layers.0.0.weight": 0.0004000011831521988,
+        "backbone.encoder.layers.13.edge_weight.layers.0.0.bias": 0.0004000011831521988,
+        "backbone.encoder.layers.13.edge_weight.layers.1.0.weight": 0.000400003045797348,
+        "backbone.encoder.layers.13.edge_weight.layers.1.0.bias": 0.0004000002518296242,
+        "backbone.encoder.layers.13.edge_weight.layers.2.weight": 0.000400003045797348,
+        "backbone.encoder.layers.13.edge_weight.layers.2.bias": 0.0004000002518296242,
+        "backbone.encoder.layers.13.node_weight.layers.0.0.weight": 0.0004000002518296242,
+        "backbone.encoder.layers.13.node_weight.layers.0.0.bias": 0.0004000002518296242,
+        "backbone.encoder.layers.13.node_weight.layers.1.0.weight": 0.000400003045797348,
+        "backbone.encoder.layers.13.node_weight.layers.1.0.bias": 0.000400003045797348,
+        "backbone.encoder.layers.13.node_weight.layers.2.weight": 0.000400003045797348,
+        "backbone.encoder.layers.13.node_weight.layers.2.bias": 0.0004000002518296242,
+        "backbone.encoder.layers.14.norms.0.weight": 0.0004000067710876465,
+        "backbone.encoder.layers.14.norms.0.bias": 0.000400000048102811,
+        "backbone.encoder.layers.14.norms.1.weight": 0.0004000067710876465,
+        "backbone.encoder.layers.14.norms.1.bias": 0.000400000048102811,
+        "backbone.encoder.layers.14.edge_weight.layers.0.0.weight": 0.0004000011831521988,
+        "backbone.encoder.layers.14.edge_weight.layers.0.0.bias": 0.0004000011831521988,
+        "backbone.encoder.layers.14.edge_weight.layers.1.0.weight": 0.000400003045797348,
+        "backbone.encoder.layers.14.edge_weight.layers.1.0.bias": 0.0004000002518296242,
+        "backbone.encoder.layers.14.edge_weight.layers.2.weight": 0.000400003045797348,
+        "backbone.encoder.layers.14.edge_weight.layers.2.bias": 0.0004000011831521988,
+        "backbone.encoder.layers.14.node_weight.layers.0.0.weight": 0.0004000002518296242,
+        "backbone.encoder.layers.14.node_weight.layers.0.0.bias": 0.0004000002518296242,
+        "backbone.encoder.layers.14.node_weight.layers.1.0.weight": 0.000400003045797348,
+        "backbone.encoder.layers.14.node_weight.layers.1.0.bias": 0.0004000002518296242,
+        "backbone.encoder.layers.14.node_weight.layers.2.weight": 0.000400003045797348,
+        "backbone.encoder.layers.14.node_weight.layers.2.bias": 0.0004000002518296242,
+        "backbone.encoder.layers.15.norms.0.weight": 0.0004000067710876465,
+        "backbone.encoder.layers.15.norms.0.bias": 0.000400000048102811,
+        "backbone.encoder.layers.15.norms.1.weight": 0.0004000067710876465,
+        "backbone.encoder.layers.15.norms.1.bias": 0.000400000048102811,
+        "backbone.encoder.layers.15.edge_weight.layers.0.0.weight": 0.0004000011831521988,
+        "backbone.encoder.layers.15.edge_weight.layers.0.0.bias": 0.0004000002518296242,
+        "backbone.encoder.layers.15.edge_weight.layers.1.0.weight": 0.000400003045797348,
+        "backbone.encoder.layers.15.edge_weight.layers.1.0.bias": 0.0004000002518296242,
+        "backbone.encoder.layers.15.edge_weight.layers.2.weight": 0.000400003045797348,
+        "backbone.encoder.layers.15.edge_weight.layers.2.bias": 0.000400003045797348,
+        "backbone.encoder.layers.15.node_weight.layers.0.0.weight": 0.0004000002518296242,
+        "backbone.encoder.layers.15.node_weight.layers.0.0.bias": 0.0004000002518296242,
+        "backbone.encoder.layers.15.node_weight.layers.1.0.weight": 0.000400003045797348,
+        "backbone.encoder.layers.15.node_weight.layers.1.0.bias": 0.0004000011831521988,
+        "backbone.encoder.layers.15.node_weight.layers.2.weight": 0.000400003045797348,
+        "backbone.encoder.layers.15.node_weight.layers.2.bias": 0.0004000002518296242,
+        "decode_head.dynamic_proj.layers.0.0.weight": 0.000400003045797348,
+        "decode_head.dynamic_proj.layers.0.0.bias": 0.0004000011831521988,
+        "decode_head.dynamic_proj.layers.1.0.weight": 0.0004000067710876465,
+        "decode_head.dynamic_proj.layers.1.0.bias": 0.0004000002518296242,
+        "decode_head.dynamic_proj.layers.2.weight": 0.0004000067710876465,
+        "decode_head.dynamic_proj.layers.2.bias": 0.0004000067710876465
+      },
+      "memory": {
+        "allocated_bytes": 474335232,
+        "reserved_bytes": 1610612736,
+        "peak_allocated_bytes": 1492045312,
+        "peak_reserved_bytes": 1610612736
+      }
+    },
+    "T23": {
+      "status": "PASS",
+      "seconds": 0.7576372250041459,
+      "steps": [
+        {
+          "step": 1,
+          "input_state_source": "initial source113",
+          "controller_source_pair": [
+            113,
+            123
+          ],
+          "target_source": 123,
+          "target_local": 10,
+          "input_object_shape": [
+            12861,
+            3
+          ],
+          "state_transfer_verified": true,
+          "predicted_object_shape": [
+            12861,
+            3
+          ],
+          "render_shapes": [
+            [
+              3,
+              360,
+              640
+            ],
+            [
+              3,
+              360,
+              640
+            ]
+          ],
+          "regularization": {
+            "decode.loss_mse_momentum": 1.8328436613082886
+          },
+          "memory": {
+            "allocated_bytes": 1251118080,
+            "reserved_bytes": 1616904192,
+            "peak_allocated_bytes": 1255826432,
+            "peak_reserved_bytes": 1616904192
+          },
+          "image_losses": {
+            "decode.loss_ssim_render": 3662.719970703125,
+            "decode.loss_l2_render": 14346.1005859375,
+            "decode.acc_l2_render.acc": 0.0735611766576767,
+            "decode.acc_l1_render.acc": 0.11801351606845856,
+            "decode.acc_ssim_render.acc": 0.947009265422821,
+            "decode.acc_psnr_render.acc": 16.492511749267578
+          }
+        },
+        {
+          "step": 2,
+          "input_state_source": "prediction step1",
+          "controller_source_pair": [
+            123,
+            133
+          ],
+          "target_source": 133,
+          "target_local": 20,
+          "input_object_shape": [
+            12861,
+            3
+          ],
+          "state_transfer_verified": true,
+          "predicted_object_shape": [
+            12861,
+            3
+          ],
+          "render_shapes": [
+            [
+              3,
+              360,
+              640
+            ],
+            [
+              3,
+              360,
+              640
+            ]
+          ],
+          "regularization": {
+            "decode.loss_mse_momentum": 2.8352909088134766
+          },
+          "memory": {
+            "allocated_bytes": 2505063424,
+            "reserved_bytes": 2793406464,
+            "peak_allocated_bytes": 2509926400,
+            "peak_reserved_bytes": 2793406464
+          },
+          "image_losses": {
+            "decode.loss_ssim_render": 3759.310302734375,
+            "decode.loss_l2_render": 14886.8681640625,
+            "decode.acc_l2_render.acc": 0.07611750811338425,
+            "decode.acc_l1_render.acc": 0.12202925980091095,
+            "decode.acc_ssim_render.acc": 0.945611834526062,
+            "decode.acc_psnr_render.acc": 16.331174850463867
+          }
+        },
+        {
+          "step": 3,
+          "input_state_source": "prediction step2",
+          "controller_source_pair": [
+            133,
+            143
+          ],
+          "target_source": 143,
+          "target_local": 30,
+          "input_object_shape": [
+            12861,
+            3
+          ],
+          "state_transfer_verified": true,
+          "predicted_object_shape": [
+            12861,
+            3
+          ],
+          "render_shapes": [
+            [
+              3,
+              360,
+              640
+            ],
+            [
+              3,
+              360,
+              640
+            ]
+          ],
+          "regularization": {
+            "decode.loss_mse_momentum": 2.9045569896698
+          },
+          "memory": {
+            "allocated_bytes": 3635374592,
+            "reserved_bytes": 4072669184,
+            "peak_allocated_bytes": 3640237568,
+            "peak_reserved_bytes": 4072669184
+          },
+          "image_losses": {
+            "decode.loss_ssim_render": 3791.07275390625,
+            "decode.loss_l2_render": 15661.8154296875,
+            "decode.acc_l2_render.acc": 0.07938319444656372,
+            "decode.acc_l1_render.acc": 0.12733443081378937,
+            "decode.acc_ssim_render.acc": 0.9451522827148438,
+            "decode.acc_psnr_render.acc": 16.130306243896484
+          }
+        }
+      ],
+      "total_loss": 18705.154296875,
+      "losses": {
+        "decode.loss_mse_momentum_config_a_2cam": 2.524230480194092,
+        "decode.loss_ssim_render_config_a_2cam": 3737.701171875,
+        "decode.loss_l2_render_config_a_2cam": 14964.9287109375,
+        "decode.acc_l2_render.acc_config_a_2cam_frame0": 0.0735611766576767,
+        "decode.acc_l1_render.acc_config_a_2cam_frame0": 0.11801351606845856,
+        "decode.acc_ssim_render.acc_config_a_2cam_frame0": 0.947009265422821,
+        "decode.acc_psnr_render.acc_config_a_2cam_frame0": 16.492511749267578,
+        "decode.acc_l2_render.acc_config_a_2cam_frame1": 0.07611750811338425,
+        "decode.acc_l1_render.acc_config_a_2cam_frame1": 0.12202925980091095,
+        "decode.acc_ssim_render.acc_config_a_2cam_frame1": 0.945611834526062,
+        "decode.acc_psnr_render.acc_config_a_2cam_frame1": 16.331174850463867,
+        "decode.acc_l2_render.acc_config_a_2cam_frame2": 0.07938319444656372,
+        "decode.acc_l1_render.acc_config_a_2cam_frame2": 0.12733443081378937,
+        "decode.acc_ssim_render.acc_config_a_2cam_frame2": 0.9451522827148438,
+        "decode.acc_psnr_render.acc_config_a_2cam_frame2": 16.130306243896484,
+        "decode.loss_mse_static_config_a_2cam": 0.0
+      },
+      "gradients": {
+        "global_norm": 136866.020453021,
+        "nonzero": {
+          "scene_attr.rope": 580.2459812513404,
+          "backbone.node_encoder.layers.0.0.weight": 23.330786026356378,
+          "backbone.node_encoder.layers.0.0.bias": 1295.579612758893,
+          "backbone.node_encoder.layers.1.0.weight": 3964.2230145451695,
+          "backbone.node_encoder.layers.1.0.bias": 3157.8398794726127,
+          "backbone.node_encoder.layers.2.weight": 4701.124257933757,
+          "backbone.node_encoder.layers.2.bias": 7892.792202891284,
+          "backbone.edge_encoder.layers.0.0.weight": 1644.4976063967508,
+          "backbone.edge_encoder.layers.0.0.bias": 892.9093146589869,
+          "backbone.edge_encoder.layers.1.0.weight": 7355.940434147044,
+          "backbone.edge_encoder.layers.1.0.bias": 2385.2992165828964,
+          "backbone.edge_encoder.layers.2.weight": 8981.910168560704,
+          "backbone.edge_encoder.layers.2.bias": 6321.50343672908,
+          "backbone.encoder.layers.0.norms.0.weight": 388.2787101680228,
+          "backbone.encoder.layers.0.norms.0.bias": 422.60507202411134,
+          "backbone.encoder.layers.0.norms.1.weight": 450.92360812408174,
+          "backbone.encoder.layers.0.norms.1.bias": 444.4581569010077,
+          "backbone.encoder.layers.0.edge_weight.layers.0.0.weight": 13983.757413535035,
+          "backbone.encoder.layers.0.edge_weight.layers.0.0.bias": 756.0761235049747,
+          "backbone.encoder.layers.0.edge_weight.layers.1.0.weight": 9381.264067089121,
+          "backbone.encoder.layers.0.edge_weight.layers.1.0.bias": 2457.0713871221865,
+          "backbone.encoder.layers.0.edge_weight.layers.2.weight": 9903.538906283027,
+          "backbone.encoder.layers.0.edge_weight.layers.2.bias": 8679.414864636045,
+          "backbone.encoder.layers.0.node_weight.layers.0.0.weight": 12885.436638541169,
+          "backbone.encoder.layers.0.node_weight.layers.0.0.bias": 817.2095560311055,
+          "backbone.encoder.layers.0.node_weight.layers.1.0.weight": 8893.238365163665,
+          "backbone.encoder.layers.0.node_weight.layers.1.0.bias": 2327.9920700619873,
+          "backbone.encoder.layers.0.node_weight.layers.2.weight": 10561.997767763878,
+          "backbone.encoder.layers.0.node_weight.layers.2.bias": 7871.278929811793,
+          "backbone.encoder.layers.1.norms.0.weight": 347.65753367298294,
+          "backbone.encoder.layers.1.norms.0.bias": 350.2031313173278,
+          "backbone.encoder.layers.1.norms.1.weight": 392.740552485818,
+          "backbone.encoder.layers.1.norms.1.bias": 371.6246172135098,
+          "backbone.encoder.layers.1.edge_weight.layers.0.0.weight": 11447.274187404873,
+          "backbone.encoder.layers.1.edge_weight.layers.0.0.bias": 596.800486536334,
+          "backbone.encoder.layers.1.edge_weight.layers.1.0.weight": 6642.89773747037,
+          "backbone.encoder.layers.1.edge_weight.layers.1.0.bias": 2182.2687508398503,
+          "backbone.encoder.layers.1.edge_weight.layers.2.weight": 6697.707826069734,
+          "backbone.encoder.layers.1.edge_weight.layers.2.bias": 7128.419916962088,
+          "backbone.encoder.layers.1.node_weight.layers.0.0.weight": 10532.553052683985,
+          "backbone.encoder.layers.1.node_weight.layers.0.0.bias": 666.4873696569712,
+          "backbone.encoder.layers.1.node_weight.layers.1.0.weight": 8344.513844950121,
+          "backbone.encoder.layers.1.node_weight.layers.1.0.bias": 2066.982112333627,
+          "backbone.encoder.layers.1.node_weight.layers.2.weight": 8458.891477238976,
+          "backbone.encoder.layers.1.node_weight.layers.2.bias": 7002.88800356494,
+          "backbone.encoder.layers.2.norms.0.weight": 305.33401564970416,
+          "backbone.encoder.layers.2.norms.0.bias": 305.4662727371667,
+          "backbone.encoder.layers.2.norms.1.weight": 363.57464708888807,
+          "backbone.encoder.layers.2.norms.1.bias": 379.64717947997167,
+          "backbone.encoder.layers.2.edge_weight.layers.0.0.weight": 9905.15519398457,
+          "backbone.encoder.layers.2.edge_weight.layers.0.0.bias": 513.5051636873989,
+          "backbone.encoder.layers.2.edge_weight.layers.1.0.weight": 5875.233436284668,
+          "backbone.encoder.layers.2.edge_weight.layers.1.0.bias": 1685.5394383520115,
+          "backbone.encoder.layers.2.edge_weight.layers.2.weight": 7296.001977953523,
+          "backbone.encoder.layers.2.edge_weight.layers.2.bias": 6232.799436933409,
+          "backbone.encoder.layers.2.node_weight.layers.0.0.weight": 10571.309671997184,
+          "backbone.encoder.layers.2.node_weight.layers.0.0.bias": 665.3233716400625,
+          "backbone.encoder.layers.2.node_weight.layers.1.0.weight": 6843.519931296166,
+          "backbone.encoder.layers.2.node_weight.layers.1.0.bias": 2084.5307631612072,
+          "backbone.encoder.layers.2.node_weight.layers.2.weight": 6978.99252930432,
+          "backbone.encoder.layers.2.node_weight.layers.2.bias": 6801.0189930682845,
+          "backbone.encoder.layers.3.norms.0.weight": 359.1791802536062,
+          "backbone.encoder.layers.3.norms.0.bias": 367.537356762249,
+          "backbone.encoder.layers.3.norms.1.weight": 392.51735947079123,
+          "backbone.encoder.layers.3.norms.1.bias": 355.26287269717704,
+          "backbone.encoder.layers.3.edge_weight.layers.0.0.weight": 12117.357697330774,
+          "backbone.encoder.layers.3.edge_weight.layers.0.0.bias": 626.7540797195778,
+          "backbone.encoder.layers.3.edge_weight.layers.1.0.weight": 6498.999472173783,
+          "backbone.encoder.layers.3.edge_weight.layers.1.0.bias": 1727.578712908748,
+          "backbone.encoder.layers.3.edge_weight.layers.2.weight": 6665.9246816628975,
+          "backbone.encoder.layers.3.edge_weight.layers.2.bias": 5307.602480888737,
+          "backbone.encoder.layers.3.node_weight.layers.0.0.weight": 9917.120425572424,
+          "backbone.encoder.layers.3.node_weight.layers.0.0.bias": 624.7598847575074,
+          "backbone.encoder.layers.3.node_weight.layers.1.0.weight": 6688.143482210377,
+          "backbone.encoder.layers.3.node_weight.layers.1.0.bias": 1908.1433171328686,
+          "backbone.encoder.layers.3.node_weight.layers.2.weight": 6754.853737079457,
+          "backbone.encoder.layers.3.node_weight.layers.2.bias": 6574.494348611503,
+          "backbone.encoder.layers.4.norms.0.weight": 271.7551777471028,
+          "backbone.encoder.layers.4.norms.0.bias": 288.3732206454367,
+          "backbone.encoder.layers.4.norms.1.weight": 467.21276621500033,
+          "backbone.encoder.layers.4.norms.1.bias": 462.7456816448847,
+          "backbone.encoder.layers.4.edge_weight.layers.0.0.weight": 9834.46722220785,
+          "backbone.encoder.layers.4.edge_weight.layers.0.0.bias": 508.2220450730497,
+          "backbone.encoder.layers.4.edge_weight.layers.1.0.weight": 4981.107291912136,
+          "backbone.encoder.layers.4.edge_weight.layers.1.0.bias": 1386.8569796517174,
+          "backbone.encoder.layers.4.edge_weight.layers.2.weight": 5765.153564424884,
+          "backbone.encoder.layers.4.edge_weight.layers.2.bias": 4862.470387627602,
+          "backbone.encoder.layers.4.node_weight.layers.0.0.weight": 11681.329413670392,
+          "backbone.encoder.layers.4.node_weight.layers.0.0.bias": 734.9681569222663,
+          "backbone.encoder.layers.4.node_weight.layers.1.0.weight": 8599.012168343557,
+          "backbone.encoder.layers.4.node_weight.layers.1.0.bias": 2107.2181513481987,
+          "backbone.encoder.layers.4.node_weight.layers.2.weight": 8230.892837334448,
+          "backbone.encoder.layers.4.node_weight.layers.2.bias": 6339.015338796406,
+          "backbone.encoder.layers.5.norms.0.weight": 210.45053077048104,
+          "backbone.encoder.layers.5.norms.0.bias": 218.6414581507408,
+          "backbone.encoder.layers.5.norms.1.weight": 366.08110601834437,
+          "backbone.encoder.layers.5.norms.1.bias": 329.8547606481612,
+          "backbone.encoder.layers.5.edge_weight.layers.0.0.weight": 7067.234844839716,
+          "backbone.encoder.layers.5.edge_weight.layers.0.0.bias": 364.0666928125842,
+          "backbone.encoder.layers.5.edge_weight.layers.1.0.weight": 4991.989865659831,
+          "backbone.encoder.layers.5.edge_weight.layers.1.0.bias": 1248.9745287589906,
+          "backbone.encoder.layers.5.edge_weight.layers.2.weight": 5850.271611888229,
+          "backbone.encoder.layers.5.edge_weight.layers.2.bias": 4153.7997978544045,
+          "backbone.encoder.layers.5.node_weight.layers.0.0.weight": 9342.926534954062,
+          "backbone.encoder.layers.5.node_weight.layers.0.0.bias": 586.2156685894925,
+          "backbone.encoder.layers.5.node_weight.layers.1.0.weight": 6491.526168211308,
+          "backbone.encoder.layers.5.node_weight.layers.1.0.bias": 1843.9313117579702,
+          "backbone.encoder.layers.5.node_weight.layers.2.weight": 7236.400919335429,
+          "backbone.encoder.layers.5.node_weight.layers.2.bias": 6368.651276339993,
+          "backbone.encoder.layers.6.norms.0.weight": 192.29674672077286,
+          "backbone.encoder.layers.6.norms.0.bias": 191.97721820186862,
+          "backbone.encoder.layers.6.norms.1.weight": 362.9978510993409,
+          "backbone.encoder.layers.6.norms.1.bias": 354.7836534895277,
+          "backbone.encoder.layers.6.edge_weight.layers.0.0.weight": 6692.090198658049,
+          "backbone.encoder.layers.6.edge_weight.layers.0.0.bias": 344.3050697259884,
+          "backbone.encoder.layers.6.edge_weight.layers.1.0.weight": 4238.083711204227,
+          "backbone.encoder.layers.6.edge_weight.layers.1.0.bias": 1137.0221599447796,
+          "backbone.encoder.layers.6.edge_weight.layers.2.weight": 4970.433321340742,
+          "backbone.encoder.layers.6.edge_weight.layers.2.bias": 3799.880087402468,
+          "backbone.encoder.layers.6.node_weight.layers.0.0.weight": 9208.939120631097,
+          "backbone.encoder.layers.6.node_weight.layers.0.0.bias": 577.8547230804928,
+          "backbone.encoder.layers.6.node_weight.layers.1.0.weight": 6185.869795132567,
+          "backbone.encoder.layers.6.node_weight.layers.1.0.bias": 1811.6899951679352,
+          "backbone.encoder.layers.6.node_weight.layers.2.weight": 6890.44099811689,
+          "backbone.encoder.layers.6.node_weight.layers.2.bias": 6273.831896557546,
+          "backbone.encoder.layers.7.norms.0.weight": 156.53772654792243,
+          "backbone.encoder.layers.7.norms.0.bias": 155.83802233267664,
+          "backbone.encoder.layers.7.norms.1.weight": 275.6952997879819,
+          "backbone.encoder.layers.7.norms.1.bias": 305.37002828052994,
+          "backbone.encoder.layers.7.edge_weight.layers.0.0.weight": 5287.701055806147,
+          "backbone.encoder.layers.7.edge_weight.layers.0.0.bias": 271.6539671200042,
+          "backbone.encoder.layers.7.edge_weight.layers.1.0.weight": 3596.0273403774927,
+          "backbone.encoder.layers.7.edge_weight.layers.1.0.bias": 929.9981053832802,
+          "backbone.encoder.layers.7.edge_weight.layers.2.weight": 4265.969944810343,
+          "backbone.encoder.layers.7.edge_weight.layers.2.bias": 3491.3444374208957,
+          "backbone.encoder.layers.7.node_weight.layers.0.0.weight": 8142.936613677447,
+          "backbone.encoder.layers.7.node_weight.layers.0.0.bias": 510.45358954996993,
+          "backbone.encoder.layers.7.node_weight.layers.1.0.weight": 5079.2060282259135,
+          "backbone.encoder.layers.7.node_weight.layers.1.0.bias": 1612.510453784232,
+          "backbone.encoder.layers.7.node_weight.layers.2.weight": 6377.546166225844,
+          "backbone.encoder.layers.7.node_weight.layers.2.bias": 6290.479965818553,
+          "backbone.encoder.layers.8.norms.0.weight": 161.0459043012464,
+          "backbone.encoder.layers.8.norms.0.bias": 157.75419700891206,
+          "backbone.encoder.layers.8.norms.1.weight": 350.86717130879515,
+          "backbone.encoder.layers.8.norms.1.bias": 326.19107478569964,
+          "backbone.encoder.layers.8.edge_weight.layers.0.0.weight": 5604.016134052683,
+          "backbone.encoder.layers.8.edge_weight.layers.0.0.bias": 287.8682279001264,
+          "backbone.encoder.layers.8.edge_weight.layers.1.0.weight": 3683.7889786097453,
+          "backbone.encoder.layers.8.edge_weight.layers.1.0.bias": 914.4044978592067,
+          "backbone.encoder.layers.8.edge_weight.layers.2.weight": 3943.4107898940883,
+          "backbone.encoder.layers.8.edge_weight.layers.2.bias": 2932.1187283561026,
+          "backbone.encoder.layers.8.node_weight.layers.0.0.weight": 9073.679574243743,
+          "backbone.encoder.layers.8.node_weight.layers.0.0.bias": 569.1126229651313,
+          "backbone.encoder.layers.8.node_weight.layers.1.0.weight": 6863.136121885358,
+          "backbone.encoder.layers.8.node_weight.layers.1.0.bias": 1996.64113919186,
+          "backbone.encoder.layers.8.node_weight.layers.2.weight": 6783.812716499361,
+          "backbone.encoder.layers.8.node_weight.layers.2.bias": 6207.809398485058,
+          "backbone.encoder.layers.9.norms.0.weight": 160.48355098738378,
+          "backbone.encoder.layers.9.norms.0.bias": 166.2831927690838,
+          "backbone.encoder.layers.9.norms.1.weight": 299.3993695522886,
+          "backbone.encoder.layers.9.norms.1.bias": 303.79320307941964,
+          "backbone.encoder.layers.9.edge_weight.layers.0.0.weight": 5463.490427422329,
+          "backbone.encoder.layers.9.edge_weight.layers.0.0.bias": 280.6976127478154,
+          "backbone.encoder.layers.9.edge_weight.layers.1.0.weight": 3336.2562872661297,
+          "backbone.encoder.layers.9.edge_weight.layers.1.0.bias": 857.7782179646213,
+          "backbone.encoder.layers.9.edge_weight.layers.2.weight": 3129.081333385986,
+          "backbone.encoder.layers.9.edge_weight.layers.2.bias": 2876.360654368944,
+          "backbone.encoder.layers.9.node_weight.layers.0.0.weight": 8466.666750892662,
+          "backbone.encoder.layers.9.node_weight.layers.0.0.bias": 531.0725573491798,
+          "backbone.encoder.layers.9.node_weight.layers.1.0.weight": 6427.074989194001,
+          "backbone.encoder.layers.9.node_weight.layers.1.0.bias": 1730.799096545238,
+          "backbone.encoder.layers.9.node_weight.layers.2.weight": 6915.713001286226,
+          "backbone.encoder.layers.9.node_weight.layers.2.bias": 6235.914128279693,
+          "backbone.encoder.layers.10.norms.0.weight": 156.2733014775406,
+          "backbone.encoder.layers.10.norms.0.bias": 147.27532812575816,
+          "backbone.encoder.layers.10.norms.1.weight": 398.11056551394705,
+          "backbone.encoder.layers.10.norms.1.bias": 334.52768815290983,
+          "backbone.encoder.layers.10.edge_weight.layers.0.0.weight": 4827.585699592623,
+          "backbone.encoder.layers.10.edge_weight.layers.0.0.bias": 247.87446001962795,
+          "backbone.encoder.layers.10.edge_weight.layers.1.0.weight": 2904.38579010627,
+          "backbone.encoder.layers.10.edge_weight.layers.1.0.bias": 762.1582292139254,
+          "backbone.encoder.layers.10.edge_weight.layers.2.weight": 3126.1641758939295,
+          "backbone.encoder.layers.10.edge_weight.layers.2.bias": 2668.043931617248,
+          "backbone.encoder.layers.10.node_weight.layers.0.0.weight": 9264.826479478013,
+          "backbone.encoder.layers.10.node_weight.layers.0.0.bias": 580.9630712282753,
+          "backbone.encoder.layers.10.node_weight.layers.1.0.weight": 7267.819688203065,
+          "backbone.encoder.layers.10.node_weight.layers.1.0.bias": 2034.8604657684896,
+          "backbone.encoder.layers.10.node_weight.layers.2.weight": 7868.7462634685,
+          "backbone.encoder.layers.10.node_weight.layers.2.bias": 6202.95588158606,
+          "backbone.encoder.layers.11.norms.0.weight": 137.7959549083498,
+          "backbone.encoder.layers.11.norms.0.bias": 132.19849836039364,
+          "backbone.encoder.layers.11.norms.1.weight": 330.8859450748888,
+          "backbone.encoder.layers.11.norms.1.bias": 337.0288493211278,
+          "backbone.encoder.layers.11.edge_weight.layers.0.0.weight": 4289.426163571876,
+          "backbone.encoder.layers.11.edge_weight.layers.0.0.bias": 219.99562855350644,
+          "backbone.encoder.layers.11.edge_weight.layers.1.0.weight": 2483.494885735802,
+          "backbone.encoder.layers.11.edge_weight.layers.1.0.bias": 594.2484305461243,
+          "backbone.encoder.layers.11.edge_weight.layers.2.weight": 2856.04747269366,
+          "backbone.encoder.layers.11.edge_weight.layers.2.bias": 2209.0149847011267,
+          "backbone.encoder.layers.11.node_weight.layers.0.0.weight": 9559.417168044156,
+          "backbone.encoder.layers.11.node_weight.layers.0.0.bias": 599.2333548954086,
+          "backbone.encoder.layers.11.node_weight.layers.1.0.weight": 5877.1269286753895,
+          "backbone.encoder.layers.11.node_weight.layers.1.0.bias": 1589.8689960518243,
+          "backbone.encoder.layers.11.node_weight.layers.2.weight": 6828.037643416022,
+          "backbone.encoder.layers.11.node_weight.layers.2.bias": 6245.383626702899,
+          "backbone.encoder.layers.12.norms.0.weight": 102.32446284354926,
+          "backbone.encoder.layers.12.norms.0.bias": 100.49460101944102,
+          "backbone.encoder.layers.12.norms.1.weight": 366.60198147273513,
+          "backbone.encoder.layers.12.norms.1.bias": 341.0813803191766,
+          "backbone.encoder.layers.12.edge_weight.layers.0.0.weight": 3290.6913266112697,
+          "backbone.encoder.layers.12.edge_weight.layers.0.0.bias": 168.66986280971412,
+          "backbone.encoder.layers.12.edge_weight.layers.1.0.weight": 1675.3973520265422,
+          "backbone.encoder.layers.12.edge_weight.layers.1.0.bias": 548.5119894966924,
+          "backbone.encoder.layers.12.edge_weight.layers.2.weight": 1777.1154642707402,
+          "backbone.encoder.layers.12.edge_weight.layers.2.bias": 1853.7001537708668,
+          "backbone.encoder.layers.12.node_weight.layers.0.0.weight": 9464.548841896043,
+          "backbone.encoder.layers.12.node_weight.layers.0.0.bias": 593.1622028189106,
+          "backbone.encoder.layers.12.node_weight.layers.1.0.weight": 6775.371181339887,
+          "backbone.encoder.layers.12.node_weight.layers.1.0.bias": 1784.548673657907,
+          "backbone.encoder.layers.12.node_weight.layers.2.weight": 8541.835114295258,
+          "backbone.encoder.layers.12.node_weight.layers.2.bias": 6200.087205042272,
+          "backbone.encoder.layers.13.norms.0.weight": 96.91344836815553,
+          "backbone.encoder.layers.13.norms.0.bias": 91.44006796623663,
+          "backbone.encoder.layers.13.norms.1.weight": 343.3598694951445,
+          "backbone.encoder.layers.13.norms.1.bias": 304.5371583819014,
+          "backbone.encoder.layers.13.edge_weight.layers.0.0.weight": 2910.7264983001455,
+          "backbone.encoder.layers.13.edge_weight.layers.0.0.bias": 149.22464091410706,
+          "backbone.encoder.layers.13.edge_weight.layers.1.0.weight": 1836.9517726293614,
+          "backbone.encoder.layers.13.edge_weight.layers.1.0.bias": 491.4309352132927,
+          "backbone.encoder.layers.13.edge_weight.layers.2.weight": 1751.1707757355819,
+          "backbone.encoder.layers.13.edge_weight.layers.2.bias": 1845.6486879361792,
+          "backbone.encoder.layers.13.node_weight.layers.0.0.weight": 7937.810282061501,
+          "backbone.encoder.layers.13.node_weight.layers.0.0.bias": 497.2350007980289,
+          "backbone.encoder.layers.13.node_weight.layers.1.0.weight": 6537.580248198397,
+          "backbone.encoder.layers.13.node_weight.layers.1.0.bias": 1740.1854360610928,
+          "backbone.encoder.layers.13.node_weight.layers.2.weight": 7373.709661501312,
+          "backbone.encoder.layers.13.node_weight.layers.2.bias": 6171.658885742316,
+          "backbone.encoder.layers.14.norms.0.weight": 74.18462641999349,
+          "backbone.encoder.layers.14.norms.0.bias": 79.1540554847959,
+          "backbone.encoder.layers.14.norms.1.weight": 293.14786098669276,
+          "backbone.encoder.layers.14.norms.1.bias": 348.1870943986383,
+          "backbone.encoder.layers.14.edge_weight.layers.0.0.weight": 2626.1044357802325,
+          "backbone.encoder.layers.14.edge_weight.layers.0.0.bias": 134.66773309335144,
+          "backbone.encoder.layers.14.edge_weight.layers.1.0.weight": 1510.648763641753,
+          "backbone.encoder.layers.14.edge_weight.layers.1.0.bias": 429.6314128340472,
+          "backbone.encoder.layers.14.edge_weight.layers.2.weight": 1350.5613174999178,
+          "backbone.encoder.layers.14.edge_weight.layers.2.bias": 1479.9760709808031,
+          "backbone.encoder.layers.14.node_weight.layers.0.0.weight": 9742.495451436986,
+          "backbone.encoder.layers.14.node_weight.layers.0.0.bias": 610.9288969848634,
+          "backbone.encoder.layers.14.node_weight.layers.1.0.weight": 7365.532394014023,
+          "backbone.encoder.layers.14.node_weight.layers.1.0.bias": 1974.1293684177942,
+          "backbone.encoder.layers.14.node_weight.layers.2.weight": 6784.423446243396,
+          "backbone.encoder.layers.14.node_weight.layers.2.bias": 6186.3579856720535,
+          "backbone.encoder.layers.15.norms.0.weight": 37.4232452365112,
+          "backbone.encoder.layers.15.norms.0.bias": 38.44944030549814,
+          "backbone.encoder.layers.15.norms.1.weight": 289.67047361441666,
+          "backbone.encoder.layers.15.norms.1.bias": 290.40103287724577,
+          "backbone.encoder.layers.15.edge_weight.layers.0.0.weight": 1397.9254620668287,
+          "backbone.encoder.layers.15.edge_weight.layers.0.0.bias": 71.6580926950539,
+          "backbone.encoder.layers.15.edge_weight.layers.1.0.weight": 805.8156231491943,
+          "backbone.encoder.layers.15.edge_weight.layers.1.0.bias": 252.0572775913006,
+          "backbone.encoder.layers.15.edge_weight.layers.2.weight": 889.4596344045732,
+          "backbone.encoder.layers.15.edge_weight.layers.2.bias": 901.5018753233239,
+          "backbone.encoder.layers.15.node_weight.layers.0.0.weight": 8526.486692913611,
+          "backbone.encoder.layers.15.node_weight.layers.0.0.bias": 534.2262948553013,
+          "backbone.encoder.layers.15.node_weight.layers.1.0.weight": 6189.666096009873,
+          "backbone.encoder.layers.15.node_weight.layers.1.0.bias": 1813.2815202384381,
+          "backbone.encoder.layers.15.node_weight.layers.2.weight": 5982.95305311969,
+          "backbone.encoder.layers.15.node_weight.layers.2.bias": 6168.573895946223,
+          "decode_head.dynamic_proj.layers.0.0.weight": 47068.44436526061,
+          "decode_head.dynamic_proj.layers.0.0.bias": 11256.538176822733,
+          "decode_head.dynamic_proj.layers.1.0.weight": 47601.74468005447,
+          "decode_head.dynamic_proj.layers.1.0.bias": 33173.982635741726,
+          "decode_head.dynamic_proj.layers.2.weight": 41368.51759169077,
+          "decode_head.dynamic_proj.layers.2.bias": 71412.0891935547
+        },
+        "zero": [],
+        "missing": [
+          "backbone.encoder.emb_norm.weight",
+          "backbone.encoder.emb_norm.bias"
+        ]
+      },
+      "accumulate_gradient": false,
+      "optimizer_step": false,
+      "memory": {
+        "allocated_bytes": 326047232,
+        "reserved_bytes": 4221566976,
+        "peak_allocated_bytes": 3892000768,
+        "peak_reserved_bytes": 4221566976
+      },
+      "weights": "Same instance after the single T22 optimizer update; no reload/reset."
+    }
+  },
+  "job_id": "25824",
+  "tool_sha256": "f2951f5fe31314929e11f97dbad761d2283f038a1dfae1bcb367198989e2df9f",
+  "scope": "Config A only. Stop first failure. No checkpoint or production training.",
+  "head": "2cd8dd6cfafe329499930c4c6bf52763beb796ab",
+  "gpu": "NVIDIA GeForce RTX 5090, 32607 MiB",
+  "source_sha256": {
+    "mmgs/models/simulators/gs_simulator_embodied.py": "30658653e7205df17bc80f40a324de7180c8000b65c2d76dfb91d962a0cc89cc",
+    "mmgs/models/utils/dgl_graph.py": "86b4406818bb1d0ebf4529c553a73cd958a4596f918e412baaa59738baea4594",
+    "mmgs/models/heads/acc_decoder.py": "22816b7f8a3ca487ecb07f6361ab0671fb4f69313634d3b2ec7be77bd5d558fd",
+    "mmgs/datasets/embodied_dataset.py": "ed74d81ca80e051491aa9045b83ab9caa5f7f3e7b44a8ec6f82026e5359f7858"
+  },
+  "model_config": {
+    "type": "GsSimulatorEmbodied",
+    "cluster_cfg": {
+      "config_a_2cam": [
+        {
+          "downsample_rate": 0.02
+        },
+        {
+          "downsample_rate": 0.2
+        }
+      ]
+    },
+    "processor_cfg": [
+      {
+        "type": "GsHieEmbodiedDGLProcessor",
+        "anchor_prefix": "anchor_",
+        "radius": [
+          0.03,
+          0.2,
+          0.5
+        ],
+        "group_cfg": {
+          "max_radius": null,
+          "min_radius": 0.0,
+          "sample_num": 16,
+          "use_xyz": true,
+          "normalize_xyz": false,
+          "return_grouped_xyz": false,
+          "return_grouped_idx": true,
+          "return_unique_cnt": false
+        }
+      }
+    ],
+    "accumulate_gradient": false,
+    "dt": 0.06666666666666667,
+    "backbone": {
+      "type": "MeshGraphNetHieEmbodied",
+      "attr_dim": 5,
+      "state_dim": 6,
+      "position_dim": 3,
+      "num_frames": 2,
+      "embed_dims": 128,
+      "num_encoder_layers": 16,
+      "dropout": 0.0,
+      "eps": 1e-07,
+      "num_fcs": 3,
+      "act_cfg": {
+        "type": "SiLU",
+        "inplace": true
+      },
+      "norm_cfg": {
+        "type": "LN"
+      },
+      "pre_norm": true,
+      "norm_acc_steps": null,
+      "edge_mode": "ratio",
+      "edge_theta": true,
+      "fix_bug": true,
+      "dt": 0.06666666666666667
+    },
+    "decode_head": {
+      "type": "AccDecoder",
+      "in_channels": 128,
+      "out_channels": 11,
+      "add_residual": false,
+      "init_quant": 1.0,
+      "loss_decode": [
+        {
+          "type": "MSELoss",
+          "reduction": "sum",
+          "loss_weight": 1.0,
+          "loss_name": "loss_mse_momentum"
+        },
+        {
+          "type": "SSIMLoss",
+          "reduction": "sum",
+          "kernel_size": 5,
+          "loss_weight": 0.1,
+          "loss_name": "loss_ssim_render"
+        },
+        {
+          "type": "L2Loss",
+          "reduction": "sum",
+          "loss_weight": 0.9,
+          "loss_name": "loss_l2_render"
+        },
+        {
+          "type": "MSELoss",
+          "reduction": "sum",
+          "loss_weight": 1.0,
+          "loss_name": "loss_mse_static"
+        },
+        {
+          "type": "SpatialLoss",
+          "reduction": "sum",
+          "loss_weight": 1.0,
+          "loss_name": "loss_spatial"
+        },
+        {
+          "type": "L2Loss",
+          "reduction": "sum",
+          "loss_weight": 0.9,
+          "loss_name": "loss_l2_bounding"
+        },
+        {
+          "type": "SSIMLoss",
+          "reduction": "sum",
+          "kernel_size": 5,
+          "loss_weight": 0.1,
+          "loss_name": "loss_ssim_bounding"
+        }
+      ],
+      "accuracy": [
+        {
+          "type": "L2Accuracy",
+          "reduction": "mean",
+          "acc_name": "acc_l2_render"
+        },
+        {
+          "type": "L1Accuracy",
+          "reduction": "mean",
+          "acc_name": "acc_l1_render"
+        },
+        {
+          "type": "SSIMAccuracy",
+          "reduction": "mean",
+          "acc_name": "acc_ssim_render"
+        },
+        {
+          "type": "PSNRAccuracy",
+          "reduction": "mean",
+          "acc_name": "acc_psnr_render"
+        }
+      ],
+      "dt": 0.06666666666666667
+    },
+    "gs_scene": [
+      {
+        "name": "config_a_2cam",
+        "model_path": "/data1/userdata/tcweng/projects/tcgs/datasets/deform360/derived/t17_scene_packages/pink_cloth_episode_0/config_a_2cam/pi3/gs/point_cloud/iteration_10000/point_cloud.ply",
+        "sh_degree": 0,
+        "num_seq": 1,
+        "attr_name": "rope"
+      }
+    ],
+    "forward_last_layer": false,
+    "share_weight": true,
+    "opt_sim": true,
+    "opt_vel": true,
+    "checkpoint_rollout": 20,
+    "selfsup_loss": false,
+    "pred_vel": true,
+    "use_rotation": false,
+    "fix_bug": true,
+    "controller_cfg": {
+      "config_a_2cam": [
+        {
+          "num_cluster": 10
+        },
+        {
+          "downsample_rate": 0.5
+        }
+      ]
+    },
+    "static_loss": false,
+    "avg_loss": true,
+    "render_mov_only": true,
+    "train_cfg": {
+      "by_epoch": true,
+      "step_increase_interval": 1,
+      "step_increase_magnitude": 3,
+      "step_initial": 3,
+      "max_rollout_step": 3
+    },
+    "test_cfg": {
+      "by_epoch": true,
+      "step_increase_interval": 1,
+      "step_increase_magnitude": 3,
+      "step_initial": 3,
+      "max_rollout_step": 1000
+    }
+  },
+  "dataset_env_cfg": {
+    "data_dir": "/data1/userdata/tcweng/projects/tcgs/datasets/deform360/derived/t17_scene_packages/pink_cloth_episode_0",
+    "scene_list": [
+      "config_a_2cam"
+    ],
+    "sub_img_dir": "color",
+    "sub_video_dir": "color",
+    "cam_transform_fn": null,
+    "resolution": [
+      360,
+      640
+    ],
+    "load_imgs": false,
+    "scale_x_angle": 1.0,
+    "max_cam_num": 2,
+    "max_cam_total": 2,
+    "max_seq": 1,
+    "pad_cam": false,
+    "llffhold": 0,
+    "tracking_pcd": "track_process_data.pkl",
+    "prompt_dict": {
+      "object": [
+        "cloth"
+      ],
+      "obstacle": []
+    },
+    "bounding_box": null,
+    "use_random_background": {
+      "config_a_2cam": false
+    },
+    "const_white_bg": {
+      "config_a_2cam": false
+    },
+    "controller_cfg": {
+      "config_a_2cam": [
+        {
+          "num_cluster": 10
+        },
+        {
+          "downsample_rate": 0.5
+        }
+      ]
+    },
+    "cluster_type": "dis_split",
+    "gravity": [
+      0.0,
+      0.0,
+      -9.8
+    ],
+    "rot_est": {
+      "config_a_2cam": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    "dt": 0.03333333333333333,
+    "real_dt": {
+      "config_a_2cam": 0.06666666666666667
+    },
+    "split_list": {
+      "config_a_2cam": [
+        [
+          0,
+          155
+        ]
+      ]
+    },
+    "frame_gap": 10,
+    "cluster_cfg": {
+      "config_a_2cam": [
+        {
+          "downsample_rate": 0.02
+        },
+        {
+          "downsample_rate": 0.2
+        }
+      ]
+    },
+    "volume_scalar": {
+      "config_a_2cam": 512
+    }
+  },
+  "config_provenance": {
+    "path": "/data1/userdata/tcweng/projects/tcgs/environment/soma-stage1-20260923/cloth_lift_stage1_external_data.py",
+    "sha256": "c3da910b06287372e578486831cf523a07487a12494dde651ffe2237af9ddaff",
+    "basis": "Official cloth_lift stage1 with sample data paths relocated; scene/cluster/controller and rollout only overridden for this check."
+  },
+  "optimizer": {
+    "type": "Adam",
+    "lr": 0.0004,
+    "betas": [
+      0.9,
+      0.999
+    ],
+    "weight_decay": 0,
+    "amsgrad": false,
+    "parameter_names": [
+      "scene_attr.rope",
+      "backbone.node_encoder.layers.0.0.weight",
+      "backbone.node_encoder.layers.0.0.bias",
+      "backbone.node_encoder.layers.1.0.weight",
+      "backbone.node_encoder.layers.1.0.bias",
+      "backbone.node_encoder.layers.2.weight",
+      "backbone.node_encoder.layers.2.bias",
+      "backbone.edge_encoder.layers.0.0.weight",
+      "backbone.edge_encoder.layers.0.0.bias",
+      "backbone.edge_encoder.layers.1.0.weight",
+      "backbone.edge_encoder.layers.1.0.bias",
+      "backbone.edge_encoder.layers.2.weight",
+      "backbone.edge_encoder.layers.2.bias",
+      "backbone.encoder.layers.0.norms.0.weight",
+      "backbone.encoder.layers.0.norms.0.bias",
+      "backbone.encoder.layers.0.norms.1.weight",
+      "backbone.encoder.layers.0.norms.1.bias",
+      "backbone.encoder.layers.0.edge_weight.layers.0.0.weight",
+      "backbone.encoder.layers.0.edge_weight.layers.0.0.bias",
+      "backbone.encoder.layers.0.edge_weight.layers.1.0.weight",
+      "backbone.encoder.layers.0.edge_weight.layers.1.0.bias",
+      "backbone.encoder.layers.0.edge_weight.layers.2.weight",
+      "backbone.encoder.layers.0.edge_weight.layers.2.bias",
+      "backbone.encoder.layers.0.node_weight.layers.0.0.weight",
+      "backbone.encoder.layers.0.node_weight.layers.0.0.bias",
+      "backbone.encoder.layers.0.node_weight.layers.1.0.weight",
+      "backbone.encoder.layers.0.node_weight.layers.1.0.bias",
+      "backbone.encoder.layers.0.node_weight.layers.2.weight",
+      "backbone.encoder.layers.0.node_weight.layers.2.bias",
+      "backbone.encoder.layers.1.norms.0.weight",
+      "backbone.encoder.layers.1.norms.0.bias",
+      "backbone.encoder.layers.1.norms.1.weight",
+      "backbone.encoder.layers.1.norms.1.bias",
+      "backbone.encoder.layers.1.edge_weight.layers.0.0.weight",
+      "backbone.encoder.layers.1.edge_weight.layers.0.0.bias",
+      "backbone.encoder.layers.1.edge_weight.layers.1.0.weight",
+      "backbone.encoder.layers.1.edge_weight.layers.1.0.bias",
+      "backbone.encoder.layers.1.edge_weight.layers.2.weight",
+      "backbone.encoder.layers.1.edge_weight.layers.2.bias",
+      "backbone.encoder.layers.1.node_weight.layers.0.0.weight",
+      "backbone.encoder.layers.1.node_weight.layers.0.0.bias",
+      "backbone.encoder.layers.1.node_weight.layers.1.0.weight",
+      "backbone.encoder.layers.1.node_weight.layers.1.0.bias",
+      "backbone.encoder.layers.1.node_weight.layers.2.weight",
+      "backbone.encoder.layers.1.node_weight.layers.2.bias",
+      "backbone.encoder.layers.2.norms.0.weight",
+      "backbone.encoder.layers.2.norms.0.bias",
+      "backbone.encoder.layers.2.norms.1.weight",
+      "backbone.encoder.layers.2.norms.1.bias",
+      "backbone.encoder.layers.2.edge_weight.layers.0.0.weight",
+      "backbone.encoder.layers.2.edge_weight.layers.0.0.bias",
+      "backbone.encoder.layers.2.edge_weight.layers.1.0.weight",
+      "backbone.encoder.layers.2.edge_weight.layers.1.0.bias",
+      "backbone.encoder.layers.2.edge_weight.layers.2.weight",
+      "backbone.encoder.layers.2.edge_weight.layers.2.bias",
+      "backbone.encoder.layers.2.node_weight.layers.0.0.weight",
+      "backbone.encoder.layers.2.node_weight.layers.0.0.bias",
+      "backbone.encoder.layers.2.node_weight.layers.1.0.weight",
+      "backbone.encoder.layers.2.node_weight.layers.1.0.bias",
+      "backbone.encoder.layers.2.node_weight.layers.2.weight",
+      "backbone.encoder.layers.2.node_weight.layers.2.bias",
+      "backbone.encoder.layers.3.norms.0.weight",
+      "backbone.encoder.layers.3.norms.0.bias",
+      "backbone.encoder.layers.3.norms.1.weight",
+      "backbone.encoder.layers.3.norms.1.bias",
+      "backbone.encoder.layers.3.edge_weight.layers.0.0.weight",
+      "backbone.encoder.layers.3.edge_weight.layers.0.0.bias",
+      "backbone.encoder.layers.3.edge_weight.layers.1.0.weight",
+      "backbone.encoder.layers.3.edge_weight.layers.1.0.bias",
+      "backbone.encoder.layers.3.edge_weight.layers.2.weight",
+      "backbone.encoder.layers.3.edge_weight.layers.2.bias",
+      "backbone.encoder.layers.3.node_weight.layers.0.0.weight",
+      "backbone.encoder.layers.3.node_weight.layers.0.0.bias",
+      "backbone.encoder.layers.3.node_weight.layers.1.0.weight",
+      "backbone.encoder.layers.3.node_weight.layers.1.0.bias",
+      "backbone.encoder.layers.3.node_weight.layers.2.weight",
+      "backbone.encoder.layers.3.node_weight.layers.2.bias",
+      "backbone.encoder.layers.4.norms.0.weight",
+      "backbone.encoder.layers.4.norms.0.bias",
+      "backbone.encoder.layers.4.norms.1.weight",
+      "backbone.encoder.layers.4.norms.1.bias",
+      "backbone.encoder.layers.4.edge_weight.layers.0.0.weight",
+      "backbone.encoder.layers.4.edge_weight.layers.0.0.bias",
+      "backbone.encoder.layers.4.edge_weight.layers.1.0.weight",
+      "backbone.encoder.layers.4.edge_weight.layers.1.0.bias",
+      "backbone.encoder.layers.4.edge_weight.layers.2.weight",
+      "backbone.encoder.layers.4.edge_weight.layers.2.bias",
+      "backbone.encoder.layers.4.node_weight.layers.0.0.weight",
+      "backbone.encoder.layers.4.node_weight.layers.0.0.bias",
+      "backbone.encoder.layers.4.node_weight.layers.1.0.weight",
+      "backbone.encoder.layers.4.node_weight.layers.1.0.bias",
+      "backbone.encoder.layers.4.node_weight.layers.2.weight",
+      "backbone.encoder.layers.4.node_weight.layers.2.bias",
+      "backbone.encoder.layers.5.norms.0.weight",
+      "backbone.encoder.layers.5.norms.0.bias",
+      "backbone.encoder.layers.5.norms.1.weight",
+      "backbone.encoder.layers.5.norms.1.bias",
+      "backbone.encoder.layers.5.edge_weight.layers.0.0.weight",
+      "backbone.encoder.layers.5.edge_weight.layers.0.0.bias",
+      "backbone.encoder.layers.5.edge_weight.layers.1.0.weight",
+      "backbone.encoder.layers.5.edge_weight.layers.1.0.bias",
+      "backbone.encoder.layers.5.edge_weight.layers.2.weight",
+      "backbone.encoder.layers.5.edge_weight.layers.2.bias",
+      "backbone.encoder.layers.5.node_weight.layers.0.0.weight",
+      "backbone.encoder.layers.5.node_weight.layers.0.0.bias",
+      "backbone.encoder.layers.5.node_weight.layers.1.0.weight",
+      "backbone.encoder.layers.5.node_weight.layers.1.0.bias",
+      "backbone.encoder.layers.5.node_weight.layers.2.weight",
+      "backbone.encoder.layers.5.node_weight.layers.2.bias",
+      "backbone.encoder.layers.6.norms.0.weight",
+      "backbone.encoder.layers.6.norms.0.bias",
+      "backbone.encoder.layers.6.norms.1.weight",
+      "backbone.encoder.layers.6.norms.1.bias",
+      "backbone.encoder.layers.6.edge_weight.layers.0.0.weight",
+      "backbone.encoder.layers.6.edge_weight.layers.0.0.bias",
+      "backbone.encoder.layers.6.edge_weight.layers.1.0.weight",
+      "backbone.encoder.layers.6.edge_weight.layers.1.0.bias",
+      "backbone.encoder.layers.6.edge_weight.layers.2.weight",
+      "backbone.encoder.layers.6.edge_weight.layers.2.bias",
+      "backbone.encoder.layers.6.node_weight.layers.0.0.weight",
+      "backbone.encoder.layers.6.node_weight.layers.0.0.bias",
+      "backbone.encoder.layers.6.node_weight.layers.1.0.weight",
+      "backbone.encoder.layers.6.node_weight.layers.1.0.bias",
+      "backbone.encoder.layers.6.node_weight.layers.2.weight",
+      "backbone.encoder.layers.6.node_weight.layers.2.bias",
+      "backbone.encoder.layers.7.norms.0.weight",
+      "backbone.encoder.layers.7.norms.0.bias",
+      "backbone.encoder.layers.7.norms.1.weight",
+      "backbone.encoder.layers.7.norms.1.bias",
+      "backbone.encoder.layers.7.edge_weight.layers.0.0.weight",
+      "backbone.encoder.layers.7.edge_weight.layers.0.0.bias",
+      "backbone.encoder.layers.7.edge_weight.layers.1.0.weight",
+      "backbone.encoder.layers.7.edge_weight.layers.1.0.bias",
+      "backbone.encoder.layers.7.edge_weight.layers.2.weight",
+      "backbone.encoder.layers.7.edge_weight.layers.2.bias",
+      "backbone.encoder.layers.7.node_weight.layers.0.0.weight",
+      "backbone.encoder.layers.7.node_weight.layers.0.0.bias",
+      "backbone.encoder.layers.7.node_weight.layers.1.0.weight",
+      "backbone.encoder.layers.7.node_weight.layers.1.0.bias",
+      "backbone.encoder.layers.7.node_weight.layers.2.weight",
+      "backbone.encoder.layers.7.node_weight.layers.2.bias",
+      "backbone.encoder.layers.8.norms.0.weight",
+      "backbone.encoder.layers.8.norms.0.bias",
+      "backbone.encoder.layers.8.norms.1.weight",
+      "backbone.encoder.layers.8.norms.1.bias",
+      "backbone.encoder.layers.8.edge_weight.layers.0.0.weight",
+      "backbone.encoder.layers.8.edge_weight.layers.0.0.bias",
+      "backbone.encoder.layers.8.edge_weight.layers.1.0.weight",
+      "backbone.encoder.layers.8.edge_weight.layers.1.0.bias",
+      "backbone.encoder.layers.8.edge_weight.layers.2.weight",
+      "backbone.encoder.layers.8.edge_weight.layers.2.bias",
+      "backbone.encoder.layers.8.node_weight.layers.0.0.weight",
+      "backbone.encoder.layers.8.node_weight.layers.0.0.bias",
+      "backbone.encoder.layers.8.node_weight.layers.1.0.weight",
+      "backbone.encoder.layers.8.node_weight.layers.1.0.bias",
+      "backbone.encoder.layers.8.node_weight.layers.2.weight",
+      "backbone.encoder.layers.8.node_weight.layers.2.bias",
+      "backbone.encoder.layers.9.norms.0.weight",
+      "backbone.encoder.layers.9.norms.0.bias",
+      "backbone.encoder.layers.9.norms.1.weight",
+      "backbone.encoder.layers.9.norms.1.bias",
+      "backbone.encoder.layers.9.edge_weight.layers.0.0.weight",
+      "backbone.encoder.layers.9.edge_weight.layers.0.0.bias",
+      "backbone.encoder.layers.9.edge_weight.layers.1.0.weight",
+      "backbone.encoder.layers.9.edge_weight.layers.1.0.bias",
+      "backbone.encoder.layers.9.edge_weight.layers.2.weight",
+      "backbone.encoder.layers.9.edge_weight.layers.2.bias",
+      "backbone.encoder.layers.9.node_weight.layers.0.0.weight",
+      "backbone.encoder.layers.9.node_weight.layers.0.0.bias",
+      "backbone.encoder.layers.9.node_weight.layers.1.0.weight",
+      "backbone.encoder.layers.9.node_weight.layers.1.0.bias",
+      "backbone.encoder.layers.9.node_weight.layers.2.weight",
+      "backbone.encoder.layers.9.node_weight.layers.2.bias",
+      "backbone.encoder.layers.10.norms.0.weight",
+      "backbone.encoder.layers.10.norms.0.bias",
+      "backbone.encoder.layers.10.norms.1.weight",
+      "backbone.encoder.layers.10.norms.1.bias",
+      "backbone.encoder.layers.10.edge_weight.layers.0.0.weight",
+      "backbone.encoder.layers.10.edge_weight.layers.0.0.bias",
+      "backbone.encoder.layers.10.edge_weight.layers.1.0.weight",
+      "backbone.encoder.layers.10.edge_weight.layers.1.0.bias",
+      "backbone.encoder.layers.10.edge_weight.layers.2.weight",
+      "backbone.encoder.layers.10.edge_weight.layers.2.bias",
+      "backbone.encoder.layers.10.node_weight.layers.0.0.weight",
+      "backbone.encoder.layers.10.node_weight.layers.0.0.bias",
+      "backbone.encoder.layers.10.node_weight.layers.1.0.weight",
+      "backbone.encoder.layers.10.node_weight.layers.1.0.bias",
+      "backbone.encoder.layers.10.node_weight.layers.2.weight",
+      "backbone.encoder.layers.10.node_weight.layers.2.bias",
+      "backbone.encoder.layers.11.norms.0.weight",
+      "backbone.encoder.layers.11.norms.0.bias",
+      "backbone.encoder.layers.11.norms.1.weight",
+      "backbone.encoder.layers.11.norms.1.bias",
+      "backbone.encoder.layers.11.edge_weight.layers.0.0.weight",
+      "backbone.encoder.layers.11.edge_weight.layers.0.0.bias",
+      "backbone.encoder.layers.11.edge_weight.layers.1.0.weight",
+      "backbone.encoder.layers.11.edge_weight.layers.1.0.bias",
+      "backbone.encoder.layers.11.edge_weight.layers.2.weight",
+      "backbone.encoder.layers.11.edge_weight.layers.2.bias",
+      "backbone.encoder.layers.11.node_weight.layers.0.0.weight",
+      "backbone.encoder.layers.11.node_weight.layers.0.0.bias",
+      "backbone.encoder.layers.11.node_weight.layers.1.0.weight",
+      "backbone.encoder.layers.11.node_weight.layers.1.0.bias",
+      "backbone.encoder.layers.11.node_weight.layers.2.weight",
+      "backbone.encoder.layers.11.node_weight.layers.2.bias",
+      "backbone.encoder.layers.12.norms.0.weight",
+      "backbone.encoder.layers.12.norms.0.bias",
+      "backbone.encoder.layers.12.norms.1.weight",
+      "backbone.encoder.layers.12.norms.1.bias",
+      "backbone.encoder.layers.12.edge_weight.layers.0.0.weight",
+      "backbone.encoder.layers.12.edge_weight.layers.0.0.bias",
+      "backbone.encoder.layers.12.edge_weight.layers.1.0.weight",
+      "backbone.encoder.layers.12.edge_weight.layers.1.0.bias",
+      "backbone.encoder.layers.12.edge_weight.layers.2.weight",
+      "backbone.encoder.layers.12.edge_weight.layers.2.bias",
+      "backbone.encoder.layers.12.node_weight.layers.0.0.weight",
+      "backbone.encoder.layers.12.node_weight.layers.0.0.bias",
+      "backbone.encoder.layers.12.node_weight.layers.1.0.weight",
+      "backbone.encoder.layers.12.node_weight.layers.1.0.bias",
+      "backbone.encoder.layers.12.node_weight.layers.2.weight",
+      "backbone.encoder.layers.12.node_weight.layers.2.bias",
+      "backbone.encoder.layers.13.norms.0.weight",
+      "backbone.encoder.layers.13.norms.0.bias",
+      "backbone.encoder.layers.13.norms.1.weight",
+      "backbone.encoder.layers.13.norms.1.bias",
+      "backbone.encoder.layers.13.edge_weight.layers.0.0.weight",
+      "backbone.encoder.layers.13.edge_weight.layers.0.0.bias",
+      "backbone.encoder.layers.13.edge_weight.layers.1.0.weight",
+      "backbone.encoder.layers.13.edge_weight.layers.1.0.bias",
+      "backbone.encoder.layers.13.edge_weight.layers.2.weight",
+      "backbone.encoder.layers.13.edge_weight.layers.2.bias",
+      "backbone.encoder.layers.13.node_weight.layers.0.0.weight",
+      "backbone.encoder.layers.13.node_weight.layers.0.0.bias",
+      "backbone.encoder.layers.13.node_weight.layers.1.0.weight",
+      "backbone.encoder.layers.13.node_weight.layers.1.0.bias",
+      "backbone.encoder.layers.13.node_weight.layers.2.weight",
+      "backbone.encoder.layers.13.node_weight.layers.2.bias",
+      "backbone.encoder.layers.14.norms.0.weight",
+      "backbone.encoder.layers.14.norms.0.bias",
+      "backbone.encoder.layers.14.norms.1.weight",
+      "backbone.encoder.layers.14.norms.1.bias",
+      "backbone.encoder.layers.14.edge_weight.layers.0.0.weight",
+      "backbone.encoder.layers.14.edge_weight.layers.0.0.bias",
+      "backbone.encoder.layers.14.edge_weight.layers.1.0.weight",
+      "backbone.encoder.layers.14.edge_weight.layers.1.0.bias",
+      "backbone.encoder.layers.14.edge_weight.layers.2.weight",
+      "backbone.encoder.layers.14.edge_weight.layers.2.bias",
+      "backbone.encoder.layers.14.node_weight.layers.0.0.weight",
+      "backbone.encoder.layers.14.node_weight.layers.0.0.bias",
+      "backbone.encoder.layers.14.node_weight.layers.1.0.weight",
+      "backbone.encoder.layers.14.node_weight.layers.1.0.bias",
+      "backbone.encoder.layers.14.node_weight.layers.2.weight",
+      "backbone.encoder.layers.14.node_weight.layers.2.bias",
+      "backbone.encoder.layers.15.norms.0.weight",
+      "backbone.encoder.layers.15.norms.0.bias",
+      "backbone.encoder.layers.15.norms.1.weight",
+      "backbone.encoder.layers.15.norms.1.bias",
+      "backbone.encoder.layers.15.edge_weight.layers.0.0.weight",
+      "backbone.encoder.layers.15.edge_weight.layers.0.0.bias",
+      "backbone.encoder.layers.15.edge_weight.layers.1.0.weight",
+      "backbone.encoder.layers.15.edge_weight.layers.1.0.bias",
+      "backbone.encoder.layers.15.edge_weight.layers.2.weight",
+      "backbone.encoder.layers.15.edge_weight.layers.2.bias",
+      "backbone.encoder.layers.15.node_weight.layers.0.0.weight",
+      "backbone.encoder.layers.15.node_weight.layers.0.0.bias",
+      "backbone.encoder.layers.15.node_weight.layers.1.0.weight",
+      "backbone.encoder.layers.15.node_weight.layers.1.0.bias",
+      "backbone.encoder.layers.15.node_weight.layers.2.weight",
+      "backbone.encoder.layers.15.node_weight.layers.2.bias",
+      "backbone.encoder.emb_norm.weight",
+      "backbone.encoder.emb_norm.bias",
+      "decode_head.dynamic_proj.layers.0.0.weight",
+      "decode_head.dynamic_proj.layers.0.0.bias",
+      "decode_head.dynamic_proj.layers.1.0.weight",
+      "decode_head.dynamic_proj.layers.1.0.bias",
+      "decode_head.dynamic_proj.layers.2.weight",
+      "decode_head.dynamic_proj.layers.2.bias"
+    ],
+    "scene_gaussians_excluded": true
+  },
+  "immutable_data_sha256": {
+    "/data1/userdata/tcweng/projects/tcgs/datasets/deform360/derived/t17_scene_packages/pink_cloth_episode_0/config_a_2cam/scene_interface.json": "3fcc0a397e5bff314c52fa6045fcfe5afeb491a8b7fe529cfa9d093ac08dd95e",
+    "/data1/userdata/tcweng/projects/tcgs/datasets/deform360/derived/t17_scene_packages/pink_cloth_episode_0/config_a_2cam/scene_info.json": "a24a819d34be51700e081362fe95a76fc0ab3100e50b9061bf036f2bd0c3b8f3",
+    "/data1/userdata/tcweng/projects/tcgs/datasets/deform360/derived/t17_scene_packages/pink_cloth_episode_0/config_a_2cam/calibrate.pkl": "60553af39732ed45eff694ef3c90dee1f5b5c7139127dc1b3367ed2bffab7c7f",
+    "/data1/userdata/tcweng/projects/tcgs/datasets/deform360/derived/t17_scene_packages/pink_cloth_episode_0/config_a_2cam/track_process_data.pkl": "8f51ed85109e5ed4b97d29263b7576470dca290f9ab7723bb7fb1795ef7ce37a",
+    "/data1/userdata/tcweng/projects/tcgs/datasets/deform360/derived/t17_scene_packages/pink_cloth_episode_0/config_a_2cam/metadata.json": "fc0e08fcd9b115a6ba6686e83b7dfacf68e5286fbd55962755dcb2b8b1af053f",
+    "/data1/userdata/tcweng/projects/tcgs/datasets/deform360/derived/t17_scene_packages/pink_cloth_episode_0/config_a_2cam/pi3/gs/point_cloud/iteration_10000/point_cloud.ply": "fd79797c7b7da6ba5db02a4de5fe3c5e463cb7db1eabbe6a6a57bc283e51f7de",
+    "/data1/userdata/tcweng/projects/tcgs/datasets/deform360/derived/t17_scene_packages/pink_cloth_episode_0/config_a_2cam/mask/mask_info_1.json": "6a8f16ad73e218830d7819b0445a0194f40ec78e97f5119b79fcf05f6e04957e",
+    "/data1/userdata/tcweng/projects/tcgs/datasets/deform360/derived/t17_scene_packages/pink_cloth_episode_0/config_a_2cam/mask/mask_info_0.json": "6a8f16ad73e218830d7819b0445a0194f40ec78e97f5119b79fcf05f6e04957e",
+    "/data1/userdata/tcweng/projects/tcgs/datasets/deform360/derived/t17_scene_packages/pink_cloth_episode_0/config_a_2cam/color/0/0.png": "331f736519a7c7396438850143bbfa7f569a1500a81236a8d52564af533f0eda",
+    "/data1/userdata/tcweng/projects/tcgs/datasets/deform360/derived/t17_scene_packages/pink_cloth_episode_0/config_a_2cam/mask/0/1/0.png": "45c8e5f3ca71bea17908dea7f85c46dafd4c97524938e2533c4b30e62d85c0ef",
+    "/data1/userdata/tcweng/projects/tcgs/datasets/deform360/derived/t17_scene_packages/pink_cloth_episode_0/config_a_2cam/color/0/10.png": "6fe32bf03ea6432e3a2803cff7bbe1e509bc0c401f07a5220092e901a928485b",
+    "/data1/userdata/tcweng/projects/tcgs/datasets/deform360/derived/t17_scene_packages/pink_cloth_episode_0/config_a_2cam/mask/0/1/10.png": "6f300a0b080e64dce42385ab1dce0a479b580270e1a6e85d5e954baff62c7728",
+    "/data1/userdata/tcweng/projects/tcgs/datasets/deform360/derived/t17_scene_packages/pink_cloth_episode_0/config_a_2cam/color/0/20.png": "60173c9c8313179b4afa44ce1d8a6161d1c6b90eb883439c3513af2a130fb393",
+    "/data1/userdata/tcweng/projects/tcgs/datasets/deform360/derived/t17_scene_packages/pink_cloth_episode_0/config_a_2cam/mask/0/1/20.png": "3ba598eaffefd212fa2ccead9cc8d2d81908a9342b76345c6344229f57217141",
+    "/data1/userdata/tcweng/projects/tcgs/datasets/deform360/derived/t17_scene_packages/pink_cloth_episode_0/config_a_2cam/color/0/30.png": "ac51f1acbd39022366e8321d2c1740246de8637dcb79e48da4ea9f85cf0d58a4",
+    "/data1/userdata/tcweng/projects/tcgs/datasets/deform360/derived/t17_scene_packages/pink_cloth_episode_0/config_a_2cam/mask/0/1/30.png": "3cc2f44700f6502e0804f07e0d547d969f7363d05960ba9364bd8d8817d672eb",
+    "/data1/userdata/tcweng/projects/tcgs/datasets/deform360/derived/t17_scene_packages/pink_cloth_episode_0/config_a_2cam/color/0/40.png": "d60b11b6e85ff4d6cd2ff10e185b1e4a0b027315289e752caa0e2b655cb2a1e7",
+    "/data1/userdata/tcweng/projects/tcgs/datasets/deform360/derived/t17_scene_packages/pink_cloth_episode_0/config_a_2cam/mask/0/1/40.png": "68ee7c6a20d641266f90ec0a0460bc1b37451465bbff048ab1ca518f8fdde05f",
+    "/data1/userdata/tcweng/projects/tcgs/datasets/deform360/derived/t17_scene_packages/pink_cloth_episode_0/config_a_2cam/color/0/50.png": "1f318ec4739b5ee62ca2e61c145464db2f744fc2d5e5204bbfa930af4fff6ff6",
+    "/data1/userdata/tcweng/projects/tcgs/datasets/deform360/derived/t17_scene_packages/pink_cloth_episode_0/config_a_2cam/mask/0/1/50.png": "907b8dde51c34dbfbfb68b008971f935aebcb32ca7fa5182e52ef6ebdf5253ae",
+    "/data1/userdata/tcweng/projects/tcgs/datasets/deform360/derived/t17_scene_packages/pink_cloth_episode_0/config_a_2cam/color/0/60.png": "1ffa8ef60da4369eea808578071182651a8d24bc3932369e07b887ec9efe2f35",
+    "/data1/userdata/tcweng/projects/tcgs/datasets/deform360/derived/t17_scene_packages/pink_cloth_episode_0/config_a_2cam/mask/0/1/60.png": "9c874bca7813dcf397d49c65918628ce84f439e67876a779367e16a189426210",
+    "/data1/userdata/tcweng/projects/tcgs/datasets/deform360/derived/t17_scene_packages/pink_cloth_episode_0/config_a_2cam/color/0/70.png": "c9ac5f76b4a7e4c2ab237c836d1d365c7848afcc5dbeecede9319acf45581802",
+    "/data1/userdata/tcweng/projects/tcgs/datasets/deform360/derived/t17_scene_packages/pink_cloth_episode_0/config_a_2cam/mask/0/1/70.png": "ed2f3a95eff579885bceadeb7aa1272c5b29eb6c8a0510136619301a1c486afd",
+    "/data1/userdata/tcweng/projects/tcgs/datasets/deform360/derived/t17_scene_packages/pink_cloth_episode_0/config_a_2cam/color/0/80.png": "eec3a8abfb1b8e2ec2f2bed73ca6864b85b8c8188a47fd3611e33e326b5e27b9",
+    "/data1/userdata/tcweng/projects/tcgs/datasets/deform360/derived/t17_scene_packages/pink_cloth_episode_0/config_a_2cam/mask/0/1/80.png": "517e27cc461d17d3717da69025e612505c43c360f609dbabc65fb97140c3d03b",
+    "/data1/userdata/tcweng/projects/tcgs/datasets/deform360/derived/t17_scene_packages/pink_cloth_episode_0/config_a_2cam/color/0/90.png": "9ca96f6c0ce233c6c5fb6f13c7c485655a870b65b7fd5a1945c0447132eb4aec",
+    "/data1/userdata/tcweng/projects/tcgs/datasets/deform360/derived/t17_scene_packages/pink_cloth_episode_0/config_a_2cam/mask/0/1/90.png": "ae4a7d74bfdec45e95f749aba14a5b17010b63e77121d29307602d8ed2de83c2",
+    "/data1/userdata/tcweng/projects/tcgs/datasets/deform360/derived/t17_scene_packages/pink_cloth_episode_0/config_a_2cam/color/0/100.png": "97ec5c8229946f28b2f0e556ffe0279ad62a69f5fc86028717add96e7bf86b7f",
+    "/data1/userdata/tcweng/projects/tcgs/datasets/deform360/derived/t17_scene_packages/pink_cloth_episode_0/config_a_2cam/mask/0/1/100.png": "115022f5742abb4b5204a75f442b125ddfba9051b723f88ad51713b1ee0a45aa",
+    "/data1/userdata/tcweng/projects/tcgs/datasets/deform360/derived/t17_scene_packages/pink_cloth_episode_0/config_a_2cam/color/0/110.png": "92b84dc31f857e2a0ac851d46020ebbbca09ceb9f7072d6df9620c1be96006bb",
+    "/data1/userdata/tcweng/projects/tcgs/datasets/deform360/derived/t17_scene_packages/pink_cloth_episode_0/config_a_2cam/mask/0/1/110.png": "06cf5e5a50f46af5f885fb91ae7d9bb938fb6d798a6b41651ebc862621c16221",
+    "/data1/userdata/tcweng/projects/tcgs/datasets/deform360/derived/t17_scene_packages/pink_cloth_episode_0/config_a_2cam/color/0/120.png": "edb0a1644a1fbf66cbd3d39a4fa34eb8bc397e1a71b4765398db11e5bbc1e5b9",
+    "/data1/userdata/tcweng/projects/tcgs/datasets/deform360/derived/t17_scene_packages/pink_cloth_episode_0/config_a_2cam/mask/0/1/120.png": "482384915b616d6474ed2db931ab803605c49a6933ada42764757fda313efb4c",
+    "/data1/userdata/tcweng/projects/tcgs/datasets/deform360/derived/t17_scene_packages/pink_cloth_episode_0/config_a_2cam/color/0/130.png": "30d2321598b11aedcda75297511254656a17f9afa80e3239b6a4a9488af98df5",
+    "/data1/userdata/tcweng/projects/tcgs/datasets/deform360/derived/t17_scene_packages/pink_cloth_episode_0/config_a_2cam/mask/0/1/130.png": "e2b703d6c1cb26f1baceae8794a9377970cce89f23d56f71d652822b542f48fb",
+    "/data1/userdata/tcweng/projects/tcgs/datasets/deform360/derived/t17_scene_packages/pink_cloth_episode_0/config_a_2cam/color/0/140.png": "2745430e6fa0e05dc58047acbd9367c1876f4e7110506b428d48bbe5b247b569",
+    "/data1/userdata/tcweng/projects/tcgs/datasets/deform360/derived/t17_scene_packages/pink_cloth_episode_0/config_a_2cam/mask/0/1/140.png": "33cdb62da77f578e2ef3cc3231ab89b0cfa0c1741aa7266246b75f089bf2467d",
+    "/data1/userdata/tcweng/projects/tcgs/datasets/deform360/derived/t17_scene_packages/pink_cloth_episode_0/config_a_2cam/color/0/150.png": "77b2f8b4ccda9afaaf2634d5916d668c9c83271eb9b217d0a2c56e52ff53f70d",
+    "/data1/userdata/tcweng/projects/tcgs/datasets/deform360/derived/t17_scene_packages/pink_cloth_episode_0/config_a_2cam/mask/0/1/150.png": "68571b125453d1dd9837b5d1cc2ffd87ef6eb29cb7c577f32390f0684c5ed4c4",
+    "/data1/userdata/tcweng/projects/tcgs/datasets/deform360/derived/t17_scene_packages/pink_cloth_episode_0/config_a_2cam/color/1/0.png": "d9df6abc7e4deb2f40994c481dae0b97a0c04a8f9e70f52262d05a444e32aab1",
+    "/data1/userdata/tcweng/projects/tcgs/datasets/deform360/derived/t17_scene_packages/pink_cloth_episode_0/config_a_2cam/mask/1/1/0.png": "2faf3ebebab1e613850e682e6129096d8ff99f37803c30268ab983d7808670ca",
+    "/data1/userdata/tcweng/projects/tcgs/datasets/deform360/derived/t17_scene_packages/pink_cloth_episode_0/config_a_2cam/color/1/10.png": "18ced28309666767bc4150ee81a079eb086dbd453e97947e00f7050f8da53011",
+    "/data1/userdata/tcweng/projects/tcgs/datasets/deform360/derived/t17_scene_packages/pink_cloth_episode_0/config_a_2cam/mask/1/1/10.png": "670e59d8e4a393aba7174999007b9fa565b102def98be7aa5a0cacf6aa30778f",
+    "/data1/userdata/tcweng/projects/tcgs/datasets/deform360/derived/t17_scene_packages/pink_cloth_episode_0/config_a_2cam/color/1/20.png": "2c0bb8bda54a246439053ee45026919677b87720b13a0aa7a6f20c3bfa0b3f6e",
+    "/data1/userdata/tcweng/projects/tcgs/datasets/deform360/derived/t17_scene_packages/pink_cloth_episode_0/config_a_2cam/mask/1/1/20.png": "d9ca0016f9222b9a21c72312f0881a40ce6142663284655272f977a19b10d17b",
+    "/data1/userdata/tcweng/projects/tcgs/datasets/deform360/derived/t17_scene_packages/pink_cloth_episode_0/config_a_2cam/color/1/30.png": "888f4f49f83295e2b402f9eb1f5dc83ace4269f53cc022cb14b2e58ee6fcf38e",
+    "/data1/userdata/tcweng/projects/tcgs/datasets/deform360/derived/t17_scene_packages/pink_cloth_episode_0/config_a_2cam/mask/1/1/30.png": "dc5ce5a99b56a512f4039691efc145d1f3f9e3cf06062c3f7f9e56997a4fc0c4",
+    "/data1/userdata/tcweng/projects/tcgs/datasets/deform360/derived/t17_scene_packages/pink_cloth_episode_0/config_a_2cam/color/1/40.png": "2ccf0a1fcc682e994cb6b1bda9d2e0fa2e6add757debe97f9dc9418e94cb3a63",
+    "/data1/userdata/tcweng/projects/tcgs/datasets/deform360/derived/t17_scene_packages/pink_cloth_episode_0/config_a_2cam/mask/1/1/40.png": "c3a8446a712878b6e8e089abb09c679c36b4561e0dfcb57e0f425ccaf0b315b2",
+    "/data1/userdata/tcweng/projects/tcgs/datasets/deform360/derived/t17_scene_packages/pink_cloth_episode_0/config_a_2cam/color/1/50.png": "890a5933e5cbbd1b1526222a106b4e638bd9c90876c69a4c4d78119f4c540c2b",
+    "/data1/userdata/tcweng/projects/tcgs/datasets/deform360/derived/t17_scene_packages/pink_cloth_episode_0/config_a_2cam/mask/1/1/50.png": "aaf0750a580497a9d83eccec484bf42496f8dedd7d1509aa2ecb7f3e30c57868",
+    "/data1/userdata/tcweng/projects/tcgs/datasets/deform360/derived/t17_scene_packages/pink_cloth_episode_0/config_a_2cam/color/1/60.png": "04a5f9ed2a844c13f361f704292c5ece21756d9e5bd3a2a5eb440244c5de06bd",
+    "/data1/userdata/tcweng/projects/tcgs/datasets/deform360/derived/t17_scene_packages/pink_cloth_episode_0/config_a_2cam/mask/1/1/60.png": "69c3bb67519dbf2931ead1ec5fbd8f45a9ff6a48acfa86ae0f65a923cdf45ad2",
+    "/data1/userdata/tcweng/projects/tcgs/datasets/deform360/derived/t17_scene_packages/pink_cloth_episode_0/config_a_2cam/color/1/70.png": "982a6c5e4003710dc6f60719a7bc9a9a8452d0a9662050aefb935463f121eff4",
+    "/data1/userdata/tcweng/projects/tcgs/datasets/deform360/derived/t17_scene_packages/pink_cloth_episode_0/config_a_2cam/mask/1/1/70.png": "e4f00f0a990f267b38e6fb7f272cbd922d20ebf72c71b69f559ad0e6df0c6268",
+    "/data1/userdata/tcweng/projects/tcgs/datasets/deform360/derived/t17_scene_packages/pink_cloth_episode_0/config_a_2cam/color/1/80.png": "145993fe124ba80c158b4399304f557ca439de90def39d072e338eb466d80e1b",
+    "/data1/userdata/tcweng/projects/tcgs/datasets/deform360/derived/t17_scene_packages/pink_cloth_episode_0/config_a_2cam/mask/1/1/80.png": "3f22781a753eb2e041cbfaecb1be4d7761fd8d803e75642fb83b35ff463677f5",
+    "/data1/userdata/tcweng/projects/tcgs/datasets/deform360/derived/t17_scene_packages/pink_cloth_episode_0/config_a_2cam/color/1/90.png": "425a0f4033b23c1a297f0742fecf1310444f80083d75aea13829102169cda634",
+    "/data1/userdata/tcweng/projects/tcgs/datasets/deform360/derived/t17_scene_packages/pink_cloth_episode_0/config_a_2cam/mask/1/1/90.png": "ecd6a665366e5b8d69ec00c87981a92e0aff4b77d72390110939d40512531ba7",
+    "/data1/userdata/tcweng/projects/tcgs/datasets/deform360/derived/t17_scene_packages/pink_cloth_episode_0/config_a_2cam/color/1/100.png": "548585508d95501b0c71056a2181c38b1e794ecd58390647a65209b33361d92b",
+    "/data1/userdata/tcweng/projects/tcgs/datasets/deform360/derived/t17_scene_packages/pink_cloth_episode_0/config_a_2cam/mask/1/1/100.png": "1655359aac0509f878517eac5fde54e914b49a73806cfc761332732eb5deaa94",
+    "/data1/userdata/tcweng/projects/tcgs/datasets/deform360/derived/t17_scene_packages/pink_cloth_episode_0/config_a_2cam/color/1/110.png": "efc2c2aa52d094ac7506b4cc4587a3df01027b481375b7c022e401c7563c96b4",
+    "/data1/userdata/tcweng/projects/tcgs/datasets/deform360/derived/t17_scene_packages/pink_cloth_episode_0/config_a_2cam/mask/1/1/110.png": "6dfd652c737dca7c89a9c8eccb760c2e4441bf35097163fb14f0d1e2955c9005",
+    "/data1/userdata/tcweng/projects/tcgs/datasets/deform360/derived/t17_scene_packages/pink_cloth_episode_0/config_a_2cam/color/1/120.png": "7bb003bcd86b2dfd98b7ee9fca195ef14c5849502088e617ac97c2ad4f3abe9f",
+    "/data1/userdata/tcweng/projects/tcgs/datasets/deform360/derived/t17_scene_packages/pink_cloth_episode_0/config_a_2cam/mask/1/1/120.png": "d78b7baa13452c1c04775b13cfdb2bd874e1f62495ba70e7a44acf8f4376bd2b",
+    "/data1/userdata/tcweng/projects/tcgs/datasets/deform360/derived/t17_scene_packages/pink_cloth_episode_0/config_a_2cam/color/1/130.png": "c262678c8fcc09af52ccc55c9106ee10a968faced4571176820472b81d414c04",
+    "/data1/userdata/tcweng/projects/tcgs/datasets/deform360/derived/t17_scene_packages/pink_cloth_episode_0/config_a_2cam/mask/1/1/130.png": "5e0bcec3155ed89ac182e0a2bc363d23fbe2f388f047e174a9c3acbbb80f2ef8",
+    "/data1/userdata/tcweng/projects/tcgs/datasets/deform360/derived/t17_scene_packages/pink_cloth_episode_0/config_a_2cam/color/1/140.png": "15e88d14510e541623a74ebb94c347f3aced667937bdac55baad4ef89d139ab0",
+    "/data1/userdata/tcweng/projects/tcgs/datasets/deform360/derived/t17_scene_packages/pink_cloth_episode_0/config_a_2cam/mask/1/1/140.png": "5300692a3ab987ad0a6104ef31fcb4fc1f74876d4a35ddc465553a4ee16362cd",
+    "/data1/userdata/tcweng/projects/tcgs/datasets/deform360/derived/t17_scene_packages/pink_cloth_episode_0/config_a_2cam/color/1/150.png": "b75cce63bb28dba782e4095cc7203c001c8b774131a5a58b9d8b1f242e74a2c3",
+    "/data1/userdata/tcweng/projects/tcgs/datasets/deform360/derived/t17_scene_packages/pink_cloth_episode_0/config_a_2cam/mask/1/1/150.png": "fa1f5fa5f7fa2f46621703ca536dc521804d43551f6b31bc26b79ee423e2fc28"
+  },
+  "input_data_unchanged": true
+}
