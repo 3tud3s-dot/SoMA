@@ -1,0 +1,273 @@
+{
+  "task": "T18",
+  "source_frame": 113,
+  "local_frame": 0,
+  "slurm_job_id": "25822",
+  "gpu": "NVIDIA GeForce RTX 5090, GPU-aeb9a991-5bdb-6015-3fb4-cad9b29e54bb",
+  "torch": "2.7.1+cu128",
+  "scope": "Static initial render; no dynamics model, prediction, backward or training.",
+  "source_sha256": {
+    "gaussian-splatting/scene/gaussian_model.py": "546ba41528a879af4d83bd280a3ef3cbcca9a5e9132204185aaa8f8ee9ffa310",
+    "mmgs/datasets/utils/cameras.py": "ac06ea16eb051e5f695516f50d1b1f6a2e5ac32af8af639b67b0a33c5287b91e",
+    "mmgs/models/utils/render.py": "9f05f7f45f067e0e7633d15f52ba903deff2e9552239b2f6a1b3a3bdf13c2354"
+  },
+  "package_contract_sha256": "dbcbe6d84426675e536e3cc996753047e3a71015f8c279b33c5316cc6ee36e11",
+  "tool_sha256": "dcfd7e2579a8dece5647309b0fd6596fc38376c43241cdbe6d82852c2d7205f7",
+  "configurations": {
+    "A": {
+      "camera_ids": [
+        "brics-odroid-023_cam0",
+        "brics-odroid-009_cam1"
+      ],
+      "scene": "/data1/userdata/tcweng/projects/tcgs/datasets/deform360/derived/t17_scene_packages/pink_cloth_episode_0/config_a_2cam",
+      "order_verified": true
+    },
+    "B": {
+      "camera_ids": [
+        "brics-odroid-023_cam0",
+        "brics-odroid-009_cam1",
+        "brics-odroid-014_cam1"
+      ],
+      "scene": "/data1/userdata/tcweng/projects/tcgs/datasets/deform360/derived/t17_scene_packages/pink_cloth_episode_0/config_b_3cam",
+      "order_verified": true
+    }
+  },
+  "cameras": {
+    "brics-odroid-023_cam0": {
+      "input_sha256": {
+        "PLY": "fd79797c7b7da6ba5db02a4de5fe3c5e463cb7db1eabbe6a6a57bc283e51f7de",
+        "RGB": "331f736519a7c7396438850143bbfa7f569a1500a81236a8d52564af533f0eda",
+        "mask": "45c8e5f3ca71bea17908dea7f85c46dafd4c97524938e2533c4b30e62d85c0ef"
+      },
+      "gaussian_count": 12861,
+      "positive_depth_count": 12861,
+      "in_image_count": 12861,
+      "projection_max_error_pixels": 9.262290875354974e-05,
+      "projection_mean_error_pixels": 2.8868831675943248e-05,
+      "uv_min": [
+        33.54972334358816,
+        93.70895833824584
+      ],
+      "uv_max": [
+        314.5457776920446,
+        336.95465441474994
+      ],
+      "alpha_mask_metrics": {
+        "0.1": {
+          "IoU": 0.9652320304494217,
+          "precision": 0.965585414073369,
+          "recall": 0.999620982413584,
+          "foreground_pixels": 40971
+        },
+        "0.5": {
+          "IoU": 0.9767223252937539,
+          "precision": 0.9789502392581757,
+          "recall": 0.9976753588033151,
+          "foreground_pixels": 40333
+        },
+        "0.9": {
+          "IoU": 0.9809366556589613,
+          "precision": 0.9900015149219815,
+          "recall": 0.9907519708914494,
+          "foreground_pixels": 39606
+        }
+      },
+      "mask_centroid_xy": [
+        162.58196887002222,
+        206.33138770972306
+      ],
+      "render_centroid_xy": [
+        162.71673319614212,
+        205.8677261795552
+      ],
+      "centroid_delta_xy_pixels": [
+        0.13476432611989253,
+        -0.4636615301678546
+      ],
+      "flipped_render_IoU": {
+        "horizontal_flip": 0.0,
+        "vertical_flip": 0.5088557401812689
+      },
+      "render_min_max": [
+        0.0,
+        0.9466636180877686
+      ],
+      "finite": true
+    },
+    "brics-odroid-009_cam1": {
+      "input_sha256": {
+        "PLY": "fd79797c7b7da6ba5db02a4de5fe3c5e463cb7db1eabbe6a6a57bc283e51f7de",
+        "RGB": "d9df6abc7e4deb2f40994c481dae0b97a0c04a8f9e70f52262d05a444e32aab1",
+        "mask": "2faf3ebebab1e613850e682e6129096d8ff99f37803c30268ab983d7808670ca"
+      },
+      "gaussian_count": 12861,
+      "positive_depth_count": 12861,
+      "in_image_count": 12861,
+      "projection_max_error_pixels": 7.787586725320426e-05,
+      "projection_mean_error_pixels": 2.8214913368351897e-05,
+      "uv_min": [
+        170.3269236973019,
+        239.84294276797928
+      ],
+      "uv_max": [
+        503.98292509630807,
+        331.1143069841234
+      ],
+      "alpha_mask_metrics": {
+        "0.1": {
+          "IoU": 0.819905627403006,
+          "precision": 0.8353810541310541,
+          "recall": 0.9779051589369463,
+          "foreground_pixels": 22464
+        },
+        "0.5": {
+          "IoU": 0.8285534760558323,
+          "precision": 0.8565794357832219,
+          "recall": 0.9620114643043252,
+          "foreground_pixels": 21552
+        },
+        "0.9": {
+          "IoU": 0.8107344632768362,
+          "precision": 0.8658038147138964,
+          "recall": 0.9272537780093799,
+          "foreground_pixels": 20552
+        }
+      },
+      "mask_centroid_xy": [
+        352.18650338718084,
+        288.1665450755602
+      ],
+      "render_centroid_xy": [
+        332.4892817371938,
+        284.0699703043801
+      ],
+      "centroid_delta_xy_pixels": [
+        -19.697221649987057,
+        -4.096574771180087
+      ],
+      "flipped_render_IoU": {
+        "horizontal_flip": 0.5820907114010563,
+        "vertical_flip": 0.0
+      },
+      "render_min_max": [
+        0.0,
+        0.9566761255264282
+      ],
+      "finite": true
+    },
+    "brics-odroid-014_cam1": {
+      "input_sha256": {
+        "PLY": "fd79797c7b7da6ba5db02a4de5fe3c5e463cb7db1eabbe6a6a57bc283e51f7de",
+        "RGB": "cb8db7dc46dd28e01eef43e9e045a82011a1611412a9e9454150af1845d0e813",
+        "mask": "9d2888572a26748dc4837663733ea9d1b869b18aa54083f4550f9e160b0c1817"
+      },
+      "gaussian_count": 12861,
+      "positive_depth_count": 12861,
+      "in_image_count": 12861,
+      "projection_max_error_pixels": 0.00011175048760366294,
+      "projection_mean_error_pixels": 3.313362708623898e-05,
+      "uv_min": [
+        89.38288165892978,
+        204.9639006316558
+      ],
+      "uv_max": [
+        428.87790697068124,
+        315.9979690072154
+      ],
+      "alpha_mask_metrics": {
+        "0.1": {
+          "IoU": 0.8847782660807032,
+          "precision": 0.9087775452419057,
+          "recall": 0.9710176700135923,
+          "foreground_pixels": 24369
+        },
+        "0.5": {
+          "IoU": 0.8919546788392566,
+          "precision": 0.9267807232997375,
+          "recall": 0.9595738150567809,
+          "foreground_pixels": 23614
+        },
+        "0.9": {
+          "IoU": 0.8932991184139729,
+          "precision": 0.9409687404630074,
+          "recall": 0.9463322664094357,
+          "foreground_pixels": 22937
+        }
+      },
+      "mask_centroid_xy": [
+        234.84408295698688,
+        258.6680843600649
+      ],
+      "render_centroid_xy": [
+        232.83293808757517,
+        258.54073854493095
+      ],
+      "centroid_delta_xy_pixels": [
+        -2.0111448694117087,
+        -0.1273458151339355
+      ],
+      "flipped_render_IoU": {
+        "horizontal_flip": 0.2248608142695058,
+        "vertical_flip": 0.0
+      },
+      "render_min_max": [
+        0.0,
+        0.9680305123329163
+      ],
+      "finite": true
+    }
+  },
+  "metrics_note": "Alpha is rendered using white override on black; IoU thresholds are diagnostics, not training loss or fitted alignment corrections. Projection tolerance is T9 1 pixel.",
+  "artifacts": {
+    "brics-odroid-023_cam0_comparison.jpg": {
+      "bytes": 112860,
+      "sha256": "4bec8f6f42d53abb68bc900a771b937a4e119c321f864087d08fe9475e2b71a0"
+    },
+    "brics-odroid-009_cam1_render.png": {
+      "bytes": 31825,
+      "sha256": "53d7fa6cf8850b19013bdd4fffa4b167276fb779c7e3d426ecfb64f43a79214b"
+    },
+    "brics-odroid-014_cam1_projection.jpg": {
+      "bytes": 56072,
+      "sha256": "4903f41aa8a37624d70098091fdc1121dcc913bf898703c736746036d6db1876"
+    },
+    "brics-odroid-009_cam1_comparison.jpg": {
+      "bytes": 105480,
+      "sha256": "9e0e267e0a6064c556205300fabfbe92f75297b274526f331a7cdaf5b3086748"
+    },
+    "brics-odroid-014_cam1_comparison.jpg": {
+      "bytes": 109791,
+      "sha256": "43d173c9096a163e2b63d42c114d5b515507c9d3f995632d8477976665b09bae"
+    },
+    "brics-odroid-023_cam0_projection.jpg": {
+      "bytes": 59924,
+      "sha256": "7035d0184ed2d3f9c6f4dd9c65f9f7c09439d7076c92fca63bc0113d1fc89a64"
+    },
+    "brics-odroid-014_cam1_render.png": {
+      "bytes": 33085,
+      "sha256": "3ef660b03074db6a02db5a1651bd5ff4e4dec571d1c07a1aac2662916342683e"
+    },
+    "brics-odroid-009_cam1_projection.jpg": {
+      "bytes": 53647,
+      "sha256": "4c8f423cb1c14fbba9c4a66504837908baf10ea00aafdbe108cbe18ffc977fdc"
+    },
+    "comparison_grid.jpg": {
+      "bytes": 228651,
+      "sha256": "e6d66a55b704db5e3f557af46b5de08b5341278a0c1dfb87b6475db0d5cd3038"
+    },
+    "brics-odroid-023_cam0_render.png": {
+      "bytes": 55032,
+      "sha256": "cb2aa5576934c61b5c76a02ac58c24dec19f07e3b38e900cf0fcd4a86af6fcfa"
+    }
+  },
+  "numeric_projection_status": "PASS",
+  "visual_review_status": "PASS: assistant inspected comparison_grid.jpg at original content; no global mirror/axis flip/translation mismatch. Not a user sign-off or dynamics/training validation.",
+  "status": "PASS",
+  "visual_review_notes": {
+    "brics-odroid-023_cam0": "Visible cloth outline closely aligned; small edge/silhouette differences.",
+    "brics-odroid-009_cam1": "Visible right-hand cloth outline aligned. Largest difference is rendered cloth at gripper-occluded left region; likely visibility/reconstruction vs mask semantics. Centroid delta is not evidence of global camera translation. Cause not independently proven.",
+    "brics-odroid-014_cam1": "Main silhouette aligned; local cutouts and gripper/front occlusion differences remain.",
+    "limitation": "No independent robot obstacle model/mask is rendered. This is the initial-frame geometry prerequisite only; photometric/occlusion mismatch is not solved."
+  },
+  "additional_validation": "Downloaded artifact hashes match server diagnostics; local0 RGB/mask hashes match T14/T15 contracts for each camera."
+}

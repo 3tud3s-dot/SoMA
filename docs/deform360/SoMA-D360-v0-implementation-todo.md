@@ -27,7 +27,7 @@ Deform360 HEAD:
 d8522a4403b766aeb387510c04e89032a56fdf35
 
 Current task:
-T17
+T18
 
 Current status:
 PASS
@@ -147,7 +147,7 @@ tcgs root Git 仅用于 workspace-level 资产。除非明确说明，不在 tcg
 | T16 | 明确 object mask 与遮挡 loss 的边界 | PASS |
 | T16.5 | 批量生成 SH0 compatible Gaussian sequence | PASS |
 | T17 | 只组装 SoMA scene metadata 与目录契约 | PASS |
-| T18 | 验证初始静态渲染的几何对齐 | TODO |
+| T18 | 验证初始静态渲染的几何对齐 | PASS |
 | T19 | 让 EmbodiedDataset 读取一个 sample | TODO |
 | T20 | 只验证 graph construction | TODO |
 | T21 | 只运行一次 forward/render/loss | TODO |
@@ -1353,7 +1353,7 @@ scene_info.json 只保存真实配置读取的 gravity_rot_quat=[0,0,0,1]；没�
 
 ### T18：验证初始静态渲染的几何对齐
 
-Status: TODO
+Status: PASS
 
 **问题：** PLY、camera、RGB/mask 是否真正处在同一几何系统？
 
@@ -1379,11 +1379,20 @@ Status: TODO
 
 #### Result
 
-Not executed.
+2026-09-26：PASS。仅表示 T17 package 的 initial SH0 Gaussian、camera、RGB/mask 在 source 113/local 0 的几何对齐可进入后续 dataset/model smoke test；不表示 dynamics、forward prediction 或 training 正确。未执行 T19。
+
+Config A/B camera identity/order 均核验；共享相机的 K/c2w 和三种输入文件 hash 完全一致，实际渲染三个唯一相机。全部 12861 centers 为正深度且位于 640×360 图像范围；SoMA 相机投影对独立 float64 K·w2c 的最大误差分别为 0.0000926、0.0000779、0.0001118 px，满足 T9 1 px 容差；render 输出全部 finite。
+
+助手实际查看 RGB/render/mask 叠图：未见镜像、整体轴翻转或明显整体平移。alpha≥0.5 与 object mask IoU：023=0.9767、009=0.8286、014=0.8920。009 的主要差异位于夹爪遮挡侧，render 在 mask 排除区域仍有布面；质心差约 (-19.70,-4.10) px 不可直接解释为整体相机平移。014 有局部遮挡缺口差异。此为局部 visibility/reconstruction/mask 差异的可能解释，未独立证明全部成因；T16 无 robot obstacle mask 的 limitation 保留，不宣称遮挡问题已解决。
 
 #### Evidence
 
-Not executed.
+- Review：[README](visualizations/t18-static-render-review-20260926/README.md)、[comparison_grid.jpg](visualizations/t18-static-render-review-20260926/comparison_grid.jpg)、[projection_diagnostics.json](visualizations/t18-static-render-review-20260926/projection_diagnostics.json)。目录还含每相机 comparison.jpg、render.png 和 projection.jpg；仅少量 review 图同步 Mac，无完整 sequence。
+- 独立入口 `tools/deform360_adapter/review_static_render.py`，未修改 loader/Camera/renderer。读取 T17 package，逐项核验 PKL/JSON hashes、links、T8/T9 camera geometry、initial PLY。结果输入 RGB/mask hash 再与 T14/T15 local0 manifest 核验；下载图像 hashes 与服务器输出一致。
+- 服务器 Slurm job 25822，命令：`srun -p 5090 --gres=gpu:1 --ntasks=1 --cpus-per-task=2 --mem=8G --time=00:05:00 --job-name=tcgs-t18 /data1/userdata/tcweng/miniconda3/envs/soma/bin/python -B /tmp/tcgs_t18_review.py --workspace /data1/userdata/tcweng/projects/tcgs --output /data1/userdata/tcweng/projects/tcgs/datasets/deform360/derived/t18_static_render_review_20260926`，退出码 0。CUDA/nvidia-smi 全部在 allocation 内；RTX 5090，torch.no_grad()，无 backward/训练。
+- 原始实现：gaussian-splatting/scene/gaussian_model.py GaussianModel(0).load_ply；mmgs/datasets/utils/cameras.py Camera/getWorld2View2/getProjectionMatrix；mmgs/models/utils/render.py render_gaussian_physdreamer，黑背景、antialiasing=True。第二次 white override 静态 render 用作 alpha footprint 诊断，不改变 Gaussian 属性。
+- 独立 NumPy float64 world→camera→K 投影，与真实 Camera float32 full_proj_transform 和 ndc2Pix 像素中心公式对比全部点；无“试翻轴”修正。水平/垂直镜像 IoU 仅为对照，全部低于原位 IoU；alpha 阈值 0.1/0.5/0.9 的完整统计已记录。
+- T17 checkpoint df9d0cd20bb3d14be6155e15cd5237becb1df782 已 push；开始前 Mac clean、ahead/behind=0/0，服务器 clean 后 fast-forward。T18 文件所属 SoMA/deform360-adaptation；roadmap tracked，新增工具/review 当前 untracked，尚未 commit/push。服务器工具在 /tmp，checkout 未修改；后续轻量内容待通过 Git 同步。
 
 ### T19：让 EmbodiedDataset 读取一个 sample
 
