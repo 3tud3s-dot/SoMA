@@ -1,0 +1,1986 @@
+{
+  "task": "T12 grouping audit; proposal only",
+  "status": "FAIL",
+  "reason": "Default scheme mixes fingers; no grouping/config changes applied pending user approval",
+  "canonical_candidate": "candidate_7mm",
+  "trajectory_file_sha256": "d0575b90ebb8aaeb8d4e9154a2ac20985bc3ca1d650432a25110011414d72820",
+  "t10_contract_sha256": "a2aa7684e9612d4b80eeede253fb890a63b6f8dbd87665843222170d341d733a",
+  "geometry_config_sha256": "0be8b35dbd22d82b41f5f3b3d2ef1582e60140ac6d4d8c9517f285c41cad202c",
+  "source_sha256": {
+    "mmgs/datasets/embodied_dataset.py": "ed74d81ca80e051491aa9045b83ab9caa5f7f3e7b44a8ec6f82026e5359f7858",
+    "configs/SoMA/cloth_lift_stage1.py": "e97ca667c997cdd30a03801d7048baa5384d9744ce7abc12d0fb946e029c150d",
+    "configs/SoMA/cloth_lift_stage2.py": "542f2529da661854a7184081149f6326c6368ff938ca1308292c91722c1ad8e0",
+    "mmgs/models/utils/dgl_graph.py": "86b4406818bb1d0ebf4529c553a73cd958a4596f918e412baaa59738baea4594"
+  },
+  "source_function": {
+    "name": "_load_controller_cluster_mask",
+    "line": 611,
+    "end_line": 744
+  },
+  "official_stage_configs": {
+    "1": {
+      "cluster_type": "dis_split",
+      "default_controller_scheme": [
+        {
+          "downsample_rate": 0.5
+        },
+        {
+          "downsample_rate": 0.5
+        }
+      ]
+    },
+    "2": {
+      "cluster_type": "dis_split",
+      "default_controller_scheme": [
+        {
+          "downsample_rate": 0.5
+        },
+        {
+          "downsample_rate": 0.5
+        }
+      ]
+    }
+  },
+  "default": {
+    "scheme": [
+      {
+        "downsample_rate": 0.5
+      },
+      {
+        "downsample_rate": 0.5
+      }
+    ],
+    "p2c": [
+      [
+        0,
+        0,
+        1,
+        1,
+        2,
+        2,
+        3,
+        3,
+        4,
+        4,
+        5,
+        5,
+        6,
+        6,
+        7,
+        7,
+        8,
+        8,
+        9,
+        9,
+        10,
+        10,
+        11,
+        11,
+        12,
+        12,
+        13,
+        13,
+        14,
+        14
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      [
+        0.0,
+        0.0
+      ]
+    ],
+    "layers": [
+      {
+        "level": 0,
+        "role": "raw controller points",
+        "cluster_count": 30,
+        "clusters": [
+          {
+            "cluster_id": 0,
+            "original_points": [
+              {
+                "index": 0,
+                "point_id": "left_r00_c00",
+                "finger": "left"
+              }
+            ],
+            "cross_finger": false
+          },
+          {
+            "cluster_id": 1,
+            "original_points": [
+              {
+                "index": 1,
+                "point_id": "left_r00_c08",
+                "finger": "left"
+              }
+            ],
+            "cross_finger": false
+          },
+          {
+            "cluster_id": 2,
+            "original_points": [
+              {
+                "index": 2,
+                "point_id": "left_r00_c16",
+                "finger": "left"
+              }
+            ],
+            "cross_finger": false
+          },
+          {
+            "cluster_id": 3,
+            "original_points": [
+              {
+                "index": 3,
+                "point_id": "left_r00_c23",
+                "finger": "left"
+              }
+            ],
+            "cross_finger": false
+          },
+          {
+            "cluster_id": 4,
+            "original_points": [
+              {
+                "index": 4,
+                "point_id": "left_r00_c31",
+                "finger": "left"
+              }
+            ],
+            "cross_finger": false
+          },
+          {
+            "cluster_id": 5,
+            "original_points": [
+              {
+                "index": 5,
+                "point_id": "left_r06_c00",
+                "finger": "left"
+              }
+            ],
+            "cross_finger": false
+          },
+          {
+            "cluster_id": 6,
+            "original_points": [
+              {
+                "index": 6,
+                "point_id": "left_r06_c08",
+                "finger": "left"
+              }
+            ],
+            "cross_finger": false
+          },
+          {
+            "cluster_id": 7,
+            "original_points": [
+              {
+                "index": 7,
+                "point_id": "left_r06_c16",
+                "finger": "left"
+              }
+            ],
+            "cross_finger": false
+          },
+          {
+            "cluster_id": 8,
+            "original_points": [
+              {
+                "index": 8,
+                "point_id": "left_r06_c23",
+                "finger": "left"
+              }
+            ],
+            "cross_finger": false
+          },
+          {
+            "cluster_id": 9,
+            "original_points": [
+              {
+                "index": 9,
+                "point_id": "left_r06_c31",
+                "finger": "left"
+              }
+            ],
+            "cross_finger": false
+          },
+          {
+            "cluster_id": 10,
+            "original_points": [
+              {
+                "index": 10,
+                "point_id": "left_r11_c00",
+                "finger": "left"
+              }
+            ],
+            "cross_finger": false
+          },
+          {
+            "cluster_id": 11,
+            "original_points": [
+              {
+                "index": 11,
+                "point_id": "left_r11_c08",
+                "finger": "left"
+              }
+            ],
+            "cross_finger": false
+          },
+          {
+            "cluster_id": 12,
+            "original_points": [
+              {
+                "index": 12,
+                "point_id": "left_r11_c16",
+                "finger": "left"
+              }
+            ],
+            "cross_finger": false
+          },
+          {
+            "cluster_id": 13,
+            "original_points": [
+              {
+                "index": 13,
+                "point_id": "left_r11_c23",
+                "finger": "left"
+              }
+            ],
+            "cross_finger": false
+          },
+          {
+            "cluster_id": 14,
+            "original_points": [
+              {
+                "index": 14,
+                "point_id": "left_r11_c31",
+                "finger": "left"
+              }
+            ],
+            "cross_finger": false
+          },
+          {
+            "cluster_id": 15,
+            "original_points": [
+              {
+                "index": 15,
+                "point_id": "right_r00_c00",
+                "finger": "right"
+              }
+            ],
+            "cross_finger": false
+          },
+          {
+            "cluster_id": 16,
+            "original_points": [
+              {
+                "index": 16,
+                "point_id": "right_r00_c08",
+                "finger": "right"
+              }
+            ],
+            "cross_finger": false
+          },
+          {
+            "cluster_id": 17,
+            "original_points": [
+              {
+                "index": 17,
+                "point_id": "right_r00_c16",
+                "finger": "right"
+              }
+            ],
+            "cross_finger": false
+          },
+          {
+            "cluster_id": 18,
+            "original_points": [
+              {
+                "index": 18,
+                "point_id": "right_r00_c23",
+                "finger": "right"
+              }
+            ],
+            "cross_finger": false
+          },
+          {
+            "cluster_id": 19,
+            "original_points": [
+              {
+                "index": 19,
+                "point_id": "right_r00_c31",
+                "finger": "right"
+              }
+            ],
+            "cross_finger": false
+          },
+          {
+            "cluster_id": 20,
+            "original_points": [
+              {
+                "index": 20,
+                "point_id": "right_r06_c00",
+                "finger": "right"
+              }
+            ],
+            "cross_finger": false
+          },
+          {
+            "cluster_id": 21,
+            "original_points": [
+              {
+                "index": 21,
+                "point_id": "right_r06_c08",
+                "finger": "right"
+              }
+            ],
+            "cross_finger": false
+          },
+          {
+            "cluster_id": 22,
+            "original_points": [
+              {
+                "index": 22,
+                "point_id": "right_r06_c16",
+                "finger": "right"
+              }
+            ],
+            "cross_finger": false
+          },
+          {
+            "cluster_id": 23,
+            "original_points": [
+              {
+                "index": 23,
+                "point_id": "right_r06_c23",
+                "finger": "right"
+              }
+            ],
+            "cross_finger": false
+          },
+          {
+            "cluster_id": 24,
+            "original_points": [
+              {
+                "index": 24,
+                "point_id": "right_r06_c31",
+                "finger": "right"
+              }
+            ],
+            "cross_finger": false
+          },
+          {
+            "cluster_id": 25,
+            "original_points": [
+              {
+                "index": 25,
+                "point_id": "right_r11_c00",
+                "finger": "right"
+              }
+            ],
+            "cross_finger": false
+          },
+          {
+            "cluster_id": 26,
+            "original_points": [
+              {
+                "index": 26,
+                "point_id": "right_r11_c08",
+                "finger": "right"
+              }
+            ],
+            "cross_finger": false
+          },
+          {
+            "cluster_id": 27,
+            "original_points": [
+              {
+                "index": 27,
+                "point_id": "right_r11_c16",
+                "finger": "right"
+              }
+            ],
+            "cross_finger": false
+          },
+          {
+            "cluster_id": 28,
+            "original_points": [
+              {
+                "index": 28,
+                "point_id": "right_r11_c23",
+                "finger": "right"
+              }
+            ],
+            "cross_finger": false
+          },
+          {
+            "cluster_id": 29,
+            "original_points": [
+              {
+                "index": 29,
+                "point_id": "right_r11_c31",
+                "finger": "right"
+              }
+            ],
+            "cross_finger": false
+          }
+        ]
+      },
+      {
+        "level": 1,
+        "role": "finger hierarchy",
+        "cluster_count": 15,
+        "clusters": [
+          {
+            "cluster_id": 0,
+            "original_points": [
+              {
+                "index": 0,
+                "point_id": "left_r00_c00",
+                "finger": "left"
+              },
+              {
+                "index": 1,
+                "point_id": "left_r00_c08",
+                "finger": "left"
+              }
+            ],
+            "cross_finger": false
+          },
+          {
+            "cluster_id": 1,
+            "original_points": [
+              {
+                "index": 2,
+                "point_id": "left_r00_c16",
+                "finger": "left"
+              },
+              {
+                "index": 3,
+                "point_id": "left_r00_c23",
+                "finger": "left"
+              }
+            ],
+            "cross_finger": false
+          },
+          {
+            "cluster_id": 2,
+            "original_points": [
+              {
+                "index": 4,
+                "point_id": "left_r00_c31",
+                "finger": "left"
+              },
+              {
+                "index": 5,
+                "point_id": "left_r06_c00",
+                "finger": "left"
+              }
+            ],
+            "cross_finger": false
+          },
+          {
+            "cluster_id": 3,
+            "original_points": [
+              {
+                "index": 6,
+                "point_id": "left_r06_c08",
+                "finger": "left"
+              },
+              {
+                "index": 7,
+                "point_id": "left_r06_c16",
+                "finger": "left"
+              }
+            ],
+            "cross_finger": false
+          },
+          {
+            "cluster_id": 4,
+            "original_points": [
+              {
+                "index": 8,
+                "point_id": "left_r06_c23",
+                "finger": "left"
+              },
+              {
+                "index": 9,
+                "point_id": "left_r06_c31",
+                "finger": "left"
+              }
+            ],
+            "cross_finger": false
+          },
+          {
+            "cluster_id": 5,
+            "original_points": [
+              {
+                "index": 10,
+                "point_id": "left_r11_c00",
+                "finger": "left"
+              },
+              {
+                "index": 11,
+                "point_id": "left_r11_c08",
+                "finger": "left"
+              }
+            ],
+            "cross_finger": false
+          },
+          {
+            "cluster_id": 6,
+            "original_points": [
+              {
+                "index": 12,
+                "point_id": "left_r11_c16",
+                "finger": "left"
+              },
+              {
+                "index": 13,
+                "point_id": "left_r11_c23",
+                "finger": "left"
+              }
+            ],
+            "cross_finger": false
+          },
+          {
+            "cluster_id": 7,
+            "original_points": [
+              {
+                "index": 14,
+                "point_id": "left_r11_c31",
+                "finger": "left"
+              },
+              {
+                "index": 15,
+                "point_id": "right_r00_c00",
+                "finger": "right"
+              }
+            ],
+            "cross_finger": true
+          },
+          {
+            "cluster_id": 8,
+            "original_points": [
+              {
+                "index": 16,
+                "point_id": "right_r00_c08",
+                "finger": "right"
+              },
+              {
+                "index": 17,
+                "point_id": "right_r00_c16",
+                "finger": "right"
+              }
+            ],
+            "cross_finger": false
+          },
+          {
+            "cluster_id": 9,
+            "original_points": [
+              {
+                "index": 18,
+                "point_id": "right_r00_c23",
+                "finger": "right"
+              },
+              {
+                "index": 19,
+                "point_id": "right_r00_c31",
+                "finger": "right"
+              }
+            ],
+            "cross_finger": false
+          },
+          {
+            "cluster_id": 10,
+            "original_points": [
+              {
+                "index": 20,
+                "point_id": "right_r06_c00",
+                "finger": "right"
+              },
+              {
+                "index": 21,
+                "point_id": "right_r06_c08",
+                "finger": "right"
+              }
+            ],
+            "cross_finger": false
+          },
+          {
+            "cluster_id": 11,
+            "original_points": [
+              {
+                "index": 22,
+                "point_id": "right_r06_c16",
+                "finger": "right"
+              },
+              {
+                "index": 23,
+                "point_id": "right_r06_c23",
+                "finger": "right"
+              }
+            ],
+            "cross_finger": false
+          },
+          {
+            "cluster_id": 12,
+            "original_points": [
+              {
+                "index": 24,
+                "point_id": "right_r06_c31",
+                "finger": "right"
+              },
+              {
+                "index": 25,
+                "point_id": "right_r11_c00",
+                "finger": "right"
+              }
+            ],
+            "cross_finger": false
+          },
+          {
+            "cluster_id": 13,
+            "original_points": [
+              {
+                "index": 26,
+                "point_id": "right_r11_c08",
+                "finger": "right"
+              },
+              {
+                "index": 27,
+                "point_id": "right_r11_c16",
+                "finger": "right"
+              }
+            ],
+            "cross_finger": false
+          },
+          {
+            "cluster_id": 14,
+            "original_points": [
+              {
+                "index": 28,
+                "point_id": "right_r11_c23",
+                "finger": "right"
+              },
+              {
+                "index": 29,
+                "point_id": "right_r11_c31",
+                "finger": "right"
+              }
+            ],
+            "cross_finger": false
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "role": "finger hierarchy",
+        "cluster_count": 2,
+        "clusters": [
+          {
+            "cluster_id": 0,
+            "original_points": [
+              {
+                "index": 0,
+                "point_id": "left_r00_c00",
+                "finger": "left"
+              },
+              {
+                "index": 1,
+                "point_id": "left_r00_c08",
+                "finger": "left"
+              },
+              {
+                "index": 2,
+                "point_id": "left_r00_c16",
+                "finger": "left"
+              },
+              {
+                "index": 3,
+                "point_id": "left_r00_c23",
+                "finger": "left"
+              },
+              {
+                "index": 4,
+                "point_id": "left_r00_c31",
+                "finger": "left"
+              },
+              {
+                "index": 5,
+                "point_id": "left_r06_c00",
+                "finger": "left"
+              },
+              {
+                "index": 6,
+                "point_id": "left_r06_c08",
+                "finger": "left"
+              },
+              {
+                "index": 7,
+                "point_id": "left_r06_c16",
+                "finger": "left"
+              },
+              {
+                "index": 8,
+                "point_id": "left_r06_c23",
+                "finger": "left"
+              },
+              {
+                "index": 9,
+                "point_id": "left_r06_c31",
+                "finger": "left"
+              },
+              {
+                "index": 10,
+                "point_id": "left_r11_c00",
+                "finger": "left"
+              },
+              {
+                "index": 11,
+                "point_id": "left_r11_c08",
+                "finger": "left"
+              },
+              {
+                "index": 12,
+                "point_id": "left_r11_c16",
+                "finger": "left"
+              },
+              {
+                "index": 13,
+                "point_id": "left_r11_c23",
+                "finger": "left"
+              }
+            ],
+            "cross_finger": false
+          },
+          {
+            "cluster_id": 1,
+            "original_points": [
+              {
+                "index": 14,
+                "point_id": "left_r11_c31",
+                "finger": "left"
+              },
+              {
+                "index": 15,
+                "point_id": "right_r00_c00",
+                "finger": "right"
+              },
+              {
+                "index": 16,
+                "point_id": "right_r00_c08",
+                "finger": "right"
+              },
+              {
+                "index": 17,
+                "point_id": "right_r00_c16",
+                "finger": "right"
+              },
+              {
+                "index": 18,
+                "point_id": "right_r00_c23",
+                "finger": "right"
+              },
+              {
+                "index": 19,
+                "point_id": "right_r00_c31",
+                "finger": "right"
+              },
+              {
+                "index": 20,
+                "point_id": "right_r06_c00",
+                "finger": "right"
+              },
+              {
+                "index": 21,
+                "point_id": "right_r06_c08",
+                "finger": "right"
+              },
+              {
+                "index": 22,
+                "point_id": "right_r06_c16",
+                "finger": "right"
+              },
+              {
+                "index": 23,
+                "point_id": "right_r06_c23",
+                "finger": "right"
+              },
+              {
+                "index": 24,
+                "point_id": "right_r06_c31",
+                "finger": "right"
+              },
+              {
+                "index": 25,
+                "point_id": "right_r11_c00",
+                "finger": "right"
+              },
+              {
+                "index": 26,
+                "point_id": "right_r11_c08",
+                "finger": "right"
+              },
+              {
+                "index": 27,
+                "point_id": "right_r11_c16",
+                "finger": "right"
+              },
+              {
+                "index": 28,
+                "point_id": "right_r11_c23",
+                "finger": "right"
+              },
+              {
+                "index": 29,
+                "point_id": "right_r11_c31",
+                "finger": "right"
+              }
+            ],
+            "cross_finger": true
+          }
+        ]
+      },
+      {
+        "level": 3,
+        "role": "shared controller root / p2pin zeros",
+        "cluster_count": 1,
+        "clusters": [
+          {
+            "cluster_id": 0,
+            "original_points": [
+              {
+                "index": 0,
+                "point_id": "left_r00_c00",
+                "finger": "left"
+              },
+              {
+                "index": 1,
+                "point_id": "left_r00_c08",
+                "finger": "left"
+              },
+              {
+                "index": 2,
+                "point_id": "left_r00_c16",
+                "finger": "left"
+              },
+              {
+                "index": 3,
+                "point_id": "left_r00_c23",
+                "finger": "left"
+              },
+              {
+                "index": 4,
+                "point_id": "left_r00_c31",
+                "finger": "left"
+              },
+              {
+                "index": 5,
+                "point_id": "left_r06_c00",
+                "finger": "left"
+              },
+              {
+                "index": 6,
+                "point_id": "left_r06_c08",
+                "finger": "left"
+              },
+              {
+                "index": 7,
+                "point_id": "left_r06_c16",
+                "finger": "left"
+              },
+              {
+                "index": 8,
+                "point_id": "left_r06_c23",
+                "finger": "left"
+              },
+              {
+                "index": 9,
+                "point_id": "left_r06_c31",
+                "finger": "left"
+              },
+              {
+                "index": 10,
+                "point_id": "left_r11_c00",
+                "finger": "left"
+              },
+              {
+                "index": 11,
+                "point_id": "left_r11_c08",
+                "finger": "left"
+              },
+              {
+                "index": 12,
+                "point_id": "left_r11_c16",
+                "finger": "left"
+              },
+              {
+                "index": 13,
+                "point_id": "left_r11_c23",
+                "finger": "left"
+              },
+              {
+                "index": 14,
+                "point_id": "left_r11_c31",
+                "finger": "left"
+              },
+              {
+                "index": 15,
+                "point_id": "right_r00_c00",
+                "finger": "right"
+              },
+              {
+                "index": 16,
+                "point_id": "right_r00_c08",
+                "finger": "right"
+              },
+              {
+                "index": 17,
+                "point_id": "right_r00_c16",
+                "finger": "right"
+              },
+              {
+                "index": 18,
+                "point_id": "right_r00_c23",
+                "finger": "right"
+              },
+              {
+                "index": 19,
+                "point_id": "right_r00_c31",
+                "finger": "right"
+              },
+              {
+                "index": 20,
+                "point_id": "right_r06_c00",
+                "finger": "right"
+              },
+              {
+                "index": 21,
+                "point_id": "right_r06_c08",
+                "finger": "right"
+              },
+              {
+                "index": 22,
+                "point_id": "right_r06_c16",
+                "finger": "right"
+              },
+              {
+                "index": 23,
+                "point_id": "right_r06_c23",
+                "finger": "right"
+              },
+              {
+                "index": 24,
+                "point_id": "right_r06_c31",
+                "finger": "right"
+              },
+              {
+                "index": 25,
+                "point_id": "right_r11_c00",
+                "finger": "right"
+              },
+              {
+                "index": 26,
+                "point_id": "right_r11_c08",
+                "finger": "right"
+              },
+              {
+                "index": 27,
+                "point_id": "right_r11_c16",
+                "finger": "right"
+              },
+              {
+                "index": 28,
+                "point_id": "right_r11_c23",
+                "finger": "right"
+              },
+              {
+                "index": 29,
+                "point_id": "right_r11_c31",
+                "finger": "right"
+              }
+            ],
+            "cross_finger": true
+          }
+        ]
+      }
+    ],
+    "virtual_cache_keys": [
+      "/memory/episode_0/controller_mask/dis_split/controller_dis_splitnl_2_downsample_rate_0d5_downsample_rate_0d5_track_process_data.pkl"
+    ],
+    "file_io": "readJSON/readPKL/writePKL, exists and makedirs stubbed in memory only; no actual PKL/cache/directory generation"
+  },
+  "proposal_10_clusters": {
+    "scheme": [
+      {
+        "num_cluster": 10
+      },
+      {
+        "downsample_rate": 0.5
+      }
+    ],
+    "p2c": [
+      [
+        0,
+        0,
+        0,
+        1,
+        1,
+        1,
+        2,
+        2,
+        2,
+        3,
+        3,
+        3,
+        4,
+        4,
+        4,
+        5,
+        5,
+        5,
+        6,
+        6,
+        6,
+        7,
+        7,
+        7,
+        8,
+        8,
+        8,
+        9,
+        9,
+        9
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      [
+        0.0,
+        0.0
+      ]
+    ],
+    "layers": [
+      {
+        "level": 0,
+        "role": "raw controller points",
+        "cluster_count": 30,
+        "clusters": [
+          {
+            "cluster_id": 0,
+            "original_points": [
+              {
+                "index": 0,
+                "point_id": "left_r00_c00",
+                "finger": "left"
+              }
+            ],
+            "cross_finger": false
+          },
+          {
+            "cluster_id": 1,
+            "original_points": [
+              {
+                "index": 1,
+                "point_id": "left_r00_c08",
+                "finger": "left"
+              }
+            ],
+            "cross_finger": false
+          },
+          {
+            "cluster_id": 2,
+            "original_points": [
+              {
+                "index": 2,
+                "point_id": "left_r00_c16",
+                "finger": "left"
+              }
+            ],
+            "cross_finger": false
+          },
+          {
+            "cluster_id": 3,
+            "original_points": [
+              {
+                "index": 3,
+                "point_id": "left_r00_c23",
+                "finger": "left"
+              }
+            ],
+            "cross_finger": false
+          },
+          {
+            "cluster_id": 4,
+            "original_points": [
+              {
+                "index": 4,
+                "point_id": "left_r00_c31",
+                "finger": "left"
+              }
+            ],
+            "cross_finger": false
+          },
+          {
+            "cluster_id": 5,
+            "original_points": [
+              {
+                "index": 5,
+                "point_id": "left_r06_c00",
+                "finger": "left"
+              }
+            ],
+            "cross_finger": false
+          },
+          {
+            "cluster_id": 6,
+            "original_points": [
+              {
+                "index": 6,
+                "point_id": "left_r06_c08",
+                "finger": "left"
+              }
+            ],
+            "cross_finger": false
+          },
+          {
+            "cluster_id": 7,
+            "original_points": [
+              {
+                "index": 7,
+                "point_id": "left_r06_c16",
+                "finger": "left"
+              }
+            ],
+            "cross_finger": false
+          },
+          {
+            "cluster_id": 8,
+            "original_points": [
+              {
+                "index": 8,
+                "point_id": "left_r06_c23",
+                "finger": "left"
+              }
+            ],
+            "cross_finger": false
+          },
+          {
+            "cluster_id": 9,
+            "original_points": [
+              {
+                "index": 9,
+                "point_id": "left_r06_c31",
+                "finger": "left"
+              }
+            ],
+            "cross_finger": false
+          },
+          {
+            "cluster_id": 10,
+            "original_points": [
+              {
+                "index": 10,
+                "point_id": "left_r11_c00",
+                "finger": "left"
+              }
+            ],
+            "cross_finger": false
+          },
+          {
+            "cluster_id": 11,
+            "original_points": [
+              {
+                "index": 11,
+                "point_id": "left_r11_c08",
+                "finger": "left"
+              }
+            ],
+            "cross_finger": false
+          },
+          {
+            "cluster_id": 12,
+            "original_points": [
+              {
+                "index": 12,
+                "point_id": "left_r11_c16",
+                "finger": "left"
+              }
+            ],
+            "cross_finger": false
+          },
+          {
+            "cluster_id": 13,
+            "original_points": [
+              {
+                "index": 13,
+                "point_id": "left_r11_c23",
+                "finger": "left"
+              }
+            ],
+            "cross_finger": false
+          },
+          {
+            "cluster_id": 14,
+            "original_points": [
+              {
+                "index": 14,
+                "point_id": "left_r11_c31",
+                "finger": "left"
+              }
+            ],
+            "cross_finger": false
+          },
+          {
+            "cluster_id": 15,
+            "original_points": [
+              {
+                "index": 15,
+                "point_id": "right_r00_c00",
+                "finger": "right"
+              }
+            ],
+            "cross_finger": false
+          },
+          {
+            "cluster_id": 16,
+            "original_points": [
+              {
+                "index": 16,
+                "point_id": "right_r00_c08",
+                "finger": "right"
+              }
+            ],
+            "cross_finger": false
+          },
+          {
+            "cluster_id": 17,
+            "original_points": [
+              {
+                "index": 17,
+                "point_id": "right_r00_c16",
+                "finger": "right"
+              }
+            ],
+            "cross_finger": false
+          },
+          {
+            "cluster_id": 18,
+            "original_points": [
+              {
+                "index": 18,
+                "point_id": "right_r00_c23",
+                "finger": "right"
+              }
+            ],
+            "cross_finger": false
+          },
+          {
+            "cluster_id": 19,
+            "original_points": [
+              {
+                "index": 19,
+                "point_id": "right_r00_c31",
+                "finger": "right"
+              }
+            ],
+            "cross_finger": false
+          },
+          {
+            "cluster_id": 20,
+            "original_points": [
+              {
+                "index": 20,
+                "point_id": "right_r06_c00",
+                "finger": "right"
+              }
+            ],
+            "cross_finger": false
+          },
+          {
+            "cluster_id": 21,
+            "original_points": [
+              {
+                "index": 21,
+                "point_id": "right_r06_c08",
+                "finger": "right"
+              }
+            ],
+            "cross_finger": false
+          },
+          {
+            "cluster_id": 22,
+            "original_points": [
+              {
+                "index": 22,
+                "point_id": "right_r06_c16",
+                "finger": "right"
+              }
+            ],
+            "cross_finger": false
+          },
+          {
+            "cluster_id": 23,
+            "original_points": [
+              {
+                "index": 23,
+                "point_id": "right_r06_c23",
+                "finger": "right"
+              }
+            ],
+            "cross_finger": false
+          },
+          {
+            "cluster_id": 24,
+            "original_points": [
+              {
+                "index": 24,
+                "point_id": "right_r06_c31",
+                "finger": "right"
+              }
+            ],
+            "cross_finger": false
+          },
+          {
+            "cluster_id": 25,
+            "original_points": [
+              {
+                "index": 25,
+                "point_id": "right_r11_c00",
+                "finger": "right"
+              }
+            ],
+            "cross_finger": false
+          },
+          {
+            "cluster_id": 26,
+            "original_points": [
+              {
+                "index": 26,
+                "point_id": "right_r11_c08",
+                "finger": "right"
+              }
+            ],
+            "cross_finger": false
+          },
+          {
+            "cluster_id": 27,
+            "original_points": [
+              {
+                "index": 27,
+                "point_id": "right_r11_c16",
+                "finger": "right"
+              }
+            ],
+            "cross_finger": false
+          },
+          {
+            "cluster_id": 28,
+            "original_points": [
+              {
+                "index": 28,
+                "point_id": "right_r11_c23",
+                "finger": "right"
+              }
+            ],
+            "cross_finger": false
+          },
+          {
+            "cluster_id": 29,
+            "original_points": [
+              {
+                "index": 29,
+                "point_id": "right_r11_c31",
+                "finger": "right"
+              }
+            ],
+            "cross_finger": false
+          }
+        ]
+      },
+      {
+        "level": 1,
+        "role": "finger hierarchy",
+        "cluster_count": 10,
+        "clusters": [
+          {
+            "cluster_id": 0,
+            "original_points": [
+              {
+                "index": 0,
+                "point_id": "left_r00_c00",
+                "finger": "left"
+              },
+              {
+                "index": 1,
+                "point_id": "left_r00_c08",
+                "finger": "left"
+              },
+              {
+                "index": 2,
+                "point_id": "left_r00_c16",
+                "finger": "left"
+              }
+            ],
+            "cross_finger": false
+          },
+          {
+            "cluster_id": 1,
+            "original_points": [
+              {
+                "index": 3,
+                "point_id": "left_r00_c23",
+                "finger": "left"
+              },
+              {
+                "index": 4,
+                "point_id": "left_r00_c31",
+                "finger": "left"
+              },
+              {
+                "index": 5,
+                "point_id": "left_r06_c00",
+                "finger": "left"
+              }
+            ],
+            "cross_finger": false
+          },
+          {
+            "cluster_id": 2,
+            "original_points": [
+              {
+                "index": 6,
+                "point_id": "left_r06_c08",
+                "finger": "left"
+              },
+              {
+                "index": 7,
+                "point_id": "left_r06_c16",
+                "finger": "left"
+              },
+              {
+                "index": 8,
+                "point_id": "left_r06_c23",
+                "finger": "left"
+              }
+            ],
+            "cross_finger": false
+          },
+          {
+            "cluster_id": 3,
+            "original_points": [
+              {
+                "index": 9,
+                "point_id": "left_r06_c31",
+                "finger": "left"
+              },
+              {
+                "index": 10,
+                "point_id": "left_r11_c00",
+                "finger": "left"
+              },
+              {
+                "index": 11,
+                "point_id": "left_r11_c08",
+                "finger": "left"
+              }
+            ],
+            "cross_finger": false
+          },
+          {
+            "cluster_id": 4,
+            "original_points": [
+              {
+                "index": 12,
+                "point_id": "left_r11_c16",
+                "finger": "left"
+              },
+              {
+                "index": 13,
+                "point_id": "left_r11_c23",
+                "finger": "left"
+              },
+              {
+                "index": 14,
+                "point_id": "left_r11_c31",
+                "finger": "left"
+              }
+            ],
+            "cross_finger": false
+          },
+          {
+            "cluster_id": 5,
+            "original_points": [
+              {
+                "index": 15,
+                "point_id": "right_r00_c00",
+                "finger": "right"
+              },
+              {
+                "index": 16,
+                "point_id": "right_r00_c08",
+                "finger": "right"
+              },
+              {
+                "index": 17,
+                "point_id": "right_r00_c16",
+                "finger": "right"
+              }
+            ],
+            "cross_finger": false
+          },
+          {
+            "cluster_id": 6,
+            "original_points": [
+              {
+                "index": 18,
+                "point_id": "right_r00_c23",
+                "finger": "right"
+              },
+              {
+                "index": 19,
+                "point_id": "right_r00_c31",
+                "finger": "right"
+              },
+              {
+                "index": 20,
+                "point_id": "right_r06_c00",
+                "finger": "right"
+              }
+            ],
+            "cross_finger": false
+          },
+          {
+            "cluster_id": 7,
+            "original_points": [
+              {
+                "index": 21,
+                "point_id": "right_r06_c08",
+                "finger": "right"
+              },
+              {
+                "index": 22,
+                "point_id": "right_r06_c16",
+                "finger": "right"
+              },
+              {
+                "index": 23,
+                "point_id": "right_r06_c23",
+                "finger": "right"
+              }
+            ],
+            "cross_finger": false
+          },
+          {
+            "cluster_id": 8,
+            "original_points": [
+              {
+                "index": 24,
+                "point_id": "right_r06_c31",
+                "finger": "right"
+              },
+              {
+                "index": 25,
+                "point_id": "right_r11_c00",
+                "finger": "right"
+              },
+              {
+                "index": 26,
+                "point_id": "right_r11_c08",
+                "finger": "right"
+              }
+            ],
+            "cross_finger": false
+          },
+          {
+            "cluster_id": 9,
+            "original_points": [
+              {
+                "index": 27,
+                "point_id": "right_r11_c16",
+                "finger": "right"
+              },
+              {
+                "index": 28,
+                "point_id": "right_r11_c23",
+                "finger": "right"
+              },
+              {
+                "index": 29,
+                "point_id": "right_r11_c31",
+                "finger": "right"
+              }
+            ],
+            "cross_finger": false
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "role": "finger hierarchy",
+        "cluster_count": 2,
+        "clusters": [
+          {
+            "cluster_id": 0,
+            "original_points": [
+              {
+                "index": 0,
+                "point_id": "left_r00_c00",
+                "finger": "left"
+              },
+              {
+                "index": 1,
+                "point_id": "left_r00_c08",
+                "finger": "left"
+              },
+              {
+                "index": 2,
+                "point_id": "left_r00_c16",
+                "finger": "left"
+              },
+              {
+                "index": 3,
+                "point_id": "left_r00_c23",
+                "finger": "left"
+              },
+              {
+                "index": 4,
+                "point_id": "left_r00_c31",
+                "finger": "left"
+              },
+              {
+                "index": 5,
+                "point_id": "left_r06_c00",
+                "finger": "left"
+              },
+              {
+                "index": 6,
+                "point_id": "left_r06_c08",
+                "finger": "left"
+              },
+              {
+                "index": 7,
+                "point_id": "left_r06_c16",
+                "finger": "left"
+              },
+              {
+                "index": 8,
+                "point_id": "left_r06_c23",
+                "finger": "left"
+              },
+              {
+                "index": 9,
+                "point_id": "left_r06_c31",
+                "finger": "left"
+              },
+              {
+                "index": 10,
+                "point_id": "left_r11_c00",
+                "finger": "left"
+              },
+              {
+                "index": 11,
+                "point_id": "left_r11_c08",
+                "finger": "left"
+              },
+              {
+                "index": 12,
+                "point_id": "left_r11_c16",
+                "finger": "left"
+              },
+              {
+                "index": 13,
+                "point_id": "left_r11_c23",
+                "finger": "left"
+              },
+              {
+                "index": 14,
+                "point_id": "left_r11_c31",
+                "finger": "left"
+              }
+            ],
+            "cross_finger": false
+          },
+          {
+            "cluster_id": 1,
+            "original_points": [
+              {
+                "index": 15,
+                "point_id": "right_r00_c00",
+                "finger": "right"
+              },
+              {
+                "index": 16,
+                "point_id": "right_r00_c08",
+                "finger": "right"
+              },
+              {
+                "index": 17,
+                "point_id": "right_r00_c16",
+                "finger": "right"
+              },
+              {
+                "index": 18,
+                "point_id": "right_r00_c23",
+                "finger": "right"
+              },
+              {
+                "index": 19,
+                "point_id": "right_r00_c31",
+                "finger": "right"
+              },
+              {
+                "index": 20,
+                "point_id": "right_r06_c00",
+                "finger": "right"
+              },
+              {
+                "index": 21,
+                "point_id": "right_r06_c08",
+                "finger": "right"
+              },
+              {
+                "index": 22,
+                "point_id": "right_r06_c16",
+                "finger": "right"
+              },
+              {
+                "index": 23,
+                "point_id": "right_r06_c23",
+                "finger": "right"
+              },
+              {
+                "index": 24,
+                "point_id": "right_r06_c31",
+                "finger": "right"
+              },
+              {
+                "index": 25,
+                "point_id": "right_r11_c00",
+                "finger": "right"
+              },
+              {
+                "index": 26,
+                "point_id": "right_r11_c08",
+                "finger": "right"
+              },
+              {
+                "index": 27,
+                "point_id": "right_r11_c16",
+                "finger": "right"
+              },
+              {
+                "index": 28,
+                "point_id": "right_r11_c23",
+                "finger": "right"
+              },
+              {
+                "index": 29,
+                "point_id": "right_r11_c31",
+                "finger": "right"
+              }
+            ],
+            "cross_finger": false
+          }
+        ]
+      },
+      {
+        "level": 3,
+        "role": "shared controller root / p2pin zeros",
+        "cluster_count": 1,
+        "clusters": [
+          {
+            "cluster_id": 0,
+            "original_points": [
+              {
+                "index": 0,
+                "point_id": "left_r00_c00",
+                "finger": "left"
+              },
+              {
+                "index": 1,
+                "point_id": "left_r00_c08",
+                "finger": "left"
+              },
+              {
+                "index": 2,
+                "point_id": "left_r00_c16",
+                "finger": "left"
+              },
+              {
+                "index": 3,
+                "point_id": "left_r00_c23",
+                "finger": "left"
+              },
+              {
+                "index": 4,
+                "point_id": "left_r00_c31",
+                "finger": "left"
+              },
+              {
+                "index": 5,
+                "point_id": "left_r06_c00",
+                "finger": "left"
+              },
+              {
+                "index": 6,
+                "point_id": "left_r06_c08",
+                "finger": "left"
+              },
+              {
+                "index": 7,
+                "point_id": "left_r06_c16",
+                "finger": "left"
+              },
+              {
+                "index": 8,
+                "point_id": "left_r06_c23",
+                "finger": "left"
+              },
+              {
+                "index": 9,
+                "point_id": "left_r06_c31",
+                "finger": "left"
+              },
+              {
+                "index": 10,
+                "point_id": "left_r11_c00",
+                "finger": "left"
+              },
+              {
+                "index": 11,
+                "point_id": "left_r11_c08",
+                "finger": "left"
+              },
+              {
+                "index": 12,
+                "point_id": "left_r11_c16",
+                "finger": "left"
+              },
+              {
+                "index": 13,
+                "point_id": "left_r11_c23",
+                "finger": "left"
+              },
+              {
+                "index": 14,
+                "point_id": "left_r11_c31",
+                "finger": "left"
+              },
+              {
+                "index": 15,
+                "point_id": "right_r00_c00",
+                "finger": "right"
+              },
+              {
+                "index": 16,
+                "point_id": "right_r00_c08",
+                "finger": "right"
+              },
+              {
+                "index": 17,
+                "point_id": "right_r00_c16",
+                "finger": "right"
+              },
+              {
+                "index": 18,
+                "point_id": "right_r00_c23",
+                "finger": "right"
+              },
+              {
+                "index": 19,
+                "point_id": "right_r00_c31",
+                "finger": "right"
+              },
+              {
+                "index": 20,
+                "point_id": "right_r06_c00",
+                "finger": "right"
+              },
+              {
+                "index": 21,
+                "point_id": "right_r06_c08",
+                "finger": "right"
+              },
+              {
+                "index": 22,
+                "point_id": "right_r06_c16",
+                "finger": "right"
+              },
+              {
+                "index": 23,
+                "point_id": "right_r06_c23",
+                "finger": "right"
+              },
+              {
+                "index": 24,
+                "point_id": "right_r06_c31",
+                "finger": "right"
+              },
+              {
+                "index": 25,
+                "point_id": "right_r11_c00",
+                "finger": "right"
+              },
+              {
+                "index": 26,
+                "point_id": "right_r11_c08",
+                "finger": "right"
+              },
+              {
+                "index": 27,
+                "point_id": "right_r11_c16",
+                "finger": "right"
+              },
+              {
+                "index": 28,
+                "point_id": "right_r11_c23",
+                "finger": "right"
+              },
+              {
+                "index": 29,
+                "point_id": "right_r11_c31",
+                "finger": "right"
+              }
+            ],
+            "cross_finger": true
+          }
+        ]
+      }
+    ],
+    "virtual_cache_keys": [
+      "/memory/episode_0/controller_mask/dis_split/controller_dis_splitnl_2_nc_10_downsample_rate_0d5_track_process_data.pkl"
+    ],
+    "file_io": "readJSON/readPKL/writePKL, exists and makedirs stubbed in memory only; no actual PKL/cache/directory generation"
+  },
+  "no_disk_cache_written": true,
+  "no_model_graph_built": true,
+  "no_config_or_geometry_changed": true
+}

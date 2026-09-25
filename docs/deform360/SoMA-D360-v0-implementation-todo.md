@@ -27,13 +27,13 @@ Deform360 HEAD:
 d8522a4403b766aeb387510c04e89032a56fdf35
 
 Current task:
-T11
+T12
 
 Current status:
 PASS
 ```
 
-以上 HEAD 为本 roadmap 建立时的源码基线。T0–T11 已 PASS，具体结论及证据保留于各项历史 Result / Evidence。当前 T11 已完成并停止；T12 尚未执行，未经明确指令不得进入下一项。
+以上 HEAD 为本 roadmap 建立时的源码基线。T0–T11 已 PASS，具体结论及证据保留于各项历史 Result / Evidence。T11 checkpoint 已提交并推送；T12 已按人工确认采用 30→10→2→1 grouping contract 并验证 PASS；此前默认分组 FAIL 历史保留，不进入 T13。
 
 ## 执行规则
 
@@ -140,7 +140,7 @@ tcgs root Git 仅用于 workspace-level 资产。除非明确说明，不在 tcg
 | T9 | 只解决目标分辨率对应的内参 | PASS |
 | T10 | 定义单帧 30 点 controller representation | PASS |
 | T11 | 将固定 controller representation 扩展为 trajectory | PASS |
-| T12 | 确认 controller 层级分组不跨手指 | TODO |
+| T12 | 确认 controller 层级分组不跨手指 | PASS |
 | T13 | 确认重力方向与世界坐标 | TODO |
 | T14 | 只导出 RGB | TODO |
 | T15 | 只导出 object mask | TODO |
@@ -1003,7 +1003,7 @@ Status: PASS
 
 ### T12：确认 controller 层级分组不跨手指
 
-Status: TODO
+Status: PASS
 
 **问题：** SoMA 默认连续分组可能把 15+15 点切成 14+16。
 
@@ -1031,11 +1031,24 @@ Status: TODO
 
 #### Result
 
-Not executed.
+2026-09-25：FAIL。实际现有 `dis_split` 默认层级为 30→15→2→1。第一聚合层 C7 包含 14(left_r11_c31) 与 15(right_r00_c00)；双手指层 C0 为 0–13，C1 为 14–29，后者跨指，未满足 PASS 条件。末尾 2→1 是显式共同 controller root，双指共同祖先不等同于手指层意外混合。
+
+仅在内存比较首层 `num_cluster=10` 的方案，得到 30→10→2→1；双手指层分别为 0–14 / 15–29，无手指层混合。不改点身份与 trajectory，仅建议后续调整 v0 grouping scheme；尚未应用任何配置或源码修改。仅重排点无法把每指奇数 15 点完整拆成纯指二元组。等待人工确认方案；不执行 T13。
+
+2026-09-25 人工确认后的收尾：PASS。正式采用独立 canonical grouping contract：`cluster_type=dis_split`，首层 `num_cluster=10`，第二项保留 `downsample_rate=0.5`；现有 loader 后续层实际按索引二分。层级为 30→10→2→1，每个首层 cluster 连续 3 点，双手指层分别对应原始 0–14 / 15–29，共同 root 允许合并。逐层覆盖全部 30 点恰好一次，无重复/遗漏，索引合法，手指层无混合。上文默认 FAIL 和候选阶段记录保留为历史。
+
+本轮仅新增 grouping contract，未创建训练 config；后续 v0 Stage 1/2 配置必须采用此 scheme，JSON 不会自动改变现有 sample 配置。未修改几何、7 mm、point identity/order、trajectory 或 model architecture。T12 完成后停止，不执行 T13。
 
 #### Evidence
 
-Not executed.
+- [逐层全部 point IDs / left-right 标签、源码位置及方案比较](t12-controller-grouping-audit.md)。
+- [机器可读分组审计及输入/source hashes](contracts/008-pink-cloth/episode_0/controller_grouping_audit.json)。真实 T11 trajectory SHA256：`d0575b90ebb8aaeb8d4e9154a2ac20985bc3ca1d650432a25110011414d72820`。
+- CPU 执行现有分组函数，文件读写/cache 均替换为内存操作；无磁盘 PKL/cache，无完整 graph/rollout，无几何、opening 或 T10/T11 contract 变更。
+- T11 checkpoint：`e755d1e3b3060dca7f7cc16b29b63ff8202c42c0` 已推送，开始 T12 前 Mac working tree clean。T12 文件属于 SoMA / `deform360-adaptation`：roadmap tracked 修改，两份审计文件新建未跟踪；未 commit/push，服务器 Git checkout 待后续同步。
+
+- 本次收尾新增 [canonical grouping contract](contracts/008-pink-cloth/episode_0/controller_grouping_contract.json)，含逐层完整成员/标签、p2c、来源 hashes 与验证结果。与此前真实 loader 内存执行输出逐项一致；再次静态验证每层覆盖、标签和索引。
+- 服务器 T11 NPY SHA256 再次核验仍为 `d0575b90ebb8aaeb8d4e9154a2ac20985bc3ca1d650432a25110011414d72820`；T10 contract、geometry config 和 loader/config 源文件 hash 均未改变。
+- 本次未 commit/push。SoMA / `deform360-adaptation`：roadmap 为 tracked 修改，grouping contract 与此前两份审计文件未跟踪，待确认后提交；另一端 Git 同步尚未进行。
 
 ### T13：确认重力方向与世界坐标
 
