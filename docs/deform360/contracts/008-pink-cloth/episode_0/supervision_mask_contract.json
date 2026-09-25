@@ -1,0 +1,143 @@
+{
+  "task": "T16",
+  "status": "PASS",
+  "pass_meaning": "Actual v0 supervision semantics fixed and understood; robot occlusion is NOT solved. Static source audit, not a packaged-scene or training test.",
+  "input_semantics": {
+    "RGB": "T14 full-frame RGB PNG, not pre-masked",
+    "object_mask": "T15 single-channel uint8 0/255, loaded as M=mask/255; exactly one object label, never classified as obstacle/robot",
+    "reader_output_mask_object": "Despite name, RGB image I*M (black background), not a binary loss-weight array",
+    "gt_label": "Dataset converts masked RGB to CHW float /255, returns as gt_label; unmasked RGB retained separately in full_gt_label"
+  },
+  "v0_supervision_convention": {
+    "white_background": false,
+    "random_background": false,
+    "bounding_box": null,
+    "effective_bbox_row_col_half_open": [
+      0,
+      0,
+      360,
+      640
+    ],
+    "object_mask_role": "Modify GT appearance, not foreground-only loss weighting",
+    "obstacle_annotations": [],
+    "robot_annotations": [],
+    "packaging_requirement": "Future scene metadata must classify the sole object-mask ID in prompt_dict.object; no fake obstacle class/files and no object class in obstacle list. Only object ID directory is needed. This contract does not package a scene or alter configs.",
+    "empty_obstacle_fallback": "Existing dataset creates zeros [T,1,H,W] for controller_img_mask_list and pure_robot_img_mask_list. Zeros mean no exclusion information, NOT a measured robot mask.",
+    "render_GT": "G=I*M/255 for uint8 I; all non-object pixels become black",
+    "L2_weight": "W=1-controller_img_mask=1 everywhere in effective full-frame bbox",
+    "SSIM_domain": "Full effective image including black background and boundaries; local-window statistics",
+    "variant_consistency": "Keep these conventions identical for no-tactile baseline and tactile comparison unless separately authorized as an ablation."
+  },
+  "loss_paths": {
+    "Stage1": "dataset gt_label/controller_img_mask_list -> gs_simulator_embodied.forward_train frame_idx+1 -> _encode_decode_train -> AccDecoder.forward_train -> SimHead.loss(term_filter=[render]) -> L2Loss/SSIMLoss",
+    "Stage2": "gs_simulator_embodied_stage2 follows same mask/decode-head render loss path",
+    "crop": "AccDecoder crops prediction, GT and complement-mask weights to supplied bbox. bbox_reader with bounding_box=None supplies entire image; no implicit foreground crop."
+  },
+  "L2_semantics": {
+    "implementation": "l2_error: elementwise squared error times mask_weights, then sum RGB channels and configured reduction; L2Loss averages camera results and applies loss_weight",
+    "cloth_lift_configuration": "reduction=sum, loss_weight=0.9*render_loss_weight; render_loss_weight=1",
+    "v0_formula": "0.9 * mean_camera(sum_pixel,sum_channel((prediction-G)^2)); W=1 in full image",
+    "foreground_normalized": false,
+    "background_participates": true,
+    "robot_region_when_object_mask_zero": "GT zero and L2 weight one; rendered object at occluded pixels can be penalized rather than ignored"
+  },
+  "SSIM_semantics": {
+    "mask_weights_consumed": false,
+    "reason": "SSIMLoss.forward accepts it in **kwargs but does not forward kwargs/mask_weights to ssim_error; ssim_error calls Kornia ssim_loss without masking",
+    "cloth_lift_configuration": "kernel_size=5, max_val=1, reduction=sum, loss_weight=0.1*render_loss_weight; averaged across cameras",
+    "background_and_boundaries_participate": true,
+    "obstacle_region_excluded_if_obstacle_added_later": false,
+    "note": "Even with future real robot mask, current L2 and SSIM exclusion semantics differ; SSIM window effects can cross object/occlusion boundaries."
+  },
+  "controller_robot_mask_semantics": {
+    "controller_img_mask_list": "Union of all obstacle masks, clipped [0,1], including robot subset; name does not mean projected controller anchors",
+    "pure_robot_img_mask_list": "Subset of obstacles whose label contains robot; separately unioned and clipped. Current Stage1/2 training does not consume this field for render loss. Only an inactive commented test reference found elsewhere.",
+    "object_mask_as_obstacle_forbidden": true,
+    "occlusion_role": "Only complement of controller_img_mask_list weights current L2; does not mask GT via this path, and not used by SSIM."
+  },
+  "limitations": [
+    "No independent robot obstacle mask. Occluded cloth pixels outside object segmentation are black target, not ignore regions.",
+    "Loss on black background imposes silhouette/background constraints; not foreground-only photometric supervision.",
+    "Object segmentation errors remain in target.",
+    "SSIM ignores mask_weights even if nonzero robot obstacles are later provided.",
+    "Current canonical RGB/mask assets alone are not a complete SoMA scene; label metadata/paths must be wired consistently in later packaging."
+  ],
+  "future_change_if_occlusion_exclusion_required": {
+    "execute_now": false,
+    "separate_tasks": [
+      "Obtain/validate independent robot obstacle masks and wire them through existing obstacle path; do not derive them by relabeling object mask.",
+      "Independently design and validate SSIM masking including window-boundary and normalization semantics; not solved simply by passing mask_weights."
+    ],
+    "needed_for_current_documented_baseline": false
+  },
+  "source_evidence": [
+    {
+      "file": "mmgs/datasets/utils/io.py",
+      "function": "read_video_image_rgba_cv2_mask",
+      "lines": "367-456",
+      "finding": "label roles, mask/255, GT masking, optional white background"
+    },
+    {
+      "file": "mmgs/datasets/embodied_dataset.py",
+      "function": "bbox_reader / scene load",
+      "lines": "136-153,846-897,944-958",
+      "finding": "full bbox default; masked GT; empty obstacle/robot zeros; return names"
+    },
+    {
+      "file": "mmgs/models/heads/acc_decoder.py",
+      "function": "forward_train",
+      "lines": "193-213",
+      "finding": "1-controller mask; bbox crop; mask_weights passed"
+    },
+    {
+      "file": "mmgs/models/heads/sim_head.py",
+      "function": "loss",
+      "lines": "52-78",
+      "finding": "render filter and shared mask_weights dispatch"
+    },
+    {
+      "file": "mmgs/models/losses/l2_loss.py",
+      "function": "l2_error / L2Loss.forward",
+      "lines": "10-39,68-95",
+      "finding": "weights applied elementwise then channel sum and reduction"
+    },
+    {
+      "file": "mmgs/models/losses/ssim_loss.py",
+      "function": "ssim_error / SSIMLoss.forward",
+      "lines": "11-28,57-81",
+      "finding": "mask_weights ignored; Kornia unmasked SSIM"
+    },
+    {
+      "file": "mmgs/models/simulators/gs_simulator_embodied.py",
+      "function": "forward_train / _encode_decode_train",
+      "lines": "512-527,665,705-723",
+      "finding": "same target-frame GT and obstacle masks"
+    },
+    {
+      "file": "mmgs/models/simulators/gs_simulator_embodied_stage2.py",
+      "function": "forward_train / _encode_decode_train",
+      "lines": "570-585,724,779-794",
+      "finding": "Stage2 same loss interface"
+    }
+  ],
+  "provenance": {
+    "soma_head": "6ef674571cc239d939a08f4cdd1213f8f6c1c48c",
+    "source_sha256": {
+      "mmgs/datasets/utils/io.py": "ac78c49b4d2d77649ba6a8ea082e98a641c8037f6bfd423d8e8a07db1e0c9f6a",
+      "mmgs/datasets/embodied_dataset.py": "ed74d81ca80e051491aa9045b83ab9caa5f7f3e7b44a8ec6f82026e5359f7858",
+      "mmgs/models/heads/acc_decoder.py": "22816b7f8a3ca487ecb07f6361ab0671fb4f69313634d3b2ec7be77bd5d558fd",
+      "mmgs/models/heads/sim_head.py": "cc217e826d0b9ae54f92526f0f4f0c7b7dd4f5f5177fa26b638a5a1797ff68a3",
+      "mmgs/models/losses/l2_loss.py": "010ec25a74e8eda65760bc25d1e14e5879cc774b47718e0ffa5993ec116e66e7",
+      "mmgs/models/losses/ssim_loss.py": "dc1b0feaa06fd63eb32cfe089ba5dd0971805ce14badaa7e7e8a88c7ba5103bc",
+      "mmgs/models/simulators/gs_simulator_embodied.py": "30658653e7205df17bc80f40a324de7180c8000b65c2d76dfb91d962a0cc89cc",
+      "mmgs/models/simulators/gs_simulator_embodied_stage2.py": "d51957abac7ff7dd68f09ecda900c09e04434fc798b328741199ec0d0af8af8e",
+      "configs/SoMA/cloth_lift_stage1.py": "e97ca667c997cdd30a03801d7048baa5384d9744ce7abc12d0fb946e029c150d",
+      "configs/SoMA/cloth_lift_stage2.py": "542f2529da661854a7184081149f6326c6368ff938ca1308292c91722c1ad8e0"
+    },
+    "input_contract_sha256": {
+      "rgb_export_contract.json": "e73cab0c621a144d60d4c8acda2c96cad3538764da2e52e53d268896ee1b6b30",
+      "mask_export_contract.json": "7a942fafbd53e36a3085ea2fe3b61329e840806f940de800a12e256e0077a577"
+    },
+    "audit_method": "Read-only source tracing and repository-wide pure_robot_img_mask search; no runtime training/model test."
+  }
+}

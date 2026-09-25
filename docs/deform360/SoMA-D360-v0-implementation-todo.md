@@ -27,7 +27,7 @@ Deform360 HEAD:
 d8522a4403b766aeb387510c04e89032a56fdf35
 
 Current task:
-T15
+T16
 
 Current status:
 PASS
@@ -144,7 +144,7 @@ tcgs root Git 仅用于 workspace-level 资产。除非明确说明，不在 tcg
 | T13 | 确认重力方向与世界坐标 | PASS |
 | T14 | 只导出 RGB | PASS |
 | T15 | 只导出 object mask | PASS |
-| T16 | 明确 object mask 与遮挡 loss 的边界 | TODO |
+| T16 | 明确 object mask 与遮挡 loss 的边界 | PASS |
 | T16.5 | 批量生成 SH0 compatible Gaussian sequence | TODO |
 | T17 | 只组装 SoMA scene metadata 与目录契约 | TODO |
 | T18 | 验证初始静态渲染的几何对齐 | TODO |
@@ -1200,7 +1200,7 @@ Status: PASS
 
 ### T16：明确 object mask 与遮挡 loss 的边界
 
-Status: TODO
+Status: PASS
 
 **问题：** 现有包没有单独的 robot obstacle mask；object mask 不等于 robot mask。
 
@@ -1227,11 +1227,23 @@ Status: TODO
 
 #### Result
 
-Not executed.
+2026-09-26：PASS（监督语义固定，不表示遮挡问题已解决）。v0 保留当前 loss，采用黑背景、关闭 random/white background、bounding_box=None 的全幅监督约定；后续 scene packaging 必须仅将 T15 object mask 分类为 object，不创建或伪造 robot/obstacle mask。
+
+Reader 将 RGB 乘 object mask/255，dataset 再将 RGB /255 得 gt_label；`mask_object` 实际是 masked RGB，不是 binary loss weight。object mask 改写 GT，不直接作为 L2/SSIM 权重。没有 obstacle 时 dataset 原生返回零 controller/robot mask；这表示无排除信息，不是测得全零 robot segmentation。
+
+`controller_img_mask` 是所有 obstacle 的 union（包含 robot），decoder 用其补集作为权重。L2 消费该权重；v0 权重全 1，背景和 object-mask 外 robot/遮挡区域仍参与监督，GT 在这些区域为黑。`pure_robot_img_mask` 是标签含 robot 的 obstacle 子集，当前 Stage1/2 render loss 不读取它。
+
+SSIMLoss.forward 未消费传入的 mask_weights，实际对 bbox 内整幅预测和 masked RGB GT 计算 SSIM；背景及窗口边界均参与。默认 bbox 为全图，因此 v0 L2 与 SSIM 均不是 foreground-only loss。未来即使加入真实 obstacle，当前 SSIM 仍不会自动排除其区域。
+
+v0 接受以上已知 limitation，不修 loss/loader。若以后要求完整遮挡排除，须另立独立任务取得真实 robot mask，并单独验证 SSIM 的 mask/window/reduction 语义。未新增或执行后续 TODO，不进入 T16.5/T17。
 
 #### Evidence
 
-Not executed.
+- [supervision_mask_contract.json](contracts/008-pink-cloth/episode_0/supervision_mask_contract.json)：实际调用链、公式、源文件行号/hash、输入 RGB/mask contract hashes、缺失项、后续 packaging 要求及 limitation。
+- `io.py::read_video_image_rgba_cv2_mask:367–456`；`embodied_dataset.py:136–153,846–897,944–958`：object-masked GT、全幅 bbox、空 obstacle/robot 分支。
+- `acc_decoder.py::forward_train:193–213`；`sim_head.py::loss:52–78`；`l2_loss.py:10–39,68–95`；`ssim_loss.py:11–28,57–81`：L2 实际使用 complement weight；SSIM 不转发该 kwargs。
+- Stage1 simulator `705–723`、Stage2 `779–794` 对应目标帧取 GT 和 controller_img_mask；全仓搜索 pure_robot_img_mask 仅发现 dataset 返回及注释掉的 test 引用，没有当前训练消费。
+- T15 checkpoint `6ef674571cc239d939a08f4cdd1213f8f6c1c48c` 已 push，T16 开始前 Mac clean、ahead/behind=0/0。本轮只读审计，未构建 scene/model、未运行训练。SoMA / deform360-adaptation：roadmap tracked 修改、新 supervision contract 未跟踪，T16 未 commit/push，服务器待后续 Git 同步。
 
 ### T16.5：批量生成 SH0 compatible Gaussian sequence
 
