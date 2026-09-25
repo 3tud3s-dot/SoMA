@@ -27,7 +27,7 @@ Deform360 HEAD:
 d8522a4403b766aeb387510c04e89032a56fdf35
 
 Current task:
-T14
+T15
 
 Current status:
 PASS
@@ -143,7 +143,7 @@ tcgs root Git 仅用于 workspace-level 资产。除非明确说明，不在 tcg
 | T12 | 确认 controller 层级分组不跨手指 | PASS |
 | T13 | 确认重力方向与世界坐标 | PASS |
 | T14 | 只导出 RGB | PASS |
-| T15 | 只导出 object mask | TODO |
+| T15 | 只导出 object mask | PASS |
 | T16 | 明确 object mask 与遮挡 loss 的边界 | TODO |
 | T16.5 | 批量生成 SH0 compatible Gaussian sequence | TODO |
 | T17 | 只组装 SoMA scene metadata 与目录契约 | TODO |
@@ -1155,7 +1155,7 @@ Status: PASS
 
 ### T15：只导出 object mask
 
-Status: TODO
+Status: PASS
 
 **问题：** 真实 HDF5 是 0/1，而 SoMA 图像 reader 按 255 归一化。
 
@@ -1181,11 +1181,22 @@ Status: TODO
 
 #### Result
 
-Not executed.
+2026-09-26：PASS。按本次用户明确要求，为 Config A/B 三个唯一 camera 各导出一次 canonical object mask。每台 194 张 `0.png…193.png`，source 113–306 ↔ local 0–193，合计 582 张；约 2.3 MiB，保持 server-only。
+
+服务器路径：`/data1/userdata/tcweng/projects/tcgs/datasets/deform360/derived/008-pink-cloth/episode_0/t15_mask/<camera_id>/`。A 顺序为 023_cam0→009_cam1，B 为 023_cam0→009_cam1→014_cam1，均引用同一批资产，不重复保存。
+
+源 `mask_refined.h5:data` 验证为 `[357,720,1280] uint8`，窗口内仅 0/1。全幅 Pillow NEAREST 输出 `[360,640] uint8` 单通道 L PNG，将原前景 1 编码为 255、背景保持 0。half-pixel 逆映射 `x_source=2*x_target+0.5`，最近邻平局取高索引，即 `[1::2,1::2]`；独立数组索引核对全部 582 张逐值一致。无双线性、crop、warp、形态学或 segmentation 重跑。
+
+所有帧 foreground 非空、值域仅 0/255，编号完整，每台 194 个像素 hash 均唯一；T4/T7/T9/T14 帧/相机顺序一致。source 113/200/267/306 的三相机叠图未见明显错帧或尺度偏移；保留原始 segmentation 边界，不宣称原分割完美。未处理 016_cam0，未改变 split/tactile 筛选/RGB/loader/model/training code，不执行 T16。
 
 #### Evidence
 
-Not executed.
+- [独立 mask exporter](../../tools/deform360_adapter/export_mask.py)：CPU h5py/NumPy/Pillow，拒绝已有输出，逐帧源标签校验、独立最近邻采样验证、PNG 单通道/shape/dtype/值域/foreground/编号/重复内容校验。
+- [mask export contract](contracts/008-pink-cloth/episode_0/mask_export_contract.json)：源 HDF5 SHA256、data key、工具及输入 contract hashes、582 项输出 manifest/hash、相机顺序、A/B 共享引用、全部验证结果。
+- [12 张代表帧 RGB/mask overlay](visualizations/t15-mask-review-20260926/overlays.jpg)：行依次 023_cam0/009_cam1/014_cam1，列 source 113/200/267/306（local 0/87/154/193）。仅小型 review 拼图到 Mac，无 canonical mask/RGB sequence 复制。
+- 输入 HDF5 前后 hash、全部 T14 RGB 文件 hash、已有 T4/T7/T9/T14/T5 contract hashes 均未改变。导出无源码/配置变更。
+- 按明确授权将服务器未跟踪 T14 工具移至 `/tmp/tcgs-t14-tool-backup-alxjc4yw/export_rgb.py`，随后 clean fast-forward 到 `14261bcab4281a87e79f13b7292f41aa8be18817`，ahead/behind=0/0；tracked/备份 SHA256 同为 `6cdef1dff087a0acf8a166eb222a1b285fece0e9c765aae855611aa8e46b20da`，备份保留。T15 工具从仓库外临时路径执行，服务器 checkout 仍 clean。
+- Git：SoMA / deform360-adaptation。Mac roadmap tracked 修改，新 exporter、mask contract 和 review JPG 未跟踪，未 add/commit/push；后续 checkpoint 后通过 Git 同步小型文件到服务器。
 
 ### T16：明确 object mask 与遮挡 loss 的边界
 
