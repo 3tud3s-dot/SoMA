@@ -1,0 +1,619 @@
+{
+  "schema_version": 1,
+  "task": "T9: target-resolution camera intrinsics only",
+  "status": "PASS",
+  "created_on": "2026-09-25",
+  "dataset": "008-pink-cloth/episode_0",
+  "authority": "Repository-owned intrinsic contract. Camera configurations and the T8 extrinsics contract retain their existing identities and order.",
+  "camera_model": {
+    "effective_input_model": "undistorted zero-skew PINHOLE",
+    "basis": "Published metadata K exactly matches the selected metric_params_refined_undistorted.txt rows; all k1,k2,p1,p2 are zero. Source input is the processed undistorted camera, not raw capture.",
+    "model_enum_present_in_input": false,
+    "raw_capture_lens_model": "Not established by these processed files; not needed for this undistorted-input contract.",
+    "undistort_again": false
+  },
+  "geometry": {
+    "source_resolution_WH": [
+      1280,
+      720
+    ],
+    "target_resolution_WH": [
+      640,
+      360
+    ],
+    "soma_img_hw": [
+      360,
+      640
+    ],
+    "resize_ratio_xy": [
+      0.5,
+      0.5
+    ],
+    "pixel_coordinates": "Zero-based integer pixel centers. Source extent [-0.5,W-0.5] x [-0.5,H-0.5].",
+    "resize_convention": "full-frame half-pixel; no align_corners endpoint alignment",
+    "source_to_target_pixel": "u_target=(u_source+0.5)*sx-0.5; v_target=(v_source+0.5)*sy-0.5",
+    "target_to_source_pixel": "u_source=(u_target+0.5)/sx-0.5; v_source=(v_target+0.5)/sy-0.5",
+    "intrinsics_formula": {
+      "fx": "sx*fx_source",
+      "fy": "sy*fy_source",
+      "cx": "sx*(cx_source+0.5)-0.5",
+      "cy": "sy*(cy_source+0.5)-0.5",
+      "matrix": "K_target = resize_matrix @ K_source"
+    },
+    "resize_matrix": [
+      [
+        0.5,
+        0.0,
+        -0.25
+      ],
+      [
+        0.0,
+        0.5,
+        -0.25
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "crop": {
+      "applied": false,
+      "source_rectangle_xywh": [
+        0,
+        0,
+        1280,
+        720
+      ],
+      "offset_xy": [
+        0,
+        0
+      ]
+    },
+    "padding_xy": [
+      0,
+      0
+    ],
+    "principal_point_source_xy": [
+      639.5,
+      359.5
+    ],
+    "principal_point_target_xy": [
+      319.5,
+      179.5
+    ],
+    "naive_principal_point_scaling_error_pixels_xy": [
+      0.25,
+      0.25
+    ],
+    "downstream_requirement": "Future RGB/mask export must preserve this full-frame geometry and source-to-target mapping. No image export/pipeline implementation is performed here. A second resize, crop, letterbox or endpoint-aligned resize would require revisiting K."
+  },
+  "soma_compatibility": {
+    "extract_intrinsics_behavior": "Only fx/fy and img_hw are used to obtain FoV; cx/cy are not explicitly consumed.",
+    "projection_behavior": "Symmetric getProjectionMatrix plus rasterizer ndc2Pix(v,S)=((v+1)*S-1)/2 implies center ((W-1)/2,(H-1)/2).",
+    "conclusion": "Target cx=319.5, cy=179.5 exactly match the existing symmetric projection; no loader change or image warp is required for these three selected cameras.",
+    "scope": "Intrinsic geometry validation only, not a CUDA render, image-export, dataset-loader or training test."
+  },
+  "configurations": {
+    "A": {
+      "source_config": "camera_config_2cam.json",
+      "role": "default_minimal_baseline",
+      "camera_ids": [
+        "brics-odroid-023_cam0",
+        "brics-odroid-009_cam1"
+      ],
+      "camera_order": [
+        {
+          "index": 0,
+          "camera_id": "brics-odroid-023_cam0"
+        },
+        {
+          "index": 1,
+          "camera_id": "brics-odroid-009_cam1"
+        }
+      ],
+      "K_shape": [
+        2,
+        3,
+        3
+      ],
+      "K": [
+        [
+          [
+            441.7660461483485,
+            0.0,
+            319.5
+          ],
+          [
+            0.0,
+            442.9798244218355,
+            179.5
+          ],
+          [
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        [
+          [
+            497.0052979235585,
+            0.0,
+            319.5
+          ],
+          [
+            0.0,
+            494.170432804893,
+            179.5
+          ],
+          [
+            0.0,
+            0.0,
+            1.0
+          ]
+        ]
+      ],
+      "extrinsics_contract": "camera_extrinsics_contract.json",
+      "extrinsics_configuration_key": "A",
+      "identity_and_order_match_T8": true
+    },
+    "B": {
+      "source_config": "camera_config_3cam.json",
+      "role": "auxiliary_3camera_comparison",
+      "camera_ids": [
+        "brics-odroid-023_cam0",
+        "brics-odroid-009_cam1",
+        "brics-odroid-014_cam1"
+      ],
+      "camera_order": [
+        {
+          "index": 0,
+          "camera_id": "brics-odroid-023_cam0"
+        },
+        {
+          "index": 1,
+          "camera_id": "brics-odroid-009_cam1"
+        },
+        {
+          "index": 2,
+          "camera_id": "brics-odroid-014_cam1"
+        }
+      ],
+      "K_shape": [
+        3,
+        3,
+        3
+      ],
+      "K": [
+        [
+          [
+            441.7660461483485,
+            0.0,
+            319.5
+          ],
+          [
+            0.0,
+            442.9798244218355,
+            179.5
+          ],
+          [
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        [
+          [
+            497.0052979235585,
+            0.0,
+            319.5
+          ],
+          [
+            0.0,
+            494.170432804893,
+            179.5
+          ],
+          [
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        [
+          [
+            471.1822485583385,
+            0.0,
+            319.5
+          ],
+          [
+            0.0,
+            468.925337851113,
+            179.5
+          ],
+          [
+            0.0,
+            0.0,
+            1.0
+          ]
+        ]
+      ],
+      "extrinsics_contract": "camera_extrinsics_contract.json",
+      "extrinsics_configuration_key": "B",
+      "identity_and_order_match_T8": true
+    }
+  },
+  "cameras": {
+    "brics-odroid-023_cam0": {
+      "camera_id": "brics-odroid-023_cam0",
+      "metadata_index": 28,
+      "calibration_line_number": 31,
+      "camera_model": "undistorted zero-skew PINHOLE (effective model; no model enum in release metadata)",
+      "distortion_order": [
+        "k1",
+        "k2",
+        "p1",
+        "p2"
+      ],
+      "distortion_coefficients": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "source_K": [
+        [
+          883.532092296697,
+          0.0,
+          639.5
+        ],
+        [
+          0.0,
+          885.959648843671,
+          359.5
+        ],
+        [
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "target_K": [
+        [
+          441.7660461483485,
+          0.0,
+          319.5
+        ],
+        [
+          0.0,
+          442.9798244218355,
+          179.5
+        ],
+        [
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "source_parameters": {
+        "fx": 883.532092296697,
+        "fy": 885.959648843671,
+        "cx": 639.5,
+        "cy": 359.5
+      },
+      "target_parameters": {
+        "fx": 441.7660461483485,
+        "fy": 442.9798244218355,
+        "cx": 319.5,
+        "cy": 179.5
+      },
+      "soma_fov_xy_radians": [
+        1.253784097311851,
+        0.7719182004889121
+      ],
+      "verification": {
+        "K_finite": true,
+        "K_shape": [
+          3,
+          3
+        ],
+        "positive_focal_lengths": true,
+        "principal_point_in_bounds": true,
+        "principal_point_equals_soma_symmetric_center": true,
+        "metadata_vs_text_K_max_abs": 0.0,
+        "resize_projection_max_abs_pixels": 5.684341886080802e-14,
+        "soma_cpu_float32_projection_max_abs_pixels": 8.948278266274201e-05,
+        "soma_projection_tolerance_pixels": 1.0,
+        "fov_invariance_max_abs_radians": 0.0,
+        "source_frame": 113,
+        "gaussian_count": 12861,
+        "target_in_bounds_count": 12861,
+        "target_uv_min_max": [
+          [
+            33.54972334358816,
+            93.70895833824581
+          ],
+          [
+            314.5457776920446,
+            336.9546544147499
+          ]
+        ]
+      }
+    },
+    "brics-odroid-009_cam1": {
+      "camera_id": "brics-odroid-009_cam1",
+      "metadata_index": 9,
+      "calibration_line_number": 12,
+      "camera_model": "undistorted zero-skew PINHOLE (effective model; no model enum in release metadata)",
+      "distortion_order": [
+        "k1",
+        "k2",
+        "p1",
+        "p2"
+      ],
+      "distortion_coefficients": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "source_K": [
+        [
+          994.010595847117,
+          0.0,
+          639.5
+        ],
+        [
+          0.0,
+          988.340865609786,
+          359.5
+        ],
+        [
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "target_K": [
+        [
+          497.0052979235585,
+          0.0,
+          319.5
+        ],
+        [
+          0.0,
+          494.170432804893,
+          179.5
+        ],
+        [
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "source_parameters": {
+        "fx": 994.010595847117,
+        "fy": 988.340865609786,
+        "cx": 639.5,
+        "cy": 359.5
+      },
+      "target_parameters": {
+        "fx": 497.0052979235585,
+        "fy": 494.170432804893,
+        "cx": 319.5,
+        "cy": 179.5
+      },
+      "soma_fov_xy_radians": [
+        1.1440883089488056,
+        0.698620089028783
+      ],
+      "verification": {
+        "K_finite": true,
+        "K_shape": [
+          3,
+          3
+        ],
+        "positive_focal_lengths": true,
+        "principal_point_in_bounds": true,
+        "principal_point_equals_soma_symmetric_center": true,
+        "metadata_vs_text_K_max_abs": 0.0,
+        "resize_projection_max_abs_pixels": 1.1368683772161603e-13,
+        "soma_cpu_float32_projection_max_abs_pixels": 8.42207809341744e-05,
+        "soma_projection_tolerance_pixels": 1.0,
+        "fov_invariance_max_abs_radians": 0.0,
+        "source_frame": 113,
+        "gaussian_count": 12861,
+        "target_in_bounds_count": 12861,
+        "target_uv_min_max": [
+          [
+            170.32692369730194,
+            239.84294276797925
+          ],
+          [
+            503.9829250963082,
+            331.1143069841234
+          ]
+        ]
+      }
+    },
+    "brics-odroid-014_cam1": {
+      "camera_id": "brics-odroid-014_cam1",
+      "metadata_index": 17,
+      "calibration_line_number": 21,
+      "camera_model": "undistorted zero-skew PINHOLE (effective model; no model enum in release metadata)",
+      "distortion_order": [
+        "k1",
+        "k2",
+        "p1",
+        "p2"
+      ],
+      "distortion_coefficients": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "source_K": [
+        [
+          942.364497116677,
+          0.0,
+          639.5
+        ],
+        [
+          0.0,
+          937.850675702226,
+          359.5
+        ],
+        [
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "target_K": [
+        [
+          471.1822485583385,
+          0.0,
+          319.5
+        ],
+        [
+          0.0,
+          468.925337851113,
+          179.5
+        ],
+        [
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "source_parameters": {
+        "fx": 942.364497116677,
+        "fy": 937.850675702226,
+        "cx": 639.5,
+        "cy": 359.5
+      },
+      "target_parameters": {
+        "fx": 471.1822485583385,
+        "fy": 468.925337851113,
+        "cx": 319.5,
+        "cy": 179.5
+      },
+      "soma_fov_xy_radians": [
+        1.1931804376037414,
+        0.7330250063605135
+      ],
+      "verification": {
+        "K_finite": true,
+        "K_shape": [
+          3,
+          3
+        ],
+        "positive_focal_lengths": true,
+        "principal_point_in_bounds": true,
+        "principal_point_equals_soma_symmetric_center": true,
+        "metadata_vs_text_K_max_abs": 0.0,
+        "resize_projection_max_abs_pixels": 1.1368683772161603e-13,
+        "soma_cpu_float32_projection_max_abs_pixels": 8.480681286471281e-05,
+        "soma_projection_tolerance_pixels": 1.0,
+        "fov_invariance_max_abs_radians": 0.0,
+        "source_frame": 113,
+        "gaussian_count": 12861,
+        "target_in_bounds_count": 12861,
+        "target_uv_min_max": [
+          [
+            89.38288165892953,
+            204.9639006316558
+          ],
+          [
+            428.8779069706811,
+            315.99796900721566
+          ]
+        ]
+      }
+    }
+  },
+  "projection_verification": {
+    "status": "PASS",
+    "points": "All 12861 xyz centers from original source splat_113.ply; T8 w2c per camera; no Gaussian conversion or initialization performed.",
+    "resize_test": "In-memory float32 coordinate ramps 1280x720 resized to 640x360 with installed OpenCV INTER_LINEAR and INTER_AREA; expected source sampling centers (target+0.5)/0.5-0.5. No source RGB/mask images loaded or written.",
+    "resize_test_results": {
+      "INTER_LINEAR_coordinate_ramp_max_abs_pixels": 0.0,
+      "INTER_AREA_coordinate_ramp_max_abs_pixels": 0.0
+    },
+    "float64_projection_test": "Compare project(K_target,X_camera) against half-pixel-resized project(K_source,X_camera).",
+    "soma_test": "AST-execute unchanged focal2fov/extract_intrinsics and getProjectionMatrix on CPU. Evaluate float32 projection matrix plus source rasterizer epsilon 1e-7 and ndc2Pix equations on Gaussian centers. No CUDA initialization or kernel execution.",
+    "max_resize_projection_error_pixels": 1.1368683772161603e-13,
+    "max_soma_cpu_projection_error_pixels": 8.948278266274201e-05,
+    "tolerances": {
+      "float64_resize_projection_pixels": 1e-10,
+      "soma_projection_pixels": 1.0,
+      "coordinate_ramp_pixels": 1e-06
+    },
+    "limitation": "Actual future image export must still be checked against this contract; no exported RGB/mask files exist as T9 evidence."
+  },
+  "provenance": {
+    "source_path_relative_to_workspace": "datasets/deform360/processed/008-pink-cloth/episode_0",
+    "primary_intrinsics_source": "metadata.json:intrinsics[cameras.index(camera_id)]",
+    "cross_check_source": "metric_params_refined_undistorted.txt: exact cam_name rows; width,height,fx,fy,cx,cy,k1,k2,p1,p2",
+    "dataset_file_sha256": {
+      "metadata.json": "2ba974cfa331b59d201774fbfc864ee4e4c1c72d76a2b51d469d646067648608",
+      "metric_params_refined_undistorted.txt": "d5fcb17f1e25fffd4f633753ea88a580dc2dae9ab67ab0c9f9fcad3aca1b9620",
+      "splatfacto/splat_113.ply": "58f684ff02881821e7d2c91ae69983a5ec7bd88ad1949e41a4994505e81020c7"
+    },
+    "contract_input_sha256": {
+      "camera_extrinsics_contract.json": "eb9fc54cb1a029eeb1e502f6c4965dda2edf856d29e3c5ca8b86db4e196626dd",
+      "camera_config_2cam.json": "c4cce05912007b6213ba1ad458ee3e7d5b8d2a02dc576f1de60b7704db997e5f",
+      "camera_config_3cam.json": "4ed54cb6081bf0c27a92d7dcea7cd5d6456031cfc89edd5f70a4c44259f3802a",
+      "camera_manifest.json": "2428032c7cf82e97171ea84f772e2843b19545a2e194c36b3565c01a0a679b19"
+    },
+    "contract_paths_relative_to": "this contract directory",
+    "soma_head_before_checkpoint": "f84e03564d5dd89eed578676c8c433aa32fbfd00",
+    "source_functions": [
+      {
+        "path": "mmgs/datasets/embodied_dataset.py",
+        "function": "focal2fov",
+        "line": 197,
+        "file_sha256": "ed74d81ca80e051491aa9045b83ab9caa5f7f3e7b44a8ec6f82026e5359f7858"
+      },
+      {
+        "path": "mmgs/datasets/embodied_dataset.py",
+        "function": "extract_intrinsics",
+        "line": 200,
+        "file_sha256": "ed74d81ca80e051491aa9045b83ab9caa5f7f3e7b44a8ec6f82026e5359f7858"
+      },
+      {
+        "path": "mmgs/datasets/utils/cameras.py",
+        "function": "getProjectionMatrix",
+        "line": 151,
+        "file_sha256": "ac06ea16eb051e5f695516f50d1b1f6a2e5ac32af8af639b67b0a33c5287b91e"
+      }
+    ],
+    "rasterizer_source": {
+      "path_relative_to_soma": "gaussian-splatting/submodules/diff-gaussian-rasterization/cuda_rasterizer",
+      "auxiliary_h_sha256": "5a3345d46acd23a85e44c214dac404f4be195d7c4c49c9effa280ba3bbb10a51",
+      "forward_cu_sha256": "4bfb6830a138bd016f39fa4558f998825d4182b12cfbda2f62bed0ab75042b54",
+      "projection_lines": [
+        {
+          "line": 196,
+          "text": "float p_w = 1.0f / (p_hom.w + 0.0000001f);"
+        },
+        {
+          "line": 197,
+          "text": "float3 p_proj = { p_hom.x * p_w, p_hom.y * p_w, p_hom.z * p_w };"
+        },
+        {
+          "line": 241,
+          "text": "float2 point_image = { ndc2Pix(p_proj.x, W), ndc2Pix(p_proj.y, H) };"
+        }
+      ]
+    },
+    "environment": {
+      "python": "3.10.21",
+      "numpy": "1.26.4",
+      "opencv": "4.9.0",
+      "torch": "2.7.1+cu128"
+    },
+    "execution": "Read-only server CPU diagnostic; no CUDA initialization, no environment changes, no original data writes.",
+    "dataset_hashes_unchanged": true
+  }
+}

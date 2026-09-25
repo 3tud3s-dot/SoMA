@@ -136,8 +136,8 @@ tcgs root Git 仅用于 workspace-level 资产。除非明确说明，不在 tcg
 | T5 | 固定训练／测试边界 | PASS |
 | T6 | 明确采样间隔与模型内部时间尺度 | PASS |
 | T7 | 选定两个固定 camera ID | PASS |
-| T8 | 只解决相机外参转换 | TODO |
-| T9 | 只解决目标分辨率对应的内参 | TODO |
+| T8 | 只解决相机外参转换 | PASS |
+| T9 | 只解决目标分辨率对应的内参 | PASS |
 | T10 | 定义单帧 30 点 controller representation | TODO |
 | T11 | 将固定 controller representation 扩展为 trajectory | TODO |
 | T12 | 确认 controller 层级分组不跨手指 | TODO |
@@ -790,7 +790,7 @@ Status: PASS
 
 ### T8：只解决相机外参转换
 
-Status: TODO
+Status: PASS
 
 **问题：** 实际发布的是 qvec/tvec 文本，而非现成 c2w `.npy`。
 
@@ -816,15 +816,32 @@ Status: TODO
 
 #### Result
 
-Not executed.
+2026-09-25：PASS。仅完成外参转换 contract 和 CPU 几何验证；未修改源码、loader、原始 calibration、相机选择或配置，未导出 RGB/mask，未执行训练或 T9。
+
+- 发布文本 header 明确四元数为 `qvecw qvecx qvecy qvecz`，采用 Hamilton `w,x,y,z` 的 world-to-camera 旋转 `R`；`tvec` 是 `X_camera = R @ X_world + t` 中的平移，不是世界坐标下的相机中心。
+- 对发布四元数做单位化以消除文本舍入误差（最大模长误差 `5.052e-13`），形成 `w2c = [[R,t],[0,0,0,1]]`，解析求逆得到 `c2w = [[R.T,-R.T@t],[0,0,0,1]]`。保持原始世界坐标和长度尺度，不翻轴、不重新定位。
+- 新增权威小型 artifact：[camera_extrinsics_contract.json](contracts/008-pink-cloth/episode_0/camera_extrinsics_contract.json)。其中 `configurations.A/B` 分别提供按原顺序排列的 `[2,4,4]` / `[3,4,4]` c2w，`cameras` 保存三个唯一相机的原始行、qvec/tvec、w2c/c2w 和逐相机验证结果，可作为 T9 输入。
+- Config A（默认 minimal baseline）：`023_cam0 → 009_cam1`；Config B（auxiliary comparison）：`023_cam0 → 009_cam1 → 014_cam1`，均保留完整 `brics-odroid-` 前缀。camera manifest 和两个 camera config 的字节及 SHA256 均未改变。
+- 三个 c2w 均为有限的 `[4,4]` 矩阵，末行 `[0,0,0,1]`；旋转正交性与双向互逆最大误差均为 `1.111e-15`，det(R) 均约为 `+1`。SoMA 纯 NumPy 外参函数往返通过，包含 float32 转换后的 w2c 最大误差 `2.746e-8`。
+- 朝向与 T7 布局一致；真实 `splat_113.ply` 的 12,861 个 Gaussian 中心在每个相机下均为正深度且落在原始 1280×720 图像范围内。没有通过试翻轴选择结果。
+
+范围说明：当前 Deform360 `calibration.py` 说明的是另一种 `.npy` c2w 发布格式，不能直接作为本 legacy 文本的 exporter 证明；未找到该文本的 exporter。本次 w2c 判断由发布 header、COLMAP 标准约定及真实点云/图像几何对应共同支持。T7 layout 使用相同约定，因此布局一致性只是回归检查，不单独当作独立证明。
 
 #### Evidence
 
-Not executed.
+- 输入：服务器 `datasets/deform360/processed/008-pink-cloth/episode_0/` 下真实 metadata、metric calibration、`splatfacto/splat_113.ply`，以及三个 camera 的 `mask_refined.h5:data[113]`。只读取三个 mask 单帧用于投影 sanity check，没有导出图像。41 行 calibration 与 36 个 metadata camera 按精确名称关联，未按行号直接配对。
+- 文本行号 / metadata index：`023_cam0 = 31 / 28`、`009_cam1 = 12 / 9`、`014_cam1 = 21 / 17`；具体原始 token 和实际行号以 contract 的 `cameras` 记录为准。
+- 约定参考：[COLMAP images.txt format](https://colmap.github.io/format.html#images-txt)：Hamilton `(QW,QX,QY,QZ)` 表示 world-to-camera，camera center 为 `-R.T @ t`，相机轴为右、下、前。
+- SoMA 源码：`mmgs/utils/colmap_utils.py:43` 的 `qvec2rotmat`；`mmgs/datasets/embodied_dataset.py:184` 的 `extract_extrinsics`；`mmgs/datasets/utils/cameras.py:137` 的 `getWorld2View2`。通过 AST 提取并在服务器 CPU 执行这些未修改的纯 NumPy 函数，与 SciPy 四元数转换交叉核验；没有调用 CUDA 或完整 GPU Camera loader。
+- 三个相机的正深度及图像内中心数均为 `12861/12861`；中心投影落入 frame 113 foreground mask 的数量依次为 `12303 / 10192 / 12064`（约 `95.66% / 79.25% / 93.80%`）。这是中心投影 sanity check，不是渲染质量、遮挡或 test performance 指标，也未用于重新选择 camera。
+- 光轴与指向 Gaussian centroid 方向的点积依次为 `0.93710 / 0.98202 / 0.97123`；与 T7 layout 的 camera position 最大差 `2.221e-16`，forward 最大差 `3.331e-16`。
+- contract 记录输入 SHA256、各相机原始 calibration tokens、原始 mask 单帧数组 hash、源码函数文件 hash、数值容差和完整验证结果。metadata、metric calibration、原始 PLY 的检查前后 SHA256 一致；所有输入均未写入。
+- Artifact：`camera_extrinsics_contract.json`，22,231 bytes，SHA256 `eb9fc54cb1a029eeb1e502f6c4965dda2edf856d29e3c5ca8b86db4e196626dd`。
+- Git：所属 repository 为 SoMA，branch 为 `deform360-adaptation`。roadmap 为已 tracked 文件；新增 contract 当前未跟踪，等待明确 commit 指令纳入 Git。本轮未 add/commit/push，未同步服务器；后续应通过 Git 同步，不将服务器临时路径作为权威引用。
 
 ### T9：只解决目标分辨率对应的内参
 
-Status: TODO
+Status: PASS
 
 **问题：** 1280×720→640×360 后如何保持像素中心 convention？
 
@@ -851,11 +868,32 @@ Status: TODO
 
 #### Result
 
-Not executed.
+2026-09-25：PASS。仅建立目标分辨率的 intrinsics contract；不修改 dataset loader、训练代码、camera selection、RGB/mask pipeline 或 Gaussian initialization，未执行 T10。
+
+- 实际输入是 processed undistorted calibration，等效为零 skew 的 PINHOLE 模型；三个 camera 的 `k1/k2/p1/p2` 均为 0，metadata 的 K 与标定文本逐值一致。发布文件没有显式 camera model 枚举，不能据此反推 raw capture 的镜头模型；此处不重复 undistort。
+- 定义全幅 `1280×720 → 640×360`，`sx=sy=0.5`，不 crop、不 padding、不 warp。使用以整数为像素中心的 half-pixel 几何：`u'=(u+0.5)*sx-0.5`，`v'=(v+0.5)*sy-0.5`。对应 `fx'=sx*fx`、`fy'=sy*fy`、`cx'=sx*(cx+0.5)-0.5`、`cy'=sy*(cy+0.5)-0.5`。
+- 所有主点从 `(639.5,359.5)` 变为 `(319.5,179.5)`；不能简单将 cx/cy 除以 2，否则每轴偏移 0.25 pixel。source/target WH 与传给 SoMA 的 `img_hw=[360,640]` 分别明确记录。
+- 新增 [camera_intrinsics_contract.json](contracts/008-pink-cloth/episode_0/camera_intrinsics_contract.json)。Config A/B 的相机 ID 和顺序与 T8 及人工确认配置逐项一致，提供 `[2,3,3]` / `[3,3,3]` 的目标 K。
+- SoMA `extract_intrinsics` 只读取 fx/fy，渲染使用对称投影；`ndc2Pix` 所隐含的主点正是 `((W-1)/2,(H-1)/2)`，与本次目标 K 完全一致，当前三相机无需修改 loader。
+
+| Camera（共同前缀 brics-odroid-） | 原始 fx | 原始 fy | 目标 fx | 目标 fy |
+|---|---:|---:|---:|---:|
+| 023_cam0 | 883.532092296697 | 885.959648843671 | 441.7660461483485 | 442.9798244218355 |
+| 009_cam1 | 994.010595847117 | 988.340865609786 | 497.0052979235585 | 494.170432804893 |
+| 014_cam1 | 942.364497116677 | 937.850675702226 | 471.1822485583385 | 468.925337851113 |
+
+后续 RGB/mask 导出必须遵守该完整画幅与像素中心映射；本轮没有生成或验证实际导出的图片，实际导出一致性留给对应后续 TODO。
 
 #### Evidence
 
-Not executed.
+- 从服务器真实 `metadata.json` 与 `metric_params_refined_undistorted.txt` 按 camera name 精确读取；对照未修改的 T8 contract、两个 camera config 和 camera manifest，校验身份、顺序及输入 SHA256。读取前后 metadata、标定文本和原始 `splat_113.ply` hash 不变。
+- 三个目标 K 均为有限 `[3,3]`、正 focal、零 skew、齐次末行 `[0,0,1]`；主点位于目标图像内且等于 SoMA 对称中心，缩放前后 FoV 差为 0。
+- 使用内存坐标 ramp 检查现有 OpenCV `INTER_LINEAR` 和 `INTER_AREA` 的 2 倍降采样采样中心，两者最大误差均为 0 pixel。没有读取或导出 dataset RGB/mask，没有实现导出 pipeline。
+- 对真实 frame 113 全部 12,861 个 Gaussian 中心，用 T8 w2c 转到各 camera，比较原图投影经 half-pixel resize 与目标 K 的投影，最大误差 `1.137e-13` pixel；三个 camera 下所有中心都落在 640×360 范围内。
+- AST 提取并在服务器 CPU 执行未修改的 `mmgs/datasets/embodied_dataset.py` 中 `focal2fov` / `extract_intrinsics`（197/200 行）以及 `mmgs/datasets/utils/cameras.py:151` 的 `getProjectionMatrix`，按现有 rasterizer 的投影 epsilon 与 NDC-to-pixel 公式做 float32 数值检查；最大误差 `8.949e-5` pixel，小于本 TODO 的 1 pixel 容差。没有 CUDA 初始化或 GPU renderer 执行。
+- Rasterizer 证据：服务器 `SoMA/gaussian-splatting/submodules/diff-gaussian-rasterization/cuda_rasterizer/auxiliary.h:41` 的 `ndc2Pix`，以及 `forward.cu:196–197,241` 的透视除法与像素转换。源码 hash、精确函数行号和逐 camera 验证数值保存在 contract。
+- Artifact：`camera_intrinsics_contract.json`，16,956 bytes，SHA256 `3f4c3bbec096eb3ffb7dc3ee7928d68b464241bc9c383327dfc090ca9b393b97`。
+- Git 范围：SoMA repository / `deform360-adaptation`；本次用户授权在 T9 PASS 后统一提交 T8 contract、T9 contract 和 roadmap，提交标题为 `Add SoMA-D360 camera geometry contracts`，具体提交与 push 状态以 Git 记录及本轮汇报为准。服务器 checkout 尚需后续通过 Git 显式同步。
 
 ### T10：定义单帧 30 点 controller representation
 

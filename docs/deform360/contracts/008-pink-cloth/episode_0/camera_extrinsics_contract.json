@@ -1,0 +1,740 @@
+{
+  "schema_version": 1,
+  "task": "T8: camera extrinsics conversion only",
+  "status": "PASS",
+  "created_on": "2026-09-25",
+  "dataset": "008-pink-cloth/episode_0",
+  "authority": "This repository contract defines T8 extrinsics. Camera selection remains defined by the human-confirmed camera_config_2cam.json and camera_config_3cam.json.",
+  "downstream": "T9 reads configurations.A/B.c2w in the exact camera_ids order. No resized intrinsics or calibrate.pkl are produced.",
+  "convention": {
+    "qvec_order": [
+      "w",
+      "x",
+      "y",
+      "z"
+    ],
+    "quaternion_algebra": "Hamilton",
+    "qvec_semantics": "world-to-camera rotation",
+    "tvec_semantics": "world origin expressed in camera coordinates; not world-space camera center",
+    "point_convention": "column vectors; X_camera = R @ X_world + t",
+    "camera_axes": {
+      "x": "right",
+      "y": "down",
+      "z": "forward"
+    },
+    "w2c": "[[R,t],[0,0,0,1]]",
+    "c2w": "[[R.T,-R.T@t],[0,0,0,1]]",
+    "rotation_computation": "q_normalized=qvec/norm(qvec); R=SoMA.mmgs.utils.colmap_utils.qvec2rotmat(q_normalized)",
+    "normalization_note": "Only removes published quaternion unit-norm rounding error of at most 5.1e-13; original qvec/tvec and calibration file remain unchanged.",
+    "camera_center_world": "-R.T @ t",
+    "forward_world": "R.T @ [0,0,1]",
+    "matrix_storage": "JSON nested rows; float64 computation; each c2w [4,4]",
+    "world_frame_and_length_scale": "Preserve the published metric calibration and splat_113.xyz world frame and length scale; no recentering, reorientation, rescaling or axis flip.",
+    "axis_flip_applied": false,
+    "soma_interface": "extract_extrinsics(c2w) returns R_soma=R.T and T_soma=t; getWorld2View2(R_soma,T_soma) reconstructs w2c in float32. R_soma is not the rotation block of w2c."
+  },
+  "convention_evidence": {
+    "published_header": "# cam_id width height fx fy cx cy k1 k2 p1 p2 cam_name qvecw qvecx qvecy qvecz tvecx tvecy tvecz",
+    "reference": "https://colmap.github.io/format.html#images-txt",
+    "interpretation_basis": "Header explicitly identifies wxyz. The COLMAP qvec/tvec w2c interpretation is corroborated by actual frame 113 Gaussian positive depth, image projections and foreground mask correspondence. No trial axis flips.",
+    "source_limitation": "Current Deform360 calibration.py:1-19 describes extrinsics.npy c2w, a different format; it does not establish this legacy text exporter convention. No exporter for this text was found. Interpretation is supported jointly by the header, COLMAP convention and actual geometric projection.",
+    "layout_limitation": "T7 layout used the same convention; agreement is a regression check, not independent proof of the convention.",
+    "projection_limitation": "Gaussian center projections only, not visibility or render-quality tests. Foreground hit fractions are not used to change camera selection."
+  },
+  "provenance": {
+    "dataset_path_relative_to_workspace": "datasets/deform360/processed/008-pink-cloth/episode_0",
+    "dataset_file_sha256": {
+      "metadata.json": "2ba974cfa331b59d201774fbfc864ee4e4c1c72d76a2b51d469d646067648608",
+      "metric_params_refined_undistorted.txt": "d5fcb17f1e25fffd4f633753ea88a580dc2dae9ab67ab0c9f9fcad3aca1b9620",
+      "splatfacto/splat_113.ply": "58f684ff02881821e7d2c91ae69983a5ec7bd88ad1949e41a4994505e81020c7"
+    },
+    "repository_input_sha256": {
+      "docs/deform360/contracts/008-pink-cloth/episode_0/camera_manifest.json": "2428032c7cf82e97171ea84f772e2843b19545a2e194c36b3565c01a0a679b19",
+      "docs/deform360/contracts/008-pink-cloth/episode_0/camera_config_2cam.json": "c4cce05912007b6213ba1ad458ee3e7d5b8d2a02dc576f1de60b7704db997e5f",
+      "docs/deform360/contracts/008-pink-cloth/episode_0/camera_config_3cam.json": "4ed54cb6081bf0c27a92d7dcea7cd5d6456031cfc89edd5f70a4c44259f3802a",
+      "docs/deform360/visualizations/t7-review-20260925/layout.json": "f79674ed4ba27ccf8fd145a3011fcfdebe75f4e97cc45e32e2342eb555d0f3e2"
+    },
+    "soma_head": "f84e03564d5dd89eed578676c8c433aa32fbfd00",
+    "source_functions": [
+      {
+        "path_relative_to_soma": "mmgs/datasets/embodied_dataset.py",
+        "function": "extract_extrinsics",
+        "line": 184,
+        "file_sha256": "ed74d81ca80e051491aa9045b83ab9caa5f7f3e7b44a8ec6f82026e5359f7858"
+      },
+      {
+        "path_relative_to_soma": "mmgs/datasets/utils/cameras.py",
+        "function": "getWorld2View2",
+        "line": 137,
+        "file_sha256": "ac06ea16eb051e5f695516f50d1b1f6a2e5ac32af8af639b67b0a33c5287b91e"
+      },
+      {
+        "path_relative_to_soma": "mmgs/utils/colmap_utils.py",
+        "function": "qvec2rotmat",
+        "line": 43,
+        "file_sha256": "6948ce06366e1f727ddffc39a445bf4b6873824f02abc39df63eb0c8f0fb3f36"
+      }
+    ],
+    "execution": "Server soma Python CPU/NumPy. AST-extracted and executed the three unchanged pure NumPy functions above. No CUDA imports or GPU Camera construction; this is not a full loader/render test.",
+    "python_version": "3.10.21",
+    "numpy_version": "1.26.4",
+    "dataset_files_hash_equal_before_after": true,
+    "calibration_row_count": 41,
+    "metadata_camera_count": 36,
+    "name_join": "Exact cam_name matching, not positional correspondence between 41 calibration rows and 36 metadata cameras."
+  },
+  "validation_tolerances": {
+    "quaternion_norm_error_max": 1e-09,
+    "rotation_orthogonality_max_abs": 1e-12,
+    "rotation_determinant_error_max": 1e-12,
+    "inverse_max_abs": 1e-12,
+    "layout_position_forward_max_abs": 1e-09,
+    "soma_float32_reconstruction_max_abs": 1e-06,
+    "finite_shape_and_last_row": "finite [4,4], homogeneous last row [0,0,0,1]",
+    "orientation": "All initial Gaussian centers have positive depth; optical axis points toward Gaussian centroid; agreement with T7 layout."
+  },
+  "configurations": {
+    "A": {
+      "source_config": "camera_config_2cam.json",
+      "role": "default_minimal_baseline",
+      "camera_ids": [
+        "brics-odroid-023_cam0",
+        "brics-odroid-009_cam1"
+      ],
+      "camera_order": [
+        {
+          "index": 0,
+          "camera_id": "brics-odroid-023_cam0"
+        },
+        {
+          "index": 1,
+          "camera_id": "brics-odroid-009_cam1"
+        }
+      ],
+      "c2w_shape": [
+        2,
+        4,
+        4
+      ],
+      "c2w": [
+        [
+          [
+            -0.16377054622068477,
+            0.8267189868173128,
+            -0.5382517301656673,
+            0.4939138543286811
+          ],
+          [
+            0.04144533500992159,
+            -0.5393706585474382,
+            -0.8410479040482879,
+            0.5073626191880518
+          ],
+          [
+            -0.9856274612633791,
+            -0.1600468979201362,
+            0.05406938199801803,
+            -0.09882383938527833
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        [
+          [
+            0.4741419773901905,
+            -0.03386322289688394,
+            0.8797969466936995,
+            -0.22758942405086238
+          ],
+          [
+            0.01931528878559158,
+            -0.9986195353653204,
+            -0.04884611761318499,
+            0.11298974477789175
+          ],
+          [
+            0.8802365050914722,
+            0.04015352689101987,
+            -0.47283336322912217,
+            0.3693972504032717
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        ]
+      ],
+      "identity_and_order_preserved": true
+    },
+    "B": {
+      "source_config": "camera_config_3cam.json",
+      "role": "auxiliary_3camera_comparison",
+      "camera_ids": [
+        "brics-odroid-023_cam0",
+        "brics-odroid-009_cam1",
+        "brics-odroid-014_cam1"
+      ],
+      "camera_order": [
+        {
+          "index": 0,
+          "camera_id": "brics-odroid-023_cam0"
+        },
+        {
+          "index": 1,
+          "camera_id": "brics-odroid-009_cam1"
+        },
+        {
+          "index": 2,
+          "camera_id": "brics-odroid-014_cam1"
+        }
+      ],
+      "c2w_shape": [
+        3,
+        4,
+        4
+      ],
+      "c2w": [
+        [
+          [
+            -0.16377054622068477,
+            0.8267189868173128,
+            -0.5382517301656673,
+            0.4939138543286811
+          ],
+          [
+            0.04144533500992159,
+            -0.5393706585474382,
+            -0.8410479040482879,
+            0.5073626191880518
+          ],
+          [
+            -0.9856274612633791,
+            -0.1600468979201362,
+            0.05406938199801803,
+            -0.09882383938527833
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        [
+          [
+            0.4741419773901905,
+            -0.03386322289688394,
+            0.8797969466936995,
+            -0.22758942405086238
+          ],
+          [
+            0.01931528878559158,
+            -0.9986195353653204,
+            -0.04884611761318499,
+            0.11298974477789175
+          ],
+          [
+            0.8802365050914722,
+            0.04015352689101987,
+            -0.47283336322912217,
+            0.3693972504032717
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        [
+          [
+            0.9609637935227885,
+            -0.03364598976717036,
+            -0.27462071100133545,
+            0.4387854321244072
+          ],
+          [
+            -0.06435071755762989,
+            -0.992537777372734,
+            -0.10357483110202208,
+            0.1117812070497804
+          ],
+          [
+            -0.26908655241039026,
+            0.11720370241840368,
+            -0.9559580113432334,
+            0.5781707420347766
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        ]
+      ],
+      "identity_and_order_preserved": true
+    }
+  },
+  "cameras": {
+    "brics-odroid-023_cam0": {
+      "camera_id": "brics-odroid-023_cam0",
+      "metadata_index": 28,
+      "calibration_line_number": 31,
+      "calibration_camera_id": 36,
+      "source_row_tokens": [
+        "36",
+        "1280",
+        "720",
+        "883.532092296697",
+        "885.959648843671",
+        "639.500000000000",
+        "359.500000000000",
+        "0.000000000000",
+        "0.000000000000",
+        "0.000000000000",
+        "0.000000000000",
+        "brics-odroid-023_cam0",
+        "0.296195955927",
+        "-0.574789250580",
+        "-0.377601147269",
+        "0.662799099797",
+        "-0.037542761940",
+        "-0.150487900126",
+        "0.697909598028"
+      ],
+      "qvec_wxyz": [
+        0.296195955927,
+        -0.57478925058,
+        -0.377601147269,
+        0.662799099797
+      ],
+      "tvec": [
+        -0.03754276194,
+        -0.150487900126,
+        0.697909598028
+      ],
+      "w2c": [
+        [
+          -0.16377054622068477,
+          0.04144533500992159,
+          -0.9856274612633791,
+          -0.03754276194
+        ],
+        [
+          0.8267189868173128,
+          -0.5393706585474382,
+          -0.1600468979201362,
+          -0.150487900126
+        ],
+        [
+          -0.5382517301656673,
+          -0.8410479040482879,
+          0.05406938199801803,
+          0.697909598028
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "c2w": [
+        [
+          -0.16377054622068477,
+          0.8267189868173128,
+          -0.5382517301656673,
+          0.4939138543286811
+        ],
+        [
+          0.04144533500992159,
+          -0.5393706585474382,
+          -0.8410479040482879,
+          0.5073626191880518
+        ],
+        [
+          -0.9856274612633791,
+          -0.1600468979201362,
+          0.05406938199801803,
+          -0.09882383938527833
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "camera_center_world": [
+        0.4939138543286811,
+        0.5073626191880518,
+        -0.09882383938527833
+      ],
+      "forward_world": [
+        -0.5382517301656673,
+        -0.8410479040482879,
+        0.05406938199801803
+      ],
+      "validation": {
+        "shape": [
+          4,
+          4
+        ],
+        "finite": true,
+        "quaternion_norm": 1.000000000000203,
+        "quaternion_norm_error": 2.0294876890147862e-13,
+        "normalized_quaternion_vs_scipy_rotation_max_abs": 6.938893903907228e-17,
+        "rotation_orthogonality_max_abs": 2.220446049250313e-16,
+        "rotation_determinant": 0.9999999999999999,
+        "w2c_c2w_inverse_max_abs": 2.220446049250313e-16,
+        "analytic_vs_numpy_inverse_max_abs": 2.220446049250313e-16,
+        "soma_extract_R_max_abs": 2.220446049250313e-16,
+        "soma_extract_T_max_abs": 1.1102230246251565e-16,
+        "soma_getWorld2View2_float32_vs_w2c_max_abs": 2.7456097839717586e-08,
+        "layout_position_max_abs": 4.163336342344337e-17,
+        "layout_forward_max_abs": 6.938893903907228e-17,
+        "forward_dot_direction_to_gaussian_centroid": 0.937101257834356,
+        "source_frame": 113,
+        "gaussian_count": 12861,
+        "positive_depth_count": 12861,
+        "depth_min_max": [
+          0.48534224878085946,
+          0.6835570442193262
+        ],
+        "projection_in_image_count": 12861,
+        "projected_centers_on_foreground_mask_count": 12303,
+        "projected_centers_on_foreground_fraction": 0.9566130160951715,
+        "mask_check": {
+          "path": "brics-odroid-023_cam0/mask_refined.h5",
+          "key": "data",
+          "source_frame": 113,
+          "shape": [
+            720,
+            1280
+          ],
+          "dtype": "uint8",
+          "frame_array_sha256": "8de8dc4df57b7101f655f7f53d20d5030a60b49f535a3a818ac90e2cc77c91b9"
+        },
+        "projection_uv_min_max": [
+          [
+            67.59944668717633,
+            187.91791667649164
+          ],
+          [
+            629.5915553840892,
+            674.4093088294998
+          ]
+        ]
+      }
+    },
+    "brics-odroid-009_cam1": {
+      "camera_id": "brics-odroid-009_cam1",
+      "metadata_index": 9,
+      "calibration_line_number": 12,
+      "calibration_camera_id": 11,
+      "source_row_tokens": [
+        "11",
+        "1280",
+        "720",
+        "994.010595847117",
+        "988.340865609786",
+        "639.500000000000",
+        "359.500000000000",
+        "0.000000000000",
+        "0.000000000000",
+        "0.000000000000",
+        "0.000000000000",
+        "brics-odroid-009_cam1",
+        "-0.025928164203",
+        "0.858136771731",
+        "-0.004238232934",
+        "0.512748523827",
+        "-0.219429674683",
+        "0.090294252608",
+        "0.380414935018"
+      ],
+      "qvec_wxyz": [
+        -0.025928164203,
+        0.858136771731,
+        -0.004238232934,
+        0.512748523827
+      ],
+      "tvec": [
+        -0.219429674683,
+        0.090294252608,
+        0.380414935018
+      ],
+      "w2c": [
+        [
+          0.4741419773901905,
+          0.01931528878559158,
+          0.8802365050914722,
+          -0.219429674683
+        ],
+        [
+          -0.03386322289688394,
+          -0.9986195353653204,
+          0.04015352689101987,
+          0.090294252608
+        ],
+        [
+          0.8797969466936995,
+          -0.04884611761318499,
+          -0.47283336322912217,
+          0.380414935018
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "c2w": [
+        [
+          0.4741419773901905,
+          -0.03386322289688394,
+          0.8797969466936995,
+          -0.22758942405086238
+        ],
+        [
+          0.01931528878559158,
+          -0.9986195353653204,
+          -0.04884611761318499,
+          0.11298974477789175
+        ],
+        [
+          0.8802365050914722,
+          0.04015352689101987,
+          -0.47283336322912217,
+          0.3693972504032717
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "camera_center_world": [
+        -0.22758942405086238,
+        0.11298974477789175,
+        0.3693972504032717
+      ],
+      "forward_world": [
+        0.8797969466936995,
+        -0.04884611761318499,
+        -0.47283336322912217
+      ],
+      "validation": {
+        "shape": [
+          4,
+          4
+        ],
+        "finite": true,
+        "quaternion_norm": 1.0000000000005052,
+        "quaternion_norm_error": 5.051514762044462e-13,
+        "normalized_quaternion_vs_scipy_rotation_max_abs": 1.1102230246251565e-16,
+        "rotation_orthogonality_max_abs": 4.440892098500626e-16,
+        "rotation_determinant": 1.0000000000000004,
+        "w2c_c2w_inverse_max_abs": 4.440892098500626e-16,
+        "analytic_vs_numpy_inverse_max_abs": 3.3306690738754696e-16,
+        "soma_extract_R_max_abs": 5.551115123125783e-16,
+        "soma_extract_T_max_abs": 2.7755575615628914e-17,
+        "soma_getWorld2View2_float32_vs_w2c_max_abs": 2.4486820793256925e-08,
+        "layout_position_max_abs": 5.551115123125783e-17,
+        "layout_forward_max_abs": 1.1102230246251565e-16,
+        "forward_dot_direction_to_gaussian_centroid": 0.982023664930683,
+        "source_frame": 113,
+        "gaussian_count": 12861,
+        "positive_depth_count": 12861,
+        "depth_min_max": [
+          0.3550367889065551,
+          0.6814279123412543
+        ],
+        "projection_in_image_count": 12861,
+        "projected_centers_on_foreground_mask_count": 10192,
+        "projected_centers_on_foreground_fraction": 0.792473369100381,
+        "mask_check": {
+          "path": "brics-odroid-009_cam1/mask_refined.h5",
+          "key": "data",
+          "source_frame": 113,
+          "shape": [
+            720,
+            1280
+          ],
+          "dtype": "uint8",
+          "frame_array_sha256": "c64d2c59412673733cfc6449460122cf3408e0cb1f46dfaf719846b42cbb1e1a"
+        },
+        "projection_uv_min_max": [
+          [
+            341.1538473946039,
+            480.18588553595856
+          ],
+          [
+            1008.4658501926164,
+            662.7286139682469
+          ]
+        ]
+      }
+    },
+    "brics-odroid-014_cam1": {
+      "camera_id": "brics-odroid-014_cam1",
+      "metadata_index": 17,
+      "calibration_line_number": 21,
+      "calibration_camera_id": 20,
+      "source_row_tokens": [
+        "20",
+        "1280",
+        "720",
+        "942.364497116677",
+        "937.850675702226",
+        "639.500000000000",
+        "359.500000000000",
+        "0.000000000000",
+        "0.000000000000",
+        "0.000000000000",
+        "0.000000000000",
+        "brics-odroid-014_cam1",
+        "-0.055830110171",
+        "0.988617669051",
+        "-0.024781245165",
+        "-0.137491792943",
+        "-0.258885740835",
+        "0.057946689360",
+        "0.684784239760"
+      ],
+      "qvec_wxyz": [
+        -0.055830110171,
+        0.988617669051,
+        -0.024781245165,
+        -0.137491792943
+      ],
+      "tvec": [
+        -0.258885740835,
+        0.05794668936,
+        0.68478423976
+      ],
+      "w2c": [
+        [
+          0.9609637935227885,
+          -0.06435071755762989,
+          -0.26908655241039026,
+          -0.258885740835
+        ],
+        [
+          -0.03364598976717036,
+          -0.992537777372734,
+          0.11720370241840368,
+          0.05794668936
+        ],
+        [
+          -0.27462071100133545,
+          -0.10357483110202208,
+          -0.9559580113432334,
+          0.68478423976
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "c2w": [
+        [
+          0.9609637935227885,
+          -0.03364598976717036,
+          -0.27462071100133545,
+          0.4387854321244072
+        ],
+        [
+          -0.06435071755762989,
+          -0.992537777372734,
+          -0.10357483110202208,
+          0.1117812070497804
+        ],
+        [
+          -0.26908655241039026,
+          0.11720370241840368,
+          -0.9559580113432334,
+          0.5781707420347766
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "camera_center_world": [
+        0.4387854321244072,
+        0.1117812070497804,
+        0.5781707420347766
+      ],
+      "forward_world": [
+        -0.27462071100133545,
+        -0.10357483110202208,
+        -0.9559580113432334
+      ],
+      "validation": {
+        "shape": [
+          4,
+          4
+        ],
+        "finite": true,
+        "quaternion_norm": 1.0000000000000735,
+        "quaternion_norm_error": 7.349676423018536e-14,
+        "normalized_quaternion_vs_scipy_rotation_max_abs": 3.3306690738754696e-16,
+        "rotation_orthogonality_max_abs": 1.1102230246251565e-15,
+        "rotation_determinant": 1.0000000000000009,
+        "w2c_c2w_inverse_max_abs": 1.1102230246251565e-15,
+        "analytic_vs_numpy_inverse_max_abs": 9.992007221626409e-16,
+        "soma_extract_R_max_abs": 9.992007221626409e-16,
+        "soma_extract_T_max_abs": 1.1102230246251565e-16,
+        "soma_getWorld2View2_float32_vs_w2c_max_abs": 1.9124611005949532e-08,
+        "layout_position_max_abs": 2.220446049250313e-16,
+        "layout_forward_max_abs": 3.3306690738754696e-16,
+        "forward_dot_direction_to_gaussian_centroid": 0.9712344364061775,
+        "source_frame": 113,
+        "gaussian_count": 12861,
+        "positive_depth_count": 12861,
+        "depth_min_max": [
+          0.3251818867557834,
+          0.68940881115404
+        ],
+        "projection_in_image_count": 12861,
+        "projected_centers_on_foreground_mask_count": 12064,
+        "projected_centers_on_foreground_fraction": 0.938029702200451,
+        "mask_check": {
+          "path": "brics-odroid-014_cam1/mask_refined.h5",
+          "key": "data",
+          "source_frame": 113,
+          "shape": [
+            720,
+            1280
+          ],
+          "dtype": "uint8",
+          "frame_array_sha256": "c7137b581f3b989dc32b991586b546c89ad8daacb0347c5390ddcccd468cfb55"
+        },
+        "projection_uv_min_max": [
+          [
+            179.2657633178591,
+            410.4278012633116
+          ],
+          [
+            858.2558139413622,
+            632.4959380144313
+          ]
+        ]
+      }
+    }
+  }
+}
