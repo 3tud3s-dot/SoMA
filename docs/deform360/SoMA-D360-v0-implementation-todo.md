@@ -27,7 +27,7 @@ Deform360 HEAD:
 d8522a4403b766aeb387510c04e89032a56fdf35
 
 Current task:
-T12
+T13
 
 Current status:
 PASS
@@ -141,7 +141,7 @@ tcgs root Git 仅用于 workspace-level 资产。除非明确说明，不在 tcg
 | T10 | 定义单帧 30 点 controller representation | PASS |
 | T11 | 将固定 controller representation 扩展为 trajectory | PASS |
 | T12 | 确认 controller 层级分组不跨手指 | PASS |
-| T13 | 确认重力方向与世界坐标 | TODO |
+| T13 | 确认重力方向与世界坐标 | PASS |
 | T14 | 只导出 RGB | TODO |
 | T15 | 只导出 object mask | TODO |
 | T16 | 明确 object mask 与遮挡 loss 的边界 | TODO |
@@ -1052,7 +1052,7 @@ Status: PASS
 
 ### T13：确认重力方向与世界坐标
 
-Status: TODO
+Status: PASS
 
 **问题：** 不能直接沿用官方 sample 的 gravity quaternion。
 
@@ -1081,11 +1081,33 @@ Status: TODO
 
 #### Result
 
-Not executed.
+**当前收口结论：PASS（user-approved engineering assumption）。** 人工固定 v0 annotation-world `up=+Z`、gravity direction `-Z`，`raw_gravity_world=[0.0,0.0,-9.8]`，`rot_est` 为 SciPy xyzw identity `[0,0,0,1]` 或 omitted。沿用 T6，由 dataset 仅一次乘 `(real_dt/comp_dt)^2=4`，得到 nominal `external_gravity=[0.0,0.0,-39.2]`；不预缩放、不额外旋转。
+
+PASS 仅表示“v0 gravity convention 已固定并可执行”，不是官方 gravity definition，也不表示真实物理竖直已独立测量或验证。no-tactile baseline 与未来 tactile variant 必须使用完全相同的上述 gravity convention；gravity uncertainty 是共同 limitation，不作为 tactile/no-tactile 比较变量。本阶段不再要求继续寻找 physical world-up。
+
+以下此前 provenance / support-plane FAIL 记录原样保留为历史 limitation；其中待确认物理方向、null 和下一步调查是当时状态，已由上述人工工程约定完成 v0 收口，并不被追认成物理验证成功。
+
+2026-09-25：FAIL（物理竖直方向证据不足，并非已发现坐标错位）。服务器 SoMA 在 clean 状态下 fast-forward 到 `a4eb19dac824275efb8b33c6f7ef8a658993f98c` 后完成只读检查。现有 Gaussian、robot/controller 与 T8 camera 保持同一发布标定世界系；未施加任何独立旋转。该系的物理 X/Y/Z 方向、世界 up 和重力参考没有在检查的 metadata/robot 字段与源码约定中给出，不能将 camera OpenCV 轴或 gripper root 轴当作 world-up；因此不能确认四者（含 gravity）完全对齐。
+
+已明确 `external = R_xyzw(rot_est)^(-1) · (raw_gravity × 4)`。T6 两阶段 real_dt=1/15、comp_dt=1/30，倍率仅应用一次；基准模长 9.8 对应 external 模长 39.2，不预乘、不按 gap/FPS 再乘。若将来直接输入已证实的 world gravity，应省略 rot_est 或用 identity；若输入参考系负 Z 重力，q 必须表示 world→reference，逆旋转映射回 world。当前 raw vector、q 和 final vector 均留空，不能当作可执行最终配置。
+
+最小下一步仅补充该标定系的官方 gravity/world-up 定义或独立测量的竖直参考，不猜轴、不试翻轴、不照搬 sample quaternion。不执行 T14。
+
+本次 support-plane 直接估计尝试：继续 FAIL。读取 36 cameras × source 113/120/200/267，共 144 组实际 depth/mask，物体 mask 外非零深度总数为 0。RGB 中可见透明承物板，但现有 rendered_depth 仅提供物体深度，不能反投影得到独立板面点。本轮未拟合布料来冒充承物板；未得到可靠 plane normal，角度误差及 raw/final gravity 保持 null/N/A。RGB-only 板角/边同名点三角化尚未执行，需要可确认属于板面的非共线对应点；本结论不声称图像路线不可能。未根据 camera/cloth/robot 朝向猜轴。不执行 T14。
 
 #### Evidence
 
-Not executed.
+- [gravity_world_frame_contract.json](contracts/008-pink-cloth/episode_0/gravity_world_frame_contract.json)：FAIL，明确 `usable_as_final_gravity_config=false`，包含原始文件 hash、T8/T10/T11 引用、坐标检查和 T6 时间规则。
+- 实际 PLY 12861 点；用 robot frame 113 重算 30 点与 T10 float32 逐值一致。Config A/B 所有相机下 Gaussian 正深度比例 1.0、controller 正深度 30/30，world→camera→world 最大误差 2.22e-16 m。往返只验证代数一致性，不能证明物理重力方向；没有据此宣称世界 Z 向上。
+- 原样抽取并 CPU 执行 `embodied_dataset.py:921–934`。合成 identity xyzw `[0,0,0,1]` 与输入 `[0,0,-9.8]` 得 `[0,0,-39.20000076293945]`；合成绕 X 正 90° 的 xyzw `[0.70710678,0,0,0.70710678]` 得约 `[0,-39.2,0]`，验证 inverse 方向与模长。这两例仅为代码语义测试，不是目标 episode 的重力决定。
+- `deform360/README.md:491–522` 明确 metric world Gaussian、T_worlds 与 OpenCV camera-local 轴，未定义物理 world-up；实际 metadata 只有 intrinsics/WH/fps/frame_num/start_frame/end_frame/cameras，robot 只有 actions/T_worlds/openings/bimanual。calibration qvec/tvec 是相机姿态，不含独立重力标定。
+- 输入数据检查前后 hash 不变；未修改 Gaussian/controller/camera、loader/model、config，未训练。SoMA / deform360-adaptation：roadmap tracked 修改，新 gravity contract 未跟踪；未 commit/push。服务器源码已同步，新增 T13 文档待后续 Git 同步。
+
+- [support-plane review](visualizations/t13-support-plane-review-20260925/README.md)：完整 144 组统计、切片 hash、三相机 RGB/depth 对照及现有几何 3D 诊断图。没有可信 plane，因此未画 normal/gravity 箭头。
+- gravity contract 已追加本次直接检查结果及缺失条件，仍 `FAIL` / `usable_as_final_gravity_config=false`；T6 ×4 和 inverse rotation 既有语义不变。未修改原始 HDF5/视频/PLY、controller、calibration、loader/model/config。SoMA / deform360-adaptation：roadmap tracked 修改，gravity contract/review 未跟踪；未 commit/push，待后续 Git 同步。
+
+- 人工收口更新：gravity contract 顶层改为工程约定 PASS，记录 user approval、physical verification=false、official definition=false、raw/identity/×4/final vector 及跨 variant 不变规则；旧 support-plane FAIL 与源数据验证 evidence 未改动。
+- 数值核验：`[0,0,-9.8]×4=[0,0,-39.2]`；既有 CPU 执行 dataset identity inverse 的 float32 结果为 `[0,0,-39.20000076293945]`，差异仅舍入。无源码/config/data 改动；未执行 T14，未 commit/push。
 
 ### T14：只导出 RGB
 

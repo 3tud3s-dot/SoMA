@@ -1,0 +1,170 @@
+[
+  {
+    "camera": "brics-odroid-023_cam0",
+    "source_frame": 113,
+    "depth_nonzero": 158292,
+    "mask_pixels": 158295,
+    "depth_nonzero_outside_object_mask": 0,
+    "outside_mask_pixels": 763305,
+    "depth_range_nonzero_mm": [
+      485,
+      673
+    ],
+    "depth_slice_sha256": "013f356aaa70df43cba51565f0e4c70413219bc8ec223e112be64a44a3ebc5ff",
+    "mask_slice_sha256": "8de8dc4df57b7101f655f7f53d20d5030a60b49f535a3a818ac90e2cc77c91b9"
+  },
+  {
+    "camera": "brics-odroid-023_cam0",
+    "source_frame": 120,
+    "depth_nonzero": 158483,
+    "mask_pixels": 158490,
+    "depth_nonzero_outside_object_mask": 0,
+    "outside_mask_pixels": 763110,
+    "depth_range_nonzero_mm": [
+      485,
+      670
+    ],
+    "depth_slice_sha256": "44a939b974ffc42afb687a93ab9f215c4c3e009c8be2983a2bf45e5da39f7114",
+    "mask_slice_sha256": "6730f83f42c66c0dce9c0e33e61d561f558a5ac10448513005100479e4f4556d"
+  },
+  {
+    "camera": "brics-odroid-023_cam0",
+    "source_frame": 200,
+    "depth_nonzero": 175345,
+    "mask_pixels": 175374,
+    "depth_nonzero_outside_object_mask": 0,
+    "outside_mask_pixels": 746226,
+    "depth_range_nonzero_mm": [
+      485,
+      605
+    ],
+    "depth_slice_sha256": "39d668ba89a55afb3f078d5e307195a7955110a991f7964800ba01104d2ff865",
+    "mask_slice_sha256": "739438e712ac24158a3df267a008177d82bca0ecf2f51a592de60245d9053265"
+  },
+  {
+    "camera": "brics-odroid-023_cam0",
+    "source_frame": 267,
+    "depth_nonzero": 162319,
+    "mask_pixels": 162348,
+    "depth_nonzero_outside_object_mask": 0,
+    "outside_mask_pixels": 759252,
+    "depth_range_nonzero_mm": [
+      486,
+      649
+    ],
+    "depth_slice_sha256": "b0343e537ef4e302f7786ce6aa21abd3db2dc4ee1df1be4044730135a100275f",
+    "mask_slice_sha256": "04c9616bce32645206329a5fe12abaa9c9c96e033b26c53174b1e242fd2494bb"
+  },
+  {
+    "camera": "brics-odroid-009_cam1",
+    "source_frame": 113,
+    "depth_nonzero": 75365,
+    "mask_pixels": 76742,
+    "depth_nonzero_outside_object_mask": 0,
+    "outside_mask_pixels": 844858,
+    "depth_range_nonzero_mm": [
+      356,
+      679
+    ],
+    "depth_slice_sha256": "4600dcddbb1f2b63bd45a27ddb0e30ceabab3807c93eb16434245af9aa335648",
+    "mask_slice_sha256": "c64d2c59412673733cfc6449460122cf3408e0cb1f46dfaf719846b42cbb1e1a"
+  },
+  {
+    "camera": "brics-odroid-009_cam1",
+    "source_frame": 120,
+    "depth_nonzero": 75193,
+    "mask_pixels": 77150,
+    "depth_nonzero_outside_object_mask": 0,
+    "outside_mask_pixels": 844450,
+    "depth_range_nonzero_mm": [
+      358,
+      678
+    ],
+    "depth_slice_sha256": "4ea585d039b5c982185f0e2ecaf26d1378ee0d5c933b103fbe7e5e17b1460afe",
+    "mask_slice_sha256": "1b8545d08cc49bf96261d0881a5f6b78db3c979602a485c9621442c13c821f5c"
+  },
+  {
+    "camera": "brics-odroid-009_cam1",
+    "source_frame": 200,
+    "depth_nonzero": 107296,
+    "mask_pixels": 108533,
+    "depth_nonzero_outside_object_mask": 0,
+    "outside_mask_pixels": 813067,
+    "depth_range_nonzero_mm": [
+      400,
+      588
+    ],
+    "depth_slice_sha256": "c63cdb47b116c6feb58f4e284d201170f4d982fd60c8f2c4270d6764614c50c3",
+    "mask_slice_sha256": "d5290bb350cb54b2e34d98e49ae2e1b56cee242965104931bf918b7a46077aaa"
+  },
+  {
+    "camera": "brics-odroid-009_cam1",
+    "source_frame": 267,
+    "depth_nonzero": 73254,
+    "mask_pixels": 74729,
+    "depth_nonzero_outside_object_mask": 0,
+    "outside_mask_pixels": 846871,
+    "depth_range_nonzero_mm": [
+      363,
+      663
+    ],
+    "depth_slice_sha256": "bedf202e20d60341319912c6a25e18a325390be207199872155096fc7e5bc329",
+    "mask_slice_sha256": "1ca6c425271d1530c85e3abf2fc0480a1059449cb21174a328aa44744a0a8b17"
+  },
+  {
+    "camera": "brics-odroid-014_cam1",
+    "source_frame": 113,
+    "depth_nonzero": 89695,
+    "mask_pixels": 91269,
+    "depth_nonzero_outside_object_mask": 0,
+    "outside_mask_pixels": 830331,
+    "depth_range_nonzero_mm": [
+      325,
+      689
+    ],
+    "depth_slice_sha256": "471b03ebf4e36b8dfced49a20cfbb276de0e41f0671eaee5b17ea07bd6d3c9c8",
+    "mask_slice_sha256": "c7137b581f3b989dc32b991586b546c89ad8daacb0347c5390ddcccd468cfb55"
+  },
+  {
+    "camera": "brics-odroid-014_cam1",
+    "source_frame": 120,
+    "depth_nonzero": 91059,
+    "mask_pixels": 93050,
+    "depth_nonzero_outside_object_mask": 0,
+    "outside_mask_pixels": 828550,
+    "depth_range_nonzero_mm": [
+      325,
+      684
+    ],
+    "depth_slice_sha256": "3a03e853b4d515ca9de138f0acf8adea7ee3638897b1141737b9df96b2457bd4",
+    "mask_slice_sha256": "bb02174df6c4c55256e430150431736b9b45bb5ed15ed1213143127916ba4a53"
+  },
+  {
+    "camera": "brics-odroid-014_cam1",
+    "source_frame": 200,
+    "depth_nonzero": 122720,
+    "mask_pixels": 127445,
+    "depth_nonzero_outside_object_mask": 0,
+    "outside_mask_pixels": 794155,
+    "depth_range_nonzero_mm": [
+      322,
+      686
+    ],
+    "depth_slice_sha256": "2127a90a7d35195f2ebfc7de929008f8764cc49dcc42a31dc384bd992e033003",
+    "mask_slice_sha256": "f6b65ee8fd3d4195f7857098095a65143ff336f3d3a07673f70fb83d4cc4f792"
+  },
+  {
+    "camera": "brics-odroid-014_cam1",
+    "source_frame": 267,
+    "depth_nonzero": 95280,
+    "mask_pixels": 97314,
+    "depth_nonzero_outside_object_mask": 0,
+    "outside_mask_pixels": 824286,
+    "depth_range_nonzero_mm": [
+      325,
+      685
+    ],
+    "depth_slice_sha256": "d50758a163006d4386294374a12c9b2141c8ab687253758952791efba3dc4896",
+    "mask_slice_sha256": "653f1eb818a19036daabb86f5fbd6f29a76d327fdf29a3f9b5ffe0e748dd0779"
+  }
+]

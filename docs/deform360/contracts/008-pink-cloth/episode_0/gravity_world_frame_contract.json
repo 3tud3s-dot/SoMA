@@ -1,0 +1,309 @@
+{
+  "task": "T13",
+  "status": "PASS",
+  "usable_as_final_gravity_config": true,
+  "reason": "User-approved engineering assumption: executable v0 gravity convention fixed; not a measurement or official gravity definition.",
+  "world_axis_convention": {
+    "basis": "Published right-handed metric annotation world frame, retained unchanged",
+    "physical_x_direction": null,
+    "physical_y_direction": null,
+    "physical_z_direction": null,
+    "camera_local_axes": "OpenCV x right, y down, z forward; not world-axis definitions",
+    "units": "metres",
+    "global_reorientation_applied": false,
+    "baseline_up": [
+      0.0,
+      0.0,
+      1.0
+    ],
+    "baseline_gravity_direction": [
+      0.0,
+      0.0,
+      -1.0
+    ],
+    "physical_axis_note": "Baseline +Z up is assumed by user approval; physical axis fields remain unknown, not measured."
+  },
+  "raw_gravity_vector": [
+    0.0,
+    0.0,
+    -9.8
+  ],
+  "rot_est_xyzw": [
+    0.0,
+    0.0,
+    0.0,
+    1.0
+  ],
+  "final_external_gravity": [
+    0.0,
+    0.0,
+    -39.2
+  ],
+  "gravity_magnitude_convention": {
+    "raw": 9.8,
+    "external": 39.2,
+    "meaning": "T6 internal baseline convention; external magnitude is not physical m/s^2 under original wall-clock timestamps"
+  },
+  "rotation_convention": {
+    "library": "scipy.spatial.transform.Rotation.from_quat, xyzw",
+    "formula": "external_world = R(identity).inv().apply(raw_gravity_world * (real_dt / comp_dt)**2)",
+    "selected_mode": "direct annotation-world gravity",
+    "identity_xyzw": [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+    ],
+    "omitting_rot_est_is_equivalent": true,
+    "additional_rotation_allowed": false,
+    "direction": "Identity inverse leaves annotation-world gravity unchanged; no modality or world-frame reorientation."
+  },
+  "time_scaling_rule": {
+    "comp_dt": 0.03333333333333333,
+    "real_dt": 0.06666666666666667,
+    "ratio": 2,
+    "gravity_multiplier": 4,
+    "applications": 1,
+    "adapter_pre_scale": false,
+    "stage1_and_stage2": "same T6 rule, do not additionally scale by frame_gap/FPS"
+  },
+  "frame_consistency": {
+    "gaussian": "Published world-frame metres; T8 source PLY hash matches",
+    "controller": "root points transformed by robot T_worlds[113], exact T10 float32 equality",
+    "camera": "T8 c2w identity/order retained for A/B; same published calibration",
+    "gravity": "User-approved -Z convention expressed directly in the same annotation world; physical alignment unverified.",
+    "limitations": "Roundtrip is algebraic consistency, and positive depth alone is not independent registration or gravity proof. Combined with T8 projection evidence and T10 source convention it supports unchanged common annotation frame, not physical world-up."
+  },
+  "evidence": {
+    "input_hashes": {
+      "metadata.json": "2ba974cfa331b59d201774fbfc864ee4e4c1c72d76a2b51d469d646067648608",
+      "metric_params_refined_undistorted.txt": "d5fcb17f1e25fffd4f633753ea88a580dc2dae9ab67ab0c9f9fcad3aca1b9620",
+      "robot/robot.npy": "ba12216e8f9924e593bb470eda5ef33411e50262271879c38ecfc55c9f07c561",
+      "splatfacto/splat_113.ply": "58f684ff02881821e7d2c91ae69983a5ec7bd88ad1949e41a4994505e81020c7"
+    },
+    "metadata_keys": [
+      "intrinsics",
+      "WH",
+      "fps",
+      "frame_num",
+      "start_frame",
+      "end_frame",
+      "cameras"
+    ],
+    "robot_keys": [
+      "actions",
+      "T_worlds",
+      "openings",
+      "bimanual"
+    ],
+    "gaussian_count": 12861,
+    "controller_recompute_matches_t10_float32": true,
+    "camera_checks": {
+      "A": [
+        {
+          "camera_id": "brics-odroid-023_cam0",
+          "c2w_det": 0.9999999999999999,
+          "gaussian_roundtrip_max_abs_m": 2.220446049250313e-16,
+          "gaussian_positive_depth_fraction": 1.0,
+          "controller_positive_depth_count": 30
+        },
+        {
+          "camera_id": "brics-odroid-009_cam1",
+          "c2w_det": 1.0000000000000004,
+          "gaussian_roundtrip_max_abs_m": 1.1102230246251565e-16,
+          "gaussian_positive_depth_fraction": 1.0,
+          "controller_positive_depth_count": 30
+        }
+      ],
+      "B": [
+        {
+          "camera_id": "brics-odroid-023_cam0",
+          "c2w_det": 0.9999999999999999,
+          "gaussian_roundtrip_max_abs_m": 2.220446049250313e-16,
+          "gaussian_positive_depth_fraction": 1.0,
+          "controller_positive_depth_count": 30
+        },
+        {
+          "camera_id": "brics-odroid-009_cam1",
+          "c2w_det": 1.0000000000000004,
+          "gaussian_roundtrip_max_abs_m": 1.1102230246251565e-16,
+          "gaussian_positive_depth_fraction": 1.0,
+          "controller_positive_depth_count": 30
+        },
+        {
+          "camera_id": "brics-odroid-014_cam1",
+          "c2w_det": 1.0000000000000009,
+          "gaussian_roundtrip_max_abs_m": 1.1102230246251565e-16,
+          "gaussian_positive_depth_fraction": 1.0,
+          "controller_positive_depth_count": 30
+        }
+      ]
+    },
+    "gravity_actual_source_lines_921_934": "gravity = self.gravity\nif self.real_dt is not None:\n    if isinstance(self.real_dt, dict):\n        c_real_dt = self.real_dt[self.meta_dict_sclist[scene_idx]['scene_name']]\n    else:\n        c_real_dt = self.real_dt\n    time_ratio = c_real_dt / self.comp_dt\n    gravity = self.gravity * time_ratio**2\nrot_est = self.env_cfg.get(\"rot_est\", None)\nif rot_est is not None:\n    assert isinstance(rot_est, dict)\n    scene_quant = rot_est[self.meta_dict_sclist[scene_idx]['scene_name']]\n    scene_rot = scipy_R.from_quat(scene_quant)\n    gravity = scene_rot.inv().apply(gravity).astype(np.float32)",
+    "gravity_source_sha256": "ed74d81ca80e051491aa9045b83ab9caa5f7f3e7b44a8ec6f82026e5359f7858",
+    "synthetic_inverse_rotation_tests": [
+      {
+        "synthetic_only_not_episode_axis_evidence": true,
+        "q_xyzw": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "input": [
+          0,
+          0,
+          -9.8
+        ],
+        "external": [
+          [
+            0.0,
+            0.0,
+            -39.20000076293945
+          ]
+        ],
+        "norm": 39.20000076293945
+      },
+      {
+        "synthetic_only_not_episode_axis_evidence": true,
+        "q_xyzw": [
+          0.7071067811865475,
+          0.0,
+          0.0,
+          0.7071067811865476
+        ],
+        "input": [
+          0,
+          0,
+          -9.8
+        ],
+        "external": [
+          [
+            0.0,
+            -39.20000076293945,
+            -8.704148682467817e-15
+          ]
+        ],
+        "norm": 39.20000076293945
+      }
+    ],
+    "files_unchanged": true,
+    "limitation": "No physical world-up or gravity reference in inspected metadata/robot/calibration header. Shared reconstruction frame does not identify physical vertical."
+  },
+  "provenance": {
+    "soma_synced_head": "a4eb19dac824275efb8b33c6f7ef8a658993f98c",
+    "server_sync": "clean checkout checked, fetch + merge --ff-only, remains clean",
+    "dataset_workspace_relative": "datasets/deform360/processed/008-pink-cloth/episode_0",
+    "contracts_sha256": {
+      "camera_extrinsics_contract.json": "eb9fc54cb1a029eeb1e502f6c4965dda2edf856d29e3c5ca8b86db4e196626dd",
+      "controller_single_frame_contract.json": "a2aa7684e9612d4b80eeede253fb890a63b6f8dbd87665843222170d341d733a",
+      "controller_trajectory_contract.json": "96e73b1c0a2573e33a32f675b899c147e32c0f00b9d228a16034e4608a65d32d",
+      "frame_manifest.json": "d48338cf7a606b1ee4bc2e5a560b5a53c017efdc9880a1db282a8494b1b013db"
+    },
+    "T6_roadmap_section_sha256": "0b52674e4c8d22a8313e2d1d3c4839bfc119fba063359b57529b031dfb1007dd",
+    "sources": [
+      "deform360/README.md:491-522 world-frame units, robot pose and local camera axes; no physical world-up definition",
+      "SoMA/mmgs/datasets/embodied_dataset.py:280-282,921-934,956 gravity scaling then inverse rotation then external",
+      "SoMA/configs/SoMA/cloth_lift_stage1.py:76,103-104 and cloth_lift_stage2.py:76,104-105 read per-scene gravity_rot_quat; not reusable episode alignment",
+      "deform360/deform360/processing/reconstruct_stage.py:283-287 world-frame export without normalization",
+      "deform360/deform360/processing/control_points_stage.py:117-132 world_from_eef",
+      "SoMA/mmgs/models/heads/acc_decoder.py:252-270 external gravity use per T6"
+    ]
+  },
+  "constraints": "No modality changes, no loader/model/config changes, no training, no T14, no commit/push",
+  "support_plane_estimation_attempt": {
+    "status": "FAIL",
+    "source_frames": [
+      113,
+      120,
+      200,
+      267
+    ],
+    "camera_count": 36,
+    "camera_frame_checks": 144,
+    "nonzero_depth_outside_object_masks_total": 0,
+    "plane_normal": null,
+    "plane_offset": null,
+    "raw_gravity_world": null,
+    "final_external_gravity": null,
+    "cross_view_frame_normal_angle_error_degrees": null,
+    "fit_performed": false,
+    "failure_stage": "No independently identified support-plane 3D observations; do not fit cloth as support",
+    "rgb_only_alternative": "Not attempted: requires verified non-collinear support-plane correspondences, not transmitted/reflected background features",
+    "review_path_relative_to_soma": "docs/deform360/visualizations/t13-support-plane-review-20260925",
+    "artifact_sha256": {
+      "all_camera_depth_audit.json": "c6b7bd83a100accf40c805dd783312cbc63579b5cb63ace736764673e040aead",
+      "support_depth_evidence.jpg": "99d8ddd2c41d57ba08cb7911ffdc52e3901d9a047df23459950ae35f38ebe354",
+      "README.md": "bd46d582059c4eb63be623ab14a40d45395c89433c5fa46036ff9f8842a710d3",
+      "available_geometry_3d.png": "31fd05392777a15bac231ba08c2be885fdfd043747975104e16d6fe7d704e7c0",
+      "depth_audit.json": "53e29d1f5346951c9b6eae33aa4f027af1c80af76c4a7ceaabb164377c45e256"
+    },
+    "conditional_gravity_rule": "Only after stable up estimate: raw=-9.8*unit_up; external=4*raw; rot_est omitted or identity; no second alignment",
+    "independence_limit": "Different rendered depth views come from the same object Gaussian reconstruction; agreement alone is not independent evidence for the support plane"
+  },
+  "audit_history": [
+    {
+      "status": "FAIL",
+      "scope": "Physical world-up provenance and support-plane estimation; retained limitation, not invalidated by engineering PASS",
+      "reason": "Support-plane depth is unavailable in the inspected episode frames: all 144 camera/frame checks have zero positive depth outside object masks; physical up remains unresolved.",
+      "physical_world_up_independently_verified": false,
+      "required_evidence_for_physical_claim": [
+        "Official metric-calibration world-up/gravity definition or world-to-gravity alignment for this episode",
+        "Alternatively an independently justified measured gravity/vertical reference expressed in this same calibration frame; a table plane requires evidence it is horizontal plus its up sign"
+      ],
+      "previous_rotation_options": {
+        "library": "scipy.spatial.transform.Rotation.from_quat, xyzw",
+        "formula": "external_world = R(q).inv().apply(raw_gravity * (real_dt / comp_dt)**2)",
+        "q_semantics_if_reference_gravity_used": "R(q) maps annotation-world vectors to reference-gravity coordinates; inverse maps reference gravity into annotation world",
+        "direct_world_option": "After world gravity g_world is independently established, use raw=g_world and no rot_est or identity xyzw [0,0,0,1]. Do not additionally apply a nonidentity alignment.",
+        "reference_option": "Alternatively raw=[0,0,-9.8] in a gravity-aligned reference frame, and choose q satisfying R(q)^T raw = g_world. No episode q determined here."
+      }
+    }
+  ],
+  "raw_gravity_world": [
+    0.0,
+    0.0,
+    -9.8
+  ],
+  "approval": {
+    "authority": "user-approved engineering assumption",
+    "scope": "SoMA-D360-v0 baseline convention",
+    "physical_world_up_independently_verified": false,
+    "official_gravity_definition": false,
+    "pass_meaning": "v0 convention fixed and executable; does not certify physical vertical",
+    "further_world_up_search_required_for_v0": false
+  },
+  "comparison_invariance": {
+    "applies_to": [
+      "no-tactile baseline",
+      "future tactile variant"
+    ],
+    "must_share": [
+      "annotation-world up +Z / gravity -Z",
+      "raw gravity [0,0,-9.8]",
+      "identity or omitted rot_est",
+      "T6 dataset multiplier 4 applied once",
+      "external gravity [0,0,-39.2]"
+    ],
+    "gravity_uncertainty_is_comparison_variable": false,
+    "rule": "Keep exactly the same gravity convention across variants; uncertainty remains a shared limitation, not an ablation variable."
+  },
+  "validation_engineering_convention": {
+    "analytic_external": [
+      0.0,
+      0.0,
+      -39.2
+    ],
+    "identity_inverse_unchanged": true,
+    "existing_cpu_source_execution_reference": "evidence.synthetic_inverse_rotation_tests[0]",
+    "float32_external_from_existing_test": [
+      [
+        0.0,
+        0.0,
+        -39.20000076293945
+      ]
+    ],
+    "float32_note": "-39.20000076293945 is float32 rounding of nominal -39.2, not another scale factor.",
+    "does_not_validate_physical_up": true
+  }
+}
