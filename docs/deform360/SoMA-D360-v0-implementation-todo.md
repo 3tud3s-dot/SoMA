@@ -27,7 +27,7 @@ Deform360 HEAD:
 d8522a4403b766aeb387510c04e89032a56fdf35
 
 Current task:
-T18
+T19
 
 Current status:
 PASS
@@ -148,7 +148,7 @@ tcgs root Git 仅用于 workspace-level 资产。除非明确说明，不在 tcg
 | T16.5 | 批量生成 SH0 compatible Gaussian sequence | PASS |
 | T17 | 只组装 SoMA scene metadata 与目录契约 | PASS |
 | T18 | 验证初始静态渲染的几何对齐 | PASS |
-| T19 | 让 EmbodiedDataset 读取一个 sample | TODO |
+| T19 | 让 EmbodiedDataset 读取一个 sample | PASS |
 | T20 | 只验证 graph construction | TODO |
 | T21 | 只运行一次 forward/render/loss | TODO |
 | T22 | 只验证一次 backward 与 optimizer step | TODO |
@@ -1396,7 +1396,7 @@ Config A/B camera identity/order 均核验；共享相机的 K/c2w 和三种输�
 
 ### T19：让 EmbodiedDataset 读取一个 sample
 
-Status: TODO
+Status: PASS
 
 **问题：** 完整 scene 是否满足实际 dataset contract？
 
@@ -1422,11 +1422,27 @@ Status: TODO
 
 #### Result
 
-Not executed.
+2026-09-26：PASS。以真实 mmgs.datasets.embodied_dataset.EmbodiedDataset(env_cfg=..., phase="train") 分别实例化 A/B 并读取 dataset[0]，没有模拟 loader 或修改源码。两者 dataset length=1、seq_idx=0；scene_name 分别为 config_a_2cam/config_b_3cam。
+
+采样 local=[0,10,…,150]，source=[113,123,133,143,153,163,173,183,193,203,213,223,233,243,253,263]，16 帧；训练 split=[[0,155]]，无 source≥268 监督。gs_aligned_frame=0，初态固定 source113 SH0。
+
+A/B camera 数为 2/3，实际顺序为 023_cam0、009_cam1（B 追加 014_cam1）。每相机 img=[3,360,640]，full_gt_label/gt_label=[16,3,360,640]，controller_img_mask/pure_robot_img_mask=[16,1,360,640]；两类 obstacle mask 均为零，遵循 T16，而非实测无遮挡。每个 sampled RGB 和 masked GT 均与对应 canonical frame 逐值核验。
+
+controller_trajectory=[16,30,3] float32，与 T11 canonical 7mm trajectory 的相同索引逐值相等，点序不变。返回的 controller p2c 每层逐项等于 T12，层级 30→10→2→1，无回退。raw gravity=[0,0,-9.8]，实际 external=[[0,0,-39.20000076293945]]（float32），只执行一次 ×4。volume_scalar=[[512]]。所有 sample tensor/array 与 camera 数值均 finite。
+
+seq_num=[10] 是源码定义的 video_range[1]−video_range[0]（采样帧步长），不是 16 帧的计数。实际训练 loader 会随机化 camera batching；本次在每次 constructor 前固定 NumPy seed=5，使 2/3 camera permutation 均为 identity，并验证实际返回顺序。未修改/禁用随机逻辑，不保证后续未固定种子的训练批次始终同序。
+
+无需 loader 修改。仅串联 dataset smoke 参数并允许 dataset 自身在派生 scene 中生成 object/controller 聚类缓存；未构建 graph、未实例化 dynamics 模型、未 render/forward/backward/训练，未执行 T20。
 
 #### Evidence
 
-Not executed.
+- 入口：`tools/deform360_adapter/check_dataset_sample.py`；完整实际 sample summary、env_cfg、shape/dtype/finite、frame/camera IDs、cache hashes 见 [dataset_sample_contract.json](contracts/008-pink-cloth/episode_0/dataset_sample_contract.json)。
+- 基于 T17 scene_interface 的 env_cfg，仅补训练 split、frame_gap=10，以及官方 cloth_lift_stage1.py 的 object cluster scheme [downsample_rate=0.02,0.2]、volume_scalar=512；这些是本次 dataset-only 检查参数，不将其冒充新批准的完整 training config。T12 controller_cfg 原样保持，未新建或修改训练配置。
+- Slurm job 25823，RTX 5090；命令：`srun -p 5090 --gres=gpu:1 --ntasks=1 --cpus-per-task=4 --mem=16G --time=00:10:00 --job-name=tcgs-t19 /data1/userdata/tcweng/miniconda3/envs/soma/bin/python -B /tmp/tcgs_t19_dataset.py --workspace /data1/userdata/tcweng/projects/tcgs --report /tmp/tcgs_t19_dataset_report.json`；退出码 0。CUDA/nvidia-smi 在 allocation 内执行，sample 读取用 torch.no_grad()。
+- 原始 loader 文件路径与导入类所属 module.__file__ 一致，SHA256 执行前后不变。embodied_dataset.py 第 351–352 行调用内部聚类/合并映射；第 358–366 行训练相机随机顺序；第 826、918–934 行采样/controller/gravity；第 965 行 seq_num。未 mock/monkeypatch。
+- Cache 仅在 A/B 派生 scene 的 cluster_mask/dis_split 和 controller_mask/dis_split 中各新增一个 PKL：object key `dis_splitnl_2_downsample_rate_0d02_downsample_rate_0d2_cluster_mask.pkl`；controller key `controller_dis_splitnl_2_nc_10_downsample_rate_0d5_track_process_data.pkl`。完整路径/hash 在 contract；server-only，未加入 Git。它们是 dataset 层级映射，不是 T20 graph construction。
+- T17 所有原生成文件 hash 执行前后不变，initial SH0/trajectory hash 保持；sample controller 与 canonical[0:155:10] 严格一致；每个采样 RGB 和 mask GT 对照真实 PNG 严格相等。对所有嵌套 tensor/array 和 Camera matrices 检查 finite。
+- T18 checkpoint 7030f215a2fec0afd3cc576315d1cc07bccb8d77 已 push；执行前 Mac clean、ahead/behind=0/0，服务器 clean 后 fast-forward。T19 修改所属 SoMA/deform360-adaptation：roadmap tracked，新增检查工具及 sample contract untracked；暂未 commit/push。服务器 checkout 仍 clean，小型文件待之后 Git 同步。
 
 ### T20：只验证 graph construction
 

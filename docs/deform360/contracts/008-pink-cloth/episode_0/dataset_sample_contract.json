@@ -1,0 +1,1218 @@
+{
+  "task": "T19",
+  "status": "PASS",
+  "slurm_job_id": "25823",
+  "tool_sha256": "36717a0d74552fca15f68c5a96c9077b93519e737b393f7ea44c8d4f4a22a6bd",
+  "configurations": {
+    "A": {
+      "env_cfg": {
+        "data_dir": "/data1/userdata/tcweng/projects/tcgs/datasets/deform360/derived/t17_scene_packages/pink_cloth_episode_0",
+        "scene_list": [
+          "config_a_2cam"
+        ],
+        "sub_img_dir": "color",
+        "sub_video_dir": "color",
+        "cam_transform_fn": null,
+        "resolution": [
+          360,
+          640
+        ],
+        "load_imgs": false,
+        "scale_x_angle": 1.0,
+        "max_cam_num": 2,
+        "max_cam_total": 2,
+        "max_seq": 1,
+        "pad_cam": false,
+        "llffhold": 0,
+        "tracking_pcd": "track_process_data.pkl",
+        "prompt_dict": {
+          "object": [
+            "cloth"
+          ],
+          "obstacle": []
+        },
+        "bounding_box": null,
+        "use_random_background": {
+          "config_a_2cam": false
+        },
+        "const_white_bg": {
+          "config_a_2cam": false
+        },
+        "controller_cfg": {
+          "config_a_2cam": [
+            {
+              "num_cluster": 10
+            },
+            {
+              "downsample_rate": 0.5
+            }
+          ]
+        },
+        "cluster_type": "dis_split",
+        "gravity": [
+          0.0,
+          0.0,
+          -9.8
+        ],
+        "rot_est": {
+          "config_a_2cam": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "dt": 0.03333333333333333,
+        "real_dt": {
+          "config_a_2cam": 0.06666666666666667
+        },
+        "split_list": {
+          "config_a_2cam": [
+            [
+              0,
+              155
+            ]
+          ]
+        },
+        "frame_gap": 10,
+        "cluster_cfg": {
+          "config_a_2cam": [
+            {
+              "downsample_rate": 0.02
+            },
+            {
+              "downsample_rate": 0.2
+            }
+          ]
+        },
+        "volume_scalar": {
+          "config_a_2cam": 512
+        }
+      },
+      "phase": "train",
+      "config_additions_provenance": "Official cloth_lift_stage1.py default_cluster_scheme and default_volume_scalar; dataset-only smoke settings, not newly approved training hyperparameters.",
+      "status": "PASS",
+      "camera_ids": [
+        "brics-odroid-023_cam0",
+        "brics-odroid-009_cam1"
+      ],
+      "sampled_local_frames": [
+        0,
+        10,
+        20,
+        30,
+        40,
+        50,
+        60,
+        70,
+        80,
+        90,
+        100,
+        110,
+        120,
+        130,
+        140,
+        150
+      ],
+      "sampled_source_frames": [
+        113,
+        123,
+        133,
+        143,
+        153,
+        163,
+        173,
+        183,
+        193,
+        203,
+        213,
+        223,
+        233,
+        243,
+        253,
+        263
+      ],
+      "train_source_max": 263,
+      "seq_num": 10,
+      "seq_num_semantics": "frame stride (10), not frame count",
+      "gs_aligned_frame": 0,
+      "initial_source_frame": 113,
+      "external": [
+        [
+          0.0,
+          0.0,
+          -39.20000076293945
+        ]
+      ],
+      "controller_hierarchy": [
+        30,
+        10,
+        2,
+        1
+      ],
+      "sample": {
+        "inputs": {
+          "img": [
+            {
+              "shape": [
+                3,
+                360,
+                640
+              ],
+              "dtype": "float32",
+              "finite": true
+            },
+            {
+              "shape": [
+                3,
+                360,
+                640
+              ],
+              "dtype": "float32",
+              "finite": true
+            }
+          ],
+          "full_gt_label": [
+            {
+              "shape": [
+                16,
+                3,
+                360,
+                640
+              ],
+              "dtype": "float32",
+              "finite": true
+            },
+            {
+              "shape": [
+                16,
+                3,
+                360,
+                640
+              ],
+              "dtype": "float32",
+              "finite": true
+            }
+          ],
+          "bbox": {
+            "shape": [
+              2,
+              16,
+              4
+            ],
+            "dtype": "int32",
+            "finite": true
+          },
+          "controller_trajectory": {
+            "shape": [
+              16,
+              30,
+              3
+            ],
+            "dtype": "float32",
+            "finite": true
+          },
+          "controller_img_mask_list": [
+            {
+              "shape": [
+                16,
+                1,
+                360,
+                640
+              ],
+              "dtype": "float32",
+              "finite": true
+            },
+            {
+              "shape": [
+                16,
+                1,
+                360,
+                640
+              ],
+              "dtype": "float32",
+              "finite": true
+            }
+          ],
+          "pure_robot_img_mask_list": [
+            {
+              "shape": [
+                16,
+                1,
+                360,
+                640
+              ],
+              "dtype": "float32",
+              "finite": true
+            },
+            {
+              "shape": [
+                16,
+                1,
+                360,
+                640
+              ],
+              "dtype": "float32",
+              "finite": true
+            }
+          ],
+          "gs_aligned_frame": 0,
+          "p2c_mapping": [
+            [
+              {
+                "shape": [
+                  30
+                ],
+                "dtype": "int64",
+                "finite": true
+              },
+              {
+                "shape": [
+                  12861
+                ],
+                "dtype": "int64",
+                "finite": true
+              }
+            ],
+            [
+              {
+                "shape": [
+                  10
+                ],
+                "dtype": "int64",
+                "finite": true
+              },
+              {
+                "shape": [
+                  640
+                ],
+                "dtype": "int64",
+                "finite": true
+              }
+            ],
+            [
+              {
+                "shape": [
+                  2
+                ],
+                "dtype": "float64",
+                "finite": true
+              },
+              {
+                "shape": [
+                  7
+                ],
+                "dtype": "float64",
+                "finite": true
+              }
+            ],
+            [
+              {
+                "shape": [
+                  1
+                ],
+                "dtype": "float64",
+                "finite": true
+              },
+              {
+                "shape": [
+                  1
+                ],
+                "dtype": "float64",
+                "finite": true
+              }
+            ]
+          ],
+          "cam": [
+            {
+              "R": {
+                "shape": [
+                  3,
+                  3
+                ],
+                "dtype": "float64",
+                "finite": true
+              },
+              "T": {
+                "shape": [
+                  3
+                ],
+                "dtype": "float64",
+                "finite": true
+              },
+              "world_view_transform": {
+                "shape": [
+                  4,
+                  4
+                ],
+                "dtype": "float32",
+                "finite": true
+              },
+              "projection_matrix": {
+                "shape": [
+                  4,
+                  4
+                ],
+                "dtype": "float32",
+                "finite": true
+              },
+              "full_proj_transform": {
+                "shape": [
+                  4,
+                  4
+                ],
+                "dtype": "float32",
+                "finite": true
+              },
+              "camera_center": {
+                "shape": [
+                  3
+                ],
+                "dtype": "float32",
+                "finite": true
+              },
+              "cam_plane_2_img": {
+                "shape": [
+                  2,
+                  2
+                ],
+                "dtype": "float32",
+                "finite": true
+              },
+              "img_path": "/data1/userdata/tcweng/projects/tcgs/datasets/deform360/derived/t17_scene_packages/pink_cloth_episode_0/config_a_2cam/color/0/0.png",
+              "image_height": 360,
+              "image_width": 640,
+              "FoVx": 1.253784097311851,
+              "FoVy": 0.7719182004889121
+            },
+            {
+              "R": {
+                "shape": [
+                  3,
+                  3
+                ],
+                "dtype": "float64",
+                "finite": true
+              },
+              "T": {
+                "shape": [
+                  3
+                ],
+                "dtype": "float64",
+                "finite": true
+              },
+              "world_view_transform": {
+                "shape": [
+                  4,
+                  4
+                ],
+                "dtype": "float32",
+                "finite": true
+              },
+              "projection_matrix": {
+                "shape": [
+                  4,
+                  4
+                ],
+                "dtype": "float32",
+                "finite": true
+              },
+              "full_proj_transform": {
+                "shape": [
+                  4,
+                  4
+                ],
+                "dtype": "float32",
+                "finite": true
+              },
+              "camera_center": {
+                "shape": [
+                  3
+                ],
+                "dtype": "float32",
+                "finite": true
+              },
+              "cam_plane_2_img": {
+                "shape": [
+                  2,
+                  2
+                ],
+                "dtype": "float32",
+                "finite": true
+              },
+              "img_path": "/data1/userdata/tcweng/projects/tcgs/datasets/deform360/derived/t17_scene_packages/pink_cloth_episode_0/config_a_2cam/color/1/0.png",
+              "image_height": 360,
+              "image_width": 640,
+              "FoVx": 1.1440883089488056,
+              "FoVy": 0.698620089028783
+            }
+          ],
+          "volume_scalar": {
+            "shape": [
+              1,
+              1
+            ],
+            "dtype": "float32",
+            "finite": true
+          },
+          "external": {
+            "shape": [
+              1,
+              3
+            ],
+            "dtype": "float32",
+            "finite": true
+          },
+          "white_bg": [
+            false,
+            false
+          ]
+        },
+        "gt_label": [
+          {
+            "shape": [
+              16,
+              3,
+              360,
+              640
+            ],
+            "dtype": "float32",
+            "finite": true
+          },
+          {
+            "shape": [
+              16,
+              3,
+              360,
+              640
+            ],
+            "dtype": "float32",
+            "finite": true
+          }
+        ],
+        "meta": {
+          "scene_idx": {
+            "shape": [
+              1
+            ],
+            "dtype": "int64",
+            "finite": true
+          },
+          "scene_name": "config_a_2cam",
+          "idx": {
+            "shape": [
+              1
+            ],
+            "dtype": "int64",
+            "finite": true
+          },
+          "seq_idx": {
+            "shape": [
+              1
+            ],
+            "dtype": "int64",
+            "finite": true
+          },
+          "eval_start_frame": {
+            "shape": [
+              1
+            ],
+            "dtype": "int64",
+            "finite": true
+          },
+          "seq_num": {
+            "shape": [
+              1
+            ],
+            "dtype": "int64",
+            "finite": true
+          }
+        }
+      },
+      "gaussian_cluster_counts": [
+        12861,
+        640,
+        7,
+        1
+      ],
+      "cache_files": {
+        "datasets/deform360/derived/t17_scene_packages/pink_cloth_episode_0/config_a_2cam/cluster_mask/dis_split/dis_splitnl_2_downsample_rate_0d02_downsample_rate_0d2_cluster_mask.pkl": {
+          "sha256": "dc9484e072ab547f76c106c1b22f94579e9f8efd65a94714132d49e348d0830e",
+          "new": true
+        },
+        "datasets/deform360/derived/t17_scene_packages/pink_cloth_episode_0/config_a_2cam/controller_mask/dis_split/controller_dis_splitnl_2_nc_10_downsample_rate_0d5_track_process_data.pkl": {
+          "sha256": "cdcd460bb6cbc27a8f4e8b16f4581963ec7e2b87373f800f7c062aefc34f6cb2",
+          "new": true
+        }
+      },
+      "actual_frames_verified_against_RGB_mask": true,
+      "controller_matches_T11_exactly": true
+    },
+    "B": {
+      "env_cfg": {
+        "data_dir": "/data1/userdata/tcweng/projects/tcgs/datasets/deform360/derived/t17_scene_packages/pink_cloth_episode_0",
+        "scene_list": [
+          "config_b_3cam"
+        ],
+        "sub_img_dir": "color",
+        "sub_video_dir": "color",
+        "cam_transform_fn": null,
+        "resolution": [
+          360,
+          640
+        ],
+        "load_imgs": false,
+        "scale_x_angle": 1.0,
+        "max_cam_num": 3,
+        "max_cam_total": 3,
+        "max_seq": 1,
+        "pad_cam": false,
+        "llffhold": 0,
+        "tracking_pcd": "track_process_data.pkl",
+        "prompt_dict": {
+          "object": [
+            "cloth"
+          ],
+          "obstacle": []
+        },
+        "bounding_box": null,
+        "use_random_background": {
+          "config_b_3cam": false
+        },
+        "const_white_bg": {
+          "config_b_3cam": false
+        },
+        "controller_cfg": {
+          "config_b_3cam": [
+            {
+              "num_cluster": 10
+            },
+            {
+              "downsample_rate": 0.5
+            }
+          ]
+        },
+        "cluster_type": "dis_split",
+        "gravity": [
+          0.0,
+          0.0,
+          -9.8
+        ],
+        "rot_est": {
+          "config_b_3cam": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "dt": 0.03333333333333333,
+        "real_dt": {
+          "config_b_3cam": 0.06666666666666667
+        },
+        "split_list": {
+          "config_b_3cam": [
+            [
+              0,
+              155
+            ]
+          ]
+        },
+        "frame_gap": 10,
+        "cluster_cfg": {
+          "config_b_3cam": [
+            {
+              "downsample_rate": 0.02
+            },
+            {
+              "downsample_rate": 0.2
+            }
+          ]
+        },
+        "volume_scalar": {
+          "config_b_3cam": 512
+        }
+      },
+      "phase": "train",
+      "config_additions_provenance": "Official cloth_lift_stage1.py default_cluster_scheme and default_volume_scalar; dataset-only smoke settings, not newly approved training hyperparameters.",
+      "status": "PASS",
+      "camera_ids": [
+        "brics-odroid-023_cam0",
+        "brics-odroid-009_cam1",
+        "brics-odroid-014_cam1"
+      ],
+      "sampled_local_frames": [
+        0,
+        10,
+        20,
+        30,
+        40,
+        50,
+        60,
+        70,
+        80,
+        90,
+        100,
+        110,
+        120,
+        130,
+        140,
+        150
+      ],
+      "sampled_source_frames": [
+        113,
+        123,
+        133,
+        143,
+        153,
+        163,
+        173,
+        183,
+        193,
+        203,
+        213,
+        223,
+        233,
+        243,
+        253,
+        263
+      ],
+      "train_source_max": 263,
+      "seq_num": 10,
+      "seq_num_semantics": "frame stride (10), not frame count",
+      "gs_aligned_frame": 0,
+      "initial_source_frame": 113,
+      "external": [
+        [
+          0.0,
+          0.0,
+          -39.20000076293945
+        ]
+      ],
+      "controller_hierarchy": [
+        30,
+        10,
+        2,
+        1
+      ],
+      "sample": {
+        "inputs": {
+          "img": [
+            {
+              "shape": [
+                3,
+                360,
+                640
+              ],
+              "dtype": "float32",
+              "finite": true
+            },
+            {
+              "shape": [
+                3,
+                360,
+                640
+              ],
+              "dtype": "float32",
+              "finite": true
+            },
+            {
+              "shape": [
+                3,
+                360,
+                640
+              ],
+              "dtype": "float32",
+              "finite": true
+            }
+          ],
+          "full_gt_label": [
+            {
+              "shape": [
+                16,
+                3,
+                360,
+                640
+              ],
+              "dtype": "float32",
+              "finite": true
+            },
+            {
+              "shape": [
+                16,
+                3,
+                360,
+                640
+              ],
+              "dtype": "float32",
+              "finite": true
+            },
+            {
+              "shape": [
+                16,
+                3,
+                360,
+                640
+              ],
+              "dtype": "float32",
+              "finite": true
+            }
+          ],
+          "bbox": {
+            "shape": [
+              3,
+              16,
+              4
+            ],
+            "dtype": "int32",
+            "finite": true
+          },
+          "controller_trajectory": {
+            "shape": [
+              16,
+              30,
+              3
+            ],
+            "dtype": "float32",
+            "finite": true
+          },
+          "controller_img_mask_list": [
+            {
+              "shape": [
+                16,
+                1,
+                360,
+                640
+              ],
+              "dtype": "float32",
+              "finite": true
+            },
+            {
+              "shape": [
+                16,
+                1,
+                360,
+                640
+              ],
+              "dtype": "float32",
+              "finite": true
+            },
+            {
+              "shape": [
+                16,
+                1,
+                360,
+                640
+              ],
+              "dtype": "float32",
+              "finite": true
+            }
+          ],
+          "pure_robot_img_mask_list": [
+            {
+              "shape": [
+                16,
+                1,
+                360,
+                640
+              ],
+              "dtype": "float32",
+              "finite": true
+            },
+            {
+              "shape": [
+                16,
+                1,
+                360,
+                640
+              ],
+              "dtype": "float32",
+              "finite": true
+            },
+            {
+              "shape": [
+                16,
+                1,
+                360,
+                640
+              ],
+              "dtype": "float32",
+              "finite": true
+            }
+          ],
+          "gs_aligned_frame": 0,
+          "p2c_mapping": [
+            [
+              {
+                "shape": [
+                  30
+                ],
+                "dtype": "int64",
+                "finite": true
+              },
+              {
+                "shape": [
+                  12861
+                ],
+                "dtype": "int64",
+                "finite": true
+              }
+            ],
+            [
+              {
+                "shape": [
+                  10
+                ],
+                "dtype": "int64",
+                "finite": true
+              },
+              {
+                "shape": [
+                  640
+                ],
+                "dtype": "int64",
+                "finite": true
+              }
+            ],
+            [
+              {
+                "shape": [
+                  2
+                ],
+                "dtype": "float64",
+                "finite": true
+              },
+              {
+                "shape": [
+                  7
+                ],
+                "dtype": "float64",
+                "finite": true
+              }
+            ],
+            [
+              {
+                "shape": [
+                  1
+                ],
+                "dtype": "float64",
+                "finite": true
+              },
+              {
+                "shape": [
+                  1
+                ],
+                "dtype": "float64",
+                "finite": true
+              }
+            ]
+          ],
+          "cam": [
+            {
+              "R": {
+                "shape": [
+                  3,
+                  3
+                ],
+                "dtype": "float64",
+                "finite": true
+              },
+              "T": {
+                "shape": [
+                  3
+                ],
+                "dtype": "float64",
+                "finite": true
+              },
+              "world_view_transform": {
+                "shape": [
+                  4,
+                  4
+                ],
+                "dtype": "float32",
+                "finite": true
+              },
+              "projection_matrix": {
+                "shape": [
+                  4,
+                  4
+                ],
+                "dtype": "float32",
+                "finite": true
+              },
+              "full_proj_transform": {
+                "shape": [
+                  4,
+                  4
+                ],
+                "dtype": "float32",
+                "finite": true
+              },
+              "camera_center": {
+                "shape": [
+                  3
+                ],
+                "dtype": "float32",
+                "finite": true
+              },
+              "cam_plane_2_img": {
+                "shape": [
+                  2,
+                  2
+                ],
+                "dtype": "float32",
+                "finite": true
+              },
+              "img_path": "/data1/userdata/tcweng/projects/tcgs/datasets/deform360/derived/t17_scene_packages/pink_cloth_episode_0/config_b_3cam/color/0/0.png",
+              "image_height": 360,
+              "image_width": 640,
+              "FoVx": 1.253784097311851,
+              "FoVy": 0.7719182004889121
+            },
+            {
+              "R": {
+                "shape": [
+                  3,
+                  3
+                ],
+                "dtype": "float64",
+                "finite": true
+              },
+              "T": {
+                "shape": [
+                  3
+                ],
+                "dtype": "float64",
+                "finite": true
+              },
+              "world_view_transform": {
+                "shape": [
+                  4,
+                  4
+                ],
+                "dtype": "float32",
+                "finite": true
+              },
+              "projection_matrix": {
+                "shape": [
+                  4,
+                  4
+                ],
+                "dtype": "float32",
+                "finite": true
+              },
+              "full_proj_transform": {
+                "shape": [
+                  4,
+                  4
+                ],
+                "dtype": "float32",
+                "finite": true
+              },
+              "camera_center": {
+                "shape": [
+                  3
+                ],
+                "dtype": "float32",
+                "finite": true
+              },
+              "cam_plane_2_img": {
+                "shape": [
+                  2,
+                  2
+                ],
+                "dtype": "float32",
+                "finite": true
+              },
+              "img_path": "/data1/userdata/tcweng/projects/tcgs/datasets/deform360/derived/t17_scene_packages/pink_cloth_episode_0/config_b_3cam/color/1/0.png",
+              "image_height": 360,
+              "image_width": 640,
+              "FoVx": 1.1440883089488056,
+              "FoVy": 0.698620089028783
+            },
+            {
+              "R": {
+                "shape": [
+                  3,
+                  3
+                ],
+                "dtype": "float64",
+                "finite": true
+              },
+              "T": {
+                "shape": [
+                  3
+                ],
+                "dtype": "float64",
+                "finite": true
+              },
+              "world_view_transform": {
+                "shape": [
+                  4,
+                  4
+                ],
+                "dtype": "float32",
+                "finite": true
+              },
+              "projection_matrix": {
+                "shape": [
+                  4,
+                  4
+                ],
+                "dtype": "float32",
+                "finite": true
+              },
+              "full_proj_transform": {
+                "shape": [
+                  4,
+                  4
+                ],
+                "dtype": "float32",
+                "finite": true
+              },
+              "camera_center": {
+                "shape": [
+                  3
+                ],
+                "dtype": "float32",
+                "finite": true
+              },
+              "cam_plane_2_img": {
+                "shape": [
+                  2,
+                  2
+                ],
+                "dtype": "float32",
+                "finite": true
+              },
+              "img_path": "/data1/userdata/tcweng/projects/tcgs/datasets/deform360/derived/t17_scene_packages/pink_cloth_episode_0/config_b_3cam/color/2/0.png",
+              "image_height": 360,
+              "image_width": 640,
+              "FoVx": 1.1931804376037414,
+              "FoVy": 0.7330250063605135
+            }
+          ],
+          "volume_scalar": {
+            "shape": [
+              1,
+              1
+            ],
+            "dtype": "float32",
+            "finite": true
+          },
+          "external": {
+            "shape": [
+              1,
+              3
+            ],
+            "dtype": "float32",
+            "finite": true
+          },
+          "white_bg": [
+            false,
+            false,
+            false
+          ]
+        },
+        "gt_label": [
+          {
+            "shape": [
+              16,
+              3,
+              360,
+              640
+            ],
+            "dtype": "float32",
+            "finite": true
+          },
+          {
+            "shape": [
+              16,
+              3,
+              360,
+              640
+            ],
+            "dtype": "float32",
+            "finite": true
+          },
+          {
+            "shape": [
+              16,
+              3,
+              360,
+              640
+            ],
+            "dtype": "float32",
+            "finite": true
+          }
+        ],
+        "meta": {
+          "scene_idx": {
+            "shape": [
+              1
+            ],
+            "dtype": "int64",
+            "finite": true
+          },
+          "scene_name": "config_b_3cam",
+          "idx": {
+            "shape": [
+              1
+            ],
+            "dtype": "int64",
+            "finite": true
+          },
+          "seq_idx": {
+            "shape": [
+              1
+            ],
+            "dtype": "int64",
+            "finite": true
+          },
+          "eval_start_frame": {
+            "shape": [
+              1
+            ],
+            "dtype": "int64",
+            "finite": true
+          },
+          "seq_num": {
+            "shape": [
+              1
+            ],
+            "dtype": "int64",
+            "finite": true
+          }
+        }
+      },
+      "gaussian_cluster_counts": [
+        12861,
+        640,
+        7,
+        1
+      ],
+      "cache_files": {
+        "datasets/deform360/derived/t17_scene_packages/pink_cloth_episode_0/config_b_3cam/cluster_mask/dis_split/dis_splitnl_2_downsample_rate_0d02_downsample_rate_0d2_cluster_mask.pkl": {
+          "sha256": "dc9484e072ab547f76c106c1b22f94579e9f8efd65a94714132d49e348d0830e",
+          "new": true
+        },
+        "datasets/deform360/derived/t17_scene_packages/pink_cloth_episode_0/config_b_3cam/controller_mask/dis_split/controller_dis_splitnl_2_nc_10_downsample_rate_0d5_track_process_data.pkl": {
+          "sha256": "cdcd460bb6cbc27a8f4e8b16f4581963ec7e2b87373f800f7c062aefc34f6cb2",
+          "new": true
+        }
+      },
+      "actual_frames_verified_against_RGB_mask": true,
+      "controller_matches_T11_exactly": true
+    }
+  },
+  "scope": "Actual EmbodiedDataset constructor and __getitem__(0), no graph/model.",
+  "seed_note": "np.random.seed(5) immediately before each constructor yields identity camera permutation for 2/3 cameras in this check. The unmodified training loader generally randomizes camera batching; this does not lock future training order.",
+  "loader_sha256": "ed74d81ca80e051491aa9045b83ab9caa5f7f3e7b44a8ec6f82026e5359f7858",
+  "gpu": "NVIDIA GeForce RTX 5090",
+  "input_contract_sha256": {
+    "scene_package_contract.json": "dbcbe6d84426675e536e3cc996753047e3a71015f8c279b33c5316cc6ee36e11",
+    "controller_grouping_contract.json": "975f93cb92fd638d5fe9eda94a7581e5aae5887813984e3982991297246f5645",
+    "controller_trajectory_contract.json": "96e73b1c0a2573e33a32f675b899c147e32c0f00b9d228a16034e4608a65d32d"
+  },
+  "loader_modified": false
+}
