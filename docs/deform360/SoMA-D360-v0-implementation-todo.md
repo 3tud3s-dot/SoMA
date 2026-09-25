@@ -27,7 +27,7 @@ Deform360 HEAD:
 d8522a4403b766aeb387510c04e89032a56fdf35
 
 Current task:
-T13
+T14
 
 Current status:
 PASS
@@ -142,7 +142,7 @@ tcgs root Git 仅用于 workspace-level 资产。除非明确说明，不在 tcg
 | T11 | 将固定 controller representation 扩展为 trajectory | PASS |
 | T12 | 确认 controller 层级分组不跨手指 | PASS |
 | T13 | 确认重力方向与世界坐标 | PASS |
-| T14 | 只导出 RGB | TODO |
+| T14 | 只导出 RGB | PASS |
 | T15 | 只导出 object mask | TODO |
 | T16 | 明确 object mask 与遮挡 loss 的边界 | TODO |
 | T16.5 | 批量生成 SH0 compatible Gaussian sequence | TODO |
@@ -1111,7 +1111,7 @@ PASS 仅表示“v0 gravity convention 已固定并可执行”，不是官方 g
 
 ### T14：只导出 RGB
 
-Status: TODO
+Status: PASS
 
 **问题：** SoMA 需要逐帧图像文件。
 
@@ -1137,11 +1137,21 @@ Status: TODO
 
 #### Result
 
-Not executed.
+2026-09-25：PASS。按本次明确指令扩展原两相机导出范围，为 Config A/B 的三个唯一 camera 各生成一份 canonical RGB；未改变相机身份或顺序。A 引用 023_cam0→009_cam1，B 引用 023_cam0→009_cam1→014_cam1，同一 camera 共用同一路径，不重复保存。
+
+服务器产物：`/data1/userdata/tcweng/projects/tcgs/datasets/deform360/derived/008-pink-cloth/episode_0/t14_rgb/<camera_id>/0.png…193.png`。三个 camera 各 194 张，共 582 张，约 131 MiB，全部 server-only。
+
+严格按 T4 source 113–306 ↔ local 0–193，顺序解码完整 357 帧，无 seek、无 tactile 过滤、无 split 改动。按照 T9 将全幅 1280×720 用 OpenCV INTER_AREA 缩至 640×360（2×2 box 支持中心符合 half-pixel 映射），无 crop/warp/再次 undistort。显式 BGR→RGB，再用 Pillow 写 RGB PNG；全部 uint8、值域位于 [0,255]。
+
+每帧重新读取 PNG，验证 RGB 数组与写入前逐值一致；第二次完整顺序解码使用独立 NumPy 2×2 平均，全部 582 张与对应 source 内容最大差 0.5 灰度级（整数舍入）。每 camera 194 个文件名/像素 hash 均唯一，无遗漏、重复内容或编号跳跃。未处理 mask，未组装 scene、修改 loader/model/training/config 或 T9 contract，未训练，不执行 T15。
 
 #### Evidence
 
-Not executed.
+- [独立 RGB export 工具](../../tools/deform360_adapter/export_rgb.py)：拒绝已存在输出，校验 T4 timestamp hash 与逐帧 token，校验 T7/T9 camera order，完整顺序解码两次，PNG RGB roundtrip、独立 box-average 验证、逐文件 SHA256。仅 CPU 执行，无 CUDA。
+- [RGB export contract](contracts/008-pink-cloth/episode_0/rgb_export_contract.json)：约 217 KB，包含三个视频 SHA256、工具/输入 contract hashes、582 条逐帧输出 manifest、RGB 像素 hash、min/max、两套配置共享资产引用、验证记录。
+- 三个 camera 分别验证 source 113→local 0、123→10（gap=10）、200→87、267→154（train 末帧）、268→155（test 首帧）、306→193；上述抽查及全部输出帧的独立 box-average 最大差均不超过 0.5。
+- 服务器执行前 clean，`fetch + merge --ff-only` 同步到 `edd7211eb023c53bf12fca3ca4dacf1040a000ca`。输入视频执行前后 hash 一致；Mac 与服务器工具 hash 相同，输入 T4/T7/T9/T5 contract hashes 保持不变。
+- Git：SoMA / deform360-adaptation。Mac roadmap tracked 修改，新增工具和 RGB contract 尚未跟踪；服务器仅新增同版本工具未跟踪，PNG 位于仓库外。未 add/commit/push。Mac 未下载 RGB，后续 checkpoint 后通过 Git 同步小型文件；服务器现有未提交工具须核对同 hash 后安全处理，不覆盖 dirty tree。
 
 ### T15：只导出 object mask
 
