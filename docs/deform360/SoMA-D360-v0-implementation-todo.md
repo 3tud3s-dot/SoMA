@@ -27,13 +27,13 @@ Deform360 HEAD:
 d8522a4403b766aeb387510c04e89032a56fdf35
 
 Current task:
-T6
+T7
 
 Current status:
 TODO
 ```
 
-以上 HEAD 为本 roadmap 建立时的源码基线，不表示本文档已经 commit。T0–T5 已 PASS，具体结论及证据保留于各项历史 Result / Evidence。Current task 为 T6，状态 TODO：尚未执行，须收到明确指令后才能开始；T6–T32 均未执行。
+以上 HEAD 为本 roadmap 建立时的源码基线。T0–T6 已 PASS，具体结论及证据保留于各项历史 Result / Evidence。Current task 为 T7，顶部 Current status 按本次指令设为 TODO，等待后续明确执行指令；本次不执行 T7，T7 正文及已有状态记录保持不变。
 
 ## 执行规则
 
@@ -43,7 +43,7 @@ TODO
 - 每次只解决对应 TODO 的问题，遵守该项允许修改的范围；FAIL 时仅定位当前问题，不自动进入下一项。
 - 不因执行一个 TODO 而删减、合并、重排或重写 roadmap，不提前改变技术方案。
 - 状态只允许使用：`TODO`、`IN_PROGRESS`、`PASS`、`FAIL`、`BLOCKED`。
-- 历史审计和聊天中的分析不是执行结果。T0–T5 的执行结果见对应 Result / Evidence；T6–T32 仍未执行。
+- 历史审计和聊天中的分析不是执行结果。T0–T6 的执行结果见对应 Result / Evidence；后续任务以各自 Status / Result / Evidence 为准。
 
 ### 后续更新规则
 
@@ -107,6 +107,19 @@ Git diff：
 3. **Mac 与服务器的同步分工：** 代码、文档和小型 artifact 使用 Git 同步；数据集和训练产物保留服务器。不允许只在服务器生成长期需要的小型 JSON 而不将其纳入 Git 管理。纳入独立源码仓库管理，不在 tcgs root 初始化 Git 仓库；同步时仍须遵守 dirty working tree 保护规则。
 4. **每个 TODO 完成后必须汇报：** 新增/修改文件、各文件是否 tracked by Git，以及是否需要同步到另一端。明确区分已纳入 Git 管理与尚未跟踪、已同步与待同步，不把服务器文件存在视为已进入版本管理。
 
+## Git repository and commit rule
+
+SoMA repo 是 SoMA-D360-v0 的默认开发仓库。后续涉及 SoMA docs、SoMA configs、SoMA tools 和 SoMA source code 的变更，默认在 `SoMA/` 仓库的 `deform360-adaptation` branch 进行 Git commit/push。
+
+tcgs root Git 仅用于 workspace-level 资产。除非明确说明，不在 tcgs root 提交 SoMA-D360-v0 日常开发文件。不改变现有 SoMA、deform360、PhysTwin 独立 Git repo 的边界。
+
+每个 TODO 完成后的 Git 汇报必须包含：
+
+- 修改文件所属 repository；
+- branch；
+- commit/push 状态；
+- 是否需要另一端同步。
+
 ## Contract 权威版本
 
 长期 contract 的权威版本位于 `SoMA/docs/deform360/contracts/008-pink-cloth/episode_0/`：`frame_manifest.json` 与 `split_contract.json`。本次归档保留 JSON 原始字节和 provenance/hash；路径解析及旧服务器路径与仓库路径的对应关系见该目录的 `README.md`。后续任务应读取仓库内版本，不将服务器生成位置作为唯一引用。T0–T5 历史 Result / Evidence 中的路径保留为当时的执行记录。
@@ -121,7 +134,7 @@ Git diff：
 | T3 | 确认 scale、opacity、rotation 的解释保持一致 | PASS |
 | T4 | 固定原始 frame 与本地 frame 的一一映射 | PASS |
 | T5 | 固定训练／测试边界 | PASS |
-| T6 | 明确采样间隔与模型内部时间尺度 | TODO |
+| T6 | 明确采样间隔与模型内部时间尺度 | PASS |
 | T7 | 选定两个固定 camera ID | PASS |
 | T8 | 只解决相机外参转换 | TODO |
 | T9 | 只解决目标分辨率对应的内参 | TODO |
@@ -132,6 +145,7 @@ Git diff：
 | T14 | 只导出 RGB | TODO |
 | T15 | 只导出 object mask | TODO |
 | T16 | 明确 object mask 与遮挡 loss 的边界 | TODO |
+| T16.5 | 批量生成 SH0 compatible Gaussian sequence | TODO |
 | T17 | 只组装 SoMA scene metadata 与目录契约 | TODO |
 | T18 | 验证初始静态渲染的几何对齐 | TODO |
 | T19 | 让 EmbodiedDataset 读取一个 sample | TODO |
@@ -641,7 +655,7 @@ Status: PASS
 
 ### T6：明确采样间隔与模型内部时间尺度
 
-Status: TODO
+Status: PASS
 
 **问题：** 数据间隔、模型 `dt`、dataset `real_dt/env_cfg.dt` 不是同一个量。
 
@@ -670,11 +684,36 @@ Status: TODO
 
 #### Result
 
-Not executed.
+2026-09-25：PASS（只读时间参数审计与 v0 约定；未改配置、未训练）。数据采样间隔与模型内部时间不是同一个量。为保持官方 backbone 行为，本阶段约定先保留官方有效内部时间参数，不按 Deform360 FPS 或 Stage 2 dense gap 自动重新缩放模型 dt；此为 baseline 的内部数值约定，不将其宣称为真实物理秒。
+
+| 参数 | Stage 1 | Stage 2 |
+|---|---|---|
+| dataset frame_gap | 10 | 1 |
+| source 示例 | 113→123→133 | 113→114→115；任意子窗口 i 对应 source 113+i |
+| 标称观测间隔 | 10/30 秒 | 1/30 秒 |
+| 实测示例（001_cam0） | 113→123 = 0.336055 秒 | 113→114 = 0.036402 秒 |
+| model.dt / backbone.dt / decoder.dt | 1/15 | 1/15（官方现状；不是 dense 观测秒数） |
+| dataset env_cfg.dt（comp_dt） | 1/30 | 1/30 |
+| dataset real_dt[scene] | 1/15 | 1/15 |
+| dataset gravity 时间倍率 | (real_dt/comp_dt)^2 = 4 | 同样为 4 |
+| Stage 2 model.frame_gap | 不适用 | 10（coarse cache/update 间隔，不是 dataset dense gap） |
+
+不额外把 model.dt 乘/除 10 或 5，不把实测 timestamps 直接填入 real_dt。输入 gravity 保持未做时间预缩放的基准值，dataset 仅一次乘 4，再执行已有坐标旋转；不在 adapter/config 预乘 4，也不再次按 gap/FPS 缩放。若基准模长为 9.8，则时间缩放后的模长为 39.2；本项不确定或修改重力方向。
+
+Stage 1 的训练采样延续 T5：local 0,10,…,150 ↔ source 113,123,…,263；Stage 2 dense 训练范围 local 0…154 ↔ source 113…267。后续 gap、dt 或 gravity 若要改为物理时间一致的另一套约定，必须独立验证，不作为本 T6 的隐式修正。
 
 #### Evidence
 
-Not executed.
+- 官方配置：`SoMA/configs/SoMA/cloth_lift_stage1.py` 第 21–23 行与 `SoMA/configs/SoMA/cloth_lift_stage2.py` 第 21–23 行均定义 frame_gap=10、frame_gap_stage2=1、dt=(1/30)*10/5=1/15；两文件第 104/105 行将 real_dt[scene] 设为该 dt。Stage 1 dataset 第 198 行使用 gap=10；Stage 2 第 205 行使用 gap=1，但 model 第 126、132 行仍为 frame_gap=10、dt=1/15。
+- 配置继承：两阶段均继承 `SoMA/configs/_base_/datasets/gs_soma_dataloader.py`，第 27 行 env_cfg.dt=1/30；场景配置只覆盖 real_dt，没有覆盖此 env_cfg.dt。不可把顶层 Python dt 变量误认为自动修改了 dataset comp_dt。
+- `SoMA/mmgs/datasets/embodied_dataset.py` 第 280–294 行读取 gravity、real_dt、comp_dt、frame_gap；第 826 行以 range(start,end,frame_gap) 选帧，第 918 行按同一 video_range 选 controller。第 921–934 行只将 gravity 乘 (real_dt/comp_dt)^2，然后执行 scene rotation；没有依据 timestamps 自动校正步长。
+- `SoMA/mmgs/models/simulators/gs_simulator_embodied.py` 第 84–87 行与 `SoMA/mmgs/models/simulators/gs_simulator_embodied_stage2.py` 第 87–89 行将 model.dt 注入 backbone/decode_head。Stage 2 第 798–800、944–945 行的 model.frame_gap 用于 coarse 更新/cache 对齐，不能当作 dense 视频步长。
+- `SoMA/mmgs/models/backbones/meshgraphnet_embodied.py` 第 330、374、382 行分别用 dt/dt² 计算相对速度、anchor acceleration 和速度；external gravity 与 anchor acceleration 结合，没有再次按采样 gap 做时间换算。
+- `SoMA/mmgs/models/heads/acc_decoder.py` 第 252 行 kinetic 使用 ((pred_pos−2*cur_state+prev_state)/dt)^2；第 253–254、264–270 行直接使用 external 与位置形成重力项，没有第二次 gravity 时间倍率。dt 会影响内部特征/能量，不能仅因 dense gap=1 就无验证地改它。
+- 真实时间证据来自 Git 已归档的 `SoMA/docs/deform360/contracts/008-pink-cloth/episode_0/frame_manifest.json`，SHA256=d48338cf7a606b1ee4bc2e5a560b5a53c017efdc9880a1db282a8494b1b013db，与 T4 原始产物一致。保留 36 个 camera 的原始 aligned_timestamps token 及输入 hash；核验 source=local+113。`deform360/deform360/timestamps.py` 第 10、31 行规定 Unix microseconds，因此差值除以 1e6 得秒。
+- 36 cameras 的 dense 差分共 6948 个：min=0.030940、median=0.032047、max=0.037014、mean=0.0333273834 秒。按 local 0,10,…,190 的 coarse 差分共 684 个：min=0.330925、median=0.332057、max=0.337027、mean=0.3332729474 秒。统计整段只是核对时间间隔，不改变 T5 训练/测试边界；这些并非额外训练监督。
+- 证据限制：本次 SSH 到 amax 超时（exit 255），未重新读取服务器 aligned_timestamps；以上数值来自 T4 已实际读取并归档的原始 timestamp token。本地 SoMA HEAD=12150096ee1d3759adb0a0d724392e54bf4888d6，branch=deform360-adaptation，执行前 clean。未运行 CUDA、未修改配置或训练代码。
+- 本轮只修改本 roadmap（已 tracked），T6 Status/Result/Evidence 与 Progress 更新；尚未 commit/push，后续需通过 Git 同步服务器。未执行 T7。
 
 ---
 
@@ -1055,6 +1094,47 @@ Status: TODO
 **PASS：** 明确哪些像素参与哪些 loss，记录当前 SSIM 不使用 `mask_weights` 的限制；没有宣称已实现完整遮挡处理。
 
 **FAIL 后检查：** 类别标签、mask 分支或 loss 参数传递；若确需改 loss，另列单项，不混入 adapter。
+
+#### Result
+
+Not executed.
+
+#### Evidence
+
+Not executed.
+
+### T16.5：批量生成 SH0 compatible Gaussian sequence
+
+Status: TODO
+
+**问题：** 如何将 Deform360 的 Gaussian sequence 转换为 SoMA 使用的统一 SH0 representation？
+
+**为什么现在解决：** T2 只验证 initial Gaussian conversion，不代表整个 sequence 已完成转换；在 scene packaging 和 training 前，需要保证所有需要的 frame 使用一致的 Gaussian schema。
+
+**输入文件：**
+
+- `datasets/deform360/processed/008-pink-cloth/episode_0/splatfacto/splat_<frame>.ply`
+- T4 frame mapping：`SoMA/docs/deform360/contracts/008-pink-cloth/episode_0/frame_manifest.json`。
+- T2 conversion validation result：本 roadmap 中 T2 的 Result / Evidence。
+
+**预计涉及文件：**
+
+- `SoMA/tools/deform360_adapter/`：拟新增 Gaussian sequence conversion 工具，具体文件名尚未确定。
+- 不修改 `SoMA/gaussian-splatting/scene/gaussian_model.py`。
+
+**最小修改：** 扩展 T2 已验证的 conversion 方法，生成独立 SH0 PLY sequence，保留原始 SH3 PLY。逐帧确认待移除的 `f_rest_*` 全部为零；若存在非零项，停止并报告，不将 T2 的单帧结论外推为整段结论。
+
+**验证方法：**
+
+- frame 范围：source 113–306，对应 local 0–193。
+- 逐帧比较派生文件与对应原始文件：Gaussian 数量是否一致、point order 是否一致、xyz/opacity/scale/rotation 是否保持一致；保留 SH DC 及其他非 `f_rest_*` 属性。
+- 在 Slurm GPU allocation 内使用原始 GaussianModel(0) 验证所有 frame 均可读取。
+
+**PASS：** 所有需要的 frame 均存在 SH0 派生 PLY；与对应原始 Gaussian identity 一致；原始数据未修改。
+
+**identity 边界：** 此处指每帧转换前后的点身份及顺序一致，不据此假定不同 source frame 的重建 PLY 之间具有固定 identity；不将逐帧重建 Gaussian 自动作为 SoMA rollout state。
+
+**FAIL 后检查：** 单帧转换失败、非零高阶 SH、PLY schema 差异、property 顺序、文件完整性。
 
 #### Result
 
