@@ -122,7 +122,7 @@ Git diff：
 | T4 | 固定原始 frame 与本地 frame 的一一映射 | PASS |
 | T5 | 固定训练／测试边界 | PASS |
 | T6 | 明确采样间隔与模型内部时间尺度 | TODO |
-| T7 | 选定两个固定 camera ID | TODO |
+| T7 | 选定两个固定 camera ID | PASS |
 | T8 | 只解决相机外参转换 | TODO |
 | T9 | 只解决目标分辨率对应的内参 | TODO |
 | T10 | 定义单帧 30 点 controller representation | TODO |
@@ -682,7 +682,7 @@ Not executed.
 
 ### T7：选定两个固定 camera ID
 
-Status: TODO
+Status: PASS
 
 **问题：** 哪两个训练视角适合作为 v0 的固定监督？
 
@@ -710,11 +710,44 @@ Status: TODO
 
 #### Result
 
-Not executed.
+2026-09-25：PASS。用户已完成人工确认，正式采用以下两组配置并保留其顺序：
+
+- Config A / v0 minimal baseline（默认最小配置）：[brics-odroid-023_cam0, brics-odroid-009_cam1]。
+- Config B / v0 auxiliary 3-camera comparison（扩展对比配置）：[brics-odroid-023_cam0, brics-odroid-009_cam1, brics-odroid-014_cam1]。
+
+后续 T8 及之后的 camera-related steps 必须支持这两组配置及各自相机顺序，不能只按 Config A 硬编码。本次仅确认选择，不执行 T8。
+
+三份文件角色：camera_manifest.json 为总体候选评估与人工确认记录；camera_config_2cam.json 为默认最小配置；camera_config_3cam.json 为扩展对比配置。三者均保存在 `SoMA/docs/deform360/contracts/008-pink-cloth/episode_0/`，已标记 human_confirmed=true；保留原验证数据与 provenance。
+
+此前候选阶段记录（历史状态，不代表当前结论）：
+
+2026-09-25：IN_PROGRESS — waiting for human confirmation。此前自动选择不再视为最终 PASS。当前候选组合仍为 [brics-odroid-023_cam0, brics-odroid-009_cam1]，尚未锁定；需由用户结合三维布局与代表帧确认后，才能正式固定 camera manifest。
+
+补充可视化位于 `SoMA/docs/deform360/visualizations/t7-review-20260925/`：interactive-layout.html（可拖拽旋转、缩放、点选 ID、切换 XY/XZ 的交互图）、soma_layout.png、deform360_layout.png（各含 3D/XY/XZ），soma_representative.jpg、deform360_candidates.jpg，以及 layout.json。图中 XY/XZ 是原生坐标投影，不是已验证的重力对齐视图；两数据集世界坐标独立。紫色星标仅是光轴最小二乘汇聚点估计，不是实测物体中心。未执行 T8。
+
+新增候选配置比较（2026-09-25）：Config A 为 [023_cam0,009_cam1] minimal baseline；Config B 为 [023_cam0,009_cam1,014_cam1]。两份 JSON 分别位于 `SoMA/docs/deform360/contracts/008-pink-cloth/episode_0/camera_config_2cam.json` 与 `camera_config_3cam.json`，全部 human_confirmed=false。原 camera_manifest.json 内容保持不变，T7 保持 IN_PROGRESS。
 
 #### Evidence
 
-Not executed.
+- 最终确认依据：用户于 2026-09-25 明确确认 Config A 和 Config B 的全部 camera ID、顺序及用途。本轮没有重新筛选相机或使用测试表现；下列 IN_PROGRESS/candidate/未确认描述属于此前阶段记录，当前结论以本项最新 Result 与三份 JSON 的确认字段为准。
+- 四个本轮修改文件均属于 SoMA/deform360-adaptation：roadmap（tracked）及三份 camera JSON（目前 untracked）。未修改源码、未执行 T8、未 commit/push；建议将 T7 相关 contracts 与必要 review 资产一起提交，然后通过 Git 同步另一端。
+
+- 三相机候选选择：重新扫描除原两候选及排除项外的相机训练 mask 113–267，014_cam1 的 155 帧均非空、0 帧触边，foreground min/median/max=91269/113535/131148。它与 023_cam0/009_cam1 光轴夹角为 79.44155°/77.55762°；结合三维布局及 source 113/200/267 的 RGB 提供另一侧形变轮廓，不以测试表现选择。
+- 014_cam1 calibration camera_id=20、metadata index=17，完整 19 列且有限，K 与 metadata 一致；原标定行已保存于 3cam 配置。代表帧仍有夹爪局部遮挡，候选不等于最终确认。
+- 快照：`SoMA/docs/deform360/visualizations/t7-config-comparison-20260925/config_a_2cam.jpg`（2 行相机 × 3 列 source 113/200/267）；同目录 `config_b_3cam.jpg`（3 行 × 3 列，末行为014_cam1）。仅生成两张缩略拼图，未导出完整 sequence。
+- 本补充所属 SoMA/deform360-adaptation：新增两份 candidate JSON 和两张 JPEG（尚未 tracked），修改已 tracked roadmap；未 commit/push，待通过 Git 同步另一端。原 camera_manifest.json 未改动，未修改 loader，未执行 T8。
+
+- 本轮可视化：SoMA calibrate.pkl 按现有 readEmbodiedCameras/extract_extrinsics 的 c2w 约定；Deform360 metric qvec 按 wxyz world-to-camera 绘图，C=-R.T@t，forward=R.T[:,2]。仅为诊断绘图，没有导出 T8 calibration。layout.json 保存全部 ID/位置/光轴与 SoMA serial 对应。
+- SoMA sample 展示全部 3 个相机、帧 0/60/140；Deform360 展示 metadata 中全部 36 个相机，016_cam0 红色排除，023_cam0 橙色、009_cam1 青色候选；代表帧仅 source 113/200/267（训练窗口），共 6 张缩略图。未导出大规模 RGB/mask。
+- camera_manifest.json 已标记 selection_status=IN_PROGRESS、human_confirmed=false、candidate_camera_ids；保留之前诊断信息但不作为最终锁定名单。下列为此前检查证据，不能替代人类确认。
+- SSH 已恢复。读取 `datasets/deform360/inventory_episode_0/cameras.inventory.json` 与 robot_tactile_calibration.inventory.json，候选筛选仅使用 mask 计数的 [113:268]；未用测试指标或测试 RGB 挑选。
+- 实际读取候选 undistorted.mp4 的 source 113、200、267，内存解码检查 RGB 与 mask 边界叠加，不写出 RGB/mask 图像文件。两者夹爪接触附近仍有局部遮挡，未宣称全帧无遮挡。
+- 对选定两相机逐帧重新读取 mask_refined.h5 的训练窗口：023_cam0 非零像素 min/median/max=158227/169436/178730；009_cam1=71141/78212/123345。均 155/155 非空，0/155 触边；数据为 [357,720,1280] uint8。视频均 1280×720、357 frames，三个代表帧解码成功。
+- 023_cam0 metadata index=28、calibration camera_id=36；009_cam1 metadata index=9、calibration camera_id=11。metric_params_refined_undistorted.txt 中都有完整 19 列、有限 fx/fy/cx/cy/distortion/qvec/tvec，内参与 metadata 3×3 K 一致；原始标定行保存于 camera manifest。
+- 以标定 qvec 的相机光轴计算视角分离约 117.26045°，结合训练 RGB 确认互补；没有生成或修改 T8 相机外参。015_cam0 虽有侧面形变信息，但 155 帧均触底边，已拒绝；001_cam0、017_cam0 也触边；008_cam1、013_cam0、027_cam1 等代表帧可见裁边，不以面积最大作为唯一依据。
+- inventory 已确认 016_cam0 的 mask 全零；本次排除。metadata/calibration SHA256 与选定原始标定行记录于 camera_manifest.json，可复核。
+- 本地 SoMA HEAD=12150096ee1d3759adb0a0d724392e54bf4888d6，服务器 SoMA HEAD=8e8772a98f5eeb332745d9b6dd008e6927f050af，服务器源码仓库 clean；未同步或覆盖。本地已有 roadmap 未提交修改全部保留。
+- 所属 repository：SoMA；branch：deform360-adaptation。修改已 tracked roadmap；新增 camera_manifest.json 尚未 tracked，待纳入 Git。未 commit/push；文档和 manifest 后续需通过 Git 同步服务器。未修改 loader、未导出 RGB/mask、未训练、未执行 T8。
 
 ### T8：只解决相机外参转换
 

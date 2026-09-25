@@ -1,0 +1,165 @@
+{
+  "schema_version": 1,
+  "excluded_camera_ids": [
+    "brics-odroid-016_cam0"
+  ],
+  "selection_source_window_half_open": [
+    113,
+    268
+  ],
+  "representative_source_frames": [
+    113,
+    200,
+    267
+  ],
+  "test_performance_used": false,
+  "cameras": [
+    {
+      "camera_id": "brics-odroid-023_cam0",
+      "metadata_index": 28,
+      "calibration_row": [
+        "36",
+        "1280",
+        "720",
+        "883.532092296697",
+        "885.959648843671",
+        "639.500000000000",
+        "359.500000000000",
+        "0.000000000000",
+        "0.000000000000",
+        "0.000000000000",
+        "0.000000000000",
+        "brics-odroid-023_cam0",
+        "0.296195955927",
+        "-0.574789250580",
+        "-0.377601147269",
+        "0.662799099797",
+        "-0.037542761940",
+        "-0.150487900126",
+        "0.697909598028"
+      ],
+      "mask_shape": [
+        357,
+        720,
+        1280
+      ],
+      "mask_dtype": "uint8",
+      "train_mask_min_median_max": [
+        158227,
+        169436,
+        178730
+      ],
+      "train_nonempty_frames": 155,
+      "border_touch_frames": [],
+      "bbox_samples": {
+        "113": [
+          72,
+          185,
+          629,
+          676
+        ],
+        "200": [
+          69,
+          132,
+          630,
+          675
+        ],
+        "267": [
+          71,
+          171,
+          629,
+          675
+        ]
+      },
+      "video_WH_frames": [
+        1280,
+        720,
+        357
+      ]
+    },
+    {
+      "camera_id": "brics-odroid-009_cam1",
+      "metadata_index": 9,
+      "calibration_row": [
+        "11",
+        "1280",
+        "720",
+        "994.010595847117",
+        "988.340865609786",
+        "639.500000000000",
+        "359.500000000000",
+        "0.000000000000",
+        "0.000000000000",
+        "0.000000000000",
+        "0.000000000000",
+        "brics-odroid-009_cam1",
+        "-0.025928164203",
+        "0.858136771731",
+        "-0.004238232934",
+        "0.512748523827",
+        "-0.219429674683",
+        "0.090294252608",
+        "0.380414935018"
+      ],
+      "video_WH_frames": [
+        1280,
+        720,
+        357
+      ],
+      "train_mask_min_median_max": [
+        71141,
+        78212,
+        123345
+      ],
+      "train_nonempty_frames": 155,
+      "border_touch_frames": [],
+      "mask_shape": [
+        357,
+        720,
+        1280
+      ],
+      "mask_dtype": "uint8"
+    }
+  ],
+  "input_hashes": {
+    "metadata.json": "2ba974cfa331b59d201774fbfc864ee4e4c1c72d76a2b51d469d646067648608",
+    "metric_params_refined_undistorted.txt": "d5fcb17f1e25fffd4f633753ea88a580dc2dae9ab67ab0c9f9fcad3aca1b9620"
+  },
+  "selection_rationale": "023_cam0 shows broad cloth outline; 009_cam1 shows complementary side/lift profile. Both have nonempty masks and no border contact in all 155 training frames. Local gripper occlusion remains in representative views.",
+  "optical_axis_angle_degrees": 117.26045380692193,
+  "scope": "Selection only. No calibration conversion, RGB/mask export, training or T8. Optical-axis separation is diagnostic, not a T8 output.",
+  "rejected_candidate": "015_cam0 has border contact in all 155 training frames; not selected.",
+  "candidate_camera_ids": [
+    "brics-odroid-023_cam0",
+    "brics-odroid-009_cam1"
+  ],
+  "selection_status": "confirmed",
+  "human_confirmed": true,
+  "authority": "Overall selection provenance; camera_config_2cam.json is default minimal baseline; camera_config_3cam.json is auxiliary comparison",
+  "confirmed_on": "2026-09-25",
+  "role": "Overall candidate evaluation and human confirmation record",
+  "confirmed_configurations": [
+    {
+      "name": "Config A: v0 minimal two-camera baseline",
+      "role": "default_minimal_baseline",
+      "path": "SoMA/docs/deform360/contracts/008-pink-cloth/episode_0/camera_config_2cam.json",
+      "camera_ids": [
+        "brics-odroid-023_cam0",
+        "brics-odroid-009_cam1"
+      ]
+    },
+    {
+      "name": "Config B: v0 auxiliary three-camera comparison",
+      "role": "auxiliary_3camera_comparison",
+      "path": "SoMA/docs/deform360/contracts/008-pink-cloth/episode_0/camera_config_3cam.json",
+      "camera_ids": [
+        "brics-odroid-023_cam0",
+        "brics-odroid-009_cam1",
+        "brics-odroid-014_cam1"
+      ]
+    }
+  ],
+  "confirmation_source": "Explicit user confirmation of Config A and Config B on 2026-09-25",
+  "downstream_requirement": "T8 and later camera-related steps must support both configurations; no T8 execution is implied.",
+  "candidate_camera_ids_note": "Historical two-camera candidate list, preserved for provenance; current confirmed configurations are listed in confirmed_configurations."
+}

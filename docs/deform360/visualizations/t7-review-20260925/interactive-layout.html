@@ -1,0 +1,577 @@
+<div id="tcgs-camera-review">
+  <h3>相机布局 · T7 候选待确认</h3>
+  <div class="text-small">拖拽旋转 · 滚轮缩放 · 悬停或点选查看 ID · 各图使用独立原生坐标</div>
+  <section data-set="soma"><h3>SoMA · left_lift_1</h3><div class="viz-controls"><button class="btn" data-view="3d">立体</button><button class="btn" data-view="top">XY 俯视</button><button class="btn" data-view="side">XZ 侧视</button></div><canvas aria-label="SoMA 三维相机布局，可拖拽旋转"></canvas><div class="detail text-small" aria-live="polite">相机 0 / 1 / 2</div></section>
+  <section data-set="deform360"><h3>Deform360 · 008-pink-cloth / episode_0</h3><div class="viz-controls"><button class="btn" data-view="3d">立体</button><button class="btn" data-view="top">XY 俯视</button><button class="btn" data-view="side">XZ 侧视</button></div><canvas aria-label="Deform360 全部36个相机，可拖拽旋转，候选相机高亮"></canvas><div class="detail text-small" aria-live="polite">候选 023_cam0、009_cam1；排除 016_cam0</div></section>
+</div>
+<style>
+#tcgs-camera-review canvas{display:block;width:100%;height:420px;touch-action:none;cursor:grab}
+#tcgs-camera-review section{margin:16px 0 26px}
+#tcgs-camera-review .detail{min-height:3em;overflow-wrap:anywhere}
+</style>
+<script type="application/json" id="tcgs-layout-data">{
+  "purpose": "T7 visualization only; candidates pending human confirmation; not T8 conversion",
+  "soma": [
+    {
+      "id": "0",
+      "serial": "230422272244",
+      "position": [
+        0.6804868578910828,
+        -0.31279444694519043,
+        -0.15649810433387756
+      ],
+      "forward": [
+        -0.14693346619606018,
+        0.9351833462715149,
+        0.32224729657173157
+      ]
+    },
+    {
+      "id": "1",
+      "serial": "218622273553",
+      "position": [
+        -0.4883077144622803,
+        -0.4188061058521271,
+        0.5986594557762146
+      ],
+      "forward": [
+        0.5703123807907104,
+        0.7609849572181702,
+        -0.30926743149757385
+      ]
+    },
+    {
+      "id": "2",
+      "serial": "218622279180",
+      "position": [
+        -0.2613869309425354,
+        -0.4931808412075043,
+        -0.28688889741897583
+      ],
+      "forward": [
+        0.3529089391231537,
+        0.8765473961830139,
+        0.3272918462753296
+      ]
+    }
+  ],
+  "deform360": [
+    {
+      "id": "brics-odroid-001_cam0",
+      "position": [
+        0.2448858356377337,
+        0.361819954916521,
+        -0.2219711767485969
+      ],
+      "forward": [
+        -0.17155642881720043,
+        -0.6055222448030138,
+        0.7771172387614422
+      ]
+    },
+    {
+      "id": "brics-odroid-001_cam1",
+      "position": [
+        0.5175761764261083,
+        0.3873984004022122,
+        -0.21171168888514202
+      ],
+      "forward": [
+        -0.4981661313114212,
+        -0.4536925973508147,
+        0.738913751883996
+      ]
+    },
+    {
+      "id": "brics-odroid-002_cam0",
+      "position": [
+        -0.0038434693646842116,
+        0.4011359480551198,
+        -0.27858518703291146
+      ],
+      "forward": [
+        0.4207167952746204,
+        -0.3584322312538097,
+        0.8333808935728422
+      ]
+    },
+    {
+      "id": "brics-odroid-006_cam0",
+      "position": [
+        -0.14334688520963274,
+        0.3769177754763276,
+        -0.17419595179434003
+      ],
+      "forward": [
+        0.7574612273277743,
+        -0.6019039551943115,
+        0.2529112844784634
+      ]
+    },
+    {
+      "id": "brics-odroid-007_cam0",
+      "position": [
+        -0.2108056088478105,
+        0.38176132491637566,
+        0.37676580046718006
+      ],
+      "forward": [
+        0.8317079456567466,
+        -0.4586480765566736,
+        -0.3128958852434748
+      ]
+    },
+    {
+      "id": "brics-odroid-007_cam1",
+      "position": [
+        -0.15900258695235817,
+        0.37964558784980945,
+        0.09717166062505543
+      ],
+      "forward": [
+        0.9197586970224061,
+        -0.392007121557129,
+        0.019348278996850106
+      ]
+    },
+    {
+      "id": "brics-odroid-008_cam0",
+      "position": [
+        -0.17351004545446194,
+        -0.1493883430346483,
+        -0.20835642878366345
+      ],
+      "forward": [
+        0.7950534559485744,
+        0.3700781421341149,
+        0.480554024953272
+      ]
+    },
+    {
+      "id": "brics-odroid-008_cam1",
+      "position": [
+        -0.17829670409855294,
+        -0.14270613478322192,
+        0.08371139313863273
+      ],
+      "forward": [
+        0.822694759112045,
+        0.5338578280410909,
+        -0.1953692728369112
+      ]
+    },
+    {
+      "id": "brics-odroid-009_cam0",
+      "position": [
+        -0.23644496147950092,
+        -0.14056790212362466,
+        0.36095370766065227
+      ],
+      "forward": [
+        0.8845281354648937,
+        0.41100141372604143,
+        -0.22065315652896203
+      ]
+    },
+    {
+      "id": "brics-odroid-009_cam1",
+      "position": [
+        -0.22758942405086238,
+        0.11298974477789174,
+        0.36939725040327165
+      ],
+      "forward": [
+        0.8797969466936995,
+        -0.04884611761318499,
+        -0.47283336322912206
+      ]
+    },
+    {
+      "id": "brics-odroid-010_cam0",
+      "position": [
+        -0.16803123412078197,
+        0.11202220806209547,
+        0.0723596612388183
+      ],
+      "forward": [
+        0.9246161346070823,
+        -0.14410615248843112,
+        -0.35258817399232106
+      ]
+    },
+    {
+      "id": "brics-odroid-010_cam1",
+      "position": [
+        -0.13018567895715463,
+        0.1154388822784691,
+        -0.17412528462087995
+      ],
+      "forward": [
+        0.9465614855896429,
+        -0.10534392883917595,
+        0.30483439873979934
+      ]
+    },
+    {
+      "id": "brics-odroid-011_cam0",
+      "position": [
+        -0.1007214222517882,
+        0.38431870522440587,
+        0.5148686698778462
+      ],
+      "forward": [
+        0.47230279755034976,
+        -0.39207157714884355,
+        -0.7894364735798137
+      ]
+    },
+    {
+      "id": "brics-odroid-012_cam0",
+      "position": [
+        0.4343816846540432,
+        0.39111574283280026,
+        0.5796573487681689
+      ],
+      "forward": [
+        -0.26027681590190227,
+        -0.2937508809933369,
+        -0.9197643171049884
+      ]
+    },
+    {
+      "id": "brics-odroid-012_cam1",
+      "position": [
+        0.1596979988621966,
+        0.3908953144851476,
+        0.5373909201030244
+      ],
+      "forward": [
+        0.024232860607351782,
+        -0.26104819247565586,
+        -0.9650215591747042
+      ]
+    },
+    {
+      "id": "brics-odroid-013_cam0",
+      "position": [
+        0.16150296449886525,
+        -0.1593963958037325,
+        0.5284214089419724
+      ],
+      "forward": [
+        0.09464191173689673,
+        0.25515143649237043,
+        -0.9622581010304179
+      ]
+    },
+    {
+      "id": "brics-odroid-013_cam1",
+      "position": [
+        -0.10998053608820342,
+        -0.16561402288825428,
+        0.5145054612086537
+      ],
+      "forward": [
+        0.5365391640376028,
+        0.40235651503185627,
+        -0.741778241973469
+      ]
+    },
+    {
+      "id": "brics-odroid-014_cam1",
+      "position": [
+        0.4387854321244073,
+        0.11178120704978038,
+        0.5781707420347764
+      ],
+      "forward": [
+        -0.27462071100133545,
+        -0.10357483110202208,
+        -0.9559580113432331
+      ]
+    },
+    {
+      "id": "brics-odroid-015_cam0",
+      "position": [
+        0.16208547315472077,
+        0.10995972476917724,
+        0.5233536509234997
+      ],
+      "forward": [
+        0.08114367429817328,
+        -0.03715654136069288,
+        -0.9960095860761097
+      ]
+    },
+    {
+      "id": "brics-odroid-015_cam1",
+      "position": [
+        -0.10522800521375703,
+        0.10614464168487046,
+        0.5107060749210534
+      ],
+      "forward": [
+        0.4201992544512467,
+        -0.15918070894734093,
+        -0.8933611187295083
+      ]
+    },
+    {
+      "id": "brics-odroid-016_cam0",
+      "position": [
+        0.5698263179630685,
+        0.39528377776073287,
+        0.4522884346882561
+      ],
+      "forward": [
+        -0.7401663331283862,
+        -0.20012845760927025,
+        -0.6419520229411333
+      ]
+    },
+    {
+      "id": "brics-odroid-017_cam0",
+      "position": [
+        0.6209404974595154,
+        0.3778634874772872,
+        -0.0753578618083352
+      ],
+      "forward": [
+        -0.83630555623907,
+        -0.4948463750928793,
+        0.23605101495460137
+      ]
+    },
+    {
+      "id": "brics-odroid-017_cam1",
+      "position": [
+        0.5934368030178926,
+        0.37984588666190544,
+        0.18187742513863916
+      ],
+      "forward": [
+        -0.8300843202279543,
+        -0.46191642647824427,
+        -0.3123991617486587
+      ]
+    },
+    {
+      "id": "brics-odroid-019_cam1",
+      "position": [
+        0.6061581775836437,
+        0.10536871387950353,
+        -0.07623987220741711
+      ],
+      "forward": [
+        -0.9706634582512882,
+        -0.20094972861824373,
+        0.13202900205600301
+      ]
+    },
+    {
+      "id": "brics-odroid-021_cam0",
+      "position": [
+        0.46174793906317463,
+        0.5057077978998453,
+        0.16905718064218891
+      ],
+      "forward": [
+        -0.5470680452729495,
+        -0.8065159009861964,
+        -0.22416211833772948
+      ]
+    },
+    {
+      "id": "brics-odroid-021_cam1",
+      "position": [
+        0.4421480534259752,
+        0.5014754974635928,
+        0.43211629118643563
+      ],
+      "forward": [
+        -0.27906572173414435,
+        -0.7704037812821452,
+        -0.5732367196361149
+      ]
+    },
+    {
+      "id": "brics-odroid-022_cam0",
+      "position": [
+        -0.08975387125947801,
+        0.49633948245358367,
+        0.3572337952742561
+      ],
+      "forward": [
+        0.21373638458129263,
+        -0.7795854459803568,
+        -0.5886962632136594
+      ]
+    },
+    {
+      "id": "brics-odroid-022_cam1",
+      "position": [
+        0.1830073545153266,
+        0.5063768047683846,
+        0.40038692516060254
+      ],
+      "forward": [
+        0.11647662892911358,
+        -0.8222686542330162,
+        -0.5570524707593837
+      ]
+    },
+    {
+      "id": "brics-odroid-023_cam0",
+      "position": [
+        0.4939138543286811,
+        0.5073626191880518,
+        -0.09882383938527829
+      ],
+      "forward": [
+        -0.5382517301656673,
+        -0.8410479040482879,
+        0.05406938199801796
+      ]
+    },
+    {
+      "id": "brics-odroid-024_cam0",
+      "position": [
+        -0.017070382783525823,
+        0.5120943346143292,
+        -0.15148067212074212
+      ],
+      "forward": [
+        0.4105584921314336,
+        -0.8371892408804509,
+        0.3613251990835653
+      ]
+    },
+    {
+      "id": "brics-odroid-024_cam1",
+      "position": [
+        -0.048152735991769106,
+        0.5036998969113111,
+        0.11052002361446787
+      ],
+      "forward": [
+        0.4819203794027509,
+        -0.8727552910156509,
+        -0.07778785201106372
+      ]
+    },
+    {
+      "id": "brics-odroid-025_cam0",
+      "position": [
+        0.23498563291714705,
+        0.4979951377299799,
+        -0.13120939029756515
+      ],
+      "forward": [
+        -0.09923131090835993,
+        -0.9918033526846356,
+        0.08049382919780271
+      ]
+    },
+    {
+      "id": "brics-odroid-025_cam1",
+      "position": [
+        0.20656391075187686,
+        0.5025541792427779,
+        0.1253279725405183
+      ],
+      "forward": [
+        -0.04551258422988913,
+        -0.9145500234356924,
+        -0.40190404241621136
+      ]
+    },
+    {
+      "id": "brics-odroid-027_cam0",
+      "position": [
+        0.4535120565684411,
+        -0.22885593307825045,
+        0.4168712981094799
+      ],
+      "forward": [
+        -0.11286926374021636,
+        0.7900852794923877,
+        -0.6025162076095358
+      ]
+    },
+    {
+      "id": "brics-odroid-027_cam1",
+      "position": [
+        0.1849757325293826,
+        -0.23207708239770347,
+        0.3859117506077343
+      ],
+      "forward": [
+        0.06495588020046023,
+        0.8123315759370855,
+        -0.57956720435421
+      ]
+    },
+    {
+      "id": "brics-odroid-028_cam0",
+      "position": [
+        -0.017783372822065092,
+        -0.22699406086130733,
+        -0.1547742233426152
+      ],
+      "forward": [
+        0.40899553715474457,
+        0.7937835487536332,
+        0.4501447859473557
+      ]
+    }
+  ],
+  "focus_estimate": {
+    "soma": [
+      0.39667076993671957,
+      0.8137648845843535,
+      0.1866471539437059
+    ],
+    "deform360": [
+      0.21605390171789862,
+      0.11688993786605552,
+      0.04400769024713587
+    ]
+  },
+  "deform360_center_consistency_max_abs": null,
+  "conventions": {
+    "soma": "calibrate.pkl c2w; position=M[:3,3], forward=M[:3,2]",
+    "deform360": "metric qvec wxyz world-to-camera: C=-R.T@t, forward=R.T[:,2]",
+    "views": "XY/XZ coordinate projections; not gravity-aligned or common across datasets"
+  }
+}
+</script>
+<script>
+(()=>{
+const root=document.getElementById('tcgs-camera-review');
+const data=JSON.parse(document.getElementById('tcgs-layout-data').textContent);
+const states={};
+function color(token){const span=document.createElement('span');span.style.color=`var(${token})`;root.append(span);const c=getComputedStyle(span).color;span.remove();return c;}
+for(const section of root.querySelectorAll('section')){
+ const key=section.dataset.set,rows=data[key],canvas=section.querySelector('canvas'),ctx=canvas.getContext('2d'),detail=section.querySelector('.detail');
+ const focus=data.focus_estimate[key],points=rows.map(r=>r.position).concat([focus]);
+ const lo=[0,1,2].map(i=>Math.min(...points.map(p=>p[i]))),hi=[0,1,2].map(i=>Math.max(...points.map(p=>p[i])));
+ const center=lo.map((v,i)=>(v+hi[i])/2),span=Math.max(...hi.map((v,i)=>v-lo[i]));
+ const state={yaw:-.65,pitch:.55,zoom:1,selected:null};states[key]=state;let projected=[],drag=null;
+ function project(p){let [x,y,z]=p.map((v,i)=>(v-center[i])/span);let a=Math.cos(state.yaw)*x-Math.sin(state.yaw)*y,b=Math.sin(state.yaw)*x+Math.cos(state.yaw)*y;return [canvas.clientWidth/2+a*scale,canvas.clientHeight/2-(Math.cos(state.pitch)*z-Math.sin(state.pitch)*b)*scale,Math.sin(state.pitch)*z+Math.cos(state.pitch)*b];}
+ let scale=1;
+ function line(a,b,col,width=1,arrow=false){ctx.strokeStyle=col;ctx.lineWidth=width;ctx.beginPath();ctx.moveTo(a[0],a[1]);ctx.lineTo(b[0],b[1]);ctx.stroke();if(arrow){const t=Math.atan2(b[1]-a[1],b[0]-a[0]);ctx.beginPath();ctx.moveTo(b[0]-8*Math.cos(t-.4),b[1]-8*Math.sin(t-.4));ctx.lineTo(b[0],b[1]);ctx.lineTo(b[0]-8*Math.cos(t+.4),b[1]-8*Math.sin(t+.4));ctx.stroke();}}
+ function draw(){const w=canvas.clientWidth,h=canvas.clientHeight,dpr=devicePixelRatio||1;canvas.width=w*dpr;canvas.height=h*dpr;ctx.scale(dpr,dpr);scale=Math.min(w,h)*.65*state.zoom;const fg=color('--foreground'),neutral=color('--muted-foreground'),border=color('--border');ctx.font='12px sans-serif';ctx.strokeStyle=border;ctx.strokeRect(.5,.5,w-1,h-1);
+  const origin=lo.map(v=>v);for(let i=0;i<3;i++){let end=origin.slice();end[i]+=span*.3;const a=project(origin),b=project(end);line(a,b,neutral,1,true);ctx.fillStyle=fg;ctx.fillText('XYZ'[i]+' (m)',b[0]+5,b[1]);}
+  const f=project(focus);ctx.fillStyle=color('--viz-series-4');ctx.fillText('✦',f[0]-5,f[1]+4);
+  projected=rows.map(r=>({...r,p:project(r.position)})).sort((a,b)=>a.p[2]-b.p[2]);
+  for(const r of projected){const candidate=r.id.includes('023_cam0')||r.id.includes('009_cam1'),excluded=r.id.includes('016_cam0');const col=r.id.includes('023_cam0')?color('--viz-series-1'):r.id.includes('009_cam1')?color('--viz-series-2'):excluded?color('--destructive'):neutral;const end=project(r.position.map((v,i)=>v+r.forward[i]*span*.12));line(r.p,end,col,candidate?2:1,true);ctx.fillStyle=col;ctx.beginPath();ctx.arc(r.p[0],r.p[1],candidate?6:4,0,Math.PI*2);ctx.fill();if(excluded){line([r.p[0]-6,r.p[1]-6],[r.p[0]+6,r.p[1]+6],col,2);}
+   if(key==='soma'||candidate||excluded||state.selected===r.id){ctx.fillStyle=fg;const label=r.id.replace('brics-odroid-','')+(candidate?' 候选':excluded?' 排除':'');const tw=ctx.measureText(label).width;ctx.fillText(label,Math.max(4,Math.min(w-tw-4,r.p[0]+9)),Math.max(15,Math.min(h-8,r.p[1]-8)));}}
+ }
+ function inspect(e){const rect=canvas.getBoundingClientRect(),x=e.clientX-rect.left,y=e.clientY-rect.top;const near=projected.map(r=>({r,d:Math.hypot(r.p[0]-x,r.p[1]-y)})).sort((a,b)=>a.d-b.d)[0];if(near&&near.d<25){state.selected=near.r.id;detail.textContent=near.r.id+(near.r.serial?' · serial '+near.r.serial:'')+' · 位置 ['+near.r.position.map(v=>v.toFixed(3)).join(', ')+'] m · 光轴 ['+near.r.forward.map(v=>v.toFixed(3)).join(', ')+']';draw();}}
+ function save(){if(window.openai?.setWidgetState)window.openai.setWidgetState({modelContent:{candidate_camera_ids:['brics-odroid-023_cam0','brics-odroid-009_cam1'],selection_status:'IN_PROGRESS'},privateContent:states}).catch(()=>{});}
+ canvas.addEventListener('pointerdown',e=>{drag=[e.clientX,e.clientY];canvas.setPointerCapture(e.pointerId);inspect(e);});canvas.addEventListener('pointermove',e=>{if(drag){state.yaw+=(e.clientX-drag[0])*.009;state.pitch=Math.max(-1.57,Math.min(1.57,state.pitch+(e.clientY-drag[1])*.009));drag=[e.clientX,e.clientY];draw();}else inspect(e);});canvas.addEventListener('pointerup',()=>{drag=null;save();});canvas.addEventListener('pointercancel',()=>drag=null);canvas.addEventListener('wheel',e=>{e.preventDefault();state.zoom=Math.max(.4,Math.min(4,state.zoom*Math.exp(-e.deltaY*.001)));draw();save();},{passive:false});
+ for(const b of section.querySelectorAll('button'))b.addEventListener('click',()=>{state.yaw=b.dataset.view==='3d'?-.65:0;state.pitch=b.dataset.view==='top'?Math.PI/2:b.dataset.view==='side'?0:.55;state.zoom=1;draw();save();});
+ function restore(v){if(v?.privateContent?.[key])Object.assign(state,v.privateContent[key]);draw();}restore(window.openai?.widgetState);window.addEventListener('openai:set_globals',e=>restore(e.detail?.globals?.widgetState));new ResizeObserver(draw).observe(canvas);
+}
+})();
+</script>

@@ -1,0 +1,111 @@
+{
+  "schema_version": 1,
+  "configuration": "Config B: v0 auxiliary three-camera comparison",
+  "selection_status": "confirmed",
+  "human_confirmed": true,
+  "camera_ids": [
+    "brics-odroid-023_cam0",
+    "brics-odroid-009_cam1",
+    "brics-odroid-014_cam1"
+  ],
+  "camera_order": [
+    {
+      "index": 0,
+      "camera_id": "brics-odroid-023_cam0"
+    },
+    {
+      "index": 1,
+      "camera_id": "brics-odroid-009_cam1"
+    },
+    {
+      "index": 2,
+      "camera_id": "brics-odroid-014_cam1"
+    }
+  ],
+  "source_train_window_half_open": [
+    113,
+    268
+  ],
+  "representative_source_frames": [
+    113,
+    200,
+    267
+  ],
+  "test_performance_used": false,
+  "selection_rationale": "在 Config A 后追加 014_cam1：与 023_cam0/009_cam1 光轴夹角 79.44/77.56 度，训练 mask 全部非空且无触边；代表帧提供另一侧形变轮廓。光轴夹角只是互补性证据之一，不表示无遮挡；该配置已由用户人工确认。",
+  "basic_validation": [
+    {
+      "camera_id": "brics-odroid-023_cam0",
+      "calibration_complete": true,
+      "metadata_index": 28,
+      "train_nonempty_frames": 155,
+      "train_border_contact_frames": 0,
+      "mask_pixels_min_median_max": [
+        158227,
+        169436,
+        178730
+      ]
+    },
+    {
+      "camera_id": "brics-odroid-009_cam1",
+      "calibration_complete": true,
+      "metadata_index": 9,
+      "train_nonempty_frames": 155,
+      "train_border_contact_frames": 0,
+      "mask_pixels_min_median_max": [
+        71141,
+        78212,
+        123345
+      ]
+    },
+    {
+      "camera_id": "brics-odroid-014_cam1",
+      "calibration_complete": true,
+      "metadata_index": 17,
+      "calibration_row": [
+        "20",
+        "1280",
+        "720",
+        "942.364497116677",
+        "937.850675702226",
+        "639.500000000000",
+        "359.500000000000",
+        "0.000000000000",
+        "0.000000000000",
+        "0.000000000000",
+        "0.000000000000",
+        "brics-odroid-014_cam1",
+        "-0.055830110171",
+        "0.988617669051",
+        "-0.024781245165",
+        "-0.137491792943",
+        "-0.258885740835",
+        "0.057946689360",
+        "0.684784239760"
+      ],
+      "K_matches_metadata": true,
+      "train_nonempty_frames": 155,
+      "train_border_contact_frames": 0,
+      "mask_pixels_min_median_max": [
+        91269,
+        113535,
+        131148
+      ],
+      "optical_axis_angles_deg_to_A": [
+        79.44155492264844,
+        77.55762452459766
+      ],
+      "visual_limitation": "夹爪接触附近仍有局部遮挡；不据此认定优于2-camera。"
+    }
+  ],
+  "input_hashes": {
+    "metadata.json": "2ba974cfa331b59d201774fbfc864ee4e4c1c72d76a2b51d469d646067648608",
+    "metric_params_refined_undistorted.txt": "d5fcb17f1e25fffd4f633753ea88a580dc2dae9ab67ab0c9f9fcad3aca1b9620"
+  },
+  "snapshot_path": "SoMA/docs/deform360/visualizations/t7-config-comparison-20260925/config_b_3cam.jpg",
+  "snapshot_sha256": "534e846caf416d960af0e655b6fe681428c8b2aca159877f1c8e497bd0270120",
+  "confirmed_on": "2026-09-25",
+  "confirmation_source": "Explicit user confirmation of both camera configurations",
+  "role": "auxiliary_3camera_comparison",
+  "downstream_requirement": "T8 and later camera-related steps must support Config A and Config B, preserving each configuration camera order."
+}
