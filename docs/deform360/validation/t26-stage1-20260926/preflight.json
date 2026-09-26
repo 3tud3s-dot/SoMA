@@ -1,0 +1,46 @@
+{
+  "task": "T26",
+  "status": "BLOCKED",
+  "reason": "SSH banner exchange timeout; server preflight inaccessible",
+  "date": "2026-09-26",
+  "T25_gate": {
+    "status": "PASS",
+    "commit": "ff02eaf9fceaf6f9bf1f53ebd615eef545ddd922",
+    "push_success": true,
+    "push_attempt": "first normal HTTPS push",
+    "local_equals_origin": true,
+    "ahead": 0,
+    "behind": 0,
+    "working_tree_clean_before_T26": true
+  },
+  "server": {
+    "alias": "amax",
+    "address": "10.157.195.126",
+    "port": 22,
+    "workspace": "/data1/userdata/tcweng/projects/tcgs",
+    "ssh_options": [
+      "ConnectTimeout=12",
+      "BatchMode=yes"
+    ],
+    "observed_error": [
+      "Connection timed out during banner exchange",
+      "Connection to 10.157.195.126 port 22 timed out"
+    ],
+    "exit_code": 255,
+    "successful_connection": false,
+    "server_git_status_verified": false,
+    "server_checkout_updated": false
+  },
+  "execution": {
+    "sbatch_submitted": false,
+    "Slurm_job_id": null,
+    "CUDA_initialized": false,
+    "epochs": 0,
+    "optimizer_steps": 0,
+    "OOM_observed": false,
+    "checkpoint_created": false,
+    "config_modified_after_freeze": false,
+    "T27_executed": false
+  },
+  "next_action": "Once SSH connectivity returns, verify server checkout clean, fast-forward to the T25 commit, validate config/input/output/resources, then submit frozen Config A seed5 training with sbatch. No training attempt has occurred; no OOM workaround or automatic protocol change authorized."
+}

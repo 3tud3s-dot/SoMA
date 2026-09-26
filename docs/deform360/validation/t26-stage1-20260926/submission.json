@@ -1,0 +1,9 @@
+{
+  "job_id": "25850",
+  "submission": "sbatch --parsable /data1/userdata/tcweng/projects/tcgs/outputs/deform360/t26-control-20260926/stage1.sbatch",
+  "head": "ff02eaf9fceaf6f9bf1f53ebd615eef545ddd922",
+  "seed": 5,
+  "config_sha256": "e65d1c7848bd222f55c0e18050c464eec5922aef76c1bc62a06813359cca4930",
+  "stdout": "/data1/userdata/tcweng/projects/tcgs/outputs/deform360/t26-control-20260926/d360-stage1-seed5-25850.stdout.log",
+  "stderr": "/data1/userdata/tcweng/projects/tcgs/outputs/deform360/t26-control-20260926/d360-stage1-seed5-25850.stderr.log"
+}

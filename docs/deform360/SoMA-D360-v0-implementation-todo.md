@@ -27,10 +27,10 @@ Deform360 HEAD:
 d8522a4403b766aeb387510c04e89032a56fdf35
 
 Current task:
-T25
+T26
 
 Current status:
-PASS
+FAIL
 ```
 
 以上 HEAD 为本 roadmap 建立时的源码基线。T0–T11 已 PASS，具体结论及证据保留于各项历史 Result / Evidence。T11 checkpoint 已提交并推送；T12 已按人工确认采用 30→10→2→1 grouping contract 并验证 PASS；此前默认分组 FAIL 历史保留，不进入 T13。
@@ -156,7 +156,7 @@ tcgs root Git 仅用于 workspace-level 资产。除非明确说明，不在 tcg
 | T24 | 验证 checkpoint 保存与恢复 | PASS |
 | T24.5 | 数值重复性 first-divergence audit（Non-gating） | PARTIALLY_ATTRIBUTED |
 | T25 | 冻结首个 baseline 的运行协议 | PASS |
-| T26 | 执行约定预算的 Stage 1 训练 | TODO |
+| T26 | 执行约定预算的 Stage 1 训练 | FAIL |
 | T27 | 只生成并核验 Stage-1 cache | TODO |
 | T28 | 只串联一个 Stage 2 子窗口 | TODO |
 | T29 | 只验证 Stage 2 一个优化步骤 | TODO |
@@ -1784,7 +1784,7 @@ Adam base LR=4e-4，betas=.9/.999、weight_decay=0、amsgrad=False；Hood按zero
 
 ### T26：执行约定预算的 Stage 1 训练
 
-Status: TODO
+Status: FAIL
 
 **问题：** 已贯通的流程能否完成一个有明确预算的训练运行？
 
@@ -1809,11 +1809,23 @@ Status: TODO
 
 #### Result
 
-Not executed.
+2026-09-26：BLOCKED — SSH 前置检查不可达，**训练未启动**。T25 已以 `ff02eaf9fceaf6f9bf1f53ebd615eef545ddd922` 提交并正常 HTTPS push，实际远端 ref/local/tracking HEAD 一致，进入 T26 前 ahead/behind=0/0、working tree clean。对 amax 的只读 SSH 查询多次返回 `Connection timed out during banner exchange` / `Connection to 10.157.195.126 port 22 timed out`（exit255），无法确认服务器工作树或 fast-forward。没有提交 sbatch、没有 CUDA 初始化、0 epochs / 0 optimizer steps、无新 checkpoint；不是训练失败或 OOM。未改 frozen protocol，未执行 T27。
+
+2026-09-26：**RESUMED after SSH recovery**。此前 SSH banner timeout 为 infrastructure transient block before job submission，不是 training FAIL/OOM 或 model/config 问题；原历史及 preflight.json 原样保留。服务器 clean 后从92107be fast-forward到T25 ff02eaf，与Mac/origin一致、ahead/behind=0/0。真实MMCV配置展开通过；794项现有资产hash通过，controller=[194,30,3]、Config A及source113…263采样核验完成。未重新生成数据。已提交正式 Slurm job **25850**（sbatch、seed5、1×5090），本条暂不代表训练完成。
+
+2026-09-26 本轮最终：**FAIL/nonfinite**。sbatch job25850 / amax / 1×RTX5090，seed5，未改T25 frozen protocol。正式训练已开始，在epoch1/iteration1完成rollout3（source113→123→133→143）的forward和聚合loss backward后，275个parameter gradients非有限；在原OptimizerHook的clip_grads前置finite guard处立即停止，未执行clip或optimizer.step。完成0epoch/0optimizer step，无epoch checkpoint，未达到rollout6/9；**没有OOM**。forward total loss=40912.95703125，momentum=7150.60302734375、L2render=28851.828125、SSIM=4910.5263671875均finite。停止时model/normalizer及现有optimizer state仍finite，未产生训练后的Adam checkpoint。
+
+peak allocated=3832729088B（3.570GiB），peak reserved=4066377728B（3.787GiB）；停止时进程显存4578MiB。Slurm elapsed25s，观测器计时11.675s，exit1:0。两台camera实际加载source113…263，三步loss targets仅123/133/143，未使用source≥268。config/794项资产hash和Gaussian fields unchanged，服务器Git仍clean。failure_context.step=3仅表示最后完成的forward step，不声称nonfinite来自step3；未做稳定性修复或重跑。历史SSH事件保留，T24/T25 PASS不变，未执行T27。
 
 #### Evidence
 
-Not executed.
+- [T26 preflight record](validation/t26-stage1-20260926/preflight.json)：T25 push/clean gate、SSH 错误、未提交作业记录。
+- SSH 恢复后须先重新核验服务器 clean、Git fast-forward、配置/输入/输出目录和资源，再按 T25 seed5/1×5090/sbatch 启动。没有本轮训练指标可报告。
+- 本条和 preflight 属于 SoMA/deform360-adaptation 的未提交 T26 记录；未同步服务器。T25 checkpoint 已完成，未 commit/push T26。
+
+- 本轮 [resumed preflight](validation/t26-stage1-20260926/resumed_preflight.json)、[真实展开配置](validation/t26-stage1-20260926/expanded_config.py)、[sbatch](validation/t26-stage1-20260926/stage1.sbatch)、[运行观测工具](validation/t26-stage1-20260926/run_stage1_observed.py)。观测器调用未修改的tools/train.py，无config override；原OptimizerHook/runner继续负责backward、clip、step和checkpoint，仅增加记录及finite-stop检查。
+
+- [T26最终报告](validation/t26-stage1-20260926/README.md)、[summary](validation/t26-stage1-20260926/summary.json)、[training report](validation/t26-stage1-20260926/training_report.json)、[逐步事件](validation/t26-stage1-20260926/events.jsonl)、[完整traceback](validation/t26-stage1-20260926/d360-stage1-seed5-25850.stderr.txt)。small evidence所属SoMA/deform360-adaptation，未commit/push；服务器执行副本在outputs目录。
 
 ### T27：只生成并核验 Stage-1 cache
 
