@@ -27,10 +27,10 @@ Deform360 HEAD:
 d8522a4403b766aeb387510c04e89032a56fdf35
 
 Current task:
-T26
+T26.1
 
 Current status:
-FAIL
+PARTIALLY_ATTRIBUTED
 ```
 
 以上 HEAD 为本 roadmap 建立时的源码基线。T0–T11 已 PASS，具体结论及证据保留于各项历史 Result / Evidence。T11 checkpoint 已提交并推送；T12 已按人工确认采用 30→10→2→1 grouping contract 并验证 PASS；此前默认分组 FAIL 历史保留，不进入 T13。
@@ -42,7 +42,7 @@ FAIL
 - 执行前读取本文件和适用的 AGENTS.md，确认当前任务及前置依赖。前置依赖以既定顺序、各项输入文件和正文引用的 TODO 产物为准。
 - 每次只解决对应 TODO 的问题，遵守该项允许修改的范围；FAIL 时仅定位当前问题，不自动进入下一项。
 - 不因执行一个 TODO 而删减、合并、重排或重写 roadmap，不提前改变技术方案。
-- 主线状态只允许使用：`TODO`、`IN_PROGRESS`、`PASS`、`FAIL`、`BLOCKED`。用户授权的独立 Non-gating diagnostic T24.5 使用 `ATTRIBUTED`、`PARTIALLY_ATTRIBUTED`、`UNRESOLVED`；其分类不改变 T24 PASS，也不阻塞 T25+。
+- 主线状态只允许使用：`TODO`、`IN_PROGRESS`、`PASS`、`FAIL`、`BLOCKED`。用户授权的独立 Non-gating diagnostic T24.5 使用 `ATTRIBUTED`、`PARTIALLY_ATTRIBUTED`、`UNRESOLVED`；其分类不改变 T24 PASS，也不阻塞 T25+。独立 blocking diagnostic T26.1 同样使用这三种分类，但 T26 的 FAIL 保持，未经修复验证不解除阻塞。
 - 历史审计和聊天中的分析不是执行结果。T0–T6 的执行结果见对应 Result / Evidence；后续任务以各自 Status / Result / Evidence 为准。
 
 ### 后续更新规则
@@ -157,6 +157,7 @@ tcgs root Git 仅用于 workspace-level 资产。除非明确说明，不在 tcg
 | T24.5 | 数值重复性 first-divergence audit（Non-gating） | PARTIALLY_ATTRIBUTED |
 | T25 | 冻结首个 baseline 的运行协议 | PASS |
 | T26 | 执行约定预算的 Stage 1 训练 | FAIL |
+| T26.1 | Stage-1 first nonfinite gradient audit（Blocking） | PARTIALLY_ATTRIBUTED |
 | T27 | 只生成并核验 Stage-1 cache | TODO |
 | T28 | 只串联一个 Stage 2 子窗口 | TODO |
 | T29 | 只验证 Stage 2 一个优化步骤 | TODO |
@@ -1826,6 +1827,43 @@ peak allocated=3832729088B（3.570GiB），peak reserved=4066377728B（3.787GiB�
 - 本轮 [resumed preflight](validation/t26-stage1-20260926/resumed_preflight.json)、[真实展开配置](validation/t26-stage1-20260926/expanded_config.py)、[sbatch](validation/t26-stage1-20260926/stage1.sbatch)、[运行观测工具](validation/t26-stage1-20260926/run_stage1_observed.py)。观测器调用未修改的tools/train.py，无config override；原OptimizerHook/runner继续负责backward、clip、step和checkpoint，仅增加记录及finite-stop检查。
 
 - [T26最终报告](validation/t26-stage1-20260926/README.md)、[summary](validation/t26-stage1-20260926/summary.json)、[training report](validation/t26-stage1-20260926/training_report.json)、[逐步事件](validation/t26-stage1-20260926/events.jsonl)、[完整traceback](validation/t26-stage1-20260926/d360-stage1-seed5-25850.stderr.txt)。small evidence所属SoMA/deform360-adaptation，未commit/push；服务器执行副本在outputs目录。
+
+### T26.1：Stage-1 first nonfinite gradient audit
+
+Status: PARTIALLY_ATTRIBUTED
+
+**Blocking diagnostic for T26。** T26 保持 FAIL/nonfinite；本诊断不重启正式训练，也不执行 T27。最终分类使用 ATTRIBUTED / PARTIALLY_ATTRIBUTED / UNRESOLVED，定位本身不使 T26 恢复 PASS。
+
+**问题：** 正式 seed5/random-init rollout3 的 forward loss finite，但聚合 backward 后275个参数梯度非有限；须定位最早失败 rollout、step、loss component 和 first bad backward operation。
+
+**输入：** T25 frozen Config A、T26 job25850失败证据、T17/T19 sample、canonical source113 Gaussian、7mm controller、30→10→2→1、T8/T9 cameras、T13 gravity。保持真实 tools/train.py 初始化/runner路径，每个probe独立新进程；核对initial model/input/camera/Gaussian hashes。
+
+**允许范围：** 独立diagnostic工具和小型报告；临时rollout1/2/3、按step/component选择真实weighted loss做backward。不开optimizer.step或clipping，不改变frozen config、模型/loader/loss、数值精度或backend flags。
+
+**验证顺序：** rollout1/2/3独立probe → 仅最早失败case的step losses → 最早失败step的momentum/L2render/SSIM及实际其他active项 → 已定位component才启用anomaly/关键tensor或op边界hooks。若单项finite而combined失败，比较weighted gradient sum，不能把累计grad当独立component结果。
+
+**记录：** total/components、finite/nonfinite tensor counts、first bad parameter、NaN/+Inf/-Inf counts、finite gradient norm、memory；最后finite backward boundary及首个nonfinite op的source、shape/dtype/grad_input/grad_output。
+
+**分类：** ATTRIBUTED须证明first bad op及来源；PARTIALLY_ATTRIBUTED仅定位module/native boundary；否则UNRESOLVED。即使修法明显也不实施epsilon/clamp/nan_to_num/detach/warm-up等变更。
+
+#### Result
+
+2026-09-26：诊断开始。T26 checkpoint `2aedd3bc28e70a94f940d0e8bcf863544c3ec473` 已push，进入诊断前Mac ahead/behind=0/0且clean；服务器clean fast-forward至同一HEAD。原SSH block和T26 FAIL历史保持原样。
+
+2026-09-26 最终：**PARTIALLY_ATTRIBUTED**。Slurm25851–25854共11个独立进程；289个initial model state tensor、input/camera/Gaussian hashes全exact一致，rollout3 loss=40912.95703125复现正式T26。rollout1/2/3均275个参数梯度nonfinite，均2,466,339 NaN / 0 +Inf / 0 -Inf；另外2个emb_norm参数无grad。最早失败rollout=1、step1 source113→123。
+
+step1 combined、L2render、SSIMrender各自独立backward失败；momentum backward finite，global norm≈7,186,147.159。实际权重1/.9/.1不变；零static无grad，不虚构其他active项。单项已失败，不满足“只有combined累加overflow”前提。
+
+两种render loss的anomaly都指向`_RasterizeGaussiansBackward`；只对该native调用进一步观测确认：camera023的color/depth grad_output finite → `_C.rasterize_gaussians_backward`返回Gaussian row3648的means3D 3个NaN和covariance 6个NaN（0±Inf）；camera009所有返回梯度finite。输出shape分别[12861,3]/[12861,6]、float32，其余finite元素max abs=0。first bad parameter按遍历为scene_attr.rope，但first bad计算边界是renderer native，不是该参数本身。
+
+定位到custom CUDA boundary；尚未证明kernel内部具体算术来源，因此不标ATTRIBUTED。forward显式浮点输入及outputs finite，两个首步render全零；这些现象不作为根因推断。未修改算法或tolerance/precision/flags，无clip/optimizer.step/warmup，无正式训练重启，无checkpoint；T26仍FAIL/blocking，未执行T27。
+
+#### Evidence
+
+- [诊断工具](../../tools/deform360_adapter/audit_first_nonfinite_gradient.py)。小型证据写入 `validation/t26_1-gradient-audit-20260926/`；tensor dumps如需要仅server-only。
+
+- [T26.1完整报告](validation/t26_1-gradient-audit-20260926/README.md)、[first_nonfinite_gradient_contract.json](contracts/008-pink-cloth/episode_0/first_nonfinite_gradient_contract.json)、[native L2](validation/t26_1-gradient-audit-20260926/reports/native_l2.json)、[native SSIM](validation/t26_1-gradient-audit-20260926/reports/native_ssim.json)。源码call sites：simulator:435 → acc_decoder:141 → render.py:231 → installed diff_gaussian_rasterization/__init__.py:127。
+- 全部小型文件属于SoMA/deform360-adaptation，roadmap tracked修改，新contract/tool/evidence尚未tracked；暂不commit/push，待后续Git同步。服务器源码/资产hash未变且clean。
 
 ### T27：只生成并核验 Stage-1 cache
 

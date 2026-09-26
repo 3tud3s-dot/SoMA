@@ -1,0 +1,54 @@
+{
+  "source_hashes_unchanged": true,
+  "asset_hashes_unchanged": true,
+  "asset_count": 794,
+  "checkpoint_files": [],
+  "git_head": "2aedd3bc28e70a94f940d0e8bcf863544c3ec473",
+  "git_status": "",
+  "artifacts": {
+    "anomaly_l2/report.json": {
+      "bytes": 84792,
+      "sha256": "94a2251d0bcb4634a9dd9c23b78a3b9786f0f7adedab5a47d74737a79e3823ac"
+    },
+    "anomaly_ssim/report.json": {
+      "bytes": 84799,
+      "sha256": "cc3311696909844acc95c09bbdc4eedfeeb9e020741cf92c5ab9cfec4f0a6d2e"
+    },
+    "native_l2/report.json": {
+      "bytes": 204192,
+      "sha256": "433f14d2df967c342d9e90a73baa82419f58f3ec51366752d20a9258c6c1c95f"
+    },
+    "native_ssim/report.json": {
+      "bytes": 204198,
+      "sha256": "a83bfd0e27e0a6a05886bb78ed4a48189bc49ee5dba0ae178db35cf4219d62a7"
+    },
+    "r1/report.json": {
+      "bytes": 168683,
+      "sha256": "e626a7123ec28ef595934a12db8201635882700839b9e56c4569584b05444dae"
+    },
+    "r2/report.json": {
+      "bytes": 170244,
+      "sha256": "1a9d365cb0c731d679f960f9806ec986493e1fe3f6c2519593cf9f107dc71638"
+    },
+    "r3/report.json": {
+      "bytes": 171808,
+      "sha256": "8af00078eab0e0dca7e17dce54f03e6659a485be012d45d3b70daa3150e1006d"
+    },
+    "s1_combined/report.json": {
+      "bytes": 168764,
+      "sha256": "5f13f909012bf0a46b09980c93901be1d34321f6fd333a35b9fb12821bd1578a"
+    },
+    "s1_l2/report.json": {
+      "bytes": 168654,
+      "sha256": "af74ac781fa4ba033fca615992709b307a4be0c5353bdeb70a42065e717eb605"
+    },
+    "s1_momentum/report.json": {
+      "bytes": 174325,
+      "sha256": "4bf66e1e0e0cf1e514a550352c4e6bf18f6c09b5cb844eb324180e04d1dfb6d0"
+    },
+    "s1_ssim/report.json": {
+      "bytes": 168662,
+      "sha256": "e3193dcce5b239f246a5174d33ff330935af83f411af6a6d2107e9620c092117"
+    }
+  }
+}

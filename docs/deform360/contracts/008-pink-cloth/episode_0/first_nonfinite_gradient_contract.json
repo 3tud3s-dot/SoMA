@@ -1,0 +1,1665 @@
+{
+  "task": "T26.1",
+  "classification": "PARTIALLY_ATTRIBUTED",
+  "blocking_for": "T26",
+  "T26_status": "FAIL/nonfinite",
+  "date": "2026-09-26",
+  "checkpoint_commit": "2aedd3bc28e70a94f940d0e8bcf863544c3ec473",
+  "canonical_config_sha256": "e65d1c7848bd222f55c0e18050c464eec5922aef76c1bc62a06813359cca4930",
+  "seed": 5,
+  "Slurm_jobs": {
+    "rollout_probes": 25851,
+    "step_and_components": 25852,
+    "anomaly": 25853,
+    "native_boundary": 25854
+  },
+  "probe_count": 11,
+  "independent_fresh_processes": true,
+  "identity_checks": {
+    "initial_state": true,
+    "input_hashes": true,
+    "camera_inputs": true,
+    "initial_Gaussian": true
+  },
+  "initial_registered_tensor_count": 289,
+  "formal_T26_rollout3_total_loss_exact_reproduced": true,
+  "rollout_threshold": 1,
+  "earliest_failing_step": {
+    "step": 1,
+    "input_source": 113,
+    "target_source": 123
+  },
+  "rollout_probes": [
+    {
+      "rollout": 1,
+      "result": "NONFINITE",
+      "loss": 59908.7890625,
+      "components": {
+        "decode.loss_mse_momentum_config_a_2cam": 21445.3359375,
+        "decode.loss_ssim_render_config_a_2cam": 4712.59228515625,
+        "decode.loss_l2_render_config_a_2cam": 33750.86328125,
+        "decode.loss_mse_static_config_a_2cam": 0.0,
+        "loss": 59908.7890625
+      },
+      "finite_gradient_tensors": 0,
+      "nonfinite_gradient_tensors": 275,
+      "missing_gradient_tensors": 2,
+      "first_bad_parameter": "scene_attr.rope",
+      "nan": 2466339,
+      "posinf": 0,
+      "neginf": 0,
+      "global_gradient_norm": null,
+      "memory": {
+        "peak_allocated": 1488919040,
+        "peak_reserved": 1595932672
+      }
+    },
+    {
+      "rollout": 2,
+      "result": "NONFINITE",
+      "loss": 45269.37109375,
+      "components": {
+        "decode.loss_mse_momentum_config_a_2cam": 10723.341796875,
+        "decode.loss_ssim_render_config_a_2cam": 4838.1455078125,
+        "decode.loss_l2_render_config_a_2cam": 29707.884765625,
+        "decode.loss_mse_static_config_a_2cam": 0.0,
+        "loss": 45269.37109375
+      },
+      "finite_gradient_tensors": 0,
+      "nonfinite_gradient_tensors": 275,
+      "missing_gradient_tensors": 2,
+      "first_bad_parameter": "scene_attr.rope",
+      "nan": 2466339,
+      "posinf": 0,
+      "neginf": 0,
+      "global_gradient_norm": null,
+      "memory": {
+        "peak_allocated": 2664304128,
+        "peak_reserved": 2850029568
+      }
+    },
+    {
+      "rollout": 3,
+      "result": "NONFINITE",
+      "loss": 40912.95703125,
+      "components": {
+        "decode.loss_mse_momentum_config_a_2cam": 7150.60302734375,
+        "decode.loss_ssim_render_config_a_2cam": 4910.5263671875,
+        "decode.loss_l2_render_config_a_2cam": 28851.828125,
+        "decode.loss_mse_static_config_a_2cam": 0.0,
+        "loss": 40912.95703125
+      },
+      "finite_gradient_tensors": 0,
+      "nonfinite_gradient_tensors": 275,
+      "missing_gradient_tensors": 2,
+      "first_bad_parameter": "scene_attr.rope",
+      "nan": 2466339,
+      "posinf": 0,
+      "neginf": 0,
+      "global_gradient_norm": null,
+      "memory": {
+        "peak_allocated": 3956113920,
+        "peak_reserved": 4211081216
+      }
+    }
+  ],
+  "component_probes": [
+    {
+      "step": 1,
+      "source_input": 113,
+      "source_target": 123,
+      "component": "combined",
+      "weighted_loss": 59908.7890625,
+      "selected_loss_keys": [
+        "decode.loss_mse_momentum",
+        "decode.loss_ssim_render",
+        "decode.loss_l2_render"
+      ],
+      "result": "NONFINITE",
+      "finite_gradient_tensors": 0,
+      "nonfinite_gradient_tensors": 275,
+      "first_bad_parameter": "scene_attr.rope",
+      "nan": 2466339,
+      "posinf": 0,
+      "neginf": 0,
+      "global_gradient_norm": null
+    },
+    {
+      "step": 1,
+      "source_input": 113,
+      "source_target": 123,
+      "component": "momentum",
+      "weighted_loss": 21445.3359375,
+      "selected_loss_keys": [
+        "decode.loss_mse_momentum"
+      ],
+      "result": "FINITE",
+      "finite_gradient_tensors": 275,
+      "nonfinite_gradient_tensors": 0,
+      "first_bad_parameter": null,
+      "nan": 0,
+      "posinf": 0,
+      "neginf": 0,
+      "global_gradient_norm": 7186147.15948657
+    },
+    {
+      "step": 1,
+      "source_input": 113,
+      "source_target": 123,
+      "component": "l2",
+      "weighted_loss": 33750.86328125,
+      "selected_loss_keys": [
+        "decode.loss_l2_render"
+      ],
+      "result": "NONFINITE",
+      "finite_gradient_tensors": 0,
+      "nonfinite_gradient_tensors": 275,
+      "first_bad_parameter": "scene_attr.rope",
+      "nan": 2466339,
+      "posinf": 0,
+      "neginf": 0,
+      "global_gradient_norm": null
+    },
+    {
+      "step": 1,
+      "source_input": 113,
+      "source_target": 123,
+      "component": "ssim",
+      "weighted_loss": 4712.59228515625,
+      "selected_loss_keys": [
+        "decode.loss_ssim_render"
+      ],
+      "result": "NONFINITE",
+      "finite_gradient_tensors": 0,
+      "nonfinite_gradient_tensors": 275,
+      "first_bad_parameter": "scene_attr.rope",
+      "nan": 2466339,
+      "posinf": 0,
+      "neginf": 0,
+      "global_gradient_norm": null
+    }
+  ],
+  "missing_gradients": [
+    "backbone.encoder.emb_norm.weight",
+    "backbone.encoder.emb_norm.bias"
+  ],
+  "combined_only_overflow_branch_applicable": false,
+  "last_finite_backward_boundary": {
+    "name": "grad_out_color and grad_out_depth entering _C.rasterize_gaussians_backward",
+    "dtype": "float32",
+    "image_shape": [
+      3,
+      360,
+      640
+    ],
+    "depth_shape": [
+      1,
+      360,
+      640
+    ]
+  },
+  "first_nonfinite_backward_boundary": {
+    "op": "diff_gaussian_rasterization._C.rasterize_gaussians_backward",
+    "autograd_node": "_RasterizeGaussiansBackward",
+    "type": "custom C++/CUDA native extension",
+    "camera": "brics-odroid-023_cam0",
+    "Gaussian_row_zero_based": 3648,
+    "returned_means3D_gradient": {
+      "shape": [
+        12861,
+        3
+      ],
+      "dtype": "float32",
+      "nan": 3,
+      "posinf": 0,
+      "neginf": 0,
+      "finite_abs_max": 0.0
+    },
+    "returned_covariance_gradient": {
+      "shape": [
+        12861,
+        6
+      ],
+      "dtype": "float32",
+      "nan": 6,
+      "posinf": 0,
+      "neginf": 0,
+      "finite_abs_max": 0.0
+    },
+    "other_returned_gradients_finite": true,
+    "009_cam1_all_returned_gradients_finite": true,
+    "first_bad_parameter_in_traversal": "scene_attr.rope",
+    "downstream_parameter_gradient_nan": 2466339,
+    "downstream_posinf": 0,
+    "downstream_neginf": 0
+  },
+  "native_evidence": [
+    {
+      "component": "l2",
+      "camera_id": "brics-odroid-009_cam1",
+      "direction": "backward",
+      "camera_index": 1,
+      "args": {
+        "background": {
+          "shape": [
+            3
+          ],
+          "dtype": "torch.float32",
+          "device": "cuda:0",
+          "finite": true,
+          "nan": 0,
+          "posinf": 0,
+          "neginf": 0,
+          "finite_abs_max": 0.0,
+          "finite_abs_min": 0.0
+        },
+        "means3D": {
+          "shape": [
+            12861,
+            3
+          ],
+          "dtype": "torch.float32",
+          "device": "cuda:0",
+          "finite": true,
+          "nan": 0,
+          "posinf": 0,
+          "neginf": 0,
+          "finite_abs_max": 114.12248229980469,
+          "finite_abs_min": 8.821487426757812e-05
+        },
+        "radii": {
+          "shape": [
+            12861
+          ],
+          "dtype": "torch.int32",
+          "device": "cuda:0",
+          "finite": true,
+          "nan": 0,
+          "posinf": 0,
+          "neginf": 0,
+          "finite_abs_max": 2665.0,
+          "finite_abs_min": 0.0
+        },
+        "colors": {
+          "shape": [
+            12861,
+            3
+          ],
+          "dtype": "torch.float32",
+          "device": "cuda:0",
+          "finite": true,
+          "nan": 0,
+          "posinf": 0,
+          "neginf": 0,
+          "finite_abs_max": 1.3415361642837524,
+          "finite_abs_min": 0.0
+        },
+        "opacity": {
+          "shape": [
+            12861,
+            1
+          ],
+          "dtype": "torch.float32",
+          "device": "cuda:0",
+          "finite": true,
+          "nan": 0,
+          "posinf": 0,
+          "neginf": 0,
+          "finite_abs_max": 1.0,
+          "finite_abs_min": 0.012357346713542938
+        },
+        "scales": {
+          "shape": [
+            0
+          ],
+          "dtype": "torch.float32",
+          "device": "cpu",
+          "finite": true,
+          "nan": 0,
+          "posinf": 0,
+          "neginf": 0,
+          "finite_abs_max": null,
+          "finite_abs_min": null
+        },
+        "rotations": {
+          "shape": [
+            0
+          ],
+          "dtype": "torch.float32",
+          "device": "cpu",
+          "finite": true,
+          "nan": 0,
+          "posinf": 0,
+          "neginf": 0,
+          "finite_abs_max": null,
+          "finite_abs_min": null
+        },
+        "scale_modifier": 1.0,
+        "covariance": {
+          "shape": [
+            12861,
+            6
+          ],
+          "dtype": "torch.float32",
+          "device": "cuda:0",
+          "finite": true,
+          "nan": 0,
+          "posinf": 0,
+          "neginf": 0,
+          "finite_abs_max": 62.07981491088867,
+          "finite_abs_min": 0.00036398519296199083
+        },
+        "viewmatrix": {
+          "shape": [
+            4,
+            4
+          ],
+          "dtype": "torch.float32",
+          "device": "cuda:0",
+          "finite": true,
+          "nan": 0,
+          "posinf": 0,
+          "neginf": 0,
+          "finite_abs_max": 1.0,
+          "finite_abs_min": 0.0
+        },
+        "projmatrix": {
+          "shape": [
+            4,
+            4
+          ],
+          "dtype": "torch.float32",
+          "device": "cuda:0",
+          "finite": true,
+          "nan": 0,
+          "posinf": 0,
+          "neginf": 0,
+          "finite_abs_max": 2.7416014671325684,
+          "finite_abs_min": 0.029999379068613052
+        },
+        "tanfovx": 0.64385631569106,
+        "tanfovy": 0.36424680242062785,
+        "grad_out_color": {
+          "shape": [
+            3,
+            360,
+            640
+          ],
+          "dtype": "torch.float32",
+          "device": "cuda:0",
+          "finite": true,
+          "nan": 0,
+          "posinf": 0,
+          "neginf": 0,
+          "finite_abs_max": 0.8999999761581421,
+          "finite_abs_min": 0.0
+        },
+        "grad_out_depth": {
+          "shape": [
+            1,
+            360,
+            640
+          ],
+          "dtype": "torch.float32",
+          "device": "cuda:0",
+          "finite": true,
+          "nan": 0,
+          "posinf": 0,
+          "neginf": 0,
+          "finite_abs_max": 0.0,
+          "finite_abs_min": 0.0
+        },
+        "SH": {
+          "shape": [
+            0
+          ],
+          "dtype": "torch.float32",
+          "device": "cpu",
+          "finite": true,
+          "nan": 0,
+          "posinf": 0,
+          "neginf": 0,
+          "finite_abs_max": null,
+          "finite_abs_min": null
+        },
+        "SHdegree": 0,
+        "camera_center": {
+          "shape": [
+            3
+          ],
+          "dtype": "torch.float32",
+          "device": "cuda:0",
+          "finite": true,
+          "nan": 0,
+          "posinf": 0,
+          "neginf": 0,
+          "finite_abs_max": 0.36939728260040283,
+          "finite_abs_min": 0.11298973858356476
+        },
+        "geomBuffer": {
+          "shape": [
+            1017204
+          ],
+          "dtype": "torch.uint8",
+          "opaque_buffer": true
+        },
+        "num_rendered": 396604,
+        "binningBuffer": {
+          "shape": [
+            14365567
+          ],
+          "dtype": "torch.uint8",
+          "opaque_buffer": true
+        },
+        "imgBuffer": {
+          "shape": [
+            3686528
+          ],
+          "dtype": "torch.uint8",
+          "opaque_buffer": true
+        },
+        "antialiasing": true,
+        "debug": false
+      },
+      "returned_gradients": {
+        "means2D": {
+          "shape": [
+            12861,
+            3
+          ],
+          "dtype": "torch.float32",
+          "device": "cuda:0",
+          "finite": true,
+          "nan": 0,
+          "posinf": 0,
+          "neginf": 0,
+          "finite_abs_max": 0.0,
+          "finite_abs_min": 0.0
+        },
+        "colors": {
+          "shape": [
+            12861,
+            3
+          ],
+          "dtype": "torch.float32",
+          "device": "cuda:0",
+          "finite": true,
+          "nan": 0,
+          "posinf": 0,
+          "neginf": 0,
+          "finite_abs_max": 0.0,
+          "finite_abs_min": 0.0
+        },
+        "opacity": {
+          "shape": [
+            12861,
+            1
+          ],
+          "dtype": "torch.float32",
+          "device": "cuda:0",
+          "finite": true,
+          "nan": 0,
+          "posinf": 0,
+          "neginf": 0,
+          "finite_abs_max": 0.0,
+          "finite_abs_min": 0.0
+        },
+        "means3D": {
+          "shape": [
+            12861,
+            3
+          ],
+          "dtype": "torch.float32",
+          "device": "cuda:0",
+          "finite": true,
+          "nan": 0,
+          "posinf": 0,
+          "neginf": 0,
+          "finite_abs_max": 0.0,
+          "finite_abs_min": 0.0
+        },
+        "covariance": {
+          "shape": [
+            12861,
+            6
+          ],
+          "dtype": "torch.float32",
+          "device": "cuda:0",
+          "finite": true,
+          "nan": 0,
+          "posinf": 0,
+          "neginf": 0,
+          "finite_abs_max": 0.0,
+          "finite_abs_min": 0.0
+        },
+        "SH": {
+          "shape": [
+            12861,
+            0,
+            3
+          ],
+          "dtype": "torch.float32",
+          "device": "cuda:0",
+          "finite": true,
+          "nan": 0,
+          "posinf": 0,
+          "neginf": 0,
+          "finite_abs_max": null,
+          "finite_abs_min": null
+        },
+        "scales": {
+          "shape": [
+            12861,
+            3
+          ],
+          "dtype": "torch.float32",
+          "device": "cuda:0",
+          "finite": true,
+          "nan": 0,
+          "posinf": 0,
+          "neginf": 0,
+          "finite_abs_max": 0.0,
+          "finite_abs_min": 0.0
+        },
+        "rotations": {
+          "shape": [
+            12861,
+            4
+          ],
+          "dtype": "torch.float32",
+          "device": "cuda:0",
+          "finite": true,
+          "nan": 0,
+          "posinf": 0,
+          "neginf": 0,
+          "finite_abs_max": 0.0,
+          "finite_abs_min": 0.0
+        }
+      },
+      "first_bad_rows": {}
+    },
+    {
+      "component": "l2",
+      "camera_id": "brics-odroid-023_cam0",
+      "direction": "backward",
+      "camera_index": 0,
+      "args": {
+        "background": {
+          "shape": [
+            3
+          ],
+          "dtype": "torch.float32",
+          "device": "cuda:0",
+          "finite": true,
+          "nan": 0,
+          "posinf": 0,
+          "neginf": 0,
+          "finite_abs_max": 0.0,
+          "finite_abs_min": 0.0
+        },
+        "means3D": {
+          "shape": [
+            12861,
+            3
+          ],
+          "dtype": "torch.float32",
+          "device": "cuda:0",
+          "finite": true,
+          "nan": 0,
+          "posinf": 0,
+          "neginf": 0,
+          "finite_abs_max": 114.12248229980469,
+          "finite_abs_min": 8.821487426757812e-05
+        },
+        "radii": {
+          "shape": [
+            12861
+          ],
+          "dtype": "torch.int32",
+          "device": "cuda:0",
+          "finite": true,
+          "nan": 0,
+          "posinf": 0,
+          "neginf": 0,
+          "finite_abs_max": 18735.0,
+          "finite_abs_min": 0.0
+        },
+        "colors": {
+          "shape": [
+            12861,
+            3
+          ],
+          "dtype": "torch.float32",
+          "device": "cuda:0",
+          "finite": true,
+          "nan": 0,
+          "posinf": 0,
+          "neginf": 0,
+          "finite_abs_max": 1.3415361642837524,
+          "finite_abs_min": 0.0
+        },
+        "opacity": {
+          "shape": [
+            12861,
+            1
+          ],
+          "dtype": "torch.float32",
+          "device": "cuda:0",
+          "finite": true,
+          "nan": 0,
+          "posinf": 0,
+          "neginf": 0,
+          "finite_abs_max": 1.0,
+          "finite_abs_min": 0.012357346713542938
+        },
+        "scales": {
+          "shape": [
+            0
+          ],
+          "dtype": "torch.float32",
+          "device": "cpu",
+          "finite": true,
+          "nan": 0,
+          "posinf": 0,
+          "neginf": 0,
+          "finite_abs_max": null,
+          "finite_abs_min": null
+        },
+        "rotations": {
+          "shape": [
+            0
+          ],
+          "dtype": "torch.float32",
+          "device": "cpu",
+          "finite": true,
+          "nan": 0,
+          "posinf": 0,
+          "neginf": 0,
+          "finite_abs_max": null,
+          "finite_abs_min": null
+        },
+        "scale_modifier": 1.0,
+        "covariance": {
+          "shape": [
+            12861,
+            6
+          ],
+          "dtype": "torch.float32",
+          "device": "cuda:0",
+          "finite": true,
+          "nan": 0,
+          "posinf": 0,
+          "neginf": 0,
+          "finite_abs_max": 62.07981491088867,
+          "finite_abs_min": 0.00036398519296199083
+        },
+        "viewmatrix": {
+          "shape": [
+            4,
+            4
+          ],
+          "dtype": "torch.float32",
+          "device": "cuda:0",
+          "finite": true,
+          "nan": 0,
+          "posinf": 0,
+          "neginf": 0,
+          "finite_abs_max": 1.0,
+          "finite_abs_min": 0.0
+        },
+        "projmatrix": {
+          "shape": [
+            4,
+            4
+          ],
+          "dtype": "torch.float32",
+          "device": "cuda:0",
+          "finite": true,
+          "nan": 0,
+          "posinf": 0,
+          "neginf": 0,
+          "finite_abs_max": 2.0345547199249268,
+          "finite_abs_min": 0.05182849243283272
+        },
+        "tanfovx": 0.724365312341233,
+        "tanfovy": 0.4063390476867222,
+        "grad_out_color": {
+          "shape": [
+            3,
+            360,
+            640
+          ],
+          "dtype": "torch.float32",
+          "device": "cuda:0",
+          "finite": true,
+          "nan": 0,
+          "posinf": 0,
+          "neginf": 0,
+          "finite_abs_max": 0.8999999761581421,
+          "finite_abs_min": 0.0
+        },
+        "grad_out_depth": {
+          "shape": [
+            1,
+            360,
+            640
+          ],
+          "dtype": "torch.float32",
+          "device": "cuda:0",
+          "finite": true,
+          "nan": 0,
+          "posinf": 0,
+          "neginf": 0,
+          "finite_abs_max": 0.0,
+          "finite_abs_min": 0.0
+        },
+        "SH": {
+          "shape": [
+            0
+          ],
+          "dtype": "torch.float32",
+          "device": "cpu",
+          "finite": true,
+          "nan": 0,
+          "posinf": 0,
+          "neginf": 0,
+          "finite_abs_max": null,
+          "finite_abs_min": null
+        },
+        "SHdegree": 0,
+        "camera_center": {
+          "shape": [
+            3
+          ],
+          "dtype": "torch.float32",
+          "device": "cuda:0",
+          "finite": true,
+          "nan": 0,
+          "posinf": 0,
+          "neginf": 0,
+          "finite_abs_max": 0.5073626637458801,
+          "finite_abs_min": 0.09882384538650513
+        },
+        "geomBuffer": {
+          "shape": [
+            1017204
+          ],
+          "dtype": "torch.uint8",
+          "opaque_buffer": true
+        },
+        "num_rendered": 135049,
+        "binningBuffer": {
+          "shape": [
+            4904063
+          ],
+          "dtype": "torch.uint8",
+          "opaque_buffer": true
+        },
+        "imgBuffer": {
+          "shape": [
+            3686528
+          ],
+          "dtype": "torch.uint8",
+          "opaque_buffer": true
+        },
+        "antialiasing": true,
+        "debug": false
+      },
+      "returned_gradients": {
+        "means2D": {
+          "shape": [
+            12861,
+            3
+          ],
+          "dtype": "torch.float32",
+          "device": "cuda:0",
+          "finite": true,
+          "nan": 0,
+          "posinf": 0,
+          "neginf": 0,
+          "finite_abs_max": 0.0,
+          "finite_abs_min": 0.0
+        },
+        "colors": {
+          "shape": [
+            12861,
+            3
+          ],
+          "dtype": "torch.float32",
+          "device": "cuda:0",
+          "finite": true,
+          "nan": 0,
+          "posinf": 0,
+          "neginf": 0,
+          "finite_abs_max": 0.0,
+          "finite_abs_min": 0.0
+        },
+        "opacity": {
+          "shape": [
+            12861,
+            1
+          ],
+          "dtype": "torch.float32",
+          "device": "cuda:0",
+          "finite": true,
+          "nan": 0,
+          "posinf": 0,
+          "neginf": 0,
+          "finite_abs_max": 0.0,
+          "finite_abs_min": 0.0
+        },
+        "means3D": {
+          "shape": [
+            12861,
+            3
+          ],
+          "dtype": "torch.float32",
+          "device": "cuda:0",
+          "finite": false,
+          "nan": 3,
+          "posinf": 0,
+          "neginf": 0,
+          "finite_abs_max": 0.0,
+          "finite_abs_min": 0.0
+        },
+        "covariance": {
+          "shape": [
+            12861,
+            6
+          ],
+          "dtype": "torch.float32",
+          "device": "cuda:0",
+          "finite": false,
+          "nan": 6,
+          "posinf": 0,
+          "neginf": 0,
+          "finite_abs_max": 0.0,
+          "finite_abs_min": 0.0
+        },
+        "SH": {
+          "shape": [
+            12861,
+            0,
+            3
+          ],
+          "dtype": "torch.float32",
+          "device": "cuda:0",
+          "finite": true,
+          "nan": 0,
+          "posinf": 0,
+          "neginf": 0,
+          "finite_abs_max": null,
+          "finite_abs_min": null
+        },
+        "scales": {
+          "shape": [
+            12861,
+            3
+          ],
+          "dtype": "torch.float32",
+          "device": "cuda:0",
+          "finite": true,
+          "nan": 0,
+          "posinf": 0,
+          "neginf": 0,
+          "finite_abs_max": 0.0,
+          "finite_abs_min": 0.0
+        },
+        "rotations": {
+          "shape": [
+            12861,
+            4
+          ],
+          "dtype": "torch.float32",
+          "device": "cuda:0",
+          "finite": true,
+          "nan": 0,
+          "posinf": 0,
+          "neginf": 0,
+          "finite_abs_max": 0.0,
+          "finite_abs_min": 0.0
+        }
+      },
+      "first_bad_rows": {
+        "means3D": [
+          3648
+        ],
+        "covariance": [
+          3648
+        ]
+      }
+    },
+    {
+      "component": "ssim",
+      "camera_id": "brics-odroid-009_cam1",
+      "direction": "backward",
+      "camera_index": 1,
+      "args": {
+        "background": {
+          "shape": [
+            3
+          ],
+          "dtype": "torch.float32",
+          "device": "cuda:0",
+          "finite": true,
+          "nan": 0,
+          "posinf": 0,
+          "neginf": 0,
+          "finite_abs_max": 0.0,
+          "finite_abs_min": 0.0
+        },
+        "means3D": {
+          "shape": [
+            12861,
+            3
+          ],
+          "dtype": "torch.float32",
+          "device": "cuda:0",
+          "finite": true,
+          "nan": 0,
+          "posinf": 0,
+          "neginf": 0,
+          "finite_abs_max": 114.12248229980469,
+          "finite_abs_min": 8.821487426757812e-05
+        },
+        "radii": {
+          "shape": [
+            12861
+          ],
+          "dtype": "torch.int32",
+          "device": "cuda:0",
+          "finite": true,
+          "nan": 0,
+          "posinf": 0,
+          "neginf": 0,
+          "finite_abs_max": 2665.0,
+          "finite_abs_min": 0.0
+        },
+        "colors": {
+          "shape": [
+            12861,
+            3
+          ],
+          "dtype": "torch.float32",
+          "device": "cuda:0",
+          "finite": true,
+          "nan": 0,
+          "posinf": 0,
+          "neginf": 0,
+          "finite_abs_max": 1.3415361642837524,
+          "finite_abs_min": 0.0
+        },
+        "opacity": {
+          "shape": [
+            12861,
+            1
+          ],
+          "dtype": "torch.float32",
+          "device": "cuda:0",
+          "finite": true,
+          "nan": 0,
+          "posinf": 0,
+          "neginf": 0,
+          "finite_abs_max": 1.0,
+          "finite_abs_min": 0.012357346713542938
+        },
+        "scales": {
+          "shape": [
+            0
+          ],
+          "dtype": "torch.float32",
+          "device": "cpu",
+          "finite": true,
+          "nan": 0,
+          "posinf": 0,
+          "neginf": 0,
+          "finite_abs_max": null,
+          "finite_abs_min": null
+        },
+        "rotations": {
+          "shape": [
+            0
+          ],
+          "dtype": "torch.float32",
+          "device": "cpu",
+          "finite": true,
+          "nan": 0,
+          "posinf": 0,
+          "neginf": 0,
+          "finite_abs_max": null,
+          "finite_abs_min": null
+        },
+        "scale_modifier": 1.0,
+        "covariance": {
+          "shape": [
+            12861,
+            6
+          ],
+          "dtype": "torch.float32",
+          "device": "cuda:0",
+          "finite": true,
+          "nan": 0,
+          "posinf": 0,
+          "neginf": 0,
+          "finite_abs_max": 62.07981491088867,
+          "finite_abs_min": 0.00036398519296199083
+        },
+        "viewmatrix": {
+          "shape": [
+            4,
+            4
+          ],
+          "dtype": "torch.float32",
+          "device": "cuda:0",
+          "finite": true,
+          "nan": 0,
+          "posinf": 0,
+          "neginf": 0,
+          "finite_abs_max": 1.0,
+          "finite_abs_min": 0.0
+        },
+        "projmatrix": {
+          "shape": [
+            4,
+            4
+          ],
+          "dtype": "torch.float32",
+          "device": "cuda:0",
+          "finite": true,
+          "nan": 0,
+          "posinf": 0,
+          "neginf": 0,
+          "finite_abs_max": 2.7416014671325684,
+          "finite_abs_min": 0.029999379068613052
+        },
+        "tanfovx": 0.64385631569106,
+        "tanfovy": 0.36424680242062785,
+        "grad_out_color": {
+          "shape": [
+            3,
+            360,
+            640
+          ],
+          "dtype": "torch.float32",
+          "device": "cuda:0",
+          "finite": true,
+          "nan": 0,
+          "posinf": 0,
+          "neginf": 0,
+          "finite_abs_max": 0.4844515919685364,
+          "finite_abs_min": 0.0
+        },
+        "grad_out_depth": {
+          "shape": [
+            1,
+            360,
+            640
+          ],
+          "dtype": "torch.float32",
+          "device": "cuda:0",
+          "finite": true,
+          "nan": 0,
+          "posinf": 0,
+          "neginf": 0,
+          "finite_abs_max": 0.0,
+          "finite_abs_min": 0.0
+        },
+        "SH": {
+          "shape": [
+            0
+          ],
+          "dtype": "torch.float32",
+          "device": "cpu",
+          "finite": true,
+          "nan": 0,
+          "posinf": 0,
+          "neginf": 0,
+          "finite_abs_max": null,
+          "finite_abs_min": null
+        },
+        "SHdegree": 0,
+        "camera_center": {
+          "shape": [
+            3
+          ],
+          "dtype": "torch.float32",
+          "device": "cuda:0",
+          "finite": true,
+          "nan": 0,
+          "posinf": 0,
+          "neginf": 0,
+          "finite_abs_max": 0.36939728260040283,
+          "finite_abs_min": 0.11298973858356476
+        },
+        "geomBuffer": {
+          "shape": [
+            1017204
+          ],
+          "dtype": "torch.uint8",
+          "opaque_buffer": true
+        },
+        "num_rendered": 396604,
+        "binningBuffer": {
+          "shape": [
+            14365567
+          ],
+          "dtype": "torch.uint8",
+          "opaque_buffer": true
+        },
+        "imgBuffer": {
+          "shape": [
+            3686528
+          ],
+          "dtype": "torch.uint8",
+          "opaque_buffer": true
+        },
+        "antialiasing": true,
+        "debug": false
+      },
+      "returned_gradients": {
+        "means2D": {
+          "shape": [
+            12861,
+            3
+          ],
+          "dtype": "torch.float32",
+          "device": "cuda:0",
+          "finite": true,
+          "nan": 0,
+          "posinf": 0,
+          "neginf": 0,
+          "finite_abs_max": 0.0,
+          "finite_abs_min": 0.0
+        },
+        "colors": {
+          "shape": [
+            12861,
+            3
+          ],
+          "dtype": "torch.float32",
+          "device": "cuda:0",
+          "finite": true,
+          "nan": 0,
+          "posinf": 0,
+          "neginf": 0,
+          "finite_abs_max": 0.0,
+          "finite_abs_min": 0.0
+        },
+        "opacity": {
+          "shape": [
+            12861,
+            1
+          ],
+          "dtype": "torch.float32",
+          "device": "cuda:0",
+          "finite": true,
+          "nan": 0,
+          "posinf": 0,
+          "neginf": 0,
+          "finite_abs_max": 0.0,
+          "finite_abs_min": 0.0
+        },
+        "means3D": {
+          "shape": [
+            12861,
+            3
+          ],
+          "dtype": "torch.float32",
+          "device": "cuda:0",
+          "finite": true,
+          "nan": 0,
+          "posinf": 0,
+          "neginf": 0,
+          "finite_abs_max": 0.0,
+          "finite_abs_min": 0.0
+        },
+        "covariance": {
+          "shape": [
+            12861,
+            6
+          ],
+          "dtype": "torch.float32",
+          "device": "cuda:0",
+          "finite": true,
+          "nan": 0,
+          "posinf": 0,
+          "neginf": 0,
+          "finite_abs_max": 0.0,
+          "finite_abs_min": 0.0
+        },
+        "SH": {
+          "shape": [
+            12861,
+            0,
+            3
+          ],
+          "dtype": "torch.float32",
+          "device": "cuda:0",
+          "finite": true,
+          "nan": 0,
+          "posinf": 0,
+          "neginf": 0,
+          "finite_abs_max": null,
+          "finite_abs_min": null
+        },
+        "scales": {
+          "shape": [
+            12861,
+            3
+          ],
+          "dtype": "torch.float32",
+          "device": "cuda:0",
+          "finite": true,
+          "nan": 0,
+          "posinf": 0,
+          "neginf": 0,
+          "finite_abs_max": 0.0,
+          "finite_abs_min": 0.0
+        },
+        "rotations": {
+          "shape": [
+            12861,
+            4
+          ],
+          "dtype": "torch.float32",
+          "device": "cuda:0",
+          "finite": true,
+          "nan": 0,
+          "posinf": 0,
+          "neginf": 0,
+          "finite_abs_max": 0.0,
+          "finite_abs_min": 0.0
+        }
+      },
+      "first_bad_rows": {}
+    },
+    {
+      "component": "ssim",
+      "camera_id": "brics-odroid-023_cam0",
+      "direction": "backward",
+      "camera_index": 0,
+      "args": {
+        "background": {
+          "shape": [
+            3
+          ],
+          "dtype": "torch.float32",
+          "device": "cuda:0",
+          "finite": true,
+          "nan": 0,
+          "posinf": 0,
+          "neginf": 0,
+          "finite_abs_max": 0.0,
+          "finite_abs_min": 0.0
+        },
+        "means3D": {
+          "shape": [
+            12861,
+            3
+          ],
+          "dtype": "torch.float32",
+          "device": "cuda:0",
+          "finite": true,
+          "nan": 0,
+          "posinf": 0,
+          "neginf": 0,
+          "finite_abs_max": 114.12248229980469,
+          "finite_abs_min": 8.821487426757812e-05
+        },
+        "radii": {
+          "shape": [
+            12861
+          ],
+          "dtype": "torch.int32",
+          "device": "cuda:0",
+          "finite": true,
+          "nan": 0,
+          "posinf": 0,
+          "neginf": 0,
+          "finite_abs_max": 18735.0,
+          "finite_abs_min": 0.0
+        },
+        "colors": {
+          "shape": [
+            12861,
+            3
+          ],
+          "dtype": "torch.float32",
+          "device": "cuda:0",
+          "finite": true,
+          "nan": 0,
+          "posinf": 0,
+          "neginf": 0,
+          "finite_abs_max": 1.3415361642837524,
+          "finite_abs_min": 0.0
+        },
+        "opacity": {
+          "shape": [
+            12861,
+            1
+          ],
+          "dtype": "torch.float32",
+          "device": "cuda:0",
+          "finite": true,
+          "nan": 0,
+          "posinf": 0,
+          "neginf": 0,
+          "finite_abs_max": 1.0,
+          "finite_abs_min": 0.012357346713542938
+        },
+        "scales": {
+          "shape": [
+            0
+          ],
+          "dtype": "torch.float32",
+          "device": "cpu",
+          "finite": true,
+          "nan": 0,
+          "posinf": 0,
+          "neginf": 0,
+          "finite_abs_max": null,
+          "finite_abs_min": null
+        },
+        "rotations": {
+          "shape": [
+            0
+          ],
+          "dtype": "torch.float32",
+          "device": "cpu",
+          "finite": true,
+          "nan": 0,
+          "posinf": 0,
+          "neginf": 0,
+          "finite_abs_max": null,
+          "finite_abs_min": null
+        },
+        "scale_modifier": 1.0,
+        "covariance": {
+          "shape": [
+            12861,
+            6
+          ],
+          "dtype": "torch.float32",
+          "device": "cuda:0",
+          "finite": true,
+          "nan": 0,
+          "posinf": 0,
+          "neginf": 0,
+          "finite_abs_max": 62.07981491088867,
+          "finite_abs_min": 0.00036398519296199083
+        },
+        "viewmatrix": {
+          "shape": [
+            4,
+            4
+          ],
+          "dtype": "torch.float32",
+          "device": "cuda:0",
+          "finite": true,
+          "nan": 0,
+          "posinf": 0,
+          "neginf": 0,
+          "finite_abs_max": 1.0,
+          "finite_abs_min": 0.0
+        },
+        "projmatrix": {
+          "shape": [
+            4,
+            4
+          ],
+          "dtype": "torch.float32",
+          "device": "cuda:0",
+          "finite": true,
+          "nan": 0,
+          "posinf": 0,
+          "neginf": 0,
+          "finite_abs_max": 2.0345547199249268,
+          "finite_abs_min": 0.05182849243283272
+        },
+        "tanfovx": 0.724365312341233,
+        "tanfovy": 0.4063390476867222,
+        "grad_out_color": {
+          "shape": [
+            3,
+            360,
+            640
+          ],
+          "dtype": "torch.float32",
+          "device": "cuda:0",
+          "finite": true,
+          "nan": 0,
+          "posinf": 0,
+          "neginf": 0,
+          "finite_abs_max": 2.026884078979492,
+          "finite_abs_min": 0.0
+        },
+        "grad_out_depth": {
+          "shape": [
+            1,
+            360,
+            640
+          ],
+          "dtype": "torch.float32",
+          "device": "cuda:0",
+          "finite": true,
+          "nan": 0,
+          "posinf": 0,
+          "neginf": 0,
+          "finite_abs_max": 0.0,
+          "finite_abs_min": 0.0
+        },
+        "SH": {
+          "shape": [
+            0
+          ],
+          "dtype": "torch.float32",
+          "device": "cpu",
+          "finite": true,
+          "nan": 0,
+          "posinf": 0,
+          "neginf": 0,
+          "finite_abs_max": null,
+          "finite_abs_min": null
+        },
+        "SHdegree": 0,
+        "camera_center": {
+          "shape": [
+            3
+          ],
+          "dtype": "torch.float32",
+          "device": "cuda:0",
+          "finite": true,
+          "nan": 0,
+          "posinf": 0,
+          "neginf": 0,
+          "finite_abs_max": 0.5073626637458801,
+          "finite_abs_min": 0.09882384538650513
+        },
+        "geomBuffer": {
+          "shape": [
+            1017204
+          ],
+          "dtype": "torch.uint8",
+          "opaque_buffer": true
+        },
+        "num_rendered": 135049,
+        "binningBuffer": {
+          "shape": [
+            4904063
+          ],
+          "dtype": "torch.uint8",
+          "opaque_buffer": true
+        },
+        "imgBuffer": {
+          "shape": [
+            3686528
+          ],
+          "dtype": "torch.uint8",
+          "opaque_buffer": true
+        },
+        "antialiasing": true,
+        "debug": false
+      },
+      "returned_gradients": {
+        "means2D": {
+          "shape": [
+            12861,
+            3
+          ],
+          "dtype": "torch.float32",
+          "device": "cuda:0",
+          "finite": true,
+          "nan": 0,
+          "posinf": 0,
+          "neginf": 0,
+          "finite_abs_max": 0.0,
+          "finite_abs_min": 0.0
+        },
+        "colors": {
+          "shape": [
+            12861,
+            3
+          ],
+          "dtype": "torch.float32",
+          "device": "cuda:0",
+          "finite": true,
+          "nan": 0,
+          "posinf": 0,
+          "neginf": 0,
+          "finite_abs_max": 0.0,
+          "finite_abs_min": 0.0
+        },
+        "opacity": {
+          "shape": [
+            12861,
+            1
+          ],
+          "dtype": "torch.float32",
+          "device": "cuda:0",
+          "finite": true,
+          "nan": 0,
+          "posinf": 0,
+          "neginf": 0,
+          "finite_abs_max": 0.0,
+          "finite_abs_min": 0.0
+        },
+        "means3D": {
+          "shape": [
+            12861,
+            3
+          ],
+          "dtype": "torch.float32",
+          "device": "cuda:0",
+          "finite": false,
+          "nan": 3,
+          "posinf": 0,
+          "neginf": 0,
+          "finite_abs_max": 0.0,
+          "finite_abs_min": 0.0
+        },
+        "covariance": {
+          "shape": [
+            12861,
+            6
+          ],
+          "dtype": "torch.float32",
+          "device": "cuda:0",
+          "finite": false,
+          "nan": 6,
+          "posinf": 0,
+          "neginf": 0,
+          "finite_abs_max": 0.0,
+          "finite_abs_min": 0.0
+        },
+        "SH": {
+          "shape": [
+            12861,
+            0,
+            3
+          ],
+          "dtype": "torch.float32",
+          "device": "cuda:0",
+          "finite": true,
+          "nan": 0,
+          "posinf": 0,
+          "neginf": 0,
+          "finite_abs_max": null,
+          "finite_abs_min": null
+        },
+        "scales": {
+          "shape": [
+            12861,
+            3
+          ],
+          "dtype": "torch.float32",
+          "device": "cuda:0",
+          "finite": true,
+          "nan": 0,
+          "posinf": 0,
+          "neginf": 0,
+          "finite_abs_max": 0.0,
+          "finite_abs_min": 0.0
+        },
+        "rotations": {
+          "shape": [
+            12861,
+            4
+          ],
+          "dtype": "torch.float32",
+          "device": "cuda:0",
+          "finite": true,
+          "nan": 0,
+          "posinf": 0,
+          "neginf": 0,
+          "finite_abs_max": 0.0,
+          "finite_abs_min": 0.0
+        }
+      },
+      "first_bad_rows": {
+        "means3D": [
+          3648
+        ],
+        "covariance": [
+          3648
+        ]
+      }
+    }
+  ],
+  "source": {
+    "SoMA_call_chain": [
+      "mmgs/models/simulators/gs_simulator_embodied.py:435",
+      "mmgs/models/heads/acc_decoder.py:141",
+      "mmgs/models/utils/render.py:231"
+    ],
+    "installed_Python_call_site": "/data1/userdata/tcweng/miniconda3/envs/soma/lib/python3.10/site-packages/diff_gaussian_rasterization/__init__.py:127",
+    "python_path": "/data1/userdata/tcweng/miniconda3/envs/soma/lib/python3.10/site-packages/diff_gaussian_rasterization/__init__.py",
+    "python_sha256": "b3ac794d758c546d32860c5a2fd42b9ac6791d0822d7811d05c8d131a8a38a63",
+    "extension_path": "/data1/userdata/tcweng/miniconda3/envs/soma/lib/python3.10/site-packages/diff_gaussian_rasterization/_C.cpython-310-x86_64-linux-gnu.so",
+    "extension_sha256": "139c2a96118f26f5af40d2d12567c4dec37249142ece70cfcb29483485d9fc50"
+  },
+  "observed_forward_context": {
+    "all_exposed_floating_inputs_outputs_finite": true,
+    "both_rendered_images_all_zero": true,
+    "predicted_position_abs_max": 114.12248229980469,
+    "predicted_covariance_abs_max": 62.07981491088867,
+    "not_a_causal_explanation": true,
+    "opaque_native_byte_buffers_not_interpreted": true
+  },
+  "limitations": [
+    "Exact kernel-internal invalid operation/intermediate overflow has not been identified. NaN at the returned boundary does not rule out internal Inf intermediates.",
+    "Do not attribute this to LR, gradient clipping, DGL, or a particular CUDA formula without further evidence.",
+    "T22 is a different diagnostic initialization/forward history; its finite result is not reproduced under the formal random-init path used here.",
+    "No parameter update, clipping, workaround, precision/backend change, checkpoint or official training restart; T27 not executed."
+  ],
+  "integrity": {
+    "source_hashes_unchanged": true,
+    "asset_hashes_unchanged": true,
+    "asset_count": 794,
+    "checkpoint_files": [],
+    "git_head": "2aedd3bc28e70a94f940d0e8bcf863544c3ec473",
+    "git_status": ""
+  },
+  "evidence_root": "docs/deform360/validation/t26_1-gradient-audit-20260926",
+  "tool": "tools/deform360_adapter/audit_first_nonfinite_gradient.py",
+  "tool_sha256": "6c43c546038719c451657f07b1ff187b60194a414b52e32a43e7d351dd767978"
+}

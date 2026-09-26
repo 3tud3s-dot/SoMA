@@ -1,0 +1,6311 @@
+{
+  "task": "T26.1",
+  "tag": "s1_ssim",
+  "rollout": 1,
+  "selected_step": 1,
+  "component": "ssim",
+  "anomaly": false,
+  "job_id": "25852",
+  "seed": 5,
+  "config_sha256": "e65d1c7848bd222f55c0e18050c464eec5922aef76c1bc62a06813359cca4930",
+  "tool_sha256": "d14e43ffb4a1790f96ea2b57e2311e7f845efe1ae51600090f920e06f302f52f",
+  "optimizer_step": false,
+  "gradient_clipping": false,
+  "formal_training": false,
+  "steps": [
+    {
+      "step": 1,
+      "input_source": 113,
+      "target_source": 123,
+      "all_observed_outputs_finite": true,
+      "pred_pos": {
+        "shape": [
+          12891,
+          3
+        ],
+        "dtype": "torch.float32",
+        "device": "cuda:0",
+        "finite": true,
+        "nan": 0,
+        "posinf": 0,
+        "neginf": 0,
+        "finite_abs_max": 114.12248229980469,
+        "finite_abs_min": 8.821487426757812e-05
+      },
+      "pred_cov": {
+        "shape": [
+          12891,
+          6
+        ],
+        "dtype": "torch.float32",
+        "device": "cuda:0",
+        "finite": true,
+        "nan": 0,
+        "posinf": 0,
+        "neginf": 0,
+        "finite_abs_max": 62.07981491088867,
+        "finite_abs_min": 2.8265640139579773e-07
+      },
+      "losses": {
+        "decode.loss_mse_momentum": 21445.3359375,
+        "decode.loss_ssim_render": 4712.59228515625,
+        "decode.loss_l2_render": 33750.86328125,
+        "decode.acc_l2_render.acc": 0.14384524524211884,
+        "decode.acc_l1_render.acc": 0.225480854511261,
+        "decode.acc_ssim_render.acc": 0.9318201541900635,
+        "decode.acc_psnr_render.acc": 12.821462631225586
+      }
+    }
+  ],
+  "backward_boundaries": [],
+  "gpu": "NVIDIA GeForce RTX 5090",
+  "initial_state": {
+    "scene_attr.rope": {
+      "sha256": "de47c9b27eb8d300dbb5f2c353e632c393262cf06340c4fa7f1b40c4cbd36f90",
+      "shape": [
+        1,
+        5
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.node_encoder.layers.0.0.weight": {
+      "sha256": "7b95b9a7d7f67fece390ba3e57fbf78a4a5d44971d0f8548d1c3b97b43ea1c2b",
+      "shape": [
+        128,
+        11
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.node_encoder.layers.0.0.bias": {
+      "sha256": "d32842367d42b29dd58d154a904b2e8bbcaf3ba7a58b35271c3d5062e3c364ca",
+      "shape": [
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.node_encoder.layers.1.0.weight": {
+      "sha256": "bc9da33d6deb3feac17ce770df8b0f61641877f5f8295bc53acae64b03f36586",
+      "shape": [
+        128,
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.node_encoder.layers.1.0.bias": {
+      "sha256": "e261ca2c6a1de39b0496722c59d9134645404cef9360a68ebd2ed7bd05d0a6f4",
+      "shape": [
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.node_encoder.layers.2.weight": {
+      "sha256": "682646bf0b2383f51c32ef993b19fa751e89f79a329161c2a14c9b2fadc1f90f",
+      "shape": [
+        128,
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.node_encoder.layers.2.bias": {
+      "sha256": "1277d09d8aef16954fed2964eddf829ea87a12d7543211ab6160c3f99ce76b43",
+      "shape": [
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.node_normalizer._acc_count": {
+      "sha256": "df3f619804a92fdb4057192dc43dd748ea778adc52bc498ce80524c014b81119",
+      "shape": [
+        1
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.node_normalizer._num_accumulations": {
+      "sha256": "df3f619804a92fdb4057192dc43dd748ea778adc52bc498ce80524c014b81119",
+      "shape": [
+        1
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.node_normalizer._acc_sum": {
+      "sha256": "15ec7bf0b50732b49f8228e07d24365338f9e3ab994b00af08e5a3bffe55fd8b",
+      "shape": [
+        1,
+        3
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.node_normalizer._acc_sum_squared": {
+      "sha256": "15ec7bf0b50732b49f8228e07d24365338f9e3ab994b00af08e5a3bffe55fd8b",
+      "shape": [
+        1,
+        3
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.anchor_normalizer._acc_count": {
+      "sha256": "df3f619804a92fdb4057192dc43dd748ea778adc52bc498ce80524c014b81119",
+      "shape": [
+        1
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.anchor_normalizer._num_accumulations": {
+      "sha256": "df3f619804a92fdb4057192dc43dd748ea778adc52bc498ce80524c014b81119",
+      "shape": [
+        1
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.anchor_normalizer._acc_sum": {
+      "sha256": "15ec7bf0b50732b49f8228e07d24365338f9e3ab994b00af08e5a3bffe55fd8b",
+      "shape": [
+        1,
+        3
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.anchor_normalizer._acc_sum_squared": {
+      "sha256": "15ec7bf0b50732b49f8228e07d24365338f9e3ab994b00af08e5a3bffe55fd8b",
+      "shape": [
+        1,
+        3
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.edge_encoder.layers.0.0.weight": {
+      "sha256": "344fc43644952a0a0d4117e6b708a6c5a3695508698fac578fc368f6050c9dde",
+      "shape": [
+        128,
+        9
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.edge_encoder.layers.0.0.bias": {
+      "sha256": "e75494555535122ba6d8d94c98d75567c5da94727842b05beb40718dfe016b21",
+      "shape": [
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.edge_encoder.layers.1.0.weight": {
+      "sha256": "21aabafbe184a13ec36bf2f78968d3e74ecbd89bbfd5677fc1472c74184b5cee",
+      "shape": [
+        128,
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.edge_encoder.layers.1.0.bias": {
+      "sha256": "3f646112431f3e60b642eb9a4d256348cd029fc2757d7edfa4290a0fce535e31",
+      "shape": [
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.edge_encoder.layers.2.weight": {
+      "sha256": "8d9bf07129d277489a1da1965283db2ea368c34dd111435e069eae75844af960",
+      "shape": [
+        128,
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.edge_encoder.layers.2.bias": {
+      "sha256": "c3cea5f073bdb97daa55a291cc53113e49a048c58b9aa93dec047e30a6abb704",
+      "shape": [
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.edge_normalizer._acc_count": {
+      "sha256": "df3f619804a92fdb4057192dc43dd748ea778adc52bc498ce80524c014b81119",
+      "shape": [
+        1
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.edge_normalizer._num_accumulations": {
+      "sha256": "df3f619804a92fdb4057192dc43dd748ea778adc52bc498ce80524c014b81119",
+      "shape": [
+        1
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.edge_normalizer._acc_sum": {
+      "sha256": "3addfb141cd7c9c4c6543a82191a3707ac29c7a041217782e61d4d91c691aee8",
+      "shape": [
+        1,
+        7
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.edge_normalizer._acc_sum_squared": {
+      "sha256": "3addfb141cd7c9c4c6543a82191a3707ac29c7a041217782e61d4d91c691aee8",
+      "shape": [
+        1,
+        7
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.0.norms.0.weight": {
+      "sha256": "702cc37cfd91cac6b67c8bd7cc3c9da19f7a52986a8435bc2d1269721a65ce78",
+      "shape": [
+        384
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.0.norms.0.bias": {
+      "sha256": "80422bc3d307b4a25bdafcc84ac7fb01cb55a09810e8b0f37bb12e0edb5c48ca",
+      "shape": [
+        384
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.0.norms.1.weight": {
+      "sha256": "893a106828fbdb9521e1d868c985aab7ad2ae2f606edc55329265a5e7676006c",
+      "shape": [
+        256
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.0.norms.1.bias": {
+      "sha256": "5f70bf18a086007016e948b04aed3b82103a36bea41755b6cddfaf10ace3c6ef",
+      "shape": [
+        256
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.0.edge_weight.layers.0.0.weight": {
+      "sha256": "a65dc29b3574034e8c33bb7ebb326d7ff3da2431631036769d4bf69be84a1914",
+      "shape": [
+        128,
+        384
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.0.edge_weight.layers.0.0.bias": {
+      "sha256": "df940e1f1861ec36ca67bd905ab74c32e2013577455f22c808797c8d3bf07593",
+      "shape": [
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.0.edge_weight.layers.1.0.weight": {
+      "sha256": "f107265c835459198353789ba76ef327689fd4160a003952de1004b064259073",
+      "shape": [
+        128,
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.0.edge_weight.layers.1.0.bias": {
+      "sha256": "78be05b3b0334e729506d8b328aaf3fa8234bc5f75e3597f6638156ec3a5ef20",
+      "shape": [
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.0.edge_weight.layers.2.weight": {
+      "sha256": "ce8d4f476db4f02682f72576495ed85e78baab9b6ae65ec377dcd1bb3a98875d",
+      "shape": [
+        128,
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.0.edge_weight.layers.2.bias": {
+      "sha256": "a40d4d0c5a5309b4e565d9fe85bd8daea4304d927f1b2cbd84638e622f4f858e",
+      "shape": [
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.0.node_weight.layers.0.0.weight": {
+      "sha256": "96d713507769b9980ddb8c0c2bae76d3f40968fbebd91858ba515a0a9262aad5",
+      "shape": [
+        128,
+        256
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.0.node_weight.layers.0.0.bias": {
+      "sha256": "6f34042f31d37a06a70e40807511ddb1585551f1a484eec5ca72a10f1c2a0ffd",
+      "shape": [
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.0.node_weight.layers.1.0.weight": {
+      "sha256": "9244a53879a65311001f33ecd5340c3afa7fb92147d1c026e5482dca14700929",
+      "shape": [
+        128,
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.0.node_weight.layers.1.0.bias": {
+      "sha256": "f26dd0f69193f2ea60cbd854f4a185b67eddd5d829b8d2691ca22828d4818fa0",
+      "shape": [
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.0.node_weight.layers.2.weight": {
+      "sha256": "1f550f35047054ea207b5ba7cce2ac26fba4e719b6e1966ea7ae4aca967b68fd",
+      "shape": [
+        128,
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.0.node_weight.layers.2.bias": {
+      "sha256": "2c9dea28907dcb8c39acc3d88c0607f0b7f2f57fdee497e58709655b6cc854fe",
+      "shape": [
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.1.norms.0.weight": {
+      "sha256": "702cc37cfd91cac6b67c8bd7cc3c9da19f7a52986a8435bc2d1269721a65ce78",
+      "shape": [
+        384
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.1.norms.0.bias": {
+      "sha256": "80422bc3d307b4a25bdafcc84ac7fb01cb55a09810e8b0f37bb12e0edb5c48ca",
+      "shape": [
+        384
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.1.norms.1.weight": {
+      "sha256": "893a106828fbdb9521e1d868c985aab7ad2ae2f606edc55329265a5e7676006c",
+      "shape": [
+        256
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.1.norms.1.bias": {
+      "sha256": "5f70bf18a086007016e948b04aed3b82103a36bea41755b6cddfaf10ace3c6ef",
+      "shape": [
+        256
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.1.edge_weight.layers.0.0.weight": {
+      "sha256": "6e160c5a368c315d7a6043a4f2cf5b169611fad69e7e56dee02151ae215b3353",
+      "shape": [
+        128,
+        384
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.1.edge_weight.layers.0.0.bias": {
+      "sha256": "027bdec73826e222ce12b5278324b31271049b692203f4388ddeec828c374b62",
+      "shape": [
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.1.edge_weight.layers.1.0.weight": {
+      "sha256": "9b6ae830eda7c3e912df592b25bb452a4de29196e994eed3e783ba65e7275286",
+      "shape": [
+        128,
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.1.edge_weight.layers.1.0.bias": {
+      "sha256": "642234fe9b95499810774ee86eab39acf4bee084eb8c1bdfe038ea1134ef2913",
+      "shape": [
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.1.edge_weight.layers.2.weight": {
+      "sha256": "484e76cc5b5a08209a33d2617023e41b82c608190d517c9f2703e94b951743ef",
+      "shape": [
+        128,
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.1.edge_weight.layers.2.bias": {
+      "sha256": "2f126388b99477abcba72445bfda03a6ee220ae8f5cac55acc407bbb1cd83ecf",
+      "shape": [
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.1.node_weight.layers.0.0.weight": {
+      "sha256": "1c1417d7b2c18ca9ad5b5be08caa29c349c34bcb164b0fdf7f0f0a0db8ae24b3",
+      "shape": [
+        128,
+        256
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.1.node_weight.layers.0.0.bias": {
+      "sha256": "87f026c043b26ef1d8a3dd423864e4522b3c156694dc08c89c7dc149e403a7dc",
+      "shape": [
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.1.node_weight.layers.1.0.weight": {
+      "sha256": "48ca35d5a9e1ea299f9404b299d033cbaaaa8ae4e1d9ce46fb0978b57e6d752a",
+      "shape": [
+        128,
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.1.node_weight.layers.1.0.bias": {
+      "sha256": "d58efa8a15aceabba17e8b16d882ef267231125274cf4dfaa82b4b1724150cc9",
+      "shape": [
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.1.node_weight.layers.2.weight": {
+      "sha256": "101a203f7385c556fcfbb59112dddae49f8d2ef8c5c026bc1343c93d1c752dec",
+      "shape": [
+        128,
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.1.node_weight.layers.2.bias": {
+      "sha256": "3f043ac7517dd1a858b85e6d52a2dc239fee4361ff9574b8b17aabdb15da4330",
+      "shape": [
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.2.norms.0.weight": {
+      "sha256": "702cc37cfd91cac6b67c8bd7cc3c9da19f7a52986a8435bc2d1269721a65ce78",
+      "shape": [
+        384
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.2.norms.0.bias": {
+      "sha256": "80422bc3d307b4a25bdafcc84ac7fb01cb55a09810e8b0f37bb12e0edb5c48ca",
+      "shape": [
+        384
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.2.norms.1.weight": {
+      "sha256": "893a106828fbdb9521e1d868c985aab7ad2ae2f606edc55329265a5e7676006c",
+      "shape": [
+        256
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.2.norms.1.bias": {
+      "sha256": "5f70bf18a086007016e948b04aed3b82103a36bea41755b6cddfaf10ace3c6ef",
+      "shape": [
+        256
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.2.edge_weight.layers.0.0.weight": {
+      "sha256": "e0a24a3065fa5132f0df18242bca01a5658bef7e0af341d43dd8b2b9a072f3c8",
+      "shape": [
+        128,
+        384
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.2.edge_weight.layers.0.0.bias": {
+      "sha256": "9af13c8a221d16ebbb343df0d9ec8c7d2824ee9db7fabe72194ee34e68ee8e2d",
+      "shape": [
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.2.edge_weight.layers.1.0.weight": {
+      "sha256": "5d66e3d09b7b1e231f918b6a3839abc65fd03b3cc7c16f5468d97e1f8fbb7f19",
+      "shape": [
+        128,
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.2.edge_weight.layers.1.0.bias": {
+      "sha256": "848bea10c778130b2472638b27eabc025aee86a488edc32e3e60dba9e3db7055",
+      "shape": [
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.2.edge_weight.layers.2.weight": {
+      "sha256": "12bb7bebe7942245bb1dde6c929a060fe224d9f2e613874fb248d50ab7e57108",
+      "shape": [
+        128,
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.2.edge_weight.layers.2.bias": {
+      "sha256": "4b1efa46510e0ec113c769206f0b2289b039dab9c685e7bfbf40dbf12e062797",
+      "shape": [
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.2.node_weight.layers.0.0.weight": {
+      "sha256": "71abffdce201520c9e2be7701b99cecd506b027aacc0c37c3335b2ac251cc6ac",
+      "shape": [
+        128,
+        256
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.2.node_weight.layers.0.0.bias": {
+      "sha256": "06960a4022d67f6759747affa369384ac312cb10ea10088db3e839f5c89feeee",
+      "shape": [
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.2.node_weight.layers.1.0.weight": {
+      "sha256": "578208be51f5555351060f82287498f0c2db159057b113c033630ec3680e0975",
+      "shape": [
+        128,
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.2.node_weight.layers.1.0.bias": {
+      "sha256": "e8ea56f3381477c0dd600251a5e7603c3136f4e301446e3585d940b534a7e1e0",
+      "shape": [
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.2.node_weight.layers.2.weight": {
+      "sha256": "8a1e152a93556c8d49743448d29dcea511b63cec534409f14531e9ca60ff0e79",
+      "shape": [
+        128,
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.2.node_weight.layers.2.bias": {
+      "sha256": "31aa834b7a935763ab8a23a701c248a8b51464d92fdf6addec1e51522faa055b",
+      "shape": [
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.3.norms.0.weight": {
+      "sha256": "702cc37cfd91cac6b67c8bd7cc3c9da19f7a52986a8435bc2d1269721a65ce78",
+      "shape": [
+        384
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.3.norms.0.bias": {
+      "sha256": "80422bc3d307b4a25bdafcc84ac7fb01cb55a09810e8b0f37bb12e0edb5c48ca",
+      "shape": [
+        384
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.3.norms.1.weight": {
+      "sha256": "893a106828fbdb9521e1d868c985aab7ad2ae2f606edc55329265a5e7676006c",
+      "shape": [
+        256
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.3.norms.1.bias": {
+      "sha256": "5f70bf18a086007016e948b04aed3b82103a36bea41755b6cddfaf10ace3c6ef",
+      "shape": [
+        256
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.3.edge_weight.layers.0.0.weight": {
+      "sha256": "b84e5ae8efca91345735cc907f091ee5ee6a761205425bc965fcb74db63657f8",
+      "shape": [
+        128,
+        384
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.3.edge_weight.layers.0.0.bias": {
+      "sha256": "8c5e9cf30cce3c1facffea0b45086868521a301e7e2b17aed2e8d1d5ac777760",
+      "shape": [
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.3.edge_weight.layers.1.0.weight": {
+      "sha256": "e90197f03dc7c34c73b264c755b9fe07edf1a4f4b45604b7993ac88bdfd9aa80",
+      "shape": [
+        128,
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.3.edge_weight.layers.1.0.bias": {
+      "sha256": "fcf60112011f7e6bbec376d824fe2bb849d01b624ae7a954b8fc1d0a81d0c4b7",
+      "shape": [
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.3.edge_weight.layers.2.weight": {
+      "sha256": "0342e9f11b4456a87b351a5e3c508543016d1a16ce8c647eeeaf06ad98815f9e",
+      "shape": [
+        128,
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.3.edge_weight.layers.2.bias": {
+      "sha256": "a08252ccf27a18a88b7b3841029e2a5180eba70e6f6c4e27ed0e33a3ae4ffece",
+      "shape": [
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.3.node_weight.layers.0.0.weight": {
+      "sha256": "56cdb76169e88d206eead03cf91cf99c9bf9b0bc85d50e7e5f786cd3fd13c8cd",
+      "shape": [
+        128,
+        256
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.3.node_weight.layers.0.0.bias": {
+      "sha256": "8fbd1e20e5759a6a80c2eae887d08a6097992f65b34011b522b9b01d5e5e4ce5",
+      "shape": [
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.3.node_weight.layers.1.0.weight": {
+      "sha256": "7821c7e295f8e17c531692a6c174637d21f149bc7ff5033a37dc0bd88f4f55b3",
+      "shape": [
+        128,
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.3.node_weight.layers.1.0.bias": {
+      "sha256": "bcb084415d5853de1848934adedf1a1f4239005e8c595c27fb39aacbcbfffa1d",
+      "shape": [
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.3.node_weight.layers.2.weight": {
+      "sha256": "b9842cfaa75e78d13f0faad18aa9b9cf6c48cf38b286c0354a204daafd94e1df",
+      "shape": [
+        128,
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.3.node_weight.layers.2.bias": {
+      "sha256": "c12ba71af6b789bb95efd8eff148cc1d53ce747c1e49d052135403a4701ee3bf",
+      "shape": [
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.4.norms.0.weight": {
+      "sha256": "702cc37cfd91cac6b67c8bd7cc3c9da19f7a52986a8435bc2d1269721a65ce78",
+      "shape": [
+        384
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.4.norms.0.bias": {
+      "sha256": "80422bc3d307b4a25bdafcc84ac7fb01cb55a09810e8b0f37bb12e0edb5c48ca",
+      "shape": [
+        384
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.4.norms.1.weight": {
+      "sha256": "893a106828fbdb9521e1d868c985aab7ad2ae2f606edc55329265a5e7676006c",
+      "shape": [
+        256
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.4.norms.1.bias": {
+      "sha256": "5f70bf18a086007016e948b04aed3b82103a36bea41755b6cddfaf10ace3c6ef",
+      "shape": [
+        256
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.4.edge_weight.layers.0.0.weight": {
+      "sha256": "e5e6c07a956f698539146f36b64fcf38d7334791d268f5fca483268ed9680f1d",
+      "shape": [
+        128,
+        384
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.4.edge_weight.layers.0.0.bias": {
+      "sha256": "1ac9ac11a1e446cc0ffa3248636503bf945385a22baa156eb40a42e960f8987c",
+      "shape": [
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.4.edge_weight.layers.1.0.weight": {
+      "sha256": "95b4be2930f0499b76371d478fc4eabe5206fdd624d7c6f8d859b3989670f9b4",
+      "shape": [
+        128,
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.4.edge_weight.layers.1.0.bias": {
+      "sha256": "cd84bbfec844990f1f6128e9846b89e9aaa27ebaa1631489ac0ab2cfea642d30",
+      "shape": [
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.4.edge_weight.layers.2.weight": {
+      "sha256": "ca25d0e1a765631dcaca3b93a18320c6c36ee9d201e62e58903eb2f063be8200",
+      "shape": [
+        128,
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.4.edge_weight.layers.2.bias": {
+      "sha256": "b660150bd27340cc4b4efa8ae0b58bed9224418c1436968f9bcee65beb351c49",
+      "shape": [
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.4.node_weight.layers.0.0.weight": {
+      "sha256": "7b87792abd35d6c5e8b5e4f11cf1dc46b9ab830736767fce12e8c65bdee82e8d",
+      "shape": [
+        128,
+        256
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.4.node_weight.layers.0.0.bias": {
+      "sha256": "69c9735f9ca87390f83cbc7a7bda83f82f6202f5b074267b8fc0dab1ffc7f90c",
+      "shape": [
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.4.node_weight.layers.1.0.weight": {
+      "sha256": "488b1d1d8ce2231e4b923ef6861d8a5bedddc4d35fb7e1098392f51fddaeb190",
+      "shape": [
+        128,
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.4.node_weight.layers.1.0.bias": {
+      "sha256": "d01862f62cc95586b01272bf46122f5af6eec39c9054dd839b9cfbda4c04543c",
+      "shape": [
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.4.node_weight.layers.2.weight": {
+      "sha256": "823a92f88f2d95166391e3bb7c746b929774bd23f5792ed7db867a83dd50199f",
+      "shape": [
+        128,
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.4.node_weight.layers.2.bias": {
+      "sha256": "d02f42fba36027a24508a3fe173a1a550d3f95e88860f7fcf1f1a2ca265a34cf",
+      "shape": [
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.5.norms.0.weight": {
+      "sha256": "702cc37cfd91cac6b67c8bd7cc3c9da19f7a52986a8435bc2d1269721a65ce78",
+      "shape": [
+        384
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.5.norms.0.bias": {
+      "sha256": "80422bc3d307b4a25bdafcc84ac7fb01cb55a09810e8b0f37bb12e0edb5c48ca",
+      "shape": [
+        384
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.5.norms.1.weight": {
+      "sha256": "893a106828fbdb9521e1d868c985aab7ad2ae2f606edc55329265a5e7676006c",
+      "shape": [
+        256
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.5.norms.1.bias": {
+      "sha256": "5f70bf18a086007016e948b04aed3b82103a36bea41755b6cddfaf10ace3c6ef",
+      "shape": [
+        256
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.5.edge_weight.layers.0.0.weight": {
+      "sha256": "3392a9c36f502866f33270e212f30c4e8386c7f5868652c87f512b5293b5fbc8",
+      "shape": [
+        128,
+        384
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.5.edge_weight.layers.0.0.bias": {
+      "sha256": "b54e3aebffc64fddb6e9e9c6aae97b84118df38ebd5c28f27c887d501726d2b9",
+      "shape": [
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.5.edge_weight.layers.1.0.weight": {
+      "sha256": "7468f08b55fcb4224cba8fe0e49999bc28a09434dcf293bcd1fc1cedab7b50b9",
+      "shape": [
+        128,
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.5.edge_weight.layers.1.0.bias": {
+      "sha256": "2e7277360c40d1d1869559f2a9153e91744072eac54e9ddf49f8772221a017ce",
+      "shape": [
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.5.edge_weight.layers.2.weight": {
+      "sha256": "0f2afb5cf2b702f3d8f2a376096cba512b2a7637f260e42960f5cfdb386b43a5",
+      "shape": [
+        128,
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.5.edge_weight.layers.2.bias": {
+      "sha256": "60034423b324e980d39b2615af64ff95f8ca93a3602d541b9025cf56ab3a4fc4",
+      "shape": [
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.5.node_weight.layers.0.0.weight": {
+      "sha256": "02bf76ce734c706f3afa79c02ae909481132a49b11570625d3957204ccc8b58f",
+      "shape": [
+        128,
+        256
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.5.node_weight.layers.0.0.bias": {
+      "sha256": "687f690810768e8adec6e030bcd3571df55f0d418b7cd32161a3594cca9083f3",
+      "shape": [
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.5.node_weight.layers.1.0.weight": {
+      "sha256": "9f61bb6bd5857f7a14d6a3a9ff38115148c9c4de696e1e9006ceb6974dc9cbd7",
+      "shape": [
+        128,
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.5.node_weight.layers.1.0.bias": {
+      "sha256": "5430346811c9da1c43a30c299ea8e887b684874c6c653b6308e60acfee4de29b",
+      "shape": [
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.5.node_weight.layers.2.weight": {
+      "sha256": "803457e38bb33d7419f77e1a1ae87213e157a3d3a2b4dce78d9c1c4d71f50e32",
+      "shape": [
+        128,
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.5.node_weight.layers.2.bias": {
+      "sha256": "67f261bfdba6234f69a9122d013e58d0b6a3e6e598a4d27ad65488384ece1a5f",
+      "shape": [
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.6.norms.0.weight": {
+      "sha256": "702cc37cfd91cac6b67c8bd7cc3c9da19f7a52986a8435bc2d1269721a65ce78",
+      "shape": [
+        384
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.6.norms.0.bias": {
+      "sha256": "80422bc3d307b4a25bdafcc84ac7fb01cb55a09810e8b0f37bb12e0edb5c48ca",
+      "shape": [
+        384
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.6.norms.1.weight": {
+      "sha256": "893a106828fbdb9521e1d868c985aab7ad2ae2f606edc55329265a5e7676006c",
+      "shape": [
+        256
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.6.norms.1.bias": {
+      "sha256": "5f70bf18a086007016e948b04aed3b82103a36bea41755b6cddfaf10ace3c6ef",
+      "shape": [
+        256
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.6.edge_weight.layers.0.0.weight": {
+      "sha256": "dad764d1d5ec0691996b59987b55548c5d615befdf0a7b065755b4746dc6ac12",
+      "shape": [
+        128,
+        384
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.6.edge_weight.layers.0.0.bias": {
+      "sha256": "42c93f74401301d9bac072990461b30cb7961dbac92b6b1f6a7fd80c28e5489b",
+      "shape": [
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.6.edge_weight.layers.1.0.weight": {
+      "sha256": "f86a64f549bf0d030e713c2a1378d78290afce684d8fd1139c05cc0ddfe634a9",
+      "shape": [
+        128,
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.6.edge_weight.layers.1.0.bias": {
+      "sha256": "8eac902ba443b534c960f18ea24cd03ca1ac36434ebabee31e7718b0f82a438b",
+      "shape": [
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.6.edge_weight.layers.2.weight": {
+      "sha256": "b03034333bc0ff328d3deb259dfeeefb0d761764de0362fff8b52150e68eaf1d",
+      "shape": [
+        128,
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.6.edge_weight.layers.2.bias": {
+      "sha256": "64deffbe8c1eebe55efbc397e8e4057cb2a11b52142007598af8b0d279b6f7f9",
+      "shape": [
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.6.node_weight.layers.0.0.weight": {
+      "sha256": "b8be9cfaa191fb7b15612d7bdb59ce0ee6db6fc25053cd075a89dbf0b4b2b533",
+      "shape": [
+        128,
+        256
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.6.node_weight.layers.0.0.bias": {
+      "sha256": "2a7caea70b1c116bc68a97670bb0c0f05c56a5514dc0425504eb2319402a681d",
+      "shape": [
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.6.node_weight.layers.1.0.weight": {
+      "sha256": "cebae0894f3896662ccc43c90b26215eb71a0462b200f1574999416ef697d372",
+      "shape": [
+        128,
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.6.node_weight.layers.1.0.bias": {
+      "sha256": "23be610f4b094df3c1dec77c32184185f837f9e7ae1ad129abf260cf59b9911d",
+      "shape": [
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.6.node_weight.layers.2.weight": {
+      "sha256": "3e6e48b27b4bf62d324338772d818be026b7581541d13309ee25deeedbf0e48b",
+      "shape": [
+        128,
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.6.node_weight.layers.2.bias": {
+      "sha256": "1febdb2e9fa83e5113d4af9fc620a58528a3401425972bcf5023f910c005e5f0",
+      "shape": [
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.7.norms.0.weight": {
+      "sha256": "702cc37cfd91cac6b67c8bd7cc3c9da19f7a52986a8435bc2d1269721a65ce78",
+      "shape": [
+        384
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.7.norms.0.bias": {
+      "sha256": "80422bc3d307b4a25bdafcc84ac7fb01cb55a09810e8b0f37bb12e0edb5c48ca",
+      "shape": [
+        384
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.7.norms.1.weight": {
+      "sha256": "893a106828fbdb9521e1d868c985aab7ad2ae2f606edc55329265a5e7676006c",
+      "shape": [
+        256
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.7.norms.1.bias": {
+      "sha256": "5f70bf18a086007016e948b04aed3b82103a36bea41755b6cddfaf10ace3c6ef",
+      "shape": [
+        256
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.7.edge_weight.layers.0.0.weight": {
+      "sha256": "d266c1560edee80332c439b3f0993e617d8a06891b0f1fe043700251992f32fd",
+      "shape": [
+        128,
+        384
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.7.edge_weight.layers.0.0.bias": {
+      "sha256": "38532de18401b8394f3610a8df303962724607a7a9723c19f461dd29d42c3f70",
+      "shape": [
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.7.edge_weight.layers.1.0.weight": {
+      "sha256": "c6f7cf89ba2e94933e152362f15a2b2f6fdf095419661e55b90d1051b6f96472",
+      "shape": [
+        128,
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.7.edge_weight.layers.1.0.bias": {
+      "sha256": "11b5c9fb004c13deeacff68a7e5601723878b51bd744898298ce5b05df1bb012",
+      "shape": [
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.7.edge_weight.layers.2.weight": {
+      "sha256": "025c90badd7044397268df3c057ee07b601de47a742b0f72ac519cd04fe888ac",
+      "shape": [
+        128,
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.7.edge_weight.layers.2.bias": {
+      "sha256": "69c9bb6d7c72d1c8cad496609a33eb34eb87c20d8728228afe785c461019e96f",
+      "shape": [
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.7.node_weight.layers.0.0.weight": {
+      "sha256": "560baf7420fefe8fe37487e971d3ecfd6e2a115c298bae479de490a64a3ee1d1",
+      "shape": [
+        128,
+        256
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.7.node_weight.layers.0.0.bias": {
+      "sha256": "3ae74c4c7178a5180ea76d402a176cce1dc61b971c6f5fbcb5f61f505b604836",
+      "shape": [
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.7.node_weight.layers.1.0.weight": {
+      "sha256": "797722b98578267331be3839eba054e23a48d561cfc9b1c4d2ecd390760ad3ae",
+      "shape": [
+        128,
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.7.node_weight.layers.1.0.bias": {
+      "sha256": "aed2c53b86d02360dfbc05303370817d4072a6595a598273a18acc4926956146",
+      "shape": [
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.7.node_weight.layers.2.weight": {
+      "sha256": "8e79f84044b6ee579b571c7442764e382f86b24654c054af8379d3287fae2c2a",
+      "shape": [
+        128,
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.7.node_weight.layers.2.bias": {
+      "sha256": "0456eda6e3bd5c80e97b18798d5a4976e5e2c063513a1097eda1e18954220237",
+      "shape": [
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.8.norms.0.weight": {
+      "sha256": "702cc37cfd91cac6b67c8bd7cc3c9da19f7a52986a8435bc2d1269721a65ce78",
+      "shape": [
+        384
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.8.norms.0.bias": {
+      "sha256": "80422bc3d307b4a25bdafcc84ac7fb01cb55a09810e8b0f37bb12e0edb5c48ca",
+      "shape": [
+        384
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.8.norms.1.weight": {
+      "sha256": "893a106828fbdb9521e1d868c985aab7ad2ae2f606edc55329265a5e7676006c",
+      "shape": [
+        256
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.8.norms.1.bias": {
+      "sha256": "5f70bf18a086007016e948b04aed3b82103a36bea41755b6cddfaf10ace3c6ef",
+      "shape": [
+        256
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.8.edge_weight.layers.0.0.weight": {
+      "sha256": "df773a2d84af6591542db401f62b3957f8e11584d1c3dae04075536ec4af42a3",
+      "shape": [
+        128,
+        384
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.8.edge_weight.layers.0.0.bias": {
+      "sha256": "b38936ae1e71fb702453da9451ff6928a719acb1d25179a18722d52b0d43c0bf",
+      "shape": [
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.8.edge_weight.layers.1.0.weight": {
+      "sha256": "36982aa2ed6addf87a4bfcf922d98d1e54c39e9e77717560695d78d3416da809",
+      "shape": [
+        128,
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.8.edge_weight.layers.1.0.bias": {
+      "sha256": "8789b1b34cf06201b85cfd651119e7e649f9a181972a30e1f11489082d8c9f24",
+      "shape": [
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.8.edge_weight.layers.2.weight": {
+      "sha256": "1f2380916bc2be4aef07cdc2662b6df4855c27731c29dcae2f26c914352c642a",
+      "shape": [
+        128,
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.8.edge_weight.layers.2.bias": {
+      "sha256": "7af99513d5e9894fa319d042aee1d61f594b03fa4e97b25613a1009810d51470",
+      "shape": [
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.8.node_weight.layers.0.0.weight": {
+      "sha256": "a5de7c3ce9afe40a7791a2ac7c38b10b6f2e4eaab5dc79dfd391437398332344",
+      "shape": [
+        128,
+        256
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.8.node_weight.layers.0.0.bias": {
+      "sha256": "9fdbf9dc8c96d684abd53b68477aca0b16a26b46059f78ce1e961f18b59d93b6",
+      "shape": [
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.8.node_weight.layers.1.0.weight": {
+      "sha256": "9595571f01c1552b3bd5a5e5570ad2982d52377db4da3eda827832f37ef0c9ed",
+      "shape": [
+        128,
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.8.node_weight.layers.1.0.bias": {
+      "sha256": "4534ad34ef647f734cd60bf32c4560c9f5fdc4e63e794ce9fba26d28f767d1d4",
+      "shape": [
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.8.node_weight.layers.2.weight": {
+      "sha256": "67c9b98abfb5d6a6c1b8dbe823f63cbc104be36ac832143d01c636ee6fe22397",
+      "shape": [
+        128,
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.8.node_weight.layers.2.bias": {
+      "sha256": "af69ac76e52118309bcbe58af9b749c0273c847d724a662cb6a561ac657bce12",
+      "shape": [
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.9.norms.0.weight": {
+      "sha256": "702cc37cfd91cac6b67c8bd7cc3c9da19f7a52986a8435bc2d1269721a65ce78",
+      "shape": [
+        384
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.9.norms.0.bias": {
+      "sha256": "80422bc3d307b4a25bdafcc84ac7fb01cb55a09810e8b0f37bb12e0edb5c48ca",
+      "shape": [
+        384
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.9.norms.1.weight": {
+      "sha256": "893a106828fbdb9521e1d868c985aab7ad2ae2f606edc55329265a5e7676006c",
+      "shape": [
+        256
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.9.norms.1.bias": {
+      "sha256": "5f70bf18a086007016e948b04aed3b82103a36bea41755b6cddfaf10ace3c6ef",
+      "shape": [
+        256
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.9.edge_weight.layers.0.0.weight": {
+      "sha256": "fc7de10251de427870129728ff0688b5d11a371f6bd4eb715f235d3e8ef0e54c",
+      "shape": [
+        128,
+        384
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.9.edge_weight.layers.0.0.bias": {
+      "sha256": "4eb97e647ac91f8fb2d8252682bfcaf23ebaf4895b6491311f19580ff496dbc6",
+      "shape": [
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.9.edge_weight.layers.1.0.weight": {
+      "sha256": "f008d23777f1fd16ad4a828cf37b0090fad56476ee199bbbddb4f12044e91678",
+      "shape": [
+        128,
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.9.edge_weight.layers.1.0.bias": {
+      "sha256": "267a2e6706fd8a6efdd8d32ad91313474c6b654b828f8138f19c5124fee774bb",
+      "shape": [
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.9.edge_weight.layers.2.weight": {
+      "sha256": "bcf33094330ae2c28863908b3babfb15fed237dc2b8ff77d4a9c6f550680a468",
+      "shape": [
+        128,
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.9.edge_weight.layers.2.bias": {
+      "sha256": "0866f527fee2793c29940c51cd0cbf486421dced1949e6c8146d2e549e76c47e",
+      "shape": [
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.9.node_weight.layers.0.0.weight": {
+      "sha256": "7b5587ec2282108d6d7b86bd2e07e4db7663eef974d1e12b7c9ae302db6c0ca6",
+      "shape": [
+        128,
+        256
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.9.node_weight.layers.0.0.bias": {
+      "sha256": "dbe4b4ed8e60ed2d8c327372b0fa183c094e72c5d1d387c0c2f87ce3d4b26e7f",
+      "shape": [
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.9.node_weight.layers.1.0.weight": {
+      "sha256": "ffabe133716d24c1728b21d7a27bc667369ef001bad2f54e8f7ae44736661464",
+      "shape": [
+        128,
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.9.node_weight.layers.1.0.bias": {
+      "sha256": "67b5bbf52d2952769a35070652f70dd31f987903adbe83891834f179fb34b66d",
+      "shape": [
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.9.node_weight.layers.2.weight": {
+      "sha256": "60b11afadf1dd4068e6d3604d1d9b9f4be07f4c9df5de4a5d75875814c7abd1c",
+      "shape": [
+        128,
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.9.node_weight.layers.2.bias": {
+      "sha256": "d9f27dd73a92b844972abd1410d93d702822909607461bd753eb3dbd5a1dbbdc",
+      "shape": [
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.10.norms.0.weight": {
+      "sha256": "702cc37cfd91cac6b67c8bd7cc3c9da19f7a52986a8435bc2d1269721a65ce78",
+      "shape": [
+        384
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.10.norms.0.bias": {
+      "sha256": "80422bc3d307b4a25bdafcc84ac7fb01cb55a09810e8b0f37bb12e0edb5c48ca",
+      "shape": [
+        384
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.10.norms.1.weight": {
+      "sha256": "893a106828fbdb9521e1d868c985aab7ad2ae2f606edc55329265a5e7676006c",
+      "shape": [
+        256
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.10.norms.1.bias": {
+      "sha256": "5f70bf18a086007016e948b04aed3b82103a36bea41755b6cddfaf10ace3c6ef",
+      "shape": [
+        256
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.10.edge_weight.layers.0.0.weight": {
+      "sha256": "0ad584412283725b212bcbd900cc618fafd1935d229339f01dc492bd7883ef5a",
+      "shape": [
+        128,
+        384
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.10.edge_weight.layers.0.0.bias": {
+      "sha256": "f2b8964ce95555fb44c5d0b293aa12afd228d7c370fc3028730960a8b08a169c",
+      "shape": [
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.10.edge_weight.layers.1.0.weight": {
+      "sha256": "90610262514d3ee0d7d097638188865211c7186f101df5a7704430cc03925f75",
+      "shape": [
+        128,
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.10.edge_weight.layers.1.0.bias": {
+      "sha256": "4f0341ca1d72d8db849379cb1c4b9ee2439a7e652d64efd51b55726a596b30be",
+      "shape": [
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.10.edge_weight.layers.2.weight": {
+      "sha256": "5876199ab5cde4cf74af3f43451864b517cbecf2745b43792c6d9a429ce8f875",
+      "shape": [
+        128,
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.10.edge_weight.layers.2.bias": {
+      "sha256": "626c09170387aa94ce2224eda39c7e5846dad21336aa11ec4a6e659b0d159b4f",
+      "shape": [
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.10.node_weight.layers.0.0.weight": {
+      "sha256": "59710deaa0bfd32f8090959d0e63ab45eac6fc2c4e4089760ca355d5e4c7dd83",
+      "shape": [
+        128,
+        256
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.10.node_weight.layers.0.0.bias": {
+      "sha256": "fe974eb74081435cdb2dbae70ce85a50dce1e9e1b95ccf92bf110c92d94a0a8c",
+      "shape": [
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.10.node_weight.layers.1.0.weight": {
+      "sha256": "410396ebef9e21dabb6903b45cf1ceeee329001e5fdd8ec401752e55afac3272",
+      "shape": [
+        128,
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.10.node_weight.layers.1.0.bias": {
+      "sha256": "30248a60085f5e46ab9e09fbf60489b56903b07a610fec677dff3bc441eae14f",
+      "shape": [
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.10.node_weight.layers.2.weight": {
+      "sha256": "c682168a45ea12c5591a1dac87b6eab9bb0e5e5863ce4669059ba0aab5a5e5f6",
+      "shape": [
+        128,
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.10.node_weight.layers.2.bias": {
+      "sha256": "4350208fd369f11b29c1f4692051bba5d70c1edc40ed805638ca1a50b00b8055",
+      "shape": [
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.11.norms.0.weight": {
+      "sha256": "702cc37cfd91cac6b67c8bd7cc3c9da19f7a52986a8435bc2d1269721a65ce78",
+      "shape": [
+        384
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.11.norms.0.bias": {
+      "sha256": "80422bc3d307b4a25bdafcc84ac7fb01cb55a09810e8b0f37bb12e0edb5c48ca",
+      "shape": [
+        384
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.11.norms.1.weight": {
+      "sha256": "893a106828fbdb9521e1d868c985aab7ad2ae2f606edc55329265a5e7676006c",
+      "shape": [
+        256
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.11.norms.1.bias": {
+      "sha256": "5f70bf18a086007016e948b04aed3b82103a36bea41755b6cddfaf10ace3c6ef",
+      "shape": [
+        256
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.11.edge_weight.layers.0.0.weight": {
+      "sha256": "d5b496f8f121b169f28ee9bc1db376274e76592de9c6a40ba8674776fe32af90",
+      "shape": [
+        128,
+        384
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.11.edge_weight.layers.0.0.bias": {
+      "sha256": "66091ae6bf8d4364fe4242548ac7478a869f2f1c02762e64d8c7dc5189a2f6f8",
+      "shape": [
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.11.edge_weight.layers.1.0.weight": {
+      "sha256": "b447da73036b2f47acebe263fbaa13da4bb1eddbb94dc71d94a1a4c24d40d28b",
+      "shape": [
+        128,
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.11.edge_weight.layers.1.0.bias": {
+      "sha256": "f903c9e2c9f0ad182af93ac639c39123b7960bb01fec78932886df30bfc1c8b6",
+      "shape": [
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.11.edge_weight.layers.2.weight": {
+      "sha256": "dc089e935dd2f68d6b9f852ad349c334aac29925ca55ccdac95ea3bb6cfe5b69",
+      "shape": [
+        128,
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.11.edge_weight.layers.2.bias": {
+      "sha256": "adec9bafb65af32ac593ecc3ff04aaa2fb665039aa8ffb0c47cb6d619c543c40",
+      "shape": [
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.11.node_weight.layers.0.0.weight": {
+      "sha256": "b4b648fd8b584c88882bd3bbf80bc5c277b9445687a92cb890e8a3ba5e215a95",
+      "shape": [
+        128,
+        256
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.11.node_weight.layers.0.0.bias": {
+      "sha256": "7a069b8aec9b8d2278aa753b245eb4ccddb8b49fa1d0bb023e3c215bfab30a06",
+      "shape": [
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.11.node_weight.layers.1.0.weight": {
+      "sha256": "2d8276f85bd12e4eaafef05f6afc6b5e84383c38e0a0bc25dbb10391d211d727",
+      "shape": [
+        128,
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.11.node_weight.layers.1.0.bias": {
+      "sha256": "08703655be1a724a68b139329b02bf87cb5712baf0926f008847b6f605ac60ef",
+      "shape": [
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.11.node_weight.layers.2.weight": {
+      "sha256": "920f27c1cbbdcb7d0cd11398c9cf7d9120f82c9bf7337862dd1ea56e0b844630",
+      "shape": [
+        128,
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.11.node_weight.layers.2.bias": {
+      "sha256": "a969052bb1abf3bab8f89937dfe49b0b4c6229288e85ac6af13b53bc707e6455",
+      "shape": [
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.12.norms.0.weight": {
+      "sha256": "702cc37cfd91cac6b67c8bd7cc3c9da19f7a52986a8435bc2d1269721a65ce78",
+      "shape": [
+        384
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.12.norms.0.bias": {
+      "sha256": "80422bc3d307b4a25bdafcc84ac7fb01cb55a09810e8b0f37bb12e0edb5c48ca",
+      "shape": [
+        384
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.12.norms.1.weight": {
+      "sha256": "893a106828fbdb9521e1d868c985aab7ad2ae2f606edc55329265a5e7676006c",
+      "shape": [
+        256
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.12.norms.1.bias": {
+      "sha256": "5f70bf18a086007016e948b04aed3b82103a36bea41755b6cddfaf10ace3c6ef",
+      "shape": [
+        256
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.12.edge_weight.layers.0.0.weight": {
+      "sha256": "2c2c0a58a0260555f3c96d0d8e8c3ad34f989380d797344a09036f160ba4472c",
+      "shape": [
+        128,
+        384
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.12.edge_weight.layers.0.0.bias": {
+      "sha256": "d8ef1b1adda03dce66e63b9af16fa08686a380a5b2390e021498d784acf6307f",
+      "shape": [
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.12.edge_weight.layers.1.0.weight": {
+      "sha256": "af74dd3b9c786f1d63d2b41650946701ad1c5859d0e21e00dc48b38ef187b835",
+      "shape": [
+        128,
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.12.edge_weight.layers.1.0.bias": {
+      "sha256": "5dee98f5fcba4ef18236ded0c9d96a43ff4e11af82f09717cf50d6f9bacaf430",
+      "shape": [
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.12.edge_weight.layers.2.weight": {
+      "sha256": "42fd56df122c54c276c6eac736ddddf25dbb91f60ca8bf9cd676ed4afa72d033",
+      "shape": [
+        128,
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.12.edge_weight.layers.2.bias": {
+      "sha256": "f4ac65ad845ca43124c10568ea57123ae671e5ed2203e1bf355d99fb632317ea",
+      "shape": [
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.12.node_weight.layers.0.0.weight": {
+      "sha256": "ed67538b15be044054680bb8419570ec89eb9da987b37452377e3a32e61c8f03",
+      "shape": [
+        128,
+        256
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.12.node_weight.layers.0.0.bias": {
+      "sha256": "32137ab2460e2301994877e2567e06fd97b4ac6e92ab5dbbf05ddadfdb0e34f7",
+      "shape": [
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.12.node_weight.layers.1.0.weight": {
+      "sha256": "21e2c884bde2cffbbe2a732f340340b68e5d3edf6b20ab720ee6236eebe3889e",
+      "shape": [
+        128,
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.12.node_weight.layers.1.0.bias": {
+      "sha256": "56e7afaba4b44f67a5ca022d1a92c2af912ad66a6535c52aaae309c4416dd156",
+      "shape": [
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.12.node_weight.layers.2.weight": {
+      "sha256": "0acc1c6216e60a95a052440687dc2f615dc2361fd90a9c3e934475a7e5a0110a",
+      "shape": [
+        128,
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.12.node_weight.layers.2.bias": {
+      "sha256": "23df4013cbfb57015c0a184bfed0d86326daa6880944bd1d958abf0127ab9405",
+      "shape": [
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.13.norms.0.weight": {
+      "sha256": "702cc37cfd91cac6b67c8bd7cc3c9da19f7a52986a8435bc2d1269721a65ce78",
+      "shape": [
+        384
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.13.norms.0.bias": {
+      "sha256": "80422bc3d307b4a25bdafcc84ac7fb01cb55a09810e8b0f37bb12e0edb5c48ca",
+      "shape": [
+        384
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.13.norms.1.weight": {
+      "sha256": "893a106828fbdb9521e1d868c985aab7ad2ae2f606edc55329265a5e7676006c",
+      "shape": [
+        256
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.13.norms.1.bias": {
+      "sha256": "5f70bf18a086007016e948b04aed3b82103a36bea41755b6cddfaf10ace3c6ef",
+      "shape": [
+        256
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.13.edge_weight.layers.0.0.weight": {
+      "sha256": "4c27fe786657a19214386814ece5c298a577fa10624d99979bece369d8b9be2f",
+      "shape": [
+        128,
+        384
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.13.edge_weight.layers.0.0.bias": {
+      "sha256": "9b6eae766ce8042ba24d5ea30793f72ff0a68fdc452f06197129bf2580cb2a28",
+      "shape": [
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.13.edge_weight.layers.1.0.weight": {
+      "sha256": "ca535e9fd645c5d1d60e27d24a67dbd9152eb719561443aba958b7dedbdc353c",
+      "shape": [
+        128,
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.13.edge_weight.layers.1.0.bias": {
+      "sha256": "52e04318954ca4adf30722b3282b38a01b7607ed263c2f8a2fd09e574209bf55",
+      "shape": [
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.13.edge_weight.layers.2.weight": {
+      "sha256": "3a419d434e5d729372bf336dd4975a4534c6a066bd70a943a2a5e26fdf72cb3d",
+      "shape": [
+        128,
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.13.edge_weight.layers.2.bias": {
+      "sha256": "708c6d4e481999637b3a423efda17a71fc5b2c95f49276351668ffebe040215f",
+      "shape": [
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.13.node_weight.layers.0.0.weight": {
+      "sha256": "5eb6da883b10a795dc6f1b48a5cd219244c493f7883123c5a5dd5e95af3b65a0",
+      "shape": [
+        128,
+        256
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.13.node_weight.layers.0.0.bias": {
+      "sha256": "2653b77c97e31cfa0a5e303556d53fd4631126af147fe8db8d6c5a2901acd50c",
+      "shape": [
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.13.node_weight.layers.1.0.weight": {
+      "sha256": "fd01b7b9e34a1ed780e403da4aece3a54a856616b09c68db7bd61cea9de2b947",
+      "shape": [
+        128,
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.13.node_weight.layers.1.0.bias": {
+      "sha256": "fd2e79a763a802b6b40102c609d664f3397d8a3e194b385db9bca398e33cce96",
+      "shape": [
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.13.node_weight.layers.2.weight": {
+      "sha256": "b4fbc897ce5775736343110de26ca214ddd98e2d639f204a69d6e56388c9183c",
+      "shape": [
+        128,
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.13.node_weight.layers.2.bias": {
+      "sha256": "f82dc1ddc3837b396a1937a7b74bad6a0c7a9e4dbd7c54fc57f4f9075b4590d3",
+      "shape": [
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.14.norms.0.weight": {
+      "sha256": "702cc37cfd91cac6b67c8bd7cc3c9da19f7a52986a8435bc2d1269721a65ce78",
+      "shape": [
+        384
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.14.norms.0.bias": {
+      "sha256": "80422bc3d307b4a25bdafcc84ac7fb01cb55a09810e8b0f37bb12e0edb5c48ca",
+      "shape": [
+        384
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.14.norms.1.weight": {
+      "sha256": "893a106828fbdb9521e1d868c985aab7ad2ae2f606edc55329265a5e7676006c",
+      "shape": [
+        256
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.14.norms.1.bias": {
+      "sha256": "5f70bf18a086007016e948b04aed3b82103a36bea41755b6cddfaf10ace3c6ef",
+      "shape": [
+        256
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.14.edge_weight.layers.0.0.weight": {
+      "sha256": "393b1422c7044cf878e4336da8d4697f299e4dedf1065fe3f7103ca332375296",
+      "shape": [
+        128,
+        384
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.14.edge_weight.layers.0.0.bias": {
+      "sha256": "6286a7f1d3eaa442dc97ac5bebb2d99c6dceee87e2ed06737165ce77f42d3cb8",
+      "shape": [
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.14.edge_weight.layers.1.0.weight": {
+      "sha256": "99fe5ad402a49b888dd357a2a9133b09448f363f1f06d36d22fd8db2559a06f7",
+      "shape": [
+        128,
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.14.edge_weight.layers.1.0.bias": {
+      "sha256": "22edb1ea96b98e1194e3cb1b8f5661b37459d13a2170c8711e57842b2ec9269e",
+      "shape": [
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.14.edge_weight.layers.2.weight": {
+      "sha256": "7855a00df7d3e11b1d9e5611968cdb97da8f244e4f744b50542f7fbc054e52cb",
+      "shape": [
+        128,
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.14.edge_weight.layers.2.bias": {
+      "sha256": "17e8c712b45a398844399aaef9f9017ef44f3a8e5bb6d7f9c1b1977474f156a1",
+      "shape": [
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.14.node_weight.layers.0.0.weight": {
+      "sha256": "1d4bf0450a5c196f6649798019f4b54b0349e478a11500a42ea6ce0180ebcff5",
+      "shape": [
+        128,
+        256
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.14.node_weight.layers.0.0.bias": {
+      "sha256": "e9b993e6d4c03825236ba4173e51cffd57ef72b2c22720dc82474d17fafa9db9",
+      "shape": [
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.14.node_weight.layers.1.0.weight": {
+      "sha256": "5e21d7299a31149b9de6305d325c50c9768b582647fb76b0be443ca289b98e45",
+      "shape": [
+        128,
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.14.node_weight.layers.1.0.bias": {
+      "sha256": "e5746a76c9871870aa0cead8e7031a9b5e7edfd0b7190d9c9b573c365b884952",
+      "shape": [
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.14.node_weight.layers.2.weight": {
+      "sha256": "a9f21f25d5b1ace8188c75ff45b22fec3d5ba08eeb7c756edaacc448a8f06b51",
+      "shape": [
+        128,
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.14.node_weight.layers.2.bias": {
+      "sha256": "cfe18017e4531b6a2f66726720d47d9b24da737918d168d5879b3e59794f57f7",
+      "shape": [
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.15.norms.0.weight": {
+      "sha256": "702cc37cfd91cac6b67c8bd7cc3c9da19f7a52986a8435bc2d1269721a65ce78",
+      "shape": [
+        384
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.15.norms.0.bias": {
+      "sha256": "80422bc3d307b4a25bdafcc84ac7fb01cb55a09810e8b0f37bb12e0edb5c48ca",
+      "shape": [
+        384
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.15.norms.1.weight": {
+      "sha256": "893a106828fbdb9521e1d868c985aab7ad2ae2f606edc55329265a5e7676006c",
+      "shape": [
+        256
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.15.norms.1.bias": {
+      "sha256": "5f70bf18a086007016e948b04aed3b82103a36bea41755b6cddfaf10ace3c6ef",
+      "shape": [
+        256
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.15.edge_weight.layers.0.0.weight": {
+      "sha256": "7703952ab4e6c6a80511f215d81e112e973e48fbaff28a70e9ceedfb3d9c76c5",
+      "shape": [
+        128,
+        384
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.15.edge_weight.layers.0.0.bias": {
+      "sha256": "74ac8be197c9e333d91126f1b6d7f676f0fa49f56d89e4f48658a09d2f9ef3d0",
+      "shape": [
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.15.edge_weight.layers.1.0.weight": {
+      "sha256": "f3df763e38cf885bc4cb141d71fd654fc7bc77de1850881e2f44e7e505f9bbb5",
+      "shape": [
+        128,
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.15.edge_weight.layers.1.0.bias": {
+      "sha256": "e87744d91d73a78c35375d5cc44e075c570fb69a5358d5868381121089caaf9a",
+      "shape": [
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.15.edge_weight.layers.2.weight": {
+      "sha256": "0cfaeb1ade8c86d9a08844d8cbd97aa7442ed80ede28f2657709f15f51c2ae30",
+      "shape": [
+        128,
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.15.edge_weight.layers.2.bias": {
+      "sha256": "b13aec00dcdcdd8d355f3a2e2931fdd893abcccbf6441707e27eac4b8dbac054",
+      "shape": [
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.15.node_weight.layers.0.0.weight": {
+      "sha256": "43dbe1d0f8ba575bf8d66601e92f8f1cc6a247cb77706fc1a1badbd7c41f4180",
+      "shape": [
+        128,
+        256
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.15.node_weight.layers.0.0.bias": {
+      "sha256": "d09d8278951e614d7a13faf6581e76a497f62863dc66d737764c89ab78d2e50e",
+      "shape": [
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.15.node_weight.layers.1.0.weight": {
+      "sha256": "308ee00cf8a113f743cc32c8ca4fdd2339c08452b4b5d56ef23377865dfb98fe",
+      "shape": [
+        128,
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.15.node_weight.layers.1.0.bias": {
+      "sha256": "96195057e20aa3ae5003844decf3bb07c0296fc4604662d7ff0db4a528bc34a7",
+      "shape": [
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.15.node_weight.layers.2.weight": {
+      "sha256": "a46a2a27c18cb3f128e6174adcd0fbdd74c2bd602014a53ffbe964099014fcd3",
+      "shape": [
+        128,
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.15.node_weight.layers.2.bias": {
+      "sha256": "8f868421954517a6c77e4f7e6cc8ac2b15ab600677a1bed76af13fd77371c3b4",
+      "shape": [
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.emb_norm.weight": {
+      "sha256": "02722f124d0f1736a9dd7c4ddcd05630dcf16ee1ce3454e9a876005ce005d4ac",
+      "shape": [
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.emb_norm.bias": {
+      "sha256": "076a27c79e5ace2a3d47f9dd2e83e4ff6ea8872b3c2218f66c92b89b55f36560",
+      "shape": [
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "decode_head.dynamic_proj.layers.0.0.weight": {
+      "sha256": "d45fcab86d41e1a2b7bd4810547d5176728ac444ff6eed5b1b831b56436839b2",
+      "shape": [
+        64,
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "decode_head.dynamic_proj.layers.0.0.bias": {
+      "sha256": "dc330a66235a7e83abe9935e25fcfefea1f9d624e7aab11a83685f9c92f96644",
+      "shape": [
+        64
+      ],
+      "dtype": "torch.float32"
+    },
+    "decode_head.dynamic_proj.layers.1.0.weight": {
+      "sha256": "edc4bbd4f025de1722203a1ec264b85e049320d9202c04f46d8acbf3a5cbbc9e",
+      "shape": [
+        32,
+        64
+      ],
+      "dtype": "torch.float32"
+    },
+    "decode_head.dynamic_proj.layers.1.0.bias": {
+      "sha256": "b7e3bf11fc87ebd87cd2d4cc1de9a24edaa8518d423bd8c0a19d4c38786f6c2a",
+      "shape": [
+        32
+      ],
+      "dtype": "torch.float32"
+    },
+    "decode_head.dynamic_proj.layers.2.weight": {
+      "sha256": "1bb16ad40cfd0c66289dd97a8b7645e87b0f7e49213607d6778e080ef811e0f0",
+      "shape": [
+        11,
+        32
+      ],
+      "dtype": "torch.float32"
+    },
+    "decode_head.dynamic_proj.layers.2.bias": {
+      "sha256": "fcc168c20bbfa5ef7bf7dc4fc37d26dc14d4726f370522434631ace4aac697b0",
+      "shape": [
+        11
+      ],
+      "dtype": "torch.float32"
+    }
+  },
+  "input_hashes": {
+    "inputs": {
+      "img": [
+        {
+          "sha256": "269422d59990eb08f6ec7e98d0733248f27218084f4ce7219cc12d4ca62b861c",
+          "shape": [
+            1,
+            3,
+            360,
+            640
+          ],
+          "dtype": "torch.float32"
+        },
+        {
+          "sha256": "19330639c47808a9bdd89810cfc9872067f2f34dd97e600ceec9e550b8575ffc",
+          "shape": [
+            1,
+            3,
+            360,
+            640
+          ],
+          "dtype": "torch.float32"
+        }
+      ],
+      "full_gt_label": [
+        {
+          "sha256": "19165e46eca1a1ac015a0026ee43f47d4f7d1ef4de38df22f05a575fd34ab5fe",
+          "shape": [
+            1,
+            16,
+            3,
+            360,
+            640
+          ],
+          "dtype": "torch.float32"
+        },
+        {
+          "sha256": "b2557027f6d0528fec1cd87979c2166d5c15f3464117dc1d777d4e4e6cfc92b8",
+          "shape": [
+            1,
+            16,
+            3,
+            360,
+            640
+          ],
+          "dtype": "torch.float32"
+        }
+      ],
+      "bbox": {
+        "sha256": "ce6876281a785565d9c7d565a48316acbd85f59341d8d1293d4282ac06ef1e6c",
+        "shape": [
+          1,
+          2,
+          16,
+          4
+        ],
+        "dtype": "torch.int32"
+      },
+      "controller_trajectory": {
+        "sha256": "413a89f2ef25f0019a19a6d97668c2d6ee53e9c52e1121023003218021a9df70",
+        "shape": [
+          1,
+          16,
+          30,
+          3
+        ],
+        "dtype": "torch.float32"
+      },
+      "controller_img_mask_list": [
+        {
+          "sha256": "defe5059e4a7b5c797a007fa8428d93cf7586359b5d78c6c9c1a4a8586ea7a2a",
+          "shape": [
+            1,
+            16,
+            1,
+            360,
+            640
+          ],
+          "dtype": "torch.float32"
+        },
+        {
+          "sha256": "defe5059e4a7b5c797a007fa8428d93cf7586359b5d78c6c9c1a4a8586ea7a2a",
+          "shape": [
+            1,
+            16,
+            1,
+            360,
+            640
+          ],
+          "dtype": "torch.float32"
+        }
+      ],
+      "pure_robot_img_mask_list": [
+        {
+          "sha256": "defe5059e4a7b5c797a007fa8428d93cf7586359b5d78c6c9c1a4a8586ea7a2a",
+          "shape": [
+            1,
+            16,
+            1,
+            360,
+            640
+          ],
+          "dtype": "torch.float32"
+        },
+        {
+          "sha256": "defe5059e4a7b5c797a007fa8428d93cf7586359b5d78c6c9c1a4a8586ea7a2a",
+          "shape": [
+            1,
+            16,
+            1,
+            360,
+            640
+          ],
+          "dtype": "torch.float32"
+        }
+      ],
+      "gs_aligned_frame": {
+        "sha256": "af5570f5a1810b7af78caf4bc70a660f0df51e42baf91d4de5b2328de0e83dfc",
+        "shape": [
+          1
+        ],
+        "dtype": "torch.int64"
+      },
+      "p2c_mapping": [
+        [
+          {
+            "sha256": "96c8c1fb23425f25e947b5a6706bf75d0779bc56c2f952ba7397350fc1e1f111",
+            "shape": [
+              1,
+              30
+            ],
+            "dtype": "torch.int64"
+          },
+          {
+            "sha256": "dbd078de1db593be7450f354d8948e26a0812d1eef454d8e81d6adbdc9744f85",
+            "shape": [
+              1,
+              12861
+            ],
+            "dtype": "torch.int64"
+          }
+        ],
+        [
+          {
+            "sha256": "23ebc865e5eee5c9c3cd23c9791d8fabdbbf2ab95b6241b3d6b6ef14be0808bb",
+            "shape": [
+              1,
+              10
+            ],
+            "dtype": "torch.int64"
+          },
+          {
+            "sha256": "565543b59985332c7a6cd36221062b33bb88fc080db3a952c09035d80c820007",
+            "shape": [
+              1,
+              640
+            ],
+            "dtype": "torch.int64"
+          }
+        ],
+        [
+          {
+            "sha256": "374708fff7719dd5979ec875d56cd2286f6d3cf7ec317a3b25632aab28ec37bb",
+            "shape": [
+              1,
+              2
+            ],
+            "dtype": "torch.float64"
+          },
+          {
+            "sha256": "022451970ff25a1cf57eb1602f05e6ab8a2d0edb918d8efd1574f2ef1a77898f",
+            "shape": [
+              1,
+              7
+            ],
+            "dtype": "torch.float64"
+          }
+        ],
+        [
+          {
+            "sha256": "af5570f5a1810b7af78caf4bc70a660f0df51e42baf91d4de5b2328de0e83dfc",
+            "shape": [
+              1,
+              1
+            ],
+            "dtype": "torch.float64"
+          },
+          {
+            "sha256": "af5570f5a1810b7af78caf4bc70a660f0df51e42baf91d4de5b2328de0e83dfc",
+            "shape": [
+              1,
+              1
+            ],
+            "dtype": "torch.float64"
+          }
+        ]
+      ],
+      "volume_scalar": {
+        "sha256": "03a88c8867b3fbcfeefc3270af46afbeb74a27e12cad758e188154cb4aa923dc",
+        "shape": [
+          1,
+          1,
+          1
+        ],
+        "dtype": "torch.float32"
+      },
+      "external": {
+        "sha256": "2bafbe9b3d6734c51cf0a221429590c35cfa791d8c162bc1db69b31d8cbffc1b",
+        "shape": [
+          1,
+          1,
+          3
+        ],
+        "dtype": "torch.float32"
+      },
+      "white_bg": [
+        {
+          "sha256": "6e340b9cffb37a989ca544e6bb780a2c78901d3fb33738768511a30617afa01d",
+          "shape": [
+            1
+          ],
+          "dtype": "torch.bool"
+        },
+        {
+          "sha256": "6e340b9cffb37a989ca544e6bb780a2c78901d3fb33738768511a30617afa01d",
+          "shape": [
+            1
+          ],
+          "dtype": "torch.bool"
+        }
+      ]
+    },
+    "gt_label": [
+      {
+        "sha256": "da42f77eb1be94e2393636d81f2066daef3adeeaedb008350b2757d8d5aeb8bf",
+        "shape": [
+          1,
+          16,
+          3,
+          360,
+          640
+        ],
+        "dtype": "torch.float32"
+      },
+      {
+        "sha256": "7953bf8a1a9225f90b34babb61cb073c01b9ce255f3573cbd28bccfbccc5257e",
+        "shape": [
+          1,
+          16,
+          3,
+          360,
+          640
+        ],
+        "dtype": "torch.float32"
+      }
+    ],
+    "meta": {
+      "scene_idx": {
+        "sha256": "af5570f5a1810b7af78caf4bc70a660f0df51e42baf91d4de5b2328de0e83dfc",
+        "shape": [
+          1,
+          1
+        ],
+        "dtype": "torch.int64"
+      },
+      "idx": {
+        "sha256": "af5570f5a1810b7af78caf4bc70a660f0df51e42baf91d4de5b2328de0e83dfc",
+        "shape": [
+          1,
+          1
+        ],
+        "dtype": "torch.int64"
+      },
+      "seq_idx": {
+        "sha256": "af5570f5a1810b7af78caf4bc70a660f0df51e42baf91d4de5b2328de0e83dfc",
+        "shape": [
+          1,
+          1
+        ],
+        "dtype": "torch.int64"
+      },
+      "eval_start_frame": {
+        "sha256": "af5570f5a1810b7af78caf4bc70a660f0df51e42baf91d4de5b2328de0e83dfc",
+        "shape": [
+          1,
+          1
+        ],
+        "dtype": "torch.int64"
+      },
+      "seq_num": {
+        "sha256": "a111f275cc2e7588000001d300a31e76336d15b9d314cd1a1d8f3d3556975eed",
+        "shape": [
+          1,
+          1
+        ],
+        "dtype": "torch.int64"
+      },
+      "scene_name": "config_a_2cam"
+    }
+  },
+  "camera_inputs": [
+    {
+      "img_path": "/data1/userdata/tcweng/projects/tcgs/datasets/deform360/derived/t17_scene_packages/pink_cloth_episode_0/config_a_2cam/color/0/0.png",
+      "world_view": {
+        "sha256": "2f3e3e39fec96734fc4de0cc7a20d163623dc77e458df3741754efcce9600b6f",
+        "shape": [
+          4,
+          4
+        ],
+        "dtype": "torch.float32"
+      },
+      "projection": {
+        "sha256": "c9ded6bca1a6d5a3af006fdc7f87f62c5d1ee064e38d90f9c47dd2e6ebd5d6c3",
+        "shape": [
+          4,
+          4
+        ],
+        "dtype": "torch.float32"
+      }
+    },
+    {
+      "img_path": "/data1/userdata/tcweng/projects/tcgs/datasets/deform360/derived/t17_scene_packages/pink_cloth_episode_0/config_a_2cam/color/1/0.png",
+      "world_view": {
+        "sha256": "16215af054e053511b8c26b7d3a2b092e3c0230f82ae006da4c86a09b46bc202",
+        "shape": [
+          4,
+          4
+        ],
+        "dtype": "torch.float32"
+      },
+      "projection": {
+        "sha256": "cf6d5fcd9f397d167c745a6dfdcc56b2c87f5072c904eb543f4c41c435432ff2",
+        "shape": [
+          4,
+          4
+        ],
+        "dtype": "torch.float32"
+      }
+    }
+  ],
+  "initial_Gaussian": {
+    "config_a_2cam": {
+      "_xyz": {
+        "sha256": "f4ba7c55907595989a1518d6253a5d6b57710fc984653017ed90a3d1db9526b7",
+        "shape": [
+          12861,
+          3
+        ],
+        "dtype": "torch.float32"
+      },
+      "_scaling": {
+        "sha256": "c3fafcae53a50ad764b3c435892611d344fc917936b646cc4121ecc66eb96592",
+        "shape": [
+          12861,
+          3
+        ],
+        "dtype": "torch.float32"
+      },
+      "_rotation": {
+        "sha256": "71ae49efdc535c6ca5ae02e6d17e95aa8d0333038e432f64e402127f5f1286c2",
+        "shape": [
+          12861,
+          4
+        ],
+        "dtype": "torch.float32"
+      },
+      "_opacity": {
+        "sha256": "49637d641a366c66b84289c723c4e1a6e5baea17d13335a6ad126d3f519d7580",
+        "shape": [
+          12861,
+          1
+        ],
+        "dtype": "torch.float32"
+      },
+      "_features_dc": {
+        "sha256": "1eed40a7504d0ace7f53c925fd952e325dac7585051e1819a1c27fd734076605",
+        "shape": [
+          12861,
+          1,
+          3
+        ],
+        "dtype": "torch.float32"
+      },
+      "_features_rest": {
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "shape": [
+          12861,
+          0,
+          3
+        ],
+        "dtype": "torch.float32"
+      }
+    }
+  },
+  "full_total_loss": 59908.7890625,
+  "full_components": {
+    "decode.loss_mse_momentum_config_a_2cam": 21445.3359375,
+    "decode.loss_ssim_render_config_a_2cam": 4712.59228515625,
+    "decode.loss_l2_render_config_a_2cam": 33750.86328125,
+    "decode.acc_l2_render.acc_config_a_2cam_frame0": 0.14384524524211884,
+    "decode.acc_l1_render.acc_config_a_2cam_frame0": 0.225480854511261,
+    "decode.acc_ssim_render.acc_config_a_2cam_frame0": 0.9318201541900635,
+    "decode.acc_psnr_render.acc_config_a_2cam_frame0": 12.821462631225586,
+    "decode.loss_mse_static_config_a_2cam": 0.0,
+    "loss": 59908.7890625
+  },
+  "selected_loss_keys": [
+    "decode.loss_ssim_render"
+  ],
+  "selected_loss": 4712.59228515625,
+  "gradients": {
+    "parameters": {
+      "scene_attr.rope": {
+        "shape": [
+          1,
+          5
+        ],
+        "dtype": "torch.float32",
+        "device": "cuda:0",
+        "finite": false,
+        "nan": 5,
+        "posinf": 0,
+        "neginf": 0,
+        "finite_abs_max": null,
+        "finite_abs_min": null
+      },
+      "backbone.node_encoder.layers.0.0.weight": {
+        "shape": [
+          128,
+          11
+        ],
+        "dtype": "torch.float32",
+        "device": "cuda:0",
+        "finite": false,
+        "nan": 1408,
+        "posinf": 0,
+        "neginf": 0,
+        "finite_abs_max": null,
+        "finite_abs_min": null
+      },
+      "backbone.node_encoder.layers.0.0.bias": {
+        "shape": [
+          128
+        ],
+        "dtype": "torch.float32",
+        "device": "cuda:0",
+        "finite": false,
+        "nan": 128,
+        "posinf": 0,
+        "neginf": 0,
+        "finite_abs_max": null,
+        "finite_abs_min": null
+      },
+      "backbone.node_encoder.layers.1.0.weight": {
+        "shape": [
+          128,
+          128
+        ],
+        "dtype": "torch.float32",
+        "device": "cuda:0",
+        "finite": false,
+        "nan": 15744,
+        "posinf": 0,
+        "neginf": 0,
+        "finite_abs_max": 0.0,
+        "finite_abs_min": 0.0
+      },
+      "backbone.node_encoder.layers.1.0.bias": {
+        "shape": [
+          128
+        ],
+        "dtype": "torch.float32",
+        "device": "cuda:0",
+        "finite": false,
+        "nan": 123,
+        "posinf": 0,
+        "neginf": 0,
+        "finite_abs_max": 0.0,
+        "finite_abs_min": 0.0
+      },
+      "backbone.node_encoder.layers.2.weight": {
+        "shape": [
+          128,
+          128
+        ],
+        "dtype": "torch.float32",
+        "device": "cuda:0",
+        "finite": false,
+        "nan": 14976,
+        "posinf": 0,
+        "neginf": 0,
+        "finite_abs_max": 0.0,
+        "finite_abs_min": 0.0
+      },
+      "backbone.node_encoder.layers.2.bias": {
+        "shape": [
+          128
+        ],
+        "dtype": "torch.float32",
+        "device": "cuda:0",
+        "finite": false,
+        "nan": 117,
+        "posinf": 0,
+        "neginf": 0,
+        "finite_abs_max": 0.0,
+        "finite_abs_min": 0.0
+      },
+      "backbone.edge_encoder.layers.0.0.weight": {
+        "shape": [
+          128,
+          9
+        ],
+        "dtype": "torch.float32",
+        "device": "cuda:0",
+        "finite": false,
+        "nan": 1152,
+        "posinf": 0,
+        "neginf": 0,
+        "finite_abs_max": null,
+        "finite_abs_min": null
+      },
+      "backbone.edge_encoder.layers.0.0.bias": {
+        "shape": [
+          128
+        ],
+        "dtype": "torch.float32",
+        "device": "cuda:0",
+        "finite": false,
+        "nan": 128,
+        "posinf": 0,
+        "neginf": 0,
+        "finite_abs_max": null,
+        "finite_abs_min": null
+      },
+      "backbone.edge_encoder.layers.1.0.weight": {
+        "shape": [
+          128,
+          128
+        ],
+        "dtype": "torch.float32",
+        "device": "cuda:0",
+        "finite": false,
+        "nan": 16128,
+        "posinf": 0,
+        "neginf": 0,
+        "finite_abs_max": 0.0,
+        "finite_abs_min": 0.0
+      },
+      "backbone.edge_encoder.layers.1.0.bias": {
+        "shape": [
+          128
+        ],
+        "dtype": "torch.float32",
+        "device": "cuda:0",
+        "finite": false,
+        "nan": 126,
+        "posinf": 0,
+        "neginf": 0,
+        "finite_abs_max": 0.0,
+        "finite_abs_min": 0.0
+      },
+      "backbone.edge_encoder.layers.2.weight": {
+        "shape": [
+          128,
+          128
+        ],
+        "dtype": "torch.float32",
+        "device": "cuda:0",
+        "finite": false,
+        "nan": 15488,
+        "posinf": 0,
+        "neginf": 0,
+        "finite_abs_max": 0.0,
+        "finite_abs_min": 0.0
+      },
+      "backbone.edge_encoder.layers.2.bias": {
+        "shape": [
+          128
+        ],
+        "dtype": "torch.float32",
+        "device": "cuda:0",
+        "finite": false,
+        "nan": 121,
+        "posinf": 0,
+        "neginf": 0,
+        "finite_abs_max": 0.0,
+        "finite_abs_min": 0.0
+      },
+      "backbone.encoder.layers.0.norms.0.weight": {
+        "shape": [
+          384
+        ],
+        "dtype": "torch.float32",
+        "device": "cuda:0",
+        "finite": false,
+        "nan": 384,
+        "posinf": 0,
+        "neginf": 0,
+        "finite_abs_max": null,
+        "finite_abs_min": null
+      },
+      "backbone.encoder.layers.0.norms.0.bias": {
+        "shape": [
+          384
+        ],
+        "dtype": "torch.float32",
+        "device": "cuda:0",
+        "finite": false,
+        "nan": 384,
+        "posinf": 0,
+        "neginf": 0,
+        "finite_abs_max": null,
+        "finite_abs_min": null
+      },
+      "backbone.encoder.layers.0.norms.1.weight": {
+        "shape": [
+          256
+        ],
+        "dtype": "torch.float32",
+        "device": "cuda:0",
+        "finite": false,
+        "nan": 256,
+        "posinf": 0,
+        "neginf": 0,
+        "finite_abs_max": null,
+        "finite_abs_min": null
+      },
+      "backbone.encoder.layers.0.norms.1.bias": {
+        "shape": [
+          256
+        ],
+        "dtype": "torch.float32",
+        "device": "cuda:0",
+        "finite": false,
+        "nan": 256,
+        "posinf": 0,
+        "neginf": 0,
+        "finite_abs_max": null,
+        "finite_abs_min": null
+      },
+      "backbone.encoder.layers.0.edge_weight.layers.0.0.weight": {
+        "shape": [
+          128,
+          384
+        ],
+        "dtype": "torch.float32",
+        "device": "cuda:0",
+        "finite": false,
+        "nan": 49152,
+        "posinf": 0,
+        "neginf": 0,
+        "finite_abs_max": null,
+        "finite_abs_min": null
+      },
+      "backbone.encoder.layers.0.edge_weight.layers.0.0.bias": {
+        "shape": [
+          128
+        ],
+        "dtype": "torch.float32",
+        "device": "cuda:0",
+        "finite": false,
+        "nan": 128,
+        "posinf": 0,
+        "neginf": 0,
+        "finite_abs_max": null,
+        "finite_abs_min": null
+      },
+      "backbone.encoder.layers.0.edge_weight.layers.1.0.weight": {
+        "shape": [
+          128,
+          128
+        ],
+        "dtype": "torch.float32",
+        "device": "cuda:0",
+        "finite": false,
+        "nan": 16384,
+        "posinf": 0,
+        "neginf": 0,
+        "finite_abs_max": null,
+        "finite_abs_min": null
+      },
+      "backbone.encoder.layers.0.edge_weight.layers.1.0.bias": {
+        "shape": [
+          128
+        ],
+        "dtype": "torch.float32",
+        "device": "cuda:0",
+        "finite": false,
+        "nan": 128,
+        "posinf": 0,
+        "neginf": 0,
+        "finite_abs_max": null,
+        "finite_abs_min": null
+      },
+      "backbone.encoder.layers.0.edge_weight.layers.2.weight": {
+        "shape": [
+          128,
+          128
+        ],
+        "dtype": "torch.float32",
+        "device": "cuda:0",
+        "finite": false,
+        "nan": 16384,
+        "posinf": 0,
+        "neginf": 0,
+        "finite_abs_max": null,
+        "finite_abs_min": null
+      },
+      "backbone.encoder.layers.0.edge_weight.layers.2.bias": {
+        "shape": [
+          128
+        ],
+        "dtype": "torch.float32",
+        "device": "cuda:0",
+        "finite": false,
+        "nan": 128,
+        "posinf": 0,
+        "neginf": 0,
+        "finite_abs_max": null,
+        "finite_abs_min": null
+      },
+      "backbone.encoder.layers.0.node_weight.layers.0.0.weight": {
+        "shape": [
+          128,
+          256
+        ],
+        "dtype": "torch.float32",
+        "device": "cuda:0",
+        "finite": false,
+        "nan": 32768,
+        "posinf": 0,
+        "neginf": 0,
+        "finite_abs_max": null,
+        "finite_abs_min": null
+      },
+      "backbone.encoder.layers.0.node_weight.layers.0.0.bias": {
+        "shape": [
+          128
+        ],
+        "dtype": "torch.float32",
+        "device": "cuda:0",
+        "finite": false,
+        "nan": 128,
+        "posinf": 0,
+        "neginf": 0,
+        "finite_abs_max": null,
+        "finite_abs_min": null
+      },
+      "backbone.encoder.layers.0.node_weight.layers.1.0.weight": {
+        "shape": [
+          128,
+          128
+        ],
+        "dtype": "torch.float32",
+        "device": "cuda:0",
+        "finite": false,
+        "nan": 16384,
+        "posinf": 0,
+        "neginf": 0,
+        "finite_abs_max": null,
+        "finite_abs_min": null
+      },
+      "backbone.encoder.layers.0.node_weight.layers.1.0.bias": {
+        "shape": [
+          128
+        ],
+        "dtype": "torch.float32",
+        "device": "cuda:0",
+        "finite": false,
+        "nan": 128,
+        "posinf": 0,
+        "neginf": 0,
+        "finite_abs_max": null,
+        "finite_abs_min": null
+      },
+      "backbone.encoder.layers.0.node_weight.layers.2.weight": {
+        "shape": [
+          128,
+          128
+        ],
+        "dtype": "torch.float32",
+        "device": "cuda:0",
+        "finite": false,
+        "nan": 16384,
+        "posinf": 0,
+        "neginf": 0,
+        "finite_abs_max": null,
+        "finite_abs_min": null
+      },
+      "backbone.encoder.layers.0.node_weight.layers.2.bias": {
+        "shape": [
+          128
+        ],
+        "dtype": "torch.float32",
+        "device": "cuda:0",
+        "finite": false,
+        "nan": 128,
+        "posinf": 0,
+        "neginf": 0,
+        "finite_abs_max": null,
+        "finite_abs_min": null
+      },
+      "backbone.encoder.layers.1.norms.0.weight": {
+        "shape": [
+          384
+        ],
+        "dtype": "torch.float32",
+        "device": "cuda:0",
+        "finite": false,
+        "nan": 384,
+        "posinf": 0,
+        "neginf": 0,
+        "finite_abs_max": null,
+        "finite_abs_min": null
+      },
+      "backbone.encoder.layers.1.norms.0.bias": {
+        "shape": [
+          384
+        ],
+        "dtype": "torch.float32",
+        "device": "cuda:0",
+        "finite": false,
+        "nan": 384,
+        "posinf": 0,
+        "neginf": 0,
+        "finite_abs_max": null,
+        "finite_abs_min": null
+      },
+      "backbone.encoder.layers.1.norms.1.weight": {
+        "shape": [
+          256
+        ],
+        "dtype": "torch.float32",
+        "device": "cuda:0",
+        "finite": false,
+        "nan": 256,
+        "posinf": 0,
+        "neginf": 0,
+        "finite_abs_max": null,
+        "finite_abs_min": null
+      },
+      "backbone.encoder.layers.1.norms.1.bias": {
+        "shape": [
+          256
+        ],
+        "dtype": "torch.float32",
+        "device": "cuda:0",
+        "finite": false,
+        "nan": 256,
+        "posinf": 0,
+        "neginf": 0,
+        "finite_abs_max": null,
+        "finite_abs_min": null
+      },
+      "backbone.encoder.layers.1.edge_weight.layers.0.0.weight": {
+        "shape": [
+          128,
+          384
+        ],
+        "dtype": "torch.float32",
+        "device": "cuda:0",
+        "finite": false,
+        "nan": 49152,
+        "posinf": 0,
+        "neginf": 0,
+        "finite_abs_max": null,
+        "finite_abs_min": null
+      },
+      "backbone.encoder.layers.1.edge_weight.layers.0.0.bias": {
+        "shape": [
+          128
+        ],
+        "dtype": "torch.float32",
+        "device": "cuda:0",
+        "finite": false,
+        "nan": 128,
+        "posinf": 0,
+        "neginf": 0,
+        "finite_abs_max": null,
+        "finite_abs_min": null
+      },
+      "backbone.encoder.layers.1.edge_weight.layers.1.0.weight": {
+        "shape": [
+          128,
+          128
+        ],
+        "dtype": "torch.float32",
+        "device": "cuda:0",
+        "finite": false,
+        "nan": 16384,
+        "posinf": 0,
+        "neginf": 0,
+        "finite_abs_max": null,
+        "finite_abs_min": null
+      },
+      "backbone.encoder.layers.1.edge_weight.layers.1.0.bias": {
+        "shape": [
+          128
+        ],
+        "dtype": "torch.float32",
+        "device": "cuda:0",
+        "finite": false,
+        "nan": 128,
+        "posinf": 0,
+        "neginf": 0,
+        "finite_abs_max": null,
+        "finite_abs_min": null
+      },
+      "backbone.encoder.layers.1.edge_weight.layers.2.weight": {
+        "shape": [
+          128,
+          128
+        ],
+        "dtype": "torch.float32",
+        "device": "cuda:0",
+        "finite": false,
+        "nan": 16384,
+        "posinf": 0,
+        "neginf": 0,
+        "finite_abs_max": null,
+        "finite_abs_min": null
+      },
+      "backbone.encoder.layers.1.edge_weight.layers.2.bias": {
+        "shape": [
+          128
+        ],
+        "dtype": "torch.float32",
+        "device": "cuda:0",
+        "finite": false,
+        "nan": 128,
+        "posinf": 0,
+        "neginf": 0,
+        "finite_abs_max": null,
+        "finite_abs_min": null
+      },
+      "backbone.encoder.layers.1.node_weight.layers.0.0.weight": {
+        "shape": [
+          128,
+          256
+        ],
+        "dtype": "torch.float32",
+        "device": "cuda:0",
+        "finite": false,
+        "nan": 32768,
+        "posinf": 0,
+        "neginf": 0,
+        "finite_abs_max": null,
+        "finite_abs_min": null
+      },
+      "backbone.encoder.layers.1.node_weight.layers.0.0.bias": {
+        "shape": [
+          128
+        ],
+        "dtype": "torch.float32",
+        "device": "cuda:0",
+        "finite": false,
+        "nan": 128,
+        "posinf": 0,
+        "neginf": 0,
+        "finite_abs_max": null,
+        "finite_abs_min": null
+      },
+      "backbone.encoder.layers.1.node_weight.layers.1.0.weight": {
+        "shape": [
+          128,
+          128
+        ],
+        "dtype": "torch.float32",
+        "device": "cuda:0",
+        "finite": false,
+        "nan": 16384,
+        "posinf": 0,
+        "neginf": 0,
+        "finite_abs_max": null,
+        "finite_abs_min": null
+      },
+      "backbone.encoder.layers.1.node_weight.layers.1.0.bias": {
+        "shape": [
+          128
+        ],
+        "dtype": "torch.float32",
+        "device": "cuda:0",
+        "finite": false,
+        "nan": 128,
+        "posinf": 0,
+        "neginf": 0,
+        "finite_abs_max": null,
+        "finite_abs_min": null
+      },
+      "backbone.encoder.layers.1.node_weight.layers.2.weight": {
+        "shape": [
+          128,
+          128
+        ],
+        "dtype": "torch.float32",
+        "device": "cuda:0",
+        "finite": false,
+        "nan": 16384,
+        "posinf": 0,
+        "neginf": 0,
+        "finite_abs_max": null,
+        "finite_abs_min": null
+      },
+      "backbone.encoder.layers.1.node_weight.layers.2.bias": {
+        "shape": [
+          128
+        ],
+        "dtype": "torch.float32",
+        "device": "cuda:0",
+        "finite": false,
+        "nan": 128,
+        "posinf": 0,
+        "neginf": 0,
+        "finite_abs_max": null,
+        "finite_abs_min": null
+      },
+      "backbone.encoder.layers.2.norms.0.weight": {
+        "shape": [
+          384
+        ],
+        "dtype": "torch.float32",
+        "device": "cuda:0",
+        "finite": false,
+        "nan": 384,
+        "posinf": 0,
+        "neginf": 0,
+        "finite_abs_max": null,
+        "finite_abs_min": null
+      },
+      "backbone.encoder.layers.2.norms.0.bias": {
+        "shape": [
+          384
+        ],
+        "dtype": "torch.float32",
+        "device": "cuda:0",
+        "finite": false,
+        "nan": 384,
+        "posinf": 0,
+        "neginf": 0,
+        "finite_abs_max": null,
+        "finite_abs_min": null
+      },
+      "backbone.encoder.layers.2.norms.1.weight": {
+        "shape": [
+          256
+        ],
+        "dtype": "torch.float32",
+        "device": "cuda:0",
+        "finite": false,
+        "nan": 256,
+        "posinf": 0,
+        "neginf": 0,
+        "finite_abs_max": null,
+        "finite_abs_min": null
+      },
+      "backbone.encoder.layers.2.norms.1.bias": {
+        "shape": [
+          256
+        ],
+        "dtype": "torch.float32",
+        "device": "cuda:0",
+        "finite": false,
+        "nan": 256,
+        "posinf": 0,
+        "neginf": 0,
+        "finite_abs_max": null,
+        "finite_abs_min": null
+      },
+      "backbone.encoder.layers.2.edge_weight.layers.0.0.weight": {
+        "shape": [
+          128,
+          384
+        ],
+        "dtype": "torch.float32",
+        "device": "cuda:0",
+        "finite": false,
+        "nan": 49152,
+        "posinf": 0,
+        "neginf": 0,
+        "finite_abs_max": null,
+        "finite_abs_min": null
+      },
+      "backbone.encoder.layers.2.edge_weight.layers.0.0.bias": {
+        "shape": [
+          128
+        ],
+        "dtype": "torch.float32",
+        "device": "cuda:0",
+        "finite": false,
+        "nan": 128,
+        "posinf": 0,
+        "neginf": 0,
+        "finite_abs_max": null,
+        "finite_abs_min": null
+      },
+      "backbone.encoder.layers.2.edge_weight.layers.1.0.weight": {
+        "shape": [
+          128,
+          128
+        ],
+        "dtype": "torch.float32",
+        "device": "cuda:0",
+        "finite": false,
+        "nan": 16384,
+        "posinf": 0,
+        "neginf": 0,
+        "finite_abs_max": null,
+        "finite_abs_min": null
+      },
+      "backbone.encoder.layers.2.edge_weight.layers.1.0.bias": {
+        "shape": [
+          128
+        ],
+        "dtype": "torch.float32",
+        "device": "cuda:0",
+        "finite": false,
+        "nan": 128,
+        "posinf": 0,
+        "neginf": 0,
+        "finite_abs_max": null,
+        "finite_abs_min": null
+      },
+      "backbone.encoder.layers.2.edge_weight.layers.2.weight": {
+        "shape": [
+          128,
+          128
+        ],
+        "dtype": "torch.float32",
+        "device": "cuda:0",
+        "finite": false,
+        "nan": 16384,
+        "posinf": 0,
+        "neginf": 0,
+        "finite_abs_max": null,
+        "finite_abs_min": null
+      },
+      "backbone.encoder.layers.2.edge_weight.layers.2.bias": {
+        "shape": [
+          128
+        ],
+        "dtype": "torch.float32",
+        "device": "cuda:0",
+        "finite": false,
+        "nan": 128,
+        "posinf": 0,
+        "neginf": 0,
+        "finite_abs_max": null,
+        "finite_abs_min": null
+      },
+      "backbone.encoder.layers.2.node_weight.layers.0.0.weight": {
+        "shape": [
+          128,
+          256
+        ],
+        "dtype": "torch.float32",
+        "device": "cuda:0",
+        "finite": false,
+        "nan": 32768,
+        "posinf": 0,
+        "neginf": 0,
+        "finite_abs_max": null,
+        "finite_abs_min": null
+      },
+      "backbone.encoder.layers.2.node_weight.layers.0.0.bias": {
+        "shape": [
+          128
+        ],
+        "dtype": "torch.float32",
+        "device": "cuda:0",
+        "finite": false,
+        "nan": 128,
+        "posinf": 0,
+        "neginf": 0,
+        "finite_abs_max": null,
+        "finite_abs_min": null
+      },
+      "backbone.encoder.layers.2.node_weight.layers.1.0.weight": {
+        "shape": [
+          128,
+          128
+        ],
+        "dtype": "torch.float32",
+        "device": "cuda:0",
+        "finite": false,
+        "nan": 16384,
+        "posinf": 0,
+        "neginf": 0,
+        "finite_abs_max": null,
+        "finite_abs_min": null
+      },
+      "backbone.encoder.layers.2.node_weight.layers.1.0.bias": {
+        "shape": [
+          128
+        ],
+        "dtype": "torch.float32",
+        "device": "cuda:0",
+        "finite": false,
+        "nan": 128,
+        "posinf": 0,
+        "neginf": 0,
+        "finite_abs_max": null,
+        "finite_abs_min": null
+      },
+      "backbone.encoder.layers.2.node_weight.layers.2.weight": {
+        "shape": [
+          128,
+          128
+        ],
+        "dtype": "torch.float32",
+        "device": "cuda:0",
+        "finite": false,
+        "nan": 16384,
+        "posinf": 0,
+        "neginf": 0,
+        "finite_abs_max": null,
+        "finite_abs_min": null
+      },
+      "backbone.encoder.layers.2.node_weight.layers.2.bias": {
+        "shape": [
+          128
+        ],
+        "dtype": "torch.float32",
+        "device": "cuda:0",
+        "finite": false,
+        "nan": 128,
+        "posinf": 0,
+        "neginf": 0,
+        "finite_abs_max": null,
+        "finite_abs_min": null
+      },
+      "backbone.encoder.layers.3.norms.0.weight": {
+        "shape": [
+          384
+        ],
+        "dtype": "torch.float32",
+        "device": "cuda:0",
+        "finite": false,
+        "nan": 384,
+        "posinf": 0,
+        "neginf": 0,
+        "finite_abs_max": null,
+        "finite_abs_min": null
+      },
+      "backbone.encoder.layers.3.norms.0.bias": {
+        "shape": [
+          384
+        ],
+        "dtype": "torch.float32",
+        "device": "cuda:0",
+        "finite": false,
+        "nan": 384,
+        "posinf": 0,
+        "neginf": 0,
+        "finite_abs_max": null,
+        "finite_abs_min": null
+      },
+      "backbone.encoder.layers.3.norms.1.weight": {
+        "shape": [
+          256
+        ],
+        "dtype": "torch.float32",
+        "device": "cuda:0",
+        "finite": false,
+        "nan": 256,
+        "posinf": 0,
+        "neginf": 0,
+        "finite_abs_max": null,
+        "finite_abs_min": null
+      },
+      "backbone.encoder.layers.3.norms.1.bias": {
+        "shape": [
+          256
+        ],
+        "dtype": "torch.float32",
+        "device": "cuda:0",
+        "finite": false,
+        "nan": 256,
+        "posinf": 0,
+        "neginf": 0,
+        "finite_abs_max": null,
+        "finite_abs_min": null
+      },
+      "backbone.encoder.layers.3.edge_weight.layers.0.0.weight": {
+        "shape": [
+          128,
+          384
+        ],
+        "dtype": "torch.float32",
+        "device": "cuda:0",
+        "finite": false,
+        "nan": 49152,
+        "posinf": 0,
+        "neginf": 0,
+        "finite_abs_max": null,
+        "finite_abs_min": null
+      },
+      "backbone.encoder.layers.3.edge_weight.layers.0.0.bias": {
+        "shape": [
+          128
+        ],
+        "dtype": "torch.float32",
+        "device": "cuda:0",
+        "finite": false,
+        "nan": 128,
+        "posinf": 0,
+        "neginf": 0,
+        "finite_abs_max": null,
+        "finite_abs_min": null
+      },
+      "backbone.encoder.layers.3.edge_weight.layers.1.0.weight": {
+        "shape": [
+          128,
+          128
+        ],
+        "dtype": "torch.float32",
+        "device": "cuda:0",
+        "finite": false,
+        "nan": 16384,
+        "posinf": 0,
+        "neginf": 0,
+        "finite_abs_max": null,
+        "finite_abs_min": null
+      },
+      "backbone.encoder.layers.3.edge_weight.layers.1.0.bias": {
+        "shape": [
+          128
+        ],
+        "dtype": "torch.float32",
+        "device": "cuda:0",
+        "finite": false,
+        "nan": 128,
+        "posinf": 0,
+        "neginf": 0,
+        "finite_abs_max": null,
+        "finite_abs_min": null
+      },
+      "backbone.encoder.layers.3.edge_weight.layers.2.weight": {
+        "shape": [
+          128,
+          128
+        ],
+        "dtype": "torch.float32",
+        "device": "cuda:0",
+        "finite": false,
+        "nan": 16384,
+        "posinf": 0,
+        "neginf": 0,
+        "finite_abs_max": null,
+        "finite_abs_min": null
+      },
+      "backbone.encoder.layers.3.edge_weight.layers.2.bias": {
+        "shape": [
+          128
+        ],
+        "dtype": "torch.float32",
+        "device": "cuda:0",
+        "finite": false,
+        "nan": 128,
+        "posinf": 0,
+        "neginf": 0,
+        "finite_abs_max": null,
+        "finite_abs_min": null
+      },
+      "backbone.encoder.layers.3.node_weight.layers.0.0.weight": {
+        "shape": [
+          128,
+          256
+        ],
+        "dtype": "torch.float32",
+        "device": "cuda:0",
+        "finite": false,
+        "nan": 32768,
+        "posinf": 0,
+        "neginf": 0,
+        "finite_abs_max": null,
+        "finite_abs_min": null
+      },
+      "backbone.encoder.layers.3.node_weight.layers.0.0.bias": {
+        "shape": [
+          128
+        ],
+        "dtype": "torch.float32",
+        "device": "cuda:0",
+        "finite": false,
+        "nan": 128,
+        "posinf": 0,
+        "neginf": 0,
+        "finite_abs_max": null,
+        "finite_abs_min": null
+      },
+      "backbone.encoder.layers.3.node_weight.layers.1.0.weight": {
+        "shape": [
+          128,
+          128
+        ],
+        "dtype": "torch.float32",
+        "device": "cuda:0",
+        "finite": false,
+        "nan": 16384,
+        "posinf": 0,
+        "neginf": 0,
+        "finite_abs_max": null,
+        "finite_abs_min": null
+      },
+      "backbone.encoder.layers.3.node_weight.layers.1.0.bias": {
+        "shape": [
+          128
+        ],
+        "dtype": "torch.float32",
+        "device": "cuda:0",
+        "finite": false,
+        "nan": 128,
+        "posinf": 0,
+        "neginf": 0,
+        "finite_abs_max": null,
+        "finite_abs_min": null
+      },
+      "backbone.encoder.layers.3.node_weight.layers.2.weight": {
+        "shape": [
+          128,
+          128
+        ],
+        "dtype": "torch.float32",
+        "device": "cuda:0",
+        "finite": false,
+        "nan": 16384,
+        "posinf": 0,
+        "neginf": 0,
+        "finite_abs_max": null,
+        "finite_abs_min": null
+      },
+      "backbone.encoder.layers.3.node_weight.layers.2.bias": {
+        "shape": [
+          128
+        ],
+        "dtype": "torch.float32",
+        "device": "cuda:0",
+        "finite": false,
+        "nan": 128,
+        "posinf": 0,
+        "neginf": 0,
+        "finite_abs_max": null,
+        "finite_abs_min": null
+      },
+      "backbone.encoder.layers.4.norms.0.weight": {
+        "shape": [
+          384
+        ],
+        "dtype": "torch.float32",
+        "device": "cuda:0",
+        "finite": false,
+        "nan": 384,
+        "posinf": 0,
+        "neginf": 0,
+        "finite_abs_max": null,
+        "finite_abs_min": null
+      },
+      "backbone.encoder.layers.4.norms.0.bias": {
+        "shape": [
+          384
+        ],
+        "dtype": "torch.float32",
+        "device": "cuda:0",
+        "finite": false,
+        "nan": 384,
+        "posinf": 0,
+        "neginf": 0,
+        "finite_abs_max": null,
+        "finite_abs_min": null
+      },
+      "backbone.encoder.layers.4.norms.1.weight": {
+        "shape": [
+          256
+        ],
+        "dtype": "torch.float32",
+        "device": "cuda:0",
+        "finite": false,
+        "nan": 256,
+        "posinf": 0,
+        "neginf": 0,
+        "finite_abs_max": null,
+        "finite_abs_min": null
+      },
+      "backbone.encoder.layers.4.norms.1.bias": {
+        "shape": [
+          256
+        ],
+        "dtype": "torch.float32",
+        "device": "cuda:0",
+        "finite": false,
+        "nan": 256,
+        "posinf": 0,
+        "neginf": 0,
+        "finite_abs_max": null,
+        "finite_abs_min": null
+      },
+      "backbone.encoder.layers.4.edge_weight.layers.0.0.weight": {
+        "shape": [
+          128,
+          384
+        ],
+        "dtype": "torch.float32",
+        "device": "cuda:0",
+        "finite": false,
+        "nan": 49152,
+        "posinf": 0,
+        "neginf": 0,
+        "finite_abs_max": null,
+        "finite_abs_min": null
+      },
+      "backbone.encoder.layers.4.edge_weight.layers.0.0.bias": {
+        "shape": [
+          128
+        ],
+        "dtype": "torch.float32",
+        "device": "cuda:0",
+        "finite": false,
+        "nan": 128,
+        "posinf": 0,
+        "neginf": 0,
+        "finite_abs_max": null,
+        "finite_abs_min": null
+      },
+      "backbone.encoder.layers.4.edge_weight.layers.1.0.weight": {
+        "shape": [
+          128,
+          128
+        ],
+        "dtype": "torch.float32",
+        "device": "cuda:0",
+        "finite": false,
+        "nan": 16384,
+        "posinf": 0,
+        "neginf": 0,
+        "finite_abs_max": null,
+        "finite_abs_min": null
+      },
+      "backbone.encoder.layers.4.edge_weight.layers.1.0.bias": {
+        "shape": [
+          128
+        ],
+        "dtype": "torch.float32",
+        "device": "cuda:0",
+        "finite": false,
+        "nan": 128,
+        "posinf": 0,
+        "neginf": 0,
+        "finite_abs_max": null,
+        "finite_abs_min": null
+      },
+      "backbone.encoder.layers.4.edge_weight.layers.2.weight": {
+        "shape": [
+          128,
+          128
+        ],
+        "dtype": "torch.float32",
+        "device": "cuda:0",
+        "finite": false,
+        "nan": 16384,
+        "posinf": 0,
+        "neginf": 0,
+        "finite_abs_max": null,
+        "finite_abs_min": null
+      },
+      "backbone.encoder.layers.4.edge_weight.layers.2.bias": {
+        "shape": [
+          128
+        ],
+        "dtype": "torch.float32",
+        "device": "cuda:0",
+        "finite": false,
+        "nan": 128,
+        "posinf": 0,
+        "neginf": 0,
+        "finite_abs_max": null,
+        "finite_abs_min": null
+      },
+      "backbone.encoder.layers.4.node_weight.layers.0.0.weight": {
+        "shape": [
+          128,
+          256
+        ],
+        "dtype": "torch.float32",
+        "device": "cuda:0",
+        "finite": false,
+        "nan": 32768,
+        "posinf": 0,
+        "neginf": 0,
+        "finite_abs_max": null,
+        "finite_abs_min": null
+      },
+      "backbone.encoder.layers.4.node_weight.layers.0.0.bias": {
+        "shape": [
+          128
+        ],
+        "dtype": "torch.float32",
+        "device": "cuda:0",
+        "finite": false,
+        "nan": 128,
+        "posinf": 0,
+        "neginf": 0,
+        "finite_abs_max": null,
+        "finite_abs_min": null
+      },
+      "backbone.encoder.layers.4.node_weight.layers.1.0.weight": {
+        "shape": [
+          128,
+          128
+        ],
+        "dtype": "torch.float32",
+        "device": "cuda:0",
+        "finite": false,
+        "nan": 16384,
+        "posinf": 0,
+        "neginf": 0,
+        "finite_abs_max": null,
+        "finite_abs_min": null
+      },
+      "backbone.encoder.layers.4.node_weight.layers.1.0.bias": {
+        "shape": [
+          128
+        ],
+        "dtype": "torch.float32",
+        "device": "cuda:0",
+        "finite": false,
+        "nan": 128,
+        "posinf": 0,
+        "neginf": 0,
+        "finite_abs_max": null,
+        "finite_abs_min": null
+      },
+      "backbone.encoder.layers.4.node_weight.layers.2.weight": {
+        "shape": [
+          128,
+          128
+        ],
+        "dtype": "torch.float32",
+        "device": "cuda:0",
+        "finite": false,
+        "nan": 16384,
+        "posinf": 0,
+        "neginf": 0,
+        "finite_abs_max": null,
+        "finite_abs_min": null
+      },
+      "backbone.encoder.layers.4.node_weight.layers.2.bias": {
+        "shape": [
+          128
+        ],
+        "dtype": "torch.float32",
+        "device": "cuda:0",
+        "finite": false,
+        "nan": 128,
+        "posinf": 0,
+        "neginf": 0,
+        "finite_abs_max": null,
+        "finite_abs_min": null
+      },
+      "backbone.encoder.layers.5.norms.0.weight": {
+        "shape": [
+          384
+        ],
+        "dtype": "torch.float32",
+        "device": "cuda:0",
+        "finite": false,
+        "nan": 384,
+        "posinf": 0,
+        "neginf": 0,
+        "finite_abs_max": null,
+        "finite_abs_min": null
+      },
+      "backbone.encoder.layers.5.norms.0.bias": {
+        "shape": [
+          384
+        ],
+        "dtype": "torch.float32",
+        "device": "cuda:0",
+        "finite": false,
+        "nan": 384,
+        "posinf": 0,
+        "neginf": 0,
+        "finite_abs_max": null,
+        "finite_abs_min": null
+      },
+      "backbone.encoder.layers.5.norms.1.weight": {
+        "shape": [
+          256
+        ],
+        "dtype": "torch.float32",
+        "device": "cuda:0",
+        "finite": false,
+        "nan": 256,
+        "posinf": 0,
+        "neginf": 0,
+        "finite_abs_max": null,
+        "finite_abs_min": null
+      },
+      "backbone.encoder.layers.5.norms.1.bias": {
+        "shape": [
+          256
+        ],
+        "dtype": "torch.float32",
+        "device": "cuda:0",
+        "finite": false,
+        "nan": 256,
+        "posinf": 0,
+        "neginf": 0,
+        "finite_abs_max": null,
+        "finite_abs_min": null
+      },
+      "backbone.encoder.layers.5.edge_weight.layers.0.0.weight": {
+        "shape": [
+          128,
+          384
+        ],
+        "dtype": "torch.float32",
+        "device": "cuda:0",
+        "finite": false,
+        "nan": 49152,
+        "posinf": 0,
+        "neginf": 0,
+        "finite_abs_max": null,
+        "finite_abs_min": null
+      },
+      "backbone.encoder.layers.5.edge_weight.layers.0.0.bias": {
+        "shape": [
+          128
+        ],
+        "dtype": "torch.float32",
+        "device": "cuda:0",
+        "finite": false,
+        "nan": 128,
+        "posinf": 0,
+        "neginf": 0,
+        "finite_abs_max": null,
+        "finite_abs_min": null
+      },
+      "backbone.encoder.layers.5.edge_weight.layers.1.0.weight": {
+        "shape": [
+          128,
+          128
+        ],
+        "dtype": "torch.float32",
+        "device": "cuda:0",
+        "finite": false,
+        "nan": 16384,
+        "posinf": 0,
+        "neginf": 0,
+        "finite_abs_max": null,
+        "finite_abs_min": null
+      },
+      "backbone.encoder.layers.5.edge_weight.layers.1.0.bias": {
+        "shape": [
+          128
+        ],
+        "dtype": "torch.float32",
+        "device": "cuda:0",
+        "finite": false,
+        "nan": 128,
+        "posinf": 0,
+        "neginf": 0,
+        "finite_abs_max": null,
+        "finite_abs_min": null
+      },
+      "backbone.encoder.layers.5.edge_weight.layers.2.weight": {
+        "shape": [
+          128,
+          128
+        ],
+        "dtype": "torch.float32",
+        "device": "cuda:0",
+        "finite": false,
+        "nan": 16384,
+        "posinf": 0,
+        "neginf": 0,
+        "finite_abs_max": null,
+        "finite_abs_min": null
+      },
+      "backbone.encoder.layers.5.edge_weight.layers.2.bias": {
+        "shape": [
+          128
+        ],
+        "dtype": "torch.float32",
+        "device": "cuda:0",
+        "finite": false,
+        "nan": 128,
+        "posinf": 0,
+        "neginf": 0,
+        "finite_abs_max": null,
+        "finite_abs_min": null
+      },
+      "backbone.encoder.layers.5.node_weight.layers.0.0.weight": {
+        "shape": [
+          128,
+          256
+        ],
+        "dtype": "torch.float32",
+        "device": "cuda:0",
+        "finite": false,
+        "nan": 32768,
+        "posinf": 0,
+        "neginf": 0,
+        "finite_abs_max": null,
+        "finite_abs_min": null
+      },
+      "backbone.encoder.layers.5.node_weight.layers.0.0.bias": {
+        "shape": [
+          128
+        ],
+        "dtype": "torch.float32",
+        "device": "cuda:0",
+        "finite": false,
+        "nan": 128,
+        "posinf": 0,
+        "neginf": 0,
+        "finite_abs_max": null,
+        "finite_abs_min": null
+      },
+      "backbone.encoder.layers.5.node_weight.layers.1.0.weight": {
+        "shape": [
+          128,
+          128
+        ],
+        "dtype": "torch.float32",
+        "device": "cuda:0",
+        "finite": false,
+        "nan": 16384,
+        "posinf": 0,
+        "neginf": 0,
+        "finite_abs_max": null,
+        "finite_abs_min": null
+      },
+      "backbone.encoder.layers.5.node_weight.layers.1.0.bias": {
+        "shape": [
+          128
+        ],
+        "dtype": "torch.float32",
+        "device": "cuda:0",
+        "finite": false,
+        "nan": 128,
+        "posinf": 0,
+        "neginf": 0,
+        "finite_abs_max": null,
+        "finite_abs_min": null
+      },
+      "backbone.encoder.layers.5.node_weight.layers.2.weight": {
+        "shape": [
+          128,
+          128
+        ],
+        "dtype": "torch.float32",
+        "device": "cuda:0",
+        "finite": false,
+        "nan": 16384,
+        "posinf": 0,
+        "neginf": 0,
+        "finite_abs_max": null,
+        "finite_abs_min": null
+      },
+      "backbone.encoder.layers.5.node_weight.layers.2.bias": {
+        "shape": [
+          128
+        ],
+        "dtype": "torch.float32",
+        "device": "cuda:0",
+        "finite": false,
+        "nan": 128,
+        "posinf": 0,
+        "neginf": 0,
+        "finite_abs_max": null,
+        "finite_abs_min": null
+      },
+      "backbone.encoder.layers.6.norms.0.weight": {
+        "shape": [
+          384
+        ],
+        "dtype": "torch.float32",
+        "device": "cuda:0",
+        "finite": false,
+        "nan": 384,
+        "posinf": 0,
+        "neginf": 0,
+        "finite_abs_max": null,
+        "finite_abs_min": null
+      },
+      "backbone.encoder.layers.6.norms.0.bias": {
+        "shape": [
+          384
+        ],
+        "dtype": "torch.float32",
+        "device": "cuda:0",
+        "finite": false,
+        "nan": 384,
+        "posinf": 0,
+        "neginf": 0,
+        "finite_abs_max": null,
+        "finite_abs_min": null
+      },
+      "backbone.encoder.layers.6.norms.1.weight": {
+        "shape": [
+          256
+        ],
+        "dtype": "torch.float32",
+        "device": "cuda:0",
+        "finite": false,
+        "nan": 256,
+        "posinf": 0,
+        "neginf": 0,
+        "finite_abs_max": null,
+        "finite_abs_min": null
+      },
+      "backbone.encoder.layers.6.norms.1.bias": {
+        "shape": [
+          256
+        ],
+        "dtype": "torch.float32",
+        "device": "cuda:0",
+        "finite": false,
+        "nan": 256,
+        "posinf": 0,
+        "neginf": 0,
+        "finite_abs_max": null,
+        "finite_abs_min": null
+      },
+      "backbone.encoder.layers.6.edge_weight.layers.0.0.weight": {
+        "shape": [
+          128,
+          384
+        ],
+        "dtype": "torch.float32",
+        "device": "cuda:0",
+        "finite": false,
+        "nan": 49152,
+        "posinf": 0,
+        "neginf": 0,
+        "finite_abs_max": null,
+        "finite_abs_min": null
+      },
+      "backbone.encoder.layers.6.edge_weight.layers.0.0.bias": {
+        "shape": [
+          128
+        ],
+        "dtype": "torch.float32",
+        "device": "cuda:0",
+        "finite": false,
+        "nan": 128,
+        "posinf": 0,
+        "neginf": 0,
+        "finite_abs_max": null,
+        "finite_abs_min": null
+      },
+      "backbone.encoder.layers.6.edge_weight.layers.1.0.weight": {
+        "shape": [
+          128,
+          128
+        ],
+        "dtype": "torch.float32",
+        "device": "cuda:0",
+        "finite": false,
+        "nan": 16384,
+        "posinf": 0,
+        "neginf": 0,
+        "finite_abs_max": null,
+        "finite_abs_min": null
+      },
+      "backbone.encoder.layers.6.edge_weight.layers.1.0.bias": {
+        "shape": [
+          128
+        ],
+        "dtype": "torch.float32",
+        "device": "cuda:0",
+        "finite": false,
+        "nan": 128,
+        "posinf": 0,
+        "neginf": 0,
+        "finite_abs_max": null,
+        "finite_abs_min": null
+      },
+      "backbone.encoder.layers.6.edge_weight.layers.2.weight": {
+        "shape": [
+          128,
+          128
+        ],
+        "dtype": "torch.float32",
+        "device": "cuda:0",
+        "finite": false,
+        "nan": 16384,
+        "posinf": 0,
+        "neginf": 0,
+        "finite_abs_max": null,
+        "finite_abs_min": null
+      },
+      "backbone.encoder.layers.6.edge_weight.layers.2.bias": {
+        "shape": [
+          128
+        ],
+        "dtype": "torch.float32",
+        "device": "cuda:0",
+        "finite": false,
+        "nan": 128,
+        "posinf": 0,
+        "neginf": 0,
+        "finite_abs_max": null,
+        "finite_abs_min": null
+      },
+      "backbone.encoder.layers.6.node_weight.layers.0.0.weight": {
+        "shape": [
+          128,
+          256
+        ],
+        "dtype": "torch.float32",
+        "device": "cuda:0",
+        "finite": false,
+        "nan": 32768,
+        "posinf": 0,
+        "neginf": 0,
+        "finite_abs_max": null,
+        "finite_abs_min": null
+      },
+      "backbone.encoder.layers.6.node_weight.layers.0.0.bias": {
+        "shape": [
+          128
+        ],
+        "dtype": "torch.float32",
+        "device": "cuda:0",
+        "finite": false,
+        "nan": 128,
+        "posinf": 0,
+        "neginf": 0,
+        "finite_abs_max": null,
+        "finite_abs_min": null
+      },
+      "backbone.encoder.layers.6.node_weight.layers.1.0.weight": {
+        "shape": [
+          128,
+          128
+        ],
+        "dtype": "torch.float32",
+        "device": "cuda:0",
+        "finite": false,
+        "nan": 16384,
+        "posinf": 0,
+        "neginf": 0,
+        "finite_abs_max": null,
+        "finite_abs_min": null
+      },
+      "backbone.encoder.layers.6.node_weight.layers.1.0.bias": {
+        "shape": [
+          128
+        ],
+        "dtype": "torch.float32",
+        "device": "cuda:0",
+        "finite": false,
+        "nan": 128,
+        "posinf": 0,
+        "neginf": 0,
+        "finite_abs_max": null,
+        "finite_abs_min": null
+      },
+      "backbone.encoder.layers.6.node_weight.layers.2.weight": {
+        "shape": [
+          128,
+          128
+        ],
+        "dtype": "torch.float32",
+        "device": "cuda:0",
+        "finite": false,
+        "nan": 16384,
+        "posinf": 0,
+        "neginf": 0,
+        "finite_abs_max": null,
+        "finite_abs_min": null
+      },
+      "backbone.encoder.layers.6.node_weight.layers.2.bias": {
+        "shape": [
+          128
+        ],
+        "dtype": "torch.float32",
+        "device": "cuda:0",
+        "finite": false,
+        "nan": 128,
+        "posinf": 0,
+        "neginf": 0,
+        "finite_abs_max": null,
+        "finite_abs_min": null
+      },
+      "backbone.encoder.layers.7.norms.0.weight": {
+        "shape": [
+          384
+        ],
+        "dtype": "torch.float32",
+        "device": "cuda:0",
+        "finite": false,
+        "nan": 384,
+        "posinf": 0,
+        "neginf": 0,
+        "finite_abs_max": null,
+        "finite_abs_min": null
+      },
+      "backbone.encoder.layers.7.norms.0.bias": {
+        "shape": [
+          384
+        ],
+        "dtype": "torch.float32",
+        "device": "cuda:0",
+        "finite": false,
+        "nan": 384,
+        "posinf": 0,
+        "neginf": 0,
+        "finite_abs_max": null,
+        "finite_abs_min": null
+      },
+      "backbone.encoder.layers.7.norms.1.weight": {
+        "shape": [
+          256
+        ],
+        "dtype": "torch.float32",
+        "device": "cuda:0",
+        "finite": false,
+        "nan": 256,
+        "posinf": 0,
+        "neginf": 0,
+        "finite_abs_max": null,
+        "finite_abs_min": null
+      },
+      "backbone.encoder.layers.7.norms.1.bias": {
+        "shape": [
+          256
+        ],
+        "dtype": "torch.float32",
+        "device": "cuda:0",
+        "finite": false,
+        "nan": 256,
+        "posinf": 0,
+        "neginf": 0,
+        "finite_abs_max": null,
+        "finite_abs_min": null
+      },
+      "backbone.encoder.layers.7.edge_weight.layers.0.0.weight": {
+        "shape": [
+          128,
+          384
+        ],
+        "dtype": "torch.float32",
+        "device": "cuda:0",
+        "finite": false,
+        "nan": 49152,
+        "posinf": 0,
+        "neginf": 0,
+        "finite_abs_max": null,
+        "finite_abs_min": null
+      },
+      "backbone.encoder.layers.7.edge_weight.layers.0.0.bias": {
+        "shape": [
+          128
+        ],
+        "dtype": "torch.float32",
+        "device": "cuda:0",
+        "finite": false,
+        "nan": 128,
+        "posinf": 0,
+        "neginf": 0,
+        "finite_abs_max": null,
+        "finite_abs_min": null
+      },
+      "backbone.encoder.layers.7.edge_weight.layers.1.0.weight": {
+        "shape": [
+          128,
+          128
+        ],
+        "dtype": "torch.float32",
+        "device": "cuda:0",
+        "finite": false,
+        "nan": 16384,
+        "posinf": 0,
+        "neginf": 0,
+        "finite_abs_max": null,
+        "finite_abs_min": null
+      },
+      "backbone.encoder.layers.7.edge_weight.layers.1.0.bias": {
+        "shape": [
+          128
+        ],
+        "dtype": "torch.float32",
+        "device": "cuda:0",
+        "finite": false,
+        "nan": 128,
+        "posinf": 0,
+        "neginf": 0,
+        "finite_abs_max": null,
+        "finite_abs_min": null
+      },
+      "backbone.encoder.layers.7.edge_weight.layers.2.weight": {
+        "shape": [
+          128,
+          128
+        ],
+        "dtype": "torch.float32",
+        "device": "cuda:0",
+        "finite": false,
+        "nan": 16384,
+        "posinf": 0,
+        "neginf": 0,
+        "finite_abs_max": null,
+        "finite_abs_min": null
+      },
+      "backbone.encoder.layers.7.edge_weight.layers.2.bias": {
+        "shape": [
+          128
+        ],
+        "dtype": "torch.float32",
+        "device": "cuda:0",
+        "finite": false,
+        "nan": 128,
+        "posinf": 0,
+        "neginf": 0,
+        "finite_abs_max": null,
+        "finite_abs_min": null
+      },
+      "backbone.encoder.layers.7.node_weight.layers.0.0.weight": {
+        "shape": [
+          128,
+          256
+        ],
+        "dtype": "torch.float32",
+        "device": "cuda:0",
+        "finite": false,
+        "nan": 32768,
+        "posinf": 0,
+        "neginf": 0,
+        "finite_abs_max": null,
+        "finite_abs_min": null
+      },
+      "backbone.encoder.layers.7.node_weight.layers.0.0.bias": {
+        "shape": [
+          128
+        ],
+        "dtype": "torch.float32",
+        "device": "cuda:0",
+        "finite": false,
+        "nan": 128,
+        "posinf": 0,
+        "neginf": 0,
+        "finite_abs_max": null,
+        "finite_abs_min": null
+      },
+      "backbone.encoder.layers.7.node_weight.layers.1.0.weight": {
+        "shape": [
+          128,
+          128
+        ],
+        "dtype": "torch.float32",
+        "device": "cuda:0",
+        "finite": false,
+        "nan": 16384,
+        "posinf": 0,
+        "neginf": 0,
+        "finite_abs_max": null,
+        "finite_abs_min": null
+      },
+      "backbone.encoder.layers.7.node_weight.layers.1.0.bias": {
+        "shape": [
+          128
+        ],
+        "dtype": "torch.float32",
+        "device": "cuda:0",
+        "finite": false,
+        "nan": 128,
+        "posinf": 0,
+        "neginf": 0,
+        "finite_abs_max": null,
+        "finite_abs_min": null
+      },
+      "backbone.encoder.layers.7.node_weight.layers.2.weight": {
+        "shape": [
+          128,
+          128
+        ],
+        "dtype": "torch.float32",
+        "device": "cuda:0",
+        "finite": false,
+        "nan": 16384,
+        "posinf": 0,
+        "neginf": 0,
+        "finite_abs_max": null,
+        "finite_abs_min": null
+      },
+      "backbone.encoder.layers.7.node_weight.layers.2.bias": {
+        "shape": [
+          128
+        ],
+        "dtype": "torch.float32",
+        "device": "cuda:0",
+        "finite": false,
+        "nan": 128,
+        "posinf": 0,
+        "neginf": 0,
+        "finite_abs_max": null,
+        "finite_abs_min": null
+      },
+      "backbone.encoder.layers.8.norms.0.weight": {
+        "shape": [
+          384
+        ],
+        "dtype": "torch.float32",
+        "device": "cuda:0",
+        "finite": false,
+        "nan": 384,
+        "posinf": 0,
+        "neginf": 0,
+        "finite_abs_max": null,
+        "finite_abs_min": null
+      },
+      "backbone.encoder.layers.8.norms.0.bias": {
+        "shape": [
+          384
+        ],
+        "dtype": "torch.float32",
+        "device": "cuda:0",
+        "finite": false,
+        "nan": 384,
+        "posinf": 0,
+        "neginf": 0,
+        "finite_abs_max": null,
+        "finite_abs_min": null
+      },
+      "backbone.encoder.layers.8.norms.1.weight": {
+        "shape": [
+          256
+        ],
+        "dtype": "torch.float32",
+        "device": "cuda:0",
+        "finite": false,
+        "nan": 256,
+        "posinf": 0,
+        "neginf": 0,
+        "finite_abs_max": null,
+        "finite_abs_min": null
+      },
+      "backbone.encoder.layers.8.norms.1.bias": {
+        "shape": [
+          256
+        ],
+        "dtype": "torch.float32",
+        "device": "cuda:0",
+        "finite": false,
+        "nan": 256,
+        "posinf": 0,
+        "neginf": 0,
+        "finite_abs_max": null,
+        "finite_abs_min": null
+      },
+      "backbone.encoder.layers.8.edge_weight.layers.0.0.weight": {
+        "shape": [
+          128,
+          384
+        ],
+        "dtype": "torch.float32",
+        "device": "cuda:0",
+        "finite": false,
+        "nan": 49152,
+        "posinf": 0,
+        "neginf": 0,
+        "finite_abs_max": null,
+        "finite_abs_min": null
+      },
+      "backbone.encoder.layers.8.edge_weight.layers.0.0.bias": {
+        "shape": [
+          128
+        ],
+        "dtype": "torch.float32",
+        "device": "cuda:0",
+        "finite": false,
+        "nan": 128,
+        "posinf": 0,
+        "neginf": 0,
+        "finite_abs_max": null,
+        "finite_abs_min": null
+      },
+      "backbone.encoder.layers.8.edge_weight.layers.1.0.weight": {
+        "shape": [
+          128,
+          128
+        ],
+        "dtype": "torch.float32",
+        "device": "cuda:0",
+        "finite": false,
+        "nan": 16384,
+        "posinf": 0,
+        "neginf": 0,
+        "finite_abs_max": null,
+        "finite_abs_min": null
+      },
+      "backbone.encoder.layers.8.edge_weight.layers.1.0.bias": {
+        "shape": [
+          128
+        ],
+        "dtype": "torch.float32",
+        "device": "cuda:0",
+        "finite": false,
+        "nan": 128,
+        "posinf": 0,
+        "neginf": 0,
+        "finite_abs_max": null,
+        "finite_abs_min": null
+      },
+      "backbone.encoder.layers.8.edge_weight.layers.2.weight": {
+        "shape": [
+          128,
+          128
+        ],
+        "dtype": "torch.float32",
+        "device": "cuda:0",
+        "finite": false,
+        "nan": 16384,
+        "posinf": 0,
+        "neginf": 0,
+        "finite_abs_max": null,
+        "finite_abs_min": null
+      },
+      "backbone.encoder.layers.8.edge_weight.layers.2.bias": {
+        "shape": [
+          128
+        ],
+        "dtype": "torch.float32",
+        "device": "cuda:0",
+        "finite": false,
+        "nan": 128,
+        "posinf": 0,
+        "neginf": 0,
+        "finite_abs_max": null,
+        "finite_abs_min": null
+      },
+      "backbone.encoder.layers.8.node_weight.layers.0.0.weight": {
+        "shape": [
+          128,
+          256
+        ],
+        "dtype": "torch.float32",
+        "device": "cuda:0",
+        "finite": false,
+        "nan": 32768,
+        "posinf": 0,
+        "neginf": 0,
+        "finite_abs_max": null,
+        "finite_abs_min": null
+      },
+      "backbone.encoder.layers.8.node_weight.layers.0.0.bias": {
+        "shape": [
+          128
+        ],
+        "dtype": "torch.float32",
+        "device": "cuda:0",
+        "finite": false,
+        "nan": 128,
+        "posinf": 0,
+        "neginf": 0,
+        "finite_abs_max": null,
+        "finite_abs_min": null
+      },
+      "backbone.encoder.layers.8.node_weight.layers.1.0.weight": {
+        "shape": [
+          128,
+          128
+        ],
+        "dtype": "torch.float32",
+        "device": "cuda:0",
+        "finite": false,
+        "nan": 16384,
+        "posinf": 0,
+        "neginf": 0,
+        "finite_abs_max": null,
+        "finite_abs_min": null
+      },
+      "backbone.encoder.layers.8.node_weight.layers.1.0.bias": {
+        "shape": [
+          128
+        ],
+        "dtype": "torch.float32",
+        "device": "cuda:0",
+        "finite": false,
+        "nan": 128,
+        "posinf": 0,
+        "neginf": 0,
+        "finite_abs_max": null,
+        "finite_abs_min": null
+      },
+      "backbone.encoder.layers.8.node_weight.layers.2.weight": {
+        "shape": [
+          128,
+          128
+        ],
+        "dtype": "torch.float32",
+        "device": "cuda:0",
+        "finite": false,
+        "nan": 16384,
+        "posinf": 0,
+        "neginf": 0,
+        "finite_abs_max": null,
+        "finite_abs_min": null
+      },
+      "backbone.encoder.layers.8.node_weight.layers.2.bias": {
+        "shape": [
+          128
+        ],
+        "dtype": "torch.float32",
+        "device": "cuda:0",
+        "finite": false,
+        "nan": 128,
+        "posinf": 0,
+        "neginf": 0,
+        "finite_abs_max": null,
+        "finite_abs_min": null
+      },
+      "backbone.encoder.layers.9.norms.0.weight": {
+        "shape": [
+          384
+        ],
+        "dtype": "torch.float32",
+        "device": "cuda:0",
+        "finite": false,
+        "nan": 384,
+        "posinf": 0,
+        "neginf": 0,
+        "finite_abs_max": null,
+        "finite_abs_min": null
+      },
+      "backbone.encoder.layers.9.norms.0.bias": {
+        "shape": [
+          384
+        ],
+        "dtype": "torch.float32",
+        "device": "cuda:0",
+        "finite": false,
+        "nan": 384,
+        "posinf": 0,
+        "neginf": 0,
+        "finite_abs_max": null,
+        "finite_abs_min": null
+      },
+      "backbone.encoder.layers.9.norms.1.weight": {
+        "shape": [
+          256
+        ],
+        "dtype": "torch.float32",
+        "device": "cuda:0",
+        "finite": false,
+        "nan": 256,
+        "posinf": 0,
+        "neginf": 0,
+        "finite_abs_max": null,
+        "finite_abs_min": null
+      },
+      "backbone.encoder.layers.9.norms.1.bias": {
+        "shape": [
+          256
+        ],
+        "dtype": "torch.float32",
+        "device": "cuda:0",
+        "finite": false,
+        "nan": 256,
+        "posinf": 0,
+        "neginf": 0,
+        "finite_abs_max": null,
+        "finite_abs_min": null
+      },
+      "backbone.encoder.layers.9.edge_weight.layers.0.0.weight": {
+        "shape": [
+          128,
+          384
+        ],
+        "dtype": "torch.float32",
+        "device": "cuda:0",
+        "finite": false,
+        "nan": 49152,
+        "posinf": 0,
+        "neginf": 0,
+        "finite_abs_max": null,
+        "finite_abs_min": null
+      },
+      "backbone.encoder.layers.9.edge_weight.layers.0.0.bias": {
+        "shape": [
+          128
+        ],
+        "dtype": "torch.float32",
+        "device": "cuda:0",
+        "finite": false,
+        "nan": 128,
+        "posinf": 0,
+        "neginf": 0,
+        "finite_abs_max": null,
+        "finite_abs_min": null
+      },
+      "backbone.encoder.layers.9.edge_weight.layers.1.0.weight": {
+        "shape": [
+          128,
+          128
+        ],
+        "dtype": "torch.float32",
+        "device": "cuda:0",
+        "finite": false,
+        "nan": 16384,
+        "posinf": 0,
+        "neginf": 0,
+        "finite_abs_max": null,
+        "finite_abs_min": null
+      },
+      "backbone.encoder.layers.9.edge_weight.layers.1.0.bias": {
+        "shape": [
+          128
+        ],
+        "dtype": "torch.float32",
+        "device": "cuda:0",
+        "finite": false,
+        "nan": 128,
+        "posinf": 0,
+        "neginf": 0,
+        "finite_abs_max": null,
+        "finite_abs_min": null
+      },
+      "backbone.encoder.layers.9.edge_weight.layers.2.weight": {
+        "shape": [
+          128,
+          128
+        ],
+        "dtype": "torch.float32",
+        "device": "cuda:0",
+        "finite": false,
+        "nan": 16384,
+        "posinf": 0,
+        "neginf": 0,
+        "finite_abs_max": null,
+        "finite_abs_min": null
+      },
+      "backbone.encoder.layers.9.edge_weight.layers.2.bias": {
+        "shape": [
+          128
+        ],
+        "dtype": "torch.float32",
+        "device": "cuda:0",
+        "finite": false,
+        "nan": 128,
+        "posinf": 0,
+        "neginf": 0,
+        "finite_abs_max": null,
+        "finite_abs_min": null
+      },
+      "backbone.encoder.layers.9.node_weight.layers.0.0.weight": {
+        "shape": [
+          128,
+          256
+        ],
+        "dtype": "torch.float32",
+        "device": "cuda:0",
+        "finite": false,
+        "nan": 32768,
+        "posinf": 0,
+        "neginf": 0,
+        "finite_abs_max": null,
+        "finite_abs_min": null
+      },
+      "backbone.encoder.layers.9.node_weight.layers.0.0.bias": {
+        "shape": [
+          128
+        ],
+        "dtype": "torch.float32",
+        "device": "cuda:0",
+        "finite": false,
+        "nan": 128,
+        "posinf": 0,
+        "neginf": 0,
+        "finite_abs_max": null,
+        "finite_abs_min": null
+      },
+      "backbone.encoder.layers.9.node_weight.layers.1.0.weight": {
+        "shape": [
+          128,
+          128
+        ],
+        "dtype": "torch.float32",
+        "device": "cuda:0",
+        "finite": false,
+        "nan": 16384,
+        "posinf": 0,
+        "neginf": 0,
+        "finite_abs_max": null,
+        "finite_abs_min": null
+      },
+      "backbone.encoder.layers.9.node_weight.layers.1.0.bias": {
+        "shape": [
+          128
+        ],
+        "dtype": "torch.float32",
+        "device": "cuda:0",
+        "finite": false,
+        "nan": 128,
+        "posinf": 0,
+        "neginf": 0,
+        "finite_abs_max": null,
+        "finite_abs_min": null
+      },
+      "backbone.encoder.layers.9.node_weight.layers.2.weight": {
+        "shape": [
+          128,
+          128
+        ],
+        "dtype": "torch.float32",
+        "device": "cuda:0",
+        "finite": false,
+        "nan": 16384,
+        "posinf": 0,
+        "neginf": 0,
+        "finite_abs_max": null,
+        "finite_abs_min": null
+      },
+      "backbone.encoder.layers.9.node_weight.layers.2.bias": {
+        "shape": [
+          128
+        ],
+        "dtype": "torch.float32",
+        "device": "cuda:0",
+        "finite": false,
+        "nan": 128,
+        "posinf": 0,
+        "neginf": 0,
+        "finite_abs_max": null,
+        "finite_abs_min": null
+      },
+      "backbone.encoder.layers.10.norms.0.weight": {
+        "shape": [
+          384
+        ],
+        "dtype": "torch.float32",
+        "device": "cuda:0",
+        "finite": false,
+        "nan": 384,
+        "posinf": 0,
+        "neginf": 0,
+        "finite_abs_max": null,
+        "finite_abs_min": null
+      },
+      "backbone.encoder.layers.10.norms.0.bias": {
+        "shape": [
+          384
+        ],
+        "dtype": "torch.float32",
+        "device": "cuda:0",
+        "finite": false,
+        "nan": 384,
+        "posinf": 0,
+        "neginf": 0,
+        "finite_abs_max": null,
+        "finite_abs_min": null
+      },
+      "backbone.encoder.layers.10.norms.1.weight": {
+        "shape": [
+          256
+        ],
+        "dtype": "torch.float32",
+        "device": "cuda:0",
+        "finite": false,
+        "nan": 256,
+        "posinf": 0,
+        "neginf": 0,
+        "finite_abs_max": null,
+        "finite_abs_min": null
+      },
+      "backbone.encoder.layers.10.norms.1.bias": {
+        "shape": [
+          256
+        ],
+        "dtype": "torch.float32",
+        "device": "cuda:0",
+        "finite": false,
+        "nan": 256,
+        "posinf": 0,
+        "neginf": 0,
+        "finite_abs_max": null,
+        "finite_abs_min": null
+      },
+      "backbone.encoder.layers.10.edge_weight.layers.0.0.weight": {
+        "shape": [
+          128,
+          384
+        ],
+        "dtype": "torch.float32",
+        "device": "cuda:0",
+        "finite": false,
+        "nan": 49152,
+        "posinf": 0,
+        "neginf": 0,
+        "finite_abs_max": null,
+        "finite_abs_min": null
+      },
+      "backbone.encoder.layers.10.edge_weight.layers.0.0.bias": {
+        "shape": [
+          128
+        ],
+        "dtype": "torch.float32",
+        "device": "cuda:0",
+        "finite": false,
+        "nan": 128,
+        "posinf": 0,
+        "neginf": 0,
+        "finite_abs_max": null,
+        "finite_abs_min": null
+      },
+      "backbone.encoder.layers.10.edge_weight.layers.1.0.weight": {
+        "shape": [
+          128,
+          128
+        ],
+        "dtype": "torch.float32",
+        "device": "cuda:0",
+        "finite": false,
+        "nan": 16384,
+        "posinf": 0,
+        "neginf": 0,
+        "finite_abs_max": null,
+        "finite_abs_min": null
+      },
+      "backbone.encoder.layers.10.edge_weight.layers.1.0.bias": {
+        "shape": [
+          128
+        ],
+        "dtype": "torch.float32",
+        "device": "cuda:0",
+        "finite": false,
+        "nan": 128,
+        "posinf": 0,
+        "neginf": 0,
+        "finite_abs_max": null,
+        "finite_abs_min": null
+      },
+      "backbone.encoder.layers.10.edge_weight.layers.2.weight": {
+        "shape": [
+          128,
+          128
+        ],
+        "dtype": "torch.float32",
+        "device": "cuda:0",
+        "finite": false,
+        "nan": 16384,
+        "posinf": 0,
+        "neginf": 0,
+        "finite_abs_max": null,
+        "finite_abs_min": null
+      },
+      "backbone.encoder.layers.10.edge_weight.layers.2.bias": {
+        "shape": [
+          128
+        ],
+        "dtype": "torch.float32",
+        "device": "cuda:0",
+        "finite": false,
+        "nan": 128,
+        "posinf": 0,
+        "neginf": 0,
+        "finite_abs_max": null,
+        "finite_abs_min": null
+      },
+      "backbone.encoder.layers.10.node_weight.layers.0.0.weight": {
+        "shape": [
+          128,
+          256
+        ],
+        "dtype": "torch.float32",
+        "device": "cuda:0",
+        "finite": false,
+        "nan": 32768,
+        "posinf": 0,
+        "neginf": 0,
+        "finite_abs_max": null,
+        "finite_abs_min": null
+      },
+      "backbone.encoder.layers.10.node_weight.layers.0.0.bias": {
+        "shape": [
+          128
+        ],
+        "dtype": "torch.float32",
+        "device": "cuda:0",
+        "finite": false,
+        "nan": 128,
+        "posinf": 0,
+        "neginf": 0,
+        "finite_abs_max": null,
+        "finite_abs_min": null
+      },
+      "backbone.encoder.layers.10.node_weight.layers.1.0.weight": {
+        "shape": [
+          128,
+          128
+        ],
+        "dtype": "torch.float32",
+        "device": "cuda:0",
+        "finite": false,
+        "nan": 16384,
+        "posinf": 0,
+        "neginf": 0,
+        "finite_abs_max": null,
+        "finite_abs_min": null
+      },
+      "backbone.encoder.layers.10.node_weight.layers.1.0.bias": {
+        "shape": [
+          128
+        ],
+        "dtype": "torch.float32",
+        "device": "cuda:0",
+        "finite": false,
+        "nan": 128,
+        "posinf": 0,
+        "neginf": 0,
+        "finite_abs_max": null,
+        "finite_abs_min": null
+      },
+      "backbone.encoder.layers.10.node_weight.layers.2.weight": {
+        "shape": [
+          128,
+          128
+        ],
+        "dtype": "torch.float32",
+        "device": "cuda:0",
+        "finite": false,
+        "nan": 16384,
+        "posinf": 0,
+        "neginf": 0,
+        "finite_abs_max": null,
+        "finite_abs_min": null
+      },
+      "backbone.encoder.layers.10.node_weight.layers.2.bias": {
+        "shape": [
+          128
+        ],
+        "dtype": "torch.float32",
+        "device": "cuda:0",
+        "finite": false,
+        "nan": 128,
+        "posinf": 0,
+        "neginf": 0,
+        "finite_abs_max": null,
+        "finite_abs_min": null
+      },
+      "backbone.encoder.layers.11.norms.0.weight": {
+        "shape": [
+          384
+        ],
+        "dtype": "torch.float32",
+        "device": "cuda:0",
+        "finite": false,
+        "nan": 384,
+        "posinf": 0,
+        "neginf": 0,
+        "finite_abs_max": null,
+        "finite_abs_min": null
+      },
+      "backbone.encoder.layers.11.norms.0.bias": {
+        "shape": [
+          384
+        ],
+        "dtype": "torch.float32",
+        "device": "cuda:0",
+        "finite": false,
+        "nan": 384,
+        "posinf": 0,
+        "neginf": 0,
+        "finite_abs_max": null,
+        "finite_abs_min": null
+      },
+      "backbone.encoder.layers.11.norms.1.weight": {
+        "shape": [
+          256
+        ],
+        "dtype": "torch.float32",
+        "device": "cuda:0",
+        "finite": false,
+        "nan": 256,
+        "posinf": 0,
+        "neginf": 0,
+        "finite_abs_max": null,
+        "finite_abs_min": null
+      },
+      "backbone.encoder.layers.11.norms.1.bias": {
+        "shape": [
+          256
+        ],
+        "dtype": "torch.float32",
+        "device": "cuda:0",
+        "finite": false,
+        "nan": 256,
+        "posinf": 0,
+        "neginf": 0,
+        "finite_abs_max": null,
+        "finite_abs_min": null
+      },
+      "backbone.encoder.layers.11.edge_weight.layers.0.0.weight": {
+        "shape": [
+          128,
+          384
+        ],
+        "dtype": "torch.float32",
+        "device": "cuda:0",
+        "finite": false,
+        "nan": 49152,
+        "posinf": 0,
+        "neginf": 0,
+        "finite_abs_max": null,
+        "finite_abs_min": null
+      },
+      "backbone.encoder.layers.11.edge_weight.layers.0.0.bias": {
+        "shape": [
+          128
+        ],
+        "dtype": "torch.float32",
+        "device": "cuda:0",
+        "finite": false,
+        "nan": 128,
+        "posinf": 0,
+        "neginf": 0,
+        "finite_abs_max": null,
+        "finite_abs_min": null
+      },
+      "backbone.encoder.layers.11.edge_weight.layers.1.0.weight": {
+        "shape": [
+          128,
+          128
+        ],
+        "dtype": "torch.float32",
+        "device": "cuda:0",
+        "finite": false,
+        "nan": 16384,
+        "posinf": 0,
+        "neginf": 0,
+        "finite_abs_max": null,
+        "finite_abs_min": null
+      },
+      "backbone.encoder.layers.11.edge_weight.layers.1.0.bias": {
+        "shape": [
+          128
+        ],
+        "dtype": "torch.float32",
+        "device": "cuda:0",
+        "finite": false,
+        "nan": 128,
+        "posinf": 0,
+        "neginf": 0,
+        "finite_abs_max": null,
+        "finite_abs_min": null
+      },
+      "backbone.encoder.layers.11.edge_weight.layers.2.weight": {
+        "shape": [
+          128,
+          128
+        ],
+        "dtype": "torch.float32",
+        "device": "cuda:0",
+        "finite": false,
+        "nan": 16384,
+        "posinf": 0,
+        "neginf": 0,
+        "finite_abs_max": null,
+        "finite_abs_min": null
+      },
+      "backbone.encoder.layers.11.edge_weight.layers.2.bias": {
+        "shape": [
+          128
+        ],
+        "dtype": "torch.float32",
+        "device": "cuda:0",
+        "finite": false,
+        "nan": 128,
+        "posinf": 0,
+        "neginf": 0,
+        "finite_abs_max": null,
+        "finite_abs_min": null
+      },
+      "backbone.encoder.layers.11.node_weight.layers.0.0.weight": {
+        "shape": [
+          128,
+          256
+        ],
+        "dtype": "torch.float32",
+        "device": "cuda:0",
+        "finite": false,
+        "nan": 32768,
+        "posinf": 0,
+        "neginf": 0,
+        "finite_abs_max": null,
+        "finite_abs_min": null
+      },
+      "backbone.encoder.layers.11.node_weight.layers.0.0.bias": {
+        "shape": [
+          128
+        ],
+        "dtype": "torch.float32",
+        "device": "cuda:0",
+        "finite": false,
+        "nan": 128,
+        "posinf": 0,
+        "neginf": 0,
+        "finite_abs_max": null,
+        "finite_abs_min": null
+      },
+      "backbone.encoder.layers.11.node_weight.layers.1.0.weight": {
+        "shape": [
+          128,
+          128
+        ],
+        "dtype": "torch.float32",
+        "device": "cuda:0",
+        "finite": false,
+        "nan": 16384,
+        "posinf": 0,
+        "neginf": 0,
+        "finite_abs_max": null,
+        "finite_abs_min": null
+      },
+      "backbone.encoder.layers.11.node_weight.layers.1.0.bias": {
+        "shape": [
+          128
+        ],
+        "dtype": "torch.float32",
+        "device": "cuda:0",
+        "finite": false,
+        "nan": 128,
+        "posinf": 0,
+        "neginf": 0,
+        "finite_abs_max": null,
+        "finite_abs_min": null
+      },
+      "backbone.encoder.layers.11.node_weight.layers.2.weight": {
+        "shape": [
+          128,
+          128
+        ],
+        "dtype": "torch.float32",
+        "device": "cuda:0",
+        "finite": false,
+        "nan": 16384,
+        "posinf": 0,
+        "neginf": 0,
+        "finite_abs_max": null,
+        "finite_abs_min": null
+      },
+      "backbone.encoder.layers.11.node_weight.layers.2.bias": {
+        "shape": [
+          128
+        ],
+        "dtype": "torch.float32",
+        "device": "cuda:0",
+        "finite": false,
+        "nan": 128,
+        "posinf": 0,
+        "neginf": 0,
+        "finite_abs_max": null,
+        "finite_abs_min": null
+      },
+      "backbone.encoder.layers.12.norms.0.weight": {
+        "shape": [
+          384
+        ],
+        "dtype": "torch.float32",
+        "device": "cuda:0",
+        "finite": false,
+        "nan": 384,
+        "posinf": 0,
+        "neginf": 0,
+        "finite_abs_max": null,
+        "finite_abs_min": null
+      },
+      "backbone.encoder.layers.12.norms.0.bias": {
+        "shape": [
+          384
+        ],
+        "dtype": "torch.float32",
+        "device": "cuda:0",
+        "finite": false,
+        "nan": 384,
+        "posinf": 0,
+        "neginf": 0,
+        "finite_abs_max": null,
+        "finite_abs_min": null
+      },
+      "backbone.encoder.layers.12.norms.1.weight": {
+        "shape": [
+          256
+        ],
+        "dtype": "torch.float32",
+        "device": "cuda:0",
+        "finite": false,
+        "nan": 256,
+        "posinf": 0,
+        "neginf": 0,
+        "finite_abs_max": null,
+        "finite_abs_min": null
+      },
+      "backbone.encoder.layers.12.norms.1.bias": {
+        "shape": [
+          256
+        ],
+        "dtype": "torch.float32",
+        "device": "cuda:0",
+        "finite": false,
+        "nan": 256,
+        "posinf": 0,
+        "neginf": 0,
+        "finite_abs_max": null,
+        "finite_abs_min": null
+      },
+      "backbone.encoder.layers.12.edge_weight.layers.0.0.weight": {
+        "shape": [
+          128,
+          384
+        ],
+        "dtype": "torch.float32",
+        "device": "cuda:0",
+        "finite": false,
+        "nan": 49152,
+        "posinf": 0,
+        "neginf": 0,
+        "finite_abs_max": null,
+        "finite_abs_min": null
+      },
+      "backbone.encoder.layers.12.edge_weight.layers.0.0.bias": {
+        "shape": [
+          128
+        ],
+        "dtype": "torch.float32",
+        "device": "cuda:0",
+        "finite": false,
+        "nan": 128,
+        "posinf": 0,
+        "neginf": 0,
+        "finite_abs_max": null,
+        "finite_abs_min": null
+      },
+      "backbone.encoder.layers.12.edge_weight.layers.1.0.weight": {
+        "shape": [
+          128,
+          128
+        ],
+        "dtype": "torch.float32",
+        "device": "cuda:0",
+        "finite": false,
+        "nan": 16384,
+        "posinf": 0,
+        "neginf": 0,
+        "finite_abs_max": null,
+        "finite_abs_min": null
+      },
+      "backbone.encoder.layers.12.edge_weight.layers.1.0.bias": {
+        "shape": [
+          128
+        ],
+        "dtype": "torch.float32",
+        "device": "cuda:0",
+        "finite": false,
+        "nan": 128,
+        "posinf": 0,
+        "neginf": 0,
+        "finite_abs_max": null,
+        "finite_abs_min": null
+      },
+      "backbone.encoder.layers.12.edge_weight.layers.2.weight": {
+        "shape": [
+          128,
+          128
+        ],
+        "dtype": "torch.float32",
+        "device": "cuda:0",
+        "finite": false,
+        "nan": 16384,
+        "posinf": 0,
+        "neginf": 0,
+        "finite_abs_max": null,
+        "finite_abs_min": null
+      },
+      "backbone.encoder.layers.12.edge_weight.layers.2.bias": {
+        "shape": [
+          128
+        ],
+        "dtype": "torch.float32",
+        "device": "cuda:0",
+        "finite": false,
+        "nan": 128,
+        "posinf": 0,
+        "neginf": 0,
+        "finite_abs_max": null,
+        "finite_abs_min": null
+      },
+      "backbone.encoder.layers.12.node_weight.layers.0.0.weight": {
+        "shape": [
+          128,
+          256
+        ],
+        "dtype": "torch.float32",
+        "device": "cuda:0",
+        "finite": false,
+        "nan": 32768,
+        "posinf": 0,
+        "neginf": 0,
+        "finite_abs_max": null,
+        "finite_abs_min": null
+      },
+      "backbone.encoder.layers.12.node_weight.layers.0.0.bias": {
+        "shape": [
+          128
+        ],
+        "dtype": "torch.float32",
+        "device": "cuda:0",
+        "finite": false,
+        "nan": 128,
+        "posinf": 0,
+        "neginf": 0,
+        "finite_abs_max": null,
+        "finite_abs_min": null
+      },
+      "backbone.encoder.layers.12.node_weight.layers.1.0.weight": {
+        "shape": [
+          128,
+          128
+        ],
+        "dtype": "torch.float32",
+        "device": "cuda:0",
+        "finite": false,
+        "nan": 16384,
+        "posinf": 0,
+        "neginf": 0,
+        "finite_abs_max": null,
+        "finite_abs_min": null
+      },
+      "backbone.encoder.layers.12.node_weight.layers.1.0.bias": {
+        "shape": [
+          128
+        ],
+        "dtype": "torch.float32",
+        "device": "cuda:0",
+        "finite": false,
+        "nan": 128,
+        "posinf": 0,
+        "neginf": 0,
+        "finite_abs_max": null,
+        "finite_abs_min": null
+      },
+      "backbone.encoder.layers.12.node_weight.layers.2.weight": {
+        "shape": [
+          128,
+          128
+        ],
+        "dtype": "torch.float32",
+        "device": "cuda:0",
+        "finite": false,
+        "nan": 16384,
+        "posinf": 0,
+        "neginf": 0,
+        "finite_abs_max": null,
+        "finite_abs_min": null
+      },
+      "backbone.encoder.layers.12.node_weight.layers.2.bias": {
+        "shape": [
+          128
+        ],
+        "dtype": "torch.float32",
+        "device": "cuda:0",
+        "finite": false,
+        "nan": 128,
+        "posinf": 0,
+        "neginf": 0,
+        "finite_abs_max": null,
+        "finite_abs_min": null
+      },
+      "backbone.encoder.layers.13.norms.0.weight": {
+        "shape": [
+          384
+        ],
+        "dtype": "torch.float32",
+        "device": "cuda:0",
+        "finite": false,
+        "nan": 384,
+        "posinf": 0,
+        "neginf": 0,
+        "finite_abs_max": null,
+        "finite_abs_min": null
+      },
+      "backbone.encoder.layers.13.norms.0.bias": {
+        "shape": [
+          384
+        ],
+        "dtype": "torch.float32",
+        "device": "cuda:0",
+        "finite": false,
+        "nan": 384,
+        "posinf": 0,
+        "neginf": 0,
+        "finite_abs_max": null,
+        "finite_abs_min": null
+      },
+      "backbone.encoder.layers.13.norms.1.weight": {
+        "shape": [
+          256
+        ],
+        "dtype": "torch.float32",
+        "device": "cuda:0",
+        "finite": false,
+        "nan": 256,
+        "posinf": 0,
+        "neginf": 0,
+        "finite_abs_max": null,
+        "finite_abs_min": null
+      },
+      "backbone.encoder.layers.13.norms.1.bias": {
+        "shape": [
+          256
+        ],
+        "dtype": "torch.float32",
+        "device": "cuda:0",
+        "finite": false,
+        "nan": 256,
+        "posinf": 0,
+        "neginf": 0,
+        "finite_abs_max": null,
+        "finite_abs_min": null
+      },
+      "backbone.encoder.layers.13.edge_weight.layers.0.0.weight": {
+        "shape": [
+          128,
+          384
+        ],
+        "dtype": "torch.float32",
+        "device": "cuda:0",
+        "finite": false,
+        "nan": 49152,
+        "posinf": 0,
+        "neginf": 0,
+        "finite_abs_max": null,
+        "finite_abs_min": null
+      },
+      "backbone.encoder.layers.13.edge_weight.layers.0.0.bias": {
+        "shape": [
+          128
+        ],
+        "dtype": "torch.float32",
+        "device": "cuda:0",
+        "finite": false,
+        "nan": 128,
+        "posinf": 0,
+        "neginf": 0,
+        "finite_abs_max": null,
+        "finite_abs_min": null
+      },
+      "backbone.encoder.layers.13.edge_weight.layers.1.0.weight": {
+        "shape": [
+          128,
+          128
+        ],
+        "dtype": "torch.float32",
+        "device": "cuda:0",
+        "finite": false,
+        "nan": 16384,
+        "posinf": 0,
+        "neginf": 0,
+        "finite_abs_max": null,
+        "finite_abs_min": null
+      },
+      "backbone.encoder.layers.13.edge_weight.layers.1.0.bias": {
+        "shape": [
+          128
+        ],
+        "dtype": "torch.float32",
+        "device": "cuda:0",
+        "finite": false,
+        "nan": 128,
+        "posinf": 0,
+        "neginf": 0,
+        "finite_abs_max": null,
+        "finite_abs_min": null
+      },
+      "backbone.encoder.layers.13.edge_weight.layers.2.weight": {
+        "shape": [
+          128,
+          128
+        ],
+        "dtype": "torch.float32",
+        "device": "cuda:0",
+        "finite": false,
+        "nan": 16384,
+        "posinf": 0,
+        "neginf": 0,
+        "finite_abs_max": null,
+        "finite_abs_min": null
+      },
+      "backbone.encoder.layers.13.edge_weight.layers.2.bias": {
+        "shape": [
+          128
+        ],
+        "dtype": "torch.float32",
+        "device": "cuda:0",
+        "finite": false,
+        "nan": 128,
+        "posinf": 0,
+        "neginf": 0,
+        "finite_abs_max": null,
+        "finite_abs_min": null
+      },
+      "backbone.encoder.layers.13.node_weight.layers.0.0.weight": {
+        "shape": [
+          128,
+          256
+        ],
+        "dtype": "torch.float32",
+        "device": "cuda:0",
+        "finite": false,
+        "nan": 32768,
+        "posinf": 0,
+        "neginf": 0,
+        "finite_abs_max": null,
+        "finite_abs_min": null
+      },
+      "backbone.encoder.layers.13.node_weight.layers.0.0.bias": {
+        "shape": [
+          128
+        ],
+        "dtype": "torch.float32",
+        "device": "cuda:0",
+        "finite": false,
+        "nan": 128,
+        "posinf": 0,
+        "neginf": 0,
+        "finite_abs_max": null,
+        "finite_abs_min": null
+      },
+      "backbone.encoder.layers.13.node_weight.layers.1.0.weight": {
+        "shape": [
+          128,
+          128
+        ],
+        "dtype": "torch.float32",
+        "device": "cuda:0",
+        "finite": false,
+        "nan": 16384,
+        "posinf": 0,
+        "neginf": 0,
+        "finite_abs_max": null,
+        "finite_abs_min": null
+      },
+      "backbone.encoder.layers.13.node_weight.layers.1.0.bias": {
+        "shape": [
+          128
+        ],
+        "dtype": "torch.float32",
+        "device": "cuda:0",
+        "finite": false,
+        "nan": 128,
+        "posinf": 0,
+        "neginf": 0,
+        "finite_abs_max": null,
+        "finite_abs_min": null
+      },
+      "backbone.encoder.layers.13.node_weight.layers.2.weight": {
+        "shape": [
+          128,
+          128
+        ],
+        "dtype": "torch.float32",
+        "device": "cuda:0",
+        "finite": false,
+        "nan": 16384,
+        "posinf": 0,
+        "neginf": 0,
+        "finite_abs_max": null,
+        "finite_abs_min": null
+      },
+      "backbone.encoder.layers.13.node_weight.layers.2.bias": {
+        "shape": [
+          128
+        ],
+        "dtype": "torch.float32",
+        "device": "cuda:0",
+        "finite": false,
+        "nan": 128,
+        "posinf": 0,
+        "neginf": 0,
+        "finite_abs_max": null,
+        "finite_abs_min": null
+      },
+      "backbone.encoder.layers.14.norms.0.weight": {
+        "shape": [
+          384
+        ],
+        "dtype": "torch.float32",
+        "device": "cuda:0",
+        "finite": false,
+        "nan": 384,
+        "posinf": 0,
+        "neginf": 0,
+        "finite_abs_max": null,
+        "finite_abs_min": null
+      },
+      "backbone.encoder.layers.14.norms.0.bias": {
+        "shape": [
+          384
+        ],
+        "dtype": "torch.float32",
+        "device": "cuda:0",
+        "finite": false,
+        "nan": 384,
+        "posinf": 0,
+        "neginf": 0,
+        "finite_abs_max": null,
+        "finite_abs_min": null
+      },
+      "backbone.encoder.layers.14.norms.1.weight": {
+        "shape": [
+          256
+        ],
+        "dtype": "torch.float32",
+        "device": "cuda:0",
+        "finite": false,
+        "nan": 256,
+        "posinf": 0,
+        "neginf": 0,
+        "finite_abs_max": null,
+        "finite_abs_min": null
+      },
+      "backbone.encoder.layers.14.norms.1.bias": {
+        "shape": [
+          256
+        ],
+        "dtype": "torch.float32",
+        "device": "cuda:0",
+        "finite": false,
+        "nan": 256,
+        "posinf": 0,
+        "neginf": 0,
+        "finite_abs_max": null,
+        "finite_abs_min": null
+      },
+      "backbone.encoder.layers.14.edge_weight.layers.0.0.weight": {
+        "shape": [
+          128,
+          384
+        ],
+        "dtype": "torch.float32",
+        "device": "cuda:0",
+        "finite": false,
+        "nan": 49152,
+        "posinf": 0,
+        "neginf": 0,
+        "finite_abs_max": null,
+        "finite_abs_min": null
+      },
+      "backbone.encoder.layers.14.edge_weight.layers.0.0.bias": {
+        "shape": [
+          128
+        ],
+        "dtype": "torch.float32",
+        "device": "cuda:0",
+        "finite": false,
+        "nan": 128,
+        "posinf": 0,
+        "neginf": 0,
+        "finite_abs_max": null,
+        "finite_abs_min": null
+      },
+      "backbone.encoder.layers.14.edge_weight.layers.1.0.weight": {
+        "shape": [
+          128,
+          128
+        ],
+        "dtype": "torch.float32",
+        "device": "cuda:0",
+        "finite": false,
+        "nan": 16384,
+        "posinf": 0,
+        "neginf": 0,
+        "finite_abs_max": null,
+        "finite_abs_min": null
+      },
+      "backbone.encoder.layers.14.edge_weight.layers.1.0.bias": {
+        "shape": [
+          128
+        ],
+        "dtype": "torch.float32",
+        "device": "cuda:0",
+        "finite": false,
+        "nan": 128,
+        "posinf": 0,
+        "neginf": 0,
+        "finite_abs_max": null,
+        "finite_abs_min": null
+      },
+      "backbone.encoder.layers.14.edge_weight.layers.2.weight": {
+        "shape": [
+          128,
+          128
+        ],
+        "dtype": "torch.float32",
+        "device": "cuda:0",
+        "finite": false,
+        "nan": 16384,
+        "posinf": 0,
+        "neginf": 0,
+        "finite_abs_max": null,
+        "finite_abs_min": null
+      },
+      "backbone.encoder.layers.14.edge_weight.layers.2.bias": {
+        "shape": [
+          128
+        ],
+        "dtype": "torch.float32",
+        "device": "cuda:0",
+        "finite": false,
+        "nan": 128,
+        "posinf": 0,
+        "neginf": 0,
+        "finite_abs_max": null,
+        "finite_abs_min": null
+      },
+      "backbone.encoder.layers.14.node_weight.layers.0.0.weight": {
+        "shape": [
+          128,
+          256
+        ],
+        "dtype": "torch.float32",
+        "device": "cuda:0",
+        "finite": false,
+        "nan": 32768,
+        "posinf": 0,
+        "neginf": 0,
+        "finite_abs_max": null,
+        "finite_abs_min": null
+      },
+      "backbone.encoder.layers.14.node_weight.layers.0.0.bias": {
+        "shape": [
+          128
+        ],
+        "dtype": "torch.float32",
+        "device": "cuda:0",
+        "finite": false,
+        "nan": 128,
+        "posinf": 0,
+        "neginf": 0,
+        "finite_abs_max": null,
+        "finite_abs_min": null
+      },
+      "backbone.encoder.layers.14.node_weight.layers.1.0.weight": {
+        "shape": [
+          128,
+          128
+        ],
+        "dtype": "torch.float32",
+        "device": "cuda:0",
+        "finite": false,
+        "nan": 16384,
+        "posinf": 0,
+        "neginf": 0,
+        "finite_abs_max": null,
+        "finite_abs_min": null
+      },
+      "backbone.encoder.layers.14.node_weight.layers.1.0.bias": {
+        "shape": [
+          128
+        ],
+        "dtype": "torch.float32",
+        "device": "cuda:0",
+        "finite": false,
+        "nan": 128,
+        "posinf": 0,
+        "neginf": 0,
+        "finite_abs_max": null,
+        "finite_abs_min": null
+      },
+      "backbone.encoder.layers.14.node_weight.layers.2.weight": {
+        "shape": [
+          128,
+          128
+        ],
+        "dtype": "torch.float32",
+        "device": "cuda:0",
+        "finite": false,
+        "nan": 16384,
+        "posinf": 0,
+        "neginf": 0,
+        "finite_abs_max": null,
+        "finite_abs_min": null
+      },
+      "backbone.encoder.layers.14.node_weight.layers.2.bias": {
+        "shape": [
+          128
+        ],
+        "dtype": "torch.float32",
+        "device": "cuda:0",
+        "finite": false,
+        "nan": 128,
+        "posinf": 0,
+        "neginf": 0,
+        "finite_abs_max": null,
+        "finite_abs_min": null
+      },
+      "backbone.encoder.layers.15.norms.0.weight": {
+        "shape": [
+          384
+        ],
+        "dtype": "torch.float32",
+        "device": "cuda:0",
+        "finite": false,
+        "nan": 384,
+        "posinf": 0,
+        "neginf": 0,
+        "finite_abs_max": null,
+        "finite_abs_min": null
+      },
+      "backbone.encoder.layers.15.norms.0.bias": {
+        "shape": [
+          384
+        ],
+        "dtype": "torch.float32",
+        "device": "cuda:0",
+        "finite": false,
+        "nan": 384,
+        "posinf": 0,
+        "neginf": 0,
+        "finite_abs_max": null,
+        "finite_abs_min": null
+      },
+      "backbone.encoder.layers.15.norms.1.weight": {
+        "shape": [
+          256
+        ],
+        "dtype": "torch.float32",
+        "device": "cuda:0",
+        "finite": false,
+        "nan": 256,
+        "posinf": 0,
+        "neginf": 0,
+        "finite_abs_max": null,
+        "finite_abs_min": null
+      },
+      "backbone.encoder.layers.15.norms.1.bias": {
+        "shape": [
+          256
+        ],
+        "dtype": "torch.float32",
+        "device": "cuda:0",
+        "finite": false,
+        "nan": 256,
+        "posinf": 0,
+        "neginf": 0,
+        "finite_abs_max": null,
+        "finite_abs_min": null
+      },
+      "backbone.encoder.layers.15.edge_weight.layers.0.0.weight": {
+        "shape": [
+          128,
+          384
+        ],
+        "dtype": "torch.float32",
+        "device": "cuda:0",
+        "finite": false,
+        "nan": 49152,
+        "posinf": 0,
+        "neginf": 0,
+        "finite_abs_max": null,
+        "finite_abs_min": null
+      },
+      "backbone.encoder.layers.15.edge_weight.layers.0.0.bias": {
+        "shape": [
+          128
+        ],
+        "dtype": "torch.float32",
+        "device": "cuda:0",
+        "finite": false,
+        "nan": 128,
+        "posinf": 0,
+        "neginf": 0,
+        "finite_abs_max": null,
+        "finite_abs_min": null
+      },
+      "backbone.encoder.layers.15.edge_weight.layers.1.0.weight": {
+        "shape": [
+          128,
+          128
+        ],
+        "dtype": "torch.float32",
+        "device": "cuda:0",
+        "finite": false,
+        "nan": 16384,
+        "posinf": 0,
+        "neginf": 0,
+        "finite_abs_max": null,
+        "finite_abs_min": null
+      },
+      "backbone.encoder.layers.15.edge_weight.layers.1.0.bias": {
+        "shape": [
+          128
+        ],
+        "dtype": "torch.float32",
+        "device": "cuda:0",
+        "finite": false,
+        "nan": 128,
+        "posinf": 0,
+        "neginf": 0,
+        "finite_abs_max": null,
+        "finite_abs_min": null
+      },
+      "backbone.encoder.layers.15.edge_weight.layers.2.weight": {
+        "shape": [
+          128,
+          128
+        ],
+        "dtype": "torch.float32",
+        "device": "cuda:0",
+        "finite": false,
+        "nan": 16384,
+        "posinf": 0,
+        "neginf": 0,
+        "finite_abs_max": null,
+        "finite_abs_min": null
+      },
+      "backbone.encoder.layers.15.edge_weight.layers.2.bias": {
+        "shape": [
+          128
+        ],
+        "dtype": "torch.float32",
+        "device": "cuda:0",
+        "finite": false,
+        "nan": 128,
+        "posinf": 0,
+        "neginf": 0,
+        "finite_abs_max": null,
+        "finite_abs_min": null
+      },
+      "backbone.encoder.layers.15.node_weight.layers.0.0.weight": {
+        "shape": [
+          128,
+          256
+        ],
+        "dtype": "torch.float32",
+        "device": "cuda:0",
+        "finite": false,
+        "nan": 32768,
+        "posinf": 0,
+        "neginf": 0,
+        "finite_abs_max": null,
+        "finite_abs_min": null
+      },
+      "backbone.encoder.layers.15.node_weight.layers.0.0.bias": {
+        "shape": [
+          128
+        ],
+        "dtype": "torch.float32",
+        "device": "cuda:0",
+        "finite": false,
+        "nan": 128,
+        "posinf": 0,
+        "neginf": 0,
+        "finite_abs_max": null,
+        "finite_abs_min": null
+      },
+      "backbone.encoder.layers.15.node_weight.layers.1.0.weight": {
+        "shape": [
+          128,
+          128
+        ],
+        "dtype": "torch.float32",
+        "device": "cuda:0",
+        "finite": false,
+        "nan": 16384,
+        "posinf": 0,
+        "neginf": 0,
+        "finite_abs_max": null,
+        "finite_abs_min": null
+      },
+      "backbone.encoder.layers.15.node_weight.layers.1.0.bias": {
+        "shape": [
+          128
+        ],
+        "dtype": "torch.float32",
+        "device": "cuda:0",
+        "finite": false,
+        "nan": 128,
+        "posinf": 0,
+        "neginf": 0,
+        "finite_abs_max": null,
+        "finite_abs_min": null
+      },
+      "backbone.encoder.layers.15.node_weight.layers.2.weight": {
+        "shape": [
+          128,
+          128
+        ],
+        "dtype": "torch.float32",
+        "device": "cuda:0",
+        "finite": false,
+        "nan": 16384,
+        "posinf": 0,
+        "neginf": 0,
+        "finite_abs_max": null,
+        "finite_abs_min": null
+      },
+      "backbone.encoder.layers.15.node_weight.layers.2.bias": {
+        "shape": [
+          128
+        ],
+        "dtype": "torch.float32",
+        "device": "cuda:0",
+        "finite": false,
+        "nan": 128,
+        "posinf": 0,
+        "neginf": 0,
+        "finite_abs_max": null,
+        "finite_abs_min": null
+      },
+      "decode_head.dynamic_proj.layers.0.0.weight": {
+        "shape": [
+          64,
+          128
+        ],
+        "dtype": "torch.float32",
+        "device": "cuda:0",
+        "finite": false,
+        "nan": 6656,
+        "posinf": 0,
+        "neginf": 0,
+        "finite_abs_max": 0.0,
+        "finite_abs_min": 0.0
+      },
+      "decode_head.dynamic_proj.layers.0.0.bias": {
+        "shape": [
+          64
+        ],
+        "dtype": "torch.float32",
+        "device": "cuda:0",
+        "finite": false,
+        "nan": 52,
+        "posinf": 0,
+        "neginf": 0,
+        "finite_abs_max": 0.0,
+        "finite_abs_min": 0.0
+      },
+      "decode_head.dynamic_proj.layers.1.0.weight": {
+        "shape": [
+          32,
+          64
+        ],
+        "dtype": "torch.float32",
+        "device": "cuda:0",
+        "finite": false,
+        "nan": 1536,
+        "posinf": 0,
+        "neginf": 0,
+        "finite_abs_max": 0.0,
+        "finite_abs_min": 0.0
+      },
+      "decode_head.dynamic_proj.layers.1.0.bias": {
+        "shape": [
+          32
+        ],
+        "dtype": "torch.float32",
+        "device": "cuda:0",
+        "finite": false,
+        "nan": 24,
+        "posinf": 0,
+        "neginf": 0,
+        "finite_abs_max": 0.0,
+        "finite_abs_min": 0.0
+      },
+      "decode_head.dynamic_proj.layers.2.weight": {
+        "shape": [
+          11,
+          32
+        ],
+        "dtype": "torch.float32",
+        "device": "cuda:0",
+        "finite": false,
+        "nan": 352,
+        "posinf": 0,
+        "neginf": 0,
+        "finite_abs_max": null,
+        "finite_abs_min": null
+      },
+      "decode_head.dynamic_proj.layers.2.bias": {
+        "shape": [
+          11
+        ],
+        "dtype": "torch.float32",
+        "device": "cuda:0",
+        "finite": false,
+        "nan": 11,
+        "posinf": 0,
+        "neginf": 0,
+        "finite_abs_max": null,
+        "finite_abs_min": null
+      }
+    },
+    "missing": [
+      "backbone.encoder.emb_norm.weight",
+      "backbone.encoder.emb_norm.bias"
+    ],
+    "finite_tensor_count": 0,
+    "nonfinite_tensor_count": 275,
+    "first_bad_parameter": "scene_attr.rope",
+    "nan": 2466339,
+    "posinf": 0,
+    "neginf": 0
+  },
+  "result": "NONFINITE",
+  "wall_seconds": 8.618005128999812,
+  "memory": {
+    "peak_allocated": 1488919040,
+    "peak_reserved": 1595932672
+  },
+  "final_model_finite": true
+}
