@@ -1,0 +1,3899 @@
+{
+  "task": "T26.2",
+  "probe": "mean",
+  "backward_camera": "brics-odroid-023_cam0",
+  "job_id": "25857",
+  "seed": 5,
+  "row": 3648,
+  "rollout": 1,
+  "source": 113,
+  "target": 123,
+  "optimizer_step": false,
+  "clipping": false,
+  "config_sha256": "e65d1c7848bd222f55c0e18050c464eec5922aef76c1bc62a06813359cca4930",
+  "tool_sha256": "13f61fcdbbaaf630d893c4765ef795478f731f1d6f4461cf7108410cbb119884",
+  "native_forward": [
+    {
+      "camera": "brics-odroid-023_cam0",
+      "count": 12861,
+      "num_rendered_tile_instances": 135049,
+      "positive_radii_count": 385,
+      "image": {
+        "shape": [
+          3,
+          360,
+          640
+        ],
+        "dtype": "torch.float32",
+        "finite": true,
+        "nan": 0,
+        "posinf": 0,
+        "neginf": 0,
+        "finite_abs_max": 0.0041918945498764515
+      },
+      "input_hashes": {
+        "position": "2efabb78632fcb5ef1303a178c22cc090496ccb9d18ed1c3d65bb065d4b587dd",
+        "colors": "fd59d414c6c2bc3e092ab11038bf51b04d00212d2ed0084a95ec079dbdb27ea4",
+        "opacity": "af8aedf2fd5985919786253081590aec7f0330b7d61acf443c8e3b7a1e27b09b",
+        "covariance": "23f8caf9a7284c649fb3beaef318840742216d8313b9c71479a713090f94f89b"
+      },
+      "row": {
+        "opacity": [
+          0.9688374996185303
+        ],
+        "RGB": [
+          0.8654524087905884,
+          0.11861491203308105,
+          0.5356740951538086
+        ],
+        "SH_DC": [
+          [
+            1.2954950332641602,
+            -1.3519748449325562,
+            0.12646131217479706
+          ]
+        ],
+        "radius": 5289,
+        "native_geometry": {
+          "depths": [
+            0.6072165369987488
+          ],
+          "means2D": [
+            137.47364807128906,
+            173.6678009033203
+          ],
+          "conic_opacity": [
+            4.151493072509766,
+            -0.6462114453315735,
+            0.10058805346488953,
+            0.004844187293201685
+          ],
+          "tiles_touched": [
+            920
+          ]
+        },
+        "fp32": {
+          "dtype": "float32",
+          "view_xyz": [
+            -0.25019901990890503,
+            -0.007994517683982849,
+            0.6072165369987488
+          ],
+          "x_over_z": -0.412042498588562,
+          "y_over_z": -0.013165842741727829,
+          "clamped_view_xyz": [
+            -0.25019901990890503,
+            -0.007994517683982849,
+            0.6072165369987488
+          ],
+          "clip": [
+            -0.3454044759273529,
+            -0.019674450159072876,
+            0.5972762703895569,
+            0.6072165369987488
+          ],
+          "pixel": [
+            137.47364807128906,
+            173.66781616210938
+          ],
+          "near_threshold": 0.2,
+          "near_pass": true,
+          "J": [
+            [
+              727.5263671875,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              729.5253295898438,
+              0.0
+            ],
+            [
+              299.77178955078125,
+              9.604815483093262,
+              0.0
+            ]
+          ],
+          "T": [
+            [
+              -280.5000915527344,
+              597.942626953125,
+              0.0
+            ],
+            [
+              -221.96986389160156,
+              -401.5626525878906,
+              0.0
+            ],
+            [
+              -700.8614501953125,
+              -116.23894500732422,
+              0.0
+            ]
+          ],
+          "raw_2D": [
+            [
+              73500.1640625,
+              472191.625
+            ],
+            [
+              472191.625,
+              3033527.75
+            ]
+          ],
+          "raw_det": -131072.0,
+          "raw_eigen": [
+            -0.0461556818918325,
+            3107027.960218182
+          ],
+          "regularized_2D": [
+            [
+              73500.4609375,
+              472191.625
+            ],
+            [
+              472191.625,
+              3033528.0
+            ]
+          ],
+          "det": 786432.0,
+          "eigenvalues": [
+            0.24961043772054836,
+            3107028.2113270625
+          ],
+          "condition": 12447509.165484255,
+          "conic": [
+            3.857330322265625,
+            -0.6004226803779602,
+            0.09346067160367966
+          ],
+          "radius_eigenvalue": 3107028.25,
+          "radius": 5289.0,
+          "AA_ratio": -0.1666666716337204,
+          "AA_scale": 0.004999999888241291,
+          "AA_backward_denominator_base": 1720320.0,
+          "AA_backward_denominator_square": 2959500902400.0,
+          "AA_backward_zero_upstream_division": 0.0
+        },
+        "fp64": {
+          "dtype": "float64",
+          "view_xyz": [
+            -0.2501990150867639,
+            -0.00799452105626619,
+            0.6072165343498577
+          ],
+          "x_over_z": -0.41204249379449154,
+          "y_over_z": -0.013165848760732226,
+          "clamped_view_xyz": [
+            -0.2501990150867639,
+            -0.00799452105626619,
+            0.6072165343498577
+          ],
+          "clip": [
+            -0.3454044730950663,
+            -0.01967448161733154,
+            0.5972762591525975,
+            0.6072165343498577
+          ],
+          "pixel": [
+            137.47364377416267,
+            173.66780356336673
+          ],
+          "near_threshold": 0.2,
+          "near_pass": true,
+          "J": [
+            [
+              727.5263784134999,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              729.5253000581262,
+              0.0
+            ],
+            [
+              299.77178326277345,
+              9.604819767693085,
+              0.0
+            ]
+          ],
+          "T": [
+            [
+              -280.50007821036303,
+              597.9426052288894,
+              0.0
+            ],
+            [
+              -221.96985031527487,
+              -401.5626530033278,
+              0.0
+            ],
+            [
+              -700.8615106361025,
+              -116.23893993570725,
+              0.0
+            ]
+          ],
+          "raw_2D": [
+            [
+              73500.13942979359,
+              472191.5144063983
+            ],
+            [
+              472191.5144063983,
+              3033527.842375997
+            ]
+          ],
+          "raw_det": -106898.61114501953,
+          "raw_eigen": [
+            -0.03440542235330213,
+            3107028.0162112126
+          ],
+          "regularized_2D": [
+            [
+              73500.4394297936,
+              472191.5144063983
+            ],
+            [
+              472191.5144063983,
+              3033528.142375997
+            ]
+          ],
+          "det": 825209.8733825684,
+          "eigenvalues": [
+            0.26559457764960825,
+            3107028.3162112124
+          ],
+          "condition": 11698387.60906569,
+          "conic": [
+            3.6760686465631385,
+            -0.5722077857246985,
+            0.08906878334903137
+          ],
+          "radius_eigenvalue": 3107028.3162112124,
+          "radius": 5289.0,
+          "AA_ratio": -0.12954111989334038,
+          "AA_scale": 0.005,
+          "AA_backward_denominator_base": 1757318.5379333496,
+          "AA_backward_denominator_square": 3088168443764.2056,
+          "AA_backward_zero_upstream_division": 0.0
+        },
+        "initial_fp64": {
+          "dtype": "float64",
+          "view_xyz": [
+            -0.2501990150867639,
+            -0.00799452105626619,
+            0.6072165343498577
+          ],
+          "x_over_z": -0.41204249379449154,
+          "y_over_z": -0.013165848760732226,
+          "clamped_view_xyz": [
+            -0.2501990150867639,
+            -0.00799452105626619,
+            0.6072165343498577
+          ],
+          "clip": [
+            -0.3454044730950663,
+            -0.01967448161733154,
+            0.5972762591525975,
+            0.6072165343498577
+          ],
+          "pixel": [
+            137.47364377416267,
+            173.66780356336673
+          ],
+          "near_threshold": 0.2,
+          "near_pass": true,
+          "J": [
+            [
+              727.5263784134999,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              729.5253000581262,
+              0.0
+            ],
+            [
+              299.77178326277345,
+              9.604819767693085,
+              0.0
+            ]
+          ],
+          "T": [
+            [
+              -280.50007821036303,
+              597.9426052288894,
+              0.0
+            ],
+            [
+              -221.96985031527487,
+              -401.5626530033278,
+              0.0
+            ],
+            [
+              -700.8615106361025,
+              -116.23893993570725,
+              0.0
+            ]
+          ],
+          "raw_2D": [
+            [
+              11.600850794038747,
+              -5.513454651865787
+            ],
+            [
+              -5.513454651865787,
+              5.371171480248585
+            ]
+          ],
+          "raw_det": 31.911976733379582,
+          "raw_eigen": [
+            2.1535228200327086,
+            14.818499454254624
+          ],
+          "regularized_2D": [
+            [
+              11.900850794038748,
+              -5.513454651865787
+            ],
+            [
+              -5.513454651865787,
+              5.671171480248585
+            ]
+          ],
+          "det": 37.093583415665776,
+          "eigenvalues": [
+            2.453522820032709,
+            15.118499454254625
+          ],
+          "condition": 6.161955915312446,
+          "conic": [
+            0.15288820755595892,
+            0.14863634473064372,
+            0.32083313873128383
+          ],
+          "radius_eigenvalue": 15.118499454254625,
+          "radius": 12.0,
+          "AA_ratio": 0.8603098917615536,
+          "AA_scale": 0.9275289169408971,
+          "AA_backward_denominator_base": 42.45519009795197,
+          "AA_backward_denominator_square": 1802.443166253239,
+          "AA_backward_zero_upstream_division": 0.0
+        },
+        "z_distribution_positive_radius": {
+          "count": 385,
+          "finite_count": 385,
+          "quantiles": [
+            0.3514319859705033,
+            0.4609140785679137,
+            1.0886929204306512,
+            4.865809747436089,
+            9.416476671568152,
+            11.265868237677504,
+            13.868164076521168
+          ],
+          "row_value": 0.6072165343498577,
+          "rank_ascending_1based": 9,
+          "percentile_le": 2.3376623376623376
+        },
+        "z_distribution_near_pass": {
+          "count": 6443,
+          "finite_count": 6443,
+          "quantiles": [
+            0.23198113948279797,
+            0.8525975643822166,
+            3.8634028789202377,
+            32.29826029828703,
+            69.82525283893538,
+            78.10950494116615,
+            82.06311287660111
+          ],
+          "row_value": 0.6072165343498577,
+          "rank_ascending_1based": 36,
+          "percentile_le": 0.5587459258109576
+        }
+      },
+      "fp32_projection_suspicious_visible_rows": []
+    },
+    {
+      "camera": "brics-odroid-009_cam1",
+      "count": 12861,
+      "num_rendered_tile_instances": 396604,
+      "positive_radii_count": 975,
+      "image": {
+        "shape": [
+          3,
+          360,
+          640
+        ],
+        "dtype": "torch.float32",
+        "finite": true,
+        "nan": 0,
+        "posinf": 0,
+        "neginf": 0,
+        "finite_abs_max": 0.0
+      },
+      "input_hashes": {
+        "position": "21b45174dbdf6397debf2e739bea241ad01a6d98d47f7d8cd06d5fd4ea0b8ee1",
+        "colors": "fd59d414c6c2bc3e092ab11038bf51b04d00212d2ed0084a95ec079dbdb27ea4",
+        "opacity": "af8aedf2fd5985919786253081590aec7f0330b7d61acf443c8e3b7a1e27b09b",
+        "covariance": "23f8caf9a7284c649fb3beaef318840742216d8313b9c71479a713090f94f89b"
+      },
+      "row": {
+        "opacity": [
+          0.9688374996185303
+        ],
+        "RGB": [
+          0.8654524087905884,
+          0.11861491203308105,
+          0.5356740951538086
+        ],
+        "SH_DC": [
+          [
+            1.2954950332641602,
+            -1.3519748449325562,
+            0.12646131217479706
+          ]
+        ],
+        "radius": 1134,
+        "native_geometry": {
+          "depths": [
+            4.648985862731934
+          ],
+          "means2D": [
+            -365.89208984375,
+            201.10281372070312
+          ],
+          "conic_opacity": [
+            3.019813299179077,
+            -1.0142393112182617,
+            0.34065181016921997,
+            0.004844187293201685
+          ],
+          "tiles_touched": [
+            920
+          ]
+        },
+        "fp32": {
+          "dtype": "float32",
+          "view_xyz": [
+            -6.4111552238464355,
+            0.20323190093040466,
+            4.648985862731934
+          ],
+          "x_over_z": -1.3790438175201416,
+          "y_over_z": 0.04371532052755356,
+          "clamped_view_xyz": [
+            -3.8912622928619385,
+            0.20323190093040466,
+            4.648985862731934
+          ],
+          "clip": [
+            -9.95743179321289,
+            0.5579511523246765,
+            4.639449596405029,
+            4.648985862731934
+          ],
+          "pixel": [
+            -365.89208984375,
+            201.10281372070312
+          ],
+          "near_threshold": 0.2,
+          "near_pass": true,
+          "J": [
+            [
+              106.90618133544922,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              106.29638671875,
+              0.0
+            ],
+            [
+              89.48188018798828,
+              -4.646780490875244,
+              0.0
+            ]
+          ],
+          "T": [
+            [
+              129.4145965576172,
+              -7.687761306762695,
+              0.0
+            ],
+            [
+              -2.3059186935424805,
+              -105.92267608642578,
+              0.0
+            ],
+            [
+              51.79270553588867,
+              6.465327739715576,
+              0.0
+            ]
+          ],
+          "raw_2D": [
+            [
+              14466.869140625,
+              43073.8046875
+            ],
+            [
+              43073.8046875,
+              128248.3984375
+            ]
+          ],
+          "raw_det": 128.0,
+          "raw_eigen": [
+            0.001033058024404454,
+            142715.26654506696
+          ],
+          "regularized_2D": [
+            [
+              14467.1689453125,
+              43073.8046875
+            ],
+            [
+              43073.8046875,
+              128248.6953125
+            ]
+          ],
+          "det": 42880.0,
+          "eigenvalues": [
+            0.30054076675696706,
+            142715.56371704576
+          ],
+          "condition": 474862.57939992886,
+          "conic": [
+            2.9908745288848877,
+            -1.0045197010040283,
+            0.3373873233795166
+          ],
+          "radius_eigenvalue": 142715.5625,
+          "radius": 1134.0,
+          "AA_ratio": 0.0029850746504962444,
+          "AA_scale": 0.05463583767414093,
+          "AA_backward_denominator_base": 85632.0,
+          "AA_backward_denominator_square": 7332839424.0,
+          "AA_backward_zero_upstream_division": 0.0
+        },
+        "fp64": {
+          "dtype": "float64",
+          "view_xyz": [
+            -6.4111551911816065,
+            0.2032319174773498,
+            4.648985708004474
+          ],
+          "x_over_z": -1.3790438589955407,
+          "y_over_z": 0.04371532421092016,
+          "clamped_view_xyz": [
+            -3.8912624525530015,
+            0.2032319174773498,
+            4.648985708004474
+          ],
+          "clip": [
+            -9.957431905988614,
+            0.5579511257752294,
+            4.6394497125831435,
+            4.648985708004474
+          ],
+          "pixel": [
+            -365.8921137875175,
+            201.10281979493726
+          ],
+          "near_threshold": 0.2,
+          "near_pass": true,
+          "J": [
+            [
+              106.90617892583121,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              106.29639750323307,
+              0.0
+            ],
+            [
+              89.4818840341334,
+              -4.646781479306677,
+              0.0
+            ]
+          ],
+          "T": [
+            [
+              129.41459407019082,
+              -7.687762772182825,
+              0.0
+            ],
+            [
+              -2.3059189025201463,
+              -105.92268408730148,
+              0.0
+            ],
+            [
+              51.792701104415606,
+              6.4653284605921355,
+              0.0
+            ]
+          ],
+          "raw_2D": [
+            [
+              14466.868354758755,
+              43073.81049370345
+            ],
+            [
+              43073.81049370345,
+              128248.41322567493
+            ]
+          ],
+          "raw_det": -239.60493683815002,
+          "raw_eigen": [
+            -0.0016789017372502713,
+            142715.2832593354
+          ],
+          "regularized_2D": [
+            [
+              14467.168354758755,
+              43073.81049370345
+            ],
+            [
+              43073.81049370345,
+              128248.71322567493
+            ]
+          ],
+          "det": 42575.0695374012,
+          "eigenvalues": [
+            0.2983210982638411,
+            142715.58325933543
+          ],
+          "condition": 478395.87642277626,
+          "conic": [
+            3.0122960366045075,
+            -1.0117143897055558,
+            0.3398037516309794
+          ],
+          "radius_eigenvalue": 142715.58325933543,
+          "radius": 1134.0,
+          "AA_ratio": -0.005627822560046854,
+          "AA_scale": 0.005,
+          "AA_backward_denominator_base": 85389.92401146889,
+          "AA_backward_denominator_square": 7291439122.684431,
+          "AA_backward_zero_upstream_division": 0.0
+        },
+        "initial_fp64": {
+          "dtype": "float64",
+          "view_xyz": [
+            0.036008855544567564,
+            0.10015642272158709,
+            0.47210011066577184
+          ],
+          "x_over_z": 0.07627377060722701,
+          "y_over_z": 0.21215081390331184,
+          "clamped_view_xyz": [
+            0.036008855544567564,
+            0.10015642272158709,
+            0.47210011066577184
+          ],
+          "clip": [
+            0.055926858105094235,
+            0.2749685761648445,
+            0.46214632999260785,
+            0.47210011066577184
+          ],
+          "pixel": [
+            357.40846559545435,
+            284.3386393216673
+          ],
+          "near_threshold": 0.2,
+          "near_pass": true,
+          "J": [
+            [
+              1052.7540381692866,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              1046.7492416131756,
+              0.0
+            ],
+            [
+              -80.29752001315607,
+              -222.06870356090963,
+              0.0
+            ]
+          ],
+          "T": [
+            [
+              428.509378593315,
+              -230.82166604525025,
+              0.0
+            ],
+            [
+              24.256470994097597,
+              -1034.4570692180212,
+              0.0
+            ],
+            [
+              964.6398833271896,
+              147.0321650582788,
+              0.0
+            ]
+          ],
+          "raw_2D": [
+            [
+              24.75783492797658,
+              2.6161776499245684
+            ],
+            [
+              2.6161776499245684,
+              6.414894520533976
+            ]
+          ],
+          "raw_det": 151.9745141237968,
+          "raw_eigen": [
+            6.049056341188675,
+            25.123673107321885
+          ],
+          "regularized_2D": [
+            [
+              25.057834927976582,
+              2.6161776499245684
+            ],
+            [
+              2.6161776499245684,
+              6.714894520533976
+            ]
+          ],
+          "det": 161.41633295834998,
+          "eigenvalues": [
+            6.349056341188676,
+            25.423673107321882
+          ],
+          "condition": 4.004323121593537,
+          "conic": [
+            0.04159984555135824,
+            -0.016207638979133646,
+            0.1552372951902099
+          ],
+          "radius_eigenvalue": 25.42367310732189,
+          "radius": 16.0,
+          "AA_ratio": 0.9415064221723496,
+          "AA_scale": 0.9703125383979894,
+          "AA_backward_denominator_base": 171.03815179290314,
+          "AA_backward_denominator_square": 29254.049368732176,
+          "AA_backward_zero_upstream_division": 0.0
+        },
+        "z_distribution_positive_radius": {
+          "count": 975,
+          "finite_count": 975,
+          "quantiles": [
+            2.291931279530644,
+            2.688222496676768,
+            3.2763000881806676,
+            5.582718951347147,
+            12.822149768058823,
+            13.765850056787878,
+            14.224572560689438
+          ],
+          "row_value": 4.648985708004474,
+          "rank_ascending_1based": 275,
+          "percentile_le": 28.205128205128204
+        },
+        "z_distribution_near_pass": {
+          "count": 7602,
+          "finite_count": 7602,
+          "quantiles": [
+            0.20324256136851204,
+            0.8641705717796974,
+            2.6833755413805824,
+            13.733600299485126,
+            32.71608052816646,
+            35.308266651642676,
+            36.23362972159697
+          ],
+          "row_value": 4.648985708004474,
+          "rank_ascending_1based": 891,
+          "percentile_le": 11.720599842146804
+        }
+      },
+      "fp32_projection_suspicious_visible_rows": []
+    }
+  ],
+  "native_backward": [
+    {
+      "camera": "brics-odroid-023_cam0",
+      "incoming_color": {
+        "shape": [
+          3,
+          360,
+          640
+        ],
+        "dtype": "torch.float32",
+        "finite": true,
+        "nan": 0,
+        "posinf": 0,
+        "neginf": 0,
+        "finite_abs_max": 1.7999999523162842
+      },
+      "incoming_depth": {
+        "shape": [
+          1,
+          360,
+          640
+        ],
+        "dtype": "torch.float32",
+        "finite": true,
+        "nan": 0,
+        "posinf": 0,
+        "neginf": 0,
+        "finite_abs_max": 0.0
+      },
+      "returned": {
+        "means2D": {
+          "shape": [
+            12861,
+            3
+          ],
+          "dtype": "torch.float32",
+          "finite": true,
+          "nan": 0,
+          "posinf": 0,
+          "neginf": 0,
+          "finite_abs_max": 3.0558278560638428
+        },
+        "colors": {
+          "shape": [
+            12861,
+            3
+          ],
+          "dtype": "torch.float32",
+          "finite": true,
+          "nan": 0,
+          "posinf": 0,
+          "neginf": 0,
+          "finite_abs_max": 0.8964782953262329
+        },
+        "opacity": {
+          "shape": [
+            12861,
+            1
+          ],
+          "dtype": "torch.float32",
+          "finite": true,
+          "nan": 0,
+          "posinf": 0,
+          "neginf": 0,
+          "finite_abs_max": 1.1596252918243408
+        },
+        "means3D": {
+          "shape": [
+            12861,
+            3
+          ],
+          "dtype": "torch.float32",
+          "finite": true,
+          "nan": 0,
+          "posinf": 0,
+          "neginf": 0,
+          "finite_abs_max": 15.217924118041992
+        },
+        "covariance": {
+          "shape": [
+            12861,
+            6
+          ],
+          "dtype": "torch.float32",
+          "finite": true,
+          "nan": 0,
+          "posinf": 0,
+          "neginf": 0,
+          "finite_abs_max": 157691.625
+        },
+        "SH": {
+          "shape": [
+            12861,
+            0,
+            3
+          ],
+          "dtype": "torch.float32",
+          "finite": true,
+          "nan": 0,
+          "posinf": 0,
+          "neginf": 0,
+          "finite_abs_max": null
+        },
+        "scales": {
+          "shape": [
+            12861,
+            3
+          ],
+          "dtype": "torch.float32",
+          "finite": true,
+          "nan": 0,
+          "posinf": 0,
+          "neginf": 0,
+          "finite_abs_max": 0.0
+        },
+        "rotations": {
+          "shape": [
+            12861,
+            4
+          ],
+          "dtype": "torch.float32",
+          "finite": true,
+          "nan": 0,
+          "posinf": 0,
+          "neginf": 0,
+          "finite_abs_max": 0.0
+        }
+      },
+      "bad_rows": {}
+    }
+  ],
+  "GPU": "NVIDIA GeForce RTX 5090",
+  "native_source": {
+    "python_path": "/data1/userdata/tcweng/miniconda3/envs/soma/lib/python3.10/site-packages/diff_gaussian_rasterization/__init__.py",
+    "python_hash": "b3ac794d758c546d32860c5a2fd42b9ac6791d0822d7811d05c8d131a8a38a63",
+    "so_path": "/data1/userdata/tcweng/miniconda3/envs/soma/lib/python3.10/site-packages/diff_gaussian_rasterization/_C.cpython-310-x86_64-linux-gnu.so",
+    "so_hash": "139c2a96118f26f5af40d2d12567c4dec37249142ece70cfcb29483485d9fc50"
+  },
+  "initial_state": {
+    "scene_attr.rope": {
+      "hash": "de47c9b27eb8d300dbb5f2c353e632c393262cf06340c4fa7f1b40c4cbd36f90",
+      "shape": [
+        1,
+        5
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.node_encoder.layers.0.0.weight": {
+      "hash": "7b95b9a7d7f67fece390ba3e57fbf78a4a5d44971d0f8548d1c3b97b43ea1c2b",
+      "shape": [
+        128,
+        11
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.node_encoder.layers.0.0.bias": {
+      "hash": "d32842367d42b29dd58d154a904b2e8bbcaf3ba7a58b35271c3d5062e3c364ca",
+      "shape": [
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.node_encoder.layers.1.0.weight": {
+      "hash": "bc9da33d6deb3feac17ce770df8b0f61641877f5f8295bc53acae64b03f36586",
+      "shape": [
+        128,
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.node_encoder.layers.1.0.bias": {
+      "hash": "e261ca2c6a1de39b0496722c59d9134645404cef9360a68ebd2ed7bd05d0a6f4",
+      "shape": [
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.node_encoder.layers.2.weight": {
+      "hash": "682646bf0b2383f51c32ef993b19fa751e89f79a329161c2a14c9b2fadc1f90f",
+      "shape": [
+        128,
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.node_encoder.layers.2.bias": {
+      "hash": "1277d09d8aef16954fed2964eddf829ea87a12d7543211ab6160c3f99ce76b43",
+      "shape": [
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.node_normalizer._acc_count": {
+      "hash": "df3f619804a92fdb4057192dc43dd748ea778adc52bc498ce80524c014b81119",
+      "shape": [
+        1
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.node_normalizer._num_accumulations": {
+      "hash": "df3f619804a92fdb4057192dc43dd748ea778adc52bc498ce80524c014b81119",
+      "shape": [
+        1
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.node_normalizer._acc_sum": {
+      "hash": "15ec7bf0b50732b49f8228e07d24365338f9e3ab994b00af08e5a3bffe55fd8b",
+      "shape": [
+        1,
+        3
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.node_normalizer._acc_sum_squared": {
+      "hash": "15ec7bf0b50732b49f8228e07d24365338f9e3ab994b00af08e5a3bffe55fd8b",
+      "shape": [
+        1,
+        3
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.anchor_normalizer._acc_count": {
+      "hash": "df3f619804a92fdb4057192dc43dd748ea778adc52bc498ce80524c014b81119",
+      "shape": [
+        1
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.anchor_normalizer._num_accumulations": {
+      "hash": "df3f619804a92fdb4057192dc43dd748ea778adc52bc498ce80524c014b81119",
+      "shape": [
+        1
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.anchor_normalizer._acc_sum": {
+      "hash": "15ec7bf0b50732b49f8228e07d24365338f9e3ab994b00af08e5a3bffe55fd8b",
+      "shape": [
+        1,
+        3
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.anchor_normalizer._acc_sum_squared": {
+      "hash": "15ec7bf0b50732b49f8228e07d24365338f9e3ab994b00af08e5a3bffe55fd8b",
+      "shape": [
+        1,
+        3
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.edge_encoder.layers.0.0.weight": {
+      "hash": "344fc43644952a0a0d4117e6b708a6c5a3695508698fac578fc368f6050c9dde",
+      "shape": [
+        128,
+        9
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.edge_encoder.layers.0.0.bias": {
+      "hash": "e75494555535122ba6d8d94c98d75567c5da94727842b05beb40718dfe016b21",
+      "shape": [
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.edge_encoder.layers.1.0.weight": {
+      "hash": "21aabafbe184a13ec36bf2f78968d3e74ecbd89bbfd5677fc1472c74184b5cee",
+      "shape": [
+        128,
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.edge_encoder.layers.1.0.bias": {
+      "hash": "3f646112431f3e60b642eb9a4d256348cd029fc2757d7edfa4290a0fce535e31",
+      "shape": [
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.edge_encoder.layers.2.weight": {
+      "hash": "8d9bf07129d277489a1da1965283db2ea368c34dd111435e069eae75844af960",
+      "shape": [
+        128,
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.edge_encoder.layers.2.bias": {
+      "hash": "c3cea5f073bdb97daa55a291cc53113e49a048c58b9aa93dec047e30a6abb704",
+      "shape": [
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.edge_normalizer._acc_count": {
+      "hash": "df3f619804a92fdb4057192dc43dd748ea778adc52bc498ce80524c014b81119",
+      "shape": [
+        1
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.edge_normalizer._num_accumulations": {
+      "hash": "df3f619804a92fdb4057192dc43dd748ea778adc52bc498ce80524c014b81119",
+      "shape": [
+        1
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.edge_normalizer._acc_sum": {
+      "hash": "3addfb141cd7c9c4c6543a82191a3707ac29c7a041217782e61d4d91c691aee8",
+      "shape": [
+        1,
+        7
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.edge_normalizer._acc_sum_squared": {
+      "hash": "3addfb141cd7c9c4c6543a82191a3707ac29c7a041217782e61d4d91c691aee8",
+      "shape": [
+        1,
+        7
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.0.norms.0.weight": {
+      "hash": "702cc37cfd91cac6b67c8bd7cc3c9da19f7a52986a8435bc2d1269721a65ce78",
+      "shape": [
+        384
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.0.norms.0.bias": {
+      "hash": "80422bc3d307b4a25bdafcc84ac7fb01cb55a09810e8b0f37bb12e0edb5c48ca",
+      "shape": [
+        384
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.0.norms.1.weight": {
+      "hash": "893a106828fbdb9521e1d868c985aab7ad2ae2f606edc55329265a5e7676006c",
+      "shape": [
+        256
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.0.norms.1.bias": {
+      "hash": "5f70bf18a086007016e948b04aed3b82103a36bea41755b6cddfaf10ace3c6ef",
+      "shape": [
+        256
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.0.edge_weight.layers.0.0.weight": {
+      "hash": "a65dc29b3574034e8c33bb7ebb326d7ff3da2431631036769d4bf69be84a1914",
+      "shape": [
+        128,
+        384
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.0.edge_weight.layers.0.0.bias": {
+      "hash": "df940e1f1861ec36ca67bd905ab74c32e2013577455f22c808797c8d3bf07593",
+      "shape": [
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.0.edge_weight.layers.1.0.weight": {
+      "hash": "f107265c835459198353789ba76ef327689fd4160a003952de1004b064259073",
+      "shape": [
+        128,
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.0.edge_weight.layers.1.0.bias": {
+      "hash": "78be05b3b0334e729506d8b328aaf3fa8234bc5f75e3597f6638156ec3a5ef20",
+      "shape": [
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.0.edge_weight.layers.2.weight": {
+      "hash": "ce8d4f476db4f02682f72576495ed85e78baab9b6ae65ec377dcd1bb3a98875d",
+      "shape": [
+        128,
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.0.edge_weight.layers.2.bias": {
+      "hash": "a40d4d0c5a5309b4e565d9fe85bd8daea4304d927f1b2cbd84638e622f4f858e",
+      "shape": [
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.0.node_weight.layers.0.0.weight": {
+      "hash": "96d713507769b9980ddb8c0c2bae76d3f40968fbebd91858ba515a0a9262aad5",
+      "shape": [
+        128,
+        256
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.0.node_weight.layers.0.0.bias": {
+      "hash": "6f34042f31d37a06a70e40807511ddb1585551f1a484eec5ca72a10f1c2a0ffd",
+      "shape": [
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.0.node_weight.layers.1.0.weight": {
+      "hash": "9244a53879a65311001f33ecd5340c3afa7fb92147d1c026e5482dca14700929",
+      "shape": [
+        128,
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.0.node_weight.layers.1.0.bias": {
+      "hash": "f26dd0f69193f2ea60cbd854f4a185b67eddd5d829b8d2691ca22828d4818fa0",
+      "shape": [
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.0.node_weight.layers.2.weight": {
+      "hash": "1f550f35047054ea207b5ba7cce2ac26fba4e719b6e1966ea7ae4aca967b68fd",
+      "shape": [
+        128,
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.0.node_weight.layers.2.bias": {
+      "hash": "2c9dea28907dcb8c39acc3d88c0607f0b7f2f57fdee497e58709655b6cc854fe",
+      "shape": [
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.1.norms.0.weight": {
+      "hash": "702cc37cfd91cac6b67c8bd7cc3c9da19f7a52986a8435bc2d1269721a65ce78",
+      "shape": [
+        384
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.1.norms.0.bias": {
+      "hash": "80422bc3d307b4a25bdafcc84ac7fb01cb55a09810e8b0f37bb12e0edb5c48ca",
+      "shape": [
+        384
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.1.norms.1.weight": {
+      "hash": "893a106828fbdb9521e1d868c985aab7ad2ae2f606edc55329265a5e7676006c",
+      "shape": [
+        256
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.1.norms.1.bias": {
+      "hash": "5f70bf18a086007016e948b04aed3b82103a36bea41755b6cddfaf10ace3c6ef",
+      "shape": [
+        256
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.1.edge_weight.layers.0.0.weight": {
+      "hash": "6e160c5a368c315d7a6043a4f2cf5b169611fad69e7e56dee02151ae215b3353",
+      "shape": [
+        128,
+        384
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.1.edge_weight.layers.0.0.bias": {
+      "hash": "027bdec73826e222ce12b5278324b31271049b692203f4388ddeec828c374b62",
+      "shape": [
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.1.edge_weight.layers.1.0.weight": {
+      "hash": "9b6ae830eda7c3e912df592b25bb452a4de29196e994eed3e783ba65e7275286",
+      "shape": [
+        128,
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.1.edge_weight.layers.1.0.bias": {
+      "hash": "642234fe9b95499810774ee86eab39acf4bee084eb8c1bdfe038ea1134ef2913",
+      "shape": [
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.1.edge_weight.layers.2.weight": {
+      "hash": "484e76cc5b5a08209a33d2617023e41b82c608190d517c9f2703e94b951743ef",
+      "shape": [
+        128,
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.1.edge_weight.layers.2.bias": {
+      "hash": "2f126388b99477abcba72445bfda03a6ee220ae8f5cac55acc407bbb1cd83ecf",
+      "shape": [
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.1.node_weight.layers.0.0.weight": {
+      "hash": "1c1417d7b2c18ca9ad5b5be08caa29c349c34bcb164b0fdf7f0f0a0db8ae24b3",
+      "shape": [
+        128,
+        256
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.1.node_weight.layers.0.0.bias": {
+      "hash": "87f026c043b26ef1d8a3dd423864e4522b3c156694dc08c89c7dc149e403a7dc",
+      "shape": [
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.1.node_weight.layers.1.0.weight": {
+      "hash": "48ca35d5a9e1ea299f9404b299d033cbaaaa8ae4e1d9ce46fb0978b57e6d752a",
+      "shape": [
+        128,
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.1.node_weight.layers.1.0.bias": {
+      "hash": "d58efa8a15aceabba17e8b16d882ef267231125274cf4dfaa82b4b1724150cc9",
+      "shape": [
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.1.node_weight.layers.2.weight": {
+      "hash": "101a203f7385c556fcfbb59112dddae49f8d2ef8c5c026bc1343c93d1c752dec",
+      "shape": [
+        128,
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.1.node_weight.layers.2.bias": {
+      "hash": "3f043ac7517dd1a858b85e6d52a2dc239fee4361ff9574b8b17aabdb15da4330",
+      "shape": [
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.2.norms.0.weight": {
+      "hash": "702cc37cfd91cac6b67c8bd7cc3c9da19f7a52986a8435bc2d1269721a65ce78",
+      "shape": [
+        384
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.2.norms.0.bias": {
+      "hash": "80422bc3d307b4a25bdafcc84ac7fb01cb55a09810e8b0f37bb12e0edb5c48ca",
+      "shape": [
+        384
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.2.norms.1.weight": {
+      "hash": "893a106828fbdb9521e1d868c985aab7ad2ae2f606edc55329265a5e7676006c",
+      "shape": [
+        256
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.2.norms.1.bias": {
+      "hash": "5f70bf18a086007016e948b04aed3b82103a36bea41755b6cddfaf10ace3c6ef",
+      "shape": [
+        256
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.2.edge_weight.layers.0.0.weight": {
+      "hash": "e0a24a3065fa5132f0df18242bca01a5658bef7e0af341d43dd8b2b9a072f3c8",
+      "shape": [
+        128,
+        384
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.2.edge_weight.layers.0.0.bias": {
+      "hash": "9af13c8a221d16ebbb343df0d9ec8c7d2824ee9db7fabe72194ee34e68ee8e2d",
+      "shape": [
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.2.edge_weight.layers.1.0.weight": {
+      "hash": "5d66e3d09b7b1e231f918b6a3839abc65fd03b3cc7c16f5468d97e1f8fbb7f19",
+      "shape": [
+        128,
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.2.edge_weight.layers.1.0.bias": {
+      "hash": "848bea10c778130b2472638b27eabc025aee86a488edc32e3e60dba9e3db7055",
+      "shape": [
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.2.edge_weight.layers.2.weight": {
+      "hash": "12bb7bebe7942245bb1dde6c929a060fe224d9f2e613874fb248d50ab7e57108",
+      "shape": [
+        128,
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.2.edge_weight.layers.2.bias": {
+      "hash": "4b1efa46510e0ec113c769206f0b2289b039dab9c685e7bfbf40dbf12e062797",
+      "shape": [
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.2.node_weight.layers.0.0.weight": {
+      "hash": "71abffdce201520c9e2be7701b99cecd506b027aacc0c37c3335b2ac251cc6ac",
+      "shape": [
+        128,
+        256
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.2.node_weight.layers.0.0.bias": {
+      "hash": "06960a4022d67f6759747affa369384ac312cb10ea10088db3e839f5c89feeee",
+      "shape": [
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.2.node_weight.layers.1.0.weight": {
+      "hash": "578208be51f5555351060f82287498f0c2db159057b113c033630ec3680e0975",
+      "shape": [
+        128,
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.2.node_weight.layers.1.0.bias": {
+      "hash": "e8ea56f3381477c0dd600251a5e7603c3136f4e301446e3585d940b534a7e1e0",
+      "shape": [
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.2.node_weight.layers.2.weight": {
+      "hash": "8a1e152a93556c8d49743448d29dcea511b63cec534409f14531e9ca60ff0e79",
+      "shape": [
+        128,
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.2.node_weight.layers.2.bias": {
+      "hash": "31aa834b7a935763ab8a23a701c248a8b51464d92fdf6addec1e51522faa055b",
+      "shape": [
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.3.norms.0.weight": {
+      "hash": "702cc37cfd91cac6b67c8bd7cc3c9da19f7a52986a8435bc2d1269721a65ce78",
+      "shape": [
+        384
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.3.norms.0.bias": {
+      "hash": "80422bc3d307b4a25bdafcc84ac7fb01cb55a09810e8b0f37bb12e0edb5c48ca",
+      "shape": [
+        384
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.3.norms.1.weight": {
+      "hash": "893a106828fbdb9521e1d868c985aab7ad2ae2f606edc55329265a5e7676006c",
+      "shape": [
+        256
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.3.norms.1.bias": {
+      "hash": "5f70bf18a086007016e948b04aed3b82103a36bea41755b6cddfaf10ace3c6ef",
+      "shape": [
+        256
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.3.edge_weight.layers.0.0.weight": {
+      "hash": "b84e5ae8efca91345735cc907f091ee5ee6a761205425bc965fcb74db63657f8",
+      "shape": [
+        128,
+        384
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.3.edge_weight.layers.0.0.bias": {
+      "hash": "8c5e9cf30cce3c1facffea0b45086868521a301e7e2b17aed2e8d1d5ac777760",
+      "shape": [
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.3.edge_weight.layers.1.0.weight": {
+      "hash": "e90197f03dc7c34c73b264c755b9fe07edf1a4f4b45604b7993ac88bdfd9aa80",
+      "shape": [
+        128,
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.3.edge_weight.layers.1.0.bias": {
+      "hash": "fcf60112011f7e6bbec376d824fe2bb849d01b624ae7a954b8fc1d0a81d0c4b7",
+      "shape": [
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.3.edge_weight.layers.2.weight": {
+      "hash": "0342e9f11b4456a87b351a5e3c508543016d1a16ce8c647eeeaf06ad98815f9e",
+      "shape": [
+        128,
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.3.edge_weight.layers.2.bias": {
+      "hash": "a08252ccf27a18a88b7b3841029e2a5180eba70e6f6c4e27ed0e33a3ae4ffece",
+      "shape": [
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.3.node_weight.layers.0.0.weight": {
+      "hash": "56cdb76169e88d206eead03cf91cf99c9bf9b0bc85d50e7e5f786cd3fd13c8cd",
+      "shape": [
+        128,
+        256
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.3.node_weight.layers.0.0.bias": {
+      "hash": "8fbd1e20e5759a6a80c2eae887d08a6097992f65b34011b522b9b01d5e5e4ce5",
+      "shape": [
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.3.node_weight.layers.1.0.weight": {
+      "hash": "7821c7e295f8e17c531692a6c174637d21f149bc7ff5033a37dc0bd88f4f55b3",
+      "shape": [
+        128,
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.3.node_weight.layers.1.0.bias": {
+      "hash": "bcb084415d5853de1848934adedf1a1f4239005e8c595c27fb39aacbcbfffa1d",
+      "shape": [
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.3.node_weight.layers.2.weight": {
+      "hash": "b9842cfaa75e78d13f0faad18aa9b9cf6c48cf38b286c0354a204daafd94e1df",
+      "shape": [
+        128,
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.3.node_weight.layers.2.bias": {
+      "hash": "c12ba71af6b789bb95efd8eff148cc1d53ce747c1e49d052135403a4701ee3bf",
+      "shape": [
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.4.norms.0.weight": {
+      "hash": "702cc37cfd91cac6b67c8bd7cc3c9da19f7a52986a8435bc2d1269721a65ce78",
+      "shape": [
+        384
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.4.norms.0.bias": {
+      "hash": "80422bc3d307b4a25bdafcc84ac7fb01cb55a09810e8b0f37bb12e0edb5c48ca",
+      "shape": [
+        384
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.4.norms.1.weight": {
+      "hash": "893a106828fbdb9521e1d868c985aab7ad2ae2f606edc55329265a5e7676006c",
+      "shape": [
+        256
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.4.norms.1.bias": {
+      "hash": "5f70bf18a086007016e948b04aed3b82103a36bea41755b6cddfaf10ace3c6ef",
+      "shape": [
+        256
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.4.edge_weight.layers.0.0.weight": {
+      "hash": "e5e6c07a956f698539146f36b64fcf38d7334791d268f5fca483268ed9680f1d",
+      "shape": [
+        128,
+        384
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.4.edge_weight.layers.0.0.bias": {
+      "hash": "1ac9ac11a1e446cc0ffa3248636503bf945385a22baa156eb40a42e960f8987c",
+      "shape": [
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.4.edge_weight.layers.1.0.weight": {
+      "hash": "95b4be2930f0499b76371d478fc4eabe5206fdd624d7c6f8d859b3989670f9b4",
+      "shape": [
+        128,
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.4.edge_weight.layers.1.0.bias": {
+      "hash": "cd84bbfec844990f1f6128e9846b89e9aaa27ebaa1631489ac0ab2cfea642d30",
+      "shape": [
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.4.edge_weight.layers.2.weight": {
+      "hash": "ca25d0e1a765631dcaca3b93a18320c6c36ee9d201e62e58903eb2f063be8200",
+      "shape": [
+        128,
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.4.edge_weight.layers.2.bias": {
+      "hash": "b660150bd27340cc4b4efa8ae0b58bed9224418c1436968f9bcee65beb351c49",
+      "shape": [
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.4.node_weight.layers.0.0.weight": {
+      "hash": "7b87792abd35d6c5e8b5e4f11cf1dc46b9ab830736767fce12e8c65bdee82e8d",
+      "shape": [
+        128,
+        256
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.4.node_weight.layers.0.0.bias": {
+      "hash": "69c9735f9ca87390f83cbc7a7bda83f82f6202f5b074267b8fc0dab1ffc7f90c",
+      "shape": [
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.4.node_weight.layers.1.0.weight": {
+      "hash": "488b1d1d8ce2231e4b923ef6861d8a5bedddc4d35fb7e1098392f51fddaeb190",
+      "shape": [
+        128,
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.4.node_weight.layers.1.0.bias": {
+      "hash": "d01862f62cc95586b01272bf46122f5af6eec39c9054dd839b9cfbda4c04543c",
+      "shape": [
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.4.node_weight.layers.2.weight": {
+      "hash": "823a92f88f2d95166391e3bb7c746b929774bd23f5792ed7db867a83dd50199f",
+      "shape": [
+        128,
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.4.node_weight.layers.2.bias": {
+      "hash": "d02f42fba36027a24508a3fe173a1a550d3f95e88860f7fcf1f1a2ca265a34cf",
+      "shape": [
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.5.norms.0.weight": {
+      "hash": "702cc37cfd91cac6b67c8bd7cc3c9da19f7a52986a8435bc2d1269721a65ce78",
+      "shape": [
+        384
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.5.norms.0.bias": {
+      "hash": "80422bc3d307b4a25bdafcc84ac7fb01cb55a09810e8b0f37bb12e0edb5c48ca",
+      "shape": [
+        384
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.5.norms.1.weight": {
+      "hash": "893a106828fbdb9521e1d868c985aab7ad2ae2f606edc55329265a5e7676006c",
+      "shape": [
+        256
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.5.norms.1.bias": {
+      "hash": "5f70bf18a086007016e948b04aed3b82103a36bea41755b6cddfaf10ace3c6ef",
+      "shape": [
+        256
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.5.edge_weight.layers.0.0.weight": {
+      "hash": "3392a9c36f502866f33270e212f30c4e8386c7f5868652c87f512b5293b5fbc8",
+      "shape": [
+        128,
+        384
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.5.edge_weight.layers.0.0.bias": {
+      "hash": "b54e3aebffc64fddb6e9e9c6aae97b84118df38ebd5c28f27c887d501726d2b9",
+      "shape": [
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.5.edge_weight.layers.1.0.weight": {
+      "hash": "7468f08b55fcb4224cba8fe0e49999bc28a09434dcf293bcd1fc1cedab7b50b9",
+      "shape": [
+        128,
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.5.edge_weight.layers.1.0.bias": {
+      "hash": "2e7277360c40d1d1869559f2a9153e91744072eac54e9ddf49f8772221a017ce",
+      "shape": [
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.5.edge_weight.layers.2.weight": {
+      "hash": "0f2afb5cf2b702f3d8f2a376096cba512b2a7637f260e42960f5cfdb386b43a5",
+      "shape": [
+        128,
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.5.edge_weight.layers.2.bias": {
+      "hash": "60034423b324e980d39b2615af64ff95f8ca93a3602d541b9025cf56ab3a4fc4",
+      "shape": [
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.5.node_weight.layers.0.0.weight": {
+      "hash": "02bf76ce734c706f3afa79c02ae909481132a49b11570625d3957204ccc8b58f",
+      "shape": [
+        128,
+        256
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.5.node_weight.layers.0.0.bias": {
+      "hash": "687f690810768e8adec6e030bcd3571df55f0d418b7cd32161a3594cca9083f3",
+      "shape": [
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.5.node_weight.layers.1.0.weight": {
+      "hash": "9f61bb6bd5857f7a14d6a3a9ff38115148c9c4de696e1e9006ceb6974dc9cbd7",
+      "shape": [
+        128,
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.5.node_weight.layers.1.0.bias": {
+      "hash": "5430346811c9da1c43a30c299ea8e887b684874c6c653b6308e60acfee4de29b",
+      "shape": [
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.5.node_weight.layers.2.weight": {
+      "hash": "803457e38bb33d7419f77e1a1ae87213e157a3d3a2b4dce78d9c1c4d71f50e32",
+      "shape": [
+        128,
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.5.node_weight.layers.2.bias": {
+      "hash": "67f261bfdba6234f69a9122d013e58d0b6a3e6e598a4d27ad65488384ece1a5f",
+      "shape": [
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.6.norms.0.weight": {
+      "hash": "702cc37cfd91cac6b67c8bd7cc3c9da19f7a52986a8435bc2d1269721a65ce78",
+      "shape": [
+        384
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.6.norms.0.bias": {
+      "hash": "80422bc3d307b4a25bdafcc84ac7fb01cb55a09810e8b0f37bb12e0edb5c48ca",
+      "shape": [
+        384
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.6.norms.1.weight": {
+      "hash": "893a106828fbdb9521e1d868c985aab7ad2ae2f606edc55329265a5e7676006c",
+      "shape": [
+        256
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.6.norms.1.bias": {
+      "hash": "5f70bf18a086007016e948b04aed3b82103a36bea41755b6cddfaf10ace3c6ef",
+      "shape": [
+        256
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.6.edge_weight.layers.0.0.weight": {
+      "hash": "dad764d1d5ec0691996b59987b55548c5d615befdf0a7b065755b4746dc6ac12",
+      "shape": [
+        128,
+        384
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.6.edge_weight.layers.0.0.bias": {
+      "hash": "42c93f74401301d9bac072990461b30cb7961dbac92b6b1f6a7fd80c28e5489b",
+      "shape": [
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.6.edge_weight.layers.1.0.weight": {
+      "hash": "f86a64f549bf0d030e713c2a1378d78290afce684d8fd1139c05cc0ddfe634a9",
+      "shape": [
+        128,
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.6.edge_weight.layers.1.0.bias": {
+      "hash": "8eac902ba443b534c960f18ea24cd03ca1ac36434ebabee31e7718b0f82a438b",
+      "shape": [
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.6.edge_weight.layers.2.weight": {
+      "hash": "b03034333bc0ff328d3deb259dfeeefb0d761764de0362fff8b52150e68eaf1d",
+      "shape": [
+        128,
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.6.edge_weight.layers.2.bias": {
+      "hash": "64deffbe8c1eebe55efbc397e8e4057cb2a11b52142007598af8b0d279b6f7f9",
+      "shape": [
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.6.node_weight.layers.0.0.weight": {
+      "hash": "b8be9cfaa191fb7b15612d7bdb59ce0ee6db6fc25053cd075a89dbf0b4b2b533",
+      "shape": [
+        128,
+        256
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.6.node_weight.layers.0.0.bias": {
+      "hash": "2a7caea70b1c116bc68a97670bb0c0f05c56a5514dc0425504eb2319402a681d",
+      "shape": [
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.6.node_weight.layers.1.0.weight": {
+      "hash": "cebae0894f3896662ccc43c90b26215eb71a0462b200f1574999416ef697d372",
+      "shape": [
+        128,
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.6.node_weight.layers.1.0.bias": {
+      "hash": "23be610f4b094df3c1dec77c32184185f837f9e7ae1ad129abf260cf59b9911d",
+      "shape": [
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.6.node_weight.layers.2.weight": {
+      "hash": "3e6e48b27b4bf62d324338772d818be026b7581541d13309ee25deeedbf0e48b",
+      "shape": [
+        128,
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.6.node_weight.layers.2.bias": {
+      "hash": "1febdb2e9fa83e5113d4af9fc620a58528a3401425972bcf5023f910c005e5f0",
+      "shape": [
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.7.norms.0.weight": {
+      "hash": "702cc37cfd91cac6b67c8bd7cc3c9da19f7a52986a8435bc2d1269721a65ce78",
+      "shape": [
+        384
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.7.norms.0.bias": {
+      "hash": "80422bc3d307b4a25bdafcc84ac7fb01cb55a09810e8b0f37bb12e0edb5c48ca",
+      "shape": [
+        384
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.7.norms.1.weight": {
+      "hash": "893a106828fbdb9521e1d868c985aab7ad2ae2f606edc55329265a5e7676006c",
+      "shape": [
+        256
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.7.norms.1.bias": {
+      "hash": "5f70bf18a086007016e948b04aed3b82103a36bea41755b6cddfaf10ace3c6ef",
+      "shape": [
+        256
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.7.edge_weight.layers.0.0.weight": {
+      "hash": "d266c1560edee80332c439b3f0993e617d8a06891b0f1fe043700251992f32fd",
+      "shape": [
+        128,
+        384
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.7.edge_weight.layers.0.0.bias": {
+      "hash": "38532de18401b8394f3610a8df303962724607a7a9723c19f461dd29d42c3f70",
+      "shape": [
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.7.edge_weight.layers.1.0.weight": {
+      "hash": "c6f7cf89ba2e94933e152362f15a2b2f6fdf095419661e55b90d1051b6f96472",
+      "shape": [
+        128,
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.7.edge_weight.layers.1.0.bias": {
+      "hash": "11b5c9fb004c13deeacff68a7e5601723878b51bd744898298ce5b05df1bb012",
+      "shape": [
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.7.edge_weight.layers.2.weight": {
+      "hash": "025c90badd7044397268df3c057ee07b601de47a742b0f72ac519cd04fe888ac",
+      "shape": [
+        128,
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.7.edge_weight.layers.2.bias": {
+      "hash": "69c9bb6d7c72d1c8cad496609a33eb34eb87c20d8728228afe785c461019e96f",
+      "shape": [
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.7.node_weight.layers.0.0.weight": {
+      "hash": "560baf7420fefe8fe37487e971d3ecfd6e2a115c298bae479de490a64a3ee1d1",
+      "shape": [
+        128,
+        256
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.7.node_weight.layers.0.0.bias": {
+      "hash": "3ae74c4c7178a5180ea76d402a176cce1dc61b971c6f5fbcb5f61f505b604836",
+      "shape": [
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.7.node_weight.layers.1.0.weight": {
+      "hash": "797722b98578267331be3839eba054e23a48d561cfc9b1c4d2ecd390760ad3ae",
+      "shape": [
+        128,
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.7.node_weight.layers.1.0.bias": {
+      "hash": "aed2c53b86d02360dfbc05303370817d4072a6595a598273a18acc4926956146",
+      "shape": [
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.7.node_weight.layers.2.weight": {
+      "hash": "8e79f84044b6ee579b571c7442764e382f86b24654c054af8379d3287fae2c2a",
+      "shape": [
+        128,
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.7.node_weight.layers.2.bias": {
+      "hash": "0456eda6e3bd5c80e97b18798d5a4976e5e2c063513a1097eda1e18954220237",
+      "shape": [
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.8.norms.0.weight": {
+      "hash": "702cc37cfd91cac6b67c8bd7cc3c9da19f7a52986a8435bc2d1269721a65ce78",
+      "shape": [
+        384
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.8.norms.0.bias": {
+      "hash": "80422bc3d307b4a25bdafcc84ac7fb01cb55a09810e8b0f37bb12e0edb5c48ca",
+      "shape": [
+        384
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.8.norms.1.weight": {
+      "hash": "893a106828fbdb9521e1d868c985aab7ad2ae2f606edc55329265a5e7676006c",
+      "shape": [
+        256
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.8.norms.1.bias": {
+      "hash": "5f70bf18a086007016e948b04aed3b82103a36bea41755b6cddfaf10ace3c6ef",
+      "shape": [
+        256
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.8.edge_weight.layers.0.0.weight": {
+      "hash": "df773a2d84af6591542db401f62b3957f8e11584d1c3dae04075536ec4af42a3",
+      "shape": [
+        128,
+        384
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.8.edge_weight.layers.0.0.bias": {
+      "hash": "b38936ae1e71fb702453da9451ff6928a719acb1d25179a18722d52b0d43c0bf",
+      "shape": [
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.8.edge_weight.layers.1.0.weight": {
+      "hash": "36982aa2ed6addf87a4bfcf922d98d1e54c39e9e77717560695d78d3416da809",
+      "shape": [
+        128,
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.8.edge_weight.layers.1.0.bias": {
+      "hash": "8789b1b34cf06201b85cfd651119e7e649f9a181972a30e1f11489082d8c9f24",
+      "shape": [
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.8.edge_weight.layers.2.weight": {
+      "hash": "1f2380916bc2be4aef07cdc2662b6df4855c27731c29dcae2f26c914352c642a",
+      "shape": [
+        128,
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.8.edge_weight.layers.2.bias": {
+      "hash": "7af99513d5e9894fa319d042aee1d61f594b03fa4e97b25613a1009810d51470",
+      "shape": [
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.8.node_weight.layers.0.0.weight": {
+      "hash": "a5de7c3ce9afe40a7791a2ac7c38b10b6f2e4eaab5dc79dfd391437398332344",
+      "shape": [
+        128,
+        256
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.8.node_weight.layers.0.0.bias": {
+      "hash": "9fdbf9dc8c96d684abd53b68477aca0b16a26b46059f78ce1e961f18b59d93b6",
+      "shape": [
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.8.node_weight.layers.1.0.weight": {
+      "hash": "9595571f01c1552b3bd5a5e5570ad2982d52377db4da3eda827832f37ef0c9ed",
+      "shape": [
+        128,
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.8.node_weight.layers.1.0.bias": {
+      "hash": "4534ad34ef647f734cd60bf32c4560c9f5fdc4e63e794ce9fba26d28f767d1d4",
+      "shape": [
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.8.node_weight.layers.2.weight": {
+      "hash": "67c9b98abfb5d6a6c1b8dbe823f63cbc104be36ac832143d01c636ee6fe22397",
+      "shape": [
+        128,
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.8.node_weight.layers.2.bias": {
+      "hash": "af69ac76e52118309bcbe58af9b749c0273c847d724a662cb6a561ac657bce12",
+      "shape": [
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.9.norms.0.weight": {
+      "hash": "702cc37cfd91cac6b67c8bd7cc3c9da19f7a52986a8435bc2d1269721a65ce78",
+      "shape": [
+        384
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.9.norms.0.bias": {
+      "hash": "80422bc3d307b4a25bdafcc84ac7fb01cb55a09810e8b0f37bb12e0edb5c48ca",
+      "shape": [
+        384
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.9.norms.1.weight": {
+      "hash": "893a106828fbdb9521e1d868c985aab7ad2ae2f606edc55329265a5e7676006c",
+      "shape": [
+        256
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.9.norms.1.bias": {
+      "hash": "5f70bf18a086007016e948b04aed3b82103a36bea41755b6cddfaf10ace3c6ef",
+      "shape": [
+        256
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.9.edge_weight.layers.0.0.weight": {
+      "hash": "fc7de10251de427870129728ff0688b5d11a371f6bd4eb715f235d3e8ef0e54c",
+      "shape": [
+        128,
+        384
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.9.edge_weight.layers.0.0.bias": {
+      "hash": "4eb97e647ac91f8fb2d8252682bfcaf23ebaf4895b6491311f19580ff496dbc6",
+      "shape": [
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.9.edge_weight.layers.1.0.weight": {
+      "hash": "f008d23777f1fd16ad4a828cf37b0090fad56476ee199bbbddb4f12044e91678",
+      "shape": [
+        128,
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.9.edge_weight.layers.1.0.bias": {
+      "hash": "267a2e6706fd8a6efdd8d32ad91313474c6b654b828f8138f19c5124fee774bb",
+      "shape": [
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.9.edge_weight.layers.2.weight": {
+      "hash": "bcf33094330ae2c28863908b3babfb15fed237dc2b8ff77d4a9c6f550680a468",
+      "shape": [
+        128,
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.9.edge_weight.layers.2.bias": {
+      "hash": "0866f527fee2793c29940c51cd0cbf486421dced1949e6c8146d2e549e76c47e",
+      "shape": [
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.9.node_weight.layers.0.0.weight": {
+      "hash": "7b5587ec2282108d6d7b86bd2e07e4db7663eef974d1e12b7c9ae302db6c0ca6",
+      "shape": [
+        128,
+        256
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.9.node_weight.layers.0.0.bias": {
+      "hash": "dbe4b4ed8e60ed2d8c327372b0fa183c094e72c5d1d387c0c2f87ce3d4b26e7f",
+      "shape": [
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.9.node_weight.layers.1.0.weight": {
+      "hash": "ffabe133716d24c1728b21d7a27bc667369ef001bad2f54e8f7ae44736661464",
+      "shape": [
+        128,
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.9.node_weight.layers.1.0.bias": {
+      "hash": "67b5bbf52d2952769a35070652f70dd31f987903adbe83891834f179fb34b66d",
+      "shape": [
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.9.node_weight.layers.2.weight": {
+      "hash": "60b11afadf1dd4068e6d3604d1d9b9f4be07f4c9df5de4a5d75875814c7abd1c",
+      "shape": [
+        128,
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.9.node_weight.layers.2.bias": {
+      "hash": "d9f27dd73a92b844972abd1410d93d702822909607461bd753eb3dbd5a1dbbdc",
+      "shape": [
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.10.norms.0.weight": {
+      "hash": "702cc37cfd91cac6b67c8bd7cc3c9da19f7a52986a8435bc2d1269721a65ce78",
+      "shape": [
+        384
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.10.norms.0.bias": {
+      "hash": "80422bc3d307b4a25bdafcc84ac7fb01cb55a09810e8b0f37bb12e0edb5c48ca",
+      "shape": [
+        384
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.10.norms.1.weight": {
+      "hash": "893a106828fbdb9521e1d868c985aab7ad2ae2f606edc55329265a5e7676006c",
+      "shape": [
+        256
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.10.norms.1.bias": {
+      "hash": "5f70bf18a086007016e948b04aed3b82103a36bea41755b6cddfaf10ace3c6ef",
+      "shape": [
+        256
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.10.edge_weight.layers.0.0.weight": {
+      "hash": "0ad584412283725b212bcbd900cc618fafd1935d229339f01dc492bd7883ef5a",
+      "shape": [
+        128,
+        384
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.10.edge_weight.layers.0.0.bias": {
+      "hash": "f2b8964ce95555fb44c5d0b293aa12afd228d7c370fc3028730960a8b08a169c",
+      "shape": [
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.10.edge_weight.layers.1.0.weight": {
+      "hash": "90610262514d3ee0d7d097638188865211c7186f101df5a7704430cc03925f75",
+      "shape": [
+        128,
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.10.edge_weight.layers.1.0.bias": {
+      "hash": "4f0341ca1d72d8db849379cb1c4b9ee2439a7e652d64efd51b55726a596b30be",
+      "shape": [
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.10.edge_weight.layers.2.weight": {
+      "hash": "5876199ab5cde4cf74af3f43451864b517cbecf2745b43792c6d9a429ce8f875",
+      "shape": [
+        128,
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.10.edge_weight.layers.2.bias": {
+      "hash": "626c09170387aa94ce2224eda39c7e5846dad21336aa11ec4a6e659b0d159b4f",
+      "shape": [
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.10.node_weight.layers.0.0.weight": {
+      "hash": "59710deaa0bfd32f8090959d0e63ab45eac6fc2c4e4089760ca355d5e4c7dd83",
+      "shape": [
+        128,
+        256
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.10.node_weight.layers.0.0.bias": {
+      "hash": "fe974eb74081435cdb2dbae70ce85a50dce1e9e1b95ccf92bf110c92d94a0a8c",
+      "shape": [
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.10.node_weight.layers.1.0.weight": {
+      "hash": "410396ebef9e21dabb6903b45cf1ceeee329001e5fdd8ec401752e55afac3272",
+      "shape": [
+        128,
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.10.node_weight.layers.1.0.bias": {
+      "hash": "30248a60085f5e46ab9e09fbf60489b56903b07a610fec677dff3bc441eae14f",
+      "shape": [
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.10.node_weight.layers.2.weight": {
+      "hash": "c682168a45ea12c5591a1dac87b6eab9bb0e5e5863ce4669059ba0aab5a5e5f6",
+      "shape": [
+        128,
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.10.node_weight.layers.2.bias": {
+      "hash": "4350208fd369f11b29c1f4692051bba5d70c1edc40ed805638ca1a50b00b8055",
+      "shape": [
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.11.norms.0.weight": {
+      "hash": "702cc37cfd91cac6b67c8bd7cc3c9da19f7a52986a8435bc2d1269721a65ce78",
+      "shape": [
+        384
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.11.norms.0.bias": {
+      "hash": "80422bc3d307b4a25bdafcc84ac7fb01cb55a09810e8b0f37bb12e0edb5c48ca",
+      "shape": [
+        384
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.11.norms.1.weight": {
+      "hash": "893a106828fbdb9521e1d868c985aab7ad2ae2f606edc55329265a5e7676006c",
+      "shape": [
+        256
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.11.norms.1.bias": {
+      "hash": "5f70bf18a086007016e948b04aed3b82103a36bea41755b6cddfaf10ace3c6ef",
+      "shape": [
+        256
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.11.edge_weight.layers.0.0.weight": {
+      "hash": "d5b496f8f121b169f28ee9bc1db376274e76592de9c6a40ba8674776fe32af90",
+      "shape": [
+        128,
+        384
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.11.edge_weight.layers.0.0.bias": {
+      "hash": "66091ae6bf8d4364fe4242548ac7478a869f2f1c02762e64d8c7dc5189a2f6f8",
+      "shape": [
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.11.edge_weight.layers.1.0.weight": {
+      "hash": "b447da73036b2f47acebe263fbaa13da4bb1eddbb94dc71d94a1a4c24d40d28b",
+      "shape": [
+        128,
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.11.edge_weight.layers.1.0.bias": {
+      "hash": "f903c9e2c9f0ad182af93ac639c39123b7960bb01fec78932886df30bfc1c8b6",
+      "shape": [
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.11.edge_weight.layers.2.weight": {
+      "hash": "dc089e935dd2f68d6b9f852ad349c334aac29925ca55ccdac95ea3bb6cfe5b69",
+      "shape": [
+        128,
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.11.edge_weight.layers.2.bias": {
+      "hash": "adec9bafb65af32ac593ecc3ff04aaa2fb665039aa8ffb0c47cb6d619c543c40",
+      "shape": [
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.11.node_weight.layers.0.0.weight": {
+      "hash": "b4b648fd8b584c88882bd3bbf80bc5c277b9445687a92cb890e8a3ba5e215a95",
+      "shape": [
+        128,
+        256
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.11.node_weight.layers.0.0.bias": {
+      "hash": "7a069b8aec9b8d2278aa753b245eb4ccddb8b49fa1d0bb023e3c215bfab30a06",
+      "shape": [
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.11.node_weight.layers.1.0.weight": {
+      "hash": "2d8276f85bd12e4eaafef05f6afc6b5e84383c38e0a0bc25dbb10391d211d727",
+      "shape": [
+        128,
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.11.node_weight.layers.1.0.bias": {
+      "hash": "08703655be1a724a68b139329b02bf87cb5712baf0926f008847b6f605ac60ef",
+      "shape": [
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.11.node_weight.layers.2.weight": {
+      "hash": "920f27c1cbbdcb7d0cd11398c9cf7d9120f82c9bf7337862dd1ea56e0b844630",
+      "shape": [
+        128,
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.11.node_weight.layers.2.bias": {
+      "hash": "a969052bb1abf3bab8f89937dfe49b0b4c6229288e85ac6af13b53bc707e6455",
+      "shape": [
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.12.norms.0.weight": {
+      "hash": "702cc37cfd91cac6b67c8bd7cc3c9da19f7a52986a8435bc2d1269721a65ce78",
+      "shape": [
+        384
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.12.norms.0.bias": {
+      "hash": "80422bc3d307b4a25bdafcc84ac7fb01cb55a09810e8b0f37bb12e0edb5c48ca",
+      "shape": [
+        384
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.12.norms.1.weight": {
+      "hash": "893a106828fbdb9521e1d868c985aab7ad2ae2f606edc55329265a5e7676006c",
+      "shape": [
+        256
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.12.norms.1.bias": {
+      "hash": "5f70bf18a086007016e948b04aed3b82103a36bea41755b6cddfaf10ace3c6ef",
+      "shape": [
+        256
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.12.edge_weight.layers.0.0.weight": {
+      "hash": "2c2c0a58a0260555f3c96d0d8e8c3ad34f989380d797344a09036f160ba4472c",
+      "shape": [
+        128,
+        384
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.12.edge_weight.layers.0.0.bias": {
+      "hash": "d8ef1b1adda03dce66e63b9af16fa08686a380a5b2390e021498d784acf6307f",
+      "shape": [
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.12.edge_weight.layers.1.0.weight": {
+      "hash": "af74dd3b9c786f1d63d2b41650946701ad1c5859d0e21e00dc48b38ef187b835",
+      "shape": [
+        128,
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.12.edge_weight.layers.1.0.bias": {
+      "hash": "5dee98f5fcba4ef18236ded0c9d96a43ff4e11af82f09717cf50d6f9bacaf430",
+      "shape": [
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.12.edge_weight.layers.2.weight": {
+      "hash": "42fd56df122c54c276c6eac736ddddf25dbb91f60ca8bf9cd676ed4afa72d033",
+      "shape": [
+        128,
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.12.edge_weight.layers.2.bias": {
+      "hash": "f4ac65ad845ca43124c10568ea57123ae671e5ed2203e1bf355d99fb632317ea",
+      "shape": [
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.12.node_weight.layers.0.0.weight": {
+      "hash": "ed67538b15be044054680bb8419570ec89eb9da987b37452377e3a32e61c8f03",
+      "shape": [
+        128,
+        256
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.12.node_weight.layers.0.0.bias": {
+      "hash": "32137ab2460e2301994877e2567e06fd97b4ac6e92ab5dbbf05ddadfdb0e34f7",
+      "shape": [
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.12.node_weight.layers.1.0.weight": {
+      "hash": "21e2c884bde2cffbbe2a732f340340b68e5d3edf6b20ab720ee6236eebe3889e",
+      "shape": [
+        128,
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.12.node_weight.layers.1.0.bias": {
+      "hash": "56e7afaba4b44f67a5ca022d1a92c2af912ad66a6535c52aaae309c4416dd156",
+      "shape": [
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.12.node_weight.layers.2.weight": {
+      "hash": "0acc1c6216e60a95a052440687dc2f615dc2361fd90a9c3e934475a7e5a0110a",
+      "shape": [
+        128,
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.12.node_weight.layers.2.bias": {
+      "hash": "23df4013cbfb57015c0a184bfed0d86326daa6880944bd1d958abf0127ab9405",
+      "shape": [
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.13.norms.0.weight": {
+      "hash": "702cc37cfd91cac6b67c8bd7cc3c9da19f7a52986a8435bc2d1269721a65ce78",
+      "shape": [
+        384
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.13.norms.0.bias": {
+      "hash": "80422bc3d307b4a25bdafcc84ac7fb01cb55a09810e8b0f37bb12e0edb5c48ca",
+      "shape": [
+        384
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.13.norms.1.weight": {
+      "hash": "893a106828fbdb9521e1d868c985aab7ad2ae2f606edc55329265a5e7676006c",
+      "shape": [
+        256
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.13.norms.1.bias": {
+      "hash": "5f70bf18a086007016e948b04aed3b82103a36bea41755b6cddfaf10ace3c6ef",
+      "shape": [
+        256
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.13.edge_weight.layers.0.0.weight": {
+      "hash": "4c27fe786657a19214386814ece5c298a577fa10624d99979bece369d8b9be2f",
+      "shape": [
+        128,
+        384
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.13.edge_weight.layers.0.0.bias": {
+      "hash": "9b6eae766ce8042ba24d5ea30793f72ff0a68fdc452f06197129bf2580cb2a28",
+      "shape": [
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.13.edge_weight.layers.1.0.weight": {
+      "hash": "ca535e9fd645c5d1d60e27d24a67dbd9152eb719561443aba958b7dedbdc353c",
+      "shape": [
+        128,
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.13.edge_weight.layers.1.0.bias": {
+      "hash": "52e04318954ca4adf30722b3282b38a01b7607ed263c2f8a2fd09e574209bf55",
+      "shape": [
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.13.edge_weight.layers.2.weight": {
+      "hash": "3a419d434e5d729372bf336dd4975a4534c6a066bd70a943a2a5e26fdf72cb3d",
+      "shape": [
+        128,
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.13.edge_weight.layers.2.bias": {
+      "hash": "708c6d4e481999637b3a423efda17a71fc5b2c95f49276351668ffebe040215f",
+      "shape": [
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.13.node_weight.layers.0.0.weight": {
+      "hash": "5eb6da883b10a795dc6f1b48a5cd219244c493f7883123c5a5dd5e95af3b65a0",
+      "shape": [
+        128,
+        256
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.13.node_weight.layers.0.0.bias": {
+      "hash": "2653b77c97e31cfa0a5e303556d53fd4631126af147fe8db8d6c5a2901acd50c",
+      "shape": [
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.13.node_weight.layers.1.0.weight": {
+      "hash": "fd01b7b9e34a1ed780e403da4aece3a54a856616b09c68db7bd61cea9de2b947",
+      "shape": [
+        128,
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.13.node_weight.layers.1.0.bias": {
+      "hash": "fd2e79a763a802b6b40102c609d664f3397d8a3e194b385db9bca398e33cce96",
+      "shape": [
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.13.node_weight.layers.2.weight": {
+      "hash": "b4fbc897ce5775736343110de26ca214ddd98e2d639f204a69d6e56388c9183c",
+      "shape": [
+        128,
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.13.node_weight.layers.2.bias": {
+      "hash": "f82dc1ddc3837b396a1937a7b74bad6a0c7a9e4dbd7c54fc57f4f9075b4590d3",
+      "shape": [
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.14.norms.0.weight": {
+      "hash": "702cc37cfd91cac6b67c8bd7cc3c9da19f7a52986a8435bc2d1269721a65ce78",
+      "shape": [
+        384
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.14.norms.0.bias": {
+      "hash": "80422bc3d307b4a25bdafcc84ac7fb01cb55a09810e8b0f37bb12e0edb5c48ca",
+      "shape": [
+        384
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.14.norms.1.weight": {
+      "hash": "893a106828fbdb9521e1d868c985aab7ad2ae2f606edc55329265a5e7676006c",
+      "shape": [
+        256
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.14.norms.1.bias": {
+      "hash": "5f70bf18a086007016e948b04aed3b82103a36bea41755b6cddfaf10ace3c6ef",
+      "shape": [
+        256
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.14.edge_weight.layers.0.0.weight": {
+      "hash": "393b1422c7044cf878e4336da8d4697f299e4dedf1065fe3f7103ca332375296",
+      "shape": [
+        128,
+        384
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.14.edge_weight.layers.0.0.bias": {
+      "hash": "6286a7f1d3eaa442dc97ac5bebb2d99c6dceee87e2ed06737165ce77f42d3cb8",
+      "shape": [
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.14.edge_weight.layers.1.0.weight": {
+      "hash": "99fe5ad402a49b888dd357a2a9133b09448f363f1f06d36d22fd8db2559a06f7",
+      "shape": [
+        128,
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.14.edge_weight.layers.1.0.bias": {
+      "hash": "22edb1ea96b98e1194e3cb1b8f5661b37459d13a2170c8711e57842b2ec9269e",
+      "shape": [
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.14.edge_weight.layers.2.weight": {
+      "hash": "7855a00df7d3e11b1d9e5611968cdb97da8f244e4f744b50542f7fbc054e52cb",
+      "shape": [
+        128,
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.14.edge_weight.layers.2.bias": {
+      "hash": "17e8c712b45a398844399aaef9f9017ef44f3a8e5bb6d7f9c1b1977474f156a1",
+      "shape": [
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.14.node_weight.layers.0.0.weight": {
+      "hash": "1d4bf0450a5c196f6649798019f4b54b0349e478a11500a42ea6ce0180ebcff5",
+      "shape": [
+        128,
+        256
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.14.node_weight.layers.0.0.bias": {
+      "hash": "e9b993e6d4c03825236ba4173e51cffd57ef72b2c22720dc82474d17fafa9db9",
+      "shape": [
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.14.node_weight.layers.1.0.weight": {
+      "hash": "5e21d7299a31149b9de6305d325c50c9768b582647fb76b0be443ca289b98e45",
+      "shape": [
+        128,
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.14.node_weight.layers.1.0.bias": {
+      "hash": "e5746a76c9871870aa0cead8e7031a9b5e7edfd0b7190d9c9b573c365b884952",
+      "shape": [
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.14.node_weight.layers.2.weight": {
+      "hash": "a9f21f25d5b1ace8188c75ff45b22fec3d5ba08eeb7c756edaacc448a8f06b51",
+      "shape": [
+        128,
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.14.node_weight.layers.2.bias": {
+      "hash": "cfe18017e4531b6a2f66726720d47d9b24da737918d168d5879b3e59794f57f7",
+      "shape": [
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.15.norms.0.weight": {
+      "hash": "702cc37cfd91cac6b67c8bd7cc3c9da19f7a52986a8435bc2d1269721a65ce78",
+      "shape": [
+        384
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.15.norms.0.bias": {
+      "hash": "80422bc3d307b4a25bdafcc84ac7fb01cb55a09810e8b0f37bb12e0edb5c48ca",
+      "shape": [
+        384
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.15.norms.1.weight": {
+      "hash": "893a106828fbdb9521e1d868c985aab7ad2ae2f606edc55329265a5e7676006c",
+      "shape": [
+        256
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.15.norms.1.bias": {
+      "hash": "5f70bf18a086007016e948b04aed3b82103a36bea41755b6cddfaf10ace3c6ef",
+      "shape": [
+        256
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.15.edge_weight.layers.0.0.weight": {
+      "hash": "7703952ab4e6c6a80511f215d81e112e973e48fbaff28a70e9ceedfb3d9c76c5",
+      "shape": [
+        128,
+        384
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.15.edge_weight.layers.0.0.bias": {
+      "hash": "74ac8be197c9e333d91126f1b6d7f676f0fa49f56d89e4f48658a09d2f9ef3d0",
+      "shape": [
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.15.edge_weight.layers.1.0.weight": {
+      "hash": "f3df763e38cf885bc4cb141d71fd654fc7bc77de1850881e2f44e7e505f9bbb5",
+      "shape": [
+        128,
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.15.edge_weight.layers.1.0.bias": {
+      "hash": "e87744d91d73a78c35375d5cc44e075c570fb69a5358d5868381121089caaf9a",
+      "shape": [
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.15.edge_weight.layers.2.weight": {
+      "hash": "0cfaeb1ade8c86d9a08844d8cbd97aa7442ed80ede28f2657709f15f51c2ae30",
+      "shape": [
+        128,
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.15.edge_weight.layers.2.bias": {
+      "hash": "b13aec00dcdcdd8d355f3a2e2931fdd893abcccbf6441707e27eac4b8dbac054",
+      "shape": [
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.15.node_weight.layers.0.0.weight": {
+      "hash": "43dbe1d0f8ba575bf8d66601e92f8f1cc6a247cb77706fc1a1badbd7c41f4180",
+      "shape": [
+        128,
+        256
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.15.node_weight.layers.0.0.bias": {
+      "hash": "d09d8278951e614d7a13faf6581e76a497f62863dc66d737764c89ab78d2e50e",
+      "shape": [
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.15.node_weight.layers.1.0.weight": {
+      "hash": "308ee00cf8a113f743cc32c8ca4fdd2339c08452b4b5d56ef23377865dfb98fe",
+      "shape": [
+        128,
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.15.node_weight.layers.1.0.bias": {
+      "hash": "96195057e20aa3ae5003844decf3bb07c0296fc4604662d7ff0db4a528bc34a7",
+      "shape": [
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.15.node_weight.layers.2.weight": {
+      "hash": "a46a2a27c18cb3f128e6174adcd0fbdd74c2bd602014a53ffbe964099014fcd3",
+      "shape": [
+        128,
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.layers.15.node_weight.layers.2.bias": {
+      "hash": "8f868421954517a6c77e4f7e6cc8ac2b15ab600677a1bed76af13fd77371c3b4",
+      "shape": [
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.emb_norm.weight": {
+      "hash": "02722f124d0f1736a9dd7c4ddcd05630dcf16ee1ce3454e9a876005ce005d4ac",
+      "shape": [
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "backbone.encoder.emb_norm.bias": {
+      "hash": "076a27c79e5ace2a3d47f9dd2e83e4ff6ea8872b3c2218f66c92b89b55f36560",
+      "shape": [
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "decode_head.dynamic_proj.layers.0.0.weight": {
+      "hash": "d45fcab86d41e1a2b7bd4810547d5176728ac444ff6eed5b1b831b56436839b2",
+      "shape": [
+        64,
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    "decode_head.dynamic_proj.layers.0.0.bias": {
+      "hash": "dc330a66235a7e83abe9935e25fcfefea1f9d624e7aab11a83685f9c92f96644",
+      "shape": [
+        64
+      ],
+      "dtype": "torch.float32"
+    },
+    "decode_head.dynamic_proj.layers.1.0.weight": {
+      "hash": "edc4bbd4f025de1722203a1ec264b85e049320d9202c04f46d8acbf3a5cbbc9e",
+      "shape": [
+        32,
+        64
+      ],
+      "dtype": "torch.float32"
+    },
+    "decode_head.dynamic_proj.layers.1.0.bias": {
+      "hash": "b7e3bf11fc87ebd87cd2d4cc1de9a24edaa8518d423bd8c0a19d4c38786f6c2a",
+      "shape": [
+        32
+      ],
+      "dtype": "torch.float32"
+    },
+    "decode_head.dynamic_proj.layers.2.weight": {
+      "hash": "1bb16ad40cfd0c66289dd97a8b7645e87b0f7e49213607d6778e080ef811e0f0",
+      "shape": [
+        11,
+        32
+      ],
+      "dtype": "torch.float32"
+    },
+    "decode_head.dynamic_proj.layers.2.bias": {
+      "hash": "fcc168c20bbfa5ef7bf7dc4fc37d26dc14d4726f370522434631ace4aac697b0",
+      "shape": [
+        11
+      ],
+      "dtype": "torch.float32"
+    }
+  },
+  "input_hashes": {
+    "inputs": {
+      "img": [
+        {
+          "hash": "269422d59990eb08f6ec7e98d0733248f27218084f4ce7219cc12d4ca62b861c",
+          "shape": [
+            1,
+            3,
+            360,
+            640
+          ],
+          "dtype": "torch.float32"
+        },
+        {
+          "hash": "19330639c47808a9bdd89810cfc9872067f2f34dd97e600ceec9e550b8575ffc",
+          "shape": [
+            1,
+            3,
+            360,
+            640
+          ],
+          "dtype": "torch.float32"
+        }
+      ],
+      "full_gt_label": [
+        {
+          "hash": "19165e46eca1a1ac015a0026ee43f47d4f7d1ef4de38df22f05a575fd34ab5fe",
+          "shape": [
+            1,
+            16,
+            3,
+            360,
+            640
+          ],
+          "dtype": "torch.float32"
+        },
+        {
+          "hash": "b2557027f6d0528fec1cd87979c2166d5c15f3464117dc1d777d4e4e6cfc92b8",
+          "shape": [
+            1,
+            16,
+            3,
+            360,
+            640
+          ],
+          "dtype": "torch.float32"
+        }
+      ],
+      "bbox": {
+        "hash": "ce6876281a785565d9c7d565a48316acbd85f59341d8d1293d4282ac06ef1e6c",
+        "shape": [
+          1,
+          2,
+          16,
+          4
+        ],
+        "dtype": "torch.int32"
+      },
+      "controller_trajectory": {
+        "hash": "413a89f2ef25f0019a19a6d97668c2d6ee53e9c52e1121023003218021a9df70",
+        "shape": [
+          1,
+          16,
+          30,
+          3
+        ],
+        "dtype": "torch.float32"
+      },
+      "controller_img_mask_list": [
+        {
+          "hash": "defe5059e4a7b5c797a007fa8428d93cf7586359b5d78c6c9c1a4a8586ea7a2a",
+          "shape": [
+            1,
+            16,
+            1,
+            360,
+            640
+          ],
+          "dtype": "torch.float32"
+        },
+        {
+          "hash": "defe5059e4a7b5c797a007fa8428d93cf7586359b5d78c6c9c1a4a8586ea7a2a",
+          "shape": [
+            1,
+            16,
+            1,
+            360,
+            640
+          ],
+          "dtype": "torch.float32"
+        }
+      ],
+      "pure_robot_img_mask_list": [
+        {
+          "hash": "defe5059e4a7b5c797a007fa8428d93cf7586359b5d78c6c9c1a4a8586ea7a2a",
+          "shape": [
+            1,
+            16,
+            1,
+            360,
+            640
+          ],
+          "dtype": "torch.float32"
+        },
+        {
+          "hash": "defe5059e4a7b5c797a007fa8428d93cf7586359b5d78c6c9c1a4a8586ea7a2a",
+          "shape": [
+            1,
+            16,
+            1,
+            360,
+            640
+          ],
+          "dtype": "torch.float32"
+        }
+      ],
+      "gs_aligned_frame": {
+        "hash": "af5570f5a1810b7af78caf4bc70a660f0df51e42baf91d4de5b2328de0e83dfc",
+        "shape": [
+          1
+        ],
+        "dtype": "torch.int64"
+      },
+      "p2c_mapping": [
+        [
+          {
+            "hash": "96c8c1fb23425f25e947b5a6706bf75d0779bc56c2f952ba7397350fc1e1f111",
+            "shape": [
+              1,
+              30
+            ],
+            "dtype": "torch.int64"
+          },
+          {
+            "hash": "dbd078de1db593be7450f354d8948e26a0812d1eef454d8e81d6adbdc9744f85",
+            "shape": [
+              1,
+              12861
+            ],
+            "dtype": "torch.int64"
+          }
+        ],
+        [
+          {
+            "hash": "23ebc865e5eee5c9c3cd23c9791d8fabdbbf2ab95b6241b3d6b6ef14be0808bb",
+            "shape": [
+              1,
+              10
+            ],
+            "dtype": "torch.int64"
+          },
+          {
+            "hash": "565543b59985332c7a6cd36221062b33bb88fc080db3a952c09035d80c820007",
+            "shape": [
+              1,
+              640
+            ],
+            "dtype": "torch.int64"
+          }
+        ],
+        [
+          {
+            "hash": "374708fff7719dd5979ec875d56cd2286f6d3cf7ec317a3b25632aab28ec37bb",
+            "shape": [
+              1,
+              2
+            ],
+            "dtype": "torch.float64"
+          },
+          {
+            "hash": "022451970ff25a1cf57eb1602f05e6ab8a2d0edb918d8efd1574f2ef1a77898f",
+            "shape": [
+              1,
+              7
+            ],
+            "dtype": "torch.float64"
+          }
+        ],
+        [
+          {
+            "hash": "af5570f5a1810b7af78caf4bc70a660f0df51e42baf91d4de5b2328de0e83dfc",
+            "shape": [
+              1,
+              1
+            ],
+            "dtype": "torch.float64"
+          },
+          {
+            "hash": "af5570f5a1810b7af78caf4bc70a660f0df51e42baf91d4de5b2328de0e83dfc",
+            "shape": [
+              1,
+              1
+            ],
+            "dtype": "torch.float64"
+          }
+        ]
+      ],
+      "volume_scalar": {
+        "hash": "03a88c8867b3fbcfeefc3270af46afbeb74a27e12cad758e188154cb4aa923dc",
+        "shape": [
+          1,
+          1,
+          1
+        ],
+        "dtype": "torch.float32"
+      },
+      "external": {
+        "hash": "2bafbe9b3d6734c51cf0a221429590c35cfa791d8c162bc1db69b31d8cbffc1b",
+        "shape": [
+          1,
+          1,
+          3
+        ],
+        "dtype": "torch.float32"
+      },
+      "white_bg": [
+        {
+          "hash": "6e340b9cffb37a989ca544e6bb780a2c78901d3fb33738768511a30617afa01d",
+          "shape": [
+            1
+          ],
+          "dtype": "torch.bool"
+        },
+        {
+          "hash": "6e340b9cffb37a989ca544e6bb780a2c78901d3fb33738768511a30617afa01d",
+          "shape": [
+            1
+          ],
+          "dtype": "torch.bool"
+        }
+      ]
+    },
+    "gt_label": [
+      {
+        "hash": "da42f77eb1be94e2393636d81f2066daef3adeeaedb008350b2757d8d5aeb8bf",
+        "shape": [
+          1,
+          16,
+          3,
+          360,
+          640
+        ],
+        "dtype": "torch.float32"
+      },
+      {
+        "hash": "7953bf8a1a9225f90b34babb61cb073c01b9ce255f3573cbd28bccfbccc5257e",
+        "shape": [
+          1,
+          16,
+          3,
+          360,
+          640
+        ],
+        "dtype": "torch.float32"
+      }
+    ],
+    "meta": {
+      "scene_idx": {
+        "hash": "af5570f5a1810b7af78caf4bc70a660f0df51e42baf91d4de5b2328de0e83dfc",
+        "shape": [
+          1,
+          1
+        ],
+        "dtype": "torch.int64"
+      },
+      "idx": {
+        "hash": "af5570f5a1810b7af78caf4bc70a660f0df51e42baf91d4de5b2328de0e83dfc",
+        "shape": [
+          1,
+          1
+        ],
+        "dtype": "torch.int64"
+      },
+      "seq_idx": {
+        "hash": "af5570f5a1810b7af78caf4bc70a660f0df51e42baf91d4de5b2328de0e83dfc",
+        "shape": [
+          1,
+          1
+        ],
+        "dtype": "torch.int64"
+      },
+      "eval_start_frame": {
+        "hash": "af5570f5a1810b7af78caf4bc70a660f0df51e42baf91d4de5b2328de0e83dfc",
+        "shape": [
+          1,
+          1
+        ],
+        "dtype": "torch.int64"
+      },
+      "seq_num": {
+        "hash": "a111f275cc2e7588000001d300a31e76336d15b9d314cd1a1d8f3d3556975eed",
+        "shape": [
+          1,
+          1
+        ],
+        "dtype": "torch.int64"
+      },
+      "scene_name": "config_a_2cam"
+    }
+  },
+  "initial_Gaussian": {
+    "_xyz": {
+      "hash": "f4ba7c55907595989a1518d6253a5d6b57710fc984653017ed90a3d1db9526b7",
+      "shape": [
+        12861,
+        3
+      ],
+      "dtype": "torch.float32"
+    },
+    "_scaling": {
+      "hash": "c3fafcae53a50ad764b3c435892611d344fc917936b646cc4121ecc66eb96592",
+      "shape": [
+        12861,
+        3
+      ],
+      "dtype": "torch.float32"
+    },
+    "_rotation": {
+      "hash": "71ae49efdc535c6ca5ae02e6d17e95aa8d0333038e432f64e402127f5f1286c2",
+      "shape": [
+        12861,
+        4
+      ],
+      "dtype": "torch.float32"
+    },
+    "_opacity": {
+      "hash": "49637d641a366c66b84289c723c4e1a6e5baea17d13335a6ad126d3f519d7580",
+      "shape": [
+        12861,
+        1
+      ],
+      "dtype": "torch.float32"
+    },
+    "_features_dc": {
+      "hash": "1eed40a7504d0ace7f53c925fd952e325dac7585051e1819a1c27fd734076605",
+      "shape": [
+        12861,
+        1,
+        3
+      ],
+      "dtype": "torch.float32"
+    },
+    "_features_rest": {
+      "hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "shape": [
+        12861,
+        0,
+        3
+      ],
+      "dtype": "torch.float32"
+    }
+  },
+  "initial_geometry": {
+    "row_mean": [
+      0.20144450664520264,
+      -0.009393155574798584,
+      0.18189050257205963
+    ],
+    "row_packed_cov": [
+      2.044592474703677e-05,
+      2.77613344223937e-06,
+      5.9613735174934845e-06,
+      2.4982821287267143e-06,
+      -4.451430413610069e-06,
+      1.7435577319702134e-05
+    ],
+    "row_matrix": [
+      [
+        2.044592474703677e-05,
+        2.77613344223937e-06,
+        5.9613735174934845e-06
+      ],
+      [
+        2.77613344223937e-06,
+        2.4982821287267143e-06,
+        -4.451430413610069e-06
+      ],
+      [
+        5.9613735174934845e-06,
+        -4.451430413610069e-06,
+        1.7435577319702134e-05
+      ]
+    ],
+    "eigenvalues": [
+      3.059191648429061e-07,
+      1.497008237401911e-05,
+      2.5103782656603602e-05
+    ],
+    "determinant": 1.1496616413392872e-16,
+    "trace": 4.037978419546562e-05,
+    "condition_2": 82.06018302087989,
+    "PSD": true,
+    "PD": true,
+    "symmetry_exact": true,
+    "all_PD_count": 12861,
+    "population": {
+      "position_norm": {
+        "count": 12861,
+        "finite_count": 12861,
+        "quantiles": [
+          0.1018166779752646,
+          0.10894811507227614,
+          0.14395791729428253,
+          0.2824746987291138,
+          0.39645790920630003,
+          0.4187209084128644,
+          0.43487475121201236
+        ],
+        "row_value": 0.2715737018842176,
+        "rank_ascending_1based": 5887,
+        "percentile_le": 45.77404556410855
+      },
+      "eigen_min": {
+        "count": 12861,
+        "finite_count": 12861,
+        "quantiles": [
+          9.623179506213083e-09,
+          2.5156762552439787e-08,
+          4.8857582845300565e-08,
+          2.5078168549857825e-07,
+          3.1781593754011925e-06,
+          8.269936214130192e-06,
+          2.3972091302699163e-05
+        ],
+        "row_value": 3.059191648429061e-07,
+        "rank_ascending_1based": 7562,
+        "percentile_le": 58.79791618070135
+      },
+      "eigen_max": {
+        "count": 12861,
+        "finite_count": 12861,
+        "quantiles": [
+          2.3335602001757353e-07,
+          1.3156496648820873e-06,
+          2.4638883670494905e-06,
+          1.4499069706732533e-05,
+          4.325155858328355e-05,
+          6.395105504792885e-05,
+          0.00013489746480684032
+        ],
+        "row_value": 2.5103782656603602e-05,
+        "rank_ascending_1based": 10008,
+        "percentile_le": 77.81665500349895
+      },
+      "determinant": {
+        "count": 12861,
+        "finite_count": 12861,
+        "quantiles": [
+          1.13353866471832e-21,
+          1.0508428980640081e-20,
+          5.278522320220504e-20,
+          2.5205387487356472e-17,
+          1.1889954040192704e-15,
+          4.702278752431888e-15,
+          8.292999708193415e-14
+        ],
+        "row_value": 1.1496616413392872e-16,
+        "rank_ascending_1based": 9377,
+        "percentile_le": 72.91034911748697
+      },
+      "condition": {
+        "count": 12861,
+        "finite_count": 12861,
+        "quantiles": [
+          1.0090838387845187,
+          2.5047863479097097,
+          5.297557994530196,
+          62.31077424613705,
+          92.6129447967349,
+          98.2410055677529,
+          105.3227061691637
+        ],
+        "row_value": 82.06018302087989,
+        "rank_ascending_1based": 10859,
+        "percentile_le": 84.43355882124251
+      }
+    }
+  },
+  "cameras": {
+    "brics-odroid-023_cam0": {
+      "img_path": "/data1/userdata/tcweng/projects/tcgs/datasets/deform360/derived/t17_scene_packages/pink_cloth_episode_0/config_a_2cam/color/0/0.png",
+      "znear": 0.01,
+      "zfar": 100.0,
+      "view": [
+        [
+          -0.16377054154872894,
+          0.8267189860343933,
+          -0.5382517576217651,
+          0.0
+        ],
+        [
+          0.04144533351063728,
+          -0.5393706560134888,
+          -0.8410478830337524,
+          0.0
+        ],
+        [
+          -0.9856274724006653,
+          -0.16004690527915955,
+          0.05406938120722771,
+          0.0
+        ],
+        [
+          -0.037542760372161865,
+          -0.15048789978027344,
+          0.6979095935821533,
+          1.0
+        ]
+      ],
+      "projection": [
+        [
+          -0.22608833014965057,
+          2.0345547199249268,
+          -0.5383055806159973,
+          -0.5382517576217651
+        ],
+        [
+          0.05721606686711311,
+          -1.3273906707763672,
+          -0.8411319851875305,
+          -0.8410478830337524
+        ],
+        [
+          -1.3606773614883423,
+          -0.39387527108192444,
+          0.054074790328741074,
+          0.05406938120722771
+        ],
+        [
+          -0.05182849243283272,
+          -0.37035056948661804,
+          0.6879783868789673,
+          0.6979095935821533
+        ]
+      ],
+      "matrix_hashes": [
+        "2f3e3e39fec96734fc4de0cc7a20d163623dc77e458df3741754efcce9600b6f",
+        "c9ded6bca1a6d5a3af006fdc7f87f62c5d1ee064e38d90f9c47dd2e6ebd5d6c3"
+      ]
+    },
+    "brics-odroid-009_cam1": {
+      "img_path": "/data1/userdata/tcweng/projects/tcgs/datasets/deform360/derived/t17_scene_packages/pink_cloth_episode_0/config_a_2cam/color/1/0.png",
+      "znear": 0.01,
+      "zfar": 100.0,
+      "view": [
+        [
+          0.4741419851779938,
+          -0.03386322408914566,
+          0.8797969222068787,
+          0.0
+        ],
+        [
+          0.019315289333462715,
+          -0.998619556427002,
+          -0.04884611815214157,
+          0.0
+        ],
+        [
+          0.8802365064620972,
+          0.04015352576971054,
+          -0.4728333652019501,
+          0.0
+        ],
+        [
+          -0.21942967176437378,
+          0.090294249355793,
+          0.3804149329662323,
+          1.0
+        ]
+      ],
+      "projection": [
+        [
+          0.7364096641540527,
+          -0.09296780079603195,
+          0.8798848986625671,
+          0.8797969222068787
+        ],
+        [
+          0.029999379068613052,
+          -2.7416014671325684,
+          -0.048851002007722855,
+          -0.04884611815214157
+        ],
+        [
+          1.3671319484710693,
+          0.11023714393377304,
+          -0.47288066148757935,
+          -0.4728333652019501
+        ],
+        [
+          -0.3408053517341614,
+          0.2478930503129959,
+          0.37045198678970337,
+          0.3804149329662323
+        ]
+      ],
+      "matrix_hashes": [
+        "16215af054e053511b8c26b7d3a2b092e3c0230f82ae006da4c86a09b46bc202",
+        "cf6d5fcd9f397d167c745a6dfdcc56b2c87f5072c904eb543f4c41c435432ff2"
+      ]
+    }
+  },
+  "pre_intervention_hashes": {
+    "brics-odroid-023_cam0": {
+      "means3D": "21b45174dbdf6397debf2e739bea241ad01a6d98d47f7d8cd06d5fd4ea0b8ee1",
+      "means2D": "f106dbb9cf7f7ed704a27673f61800ffb5b313dc2baa674fe5cbd1f73b7f59a4",
+      "colors_precomp": "fd59d414c6c2bc3e092ab11038bf51b04d00212d2ed0084a95ec079dbdb27ea4",
+      "opacities": "af8aedf2fd5985919786253081590aec7f0330b7d61acf443c8e3b7a1e27b09b",
+      "cov3D_precomp": "23f8caf9a7284c649fb3beaef318840742216d8313b9c71479a713090f94f89b"
+    },
+    "brics-odroid-009_cam1": {
+      "means3D": "21b45174dbdf6397debf2e739bea241ad01a6d98d47f7d8cd06d5fd4ea0b8ee1",
+      "means2D": "f106dbb9cf7f7ed704a27673f61800ffb5b313dc2baa674fe5cbd1f73b7f59a4",
+      "colors_precomp": "fd59d414c6c2bc3e092ab11038bf51b04d00212d2ed0084a95ec079dbdb27ea4",
+      "opacities": "af8aedf2fd5985919786253081590aec7f0330b7d61acf443c8e3b7a1e27b09b",
+      "cov3D_precomp": "23f8caf9a7284c649fb3beaef318840742216d8313b9c71479a713090f94f89b"
+    }
+  },
+  "predicted_geometry": {
+    "row_mean": [
+      0.8158941268920898,
+      -0.44087982177734375,
+      -7.46397066116333
+    ],
+    "row_packed_cov": [
+      0.4963315427303314,
+      -2.4002785682678223,
+      0.2890297472476959,
+      11.607837677001953,
+      -1.3977587223052979,
+      0.16831117868423462
+    ],
+    "row_matrix": [
+      [
+        0.4963315427303314,
+        -2.4002785682678223,
+        0.2890297472476959
+      ],
+      [
+        -2.4002785682678223,
+        11.607837677001953,
+        -1.3977587223052979
+      ],
+      [
+        0.2890297472476959,
+        -1.3977587223052979,
+        0.16831117868423462
+      ]
+    ],
+    "eigenvalues": [
+      -1.0285953518887647e-07,
+      -4.996239973599844e-08,
+      12.272480551238445
+    ],
+    "determinant": 6.306961756493817e-14,
+    "trace": 12.27248039841652,
+    "condition_2": 245634329.33738753,
+    "PSD": false,
+    "PD": false,
+    "symmetry_exact": true,
+    "all_PD_count": 2644,
+    "population": {
+      "position_norm": {
+        "count": 12861,
+        "finite_count": 12861,
+        "quantiles": [
+          7.407601453093271,
+          7.982983080118328,
+          10.936755041177063,
+          50.674852376098876,
+          100.83116065246027,
+          109.87823253131116,
+          117.28954503804584
+        ],
+        "row_value": 7.521363990278251,
+        "rank_ascending_1based": 34,
+        "percentile_le": 0.26436513490397323
+      },
+      "eigen_min": {
+        "count": 12861,
+        "finite_count": 12861,
+        "quantiles": [
+          -2.0515510787691417e-06,
+          -4.3920040367463236e-07,
+          -2.2607674374803517e-07,
+          -2.430472585488755e-08,
+          3.13598373322008e-08,
+          8.853567277075572e-08,
+          4.0004813190480524e-07
+        ],
+        "row_value": -1.0285953518887647e-07,
+        "rank_ascending_1based": 2272,
+        "percentile_le": 17.6658113677008
+      },
+      "eigen_max": {
+        "count": 12861,
+        "finite_count": 12861,
+        "quantiles": [
+          0.024138687406223484,
+          0.1211311155125005,
+          0.3359948940896735,
+          4.200285088599415,
+          15.00595001987875,
+          23.27805393469978,
+          65.84631869149737
+        ],
+        "row_value": 12.272480551238445,
+        "rank_ascending_1based": 11702,
+        "percentile_le": 90.9882590778322
+      },
+      "determinant": {
+        "count": 12861,
+        "finite_count": 12861,
+        "quantiles": [
+          -4.727700291849443e-11,
+          -1.4097315661399869e-12,
+          -3.017130851004957e-13,
+          -5.750647168568645e-16,
+          5.727276295472788e-14,
+          4.958241847171541e-13,
+          2.794161798182564e-11
+        ],
+        "row_value": 6.306961756493817e-14,
+        "rank_ascending_1based": 12248,
+        "percentile_le": 95.23365212658425
+      },
+      "condition": {
+        "count": 12861,
+        "finite_count": 12861,
+        "quantiles": [
+          7987958.613929013,
+          40068857.678271666,
+          58162539.83610035,
+          182458560.1403256,
+          1934064466.1533206,
+          9521181097.688257,
+          827270426409.7623
+        ],
+        "row_value": 245634329.33738753,
+        "rank_ascending_1based": 7954,
+        "percentile_le": 61.84589067724128
+      }
+    }
+  },
+  "row_initial_delta": {
+    "position": [
+      0.6144496202468872,
+      -0.43148666620254517,
+      -7.6458611488342285
+    ],
+    "displacement": 7.682637691497803,
+    "covariance": [
+      0.49631109833717346,
+      -2.4002814292907715,
+      0.2890237867832184,
+      11.607834815979004,
+      -1.3977543115615845,
+      0.16829374432563782
+    ]
+  },
+  "objective": {
+    "name": "loss_l2_render",
+    "weight": 0.9,
+    "reduction": "sum",
+    "camera": "brics-odroid-023_cam0",
+    "single_camera_not_camera_mean": true,
+    "value": 42901.921875,
+    "formal_two_camera_loss": 33750.30078125
+  },
+  "formal_losses": {
+    "decode.loss_mse_momentum_config_a_2cam": 21445.3359375,
+    "decode.loss_ssim_render_config_a_2cam": 4712.6806640625,
+    "decode.loss_l2_render_config_a_2cam": 33750.30078125,
+    "decode.acc_l2_render.acc_config_a_2cam_frame0": 0.14384514093399048,
+    "decode.acc_l1_render.acc_config_a_2cam_frame0": 0.22548064589500427,
+    "decode.acc_ssim_render.acc_config_a_2cam_frame0": 0.9318188428878784,
+    "decode.acc_psnr_render.acc_config_a_2cam_frame0": 12.82151985168457,
+    "decode.loss_mse_static_config_a_2cam": 0.0,
+    "loss": 59908.31640625
+  },
+  "gradients": {
+    "finite_tensor_count": 275,
+    "nonfinite_tensor_count": 0,
+    "first_bad_parameter": null,
+    "nan": 0,
+    "posinf": 0,
+    "neginf": 0,
+    "global_norm": 333.04024008123224
+  },
+  "result": "FINITE",
+  "wall_seconds": 8.653257345000384,
+  "peak_allocated": 1489930240,
+  "peak_reserved": 1602224128,
+  "Gaussian_unchanged": true,
+  "model_finite": true
+}

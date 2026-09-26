@@ -1,0 +1,18 @@
+{
+  "asset_count": 794,
+  "changed_assets": [],
+  "all_unchanged": true,
+  "source_file_hashes": {
+    "configs/SoMA/deform360_v0_stage1.py": "e65d1c7848bd222f55c0e18050c464eec5922aef76c1bc62a06813359cca4930",
+    "mmgs/models/heads/acc_decoder.py": "22816b7f8a3ca487ecb07f6361ab0671fb4f69313634d3b2ec7be77bd5d558fd",
+    "mmgs/models/simulators/gs_simulator_embodied.py": "30658653e7205df17bc80f40a324de7180c8000b65c2d76dfb91d962a0cc89cc",
+    "mmgs/models/utils/render.py": "9f05f7f45f067e0e7633d15f52ba903deff2e9552239b2f6a1b3a3bdf13c2354",
+    "mmgs/models/utils/deformation_gradient.py": "a639449e5a23097b8a23fa3888f01be1fcc89da0f46551be7c889b736d77628f",
+    "mmgs/utils/transformation_utils.py": "51e9fc7f234af0db0d4f365ce26795e1df6a725f41da2b3b7a5eba6367d76946"
+  },
+  "server_head": "1abfde56066f40140ab4f7dcd49b5799fbd13ac3",
+  "server_status": "",
+  "formal_training_restart": false,
+  "optimizer_steps": 0,
+  "verified_job": 25858
+}

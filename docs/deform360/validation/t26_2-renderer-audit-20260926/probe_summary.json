@@ -1,0 +1,1036 @@
+[
+  {
+    "probe": "original",
+    "result": "NONFINITE",
+    "job_id": "25858",
+    "camera": "brics-odroid-023_cam0",
+    "objective": {
+      "name": "loss_l2_render",
+      "weight": 0.9,
+      "reduction": "sum",
+      "camera": "brics-odroid-023_cam0",
+      "single_camera_not_camera_mean": true,
+      "value": 42903.05078125,
+      "formal_two_camera_loss": 33750.86328125
+    },
+    "row_radius": 18735,
+    "row_native_geometry": {
+      "depths": [
+        0.22598189115524292
+      ],
+      "means2D": [
+        14330.58203125,
+        4014.54150390625
+      ],
+      "conic_opacity": [
+        -0.16297204792499542,
+        -0.4773186147212982,
+        -1.3979883193969727,
+        1.1254777908325195
+      ],
+      "tiles_touched": [
+        920
+      ]
+    },
+    "native_all_gradients_finite": false,
+    "native_backward": {
+      "camera": "brics-odroid-023_cam0",
+      "incoming_color": {
+        "shape": [
+          3,
+          360,
+          640
+        ],
+        "dtype": "torch.float32",
+        "finite": true,
+        "nan": 0,
+        "posinf": 0,
+        "neginf": 0,
+        "finite_abs_max": 1.7999999523162842
+      },
+      "incoming_depth": {
+        "shape": [
+          1,
+          360,
+          640
+        ],
+        "dtype": "torch.float32",
+        "finite": true,
+        "nan": 0,
+        "posinf": 0,
+        "neginf": 0,
+        "finite_abs_max": 0.0
+      },
+      "returned": {
+        "means2D": {
+          "shape": [
+            12861,
+            3
+          ],
+          "dtype": "torch.float32",
+          "finite": true,
+          "nan": 0,
+          "posinf": 0,
+          "neginf": 0,
+          "finite_abs_max": 0.0
+        },
+        "colors": {
+          "shape": [
+            12861,
+            3
+          ],
+          "dtype": "torch.float32",
+          "finite": true,
+          "nan": 0,
+          "posinf": 0,
+          "neginf": 0,
+          "finite_abs_max": 0.0
+        },
+        "opacity": {
+          "shape": [
+            12861,
+            1
+          ],
+          "dtype": "torch.float32",
+          "finite": true,
+          "nan": 0,
+          "posinf": 0,
+          "neginf": 0,
+          "finite_abs_max": 0.0
+        },
+        "means3D": {
+          "shape": [
+            12861,
+            3
+          ],
+          "dtype": "torch.float32",
+          "finite": false,
+          "nan": 3,
+          "posinf": 0,
+          "neginf": 0,
+          "finite_abs_max": 0.0
+        },
+        "covariance": {
+          "shape": [
+            12861,
+            6
+          ],
+          "dtype": "torch.float32",
+          "finite": false,
+          "nan": 6,
+          "posinf": 0,
+          "neginf": 0,
+          "finite_abs_max": 0.0
+        },
+        "SH": {
+          "shape": [
+            12861,
+            0,
+            3
+          ],
+          "dtype": "torch.float32",
+          "finite": true,
+          "nan": 0,
+          "posinf": 0,
+          "neginf": 0,
+          "finite_abs_max": null
+        },
+        "scales": {
+          "shape": [
+            12861,
+            3
+          ],
+          "dtype": "torch.float32",
+          "finite": true,
+          "nan": 0,
+          "posinf": 0,
+          "neginf": 0,
+          "finite_abs_max": 0.0
+        },
+        "rotations": {
+          "shape": [
+            12861,
+            4
+          ],
+          "dtype": "torch.float32",
+          "finite": true,
+          "nan": 0,
+          "posinf": 0,
+          "neginf": 0,
+          "finite_abs_max": 0.0
+        }
+      },
+      "bad_rows": {
+        "means3D": [
+          3648
+        ],
+        "covariance": [
+          3648
+        ]
+      }
+    },
+    "model_gradients": {
+      "finite_tensor_count": 0,
+      "nonfinite_tensor_count": 275,
+      "first_bad_parameter": "scene_attr.rope",
+      "nan": 2466339,
+      "posinf": 0,
+      "neginf": 0
+    },
+    "seconds": 8.78088708300129,
+    "peak_allocated": 1489775616,
+    "original_Gaussian_unchanged": true,
+    "report": "docs/deform360/validation/t26_2-renderer-audit-20260926/reports/original.json"
+  },
+  {
+    "probe": "exclude",
+    "result": "FINITE",
+    "job_id": "25858",
+    "camera": "brics-odroid-023_cam0",
+    "objective": {
+      "name": "loss_l2_render",
+      "weight": 0.9,
+      "reduction": "sum",
+      "camera": "brics-odroid-023_cam0",
+      "single_camera_not_camera_mean": true,
+      "value": 42903.05078125,
+      "formal_two_camera_loss": 33750.86328125
+    },
+    "row_radius": null,
+    "row_native_geometry": null,
+    "native_all_gradients_finite": true,
+    "native_backward": {
+      "camera": "brics-odroid-023_cam0",
+      "incoming_color": {
+        "shape": [
+          3,
+          360,
+          640
+        ],
+        "dtype": "torch.float32",
+        "finite": true,
+        "nan": 0,
+        "posinf": 0,
+        "neginf": 0,
+        "finite_abs_max": 1.7999999523162842
+      },
+      "incoming_depth": {
+        "shape": [
+          1,
+          360,
+          640
+        ],
+        "dtype": "torch.float32",
+        "finite": true,
+        "nan": 0,
+        "posinf": 0,
+        "neginf": 0,
+        "finite_abs_max": 0.0
+      },
+      "returned": {
+        "means2D": {
+          "shape": [
+            12860,
+            3
+          ],
+          "dtype": "torch.float32",
+          "finite": true,
+          "nan": 0,
+          "posinf": 0,
+          "neginf": 0,
+          "finite_abs_max": 0.0
+        },
+        "colors": {
+          "shape": [
+            12860,
+            3
+          ],
+          "dtype": "torch.float32",
+          "finite": true,
+          "nan": 0,
+          "posinf": 0,
+          "neginf": 0,
+          "finite_abs_max": 0.0
+        },
+        "opacity": {
+          "shape": [
+            12860,
+            1
+          ],
+          "dtype": "torch.float32",
+          "finite": true,
+          "nan": 0,
+          "posinf": 0,
+          "neginf": 0,
+          "finite_abs_max": 0.0
+        },
+        "means3D": {
+          "shape": [
+            12860,
+            3
+          ],
+          "dtype": "torch.float32",
+          "finite": true,
+          "nan": 0,
+          "posinf": 0,
+          "neginf": 0,
+          "finite_abs_max": 0.0
+        },
+        "covariance": {
+          "shape": [
+            12860,
+            6
+          ],
+          "dtype": "torch.float32",
+          "finite": true,
+          "nan": 0,
+          "posinf": 0,
+          "neginf": 0,
+          "finite_abs_max": 0.0
+        },
+        "SH": {
+          "shape": [
+            12860,
+            0,
+            3
+          ],
+          "dtype": "torch.float32",
+          "finite": true,
+          "nan": 0,
+          "posinf": 0,
+          "neginf": 0,
+          "finite_abs_max": null
+        },
+        "scales": {
+          "shape": [
+            12860,
+            3
+          ],
+          "dtype": "torch.float32",
+          "finite": true,
+          "nan": 0,
+          "posinf": 0,
+          "neginf": 0,
+          "finite_abs_max": 0.0
+        },
+        "rotations": {
+          "shape": [
+            12860,
+            4
+          ],
+          "dtype": "torch.float32",
+          "finite": true,
+          "nan": 0,
+          "posinf": 0,
+          "neginf": 0,
+          "finite_abs_max": 0.0
+        }
+      },
+      "bad_rows": {}
+    },
+    "model_gradients": {
+      "finite_tensor_count": 275,
+      "nonfinite_tensor_count": 0,
+      "first_bad_parameter": null,
+      "nan": 0,
+      "posinf": 0,
+      "neginf": 0,
+      "global_norm": 0.0
+    },
+    "seconds": 8.911259256001358,
+    "peak_allocated": 1490304000,
+    "original_Gaussian_unchanged": true,
+    "report": "docs/deform360/validation/t26_2-renderer-audit-20260926/reports/exclude.json"
+  },
+  {
+    "probe": "mean",
+    "result": "FINITE",
+    "job_id": "25858",
+    "camera": "brics-odroid-023_cam0",
+    "objective": {
+      "name": "loss_l2_render",
+      "weight": 0.9,
+      "reduction": "sum",
+      "camera": "brics-odroid-023_cam0",
+      "single_camera_not_camera_mean": true,
+      "value": 42901.921875,
+      "formal_two_camera_loss": 33750.30078125
+    },
+    "row_radius": 5289,
+    "row_native_geometry": {
+      "depths": [
+        0.6072165369987488
+      ],
+      "means2D": [
+        137.47364807128906,
+        173.6678009033203
+      ],
+      "conic_opacity": [
+        4.151493072509766,
+        -0.6462114453315735,
+        0.10058805346488953,
+        0.004844187293201685
+      ],
+      "tiles_touched": [
+        920
+      ]
+    },
+    "native_all_gradients_finite": true,
+    "native_backward": {
+      "camera": "brics-odroid-023_cam0",
+      "incoming_color": {
+        "shape": [
+          3,
+          360,
+          640
+        ],
+        "dtype": "torch.float32",
+        "finite": true,
+        "nan": 0,
+        "posinf": 0,
+        "neginf": 0,
+        "finite_abs_max": 1.7999999523162842
+      },
+      "incoming_depth": {
+        "shape": [
+          1,
+          360,
+          640
+        ],
+        "dtype": "torch.float32",
+        "finite": true,
+        "nan": 0,
+        "posinf": 0,
+        "neginf": 0,
+        "finite_abs_max": 0.0
+      },
+      "returned": {
+        "means2D": {
+          "shape": [
+            12861,
+            3
+          ],
+          "dtype": "torch.float32",
+          "finite": true,
+          "nan": 0,
+          "posinf": 0,
+          "neginf": 0,
+          "finite_abs_max": 3.0558276176452637
+        },
+        "colors": {
+          "shape": [
+            12861,
+            3
+          ],
+          "dtype": "torch.float32",
+          "finite": true,
+          "nan": 0,
+          "posinf": 0,
+          "neginf": 0,
+          "finite_abs_max": 0.8964782953262329
+        },
+        "opacity": {
+          "shape": [
+            12861,
+            1
+          ],
+          "dtype": "torch.float32",
+          "finite": true,
+          "nan": 0,
+          "posinf": 0,
+          "neginf": 0,
+          "finite_abs_max": 1.1596254110336304
+        },
+        "means3D": {
+          "shape": [
+            12861,
+            3
+          ],
+          "dtype": "torch.float32",
+          "finite": true,
+          "nan": 0,
+          "posinf": 0,
+          "neginf": 0,
+          "finite_abs_max": 92.22766876220703
+        },
+        "covariance": {
+          "shape": [
+            12861,
+            6
+          ],
+          "dtype": "torch.float32",
+          "finite": true,
+          "nan": 0,
+          "posinf": 0,
+          "neginf": 0,
+          "finite_abs_max": 157812.796875
+        },
+        "SH": {
+          "shape": [
+            12861,
+            0,
+            3
+          ],
+          "dtype": "torch.float32",
+          "finite": true,
+          "nan": 0,
+          "posinf": 0,
+          "neginf": 0,
+          "finite_abs_max": null
+        },
+        "scales": {
+          "shape": [
+            12861,
+            3
+          ],
+          "dtype": "torch.float32",
+          "finite": true,
+          "nan": 0,
+          "posinf": 0,
+          "neginf": 0,
+          "finite_abs_max": 0.0
+        },
+        "rotations": {
+          "shape": [
+            12861,
+            4
+          ],
+          "dtype": "torch.float32",
+          "finite": true,
+          "nan": 0,
+          "posinf": 0,
+          "neginf": 0,
+          "finite_abs_max": 0.0
+        }
+      },
+      "bad_rows": {}
+    },
+    "model_gradients": {
+      "finite_tensor_count": 275,
+      "nonfinite_tensor_count": 0,
+      "first_bad_parameter": null,
+      "nan": 0,
+      "posinf": 0,
+      "neginf": 0,
+      "global_norm": 3389.7038055828207
+    },
+    "seconds": 8.720048498998949,
+    "peak_allocated": 1489930240,
+    "original_Gaussian_unchanged": true,
+    "report": "docs/deform360/validation/t26_2-renderer-audit-20260926/reports/mean.json"
+  },
+  {
+    "probe": "cov",
+    "result": "FINITE",
+    "job_id": "25858",
+    "camera": "brics-odroid-023_cam0",
+    "objective": {
+      "name": "loss_l2_render",
+      "weight": 0.9,
+      "reduction": "sum",
+      "camera": "brics-odroid-023_cam0",
+      "single_camera_not_camera_mean": true,
+      "value": 42903.05078125,
+      "formal_two_camera_loss": 33750.86328125
+    },
+    "row_radius": 0,
+    "row_native_geometry": "culled; geometry entries not initialized",
+    "native_all_gradients_finite": true,
+    "native_backward": {
+      "camera": "brics-odroid-023_cam0",
+      "incoming_color": {
+        "shape": [
+          3,
+          360,
+          640
+        ],
+        "dtype": "torch.float32",
+        "finite": true,
+        "nan": 0,
+        "posinf": 0,
+        "neginf": 0,
+        "finite_abs_max": 1.7999999523162842
+      },
+      "incoming_depth": {
+        "shape": [
+          1,
+          360,
+          640
+        ],
+        "dtype": "torch.float32",
+        "finite": true,
+        "nan": 0,
+        "posinf": 0,
+        "neginf": 0,
+        "finite_abs_max": 0.0
+      },
+      "returned": {
+        "means2D": {
+          "shape": [
+            12861,
+            3
+          ],
+          "dtype": "torch.float32",
+          "finite": true,
+          "nan": 0,
+          "posinf": 0,
+          "neginf": 0,
+          "finite_abs_max": 0.0
+        },
+        "colors": {
+          "shape": [
+            12861,
+            3
+          ],
+          "dtype": "torch.float32",
+          "finite": true,
+          "nan": 0,
+          "posinf": 0,
+          "neginf": 0,
+          "finite_abs_max": 0.0
+        },
+        "opacity": {
+          "shape": [
+            12861,
+            1
+          ],
+          "dtype": "torch.float32",
+          "finite": true,
+          "nan": 0,
+          "posinf": 0,
+          "neginf": 0,
+          "finite_abs_max": 0.0
+        },
+        "means3D": {
+          "shape": [
+            12861,
+            3
+          ],
+          "dtype": "torch.float32",
+          "finite": true,
+          "nan": 0,
+          "posinf": 0,
+          "neginf": 0,
+          "finite_abs_max": 0.0
+        },
+        "covariance": {
+          "shape": [
+            12861,
+            6
+          ],
+          "dtype": "torch.float32",
+          "finite": true,
+          "nan": 0,
+          "posinf": 0,
+          "neginf": 0,
+          "finite_abs_max": 0.0
+        },
+        "SH": {
+          "shape": [
+            12861,
+            0,
+            3
+          ],
+          "dtype": "torch.float32",
+          "finite": true,
+          "nan": 0,
+          "posinf": 0,
+          "neginf": 0,
+          "finite_abs_max": null
+        },
+        "scales": {
+          "shape": [
+            12861,
+            3
+          ],
+          "dtype": "torch.float32",
+          "finite": true,
+          "nan": 0,
+          "posinf": 0,
+          "neginf": 0,
+          "finite_abs_max": 0.0
+        },
+        "rotations": {
+          "shape": [
+            12861,
+            4
+          ],
+          "dtype": "torch.float32",
+          "finite": true,
+          "nan": 0,
+          "posinf": 0,
+          "neginf": 0,
+          "finite_abs_max": 0.0
+        }
+      },
+      "bad_rows": {}
+    },
+    "model_gradients": {
+      "finite_tensor_count": 275,
+      "nonfinite_tensor_count": 0,
+      "first_bad_parameter": null,
+      "nan": 0,
+      "posinf": 0,
+      "neginf": 0,
+      "global_norm": 0.0
+    },
+    "seconds": 8.6433035200007,
+    "peak_allocated": 1490084352,
+    "original_Gaussian_unchanged": true,
+    "report": "docs/deform360/validation/t26_2-renderer-audit-20260926/reports/cov.json"
+  },
+  {
+    "probe": "both",
+    "result": "FINITE",
+    "job_id": "25858",
+    "camera": "brics-odroid-023_cam0",
+    "objective": {
+      "name": "loss_l2_render",
+      "weight": 0.9,
+      "reduction": "sum",
+      "camera": "brics-odroid-023_cam0",
+      "single_camera_not_camera_mean": true,
+      "value": 42844.97265625,
+      "formal_two_camera_loss": 33721.82421875
+    },
+    "row_radius": 12,
+    "row_native_geometry": {
+      "depths": [
+        0.6072165369987488
+      ],
+      "means2D": [
+        137.47364807128906,
+        173.6678009033203
+      ],
+      "conic_opacity": [
+        0.1528882086277008,
+        0.1486363261938095,
+        0.3208330571651459,
+        0.8986247181892395
+      ],
+      "tiles_touched": [
+        6
+      ]
+    },
+    "native_all_gradients_finite": true,
+    "native_backward": {
+      "camera": "brics-odroid-023_cam0",
+      "incoming_color": {
+        "shape": [
+          3,
+          360,
+          640
+        ],
+        "dtype": "torch.float32",
+        "finite": true,
+        "nan": 0,
+        "posinf": 0,
+        "neginf": 0,
+        "finite_abs_max": 1.7999999523162842
+      },
+      "incoming_depth": {
+        "shape": [
+          1,
+          360,
+          640
+        ],
+        "dtype": "torch.float32",
+        "finite": true,
+        "nan": 0,
+        "posinf": 0,
+        "neginf": 0,
+        "finite_abs_max": 0.0
+      },
+      "returned": {
+        "means2D": {
+          "shape": [
+            12861,
+            3
+          ],
+          "dtype": "torch.float32",
+          "finite": true,
+          "nan": 0,
+          "posinf": 0,
+          "neginf": 0,
+          "finite_abs_max": 36.808494567871094
+        },
+        "colors": {
+          "shape": [
+            12861,
+            3
+          ],
+          "dtype": "torch.float32",
+          "finite": true,
+          "nan": 0,
+          "posinf": 0,
+          "neginf": 0,
+          "finite_abs_max": 34.45192337036133
+        },
+        "opacity": {
+          "shape": [
+            12861,
+            1
+          ],
+          "dtype": "torch.float32",
+          "finite": true,
+          "nan": 0,
+          "posinf": 0,
+          "neginf": 0,
+          "finite_abs_max": 44.872894287109375
+        },
+        "means3D": {
+          "shape": [
+            12861,
+            3
+          ],
+          "dtype": "torch.float32",
+          "finite": true,
+          "nan": 0,
+          "posinf": 0,
+          "neginf": 0,
+          "finite_abs_max": 154.52137756347656
+        },
+        "covariance": {
+          "shape": [
+            12861,
+            6
+          ],
+          "dtype": "torch.float32",
+          "finite": true,
+          "nan": 0,
+          "posinf": 0,
+          "neginf": 0,
+          "finite_abs_max": 5148099.0
+        },
+        "SH": {
+          "shape": [
+            12861,
+            0,
+            3
+          ],
+          "dtype": "torch.float32",
+          "finite": true,
+          "nan": 0,
+          "posinf": 0,
+          "neginf": 0,
+          "finite_abs_max": null
+        },
+        "scales": {
+          "shape": [
+            12861,
+            3
+          ],
+          "dtype": "torch.float32",
+          "finite": true,
+          "nan": 0,
+          "posinf": 0,
+          "neginf": 0,
+          "finite_abs_max": 0.0
+        },
+        "rotations": {
+          "shape": [
+            12861,
+            4
+          ],
+          "dtype": "torch.float32",
+          "finite": true,
+          "nan": 0,
+          "posinf": 0,
+          "neginf": 0,
+          "finite_abs_max": 0.0
+        }
+      },
+      "bad_rows": {}
+    },
+    "model_gradients": {
+      "finite_tensor_count": 275,
+      "nonfinite_tensor_count": 0,
+      "first_bad_parameter": null,
+      "nan": 0,
+      "posinf": 0,
+      "neginf": 0,
+      "global_norm": 0.0
+    },
+    "seconds": 8.805477629999586,
+    "peak_allocated": 1490238976,
+    "original_Gaussian_unchanged": true,
+    "report": "docs/deform360/validation/t26_2-renderer-audit-20260926/reports/both.json"
+  },
+  {
+    "probe": "control009",
+    "result": "FINITE",
+    "job_id": "25858",
+    "camera": "brics-odroid-009_cam1",
+    "objective": {
+      "name": "loss_l2_render",
+      "weight": 0.9,
+      "reduction": "sum",
+      "camera": "brics-odroid-009_cam1",
+      "single_camera_not_camera_mean": true,
+      "value": 24598.67578125,
+      "formal_two_camera_loss": 33750.86328125
+    },
+    "row_radius": 1134,
+    "row_native_geometry": {
+      "depths": [
+        4.648985862731934
+      ],
+      "means2D": [
+        -365.89208984375,
+        201.10281372070312
+      ],
+      "conic_opacity": [
+        3.019813299179077,
+        -1.0142393112182617,
+        0.34065181016921997,
+        0.004844187293201685
+      ],
+      "tiles_touched": [
+        920
+      ]
+    },
+    "native_all_gradients_finite": true,
+    "native_backward": {
+      "camera": "brics-odroid-009_cam1",
+      "incoming_color": {
+        "shape": [
+          3,
+          360,
+          640
+        ],
+        "dtype": "torch.float32",
+        "finite": true,
+        "nan": 0,
+        "posinf": 0,
+        "neginf": 0,
+        "finite_abs_max": 1.7999999523162842
+      },
+      "incoming_depth": {
+        "shape": [
+          1,
+          360,
+          640
+        ],
+        "dtype": "torch.float32",
+        "finite": true,
+        "nan": 0,
+        "posinf": 0,
+        "neginf": 0,
+        "finite_abs_max": 0.0
+      },
+      "returned": {
+        "means2D": {
+          "shape": [
+            12861,
+            3
+          ],
+          "dtype": "torch.float32",
+          "finite": true,
+          "nan": 0,
+          "posinf": 0,
+          "neginf": 0,
+          "finite_abs_max": 0.0
+        },
+        "colors": {
+          "shape": [
+            12861,
+            3
+          ],
+          "dtype": "torch.float32",
+          "finite": true,
+          "nan": 0,
+          "posinf": 0,
+          "neginf": 0,
+          "finite_abs_max": 0.0
+        },
+        "opacity": {
+          "shape": [
+            12861,
+            1
+          ],
+          "dtype": "torch.float32",
+          "finite": true,
+          "nan": 0,
+          "posinf": 0,
+          "neginf": 0,
+          "finite_abs_max": 0.0
+        },
+        "means3D": {
+          "shape": [
+            12861,
+            3
+          ],
+          "dtype": "torch.float32",
+          "finite": true,
+          "nan": 0,
+          "posinf": 0,
+          "neginf": 0,
+          "finite_abs_max": 0.0
+        },
+        "covariance": {
+          "shape": [
+            12861,
+            6
+          ],
+          "dtype": "torch.float32",
+          "finite": true,
+          "nan": 0,
+          "posinf": 0,
+          "neginf": 0,
+          "finite_abs_max": 0.0
+        },
+        "SH": {
+          "shape": [
+            12861,
+            0,
+            3
+          ],
+          "dtype": "torch.float32",
+          "finite": true,
+          "nan": 0,
+          "posinf": 0,
+          "neginf": 0,
+          "finite_abs_max": null
+        },
+        "scales": {
+          "shape": [
+            12861,
+            3
+          ],
+          "dtype": "torch.float32",
+          "finite": true,
+          "nan": 0,
+          "posinf": 0,
+          "neginf": 0,
+          "finite_abs_max": 0.0
+        },
+        "rotations": {
+          "shape": [
+            12861,
+            4
+          ],
+          "dtype": "torch.float32",
+          "finite": true,
+          "nan": 0,
+          "posinf": 0,
+          "neginf": 0,
+          "finite_abs_max": 0.0
+        }
+      },
+      "bad_rows": {}
+    },
+    "model_gradients": {
+      "finite_tensor_count": 275,
+      "nonfinite_tensor_count": 0,
+      "first_bad_parameter": null,
+      "nan": 0,
+      "posinf": 0,
+      "neginf": 0,
+      "global_norm": 0.0
+    },
+    "seconds": 8.714285310001287,
+    "peak_allocated": 1489775616,
+    "original_Gaussian_unchanged": true,
+    "report": "docs/deform360/validation/t26_2-renderer-audit-20260926/reports/control009.json"
+  }
+]

@@ -1,0 +1,9 @@
+JobID|State|Elapsed|NodeList|AllocTRES
+25855|FAILED|00:00:14|amax|billing=4,cpu=4,gres/gpu=1,mem=32G,node=1
+25855.0|FAILED|00:00:14|amax|cpu=4,gres/gpu=1,mem=32G,node=1
+25856|COMPLETED|00:00:14|amax|billing=4,cpu=4,gres/gpu=1,mem=32G,node=1
+25856.0|COMPLETED|00:00:14|amax|cpu=4,gres/gpu=1,mem=32G,node=1
+25857|COMPLETED|00:01:10|amax|billing=4,cpu=4,gres/gpu=1,mem=32G,node=1
+25857.0|COMPLETED|00:01:10|amax|cpu=4,gres/gpu=1,mem=32G,node=1
+25858|COMPLETED|00:01:24|amax|billing=4,cpu=4,gres/gpu=1,mem=32G,node=1
+25858.0|COMPLETED|00:01:24|amax|cpu=4,gres/gpu=1,mem=32G,node=1

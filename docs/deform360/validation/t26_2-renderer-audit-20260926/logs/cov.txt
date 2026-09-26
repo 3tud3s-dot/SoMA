@@ -1,0 +1,416 @@
+/data1/userdata/tcweng/miniconda3/envs/soma/lib/python3.10/site-packages/mmcv/__init__.py:20: UserWarning: On January 1, 2023, MMCV will release v2.0.0, in which it will remove components related to the training process and add a data transformation module. In addition, it will rename the package names mmcv to mmcv-lite and mmcv-full to mmcv. See https://github.com/open-mmlab/mmcv/blob/master/docs/en/compatibility.md for more details.
+  warnings.warn(
+/data1/userdata/tcweng/miniconda3/envs/soma/lib/python3.10/site-packages/torchdata/datapipes/__init__.py:18: UserWarning: 
+################################################################################
+WARNING!
+The 'datapipes', 'dataloader2' modules are deprecated and will be removed in a
+future torchdata release! Please see https://github.com/pytorch/data/issues/1196
+to learn more and leave feedback.
+################################################################################
+
+  deprecation_warning()
+2026-09-26 18:36:40,754 - mmgd - INFO - Environment info:
+------------------------------------------------------------
+sys.platform: linux
+Python: 3.10.21 (main, Aug 27 2026, 14:42:07) [GCC 14.3.0]
+CUDA available: True
+GPU 0: NVIDIA GeForce RTX 5090
+CUDA_HOME: /usr/local/cuda-12.8
+NVCC: Cuda compilation tools, release 12.8, V12.8.93
+GCC: gcc (Ubuntu 11.4.0-1ubuntu1~22.04.3) 11.4.0
+PyTorch: 2.7.1+cu128
+PyTorch compiling details: PyTorch built with:
+  - GCC 11.2
+  - C++ Version: 201703
+  - Intel(R) oneAPI Math Kernel Library Version 2024.2-Product Build 20240605 for Intel(R) 64 architecture applications
+  - Intel(R) MKL-DNN v3.7.1 (Git Hash 8d263e693366ef8db40acc569cc7d8edf644556d)
+  - OpenMP 201511 (a.k.a. OpenMP 4.5)
+  - LAPACK is enabled (usually provided by MKL)
+  - NNPACK is enabled
+  - CPU capability usage: AVX512
+  - CUDA Runtime 12.8
+  - NVCC architecture flags: -gencode;arch=compute_75,code=sm_75;-gencode;arch=compute_80,code=sm_80;-gencode;arch=compute_86,code=sm_86;-gencode;arch=compute_90,code=sm_90;-gencode;arch=compute_100,code=sm_100;-gencode;arch=compute_120,code=sm_120;-gencode;arch=compute_120,code=compute_120
+  - CuDNN 90.7.1
+  - Magma 2.6.1
+  - Build settings: BLAS_INFO=mkl, BUILD_TYPE=Release, COMMIT_SHA=e2d141dbde55c2a4370fac5165b0561b6af4798b, CUDA_VERSION=12.8, CUDNN_VERSION=9.7.1, CXX_COMPILER=/opt/rh/gcc-toolset-11/root/usr/bin/c++, CXX_FLAGS= -D_GLIBCXX_USE_CXX11_ABI=1 -fvisibility-inlines-hidden -DUSE_PTHREADPOOL -DNDEBUG -DUSE_KINETO -DLIBKINETO_NOROCTRACER -DLIBKINETO_NOXPUPTI=ON -DUSE_FBGEMM -DUSE_PYTORCH_QNNPACK -DUSE_XNNPACK -DSYMBOLICATE_MOBILE_DEBUG_HANDLE -O2 -fPIC -Wall -Wextra -Werror=return-type -Werror=non-virtual-dtor -Werror=range-loop-construct -Werror=bool-operation -Wnarrowing -Wno-missing-field-initializers -Wno-unknown-pragmas -Wno-unused-parameter -Wno-strict-overflow -Wno-strict-aliasing -Wno-stringop-overflow -Wsuggest-override -Wno-psabi -Wno-error=old-style-cast -fdiagnostics-color=always -faligned-new -Wno-maybe-uninitialized -fno-math-errno -fno-trapping-math -Werror=format -Wno-stringop-overflow, LAPACK_INFO=mkl, PERF_WITH_AVX=1, PERF_WITH_AVX2=1, TORCH_VERSION=2.7.1, USE_CUDA=ON, USE_CUDNN=ON, USE_CUSPARSELT=1, USE_GFLAGS=OFF, USE_GLOG=OFF, USE_GLOO=ON, USE_MKL=ON, USE_MKLDNN=ON, USE_MPI=OFF, USE_NCCL=1, USE_NNPACK=ON, USE_OPENMP=ON, USE_ROCM=OFF, USE_ROCM_KERNEL_ASSERT=OFF, 
+
+TorchVision: 0.22.1+cu128
+OpenCV: 4.9.0
+MMCV: 1.7.2
+MMCV Compiler: GCC 11.4
+MMCV CUDA Compiler: 12.8
+MMGraphDynamics: 0.1.0+1abfde5
+------------------------------------------------------------
+
+2026-09-26 18:36:40,754 - mmgd - INFO - Distributed training: False
+2026-09-26 18:36:42,756 - mmgd - INFO - Config:
+model = dict(
+    type='GsSimulatorEmbodied',
+    cluster_cfg=dict(
+        config_a_2cam=[dict(downsample_rate=0.02),
+                       dict(downsample_rate=0.2)]),
+    processor_cfg=[
+        dict(
+            type='GsHieEmbodiedDGLProcessor',
+            anchor_prefix='anchor_',
+            radius=[0.03, 0.2, 0.5],
+            group_cfg=dict(
+                max_radius=None,
+                min_radius=0.0,
+                sample_num=16,
+                use_xyz=True,
+                normalize_xyz=False,
+                return_grouped_xyz=False,
+                return_grouped_idx=True,
+                return_unique_cnt=False))
+    ],
+    accumulate_gradient=False,
+    dt=0.06666666666666667,
+    backbone=dict(
+        type='MeshGraphNetHieEmbodied',
+        attr_dim=5,
+        state_dim=6,
+        position_dim=3,
+        num_frames=2,
+        embed_dims=128,
+        num_encoder_layers=16,
+        dropout=0.0,
+        eps=1e-07,
+        num_fcs=3,
+        act_cfg=dict(type='SiLU', inplace=True),
+        norm_cfg=dict(type='LN'),
+        pre_norm=True,
+        norm_acc_steps=None,
+        edge_mode='ratio',
+        edge_theta=True,
+        fix_bug=True),
+    decode_head=dict(
+        type='AccDecoder',
+        in_channels=128,
+        out_channels=11,
+        add_residual=False,
+        init_quant=1.0,
+        loss_decode=[
+            dict(
+                type='MSELoss',
+                reduction='sum',
+                loss_weight=1.0,
+                loss_name='loss_mse_momentum'),
+            dict(
+                type='SSIMLoss',
+                reduction='sum',
+                kernel_size=5,
+                loss_weight=0.1,
+                loss_name='loss_ssim_render'),
+            dict(
+                type='L2Loss',
+                reduction='sum',
+                loss_weight=0.9,
+                loss_name='loss_l2_render'),
+            dict(
+                type='MSELoss',
+                reduction='sum',
+                loss_weight=1.0,
+                loss_name='loss_mse_static'),
+            dict(
+                type='SpatialLoss',
+                reduction='sum',
+                loss_weight=1.0,
+                loss_name='loss_spatial'),
+            dict(
+                type='L2Loss',
+                reduction='sum',
+                loss_weight=0.9,
+                loss_name='loss_l2_bounding'),
+            dict(
+                type='SSIMLoss',
+                reduction='sum',
+                kernel_size=5,
+                loss_weight=0.1,
+                loss_name='loss_ssim_bounding')
+        ],
+        accuracy=[
+            dict(
+                type='L2Accuracy', reduction='mean', acc_name='acc_l2_render'),
+            dict(
+                type='L1Accuracy', reduction='mean', acc_name='acc_l1_render'),
+            dict(
+                type='SSIMAccuracy',
+                reduction='mean',
+                acc_name='acc_ssim_render'),
+            dict(
+                type='PSNRAccuracy',
+                reduction='mean',
+                acc_name='acc_psnr_render')
+        ]),
+    gs_scene=[
+        dict(
+            name='config_a_2cam',
+            model_path=
+            '/data1/userdata/tcweng/projects/tcgs/datasets/deform360/derived/t17_scene_packages/pink_cloth_episode_0/config_a_2cam/pi3/gs/point_cloud/iteration_10000/point_cloud.ply',
+            sh_degree=0,
+            num_seq=1,
+            attr_name='rope')
+    ],
+    forward_last_layer=False,
+    share_weight=True,
+    opt_sim=True,
+    opt_vel=True,
+    checkpoint_rollout=20,
+    selfsup_loss=False,
+    pred_vel=True,
+    use_rotation=False,
+    fix_bug=True,
+    controller_cfg=dict(
+        config_a_2cam=[dict(
+            num_cluster=10), dict(downsample_rate=0.5)]),
+    static_loss=False,
+    avg_loss=True,
+    render_mov_only=True,
+    train_cfg=dict(
+        by_epoch=True,
+        step_increase_interval=1,
+        step_increase_magnitude=3,
+        step_initial=3,
+        max_rollout_step=1000),
+    test_cfg=dict(
+        by_epoch=True,
+        step_increase_interval=1,
+        step_increase_magnitude=3,
+        step_initial=3,
+        max_rollout_step=1000))
+env_cfg = dict(
+    data_dir='',
+    sub_video_dir='video_images',
+    sub_img_dir='images',
+    cam_transform_fn=None,
+    scene_list=['mothorchids'],
+    use_random_background=dict(mothorchids_v2=False),
+    const_white_bg=dict(mothorchids_v2=True),
+    resolution=[960, 540],
+    scale_x_angle=1.0,
+    load_imgs=False,
+    volume_scalar=dict(mothorchids_v2=512),
+    gravity=[0, 0, -9.8],
+    rot_est=dict(mothorchids=[-0.912, 0.007, 0.015, 0.411]),
+    max_cam_num=6,
+    pad_cam=False,
+    max_cam_total=180,
+    max_frame=-1,
+    start_frame=0,
+    cluster_cfg=dict(
+        mothorchids=[dict(downsample_rate=0.01),
+                     dict(downsample_rate=0.01)]),
+    dt=0.03333333333333333,
+    real_dt=dict(mothorchids=0.033366700033366704, duck=0.02),
+    llffhold=0)
+dataset_type = 'EmbodiedDataset'
+data = dict(
+    samples_per_gpu=1,
+    workers_per_gpu=0,
+    train=dict(
+        times=50,
+        type='RepeatDataset',
+        dataset=dict(
+            type='EmbodiedDataset',
+            phase='all',
+            env_cfg=dict(
+                data_dir=
+                '/data1/userdata/tcweng/projects/tcgs/datasets/deform360/derived/t17_scene_packages/pink_cloth_episode_0',
+                scene_list=['config_a_2cam'],
+                sub_img_dir='color',
+                sub_video_dir='color',
+                cam_transform_fn=None,
+                resolution=[360, 640],
+                load_imgs=False,
+                scale_x_angle=1.0,
+                max_cam_num=2,
+                max_cam_total=2,
+                max_seq=1,
+                pad_cam=False,
+                llffhold=0,
+                tracking_pcd='track_process_data.pkl',
+                prompt_dict=dict(object=['cloth'], obstacle=[]),
+                bounding_box=None,
+                use_random_background=dict(config_a_2cam=False),
+                const_white_bg=dict(config_a_2cam=False),
+                controller_cfg=dict(config_a_2cam=[
+                    dict(num_cluster=10),
+                    dict(downsample_rate=0.5)
+                ]),
+                cluster_type='dis_split',
+                gravity=[0.0, 0.0, -9.8],
+                rot_est=dict(config_a_2cam=[0.0, 0.0, 0.0, 1.0]),
+                dt=0.03333333333333333,
+                real_dt=dict(config_a_2cam=0.06666666666666667),
+                split_list=dict(config_a_2cam=[[0, 155]]),
+                frame_gap=10,
+                cluster_cfg=dict(config_a_2cam=[
+                    dict(downsample_rate=0.02),
+                    dict(downsample_rate=0.2)
+                ]),
+                volume_scalar=dict(config_a_2cam=512),
+                aligned_scene=None,
+                max_frame=1001,
+                start_frame=0))),
+    val=dict(
+        type='EmbodiedDataset',
+        phase='all',
+        env_cfg=dict(
+            data_dir=
+            '/data1/userdata/tcweng/projects/tcgs/datasets/deform360/derived/t17_scene_packages/pink_cloth_episode_0',
+            scene_list=['config_a_2cam'],
+            sub_img_dir='color',
+            sub_video_dir='color',
+            cam_transform_fn=None,
+            resolution=[360, 640],
+            load_imgs=False,
+            scale_x_angle=1.0,
+            max_cam_num=2,
+            max_cam_total=2,
+            max_seq=1,
+            pad_cam=False,
+            llffhold=0,
+            tracking_pcd='track_process_data.pkl',
+            prompt_dict=dict(object=['cloth'], obstacle=[]),
+            bounding_box=None,
+            use_random_background=dict(config_a_2cam=False),
+            const_white_bg=dict(config_a_2cam=False),
+            controller_cfg=dict(config_a_2cam=[
+                dict(num_cluster=10),
+                dict(downsample_rate=0.5)
+            ]),
+            cluster_type='dis_split',
+            gravity=[0.0, 0.0, -9.8],
+            rot_est=dict(config_a_2cam=[0.0, 0.0, 0.0, 1.0]),
+            dt=0.03333333333333333,
+            real_dt=dict(config_a_2cam=0.06666666666666667),
+            split_list=dict(config_a_2cam=[[0, 155]]),
+            frame_gap=10,
+            cluster_cfg=dict(config_a_2cam=[
+                dict(downsample_rate=0.02),
+                dict(downsample_rate=0.2)
+            ]),
+            volume_scalar=dict(config_a_2cam=512),
+            aligned_scene=None,
+            max_frame=1003,
+            start_frame=0,
+            eval_start_frame=-1)),
+    test=dict(
+        type='EmbodiedDataset',
+        phase='all',
+        env_cfg=dict(
+            data_dir=
+            '/data1/userdata/tcweng/projects/tcgs/datasets/deform360/derived/t17_scene_packages/pink_cloth_episode_0',
+            scene_list=['config_a_2cam'],
+            sub_img_dir='color',
+            sub_video_dir='color',
+            cam_transform_fn=None,
+            resolution=[360, 640],
+            load_imgs=False,
+            scale_x_angle=1.0,
+            max_cam_num=2,
+            max_cam_total=2,
+            max_seq=1,
+            pad_cam=False,
+            llffhold=0,
+            tracking_pcd='track_process_data.pkl',
+            prompt_dict=dict(object=['cloth'], obstacle=[]),
+            bounding_box=None,
+            use_random_background=dict(config_a_2cam=False),
+            const_white_bg=dict(config_a_2cam=False),
+            controller_cfg=dict(config_a_2cam=[
+                dict(num_cluster=10),
+                dict(downsample_rate=0.5)
+            ]),
+            cluster_type='dis_split',
+            gravity=[0.0, 0.0, -9.8],
+            rot_est=dict(config_a_2cam=[0.0, 0.0, 0.0, 1.0]),
+            dt=0.03333333333333333,
+            real_dt=dict(config_a_2cam=0.06666666666666667),
+            split_list=dict(config_a_2cam=[[0, 155]]),
+            frame_gap=10,
+            cluster_cfg=dict(config_a_2cam=[
+                dict(downsample_rate=0.02),
+                dict(downsample_rate=0.2)
+            ]),
+            volume_scalar=dict(config_a_2cam=512),
+            aligned_scene=None,
+            max_frame=1003,
+            start_frame=0,
+            eval_start_frame=-1)))
+optimizer = dict(
+    type='Adam', lr=0.0004, betas=(0.9, 0.999), weight_decay=0, amsgrad=False)
+optimizer_config = dict(grad_clip=dict(max_norm=1.0))
+checkpoint_config = dict(interval=1, by_epoch=True, max_keep_ckpts=10000)
+log_config = dict(interval=100, hooks=[dict(type='CusTextLoggerHook')])
+dist_params = dict(backend='nccl')
+log_level = 'INFO'
+load_from = None
+resume_from = None
+workflow = [('train', 1)]
+seed = 5
+max_seq = 1
+find_unused_parameters = True
+lr_config = dict(
+    by_epoch=True, policy='Hood', decay_rate=0.5, decay_steps=2, step_start=14)
+runner = dict(type='EpochRunner', max_epochs=46, max_iters=None)
+evaluation = dict(by_epoch=True, interval=1)
+work_dir = '/data1/userdata/tcweng/projects/tcgs/outputs/deform360/t26_2-audit-20260926/verified_cov/runner'
+gpu_ids = range(0, 1)
+
+2026-09-26 18:36:42,757 - mmgd - INFO - Set random seed to 5, deterministic: False
+2026-09-26 18:36:42,907 - mmgd - INFO - Model parameters: 2471888
+2026-09-26 18:36:44,985 - mmgd - INFO - Start running, host: tcweng@amax, work_dir: /data1/userdata/tcweng/projects/tcgs/outputs/deform360/t26_2-audit-20260926/verified_cov/runner
+2026-09-26 18:36:44,985 - mmgd - INFO - Hooks will be executed in the following order:
+before_run:
+(VERY_HIGH   ) HoodLrUpdaterHook                  
+(NORMAL      ) CheckpointHook                     
+(VERY_LOW    ) CusTextLoggerHook                  
+ -------------------- 
+before_train_epoch:
+(VERY_HIGH   ) HoodLrUpdaterHook                  
+(LOW         ) IterTimerHook                      
+(VERY_LOW    ) CusTextLoggerHook                  
+ -------------------- 
+before_train_iter:
+(VERY_HIGH   ) HoodLrUpdaterHook                  
+(LOW         ) IterTimerHook                      
+ -------------------- 
+after_train_iter:
+(ABOVE_NORMAL) OptimizerHook                      
+(NORMAL      ) CheckpointHook                     
+(NORMAL      ) EvalHook                           
+(LOW         ) IterTimerHook                      
+(VERY_LOW    ) CusTextLoggerHook                  
+ -------------------- 
+after_train_epoch:
+(NORMAL      ) CheckpointHook                     
+(NORMAL      ) EvalHook                           
+(VERY_LOW    ) CusTextLoggerHook                  
+ -------------------- 
+before_val_epoch:
+(LOW         ) IterTimerHook                      
+(VERY_LOW    ) CusTextLoggerHook                  
+ -------------------- 
+before_val_iter:
+(LOW         ) IterTimerHook                      
+ -------------------- 
+after_val_iter:
+(LOW         ) IterTimerHook                      
+ -------------------- 
+after_val_epoch:
+(VERY_LOW    ) CusTextLoggerHook                  
+ -------------------- 
+after_run:
+(VERY_LOW    ) CusTextLoggerHook                  
+ -------------------- 
+2026-09-26 18:36:44,986 - mmgd - INFO - workflow: [('train', 1)], max: 46 epochs
+2026-09-26 18:36:44,986 - mmgd - INFO - Checkpoints will be saved to /data1/userdata/tcweng/projects/tcgs/outputs/deform360/t26_2-audit-20260926/verified_cov/runner by HardDiskBackend.
+Initializing gaussian scene: /data1/userdata/tcweng/projects/tcgs/datasets/deform360/derived/t17_scene_packages/pink_cloth_episode_0/config_a_2cam/pi3/gs/point_cloud/iteration_10000/point_cloud.ply
+=> loading config_a_2cam camera from embodied format
+Loading images' information...
+Set dataloader info: iters_per_epoch: 50
+=> loading config_a_2cam camera from embodied format
+Loading images' information...
+RESULT cov 0 FINITE {'finite_tensor_count': 275, 'nonfinite_tensor_count': 0, 'first_bad_parameter': None, 'nan': 0, 'posinf': 0, 'neginf': 0, 'global_norm': 0.0}

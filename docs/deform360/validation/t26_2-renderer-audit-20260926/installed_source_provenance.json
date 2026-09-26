@@ -1,0 +1,71 @@
+{
+  "files": [
+    {
+      "path": "/data1/userdata/tcweng/projects/tcgs/SoMA/gaussian-splatting/submodules/diff-gaussian-rasterization/cuda_rasterizer/forward.cu",
+      "bytes": 14478,
+      "sha256": "4bfb6830a138bd016f39fa4558f998825d4182b12cfbda2f62bed0ab75042b54"
+    },
+    {
+      "path": "/data1/userdata/tcweng/projects/tcgs/SoMA/gaussian-splatting/submodules/diff-gaussian-rasterization/cuda_rasterizer/backward.cu",
+      "bytes": 26967,
+      "sha256": "31074cea35919f108eb84770e170be844b95746f7fb1dd64024c3f9b1de57606"
+    },
+    {
+      "path": "/data1/userdata/tcweng/projects/tcgs/SoMA/gaussian-splatting/submodules/diff-gaussian-rasterization/cuda_rasterizer/rasterizer_impl.cu",
+      "bytes": 12652,
+      "sha256": "e338380e2d4631cf842904fbf87025ddb46d49b5f1a5a22fd53bf8ada0ec1109"
+    },
+    {
+      "path": "/data1/userdata/tcweng/projects/tcgs/SoMA/gaussian-splatting/submodules/diff-gaussian-rasterization/cuda_rasterizer/rasterizer_impl.h",
+      "bytes": 1596,
+      "sha256": "58b97a9728e24d41602a2ac3e8eace025cfd3228de6e75033dc458d0303a46f4"
+    },
+    {
+      "path": "/data1/userdata/tcweng/projects/tcgs/SoMA/gaussian-splatting/submodules/diff-gaussian-rasterization/cuda_rasterizer/auxiliary.h",
+      "bytes": 5943,
+      "sha256": "5a3345d46acd23a85e44c214dac404f4be195d7c4c49c9effa280ba3bbb10a51"
+    },
+    {
+      "path": "/data1/userdata/tcweng/projects/tcgs/SoMA/gaussian-splatting/submodules/diff-gaussian-rasterization/cuda_rasterizer/config.h",
+      "bytes": 468,
+      "sha256": "86d90fe26989e5a991104842961341d1bcb4374d5068dcb2a56d63a9017f8d65"
+    },
+    {
+      "path": "/data1/userdata/tcweng/projects/tcgs/SoMA/gaussian-splatting/submodules/diff-gaussian-rasterization/build/temp.linux-x86_64-cpython-310/build.ninja",
+      "bytes": 3635,
+      "sha256": "9ed6d6816750f54396a8e2baed6be8ced2343abae418271bac46416e41360fc3"
+    },
+    {
+      "path": "/data1/userdata/tcweng/projects/tcgs/SoMA/gaussian-splatting/submodules/diff-gaussian-rasterization/build/lib.linux-x86_64-cpython-310/diff_gaussian_rasterization/_C.cpython-310-x86_64-linux-gnu.so",
+      "bytes": 2041168,
+      "sha256": "139c2a96118f26f5af40d2d12567c4dec37249142ece70cfcb29483485d9fc50"
+    },
+    {
+      "path": "/data1/userdata/tcweng/miniconda3/envs/soma/lib/python3.10/site-packages/diff_gaussian_rasterization/_C.cpython-310-x86_64-linux-gnu.so",
+      "bytes": 2041168,
+      "sha256": "139c2a96118f26f5af40d2d12567c4dec37249142ece70cfcb29483485d9fc50"
+    },
+    {
+      "path": "/data1/userdata/tcweng/miniconda3/envs/soma/lib/python3.10/site-packages/diff_gaussian_rasterization/__init__.py",
+      "bytes": 6497,
+      "sha256": "b3ac794d758c546d32860c5a2fd42b9ac6791d0822d7811d05c8d131a8a38a63"
+    },
+    {
+      "path": "/data1/userdata/tcweng/projects/tcgs/environment/soma-20260923/wheels/diff_gaussian_rasterization-0.0.0-cp310-cp310-linux_x86_64.whl",
+      "bytes": 519213,
+      "sha256": "f3623fb0840eae55fb1878e49d4b31446b639cd6272fa391028647707c22b85d"
+    }
+  ],
+  "submodule_commit": "9c5c2028f6fbee2be239bc4c9421ff894fe4fbe0",
+  "submodule_status": "",
+  "direct_url": {
+    "archive_info": {
+      "hash": "sha256=f3623fb0840eae55fb1878e49d4b31446b639cd6272fa391028647707c22b85d",
+      "hashes": {
+        "sha256": "f3623fb0840eae55fb1878e49d4b31446b639cd6272fa391028647707c22b85d"
+      }
+    },
+    "url": "file:///data1/userdata/tcweng/projects/tcgs/environment/soma-20260923/wheels/diff_gaussian_rasterization-0.0.0-cp310-cp310-linux_x86_64.whl"
+  },
+  "scope": "Local installed build evidence: installed .so equals retained build .so; build.ninja identifies these source paths. No internet upstream assumed equivalent."
+}

@@ -27,7 +27,7 @@ Deform360 HEAD:
 d8522a4403b766aeb387510c04e89032a56fdf35
 
 Current task:
-T26.1
+T26.2
 
 Current status:
 PARTIALLY_ATTRIBUTED
@@ -42,7 +42,7 @@ PARTIALLY_ATTRIBUTED
 - 执行前读取本文件和适用的 AGENTS.md，确认当前任务及前置依赖。前置依赖以既定顺序、各项输入文件和正文引用的 TODO 产物为准。
 - 每次只解决对应 TODO 的问题，遵守该项允许修改的范围；FAIL 时仅定位当前问题，不自动进入下一项。
 - 不因执行一个 TODO 而删减、合并、重排或重写 roadmap，不提前改变技术方案。
-- 主线状态只允许使用：`TODO`、`IN_PROGRESS`、`PASS`、`FAIL`、`BLOCKED`。用户授权的独立 Non-gating diagnostic T24.5 使用 `ATTRIBUTED`、`PARTIALLY_ATTRIBUTED`、`UNRESOLVED`；其分类不改变 T24 PASS，也不阻塞 T25+。独立 blocking diagnostic T26.1 同样使用这三种分类，但 T26 的 FAIL 保持，未经修复验证不解除阻塞。
+- 主线状态只允许使用：`TODO`、`IN_PROGRESS`、`PASS`、`FAIL`、`BLOCKED`。用户授权的独立 Non-gating diagnostic T24.5 使用 `ATTRIBUTED`、`PARTIALLY_ATTRIBUTED`、`UNRESOLVED`；其分类不改变 T24 PASS，也不阻塞 T25+。独立 blocking diagnostic T26.1 / T26.2 同样使用这三种分类，但 T26 的 FAIL 保持，未经修复验证不解除阻塞。
 - 历史审计和聊天中的分析不是执行结果。T0–T6 的执行结果见对应 Result / Evidence；后续任务以各自 Status / Result / Evidence 为准。
 
 ### 后续更新规则
@@ -158,6 +158,7 @@ tcgs root Git 仅用于 workspace-level 资产。除非明确说明，不在 tcg
 | T25 | 冻结首个 baseline 的运行协议 | PASS |
 | T26 | 执行约定预算的 Stage 1 训练 | FAIL |
 | T26.1 | Stage-1 first nonfinite gradient audit（Blocking） | PARTIALLY_ATTRIBUTED |
+| T26.2 | row-3648 renderer degeneracy causal audit（Blocking） | PARTIALLY_ATTRIBUTED |
 | T27 | 只生成并核验 Stage-1 cache | TODO |
 | T28 | 只串联一个 Stage 2 子窗口 | TODO |
 | T29 | 只验证 Stage 2 一个优化步骤 | TODO |
@@ -1864,6 +1865,39 @@ step1 combined、L2render、SSIMrender各自独立backward失败；momentum back
 
 - [T26.1完整报告](validation/t26_1-gradient-audit-20260926/README.md)、[first_nonfinite_gradient_contract.json](contracts/008-pink-cloth/episode_0/first_nonfinite_gradient_contract.json)、[native L2](validation/t26_1-gradient-audit-20260926/reports/native_l2.json)、[native SSIM](validation/t26_1-gradient-audit-20260926/reports/native_ssim.json)。源码call sites：simulator:435 → acc_decoder:141 → render.py:231 → installed diff_gaussian_rasterization/__init__.py:127。
 - 全部小型文件属于SoMA/deform360-adaptation，roadmap tracked修改，新contract/tool/evidence尚未tracked；暂不commit/push，待后续Git同步。服务器源码/资产hash未变且clean。
+
+### T26.2：row-3648 renderer degeneracy causal audit
+
+Status: PARTIALLY_ATTRIBUTED
+
+**Blocking diagnostic for T26。** T26 保持 FAIL；只定位，不修复、不重启正式训练、不执行 T27。
+
+**问题：** T26.1 已将 finite color/depth adjoints → native backward 的3个means3D NaN和6个covariance NaN隔离至023_cam0的Gaussian row3648。进一步区分预测mean、covariance、camera projection组合与其他native边界。
+
+**输入与条件：** seed5、Config A、正式random-init路径、rollout1、step1 source113→123、T25 frozen config、canonical Gaussian/controller/camera/gravity；009_cam1为finite对照。所有CUDA经Slurm；不执行clip/optimizer.step。
+
+**允许范围：** 独立诊断工具、小型contract/report；只在render临时tensor中排除row3648或恢复该行canonical mean/cov/both。每probe fresh process、相同initial model/input hashes。不写回源数据/模型/config，不改变precision/backend flags。
+
+**验证：** 记录row世界坐标、covariance光谱/PSD/condition及全体rank；按实际native matrices记录view-space与visibility；按安装版源码做fp32/fp64投影复算，区分native实测与数值recompute；执行original、exclude、mean、cov、both和009对照。只有输入病理→targeted ablation→native算术来源均证实才ATTRIBUTED，否则PARTIALLY_ATTRIBUTED或UNRESOLVED。
+
+#### Result
+
+2026-09-26：T26.1 checkpoint `1abfde56066f40140ab4f7dcd49b5799fbd13ac3` 已push；Mac clean/0-0，服务器clean fast-forward后进入本诊断。Slurm25856 original、25857五个独立probe；纠正诊断CPU重算的GLM off-diagonal索引后，Slurm25858重做全部6个独立probe（最终报告数值），RTX5090；289个initial model tensor与T26.1 exact，全部probe的initial state/sample/camera/Gaussian和干预前render input hashes exact。job25855仅observer numeric camera路径读取错误，发生于rasterizer前；修正诊断工具后重跑，保留失败日志，不改模型。
+
+最终 **PARTIALLY_ATTRIBUTED**。row3648 predicted mean=[0.815894127,-0.440879822,-7.463970661]，initial=[0.201444507,-0.009393156,0.181890503]，位移7.68263769m。预测cov eigenvalues≈[-1.02859535e-7,-4.99623997e-8,12.27248055]，condition≈2.45634e8，非PSD；initial covariance PD。row并非唯一非PSD：全体仅2644/12861 prediction covariance PD。
+
+023 native z=0.225981891（385个positive-radius Gaussian中最近，near threshold=.2），009 z=4.648985863。023 row投影中心[14330.582,4014.542]、radius18735，覆盖920tiles；fp64 regularized2D eigenvalues=[-.33289163,38996733.0533]、det=-12981686.09；009为[.29832110,142715.5833]、det=42575.07。fp32复算与fp64显著相消差异，实际native023 conic也非正定。实际安装.so与保留build.so SHA256一致，有本地源码/构建来源；未把upstream假定成安装版。
+
+original023仍3+6个native NaN，传播至275个model gradient tensor（2,466,339 NaN，0±Inf）。exclude、restore mean、restore cov、restore both均native/model finite；009原输入finite。restore mean仍有5289px radius/920tiles且model gradient norm3389.70381（初轮333.04024；同输入下finite但norm有差异，不宣称数值稳定）；restore cov半径变0、被cull，存在visibility混杂；both radius12/6tiles，几何替为常数。两个单独替换都能消除失败，因此不宣称独占mean-only/covariance-only，也不满足“必须both才能成功”的狭义interaction分类。证据支持mean×numerically-indefinite covariance×023 projection组合退化。
+
+pred_cov来自FFN预测deformation gradient，再做层级F Sigma F^T并pack upper6，不是直接预测cov6；精确算术保PSD，但本实现最终fp32 packed结果无PSD/eigenvalue gate。observer两轮的finite/nonfinite分类一致，初轮CPU重算索引修正历史保留。具体native首次NaN算术仍未证实，CPU重算未证明actual kernel发生0/0，故保持部分归因。finite probe可为零梯度，不代表训练问题已修复。未修改算法、loader、renderer、source assets、T25 protocol；无正式T26重启，未执行T27。
+
+#### Evidence
+
+- [完整报告/数值/ablation解释](validation/t26_2-renderer-audit-20260926/README.md)、[renderer_degeneracy_contract.json](contracts/008-pink-cloth/episode_0/renderer_degeneracy_contract.json)、[诊断工具](../../tools/deform360_adapter/audit_renderer_degeneracy.py)。
+- [installed source provenance](validation/t26_2-renderer-audit-20260926/installed_source_provenance.json)、[原始数值](validation/t26_2-renderer-audit-20260926/reports/original.json)、[probe summary](validation/t26_2-renderer-audit-20260926/probe_summary.json)、[initial-state identity](validation/t26_2-renderer-audit-20260926/identity_verification.json)。native源码call site与fp32/fp64区分见报告；不把相关性提升为精确算术归因。
+- 794个asset hashes全部未变；原Gaussian对象fields未改，model finite；服务器repo clean。server evidence在`outputs/deform360/t26_2-audit-20260926/`，无checkpoint/tensor dumps。SoMA/deform360-adaptation：roadmap tracked修改，新增tool/contract/reports尚未tracked，T26.2暂不commit/push；后续通过Git同步。
+- 后续最小候选（未实施）：单独授权后评估forward/backward一致的projected covariance合法性检查/显式异常处理；这会改变无效监督，需要独立验证，不能掩盖极大初始位移。有限精度保PSD传播是另一个独立候选。本轮不进入T26.3。
 
 ### T27：只生成并核验 Stage-1 cache
 

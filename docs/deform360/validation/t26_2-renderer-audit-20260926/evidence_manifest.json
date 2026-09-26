@@ -1,0 +1,150 @@
+{
+  "docs/deform360/validation/t26_2-renderer-audit-20260926/README.md": {
+    "bytes": 13032,
+    "sha256": "826d3d233de6fcfb9720141ccfe61aaac2f8c7867bb2741dd2fb480aef560982"
+  },
+  "docs/deform360/validation/t26_2-renderer-audit-20260926/causal_probes.sh": {
+    "bytes": 608,
+    "sha256": "d479f8119d1e9d2e03c3f50d5f3795da350b07a3c5a013fa6c85ee70b904f996"
+  },
+  "docs/deform360/validation/t26_2-renderer-audit-20260926/final_integrity.json": {
+    "bytes": 945,
+    "sha256": "68dff4d2c9f6d378170cd0b1818ff924208e02fac3844959b18e984f3bca848e"
+  },
+  "docs/deform360/validation/t26_2-renderer-audit-20260926/identity_verification.json": {
+    "bytes": 186,
+    "sha256": "c545fc52bff0fa8a1b95ef4bb641507742f54ee69ced6682b396bbcab1644742"
+  },
+  "docs/deform360/validation/t26_2-renderer-audit-20260926/installed_source_excerpt.txt": {
+    "bytes": 15124,
+    "sha256": "638d7abb8f7e6c68cf07674761c545a3ec51d5242d93d27661d3162e7332c6df"
+  },
+  "docs/deform360/validation/t26_2-renderer-audit-20260926/installed_source_provenance.json": {
+    "bytes": 3677,
+    "sha256": "78c812b8b1ad7018cde789f3694ffeb5439c730eafc7319497bcc15bc8cf509c"
+  },
+  "docs/deform360/validation/t26_2-renderer-audit-20260926/logs/both.txt": {
+    "bytes": 17351,
+    "sha256": "25a07b4e2dd04f8381d24c829022fe8c79f0829563030933e03c48b0bcb1c5c5"
+  },
+  "docs/deform360/validation/t26_2-renderer-audit-20260926/logs/control009.txt": {
+    "bytes": 17373,
+    "sha256": "19c9113e0edd899afee63bd7246c45c3b3f03e16dbab7e4b5c21368dbd70a960"
+  },
+  "docs/deform360/validation/t26_2-renderer-audit-20260926/logs/cov.txt": {
+    "bytes": 17347,
+    "sha256": "0f2856889878966861e822797593ede58e4c8c13a192096ad2e7ce85015c8221"
+  },
+  "docs/deform360/validation/t26_2-renderer-audit-20260926/logs/exclude.txt": {
+    "bytes": 17363,
+    "sha256": "1016bbe6d21a67b5f111c4ca489bde36ced564cb21056dfc6828022522d79288"
+  },
+  "docs/deform360/validation/t26_2-renderer-audit-20260926/logs/initial_tool_camera_path_error.txt": {
+    "bytes": 20337,
+    "sha256": "bed7d31e7befd28969f7b31c8ef009d9f2b9f460032734342dff7abc8d442f3c"
+  },
+  "docs/deform360/validation/t26_2-renderer-audit-20260926/logs/mean.txt": {
+    "bytes": 17366,
+    "sha256": "7dc657c496f24e292bd0d40a6a2e0f4b9fc3208ca624d5a29746858e6bb5884d"
+  },
+  "docs/deform360/validation/t26_2-renderer-audit-20260926/logs/original.txt": {
+    "bytes": 17369,
+    "sha256": "04734691f8e434608222f9ff6ea5274abc9a7ce84f2807f707ebc7135a5ef54c"
+  },
+  "docs/deform360/validation/t26_2-renderer-audit-20260926/preliminary/logs/both.txt": {
+    "bytes": 17324,
+    "sha256": "94ae4fd3fd4d966246992c24b17969eee5ac2840bd2bcba257cceb56a400cdb4"
+  },
+  "docs/deform360/validation/t26_2-renderer-audit-20260926/preliminary/logs/control009.txt": {
+    "bytes": 17346,
+    "sha256": "8cbd1fe64ecd533e8517418fb57455c406b13055f8837fddb15ce0849a99586d"
+  },
+  "docs/deform360/validation/t26_2-renderer-audit-20260926/preliminary/logs/cov.txt": {
+    "bytes": 17320,
+    "sha256": "2c91dd02d0f15be033d49871c31a2870f018422396fdba499215bf8efb3d8682"
+  },
+  "docs/deform360/validation/t26_2-renderer-audit-20260926/preliminary/logs/exclude.txt": {
+    "bytes": 17336,
+    "sha256": "a1ac157d4972d9151d7649156e8da53d09a8d2ffb3be5c0cf992a8e1b8823f11"
+  },
+  "docs/deform360/validation/t26_2-renderer-audit-20260926/preliminary/logs/mean.txt": {
+    "bytes": 17339,
+    "sha256": "2b8356761005d9c6b2b5a7e4e85e8c5959e96a4bc623bf1dc2b8a945914d4bf6"
+  },
+  "docs/deform360/validation/t26_2-renderer-audit-20260926/preliminary/logs/original.txt": {
+    "bytes": 17351,
+    "sha256": "c68001a8b3cd60b187641d1fa09b3c5a8fd06da39c12e6932b22b3726e5b8eea"
+  },
+  "docs/deform360/validation/t26_2-renderer-audit-20260926/preliminary/reports/both.json": {
+    "bytes": 109956,
+    "sha256": "0c9e63698bca6b1b815799860ced0bd75fc8a1ef934c34c1a910b67d79c46ccf"
+  },
+  "docs/deform360/validation/t26_2-renderer-audit-20260926/preliminary/reports/control009.json": {
+    "bytes": 109968,
+    "sha256": "c717e714659ad88aee35b58508b5fc74c2aa02119f866b26b879872e668d50e2"
+  },
+  "docs/deform360/validation/t26_2-renderer-audit-20260926/preliminary/reports/cov.json": {
+    "bytes": 109429,
+    "sha256": "9e55394b0789ca606fd7c35c1180eadb0764f3ce648abfe425c423144b92a35e"
+  },
+  "docs/deform360/validation/t26_2-renderer-audit-20260926/preliminary/reports/exclude.json": {
+    "bytes": 99892,
+    "sha256": "84423bc77363da9b2ba4728a873be3dec9877e25f36b2dcaaa7a38f97cbd0f43"
+  },
+  "docs/deform360/validation/t26_2-renderer-audit-20260926/preliminary/reports/mean.json": {
+    "bytes": 109891,
+    "sha256": "97d6d752c6ef2111da12da3f668935f01aaf48509911805c25b3e9190806a25a"
+  },
+  "docs/deform360/validation/t26_2-renderer-audit-20260926/preliminary/reports/original.json": {
+    "bytes": 110071,
+    "sha256": "8f2e37bdbdc082781c436bc1eb4eaf1d2a221e182efb711f2545a7dbf13b61ab"
+  },
+  "docs/deform360/validation/t26_2-renderer-audit-20260926/probe_summary.json": {
+    "bytes": 23405,
+    "sha256": "8abdd03153da20b2d9aa0ca982a74215ca714f13d9e7bbd8e125569882a91b19"
+  },
+  "docs/deform360/validation/t26_2-renderer-audit-20260926/probe_v1_camera_path_error.py": {
+    "bytes": 14485,
+    "sha256": "7d2b65cd403e6e2ab452f663e2d31e8930a8faa7a206579c764765bb5e367377"
+  },
+  "docs/deform360/validation/t26_2-renderer-audit-20260926/probe_v2_preliminary_cpu_projection.py": {
+    "bytes": 14720,
+    "sha256": "13f61fcdbbaaf630d893c4765ef795478f731f1d6f4461cf7108410cbb119884"
+  },
+  "docs/deform360/validation/t26_2-renderer-audit-20260926/reports/both.json": {
+    "bytes": 110361,
+    "sha256": "bc117df3cab62c22ecab96ec1c703c1d4b7a0a7947803f57947736f274a42f7b"
+  },
+  "docs/deform360/validation/t26_2-renderer-audit-20260926/reports/control009.json": {
+    "bytes": 110372,
+    "sha256": "2bc88e4afc4ba2d7f06d0b3d3192acb0a242eaa72efa31779f66eb70f98139ef"
+  },
+  "docs/deform360/validation/t26_2-renderer-audit-20260926/reports/cov.json": {
+    "bytes": 109831,
+    "sha256": "15c10b7142b4bf76a7310788de04ddbcb3993a54ecd503e73a617eddeb6e0bd8"
+  },
+  "docs/deform360/validation/t26_2-renderer-audit-20260926/reports/exclude.json": {
+    "bytes": 100294,
+    "sha256": "e7025e73b513efe88a55ee22370cee1dd86cda5219d850c5cdb76e383485dc0a"
+  },
+  "docs/deform360/validation/t26_2-renderer-audit-20260926/reports/initial_tool_camera_path_error.json": {
+    "bytes": 80121,
+    "sha256": "e09783d4e131a872afd829646c7b91b34a90cd3c4b71fb7c4bcc412c0ace7e54"
+  },
+  "docs/deform360/validation/t26_2-renderer-audit-20260926/reports/mean.json": {
+    "bytes": 110303,
+    "sha256": "33c30c86f9e6c4a7283aab5905055efab792eb2159f14b272564fae5f6a6dbd1"
+  },
+  "docs/deform360/validation/t26_2-renderer-audit-20260926/reports/original.json": {
+    "bytes": 110474,
+    "sha256": "e22ba1d60f5231b8627746d3194f25c295e3514b3983888f1c34cdda5a98ff8d"
+  },
+  "docs/deform360/validation/t26_2-renderer-audit-20260926/slurm_accounting.txt": {
+    "bytes": 577,
+    "sha256": "370c951b9dd796cbad038c82d9717e062b9edb2ed865b48d32ac70ed5fb110a5"
+  },
+  "docs/deform360/validation/t26_2-renderer-audit-20260926/verified_probes.sh": {
+    "bytes": 653,
+    "sha256": "8072995ec15fd1d111f8450ddf4557176b55b9824ccde2a58fe5181d7fd70113"
+  }
+}
