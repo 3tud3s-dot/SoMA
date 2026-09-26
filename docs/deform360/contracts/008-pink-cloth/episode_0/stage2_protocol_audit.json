@@ -1,0 +1,97 @@
+{
+  "task": "T30",
+  "status": "BLOCKED",
+  "frozen": false,
+  "training_submitted": false,
+  "checkpoint_commit": "033f47ff2731d657681fd9ba41da10a838047f05",
+  "current_stage2_config_exists": false,
+  "existing_glue": "tools/deform360_adapter/check_stage2_smoke.py; smoke overrides are not formal protocol",
+  "canonical_checkpoint_sha256": "d4dbea360fa033bfbf0b1ec338ce3107d49c5549675effb481f817eb672932c4",
+  "canonical_cache_root": "/data1/userdata/tcweng/projects/tcgs/datasets/deform360/derived/008-pink-cloth/episode_0/t27_stage1_cache_gap10/config_a_2cam/pred_stage1",
+  "cpu_preflight": "validation/t30-protocol-audit-20260927/cpu_preflight.json",
+  "verified": {
+    "cache_files": 16,
+    "cache_hash_schema_finite": true,
+    "normalizer_fp64_count": 12,
+    "official_window_count": 15,
+    "repeat": 40,
+    "batch": 1,
+    "steps_per_epoch_one_gpu": 600,
+    "dense_gap": 1,
+    "coarse_gap": 10,
+    "model_dt": 0.06666666666666667,
+    "train_window_source_max": 262,
+    "test_supervision": false
+  },
+  "official": {
+    "epoch_stage1": 15,
+    "runner_max_epochs": 76,
+    "rollout_formula": "min(3*runner.epoch -42,1000), then capped by available dense targets",
+    "optimizer": "Adam",
+    "base_lr": 0.0004,
+    "betas": [
+      0.9,
+      0.999
+    ],
+    "weight_decay": 0,
+    "amsgrad": false,
+    "Hood": "base_lr*(0.5**(max(0,epoch-14)//2)+0.01)",
+    "clip": 1,
+    "checkpoint_every_epoch": true,
+    "evaluation_every_epoch": true,
+    "flag_update_gaussian": true,
+    "flag_update_gaussian_train": false,
+    "test_rollout_mode": "segmented",
+    "loss_weights": {
+      "momentum": 1,
+      "L2_render": 0.9,
+      "SSIM_render": 0.1
+    },
+    "detach": "position detached between steps; no cross-batch accumulation; covariance initial reuse"
+  },
+  "decisions_required": [
+    {
+      "id": "initialization_budget_schedule",
+      "why": "Official resume-from epoch15 restores Adam/counters. Ours epoch46; direct inheritance gives different budget/curriculum/LR. Weight-only load starts epoch0 with negative rollout unless schedule adapted.",
+      "options": [
+        {
+          "name": "literal official config + actual epoch46 resume",
+          "initialization": "model+Normalizer+Adam+epoch46+iter2300",
+          "additional_epochs": 30,
+          "additional_steps": 18000,
+          "final_global_iter": 20300,
+          "first_requested_rollout": 96,
+          "effective_rollout": "12 for windows0..130,9 for start140",
+          "first_lr": 4.006103515625e-06,
+          "final_checkpoint": "epoch_76.pth"
+        },
+        {
+          "name": "fresh Stage2 optimizer/counters with Stage1 model/statistics",
+          "initialization": "weight-only epoch46; retain learned Normalizer; fresh Adam/epoch0",
+          "required_explicit_choices": "budget, step_initial/scheduler offset; e.g.61 Stage2 epochs preserves official additional-epoch count,3→6→9→12 curriculum requires rebase, not yet authorized/frozen"
+        }
+      ]
+    },
+    {
+      "id": "evaluation_cache_mutation",
+      "why": "EvalHook uses same model; segmented simple_test flag_update_gaussian=True mutates scene_init_pos/cov/prev_pos at coarse boundaries. Next training subwindow reads these dictionaries, not immutable T27 tensors. On-disk T27 hashes remain unchanged.",
+      "source": [
+        "mmgs/core/evaluation/eval_hooks.py:24-29",
+        "mmgs/models/simulators/gs_simulator_embodied_stage2.py:1051-1053",
+        "mmgs/models/simulators/gs_simulator_embodied_stage2.py:502-510",
+        "mmgs/models/simulators/gs_simulator_embodied_stage2.py:729-731"
+      ],
+      "options": [
+        "Set Stage2 training config flag_update_gaussian=False, keep segmented train-side eval, retain immutable T27 start states (recommended to satisfy current user constraint; not applied).",
+        "Allow official online in-memory cache evolution and change provenance requirement (not assumed)."
+      ]
+    }
+  ],
+  "recommendation_not_applied": "Freeze explicit new Stage2 protocol before sbatch. Do not copy T29 smoke counters/one-step override. Keep canonical T27 fixed if user confirms config-only flag change.",
+  "other_items_to_confirm": {
+    "seed": "5 suggested by previous canonical setup, not selected by test",
+    "window_policy": "inherit official15 windows [i,min(i+13,150)) uses local0..149 (source113..262), safely inside approved local0..154; extending to16 windows/start150 and tail154 is a different dataset length, not silently applied",
+    "checkpoint_selection": "fixed budget final checkpoint, never test-selected"
+  },
+  "T31_executed": false
+}

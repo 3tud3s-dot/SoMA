@@ -27,10 +27,10 @@ Deform360 HEAD:
 d8522a4403b766aeb387510c04e89032a56fdf35
 
 Current task:
-T29
+T30
 
 Current status:
-PASS
+BLOCKED
 ```
 
 以上 HEAD 为本 roadmap 建立时的源码基线。T0–T11 已 PASS，具体结论及证据保留于各项历史 Result / Evidence。T11 checkpoint 已提交并推送；T12 已按人工确认采用 30→10→2→1 grouping contract 并验证 PASS；此前默认分组 FAIL 历史保留，不进入 T13。
@@ -165,7 +165,7 @@ tcgs root Git 仅用于 workspace-level 资产。除非明确说明，不在 tcg
 | T27 | 只生成并核验 Stage-1 cache | PASS |
 | T28 | 只串联一个 Stage 2 子窗口 | PASS |
 | T29 | 只验证 Stage 2 一个优化步骤 | PASS |
-| T30 | 执行固定预算的 Stage 2 训练 | TODO |
+| T30 | 执行固定预算的 Stage 2 训练 | BLOCKED |
 | T31 | 验证真正的 continuous rollout | TODO |
 | T32 | 汇总首个 no-tactile baseline 结果 | TODO |
 
@@ -2148,7 +2148,7 @@ Status: PASS
 
 ### T30：执行固定预算的 Stage 2 训练
 
-Status: TODO
+Status: BLOCKED
 
 **问题：** 能否得到用于连续 rollout 的 dense dynamics checkpoint？
 
@@ -2173,11 +2173,14 @@ Status: TODO
 
 #### Result
 
-Not executed.
+2026-09-27：BLOCKED — 正式Stage2 protocol尚未冻结，未提交训练。T28/T29以033f47ff2731d657681fd9ba41da10a838047f05提交/push，两端同HEAD/clean/0-0后只读审计。当前无deform360_v0_stage2.py，T29仅smoke glue。官方resume epoch15/max76/step_initial−42；直接resume实际epoch46将只训练30epochs/18000steps、首requested rollout96、LR4.0061035e-6，fresh权重加载则需显式重定rollout/scheduler/budget。不能把smoke counter15/one-step设置直接当正式protocol。
+
+另发现官方train-side eval flag_update_gaussian=True会更新同一model的scene_init_pos/cov/prev_pos，随后训练起点不再保证等于T27cache；与当前fixed T27来源约束冲突。建议仅Stage2配置关闭该在线更新，但尚未实施，需确定协议。CPU核验16cache/hash/schema/finite和epoch46checkpoint/12FP64stats通过；官方15窗口×repeat40=600steps/epoch，source≤262不越界。无CUDA训练/新checkpoint，不执行T31。
 
 #### Evidence
 
-Not executed.
+- [protocol audit](validation/t30-protocol-audit-20260927/README.md)、[CPU preflight / actual MMCV resume source](validation/t30-protocol-audit-20260927/cpu_preflight.json)、[machine-readable unfrozen audit](contracts/008-pink-cloth/episode_0/stage2_protocol_audit.json)。
+- 所属SoMA/deform360-adaptation，本轮T30审计未commit/push；server源码clean；T31/T32正文保持不变。
 
 ### T31：验证真正的 continuous rollout
 

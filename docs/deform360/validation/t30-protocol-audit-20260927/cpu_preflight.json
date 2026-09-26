@@ -1,0 +1,228 @@
+{
+  "cache_validation": "PASS",
+  "checkpoint_path": "/data1/userdata/tcweng/projects/tcgs/outputs/deform360/stage1/config_a_seed5_normalizer_fix_resume_epoch2/epoch_46.pth",
+  "checkpoint_sha256": "d4dbea360fa033bfbf0b1ec338ce3107d49c5549675effb481f817eb672932c4",
+  "checkpoint_epoch": 46,
+  "checkpoint_iter": 2300,
+  "checkpoint_adam_steps": [
+    2300.0
+  ],
+  "normalizer_fp64_count": 12,
+  "cache_root": "/data1/userdata/tcweng/projects/tcgs/datasets/deform360/derived/008-pink-cloth/episode_0/t27_stage1_cache_gap10/config_a_2cam/pred_stage1",
+  "files": [
+    {
+      "key": 0,
+      "hash_match": true,
+      "finite": true
+    },
+    {
+      "key": 10,
+      "hash_match": true,
+      "finite": true
+    },
+    {
+      "key": 20,
+      "hash_match": true,
+      "finite": true
+    },
+    {
+      "key": 30,
+      "hash_match": true,
+      "finite": true
+    },
+    {
+      "key": 40,
+      "hash_match": true,
+      "finite": true
+    },
+    {
+      "key": 50,
+      "hash_match": true,
+      "finite": true
+    },
+    {
+      "key": 60,
+      "hash_match": true,
+      "finite": true
+    },
+    {
+      "key": 70,
+      "hash_match": true,
+      "finite": true
+    },
+    {
+      "key": 80,
+      "hash_match": true,
+      "finite": true
+    },
+    {
+      "key": 90,
+      "hash_match": true,
+      "finite": true
+    },
+    {
+      "key": 100,
+      "hash_match": true,
+      "finite": true
+    },
+    {
+      "key": 110,
+      "hash_match": true,
+      "finite": true
+    },
+    {
+      "key": 120,
+      "hash_match": true,
+      "finite": true
+    },
+    {
+      "key": 130,
+      "hash_match": true,
+      "finite": true
+    },
+    {
+      "key": 140,
+      "hash_match": true,
+      "finite": true
+    },
+    {
+      "key": 150,
+      "hash_match": true,
+      "finite": true
+    }
+  ],
+  "official_inherited_windows": [
+    {
+      "local_start": 0,
+      "local_end_exclusive": 13,
+      "cache_key": 0,
+      "source_start": 113,
+      "source_target_end_inclusive": 125,
+      "dense_targets": 12
+    },
+    {
+      "local_start": 10,
+      "local_end_exclusive": 23,
+      "cache_key": 10,
+      "source_start": 123,
+      "source_target_end_inclusive": 135,
+      "dense_targets": 12
+    },
+    {
+      "local_start": 20,
+      "local_end_exclusive": 33,
+      "cache_key": 20,
+      "source_start": 133,
+      "source_target_end_inclusive": 145,
+      "dense_targets": 12
+    },
+    {
+      "local_start": 30,
+      "local_end_exclusive": 43,
+      "cache_key": 30,
+      "source_start": 143,
+      "source_target_end_inclusive": 155,
+      "dense_targets": 12
+    },
+    {
+      "local_start": 40,
+      "local_end_exclusive": 53,
+      "cache_key": 40,
+      "source_start": 153,
+      "source_target_end_inclusive": 165,
+      "dense_targets": 12
+    },
+    {
+      "local_start": 50,
+      "local_end_exclusive": 63,
+      "cache_key": 50,
+      "source_start": 163,
+      "source_target_end_inclusive": 175,
+      "dense_targets": 12
+    },
+    {
+      "local_start": 60,
+      "local_end_exclusive": 73,
+      "cache_key": 60,
+      "source_start": 173,
+      "source_target_end_inclusive": 185,
+      "dense_targets": 12
+    },
+    {
+      "local_start": 70,
+      "local_end_exclusive": 83,
+      "cache_key": 70,
+      "source_start": 183,
+      "source_target_end_inclusive": 195,
+      "dense_targets": 12
+    },
+    {
+      "local_start": 80,
+      "local_end_exclusive": 93,
+      "cache_key": 80,
+      "source_start": 193,
+      "source_target_end_inclusive": 205,
+      "dense_targets": 12
+    },
+    {
+      "local_start": 90,
+      "local_end_exclusive": 103,
+      "cache_key": 90,
+      "source_start": 203,
+      "source_target_end_inclusive": 215,
+      "dense_targets": 12
+    },
+    {
+      "local_start": 100,
+      "local_end_exclusive": 113,
+      "cache_key": 100,
+      "source_start": 213,
+      "source_target_end_inclusive": 225,
+      "dense_targets": 12
+    },
+    {
+      "local_start": 110,
+      "local_end_exclusive": 123,
+      "cache_key": 110,
+      "source_start": 223,
+      "source_target_end_inclusive": 235,
+      "dense_targets": 12
+    },
+    {
+      "local_start": 120,
+      "local_end_exclusive": 133,
+      "cache_key": 120,
+      "source_start": 233,
+      "source_target_end_inclusive": 245,
+      "dense_targets": 12
+    },
+    {
+      "local_start": 130,
+      "local_end_exclusive": 143,
+      "cache_key": 130,
+      "source_start": 243,
+      "source_target_end_inclusive": 255,
+      "dense_targets": 12
+    },
+    {
+      "local_start": 140,
+      "local_end_exclusive": 150,
+      "cache_key": 140,
+      "source_start": 253,
+      "source_target_end_inclusive": 262,
+      "dense_targets": 9
+    }
+  ],
+  "windows_per_epoch": 15,
+  "repeat": 40,
+  "single_gpu_batch1_steps_per_epoch": 600,
+  "official_epoch15_resume_remaining_epochs": 61,
+  "official_epoch15_resume_steps": 36600,
+  "direct_epoch46_resume_remaining_epochs": 30,
+  "direct_epoch46_resume_steps": 18000,
+  "direct_epoch46_resume_first_requested_rollout": 96,
+  "direct_epoch46_resume_first_LR": 4.006103515625e-06,
+  "resume_implementation_file": "/data1/userdata/tcweng/miniconda3/envs/soma/lib/python3.10/site-packages/mmcv/runner/base_runner.py",
+  "resume_implementation": "    @no_type_check\n    def resume(self,\n               checkpoint: str,\n               resume_optimizer: bool = True,\n               map_location: Union[str, Callable] = 'default') -> None:\n        if map_location == 'default':\n            if torch.cuda.is_available():\n                device_id = torch.cuda.current_device()\n                checkpoint = self.load_checkpoint(\n                    checkpoint,\n                    map_location=lambda storage, loc: storage.cuda(device_id))\n            else:\n                checkpoint = self.load_checkpoint(checkpoint)\n        else:\n            checkpoint = self.load_checkpoint(\n                checkpoint, map_location=map_location)\n\n        self._epoch = checkpoint['meta']['epoch']\n        self._iter = checkpoint['meta']['iter']\n        if self.meta is None:\n            self.meta = {}\n        self.meta.setdefault('hook_msgs', {})\n        # load `last_ckpt`, `best_score`, `best_ckpt`, etc. for hook messages\n        self.meta['hook_msgs'].update(checkpoint['meta'].get('hook_msgs', {}))\n\n        # Re-calculate the number of iterations when resuming\n        # models with different number of GPUs\n        if 'config' in checkpoint['meta']:\n            config = mmcv.Config.fromstring(\n                checkpoint['meta']['config'], file_format='.py')\n            previous_gpu_ids = config.get('gpu_ids', None)\n            if previous_gpu_ids and len(previous_gpu_ids) > 0 and len(\n                    previous_gpu_ids) != self.world_size:\n                self._iter = int(self._iter * len(previous_gpu_ids) /\n                                 self.world_size)\n                self.logger.info('the iteration number is changed due to '\n                                 'change of GPU number')\n\n        # resume meta information meta\n        self.meta = checkpoint['meta']\n\n        if 'optimizer' in checkpoint and resume_optimizer:\n            if isinstance(self.optimizer, Optimizer):\n                self.optimizer.load_state_dict(checkpoint['optimizer'])\n            elif isinstance(self.optimizer, dict):\n                for k in self.optimizer.keys():\n                    self.optimizer[k].load_state_dict(\n                        checkpoint['optimizer'][k])\n            else:\n                raise TypeError(\n                    'Optimizer should be dict or torch.optim.Optimizer '\n                    f'but got {type(self.optimizer)}')\n\n        self.logger.info('resumed epoch %d, iter %d', self.epoch, self.iter)\n",
+  "cuda_initialized": false
+}
