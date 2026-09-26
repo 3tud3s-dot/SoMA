@@ -27,10 +27,10 @@ Deform360 HEAD:
 d8522a4403b766aeb387510c04e89032a56fdf35
 
 Current task:
-T26.2
+T26.3
 
 Current status:
-PARTIALLY_ATTRIBUTED
+SCALE_MISMATCH_ATTRIBUTED
 ```
 
 以上 HEAD 为本 roadmap 建立时的源码基线。T0–T11 已 PASS，具体结论及证据保留于各项历史 Result / Evidence。T11 checkpoint 已提交并推送；T12 已按人工确认采用 30→10→2→1 grouping contract 并验证 PASS；此前默认分组 FAIL 历史保留，不进入 T13。
@@ -42,7 +42,7 @@ PARTIALLY_ATTRIBUTED
 - 执行前读取本文件和适用的 AGENTS.md，确认当前任务及前置依赖。前置依赖以既定顺序、各项输入文件和正文引用的 TODO 产物为准。
 - 每次只解决对应 TODO 的问题，遵守该项允许修改的范围；FAIL 时仅定位当前问题，不自动进入下一项。
 - 不因执行一个 TODO 而删减、合并、重排或重写 roadmap，不提前改变技术方案。
-- 主线状态只允许使用：`TODO`、`IN_PROGRESS`、`PASS`、`FAIL`、`BLOCKED`。用户授权的独立 Non-gating diagnostic T24.5 使用 `ATTRIBUTED`、`PARTIALLY_ATTRIBUTED`、`UNRESOLVED`；其分类不改变 T24 PASS，也不阻塞 T25+。独立 blocking diagnostic T26.1 / T26.2 同样使用这三种分类，但 T26 的 FAIL 保持，未经修复验证不解除阻塞。
+- 主线状态只允许使用：`TODO`、`IN_PROGRESS`、`PASS`、`FAIL`、`BLOCKED`。用户授权的独立 Non-gating diagnostic T24.5 使用 `ATTRIBUTED`、`PARTIALLY_ATTRIBUTED`、`UNRESOLVED`；其分类不改变 T24 PASS，也不阻塞 T25+。独立 blocking diagnostic T26.1 / T26.2 同样使用这三种分类，但 T26 的 FAIL 保持，未经修复验证不解除阻塞。T26.3 按用户定义使用 SCALE_MISMATCH_ATTRIBUTED / MODEL_INIT_PATH_ATTRIBUTED / OFFICIAL_BEHAVIOR_WITH_RENDERER_EDGE_CASE / PARTIALLY_ATTRIBUTED / UNRESOLVED，归因不解除 T26 FAIL。
 - 历史审计和聊天中的分析不是执行结果。T0–T6 的执行结果见对应 Result / Evidence；后续任务以各自 Status / Result / Evidence 为准。
 
 ### 后续更新规则
@@ -159,6 +159,7 @@ tcgs root Git 仅用于 workspace-level 资产。除非明确说明，不在 tcg
 | T26 | 执行约定预算的 Stage 1 训练 | FAIL |
 | T26.1 | Stage-1 first nonfinite gradient audit（Blocking） | PARTIALLY_ATTRIBUTED |
 | T26.2 | row-3648 renderer degeneracy causal audit（Blocking） | PARTIALLY_ATTRIBUTED |
+| T26.3 | random-init dynamics scale / normalization audit（Blocking） | SCALE_MISMATCH_ATTRIBUTED |
 | T27 | 只生成并核验 Stage-1 cache | TODO |
 | T28 | 只串联一个 Stage 2 子窗口 | TODO |
 | T29 | 只验证 Stage 2 一个优化步骤 | TODO |
@@ -1898,6 +1899,37 @@ pred_cov来自FFN预测deformation gradient，再做层级F Sigma F^T并pack upp
 - [installed source provenance](validation/t26_2-renderer-audit-20260926/installed_source_provenance.json)、[原始数值](validation/t26_2-renderer-audit-20260926/reports/original.json)、[probe summary](validation/t26_2-renderer-audit-20260926/probe_summary.json)、[initial-state identity](validation/t26_2-renderer-audit-20260926/identity_verification.json)。native源码call site与fp32/fp64区分见报告；不把相关性提升为精确算术归因。
 - 794个asset hashes全部未变；原Gaussian对象fields未改，model finite；服务器repo clean。server evidence在`outputs/deform360/t26_2-audit-20260926/`，无checkpoint/tensor dumps。SoMA/deform360-adaptation：roadmap tracked修改，新增tool/contract/reports尚未tracked，T26.2暂不commit/push；后续通过Git同步。
 - 后续最小候选（未实施）：单独授权后评估forward/backward一致的projected covariance合法性检查/显式异常处理；这会改变无效监督，需要独立验证，不能掩盖极大初始位移。有限精度保PSD传播是另一个独立候选。本轮不进入T26.3。
+
+### T26.3：random-init dynamics scale / normalization audit
+
+Status: SCALE_MISMATCH_ATTRIBUTED
+
+**Blocking diagnostic for T26。** 只归因不修复，不重启正式 T26，不执行 T27。
+
+**问题 / 动机：** T26.2 已发现数米位移及非PD covariance；确定首次尺度异常来自输入/normalization/dynamics哪一层，使用现有官方sample作control。
+
+**输入：** T25 frozen Config A/seed5、source113→123 canonical assets、T22历史harness、已有官方left_lift_1/scale3 compatibility PLY与Stage-1 config；不下载数据。
+
+**允许修改：** 独立observer、小型report/contract、roadmap；不改model/loader/normalizer/renderer/config/precision/epsilon/geometry。
+
+**验证：** formal train.py首forward rollout1，official同路径对照；全体position/displacement、normalizer前后统计、coarse-to-fine尺度、dt、controller/edges、逐层FP32 covariance与CPU FP64重算；T22原harness到第一次backward前中止。无backward或optimizer.step。
+
+**分类：** SCALE_MISMATCH_ATTRIBUTED / MODEL_INIT_PATH_ATTRIBUTED / OFFICIAL_BEHAVIOR_WITH_RENDERER_EDGE_CASE / PARTIALLY_ATTRIBUTED / UNRESOLVED；定位不足须如实记录，不通过修复让实验通过。
+
+#### Result
+
+2026-09-26：SCALE_MISMATCH_ATTRIBUTED — 首次coarse `anchor_normalizer` Z方差真实约9.4437e-6，但float32 `E[x²]-E[x]²` 为0；std floor1e-8令feature放大至574874.875。decoder log-scales约2077触发原有clamp/volume normalization，coarse F最大奇异值785.772；D360位移p50/p95/p99/max=50.6381/100.8045/109.7960/117.1954m，bbox=.523639m。row3648的7.68264m仅0.29547 percentile。官方同seed/同289个初始state hash位移p50=.0967468/max=.266866m，全部PD；不支持“官方普遍如此”的解释。
+
+T22多一次T21 train-mode forward，normalizer已更新；其真正T22 forward位移p50=.0433643/max=.140980m，全部PD。`init_weights()`未改tensor，不是随机权重差异。首次PSD丢失在coarse level2 FΣFᵀ，actualFP32 PD2454/12861，fine后2644；同F/初始cov CPU FP64重算两层均12861PD。dt无重复frame_gap积分，未发现meter/mm证据。分类明确指normalization数值尺度失配，不宣称native NaN内部指令已彻底归因。
+
+#### Evidence
+
+- [审计报告](validation/t26_3-scale-audit-20260926/README.md)、[machine-readable contract](contracts/008-pink-cloth/episode_0/dynamics_scale_normalization_contract.json)、[observer](../../tools/deform360_adapter/audit_dynamics_scale.py)。全部normalizer状态、各阶段shape/finite/p99/absmax、逐层eigen/condition/F、renderer radius和provenance见小型JSON。
+- Slurm25860/25861/25862，amax RTX5090，全部COMPLETED；formal2组+historicalT22 forward-only，无backward/optimizer.step，无T26重启。794 assets/config hashes未变，server Git clean。
+- T26.2已commit/push `afc4def87ee839bc27b9e9c8769a177e50c11ed7`。本项SoMA/deform360-adaptation新工具/report/contract尚未tracked，roadmap修改；T26.3未commit/push，后续需Git同步。所有已有FAIL/PARTIALLY_ATTRIBUTED历史保留。
+- 下一最小候选仅建议稳定Normalizer方差估计，未实施；不据此改T26状态，不执行T27。
+
+---
 
 ### T27：只生成并核验 Stage-1 cache
 

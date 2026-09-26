@@ -1,0 +1,210 @@
+{
+  "checked_D360_assets": 794,
+  "changed_assets": [],
+  "frozen_config_unchanged": true,
+  "server_git_status": "",
+  "head": "afc4def87ee839bc27b9e9c8769a177e50c11ed7",
+  "model_config_differences": {
+    "controller_cfg": {
+      "d360": {
+        "config_a_2cam": [
+          {
+            "num_cluster": 10
+          },
+          {
+            "downsample_rate": 0.5
+          }
+        ]
+      },
+      "official": {
+        "left_lift_1": [
+          {
+            "downsample_rate": 0.5
+          },
+          {
+            "downsample_rate": 0.5
+          }
+        ]
+      }
+    },
+    "cluster_cfg": {
+      "d360": {
+        "config_a_2cam": [
+          {
+            "downsample_rate": 0.02
+          },
+          {
+            "downsample_rate": 0.2
+          }
+        ]
+      },
+      "official": {
+        "carnations": [
+          {
+            "downsample_rate": 0.01
+          },
+          {
+            "downsample_rate": 0.01
+          }
+        ],
+        "left_lift_1": [
+          {
+            "downsample_rate": 0.02
+          },
+          {
+            "downsample_rate": 0.2
+          }
+        ]
+      }
+    },
+    "gs_scene": {
+      "d360": [
+        {
+          "name": "config_a_2cam",
+          "model_path": "/data1/userdata/tcweng/projects/tcgs/datasets/deform360/derived/t17_scene_packages/pink_cloth_episode_0/config_a_2cam/pi3/gs/point_cloud/iteration_10000/point_cloud.ply",
+          "sh_degree": 0,
+          "num_seq": 1,
+          "attr_name": "rope"
+        }
+      ],
+      "official": [
+        {
+          "name": "left_lift_1",
+          "model_path": "/data1/userdata/tcweng/projects/tcgs/datasets/soma_sample/derived/left_lift_1/point_cloud_scale3.ply",
+          "sh_degree": 0,
+          "num_seq": 1,
+          "attr_name": "rope"
+        }
+      ]
+    }
+  },
+  "official_train_config": {
+    "times": 50,
+    "type": "RepeatDataset",
+    "dataset": {
+      "type": "EmbodiedDataset",
+      "phase": "all",
+      "env_cfg": {
+        "data_dir": "/data1/userdata/tcweng/projects/tcgs/datasets/soma_sample/soma_data_sample/cloth_lift/",
+        "sub_video_dir": "color",
+        "sub_img_dir": "color",
+        "cam_transform_fn": null,
+        "scene_list": [
+          "left_lift_1"
+        ],
+        "use_random_background": {
+          "mothorchids_v2": false,
+          "left_lift_1": false
+        },
+        "const_white_bg": {
+          "mothorchids_v2": true,
+          "left_lift_1": false
+        },
+        "resolution": [
+          960,
+          540
+        ],
+        "scale_x_angle": 1.0,
+        "load_imgs": false,
+        "volume_scalar": {
+          "mothorchids_v2": 512,
+          "left_lift_1": 512
+        },
+        "gravity": [
+          0,
+          0,
+          -9.8
+        ],
+        "rot_est": {
+          "mothorchids": [
+            -0.912,
+            0.007,
+            0.015,
+            0.411
+          ],
+          "left_lift_1": [
+            -0.7665673850964486,
+            0.3083841731272888,
+            0.0,
+            0.5632704908576266
+          ]
+        },
+        "max_cam_num": 3,
+        "pad_cam": false,
+        "max_cam_total": 6,
+        "max_frame": 1001,
+        "start_frame": 0,
+        "cluster_cfg": {
+          "mothorchids": [
+            {
+              "downsample_rate": 0.01
+            },
+            {
+              "downsample_rate": 0.01
+            }
+          ],
+          "left_lift_1": [
+            {
+              "downsample_rate": 0.02
+            },
+            {
+              "downsample_rate": 0.2
+            }
+          ]
+        },
+        "dt": 0.03333333333333333,
+        "real_dt": {
+          "mothorchids": 0.033366700033366704,
+          "duck": 0.02,
+          "left_lift_1": 0.06666666666666667
+        },
+        "llffhold": 0,
+        "split_list": {
+          "left_lift_1": [
+            [
+              0,
+              150
+            ]
+          ]
+        },
+        "prompt_dict": {
+          "object": [
+            "cloth"
+          ],
+          "obstacle": [
+            "hand",
+            "robotic arm"
+          ]
+        },
+        "aligned_scene": null,
+        "frame_gap": 10,
+        "tracking_pcd": "track_process_data.pkl",
+        "cluster_type": "dis_split",
+        "controller_cfg": {
+          "left_lift_1": [
+            {
+              "downsample_rate": 0.5
+            },
+            {
+              "downsample_rate": 0.5
+            }
+          ]
+        },
+        "max_seq": 1
+      }
+    }
+  },
+  "official_control_config": "/data1/userdata/tcweng/projects/tcgs/environment/soma-stage1-isotropic-20260923/cloth_lift_stage1_scale3.py",
+  "provenance_sha256": {
+    "/data1/userdata/tcweng/projects/tcgs/SoMA/mmgs/models/utils/normalization.py": "ec62130997b38666bf8221023fe2a13c3ca2db4eb9d15a132658196124b7a12b",
+    "/data1/userdata/tcweng/projects/tcgs/SoMA/mmgs/models/backbones/meshgraphnet_embodied.py": "4c40322001d828cbb923cfe2e8471309c9a616695636ed7affd22fc6160bffbf",
+    "/data1/userdata/tcweng/projects/tcgs/SoMA/mmgs/models/heads/acc_decoder.py": "22816b7f8a3ca487ecb07f6361ab0671fb4f69313634d3b2ec7be77bd5d558fd",
+    "/data1/userdata/tcweng/projects/tcgs/SoMA/mmgs/models/simulators/gs_simulator_embodied.py": "30658653e7205df17bc80f40a324de7180c8000b65c2d76dfb91d962a0cc89cc",
+    "/data1/userdata/tcweng/projects/tcgs/SoMA/mmgs/utils/transformation_utils.py": "51e9fc7f234af0db0d4f365ce26795e1df6a725f41da2b3b7a5eba6367d76946",
+    "/data1/userdata/tcweng/projects/tcgs/SoMA/tools/train.py": "50ed1ba59f933d395ae027490d52638060d45370591d972a51846d6c42677d48",
+    "/data1/userdata/tcweng/projects/tcgs/SoMA/tools/deform360_adapter/smoke_dynamics_batch.py": "f2951f5fe31314929e11f97dbad761d2283f038a1dfae1bcb367198989e2df9f",
+    "/data1/userdata/tcweng/projects/tcgs/environment/soma-stage1-isotropic-20260923/cloth_lift_stage1_scale3.py": "0809af0283d84adc30e002c4cdbfdd7c7b2ef4b14f3d2ff66a2e329e50c4f2f1",
+    "/data1/userdata/tcweng/projects/tcgs/datasets/soma_sample/derived/left_lift_1/point_cloud_scale3.ply": "091267460817833161c02988c7301b93d0a9c6c6fa148fe8db0047fbce716900"
+  },
+  "slurm_accounting": "JobID|State|ExitCode|NodeList|Elapsed\n25860|COMPLETED|0:0|amax|00:00:14\n25860.0|COMPLETED|0:0|amax|00:00:14\n25861|COMPLETED|0:0|amax|00:00:23\n25861.0|COMPLETED|0:0|amax|00:00:23\n25862|COMPLETED|0:0|amax|00:00:36\n25862.0|COMPLETED|0:0|amax|00:00:36\n"
+}
