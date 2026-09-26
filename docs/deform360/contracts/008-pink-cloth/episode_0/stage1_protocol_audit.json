@@ -1,0 +1,2207 @@
+{
+  "task": "T25",
+  "status": "PASS",
+  "frozen": true,
+  "date": "2026-09-26",
+  "scope": "T25 frozen protocol only; training execution belongs to T26.",
+  "preflight": {
+    "deleted_authorized_untracked_zip": true,
+    "zip_hashed_or_moved": false,
+    "branch": "deform360-adaptation",
+    "head": "7f0fa94116aa60cef3b333092b45e3a4ffdbefda",
+    "ahead_behind": [
+      0,
+      0
+    ],
+    "working_tree_clean_before_audit": true
+  },
+  "candidate_config": {
+    "requested_path": "configs/SoMA/deform360_v0_stage1.py",
+    "exists": true,
+    "other_deform360_configs": [],
+    "existing_basis": [
+      "tools/deform360_adapter/smoke_dynamics_batch.py",
+      "tools/deform360_adapter/check_dataset_sample.py",
+      "dataset_sample_contract.json"
+    ],
+    "runnable_config_created": true,
+    "sha256": "e65d1c7848bd222f55c0e18050c464eec5922aef76c1bc62a06813359cca4930"
+  },
+  "official_static_expression_extraction": {
+    "n_gpu": 4,
+    "num_sample": 1,
+    "num_worker": 0,
+    "max_cam_num": 3,
+    "frame_gap": 10,
+    "frame_gap_stage2": 1,
+    "dt": 0.06666666666666667,
+    "lr_decay_steps": 2,
+    "lr_step_start": 16,
+    "max_epoch": 46,
+    "dataset_times": 50,
+    "render_loss_weight": 1,
+    "by_epoch": true,
+    "step_increase_interval": 1,
+    "step_increase_magnitude": 3,
+    "step_initial": 3,
+    "max_rollout_step": 1000,
+    "test_max_frame": 1003,
+    "test_start_frame": -1,
+    "start_frame": 0,
+    "max_seq": 1,
+    "num_encoder_layers": 16,
+    "edge_theta": true,
+    "selfsup_loss": false,
+    "avg_loss": true,
+    "render_mov_only": true,
+    "white_bg": false,
+    "scene_attr_name": "rope",
+    "split": [
+      [
+        0,
+        150
+      ]
+    ],
+    "cluster_type": "dis_split",
+    "default_cluster_scheme": [
+      {
+        "downsample_rate": 0.02
+      },
+      {
+        "downsample_rate": 0.2
+      }
+    ],
+    "default_controller_scheme": [
+      {
+        "downsample_rate": 0.5
+      },
+      {
+        "downsample_rate": 0.5
+      }
+    ],
+    "default_volume_scalar": 512,
+    "fix_bug": true,
+    "use_rotation": false,
+    "pred_vel": true,
+    "llffhold": 0,
+    "optimizer": {
+      "type": "Adam",
+      "lr": 0.0004,
+      "betas": [
+        0.9,
+        0.999
+      ],
+      "weight_decay": 0,
+      "amsgrad": false
+    },
+    "lr_config": {
+      "by_epoch": true,
+      "policy": "Hood",
+      "decay_rate": 0.5,
+      "decay_steps": 2,
+      "step_start": 14
+    },
+    "runner": {
+      "type": "EpochRunner",
+      "max_epochs": 46,
+      "max_iters": null
+    },
+    "checkpoint_config": {
+      "by_epoch": true,
+      "interval": 1,
+      "max_keep_ckpts": 10000
+    },
+    "evaluation": {
+      "by_epoch": true,
+      "interval": 1
+    },
+    "loss_decode": [
+      {
+        "type": "MSELoss",
+        "reduction": "sum",
+        "loss_weight": 1.0,
+        "loss_name": "loss_mse_momentum"
+      },
+      {
+        "type": "SSIMLoss",
+        "reduction": "sum",
+        "kernel_size": 5,
+        "loss_weight": 0.1,
+        "loss_name": "loss_ssim_render"
+      },
+      {
+        "type": "L2Loss",
+        "reduction": "sum",
+        "loss_weight": 0.9,
+        "loss_name": "loss_l2_render"
+      },
+      {
+        "type": "MSELoss",
+        "reduction": "sum",
+        "loss_weight": 1.0,
+        "loss_name": "loss_mse_static"
+      },
+      {
+        "type": "SpatialLoss",
+        "reduction": "sum",
+        "loss_weight": 1.0,
+        "loss_name": "loss_spatial"
+      },
+      {
+        "type": "L2Loss",
+        "reduction": "sum",
+        "loss_weight": 0.9,
+        "loss_name": "loss_l2_bounding"
+      },
+      {
+        "type": "SSIMLoss",
+        "reduction": "sum",
+        "kernel_size": 5,
+        "loss_weight": 0.1,
+        "loss_name": "loss_ssim_bounding"
+      }
+    ]
+  },
+  "official_expression_lines": {
+    "n_gpu": 13,
+    "num_sample": 14,
+    "num_worker": 15,
+    "max_cam_num": 19,
+    "frame_gap": 21,
+    "frame_gap_stage2": 22,
+    "dt": 23,
+    "lr_decay_steps": 26,
+    "lr_step_start": 27,
+    "max_epoch": 28,
+    "dataset_times": 29,
+    "render_loss_weight": 30,
+    "by_epoch": 31,
+    "step_increase_interval": 36,
+    "step_increase_magnitude": 37,
+    "step_initial": 38,
+    "max_rollout_step": 39,
+    "test_max_frame": 40,
+    "test_start_frame": 41,
+    "start_frame": 43,
+    "max_seq": 44,
+    "num_encoder_layers": 47,
+    "edge_theta": 48,
+    "selfsup_loss": 49,
+    "avg_loss": 50,
+    "render_mov_only": 53,
+    "white_bg": 74,
+    "scene_attr_name": 78,
+    "split": 79,
+    "cluster_type": 81,
+    "default_cluster_scheme": 82,
+    "default_controller_scheme": 85,
+    "default_volume_scalar": 88,
+    "fix_bug": 115,
+    "use_rotation": 116,
+    "pred_vel": 117,
+    "llffhold": 118,
+    "optimizer": 277,
+    "lr_config": 280,
+    "runner": 281,
+    "checkpoint_config": 282,
+    "evaluation": 283
+  },
+  "parameters": [
+    {
+      "parameter": "seed",
+      "value": 5,
+      "provenance": "explicit user decision",
+      "source": [
+        "tools/train.py:47,139-145",
+        "tools/deform360_adapter/smoke_dynamics_batch.py:47,60",
+        "dataset_sample_contract.json:seed_note"
+      ],
+      "note": "Same seed as previous diagnostics; not selected using test/performance; first baseline single seed; future multi-seed study separately authorized.",
+      "state": "frozen"
+    },
+    {
+      "parameter": "epochs",
+      "value": 46,
+      "provenance": "official inherited",
+      "source": [
+        "configs/SoMA/cloth_lift_stage1.py:28,281"
+      ],
+      "note": "",
+      "state": "frozen"
+    },
+    {
+      "parameter": "optimizer_steps",
+      "value": 2300,
+      "provenance": "implementation-derived",
+      "source": [
+        "mmgs/datasets/embodied_dataset.py:351-367",
+        "mmgs/datasets/dataset_wrappers.py:111-128",
+        "mmgs/datasets/builder.py:125-130"
+      ],
+      "note": "Single GPU, one scene/sequence, both cameras in one sample: 1×50/1=50 steps per epoch, ×46. Conditional planned budget, not completed training.",
+      "state": "frozen"
+    },
+    {
+      "parameter": "rollout_schedule",
+      "value": {
+        "by_epoch": true,
+        "initial": 3,
+        "increment": 3,
+        "interval_epochs": 1,
+        "configured_max": 1000,
+        "effective_sequence": [
+          3,
+          6,
+          9,
+          12,
+          15,
+          15,
+          15,
+          15,
+          15,
+          15,
+          15,
+          15,
+          15,
+          15,
+          15,
+          15,
+          15,
+          15,
+          15,
+          15,
+          15,
+          15,
+          15,
+          15,
+          15,
+          15,
+          15,
+          15,
+          15,
+          15,
+          15,
+          15,
+          15,
+          15,
+          15,
+          15,
+          15,
+          15,
+          15,
+          15,
+          15,
+          15,
+          15,
+          15,
+          15,
+          15
+        ]
+      },
+      "provenance": "official inherited + implementation-derived",
+      "source": [
+        "configs/SoMA/cloth_lift_stage1.py:35-39",
+        "mmgs/models/simulators/gs_simulator_embodied.py:584-612,640,689"
+      ],
+      "note": "No rollout=1 warmup. Commented is_est_vel branch does not run. Changing curriculum needs separate human approval; no change made.",
+      "state": "frozen"
+    },
+    {
+      "parameter": "frame_gap",
+      "value": 10,
+      "provenance": "Deform360 contract + official inherited",
+      "source": [
+        "roadmap:T6",
+        "dataset_sample_contract.json"
+      ],
+      "note": "",
+      "state": "frozen"
+    },
+    {
+      "parameter": "dt",
+      "value": {
+        "model_backbone_decoder": 0.06666666666666667,
+        "dataset_comp_dt": 0.03333333333333333,
+        "real_dt": 0.06666666666666667,
+        "gravity_scale_once": 4
+      },
+      "provenance": "Deform360 contract",
+      "source": [
+        "roadmap:T6",
+        "gravity_world_frame_contract.json",
+        "configs/SoMA/cloth_lift_stage1.py:21-23,104",
+        "mmgs/datasets/embodied_dataset.py:921-934"
+      ],
+      "note": "",
+      "state": "frozen"
+    },
+    {
+      "parameter": "optimizer",
+      "value": {
+        "type": "Adam",
+        "lr": 0.0004,
+        "betas": [
+          0.9,
+          0.999
+        ],
+        "weight_decay": 0,
+        "amsgrad": false
+      },
+      "provenance": "official inherited",
+      "source": [
+        "configs/SoMA/cloth_lift_stage1.py:277"
+      ],
+      "note": "Literal n_gpu=4 only scales LR. tools/train.py default actually selects one GPU; do not silently rescale LR to 1e-4.",
+      "state": "frozen"
+    },
+    {
+      "parameter": "scheduler",
+      "value": {
+        "policy": "Hood",
+        "by_epoch": true,
+        "decay_rate": 0.5,
+        "decay_steps": 2,
+        "step_start": 14,
+        "formula": "base_lr * (0.5 ** (max(0, zero_based_epoch - 14) // 2) + 0.01)",
+        "first_epoch_lr": 0.000404,
+        "final_epoch_lr": 4.01220703125e-06,
+        "warmup": null
+      },
+      "provenance": "official inherited + implementation-derived",
+      "source": [
+        "configs/SoMA/cloth_lift_stage1.py:280",
+        "mmgs/core/lr_updater/hooks.py:123-177"
+      ],
+      "note": "Epochs 1-16 LR=4.04e-4; first decay epoch 17=2.04e-4; not plain step-halving to zero.",
+      "state": "frozen"
+    },
+    {
+      "parameter": "batch_repetition",
+      "value": {
+        "gpus": 1,
+        "launcher": "none inside Slurm allocation",
+        "samples_per_gpu": 1,
+        "global_batch": 1,
+        "workers_per_gpu": 0,
+        "base_dataset_length": 1,
+        "repeat": 50,
+        "repeated_length": 50,
+        "shuffle": true
+      },
+      "provenance": "official inherited + implementation-derived",
+      "source": [
+        "tools/train.py:55-57,99-106",
+        "configs/SoMA/cloth_lift_stage1.py:13-15,29,187-192",
+        "mmgs/datasets/builder.py:53-63,125-139"
+      ],
+      "note": "50 visits to the same complete sequence, not 50 distinct temporal windows; no changing camera membership. Runtime phase all/train can permute aligned camera order at construction; no loader modification.",
+      "state": "frozen"
+    },
+    {
+      "parameter": "loss_weights",
+      "value": {
+        "configured": [
+          {
+            "type": "MSELoss",
+            "reduction": "sum",
+            "loss_weight": 1.0,
+            "loss_name": "loss_mse_momentum"
+          },
+          {
+            "type": "SSIMLoss",
+            "reduction": "sum",
+            "kernel_size": 5,
+            "loss_weight": 0.1,
+            "loss_name": "loss_ssim_render"
+          },
+          {
+            "type": "L2Loss",
+            "reduction": "sum",
+            "loss_weight": 0.9,
+            "loss_name": "loss_l2_render"
+          },
+          {
+            "type": "MSELoss",
+            "reduction": "sum",
+            "loss_weight": 1.0,
+            "loss_name": "loss_mse_static"
+          },
+          {
+            "type": "SpatialLoss",
+            "reduction": "sum",
+            "loss_weight": 1.0,
+            "loss_name": "loss_spatial"
+          },
+          {
+            "type": "L2Loss",
+            "reduction": "sum",
+            "loss_weight": 0.9,
+            "loss_name": "loss_l2_bounding"
+          },
+          {
+            "type": "SSIMLoss",
+            "reduction": "sum",
+            "kernel_size": 5,
+            "loss_weight": 0.1,
+            "loss_name": "loss_ssim_bounding"
+          }
+        ],
+        "active": [
+          "loss_mse_momentum:1.0",
+          "loss_l2_render:0.9",
+          "loss_ssim_render:0.1"
+        ],
+        "static": "zero placeholder; static_loss=False",
+        "inactive_configured": [
+          "loss_spatial",
+          "loss_l2_bounding",
+          "loss_ssim_bounding"
+        ],
+        "selfsup_loss": false,
+        "temporal_reduction": "mean of each loss over rollout steps; then sum active loss keys"
+      },
+      "provenance": "official inherited + Deform360 contract",
+      "source": [
+        "configs/SoMA/cloth_lift_stage1.py:149-181",
+        "mmgs/models/simulators/gs_simulator_embodied.py:325-329,721-773",
+        "mmgs/models/heads/acc_decoder.py:170-213",
+        "supervision_mask_contract.json"
+      ],
+      "note": "Full-image black-background L2/SSIM; no invented robot obstacle mask.",
+      "state": "frozen"
+    },
+    {
+      "parameter": "gradient_semantics",
+      "value": {
+        "accumulate_gradient": false,
+        "cross_step_positions": "detach prev_state and predicted cur_state between steps",
+        "cur_cov": "initial covariance retained; update lines commented",
+        "optimizer_steps_per_batch": 1,
+        "cross_batch_gradient_accumulation": false,
+        "grad_clip_max_norm": 1.0,
+        "precision": "FP32; no fp16 config"
+      },
+      "provenance": "official inherited",
+      "source": [
+        "configs/_base_/models/gs_simulator_embodied.py:27",
+        "configs/_base_/schedules/adam_hood.py:3",
+        "mmgs/models/simulators/gs_simulator_embodied.py:689-758",
+        "mmgs/apis/train.py:100-113"
+      ],
+      "note": "Step losses retain graphs until shared backward. checkpoint_rollout=20 is assigned but no call-site consuming it was found; do not claim activation checkpointing is enabled.",
+      "state": "frozen"
+    },
+    {
+      "parameter": "logging",
+      "value": {
+        "interval_iterations": 100,
+        "hook": "CusTextLoggerHook"
+      },
+      "provenance": "official inherited",
+      "source": [
+        "configs/_base_/default_runtime.py:4-8"
+      ],
+      "note": "",
+      "state": "frozen"
+    },
+    {
+      "parameter": "checkpoint",
+      "value": {
+        "runner": "EpochRunner/MMCV real checkpoint",
+        "interval_epochs": 1,
+        "max_keep_ckpts": 10000,
+        "selection": "fixed 46-epoch budget final epoch_46.pth",
+        "save_state": [
+          "model including normalizer statistics",
+          "optimizer Adam buffers",
+          "runner epoch/iter",
+          "meta/config/seed"
+        ],
+        "use_test_for_selection": false
+      },
+      "provenance": "official inherited + explicit user policy",
+      "source": [
+        "configs/SoMA/cloth_lift_stage1.py:281-282",
+        "mmgs/apis/train.py:87-95,111-113,141-148",
+        "tools/train.py:154-159",
+        "checkpoint_recovery_contract.json:final_acceptance"
+      ],
+      "note": "README epoch_15.pth is an example, not evidence of a best-checkpoint selection rule. Do not resume the diagnostic checkpoint as baseline initialization.",
+      "state": "frozen"
+    },
+    {
+      "parameter": "evaluation",
+      "value": {
+        "interval_epochs": 1,
+        "enabled_by_default": true,
+        "split": "train only local [0,155)",
+        "holdout_test_used": false,
+        "no_new_validation_split": true,
+        "path": "EvalHook -> single_gpu_test -> single_gpu_rollout",
+        "rollout_targets": [
+          123,
+          133,
+          143,
+          153,
+          163,
+          173,
+          183,
+          193,
+          203,
+          213,
+          223,
+          233,
+          243,
+          253,
+          263
+        ],
+        "eval_start_frame": -1,
+        "reported_target_source": 263,
+        "best_checkpoint_hook": false
+      },
+      "provenance": "official inherited + Deform360 contract",
+      "source": [
+        "configs/SoMA/cloth_lift_stage1.py:219-246,283",
+        "tools/train.py:166",
+        "mmgs/core/evaluation/eval_hooks.py:24-44",
+        "mmgs/apis/test.py:164-239,296-302"
+      ],
+      "note": "All 15 train transitions rolled out after each epoch; eval_start=-1 records last target only. Evaluation horizon does not follow early training curriculum.",
+      "state": "frozen"
+    },
+    {
+      "parameter": "train_test_boundary",
+      "value": {
+        "train_source": [
+          113,
+          268
+        ],
+        "train_local": [
+          0,
+          155
+        ],
+        "test_source": [
+          268,
+          307
+        ],
+        "test_local": [
+          155,
+          194
+        ],
+        "interval_convention": "half-open",
+        "stage1_sample_sources": [
+          113,
+          123,
+          133,
+          143,
+          153,
+          163,
+          173,
+          183,
+          193,
+          203,
+          213,
+          223,
+          233,
+          243,
+          253,
+          263
+        ],
+        "stage1_max_supervision_source": 263
+      },
+      "provenance": "Deform360 contract",
+      "source": [
+        "split_contract.json",
+        "dataset_sample_contract.json"
+      ],
+      "note": "Do not relabel source268 reconstructed Gaussian as an evaluation initial state; future test rollout interface remains T28+ scope.",
+      "state": "frozen"
+    },
+    {
+      "parameter": "output_path",
+      "value": {
+        "path": "/data1/userdata/tcweng/projects/tcgs/outputs/deform360/stage1/config_a_seed5/",
+        "frozen": true,
+        "collision_policy": "fresh path; no overwrite; no automatic resume"
+      },
+      "provenance": "implementation-derived",
+      "source": [
+        "AGENTS.md:Mac/server roles",
+        "tools/train.py:86-96"
+      ],
+      "note": "Server-only destination fixed by user; not created by T25.",
+      "state": "frozen"
+    }
+  ],
+  "single_gpu_inherited_budget": {
+    "epochs": 46,
+    "steps_per_epoch": 50,
+    "optimizer_steps": 2300,
+    "train_transition_predictions": 33000,
+    "training_camera_renders": 66000,
+    "not_actual_training": true,
+    "epoch_rows": [
+      {
+        "epoch_zero_based": 0,
+        "epoch_human": 1,
+        "optimizer_step_interval_one_based": [
+          1,
+          50
+        ],
+        "requested_rollout": 3,
+        "effective_rollout": 3,
+        "target_source_frames": [
+          123,
+          133,
+          143
+        ],
+        "base_lr": 0.0004,
+        "effective_lr": 0.000404
+      },
+      {
+        "epoch_zero_based": 1,
+        "epoch_human": 2,
+        "optimizer_step_interval_one_based": [
+          51,
+          100
+        ],
+        "requested_rollout": 6,
+        "effective_rollout": 6,
+        "target_source_frames": [
+          123,
+          133,
+          143,
+          153,
+          163,
+          173
+        ],
+        "base_lr": 0.0004,
+        "effective_lr": 0.000404
+      },
+      {
+        "epoch_zero_based": 2,
+        "epoch_human": 3,
+        "optimizer_step_interval_one_based": [
+          101,
+          150
+        ],
+        "requested_rollout": 9,
+        "effective_rollout": 9,
+        "target_source_frames": [
+          123,
+          133,
+          143,
+          153,
+          163,
+          173,
+          183,
+          193,
+          203
+        ],
+        "base_lr": 0.0004,
+        "effective_lr": 0.000404
+      },
+      {
+        "epoch_zero_based": 3,
+        "epoch_human": 4,
+        "optimizer_step_interval_one_based": [
+          151,
+          200
+        ],
+        "requested_rollout": 12,
+        "effective_rollout": 12,
+        "target_source_frames": [
+          123,
+          133,
+          143,
+          153,
+          163,
+          173,
+          183,
+          193,
+          203,
+          213,
+          223,
+          233
+        ],
+        "base_lr": 0.0004,
+        "effective_lr": 0.000404
+      },
+      {
+        "epoch_zero_based": 4,
+        "epoch_human": 5,
+        "optimizer_step_interval_one_based": [
+          201,
+          250
+        ],
+        "requested_rollout": 15,
+        "effective_rollout": 15,
+        "target_source_frames": [
+          123,
+          133,
+          143,
+          153,
+          163,
+          173,
+          183,
+          193,
+          203,
+          213,
+          223,
+          233,
+          243,
+          253,
+          263
+        ],
+        "base_lr": 0.0004,
+        "effective_lr": 0.000404
+      },
+      {
+        "epoch_zero_based": 5,
+        "epoch_human": 6,
+        "optimizer_step_interval_one_based": [
+          251,
+          300
+        ],
+        "requested_rollout": 18,
+        "effective_rollout": 15,
+        "target_source_frames": [
+          123,
+          133,
+          143,
+          153,
+          163,
+          173,
+          183,
+          193,
+          203,
+          213,
+          223,
+          233,
+          243,
+          253,
+          263
+        ],
+        "base_lr": 0.0004,
+        "effective_lr": 0.000404
+      },
+      {
+        "epoch_zero_based": 6,
+        "epoch_human": 7,
+        "optimizer_step_interval_one_based": [
+          301,
+          350
+        ],
+        "requested_rollout": 21,
+        "effective_rollout": 15,
+        "target_source_frames": [
+          123,
+          133,
+          143,
+          153,
+          163,
+          173,
+          183,
+          193,
+          203,
+          213,
+          223,
+          233,
+          243,
+          253,
+          263
+        ],
+        "base_lr": 0.0004,
+        "effective_lr": 0.000404
+      },
+      {
+        "epoch_zero_based": 7,
+        "epoch_human": 8,
+        "optimizer_step_interval_one_based": [
+          351,
+          400
+        ],
+        "requested_rollout": 24,
+        "effective_rollout": 15,
+        "target_source_frames": [
+          123,
+          133,
+          143,
+          153,
+          163,
+          173,
+          183,
+          193,
+          203,
+          213,
+          223,
+          233,
+          243,
+          253,
+          263
+        ],
+        "base_lr": 0.0004,
+        "effective_lr": 0.000404
+      },
+      {
+        "epoch_zero_based": 8,
+        "epoch_human": 9,
+        "optimizer_step_interval_one_based": [
+          401,
+          450
+        ],
+        "requested_rollout": 27,
+        "effective_rollout": 15,
+        "target_source_frames": [
+          123,
+          133,
+          143,
+          153,
+          163,
+          173,
+          183,
+          193,
+          203,
+          213,
+          223,
+          233,
+          243,
+          253,
+          263
+        ],
+        "base_lr": 0.0004,
+        "effective_lr": 0.000404
+      },
+      {
+        "epoch_zero_based": 9,
+        "epoch_human": 10,
+        "optimizer_step_interval_one_based": [
+          451,
+          500
+        ],
+        "requested_rollout": 30,
+        "effective_rollout": 15,
+        "target_source_frames": [
+          123,
+          133,
+          143,
+          153,
+          163,
+          173,
+          183,
+          193,
+          203,
+          213,
+          223,
+          233,
+          243,
+          253,
+          263
+        ],
+        "base_lr": 0.0004,
+        "effective_lr": 0.000404
+      },
+      {
+        "epoch_zero_based": 10,
+        "epoch_human": 11,
+        "optimizer_step_interval_one_based": [
+          501,
+          550
+        ],
+        "requested_rollout": 33,
+        "effective_rollout": 15,
+        "target_source_frames": [
+          123,
+          133,
+          143,
+          153,
+          163,
+          173,
+          183,
+          193,
+          203,
+          213,
+          223,
+          233,
+          243,
+          253,
+          263
+        ],
+        "base_lr": 0.0004,
+        "effective_lr": 0.000404
+      },
+      {
+        "epoch_zero_based": 11,
+        "epoch_human": 12,
+        "optimizer_step_interval_one_based": [
+          551,
+          600
+        ],
+        "requested_rollout": 36,
+        "effective_rollout": 15,
+        "target_source_frames": [
+          123,
+          133,
+          143,
+          153,
+          163,
+          173,
+          183,
+          193,
+          203,
+          213,
+          223,
+          233,
+          243,
+          253,
+          263
+        ],
+        "base_lr": 0.0004,
+        "effective_lr": 0.000404
+      },
+      {
+        "epoch_zero_based": 12,
+        "epoch_human": 13,
+        "optimizer_step_interval_one_based": [
+          601,
+          650
+        ],
+        "requested_rollout": 39,
+        "effective_rollout": 15,
+        "target_source_frames": [
+          123,
+          133,
+          143,
+          153,
+          163,
+          173,
+          183,
+          193,
+          203,
+          213,
+          223,
+          233,
+          243,
+          253,
+          263
+        ],
+        "base_lr": 0.0004,
+        "effective_lr": 0.000404
+      },
+      {
+        "epoch_zero_based": 13,
+        "epoch_human": 14,
+        "optimizer_step_interval_one_based": [
+          651,
+          700
+        ],
+        "requested_rollout": 42,
+        "effective_rollout": 15,
+        "target_source_frames": [
+          123,
+          133,
+          143,
+          153,
+          163,
+          173,
+          183,
+          193,
+          203,
+          213,
+          223,
+          233,
+          243,
+          253,
+          263
+        ],
+        "base_lr": 0.0004,
+        "effective_lr": 0.000404
+      },
+      {
+        "epoch_zero_based": 14,
+        "epoch_human": 15,
+        "optimizer_step_interval_one_based": [
+          701,
+          750
+        ],
+        "requested_rollout": 45,
+        "effective_rollout": 15,
+        "target_source_frames": [
+          123,
+          133,
+          143,
+          153,
+          163,
+          173,
+          183,
+          193,
+          203,
+          213,
+          223,
+          233,
+          243,
+          253,
+          263
+        ],
+        "base_lr": 0.0004,
+        "effective_lr": 0.000404
+      },
+      {
+        "epoch_zero_based": 15,
+        "epoch_human": 16,
+        "optimizer_step_interval_one_based": [
+          751,
+          800
+        ],
+        "requested_rollout": 48,
+        "effective_rollout": 15,
+        "target_source_frames": [
+          123,
+          133,
+          143,
+          153,
+          163,
+          173,
+          183,
+          193,
+          203,
+          213,
+          223,
+          233,
+          243,
+          253,
+          263
+        ],
+        "base_lr": 0.0004,
+        "effective_lr": 0.000404
+      },
+      {
+        "epoch_zero_based": 16,
+        "epoch_human": 17,
+        "optimizer_step_interval_one_based": [
+          801,
+          850
+        ],
+        "requested_rollout": 51,
+        "effective_rollout": 15,
+        "target_source_frames": [
+          123,
+          133,
+          143,
+          153,
+          163,
+          173,
+          183,
+          193,
+          203,
+          213,
+          223,
+          233,
+          243,
+          253,
+          263
+        ],
+        "base_lr": 0.0004,
+        "effective_lr": 0.00020400000000000003
+      },
+      {
+        "epoch_zero_based": 17,
+        "epoch_human": 18,
+        "optimizer_step_interval_one_based": [
+          851,
+          900
+        ],
+        "requested_rollout": 54,
+        "effective_rollout": 15,
+        "target_source_frames": [
+          123,
+          133,
+          143,
+          153,
+          163,
+          173,
+          183,
+          193,
+          203,
+          213,
+          223,
+          233,
+          243,
+          253,
+          263
+        ],
+        "base_lr": 0.0004,
+        "effective_lr": 0.00020400000000000003
+      },
+      {
+        "epoch_zero_based": 18,
+        "epoch_human": 19,
+        "optimizer_step_interval_one_based": [
+          901,
+          950
+        ],
+        "requested_rollout": 57,
+        "effective_rollout": 15,
+        "target_source_frames": [
+          123,
+          133,
+          143,
+          153,
+          163,
+          173,
+          183,
+          193,
+          203,
+          213,
+          223,
+          233,
+          243,
+          253,
+          263
+        ],
+        "base_lr": 0.0004,
+        "effective_lr": 0.00010400000000000001
+      },
+      {
+        "epoch_zero_based": 19,
+        "epoch_human": 20,
+        "optimizer_step_interval_one_based": [
+          951,
+          1000
+        ],
+        "requested_rollout": 60,
+        "effective_rollout": 15,
+        "target_source_frames": [
+          123,
+          133,
+          143,
+          153,
+          163,
+          173,
+          183,
+          193,
+          203,
+          213,
+          223,
+          233,
+          243,
+          253,
+          263
+        ],
+        "base_lr": 0.0004,
+        "effective_lr": 0.00010400000000000001
+      },
+      {
+        "epoch_zero_based": 20,
+        "epoch_human": 21,
+        "optimizer_step_interval_one_based": [
+          1001,
+          1050
+        ],
+        "requested_rollout": 63,
+        "effective_rollout": 15,
+        "target_source_frames": [
+          123,
+          133,
+          143,
+          153,
+          163,
+          173,
+          183,
+          193,
+          203,
+          213,
+          223,
+          233,
+          243,
+          253,
+          263
+        ],
+        "base_lr": 0.0004,
+        "effective_lr": 5.4000000000000005e-05
+      },
+      {
+        "epoch_zero_based": 21,
+        "epoch_human": 22,
+        "optimizer_step_interval_one_based": [
+          1051,
+          1100
+        ],
+        "requested_rollout": 66,
+        "effective_rollout": 15,
+        "target_source_frames": [
+          123,
+          133,
+          143,
+          153,
+          163,
+          173,
+          183,
+          193,
+          203,
+          213,
+          223,
+          233,
+          243,
+          253,
+          263
+        ],
+        "base_lr": 0.0004,
+        "effective_lr": 5.4000000000000005e-05
+      },
+      {
+        "epoch_zero_based": 22,
+        "epoch_human": 23,
+        "optimizer_step_interval_one_based": [
+          1101,
+          1150
+        ],
+        "requested_rollout": 69,
+        "effective_rollout": 15,
+        "target_source_frames": [
+          123,
+          133,
+          143,
+          153,
+          163,
+          173,
+          183,
+          193,
+          203,
+          213,
+          223,
+          233,
+          243,
+          253,
+          263
+        ],
+        "base_lr": 0.0004,
+        "effective_lr": 2.9e-05
+      },
+      {
+        "epoch_zero_based": 23,
+        "epoch_human": 24,
+        "optimizer_step_interval_one_based": [
+          1151,
+          1200
+        ],
+        "requested_rollout": 72,
+        "effective_rollout": 15,
+        "target_source_frames": [
+          123,
+          133,
+          143,
+          153,
+          163,
+          173,
+          183,
+          193,
+          203,
+          213,
+          223,
+          233,
+          243,
+          253,
+          263
+        ],
+        "base_lr": 0.0004,
+        "effective_lr": 2.9e-05
+      },
+      {
+        "epoch_zero_based": 24,
+        "epoch_human": 25,
+        "optimizer_step_interval_one_based": [
+          1201,
+          1250
+        ],
+        "requested_rollout": 75,
+        "effective_rollout": 15,
+        "target_source_frames": [
+          123,
+          133,
+          143,
+          153,
+          163,
+          173,
+          183,
+          193,
+          203,
+          213,
+          223,
+          233,
+          243,
+          253,
+          263
+        ],
+        "base_lr": 0.0004,
+        "effective_lr": 1.65e-05
+      },
+      {
+        "epoch_zero_based": 25,
+        "epoch_human": 26,
+        "optimizer_step_interval_one_based": [
+          1251,
+          1300
+        ],
+        "requested_rollout": 78,
+        "effective_rollout": 15,
+        "target_source_frames": [
+          123,
+          133,
+          143,
+          153,
+          163,
+          173,
+          183,
+          193,
+          203,
+          213,
+          223,
+          233,
+          243,
+          253,
+          263
+        ],
+        "base_lr": 0.0004,
+        "effective_lr": 1.65e-05
+      },
+      {
+        "epoch_zero_based": 26,
+        "epoch_human": 27,
+        "optimizer_step_interval_one_based": [
+          1301,
+          1350
+        ],
+        "requested_rollout": 81,
+        "effective_rollout": 15,
+        "target_source_frames": [
+          123,
+          133,
+          143,
+          153,
+          163,
+          173,
+          183,
+          193,
+          203,
+          213,
+          223,
+          233,
+          243,
+          253,
+          263
+        ],
+        "base_lr": 0.0004,
+        "effective_lr": 1.0250000000000002e-05
+      },
+      {
+        "epoch_zero_based": 27,
+        "epoch_human": 28,
+        "optimizer_step_interval_one_based": [
+          1351,
+          1400
+        ],
+        "requested_rollout": 84,
+        "effective_rollout": 15,
+        "target_source_frames": [
+          123,
+          133,
+          143,
+          153,
+          163,
+          173,
+          183,
+          193,
+          203,
+          213,
+          223,
+          233,
+          243,
+          253,
+          263
+        ],
+        "base_lr": 0.0004,
+        "effective_lr": 1.0250000000000002e-05
+      },
+      {
+        "epoch_zero_based": 28,
+        "epoch_human": 29,
+        "optimizer_step_interval_one_based": [
+          1401,
+          1450
+        ],
+        "requested_rollout": 87,
+        "effective_rollout": 15,
+        "target_source_frames": [
+          123,
+          133,
+          143,
+          153,
+          163,
+          173,
+          183,
+          193,
+          203,
+          213,
+          223,
+          233,
+          243,
+          253,
+          263
+        ],
+        "base_lr": 0.0004,
+        "effective_lr": 7.125000000000001e-06
+      },
+      {
+        "epoch_zero_based": 29,
+        "epoch_human": 30,
+        "optimizer_step_interval_one_based": [
+          1451,
+          1500
+        ],
+        "requested_rollout": 90,
+        "effective_rollout": 15,
+        "target_source_frames": [
+          123,
+          133,
+          143,
+          153,
+          163,
+          173,
+          183,
+          193,
+          203,
+          213,
+          223,
+          233,
+          243,
+          253,
+          263
+        ],
+        "base_lr": 0.0004,
+        "effective_lr": 7.125000000000001e-06
+      },
+      {
+        "epoch_zero_based": 30,
+        "epoch_human": 31,
+        "optimizer_step_interval_one_based": [
+          1501,
+          1550
+        ],
+        "requested_rollout": 93,
+        "effective_rollout": 15,
+        "target_source_frames": [
+          123,
+          133,
+          143,
+          153,
+          163,
+          173,
+          183,
+          193,
+          203,
+          213,
+          223,
+          233,
+          243,
+          253,
+          263
+        ],
+        "base_lr": 0.0004,
+        "effective_lr": 5.5625000000000005e-06
+      },
+      {
+        "epoch_zero_based": 31,
+        "epoch_human": 32,
+        "optimizer_step_interval_one_based": [
+          1551,
+          1600
+        ],
+        "requested_rollout": 96,
+        "effective_rollout": 15,
+        "target_source_frames": [
+          123,
+          133,
+          143,
+          153,
+          163,
+          173,
+          183,
+          193,
+          203,
+          213,
+          223,
+          233,
+          243,
+          253,
+          263
+        ],
+        "base_lr": 0.0004,
+        "effective_lr": 5.5625000000000005e-06
+      },
+      {
+        "epoch_zero_based": 32,
+        "epoch_human": 33,
+        "optimizer_step_interval_one_based": [
+          1601,
+          1650
+        ],
+        "requested_rollout": 99,
+        "effective_rollout": 15,
+        "target_source_frames": [
+          123,
+          133,
+          143,
+          153,
+          163,
+          173,
+          183,
+          193,
+          203,
+          213,
+          223,
+          233,
+          243,
+          253,
+          263
+        ],
+        "base_lr": 0.0004,
+        "effective_lr": 4.78125e-06
+      },
+      {
+        "epoch_zero_based": 33,
+        "epoch_human": 34,
+        "optimizer_step_interval_one_based": [
+          1651,
+          1700
+        ],
+        "requested_rollout": 102,
+        "effective_rollout": 15,
+        "target_source_frames": [
+          123,
+          133,
+          143,
+          153,
+          163,
+          173,
+          183,
+          193,
+          203,
+          213,
+          223,
+          233,
+          243,
+          253,
+          263
+        ],
+        "base_lr": 0.0004,
+        "effective_lr": 4.78125e-06
+      },
+      {
+        "epoch_zero_based": 34,
+        "epoch_human": 35,
+        "optimizer_step_interval_one_based": [
+          1701,
+          1750
+        ],
+        "requested_rollout": 105,
+        "effective_rollout": 15,
+        "target_source_frames": [
+          123,
+          133,
+          143,
+          153,
+          163,
+          173,
+          183,
+          193,
+          203,
+          213,
+          223,
+          233,
+          243,
+          253,
+          263
+        ],
+        "base_lr": 0.0004,
+        "effective_lr": 4.390625e-06
+      },
+      {
+        "epoch_zero_based": 35,
+        "epoch_human": 36,
+        "optimizer_step_interval_one_based": [
+          1751,
+          1800
+        ],
+        "requested_rollout": 108,
+        "effective_rollout": 15,
+        "target_source_frames": [
+          123,
+          133,
+          143,
+          153,
+          163,
+          173,
+          183,
+          193,
+          203,
+          213,
+          223,
+          233,
+          243,
+          253,
+          263
+        ],
+        "base_lr": 0.0004,
+        "effective_lr": 4.390625e-06
+      },
+      {
+        "epoch_zero_based": 36,
+        "epoch_human": 37,
+        "optimizer_step_interval_one_based": [
+          1801,
+          1850
+        ],
+        "requested_rollout": 111,
+        "effective_rollout": 15,
+        "target_source_frames": [
+          123,
+          133,
+          143,
+          153,
+          163,
+          173,
+          183,
+          193,
+          203,
+          213,
+          223,
+          233,
+          243,
+          253,
+          263
+        ],
+        "base_lr": 0.0004,
+        "effective_lr": 4.1953125e-06
+      },
+      {
+        "epoch_zero_based": 37,
+        "epoch_human": 38,
+        "optimizer_step_interval_one_based": [
+          1851,
+          1900
+        ],
+        "requested_rollout": 114,
+        "effective_rollout": 15,
+        "target_source_frames": [
+          123,
+          133,
+          143,
+          153,
+          163,
+          173,
+          183,
+          193,
+          203,
+          213,
+          223,
+          233,
+          243,
+          253,
+          263
+        ],
+        "base_lr": 0.0004,
+        "effective_lr": 4.1953125e-06
+      },
+      {
+        "epoch_zero_based": 38,
+        "epoch_human": 39,
+        "optimizer_step_interval_one_based": [
+          1901,
+          1950
+        ],
+        "requested_rollout": 117,
+        "effective_rollout": 15,
+        "target_source_frames": [
+          123,
+          133,
+          143,
+          153,
+          163,
+          173,
+          183,
+          193,
+          203,
+          213,
+          223,
+          233,
+          243,
+          253,
+          263
+        ],
+        "base_lr": 0.0004,
+        "effective_lr": 4.09765625e-06
+      },
+      {
+        "epoch_zero_based": 39,
+        "epoch_human": 40,
+        "optimizer_step_interval_one_based": [
+          1951,
+          2000
+        ],
+        "requested_rollout": 120,
+        "effective_rollout": 15,
+        "target_source_frames": [
+          123,
+          133,
+          143,
+          153,
+          163,
+          173,
+          183,
+          193,
+          203,
+          213,
+          223,
+          233,
+          243,
+          253,
+          263
+        ],
+        "base_lr": 0.0004,
+        "effective_lr": 4.09765625e-06
+      },
+      {
+        "epoch_zero_based": 40,
+        "epoch_human": 41,
+        "optimizer_step_interval_one_based": [
+          2001,
+          2050
+        ],
+        "requested_rollout": 123,
+        "effective_rollout": 15,
+        "target_source_frames": [
+          123,
+          133,
+          143,
+          153,
+          163,
+          173,
+          183,
+          193,
+          203,
+          213,
+          223,
+          233,
+          243,
+          253,
+          263
+        ],
+        "base_lr": 0.0004,
+        "effective_lr": 4.048828125e-06
+      },
+      {
+        "epoch_zero_based": 41,
+        "epoch_human": 42,
+        "optimizer_step_interval_one_based": [
+          2051,
+          2100
+        ],
+        "requested_rollout": 126,
+        "effective_rollout": 15,
+        "target_source_frames": [
+          123,
+          133,
+          143,
+          153,
+          163,
+          173,
+          183,
+          193,
+          203,
+          213,
+          223,
+          233,
+          243,
+          253,
+          263
+        ],
+        "base_lr": 0.0004,
+        "effective_lr": 4.048828125e-06
+      },
+      {
+        "epoch_zero_based": 42,
+        "epoch_human": 43,
+        "optimizer_step_interval_one_based": [
+          2101,
+          2150
+        ],
+        "requested_rollout": 129,
+        "effective_rollout": 15,
+        "target_source_frames": [
+          123,
+          133,
+          143,
+          153,
+          163,
+          173,
+          183,
+          193,
+          203,
+          213,
+          223,
+          233,
+          243,
+          253,
+          263
+        ],
+        "base_lr": 0.0004,
+        "effective_lr": 4.0244140625000005e-06
+      },
+      {
+        "epoch_zero_based": 43,
+        "epoch_human": 44,
+        "optimizer_step_interval_one_based": [
+          2151,
+          2200
+        ],
+        "requested_rollout": 132,
+        "effective_rollout": 15,
+        "target_source_frames": [
+          123,
+          133,
+          143,
+          153,
+          163,
+          173,
+          183,
+          193,
+          203,
+          213,
+          223,
+          233,
+          243,
+          253,
+          263
+        ],
+        "base_lr": 0.0004,
+        "effective_lr": 4.0244140625000005e-06
+      },
+      {
+        "epoch_zero_based": 44,
+        "epoch_human": 45,
+        "optimizer_step_interval_one_based": [
+          2201,
+          2250
+        ],
+        "requested_rollout": 135,
+        "effective_rollout": 15,
+        "target_source_frames": [
+          123,
+          133,
+          143,
+          153,
+          163,
+          173,
+          183,
+          193,
+          203,
+          213,
+          223,
+          233,
+          243,
+          253,
+          263
+        ],
+        "base_lr": 0.0004,
+        "effective_lr": 4.01220703125e-06
+      },
+      {
+        "epoch_zero_based": 45,
+        "epoch_human": 46,
+        "optimizer_step_interval_one_based": [
+          2251,
+          2300
+        ],
+        "requested_rollout": 138,
+        "effective_rollout": 15,
+        "target_source_frames": [
+          123,
+          133,
+          143,
+          153,
+          163,
+          173,
+          183,
+          193,
+          203,
+          213,
+          223,
+          233,
+          243,
+          253,
+          263
+        ],
+        "base_lr": 0.0004,
+        "effective_lr": 4.01220703125e-06
+      }
+    ]
+  },
+  "blocking_decisions": [],
+  "rollout_risk": {
+    "official_start": 3,
+    "rollout1_warmup_present": false,
+    "historical_nonfinite": "T24 random-init rollout3 failure retained",
+    "policy": "Official 3,+3/epoch is a sourced candidate, not a new unsupported choice. A rollout1 warmup or lower cap is not approved by this audit; changing it would require a separate exact schedule from user. No such change is made.",
+    "no_claim_of_stability": true
+  },
+  "checkpoint_policy": {
+    "T24": "PASS — checkpoint state recovery",
+    "T24_5": "PARTIALLY_ATTRIBUTED / non-gating",
+    "numeric_reproducibility_is_training_gate": false,
+    "reopen_trigger": "systematic loss/metric trajectory discontinuity after resume"
+  },
+  "provenance": {
+    "source_files": {
+      "configs/SoMA/cloth_lift_stage1.py": {
+        "sha256": "e97ca667c997cdd30a03801d7048baa5384d9744ce7abc12d0fb946e029c150d",
+        "unchanged_from_upstream_8e8772a": true
+      },
+      "configs/_base_/datasets/gs_soma_dataloader.py": {
+        "sha256": "38661ea295a9910be75183bacd41df8425bfc0e3a94a37d9e4a4a3312a6ac240",
+        "unchanged_from_upstream_8e8772a": true
+      },
+      "configs/_base_/models/gs_simulator_embodied.py": {
+        "sha256": "fd9aa98d469c9c39b63e7cb53b727ab7878de755f4daeb868cd5db1aaf8f166f",
+        "unchanged_from_upstream_8e8772a": true
+      },
+      "configs/_base_/schedules/adam_hood.py": {
+        "sha256": "8f7ab211e6bd8739f385dd7855f4b3f848bf662404e0a96352b6c049e3325367",
+        "unchanged_from_upstream_8e8772a": true
+      },
+      "configs/_base_/default_runtime.py": {
+        "sha256": "02d3848ce21d42415d8ce24063a0929ec2dd280681f67e77926828d5afbc3220",
+        "unchanged_from_upstream_8e8772a": true
+      },
+      "tools/train.py": {
+        "sha256": "50ed1ba59f933d395ae027490d52638060d45370591d972a51846d6c42677d48",
+        "unchanged_from_upstream_8e8772a": true
+      },
+      "mmgs/apis/train.py": {
+        "sha256": "2761c794a5ccf64c3d5d6f852163dd84b33524f40a67d80fa6908b81e0d9b009",
+        "unchanged_from_upstream_8e8772a": true
+      },
+      "mmgs/apis/test.py": {
+        "sha256": "ea079052ada9832a24bb47e34cebeef3910967022b1f9ec3436582f6a5f41048",
+        "unchanged_from_upstream_8e8772a": true
+      },
+      "mmgs/models/simulators/gs_simulator_embodied.py": {
+        "sha256": "30658653e7205df17bc80f40a324de7180c8000b65c2d76dfb91d962a0cc89cc",
+        "unchanged_from_upstream_8e8772a": true
+      },
+      "mmgs/models/simulators/base.py": {
+        "sha256": "06dfbcb1f6b1aa7980ec48e2db69ae7f4ef388327072709ad9ae3a7176f6dd91",
+        "unchanged_from_upstream_8e8772a": true
+      },
+      "mmgs/models/heads/acc_decoder.py": {
+        "sha256": "22816b7f8a3ca487ecb07f6361ab0671fb4f69313634d3b2ec7be77bd5d558fd",
+        "unchanged_from_upstream_8e8772a": true
+      },
+      "mmgs/core/runner/epoch_runner.py": {
+        "sha256": "51eaff29b6bd4b51139fd346abbd216fedc51ea2fd079489ed48352de5d6ac89",
+        "unchanged_from_upstream_8e8772a": true
+      },
+      "mmgs/core/lr_updater/hooks.py": {
+        "sha256": "035253b63f4660bbcf6321085774ce7eddcc97b2e4c7744de6829a41eb3daf6e",
+        "unchanged_from_upstream_8e8772a": true
+      },
+      "mmgs/core/evaluation/eval_hooks.py": {
+        "sha256": "d14d0de87e28fef38e485ad221b0cc6d95b01e08ba64e91ba41b1baf31eca9d0",
+        "unchanged_from_upstream_8e8772a": true
+      },
+      "mmgs/datasets/embodied_dataset.py": {
+        "sha256": "ed74d81ca80e051491aa9045b83ab9caa5f7f3e7b44a8ec6f82026e5359f7858",
+        "unchanged_from_upstream_8e8772a": true
+      },
+      "mmgs/datasets/dataset_wrappers.py": {
+        "sha256": "ddf87b704cbf831608e62fb24f833db6483be989b7c9c246dacc4ba241d33bb9",
+        "unchanged_from_upstream_8e8772a": true
+      },
+      "mmgs/datasets/builder.py": {
+        "sha256": "5312390d71c704fb92d1885414ca5048ef07efbce0c1c7ad375028e825ec10f1",
+        "unchanged_from_upstream_8e8772a": true
+      }
+    },
+    "input_contract_hashes": {
+      "frame_manifest.json": "d48338cf7a606b1ee4bc2e5a560b5a53c017efdc9880a1db282a8494b1b013db",
+      "split_contract.json": "fd1370b2202836c2c8be2589955bca33bbe88e38a067fb00bb937e48500debd1",
+      "camera_config_2cam.json": "c4cce05912007b6213ba1ad458ee3e7d5b8d2a02dc576f1de60b7704db997e5f",
+      "camera_extrinsics_contract.json": "eb9fc54cb1a029eeb1e502f6c4965dda2edf856d29e3c5ca8b86db4e196626dd",
+      "camera_intrinsics_contract.json": "3f4c3bbec096eb3ffb7dc3ee7928d68b464241bc9c383327dfc090ca9b393b97",
+      "controller_geometry_config.json": "0be8b35dbd22d82b41f5f3b3d2ef1582e60140ac6d4d8c9517f285c41cad202c",
+      "controller_trajectory_contract.json": "96e73b1c0a2573e33a32f675b899c147e32c0f00b9d228a16034e4608a65d32d",
+      "controller_grouping_contract.json": "975f93cb92fd638d5fe9eda94a7581e5aae5887813984e3982991297246f5645",
+      "gravity_world_frame_contract.json": "e471f15cc562628608f711a5233d32186927d79eac5a68872eaaa40dbe45cd3d",
+      "rgb_export_contract.json": "e73cab0c621a144d60d4c8acda2c96cad3538764da2e52e53d268896ee1b6b30",
+      "mask_export_contract.json": "7a942fafbd53e36a3085ea2fe3b61329e840806f940de800a12e256e0077a577",
+      "supervision_mask_contract.json": "fc5d58a863c24a0082f54f8c600ec33dca09dc29ce30803a4a267a99eb1fdf83",
+      "scene_package_contract.json": "dbcbe6d84426675e536e3cc996753047e3a71015f8c279b33c5316cc6ee36e11",
+      "dataset_sample_contract.json": "eee80b09a90a5e1b8e56183ec38fafe738178144a58d2f965674440198d441bf",
+      "checkpoint_recovery_contract.json": "22a495f4db4f414dac121eb58760f6115c9bacb34bf6dd4776d49d0262812a3d",
+      "numerical_first_divergence_contract.json": "cbf48998e3537e7f2ac0dcb495b07a769e4e124c5f4d5bedf55e56caec95dd91"
+    },
+    "local_environment_record": {
+      "file": "../environment/soma-stage1-20260923/config-summary.json",
+      "sha256": "01fe01eb3301a8513c344066c55a92acd8d634ca236bf54d15bdafcb115bbe9e",
+      "role": "secondary historical expansion corroboration, not current server read"
+    },
+    "remote_read_attempt": "SSH closed by 10.157.195.126 port 22; no remote source/config freshness claim; no remote changes"
+  },
+  "validation": {
+    "ast_evaluated_scalar_training_expressions_only": true,
+    "all_sources_unchanged_from_upstream": true,
+    "source_target_upper_bound": 263,
+    "test_leakage_in_proposed_train_val": false,
+    "no_training": true,
+    "full_mmcv_config_instantiation": false,
+    "static_full_config_expansion": true,
+    "model_overrides_equal_official_except_scene_cluster_controller": true,
+    "all_input_contract_hashes_verified": true,
+    "all_source_hashes_verified": true,
+    "training_not_started_by_T25": true
+  },
+  "differences_from_official": [
+    {
+      "field": "scene/data/initial Gaussian",
+      "official": "left_lift_1; data_soma_sample/cloth_lift; source/rest frame 0 SH0",
+      "d360": "T17 config_a_2cam, source113/local0 SH0, N=12861; shared canonical server-only assets",
+      "provenance": "Deform360 contract T2/T4/T17"
+    },
+    {
+      "field": "camera geometry/resolution",
+      "official": "3 sample cameras; actual embodied WH from calibration, not inherited resolution literal alone",
+      "d360": "023_cam0 then009_cam1; WH=[640,360], env resolution=[360,640]; T8/T9 calibration",
+      "provenance": "Deform360 contract T7-T9/T17/T19"
+    },
+    {
+      "field": "splits/sampling",
+      "official": "local [0,150) for train, val and test; 0,10,...,140 =15 states/14 transitions",
+      "d360": "train+train-only val local [0,155), source113...263 =16 states/15 transitions; holdout local[155,194) source[268,307) remains separate and not read for training/selection",
+      "provenance": "Deform360 contract T4/T5/T19"
+    },
+    {
+      "field": "controller",
+      "official": "sample controller trajectory; first grouping uses downsample_rate0.5",
+      "d360": "T11 candidate_7mm trajectory, same30 point IDs; T12 30→10→2→1 via num_cluster10 first layer",
+      "provenance": "Deform360 contract T10-T12"
+    },
+    {
+      "field": "gravity rotation",
+      "official": "read sample gravity_rot_quat and inverse rotate scaled gravity",
+      "d360": "identity quaternion; raw[0,0,-9.8], external[0,0,-39.2] once; +Z up is engineering convention",
+      "provenance": "Deform360 contract T6/T13"
+    },
+    {
+      "field": "supervision roles",
+      "official": "object cloth; obstacle hand/robotic arm",
+      "d360": "object cloth; obstacle=[]; empty obstacle tensors; bounding_box=None gives full image; T14/T15 assets referenced",
+      "provenance": "Deform360 contract T14-T17"
+    },
+    {
+      "field": "effective rollout horizon",
+      "official": "min(3+3e,1000,14)",
+      "d360": "min(3+3e,1000,15); same requested curriculum, data-derived longer horizon",
+      "provenance": "implementation-derived"
+    },
+    {
+      "field": "checkpoint selection",
+      "official": "periodic checkpoints; README epoch15 example, no implemented best selector",
+      "d360": "fixed budget final epoch46; no test metric selection",
+      "provenance": "explicit current user policy"
+    },
+    {
+      "field": "seed",
+      "official": "None via CLI default",
+      "d360": "unresolved; diagnostic5 is a candidate only",
+      "provenance": "requires user decision"
+    },
+    {
+      "field": "output directory",
+      "official": "CLI --work_dir or ./work_dirs/<config stem>",
+      "d360": "server outputs/deform360/stage1/config_a_seed<approved_seed>/ template, not created",
+      "provenance": "implementation-derived"
+    },
+    {
+      "item": "formal training seed",
+      "official": null,
+      "deform360": 5,
+      "provenance": "2026-09-26 explicit user approval"
+    }
+  ],
+  "unchanged_parameters": [
+    "46epochs/50repeat/1sample_per_gpu/0workers",
+    "literal base LR4e-4 and Adam/betas/weight_decay/amsgrad",
+    "Hood scheduler +0.01 semantics",
+    "official rollout initial3/+3 per epoch/max1000",
+    "frame_gap10 and dt conventions",
+    "backbone/encoder architecture, graph radii, object cluster rates, volume_scalar512, rope attribute label",
+    "loss weights, black background, avg_loss=True, detach and cur_cov semantics",
+    "log interval100, epoch checkpoint/val interval1",
+    "load_from=None/resume_from=None, flag_save_gaussian=False, FP32"
+  ],
+  "history": [
+    {
+      "date": "2026-09-26",
+      "status": "BLOCKED",
+      "frozen": false,
+      "reason": "Formal baseline seed not yet approved",
+      "blocking_decisions": [
+        {
+          "parameter": "baseline_training_seed",
+          "options": [
+            {
+              "value": 5,
+              "basis": "Reuse diagnostic seed in T19/T20-T24.5; user must approve promotion to training protocol."
+            },
+            {
+              "value": "user-specified fixed integer",
+              "basis": "New explicit research decision; record in CLI/config/meta."
+            }
+          ],
+          "why_blocked": "Official config/README has no fixed seed; train.py defaults None and overwrites cfg.seed with CLI args.seed. Existing seed=5 evidence explicitly concerns smoke/diagnostic runs, not a frozen baseline protocol. A reproducible seed cannot be fabricated.",
+          "needed": "Confirm one fixed training seed; pass it through --seed, not only config.seed."
+        }
+      ],
+      "candidate_config": {
+        "requested_path": "configs/SoMA/deform360_v0_stage1.py",
+        "exists": false,
+        "other_deform360_configs": [],
+        "existing_basis": [
+          "tools/deform360_adapter/smoke_dynamics_batch.py",
+          "tools/deform360_adapter/check_dataset_sample.py",
+          "dataset_sample_contract.json"
+        ],
+        "runnable_config_created": false
+      },
+      "validation": {
+        "ast_evaluated_scalar_training_expressions_only": true,
+        "all_sources_unchanged_from_upstream": true,
+        "source_target_upper_bound": 263,
+        "test_leakage_in_proposed_train_val": false,
+        "no_training": true,
+        "full_mmcv_config_instantiation": false
+      }
+    }
+  ],
+  "user_approval": {
+    "date": "2026-09-26",
+    "seed": 5,
+    "reason": "Same seed as previous diagnostics; not selected using test/performance; first baseline single seed; future multi-seed study separately authorized.",
+    "official_schedule_preserved": "Random initialization starts rollout=3; no rollout=1 warm-up or preemptive OOM mitigation."
+  },
+  "frozen_config": {
+    "path": "configs/SoMA/deform360_v0_stage1.py",
+    "sha256": "e65d1c7848bd222f55c0e18050c464eec5922aef76c1bc62a06813359cca4930",
+    "full_mmcv_validation": "pending server CPU preflight; no model/dataset instantiated in T25"
+  }
+}

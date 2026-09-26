@@ -27,10 +27,10 @@ Deform360 HEAD:
 d8522a4403b766aeb387510c04e89032a56fdf35
 
 Current task:
-T24.5
+T25
 
 Current status:
-PARTIALLY_ATTRIBUTED
+PASS
 ```
 
 以上 HEAD 为本 roadmap 建立时的源码基线。T0–T11 已 PASS，具体结论及证据保留于各项历史 Result / Evidence。T11 checkpoint 已提交并推送；T12 已按人工确认采用 30→10→2→1 grouping contract 并验证 PASS；此前默认分组 FAIL 历史保留，不进入 T13。
@@ -155,7 +155,7 @@ tcgs root Git 仅用于 workspace-level 资产。除非明确说明，不在 tcg
 | T23 | 只验证 rollout=3 | PASS |
 | T24 | 验证 checkpoint 保存与恢复 | PASS |
 | T24.5 | 数值重复性 first-divergence audit（Non-gating） | PARTIALLY_ATTRIBUTED |
-| T25 | 冻结首个 baseline 的运行协议 | TODO |
+| T25 | 冻结首个 baseline 的运行协议 | PASS |
 | T26 | 执行约定预算的 Stage 1 训练 | TODO |
 | T27 | 只生成并核验 Stage-1 cache | TODO |
 | T28 | 只串联一个 Stage 2 子窗口 | TODO |
@@ -1734,7 +1734,7 @@ Fine 同对象 `M0_first vs M0_repeat`：最后 exact 为 `native_spmm.external.
 
 ### T25：冻结首个 baseline 的运行协议
 
-Status: TODO
+Status: PASS
 
 **问题：** smoke PASS 后，训练预算与评价方式还未固定。
 
@@ -1761,11 +1761,26 @@ Status: TODO
 
 #### Result
 
-Not executed.
+2026-09-26：BLOCKED（正式 baseline training seed 尚无固定约定）。官方 `tools/train.py` 的 `--seed` 默认 None，README/cloth_lift config 未给固定值；T19/T20–T24.5 的 seed=5 是诊断设置，不自动升级为正式训练协议。候选为明确批准沿用 5，或由用户指定另一个固定整数；必须通过 CLI `--seed` 传入，不能只写 config.seed（入口会被 args.seed 覆盖）。
+
+除 seed 外，各关键参数已追溯并形成未冻结候选：官方 46 epochs、RepeatDataset=50、单GPU batch=1，对 Config A 原始 len=1 推导 50 steps/epoch、2300 optimizer steps；官方 requested rollout 从3开始，每epoch+3、max=1000，16个sample frames将实际长度截为3/6/9/12/15，epoch5起保持15。没有rollout1 warm-up，random-init首步即rollout3的已知nonfinite风险明确记录，未擅自改schedule或cap。
+
+Adam base LR=4e-4，betas=.9/.999、weight_decay=0、amsgrad=False；Hood按zero-based epoch e执行 `4e-4*(0.5**(max(0,e-14)//2)+.01)`，首epoch实际4.04e-4。frame_gap=10、model.dt/real_dt=1/15、dataset.dt=1/30、gravity×4一次；active momentum/L2-render/SSIM-render权重1/.9/.1，avg_loss=True，detach位置且无跨batch梯度累积，grad_clip max_norm=1。官方grad/optimizer/runner语义保留。
+
+候选checkpoint策略为真实runner每epoch保存、固定46epoch预算后的epoch_46.pth，不依据test选择；默认每epoch做train-only validation，实际rollout15步并记录末帧source263 metric。train监督仅source123…263（gap10），不接触source≥268。initial始终source113 SH0，controller7mm和30→10→2→1不变，不从T24诊断checkpoint起训、不注入future PLY。
+
+本地不存在 `configs/SoMA/deform360_v0_stage1.py`，现有只有smoke harness。本次新增的是 `frozen=false` 的协议审计，未创建可执行或已冻结配置。未运行CUDA、dataset/model实例化或训练。T24 PASS、T24.5 non-gating PARTIALLY_ATTRIBUTED及全部历史保持不变；BLOCKED只因训练seed决策，不因数值重复性。未执行T26–T28。
+
+2026-09-26 最终：**PASS — Stage-1 protocol frozen**。用户批准正式 seed=5（沿用诊断、非 test/performance 选择）；解决唯一未决项，保留以上初次 BLOCKED 审计历史。46 epochs / 2300 optimizer steps，rollout=3→6→9→12→15 后保持15（configured max1000），无 rollout1 warm-up；frame_gap10；dt/real_dt1/15、comp_dt1/30；Adam baseLR4e-4、Hood原实现、batch1/repeat50、loss1/.9/.1、位置detach、无跨batch累积、clip1；每epoch checkpoint，固定 final epoch_46.pth。输出 `outputs/deform360/stage1/config_a_seed5/`，train-only evaluation，不使用test选checkpoint，不从T24 checkpoint起训。新增可执行Config A与冻结contract；未修改模型/dataset/loss，不执行训练作为T25验证。
 
 #### Evidence
 
-Not executed.
+- [T25完整静态审计](t25-stage1-protocol-audit.md)、[stage1_protocol_audit.json](contracts/008-pink-cloth/episode_0/stage1_protocol_audit.json)：参数provenance、官方与Deform360全部接口差异、46个epoch的LR/rollout/targets、seed决策项与源码/输入hash。
+- 官方依据：`configs/SoMA/cloth_lift_stage1.py:13–39,173–181,277–283`；`mmgs/models/simulators/gs_simulator_embodied.py:584–612,638–758`；`mmgs/core/lr_updater/hooks.py:123–177`；`tools/train.py:47,86–106,139–145`。17个审计核心源码/config均等于官方基线8e8772a，未修改。
+- 进入T25前按明确授权删除唯一未跟踪ZIP，未移动/计算hash；SoMA branch=deform360-adaptation、HEAD=7f0fa94116aa60cef3b333092b45e3a4ffdbefda、ahead/behind=0/0、working tree clean。可选SSH只读查询返回Connection closed，未同步或更改服务器；本次使用已提交本地源码/contracts。
+- 本次修改仅roadmap T25/顶部状态，新审计文档和JSON尚未tracked；所属SoMA/deform360-adaptation，未commit/push，后续Git同步待授权。T26起正文保持原样。
+
+- 最终冻结：[stage1_protocol_contract.json](contracts/008-pink-cloth/episode_0/stage1_protocol_contract.json)、[Config A Stage-1 config](../../configs/SoMA/deform360_v0_stage1.py)；静态展开核验通过，源文件与输入contract hashes一致。属于SoMA/deform360-adaptation；本轮按授权提交T25后才可开始T26。
 
 ### T26：执行约定预算的 Stage 1 训练
 
