@@ -1,0 +1,134 @@
+{
+  "pid": 147486,
+  "patch_sha256": "f78712dd0760fcf16a58431d7fdfd240a2e38cba89c400b405df93798f364220",
+  "CUDA": false,
+  "input_evidence_sha256": "ad9d7a0e74f847e70a0284f27c24624155c5549914c9d9d60cbac3b817969b88",
+  "status": "PASS",
+  "cases": [
+    {
+      "name": "real_9x3",
+      "mean": [
+        [
+          0.32278336418999565,
+          0.44031087557474774,
+          -39.201652103000214
+        ]
+      ],
+      "variance": [
+        [
+          0.3646618506923398,
+          0.6785578350229033,
+          9.44371277000755e-06
+        ]
+      ],
+      "reference_variance": [
+        [
+          0.3646618506923398,
+          0.6785578350229033,
+          9.443712590354275e-06
+        ]
+      ],
+      "std": [
+        [
+          0.6038723794746202,
+          0.8237462200355783,
+          0.0030730624123753614
+        ]
+      ],
+      "output_absmax": 1.8708287477493286,
+      "output_dtype": "torch.float32",
+      "split_count_equal": true,
+      "split_update_count": [
+        1,
+        3
+      ],
+      "eval_frozen": true,
+      "no_grad_still_updates": true
+    },
+    {
+      "name": "synthetic",
+      "mean": [
+        [
+          -39.20370101928711
+        ]
+      ],
+      "variance": [
+        [
+          1.3691897038370371e-05
+        ]
+      ],
+      "reference_variance": [
+        [
+          1.3691897038370371e-05
+        ]
+      ],
+      "std": [
+        [
+          0.00370025634765625
+        ]
+      ],
+      "output_absmax": 1.0,
+      "output_dtype": "torch.float32",
+      "split_count_equal": true,
+      "split_update_count": [
+        1,
+        3
+      ],
+      "eval_frozen": true,
+      "no_grad_still_updates": true
+    },
+    {
+      "name": "constant",
+      "mean": [
+        [
+          -39.20000076293945,
+          -39.20000076293945,
+          -39.20000076293945
+        ]
+      ],
+      "variance": [
+        [
+          0.0,
+          0.0,
+          0.0
+        ]
+      ],
+      "reference_variance": [
+        [
+          0.0,
+          0.0,
+          0.0
+        ]
+      ],
+      "std": [
+        [
+          9.99999993922529e-09,
+          9.99999993922529e-09,
+          9.99999993922529e-09
+        ]
+      ],
+      "output_absmax": 0.0,
+      "output_dtype": "torch.float32",
+      "split_count_equal": true,
+      "split_update_count": [
+        1,
+        3
+      ],
+      "eval_frozen": true,
+      "no_grad_still_updates": true
+    }
+  ],
+  "old_checkpoint": "/data1/userdata/tcweng/projects/tcgs/outputs/deform360/t24-finite-recovery-v3-20260926/epoch_1.pth",
+  "old_checkpoint_sha256": "2df68bbe34e0a5f3f6c23e56d6ecd924eb47aa51466ff347045ee8b3f3ac730f",
+  "old_to_new": {
+    "keys": 12,
+    "exact_upcast": true,
+    "prefixes": [
+      "backbone.anchor_normalizer.",
+      "backbone.node_normalizer.",
+      "backbone.edge_normalizer."
+    ],
+    "lost_precision_recovered": false
+  },
+  "new_state_sha256": "0a76ce81735f5141f6bc047fd7fcbd129cbd1ba9f57093334a38e2c77427653f"
+}

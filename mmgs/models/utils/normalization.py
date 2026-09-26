@@ -4,7 +4,7 @@ from torch import nn
 
 class Normalizer(nn.Module):
     """
-    Normalizes input data with exponential moving average.
+    Normalizes input data with cumulative first and second moments.
     Highly important for the model's convergence.
 
     Adopted from MeshGraphNets codebase.
@@ -20,11 +20,11 @@ class Normalizer(nn.Module):
         self._std_epsilon = torch.tensor(std_epsilon)
         self._zero = torch.tensor(0)
 
-        self._acc_count = nn.Parameter(torch.tensor([0.]), requires_grad=False)
+        self._acc_count = nn.Parameter(torch.tensor([0.], dtype=torch.float64), requires_grad=False)
 
-        self._num_accumulations = nn.Parameter(torch.tensor([0.]), requires_grad=False)
-        self._acc_sum = nn.Parameter(torch.zeros(1, size), requires_grad=False)
-        self._acc_sum_squared = nn.Parameter(torch.zeros(1, size), requires_grad=False)
+        self._num_accumulations = nn.Parameter(torch.tensor([0.], dtype=torch.float64), requires_grad=False)
+        self._acc_sum = nn.Parameter(torch.zeros(1, size, dtype=torch.float64), requires_grad=False)
+        self._acc_sum_squared = nn.Parameter(torch.zeros(1, size, dtype=torch.float64), requires_grad=False)
 
         self.clip_n_sigmas = clip_n_sigmas
 
@@ -47,6 +47,8 @@ class Normalizer(nn.Module):
         :return: [VxC] unnormalized data
         """
 
+        input_dtype = normalized_batch_data.dtype
+        normalized_batch_data = normalized_batch_data.to(self._acc_sum.dtype)
         mean = self._mean()
         if override_mean is not None:
             mean = override_mean
@@ -54,7 +56,7 @@ class Normalizer(nn.Module):
 
         unnormalized_data = normalized_batch_data * std + mean
 
-        return unnormalized_data
+        return unnormalized_data.to(input_dtype)
 
     def _accumulate(self, batched_data: torch.FloatTensor):
         """
@@ -64,7 +66,8 @@ class Normalizer(nn.Module):
         """
 
         C = batched_data.shape[-1]
-        batched_data = batched_data.view(1, -1, C).detach()
+        # Promote before squaring/reducing: casting rounded FP32 moments is too late.
+        batched_data = batched_data.view(1, -1, C).detach().to(self._acc_sum.dtype)
 
         count = batched_data.shape[1]
         data_sum = batched_data.sum(dim=1)
@@ -90,7 +93,7 @@ class Normalizer(nn.Module):
     def _std_with_epsilon(self) -> torch.FloatTensor:
         """
         Returns the standard deviation of the accumulated data.
-        If no data has been accumulated, returns 1.
+        If no data has been accumulated, returns the standard-deviation floor.
         Minimum standard deviation is self._std_epsilon.
 
         :return: [1xC] standard deviation vector
@@ -107,12 +110,11 @@ class Normalizer(nn.Module):
 
     def forward(self, batched_data: torch.FloatTensor, omit_overwrite=False):
         """
-        Normalizes the batched_data with exponential moving average.
-        If accumulate is True, accumulates the batched_data statistics.
+        Normalizes batched_data using cumulative moments.
+        Updates statistics in train mode unless explicitly suppressed.
 
         :param batched_data: [VxC] data to be normalized
-        :param accumulate: if True, accumulates the batched_data statistics
-            Use True for training and False for testing
+        :param omit_overwrite: if True, skips the statistics update
         :return: [VxC] normalized data
         """
         # To make sure not grad. should have better choice
@@ -124,8 +126,9 @@ class Normalizer(nn.Module):
         if not self.force_nonorm and self.is_training and self._num_accumulations < self._max_accumulations and not omit_overwrite:
             self._accumulate(batched_data)
 
-        normalized_features = (batched_data - self._mean()) / self._std_with_epsilon()
-        return normalized_features
+        input_dtype = batched_data.dtype
+        normalized_features = (batched_data.to(self._acc_sum.dtype) - self._mean()) / self._std_with_epsilon()
+        return normalized_features.to(input_dtype)
 
     def train(self, mode: bool = True):
         self.is_training = mode

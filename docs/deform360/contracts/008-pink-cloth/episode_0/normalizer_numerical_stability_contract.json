@@ -1,0 +1,658 @@
+{
+  "task": "T26.4",
+  "status": "PASS",
+  "scope": "Normalizer numerical estimator and layered regressions only; not formal T26 completion",
+  "T26_status_preserved": "FAIL historical/nonfinite; formal training not resumed",
+  "production_files": [
+    "mmgs/models/utils/normalization.py"
+  ],
+  "production_sha256": "f78712dd0760fcf16a58431d7fdfd240a2e38cba89c400b405df93798f364220",
+  "patch_semantics": {
+    "statistics_dtype": "float64",
+    "registered_parameters_not_buffers": true,
+    "keys_shapes_order_unchanged": true,
+    "cast_before_square_sum_add": true,
+    "output_dtype": "same as input",
+    "variance_formula": "E[x^2]-E[x]^2",
+    "epsilon_unchanged": true,
+    "accumulation_semantics_unchanged": true
+  },
+  "prerequisite_checkpoint": "f5212eb76821ac2264e0b3b2d4fb0b4c4c55b26d",
+  "regression_gates": {
+    "unit": "PASS",
+    "old_to_new": "PASS exact upcast of 12 statistics",
+    "new_to_new": "PASS independent process exact statistics state restore",
+    "optimizer_mapping": "PASS registered names/order and 277 trainable order unchanged; 275 old Adam states load with matching shapes",
+    "official": "PASS no material scale drift",
+    "d360_forward": "PASS scale/covariance/projection restored",
+    "d360_backward": "PASS 275 finite gradient tensors, both native renderer returns finite"
+  },
+  "backward_summary": {
+    "tensor_count": 275,
+    "nonfinite_names": [],
+    "nan": 0,
+    "posinf": 0,
+    "neginf": 0,
+    "global_norm": 92198.39617717148,
+    "without_gradient": [
+      "backbone.encoder.emb_norm.weight",
+      "backbone.encoder.emb_norm.bias"
+    ]
+  },
+  "losses": {
+    "decode.loss_mse_momentum_config_a_2cam": 6.719106674194336,
+    "decode.loss_ssim_render_config_a_2cam": 4094.86572265625,
+    "decode.loss_l2_render_config_a_2cam": 19007.67578125,
+    "decode.acc_l2_render.acc_config_a_2cam_frame0": 0.0923074334859848,
+    "decode.acc_l1_render.acc_config_a_2cam_frame0": 0.14914068579673767,
+    "decode.acc_ssim_render.acc_config_a_2cam_frame0": 0.940757155418396,
+    "decode.acc_psnr_render.acc_config_a_2cam_frame0": 15.377230644226074,
+    "decode.loss_mse_static_config_a_2cam": 0.0,
+    "loss": 23109.26171875
+  },
+  "d360_forward": {
+    "normalizer": {
+      "pass_index": 1,
+      "level": 2,
+      "name": "backbone.anchor_normalizer",
+      "before": {
+        "training": true,
+        "is_training": true,
+        "count": [
+          0.0
+        ],
+        "accumulations": [
+          0.0
+        ],
+        "mean": [
+          [
+            0.0,
+            0.0,
+            0.0
+          ]
+        ],
+        "std": [
+          [
+            9.99999993922529e-09,
+            9.99999993922529e-09,
+            9.99999993922529e-09
+          ]
+        ],
+        "sum": [
+          [
+            0.0,
+            0.0,
+            0.0
+          ]
+        ],
+        "sum_squared": [
+          [
+            0.0,
+            0.0,
+            0.0
+          ]
+        ],
+        "epsilon": 9.99999993922529e-09,
+        "force_nonorm": false
+      },
+      "input": {
+        "shape": [
+          9,
+          3
+        ],
+        "dtype": "float32",
+        "finite": true,
+        "abs_max": 39.207401275634766,
+        "mean": -12.812852621078491,
+        "std": 18.669076415586304,
+        "p99_abs": 39.207401275634766
+      },
+      "after": {
+        "training": true,
+        "is_training": true,
+        "count": [
+          9.0
+        ],
+        "accumulations": [
+          1.0
+        ],
+        "mean": [
+          [
+            0.32278336418999565,
+            0.44031087557474774,
+            -39.201652103000214
+          ]
+        ],
+        "std": [
+          [
+            0.6038723794746202,
+            0.8237462200355783,
+            0.0030730624416056944
+          ]
+        ],
+        "sum": [
+          [
+            2.905050277709961,
+            3.9627978801727295,
+            -352.81486892700195
+          ]
+        ],
+        "sum_squared": [
+          [
+            4.219658558011361,
+            7.851883519550739,
+            13830.925833435365
+          ]
+        ],
+        "epsilon": 9.99999993922529e-09,
+        "force_nonorm": false
+      },
+      "output": {
+        "shape": [
+          9,
+          3
+        ],
+        "dtype": "float32",
+        "finite": true,
+        "abs_max": 1.8708287477493286,
+        "mean": 1.3245476616753471e-08,
+        "std": 0.9999999990221703,
+        "p99_abs": 1.8708287477493286
+      },
+      "variance_audit": {
+        "actual_fp32_raw_variance": [
+          [
+            0.3646618506923398,
+            0.6785578350229033,
+            9.44371277000755e-06
+          ]
+        ],
+        "current_batch_centered_variance64": [
+          0.36466185069233964,
+          0.678557835022903,
+          9.443712590354275e-06
+        ],
+        "current_batch_mean64": [
+          0.32278336418999565,
+          0.44031087557474774,
+          -39.201652103000214
+        ],
+        "current_batch_centered_std64": [
+          0.6038723794746201,
+          0.8237462200355781,
+          0.0030730624123753614
+        ],
+        "max_centered_residual64": [
+          1.1297417746649847,
+          1.541088064511617,
+          0.005749172634551769
+        ],
+        "small_coarse_input": [
+          [
+            1.4525251388549805,
+            1.9813989400863647,
+            -39.207401275634766
+          ],
+          [
+            1.4525251388549805,
+            1.9813989400863647,
+            -39.207401275634766
+          ],
+          [
+            0.0,
+            0.0,
+            -39.20001220703125
+          ],
+          [
+            0.0,
+            0.0,
+            -39.20001220703125
+          ],
+          [
+            0.0,
+            0.0,
+            -39.200008392333984
+          ],
+          [
+            0.0,
+            0.0,
+            -39.200008392333984
+          ],
+          [
+            0.0,
+            0.0,
+            -39.200008392333984
+          ],
+          [
+            0.0,
+            0.0,
+            -39.200008392333984
+          ],
+          [
+            0.0,
+            0.0,
+            -39.200008392333984
+          ]
+        ]
+      }
+    },
+    "displacement": {
+      "count": 12861,
+      "finite": true,
+      "quantiles": {
+        "min": 0.001077877188783685,
+        "p01": 0.004409667987166557,
+        "p50": 0.043054102322835866,
+        "p90": 0.0961019961070704,
+        "p95": 0.10486770896446262,
+        "p99": 0.12778486986530257,
+        "max": 0.1407891122306298
+      }
+    },
+    "F": [
+      {
+        "shape": [
+          12861,
+          3,
+          3
+        ],
+        "singular_values": {
+          "count": 38583,
+          "finite": true,
+          "quantiles": {
+            "min": 0.9376122157664598,
+            "p01": 0.9376122157664598,
+            "p50": 0.9900388761718714,
+            "p90": 1.0780137003966161,
+            "p95": 1.0800714825258626,
+            "p99": 1.0807004875559911,
+            "max": 1.0807004875559911
+          }
+        },
+        "max_singular": {
+          "count": 12861,
+          "finite": true,
+          "quantiles": {
+            "min": 1.0734925023808395,
+            "p01": 1.0734925023808395,
+            "p50": 1.0762823525647482,
+            "p90": 1.0807004875559911,
+            "p95": 1.0807004875559911,
+            "p99": 1.0807004875559911,
+            "max": 1.0807004875559911
+          }
+        },
+        "min_singular": {
+          "count": 12861,
+          "finite": true,
+          "quantiles": {
+            "min": 0.9376122157664598,
+            "p01": 0.9376122157664598,
+            "p50": 0.9384568689650179,
+            "p90": 0.9407435838900085,
+            "p95": 0.9407435838900085,
+            "p99": 0.9407435838900085,
+            "max": 0.9407435838900085
+          }
+        },
+        "determinant": {
+          "count": 12861,
+          "finite": true,
+          "quantiles": {
+            "min": 0.9999997813471285,
+            "p01": 0.9999997813471285,
+            "p50": 1.0000000399015305,
+            "p90": 1.0000001652290906,
+            "p95": 1.0000001652290906,
+            "p99": 1.0000001652290906,
+            "max": 1.0000001652290906
+          }
+        }
+      },
+      {
+        "shape": [
+          12861,
+          3,
+          3
+        ],
+        "singular_values": {
+          "count": 38583,
+          "finite": true,
+          "quantiles": {
+            "min": 0.9310914596318824,
+            "p01": 0.9320157791768869,
+            "p50": 0.9873056828906519,
+            "p90": 1.0804265235880628,
+            "p95": 1.0829494883752768,
+            "p99": 1.0865096815297628,
+            "max": 1.0879500454143844
+          }
+        },
+        "max_singular": {
+          "count": 12861,
+          "finite": true,
+          "quantiles": {
+            "min": 1.0689085436086092,
+            "p01": 1.0708196871518576,
+            "p50": 1.078522689241392,
+            "p90": 1.084005367533532,
+            "p95": 1.0854880781916596,
+            "p99": 1.0872947692882815,
+            "max": 1.0879500454143844
+          }
+        },
+        "min_singular": {
+          "count": 12861,
+          "finite": true,
+          "quantiles": {
+            "min": 0.9310914596318824,
+            "p01": 0.9316041562314472,
+            "p50": 0.9390102154470011,
+            "p90": 0.9432343713418622,
+            "p95": 0.9439633700253651,
+            "p99": 0.9453357087223013,
+            "max": 0.9462915350424638
+          }
+        },
+        "determinant": {
+          "count": 12861,
+          "finite": true,
+          "quantiles": {
+            "min": 0.9999995746523939,
+            "p01": 0.9999996611544978,
+            "p50": 0.9999999363011014,
+            "p90": 1.0000000625894676,
+            "p95": 1.0000001017349203,
+            "p99": 1.000000178873899,
+            "max": 1.0000002354802886
+          }
+        }
+      }
+    ],
+    "covariance": {
+      "count": 12861,
+      "PD_count": 12861,
+      "PSD_count": 12861,
+      "min_eigen": {
+        "count": 12861,
+        "finite": true,
+        "quantiles": {
+          "min": 8.2728764554394e-09,
+          "p01": 2.3172614729158077e-08,
+          "p50": 2.363799186656848e-07,
+          "p90": 1.5431999282113092e-06,
+          "p95": 3.140153124928569e-06,
+          "p99": 8.026040249470226e-06,
+          "max": 2.4649618136292268e-05
+        }
+      },
+      "max_eigen": {
+        "count": 12861,
+        "finite": true,
+        "quantiles": {
+          "min": 2.69089669842042e-07,
+          "p01": 1.3622527715008774e-06,
+          "p50": 1.5370678785870695e-05,
+          "p90": 3.674368001833469e-05,
+          "p95": 4.6356982105700924e-05,
+          "p99": 6.938634074616867e-05,
+          "max": 0.00013670136586606144
+        }
+      },
+      "condition": {
+        "count": 12861,
+        "finite": true,
+        "quantiles": {
+          "min": 1.4190838068945897,
+          "p01": 2.466009066409685,
+          "p50": 68.52491883183471,
+          "p90": 105.3074636716754,
+          "p95": 114.49287637174062,
+          "p99": 132.3945607062168,
+          "max": 160.42101854446275
+        }
+      },
+      "magnitude": {
+        "shape": [
+          12861,
+          3,
+          3
+        ],
+        "dtype": "float64",
+        "finite": true,
+        "abs_max": 0.00010074472811538726,
+        "mean": 3.888557529220101e-06,
+        "std": 7.848278264894827e-06,
+        "p99_abs": 3.2058212673291606e-05
+      },
+      "asymmetry_absmax": 0.0,
+      "eigen_convention": "upper-triangle mirrored as actual final packed representation",
+      "symmetric_part_PD_count": 12861
+    },
+    "renderer": [
+      {
+        "camera_index": 0,
+        "positive_radius": 12861,
+        "radius": {
+          "count": 12861,
+          "finite": true,
+          "quantiles": {
+            "min": 3.0,
+            "p01": 3.0,
+            "p50": 9.0,
+            "p90": 14.0,
+            "p95": 16.0,
+            "p99": 19.0,
+            "max": 28.0
+          }
+        },
+        "positive_radius_dist": {
+          "count": 12861,
+          "finite": true,
+          "quantiles": {
+            "min": 3.0,
+            "p01": 3.0,
+            "p50": 9.0,
+            "p90": 14.0,
+            "p95": 16.0,
+            "p99": 19.0,
+            "max": 28.0
+          }
+        },
+        "rendered_tile_instances": 59898,
+        "render": {
+          "shape": [
+            3,
+            360,
+            640
+          ],
+          "dtype": "float32",
+          "finite": true,
+          "abs_max": 1.0168691873550415,
+          "mean": 0.10755347152485885,
+          "std": 0.24711423883996933,
+          "p99_abs": 0.8903049445152282
+        },
+        "projected_covariance": {
+          "checked_positive_radius_rows": 12861,
+          "invalid_rows": [],
+          "regularized_det": {
+            "count": 12861,
+            "finite": true,
+            "quantiles": {
+              "min": 0.14805129170417786,
+              "p01": 0.3884282112121582,
+              "p50": 17.436635971069336,
+              "p90": 132.46286010742188,
+              "p95": 201.30831909179688,
+              "p99": 395.68073120117157,
+              "max": 1692.927490234375
+            }
+          },
+          "interpretation": "CPU fp32 recomputation of installed formula; not a native intermediate readback"
+        },
+        "projected_centers": {
+          "in_image": 12861,
+          "x": {
+            "count": 12861,
+            "finite": true,
+            "quantiles": {
+              "min": 14.883739471435547,
+              "p01": 21.162349700927734,
+              "p50": 150.71261596679688,
+              "p90": 244.00674438476562,
+              "p95": 269.9003601074219,
+              "p99": 288.8408020019531,
+              "max": 295.68865966796875
+            }
+          },
+          "y": {
+            "count": 12861,
+            "finite": true,
+            "quantiles": {
+              "min": 92.63709259033203,
+              "p01": 94.77822875976562,
+              "p50": 173.2726287841797,
+              "p90": 276.1273498535156,
+              "p95": 294.6103820800781,
+              "p99": 321.11912231445314,
+              "max": 335.1703186035156
+            }
+          }
+        }
+      },
+      {
+        "camera_index": 1,
+        "positive_radius": 12861,
+        "radius": {
+          "count": 12861,
+          "finite": true,
+          "quantiles": {
+            "min": 3.0,
+            "p01": 3.0,
+            "p50": 11.0,
+            "p90": 17.0,
+            "p95": 19.0,
+            "p99": 23.0,
+            "max": 36.0
+          }
+        },
+        "positive_radius_dist": {
+          "count": 12861,
+          "finite": true,
+          "quantiles": {
+            "min": 3.0,
+            "p01": 3.0,
+            "p50": 11.0,
+            "p90": 17.0,
+            "p95": 19.0,
+            "p99": 23.0,
+            "max": 36.0
+          }
+        },
+        "rendered_tile_instances": 75330,
+        "render": {
+          "shape": [
+            3,
+            360,
+            640
+          ],
+          "dtype": "float32",
+          "finite": true,
+          "abs_max": 0.995203971862793,
+          "mean": 0.06824067093512237,
+          "std": 0.2105929550820836,
+          "p99_abs": 0.8997591352462769
+        },
+        "projected_covariance": {
+          "checked_positive_radius_rows": 12861,
+          "invalid_rows": [],
+          "regularized_det": {
+            "count": 12861,
+            "finite": true,
+            "quantiles": {
+              "min": 0.13308846950531006,
+              "p01": 0.32019280195236205,
+              "p50": 15.481110572814941,
+              "p90": 169.76629638671875,
+              "p95": 303.40185546875,
+              "p99": 732.9824462890617,
+              "max": 3064.371337890625
+            }
+          },
+          "interpretation": "CPU fp32 recomputation of installed formula; not a native intermediate readback"
+        },
+        "projected_centers": {
+          "in_image": 12763,
+          "x": {
+            "count": 12861,
+            "finite": true,
+            "quantiles": {
+              "min": 179.48745727539062,
+              "p01": 184.17357177734374,
+              "p50": 339.5667724609375,
+              "p90": 438.1380615234375,
+              "p95": 453.841796875,
+              "p99": 465.9271667480469,
+              "max": 473.8356628417969
+            }
+          },
+          "y": {
+            "count": 12861,
+            "finite": true,
+            "quantiles": {
+              "min": 168.54949951171875,
+              "p01": 173.61790771484374,
+              "p50": 265.6181335449219,
+              "p90": 330.3125,
+              "p95": 345.16192626953125,
+              "p99": 359.1091064453125,
+              "max": 369.4410095214844
+            }
+          }
+        }
+      }
+    ]
+  },
+  "jobs": [
+    "25863",
+    "25864",
+    "25865"
+  ],
+  "integrity": {
+    "asset_count": 794,
+    "changed_assets": [],
+    "config_unchanged": true,
+    "normalizer_sha256": "f78712dd0760fcf16a58431d7fdfd240a2e38cba89c400b405df93798f364220",
+    "server_git_status": " M mmgs/models/utils/normalization.py\n",
+    "server_head": "f5212eb76821ac2264e0b3b2d4fb0b4c4c55b26d",
+    "slurm": "JobID|State|ExitCode|NodeList|Elapsed\n25863|COMPLETED|0:0|amax|00:00:03\n25863.0|COMPLETED|0:0|amax|00:00:03\n25864|COMPLETED|0:0|amax|00:00:31\n25864.0|COMPLETED|0:0|amax|00:00:31\n25865|COMPLETED|0:0|amax|00:00:17\n25865.0|COMPLETED|0:0|amax|00:00:17\n"
+  },
+  "no_optimizer_step": true,
+  "no_clipping": true,
+  "formal_training_resumed": false,
+  "T27_executed": false,
+  "report_dir": "docs/deform360/validation/t26_4-normalizer-20260926",
+  "limitations": [
+    "Rollout1 only; no 46-epoch or multi-step stability claim.",
+    "Large finite gradient norm remains an observation, not corrected here.",
+    "Random-init rendered prediction has visible errors; scale validation is not prediction accuracy.",
+    "Old FP32 statistics precision/contamination cannot be recovered by upcast.",
+    "Mixed precision and multi-GPU not validated.",
+    "FP64 moments are not an unconditional cancellation-proof estimator."
+  ],
+  "files_sha256": {
+    "docs/deform360/validation/t26_4-normalizer-20260926/README.md": "abc51de1199d4ceefdaac2fe2a7cec52d4e47cef1024dfb09170a8af64b37399",
+    "docs/deform360/validation/t26_4-normalizer-20260926/camera_0_review.png": "680fa85b65573bad7d33663f47d05e8380ef71015bcbb0806cde4e35bdac6ce6",
+    "docs/deform360/validation/t26_4-normalizer-20260926/camera_1_review.png": "920a4e1c504acde48cca81b6f9ba42b71098af750a91cf5bec32e29e38fbb939",
+    "docs/deform360/validation/t26_4-normalizer-20260926/d360-backward.json": "928e982d5d50a2e1c05007f452f60022c3a556da887f42bc9205223a8fa3a4fb",
+    "docs/deform360/validation/t26_4-normalizer-20260926/d360-forward.json": "e7d9fa479313bab30027c87744908239c66177b803c72ca1d030e33c57d69cf4",
+    "docs/deform360/validation/t26_4-normalizer-20260926/integrity.json": "d2e8c9f4abf2bc4811daaf05f4bdbabe4eb56f9ecbfbad4ddd5cf7151cd96d05",
+    "docs/deform360/validation/t26_4-normalizer-20260926/official-render-comparison.json": "0b8a03a686ab3f91d3012ce79d34c6e45b246ce11392c7548a161058470ee25e",
+    "docs/deform360/validation/t26_4-normalizer-20260926/official.json": "2db9a79f78034cb4019e16b97b20dc13a91dac3297cd6b35139f8d162fb7771e",
+    "docs/deform360/validation/t26_4-normalizer-20260926/unit-reload.json": "c206bccfc497671607ba1ae3b166e70578f9fcb0ddc78b1dfca379c83cdb4d6d",
+    "docs/deform360/validation/t26_4-normalizer-20260926/unit-save.json": "566a967b8d512b00a6051b79f7b22c6ed242903952c2f47505d9fdc79b186622",
+    "tools/deform360_adapter/check_normalizer_numerics.py": "521b0d2a072e0842464b27b56b241bd69fb0c8fab80856895b1c8ed70571f6e4",
+    "tools/deform360_adapter/check_normalizer_dynamics.py": "9f9026988e5fb6567c4c1a53f2dfc6f92b062caacfda236afaa33636d6e40641"
+  }
+}

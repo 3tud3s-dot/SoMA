@@ -27,10 +27,10 @@ Deform360 HEAD:
 d8522a4403b766aeb387510c04e89032a56fdf35
 
 Current task:
-T26.3
+T26.4
 
 Current status:
-SCALE_MISMATCH_ATTRIBUTED
+PASS
 ```
 
 以上 HEAD 为本 roadmap 建立时的源码基线。T0–T11 已 PASS，具体结论及证据保留于各项历史 Result / Evidence。T11 checkpoint 已提交并推送；T12 已按人工确认采用 30→10→2→1 grouping contract 并验证 PASS；此前默认分组 FAIL 历史保留，不进入 T13。
@@ -160,6 +160,7 @@ tcgs root Git 仅用于 workspace-level 资产。除非明确说明，不在 tcg
 | T26.1 | Stage-1 first nonfinite gradient audit（Blocking） | PARTIALLY_ATTRIBUTED |
 | T26.2 | row-3648 renderer degeneracy causal audit（Blocking） | PARTIALLY_ATTRIBUTED |
 | T26.3 | random-init dynamics scale / normalization audit（Blocking） | SCALE_MISMATCH_ATTRIBUTED |
+| T26.4 | Normalizer numerical-stability fix / layered regression | PASS |
 | T27 | 只生成并核验 Stage-1 cache | TODO |
 | T28 | 只串联一个 Stage 2 子窗口 | TODO |
 | T29 | 只验证 Stage 2 一个优化步骤 | TODO |
@@ -1928,6 +1929,40 @@ T22多一次T21 train-mode forward，normalizer已更新；其真正T22 forward�
 - Slurm25860/25861/25862，amax RTX5090，全部COMPLETED；formal2组+historicalT22 forward-only，无backward/optimizer.step，无T26重启。794 assets/config hashes未变，server Git clean。
 - T26.2已commit/push `afc4def87ee839bc27b9e9c8769a177e50c11ed7`。本项SoMA/deform360-adaptation新工具/report/contract尚未tracked，roadmap修改；T26.3未commit/push，后续需Git同步。所有已有FAIL/PARTIALLY_ATTRIBUTED历史保留。
 - 下一最小候选仅建议稳定Normalizer方差估计，未实施；不据此改T26状态，不执行T27。
+
+---
+
+### T26.4：Normalizer numerical-stability fix / layered regression
+
+Status: PASS
+
+**Scope：** 仅修复累计矩的FP32消减，分层regression；不恢复正式46-epoch T26，不执行T27。T26历史FAIL/nonfinite不删除、不改为训练PASS。
+
+**问题 / 原因：** T26.3 coarse anchor Z方差误算0，std floor将feature放大至约5.75e5。
+
+**最小production修改：** 仅`mmgs/models/utils/normalization.py`。四个同名同shape nontrainable parameters改FP64；输入先转统计dtype再square/sum/add；FP64归一化/逆变换，输出回输入dtype。累计语义/API/epsilon/更新条件保持；不改model/renderer/data/gravity/dt/rollout/loss/optimizer策略。
+
+**输入与验证：** 真实9×3失败输入+synthetic/constant、whole vs split；旧FP32 T24 checkpoint的12统计上转换、新FP64 state独立进程恢复、optimizer注册顺序；official seed5 fresh rollout1 forward；D360 seed5 ConfigA/source113→123 fresh forward后，仅在尺度gate通过才执行另一个fresh process combined backward。没有预热/clip/optimizer.step。
+
+**PASS gate：** 数值reference正确、official无明显尺度漂移、D360 feature/位移/F/covariance/render合理、275参数梯度及native renderer gradients均finite；不能仅因gradient finite就PASS。失败则FAIL/PARTIAL FIX并停止，不扩大修复。
+
+#### Result
+
+2026-09-26：PASS。真实Z variance=9.4437127700e-6/reference9.4437125904e-6，std=.00307306244，normalized max=1.87083。D360 displacement p50/p95/p99/max=.0430541/.104868/.127785/.140789m（原50.6381/100.804/109.796/117.195m）；coarse F max1.08070，fine max1.08795，covariance12861/12861正定，condition p99/max≈132.395/160.421。
+
+两camera每台12861个positive radius，逐Gaussian CPU投影公式重算invalid cov2D=0，native RGB finite；radius p50/max：023=9/28，009=11/36。review仍有random-init预测误差，不宣称dynamics accuracy。
+
+Official p50/max位移约.0967468/.266866m，max变化约3.34e-7m，全部12169 covariance正定；normalizer统计更接近FP64 centered reference。old→new12统计exact上转换；new→new独立进程exact restore；注册顺序/optimizer mapping保持，275旧Adam states形状匹配。
+
+D360 combined backward：total loss23109.26171875，275个gradient tensors finite，NaN/+Inf/−Inf=0，global norm92198.3962；两camera native backward全部finite。2个既有unused emb_norm参数无grad。无clip/step，未重启正式T26。
+
+#### Evidence
+
+- [Regression报告](validation/t26_4-normalizer-20260926/README.md)、[contract](contracts/008-pink-cloth/episode_0/normalizer_numerical_stability_contract.json)。报告保留全部前后分布、native梯度、checkpoint迁移和最小render review。
+- 工具：[numerics](../../tools/deform360_adapter/check_normalizer_numerics.py)、[dynamics](../../tools/deform360_adapter/check_normalizer_dynamics.py)。Slurm25863/25864/25865全部COMPLETED，amax RTX5090；backward peak1474113024B。
+- Production SHA256 `f78712dd0760fcf16a58431d7fdfd240a2e38cba89c400b405df93798f364220` 两端一致；794资产及T25 config未变。
+- T26.3已commit/push `f5212eb76821ac2264e0b3b2d4fb0b4c4c55b26d`；T26.4暂不commit/push。Mac有roadmap/源码修改与新tool/contract/reports，server保留同一未提交normalizer patch，后续同步必须先核验。训练checkpoint/数据不入Git。
+- 限制：只验证rollout1，gradient norm较大但finite；不证明更长rollout/46epochs/显存可行；旧统计失真不会自动恢复；未验证multi-GPU/half路径。T24/T24.5及T26历史保留。
 
 ---
 

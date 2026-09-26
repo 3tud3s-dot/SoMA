@@ -1,0 +1,9 @@
+{
+  "asset_count": 794,
+  "changed_assets": [],
+  "config_unchanged": true,
+  "normalizer_sha256": "f78712dd0760fcf16a58431d7fdfd240a2e38cba89c400b405df93798f364220",
+  "server_git_status": " M mmgs/models/utils/normalization.py\n",
+  "server_head": "f5212eb76821ac2264e0b3b2d4fb0b4c4c55b26d",
+  "slurm": "JobID|State|ExitCode|NodeList|Elapsed\n25863|COMPLETED|0:0|amax|00:00:03\n25863.0|COMPLETED|0:0|amax|00:00:03\n25864|COMPLETED|0:0|amax|00:00:31\n25864.0|COMPLETED|0:0|amax|00:00:31\n25865|COMPLETED|0:0|amax|00:00:17\n25865.0|COMPLETED|0:0|amax|00:00:17\n"
+}

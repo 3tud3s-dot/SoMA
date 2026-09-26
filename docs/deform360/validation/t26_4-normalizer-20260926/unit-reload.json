@@ -1,0 +1,16 @@
+{
+  "pid": 147490,
+  "patch_sha256": "f78712dd0760fcf16a58431d7fdfd240a2e38cba89c400b405df93798f364220",
+  "CUDA": false,
+  "status": "PASS",
+  "new_process_exact": true,
+  "normalizers": [
+    "real_9x3",
+    "synthetic",
+    "constant",
+    "backbone.anchor_normalizer.",
+    "backbone.node_normalizer.",
+    "backbone.edge_normalizer."
+  ],
+  "state_sha256": "0a76ce81735f5141f6bc047fd7fcbd129cbd1ba9f57093334a38e2c77427653f"
+}
