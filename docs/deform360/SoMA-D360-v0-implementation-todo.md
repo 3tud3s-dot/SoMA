@@ -27,10 +27,10 @@ Deform360 HEAD:
 d8522a4403b766aeb387510c04e89032a56fdf35
 
 Current task:
-T30
+T30.1
 
 Current status:
-BLOCKED
+PASS
 ```
 
 以上 HEAD 为本 roadmap 建立时的源码基线。T0–T11 已 PASS，具体结论及证据保留于各项历史 Result / Evidence。T11 checkpoint 已提交并推送；T12 已按人工确认采用 30→10→2→1 grouping contract 并验证 PASS；此前默认分组 FAIL 历史保留，不进入 T13。
@@ -166,6 +166,7 @@ tcgs root Git 仅用于 workspace-level 资产。除非明确说明，不在 tcg
 | T28 | 只串联一个 Stage 2 子窗口 | PASS |
 | T29 | 只验证 Stage 2 一个优化步骤 | PASS |
 | T30 | 执行固定预算的 Stage 2 训练 | BLOCKED |
+| T30.1 | 冻结正式 Stage-2 protocol 与 config | PASS |
 | T31 | 验证真正的 continuous rollout | TODO |
 | T32 | 汇总首个 no-tactile baseline 结果 | TODO |
 
@@ -2181,6 +2182,34 @@ Status: BLOCKED
 
 - [protocol audit](validation/t30-protocol-audit-20260927/README.md)、[CPU preflight / actual MMCV resume source](validation/t30-protocol-audit-20260927/cpu_preflight.json)、[machine-readable unfrozen audit](contracts/008-pink-cloth/episode_0/stage2_protocol_audit.json)。
 - 所属SoMA/deform360-adaptation，本轮T30审计未commit/push；server源码clean；T31/T32正文保持不变。
+
+### T30.1：冻结正式 Stage-2 protocol 与 config
+
+Status: PASS
+
+**问题：** 将官方 resume epoch15 后的 Stage-2 相对 schedule 映射到 fresh runner，并固定初始化/缓存策略。
+
+**前置依赖：** T27/T28/T29 PASS；T30 BLOCKED 审计及本轮人工协议决定。
+
+**范围：** config/contract 与 CPU 静态验证；不训练、不提交 sbatch、不执行 T31。
+
+**输入：** 官方 cloth_lift_stage2.py / Hood / runner；T26 epoch46；T27 canonical gap10 cache；T28/T29 contracts。
+
+**最小修改：** 新增正式 config，fresh epoch0映射官方epoch15，train/eval Gaussian在线更新关闭；不改模型/loader/Normalizer源码。
+
+**验证与 PASS：** 61个epoch requested/effective rollout与LR逐项等价，15窗口合法、600steps/epoch、36600steps；仅load model state，fresh Adam/counters；缓存hash/shape/finite与12FP64stats核验通过。
+
+**FAIL 后检查：** counter offset / Hood additive floor / split/cache key，不自行改变预算或算法。
+
+#### Result
+
+2026-09-27：PASS — protocol已冻结，非训练PASS。T30原BLOCKED记录原样保留；其协议歧义已由本轮人工决定和静态验证解除，实际训练仍未提交。seed5；61epochs/36600updates；fresh k=0..60对应official15+k；requested3+3k，effective前14窗口cap12、最后窗口cap9；LR=.0004*(.5**((k+1)//2)+.01)。T26epoch46仅加载model/learned FP64Normalizer，fresh Adam/runner0；两update flags=false，segmented train-only evaluation。固定预算final epoch_61.pth，不使用test。15窗口保留official边界，训练最多source262，无268+。未运行CUDA/模型/训练/T31。
+
+#### Evidence
+
+- [冻结协议与代码证据](validation/t30_1-protocol-freeze-20260927/README.md)、[CPU静态验证](validation/t30_1-protocol-freeze-20260927/static_validation.json)、[输入核验](validation/t30_1-protocol-freeze-20260927/asset_validation.json)。
+- [protocol contract](contracts/008-pink-cloth/episode_0/stage2_protocol_contract.json)、[正式config](../../configs/SoMA/deform360_v0_stage2.py)。
+- SoMA/deform360-adaptation；T30 audit checkpoint db8b90a已push，两端clean/0-0后开始本项；本项config/contract/evidence尚未commit/push，未来通过Git同步服务器。T31/T32正文未修改。
 
 ### T31：验证真正的 continuous rollout
 

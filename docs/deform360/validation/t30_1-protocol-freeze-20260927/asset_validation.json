@@ -1,0 +1,101 @@
+{
+  "status": "PASS",
+  "files": [
+    {
+      "path": "/data1/userdata/tcweng/projects/tcgs/datasets/deform360/derived/008-pink-cloth/episode_0/t27_stage1_cache_gap10/config_a_2cam/pred_stage1/frame_0.pth",
+      "sha256": "548b31b06a1d974689a86ad4fd039a4df22fdf9cbc22ee4fc2a7df4ce364b241",
+      "finite": true
+    },
+    {
+      "path": "/data1/userdata/tcweng/projects/tcgs/datasets/deform360/derived/008-pink-cloth/episode_0/t27_stage1_cache_gap10/config_a_2cam/pred_stage1/frame_10.pth",
+      "sha256": "7017a1f2194210aa91f89959f624f7629721c09045fba60b459f7f07c4da5745",
+      "finite": true
+    },
+    {
+      "path": "/data1/userdata/tcweng/projects/tcgs/datasets/deform360/derived/008-pink-cloth/episode_0/t27_stage1_cache_gap10/config_a_2cam/pred_stage1/frame_20.pth",
+      "sha256": "d25b818539d041713390778b200bbcb3c8a8b034163f1160773193583cb38618",
+      "finite": true
+    },
+    {
+      "path": "/data1/userdata/tcweng/projects/tcgs/datasets/deform360/derived/008-pink-cloth/episode_0/t27_stage1_cache_gap10/config_a_2cam/pred_stage1/frame_30.pth",
+      "sha256": "438b417a2cce8f74319663f2933da7275191c8a58312d1199282235a4a19ae78",
+      "finite": true
+    },
+    {
+      "path": "/data1/userdata/tcweng/projects/tcgs/datasets/deform360/derived/008-pink-cloth/episode_0/t27_stage1_cache_gap10/config_a_2cam/pred_stage1/frame_40.pth",
+      "sha256": "b0c366e8cc7213e46695c27db0884633ca00af540ef1fc0d7efe25f3e406cc7c",
+      "finite": true
+    },
+    {
+      "path": "/data1/userdata/tcweng/projects/tcgs/datasets/deform360/derived/008-pink-cloth/episode_0/t27_stage1_cache_gap10/config_a_2cam/pred_stage1/frame_50.pth",
+      "sha256": "87f03ee4f2f30289279c8fcba6dc0e54a7b460c8af4bfd86596bff849edc6562",
+      "finite": true
+    },
+    {
+      "path": "/data1/userdata/tcweng/projects/tcgs/datasets/deform360/derived/008-pink-cloth/episode_0/t27_stage1_cache_gap10/config_a_2cam/pred_stage1/frame_60.pth",
+      "sha256": "3472cdf47365ca74c3072c3dd75417bfa68a7827c195e950860630c1b1b9b64c",
+      "finite": true
+    },
+    {
+      "path": "/data1/userdata/tcweng/projects/tcgs/datasets/deform360/derived/008-pink-cloth/episode_0/t27_stage1_cache_gap10/config_a_2cam/pred_stage1/frame_70.pth",
+      "sha256": "a01ffbf8a392d1821a5b433460083a2deca057b3ee41d6855eb73c0f3193383d",
+      "finite": true
+    },
+    {
+      "path": "/data1/userdata/tcweng/projects/tcgs/datasets/deform360/derived/008-pink-cloth/episode_0/t27_stage1_cache_gap10/config_a_2cam/pred_stage1/frame_80.pth",
+      "sha256": "b0499e0d0098f364735b4dcc6b5048767f5b8785834c0e3622836171c5c459ab",
+      "finite": true
+    },
+    {
+      "path": "/data1/userdata/tcweng/projects/tcgs/datasets/deform360/derived/008-pink-cloth/episode_0/t27_stage1_cache_gap10/config_a_2cam/pred_stage1/frame_90.pth",
+      "sha256": "f18c30fee57ae074725b753831a69955775d0a3267d605ba14e1a018199045ae",
+      "finite": true
+    },
+    {
+      "path": "/data1/userdata/tcweng/projects/tcgs/datasets/deform360/derived/008-pink-cloth/episode_0/t27_stage1_cache_gap10/config_a_2cam/pred_stage1/frame_100.pth",
+      "sha256": "ce84f292557c0538622283399c2ea36c84a9b7006a9a88041040d4044b84c4ce",
+      "finite": true
+    },
+    {
+      "path": "/data1/userdata/tcweng/projects/tcgs/datasets/deform360/derived/008-pink-cloth/episode_0/t27_stage1_cache_gap10/config_a_2cam/pred_stage1/frame_110.pth",
+      "sha256": "479204fd3d825a7ce52e2db7893b193fd3ce2a4471b68a1b623991bb132b7a81",
+      "finite": true
+    },
+    {
+      "path": "/data1/userdata/tcweng/projects/tcgs/datasets/deform360/derived/008-pink-cloth/episode_0/t27_stage1_cache_gap10/config_a_2cam/pred_stage1/frame_120.pth",
+      "sha256": "f89e7d934eb118fb394d17a1fb9f0cf470e6b4a81e065ccb538ee93ac8ef8cbe",
+      "finite": true
+    },
+    {
+      "path": "/data1/userdata/tcweng/projects/tcgs/datasets/deform360/derived/008-pink-cloth/episode_0/t27_stage1_cache_gap10/config_a_2cam/pred_stage1/frame_130.pth",
+      "sha256": "fbca6f28d2effdb68a2c6020e8f0127ff1c4950f66844d5d73197d2842b23bd4",
+      "finite": true
+    },
+    {
+      "path": "/data1/userdata/tcweng/projects/tcgs/datasets/deform360/derived/008-pink-cloth/episode_0/t27_stage1_cache_gap10/config_a_2cam/pred_stage1/frame_140.pth",
+      "sha256": "5f506bbae5d03ecdee3fd55a66255b0e70568ecefad151e9ce915b914f04d174",
+      "finite": true
+    },
+    {
+      "path": "/data1/userdata/tcweng/projects/tcgs/datasets/deform360/derived/008-pink-cloth/episode_0/t27_stage1_cache_gap10/config_a_2cam/pred_stage1/frame_150.pth",
+      "sha256": "f9c81787fab2b3da4a8b21c7e12a69ee150dc9315bc9e22c5d8f341dcb7c6e35",
+      "finite": true
+    }
+  ],
+  "checkpoint_sha256": "d4dbea360fa033bfbf0b1ec338ce3107d49c5549675effb481f817eb672932c4",
+  "normalizer_fp64_count": 12,
+  "checkpoint_meta": {
+    "mmsim_version": "0.1.0",
+    "config": "model = dict(\n    type='GsSimulatorEmbodied',\n    cluster_cfg=dict(\n        config_a_2cam=[dict(downsample_rate=0.02),\n                       dict(downsample_rate=0.2)]),\n    processor_cfg=[\n        dict(\n            type='GsHieEmbodiedDGLProcessor',\n            anchor_prefix='anchor_',\n            radius=[0.03, 0.2, 0.5],\n            group_cfg=dict(\n                max_radius=None,\n                min_radius=0.0,\n                sample_num=16,\n                use_xyz=True,\n                normalize_xyz=False,\n                return_grouped_xyz=False,\n                return_grouped_idx=True,\n                return_unique_cnt=False))\n    ],\n    accumulate_gradient=False,\n    dt=0.06666666666666667,\n    backbone=dict(\n        type='MeshGraphNetHieEmbodied',\n        attr_dim=5,\n        state_dim=6,\n        position_dim=3,\n        num_frames=2,\n        embed_dims=128,\n        num_encoder_layers=16,\n        dropout=0.0,\n        eps=1e-07,\n        num_fcs=3,\n        act_cfg=dict(type='SiLU', inplace=True),\n        norm_cfg=dict(type='LN'),\n        pre_norm=True,\n        norm_acc_steps=None,\n        edge_mode='ratio',\n        edge_theta=True,\n        fix_bug=True,\n        dt=0.06666666666666667),\n    decode_head=dict(\n        type='AccDecoder',\n        in_channels=128,\n        out_channels=11,\n        add_residual=False,\n        init_quant=1.0,\n        loss_decode=[\n            dict(\n                type='MSELoss',\n                reduction='sum',\n                loss_weight=1.0,\n                loss_name='loss_mse_momentum'),\n            dict(\n                type='SSIMLoss',\n                reduction='sum',\n                kernel_size=5,\n                loss_weight=0.1,\n                loss_name='loss_ssim_render'),\n            dict(\n                type='L2Loss',\n                reduction='sum',\n                loss_weight=0.9,\n                loss_name='loss_l2_render'),\n            dict(\n                type='MSELoss',\n                reduction='sum',\n                loss_weight=1.0,\n                loss_name='loss_mse_static'),\n            dict(\n                type='SpatialLoss',\n                reduction='sum',\n                loss_weight=1.0,\n                loss_name='loss_spatial'),\n            dict(\n                type='L2Loss',\n                reduction='sum',\n                loss_weight=0.9,\n                loss_name='loss_l2_bounding'),\n            dict(\n                type='SSIMLoss',\n                reduction='sum',\n                kernel_size=5,\n                loss_weight=0.1,\n                loss_name='loss_ssim_bounding')\n        ],\n        accuracy=[\n            dict(\n                type='L2Accuracy', reduction='mean', acc_name='acc_l2_render'),\n            dict(\n                type='L1Accuracy', reduction='mean', acc_name='acc_l1_render'),\n            dict(\n                type='SSIMAccuracy',\n                reduction='mean',\n                acc_name='acc_ssim_render'),\n            dict(\n                type='PSNRAccuracy',\n                reduction='mean',\n                acc_name='acc_psnr_render')\n        ],\n        dt=0.06666666666666667),\n    gs_scene=[\n        dict(\n            name='config_a_2cam',\n            model_path=\n            '/data1/userdata/tcweng/projects/tcgs/datasets/deform360/derived/t17_scene_packages/pink_cloth_episode_0/config_a_2cam/pi3/gs/point_cloud/iteration_10000/point_cloud.ply',\n            sh_degree=0,\n            num_seq=1,\n            attr_name='rope')\n    ],\n    forward_last_layer=False,\n    share_weight=True,\n    opt_sim=True,\n    opt_vel=True,\n    checkpoint_rollout=20,\n    selfsup_loss=False,\n    pred_vel=True,\n    use_rotation=False,\n    fix_bug=True,\n    controller_cfg=dict(\n        config_a_2cam=[dict(\n            num_cluster=10), dict(downsample_rate=0.5)]),\n    static_loss=False,\n    avg_loss=True,\n    render_mov_only=True,\n    train_cfg=dict(\n        by_epoch=True,\n        step_increase_interval=1,\n        step_increase_magnitude=3,\n        step_initial=3,\n        max_rollout_step=1000),\n    test_cfg=dict(\n        by_epoch=True,\n        step_increase_interval=1,\n        step_increase_magnitude=3,\n        step_initial=3,\n        max_rollout_step=1000))\nenv_cfg = dict(\n    data_dir='',\n    sub_video_dir='video_images',\n    sub_img_dir='images',\n    cam_transform_fn=None,\n    scene_list=['mothorchids'],\n    use_random_background=dict(mothorchids_v2=False),\n    const_white_bg=dict(mothorchids_v2=True),\n    resolution=[960, 540],\n    scale_x_angle=1.0,\n    load_imgs=False,\n    volume_scalar=dict(mothorchids_v2=512),\n    gravity=[0, 0, -9.8],\n    rot_est=dict(mothorchids=[-0.912, 0.007, 0.015, 0.411]),\n    max_cam_num=6,\n    pad_cam=False,\n    max_cam_total=180,\n    max_frame=-1,\n    start_frame=0,\n    cluster_cfg=dict(\n        mothorchids=[dict(downsample_rate=0.01),\n                     dict(downsample_rate=0.01)]),\n    dt=0.03333333333333333,\n    real_dt=dict(mothorchids=0.033366700033366704, duck=0.02),\n    llffhold=0)\ndataset_type = 'EmbodiedDataset'\ndata = dict(\n    samples_per_gpu=1,\n    workers_per_gpu=0,\n    train=dict(\n        times=50,\n        type='RepeatDataset',\n        dataset=dict(\n            type='EmbodiedDataset',\n            phase='all',\n            env_cfg=dict(\n                data_dir=\n                '/data1/userdata/tcweng/projects/tcgs/datasets/deform360/derived/t17_scene_packages/pink_cloth_episode_0',\n                scene_list=['config_a_2cam'],\n                sub_img_dir='color',\n                sub_video_dir='color',\n                cam_transform_fn=None,\n                resolution=[360, 640],\n                load_imgs=False,\n                scale_x_angle=1.0,\n                max_cam_num=2,\n                max_cam_total=2,\n                max_seq=1,\n                pad_cam=False,\n                llffhold=0,\n                tracking_pcd='track_process_data.pkl',\n                prompt_dict=dict(object=['cloth'], obstacle=[]),\n                bounding_box=None,\n                use_random_background=dict(config_a_2cam=False),\n                const_white_bg=dict(config_a_2cam=False),\n                controller_cfg=dict(config_a_2cam=[\n                    dict(num_cluster=10),\n                    dict(downsample_rate=0.5)\n                ]),\n                cluster_type='dis_split',\n                gravity=[0.0, 0.0, -9.8],\n                rot_est=dict(config_a_2cam=[0.0, 0.0, 0.0, 1.0]),\n                dt=0.03333333333333333,\n                real_dt=dict(config_a_2cam=0.06666666666666667),\n                split_list=dict(config_a_2cam=[[0, 155]]),\n                frame_gap=10,\n                cluster_cfg=dict(config_a_2cam=[\n                    dict(downsample_rate=0.02),\n                    dict(downsample_rate=0.2)\n                ]),\n                volume_scalar=dict(config_a_2cam=512),\n                aligned_scene=None,\n                max_frame=1001,\n                start_frame=0))),\n    val=dict(\n        type='EmbodiedDataset',\n        phase='all',\n        env_cfg=dict(\n            data_dir=\n            '/data1/userdata/tcweng/projects/tcgs/datasets/deform360/derived/t17_scene_packages/pink_cloth_episode_0',\n            scene_list=['config_a_2cam'],\n            sub_img_dir='color',\n            sub_video_dir='color',\n            cam_transform_fn=None,\n            resolution=[360, 640],\n            load_imgs=False,\n            scale_x_angle=1.0,\n            max_cam_num=2,\n            max_cam_total=2,\n            max_seq=1,\n            pad_cam=False,\n            llffhold=0,\n            tracking_pcd='track_process_data.pkl',\n            prompt_dict=dict(object=['cloth'], obstacle=[]),\n            bounding_box=None,\n            use_random_background=dict(config_a_2cam=False),\n            const_white_bg=dict(config_a_2cam=False),\n            controller_cfg=dict(config_a_2cam=[\n                dict(num_cluster=10),\n                dict(downsample_rate=0.5)\n            ]),\n            cluster_type='dis_split',\n            gravity=[0.0, 0.0, -9.8],\n            rot_est=dict(config_a_2cam=[0.0, 0.0, 0.0, 1.0]),\n            dt=0.03333333333333333,\n            real_dt=dict(config_a_2cam=0.06666666666666667),\n            split_list=dict(config_a_2cam=[[0, 155]]),\n            frame_gap=10,\n            cluster_cfg=dict(config_a_2cam=[\n                dict(downsample_rate=0.02),\n                dict(downsample_rate=0.2)\n            ]),\n            volume_scalar=dict(config_a_2cam=512),\n            aligned_scene=None,\n            max_frame=1003,\n            start_frame=0,\n            eval_start_frame=-1)),\n    test=dict(\n        type='EmbodiedDataset',\n        phase='all',\n        env_cfg=dict(\n            data_dir=\n            '/data1/userdata/tcweng/projects/tcgs/datasets/deform360/derived/t17_scene_packages/pink_cloth_episode_0',\n            scene_list=['config_a_2cam'],\n            sub_img_dir='color',\n            sub_video_dir='color',\n            cam_transform_fn=None,\n            resolution=[360, 640],\n            load_imgs=False,\n            scale_x_angle=1.0,\n            max_cam_num=2,\n            max_cam_total=2,\n            max_seq=1,\n            pad_cam=False,\n            llffhold=0,\n            tracking_pcd='track_process_data.pkl',\n            prompt_dict=dict(object=['cloth'], obstacle=[]),\n            bounding_box=None,\n            use_random_background=dict(config_a_2cam=False),\n            const_white_bg=dict(config_a_2cam=False),\n            controller_cfg=dict(config_a_2cam=[\n                dict(num_cluster=10),\n                dict(downsample_rate=0.5)\n            ]),\n            cluster_type='dis_split',\n            gravity=[0.0, 0.0, -9.8],\n            rot_est=dict(config_a_2cam=[0.0, 0.0, 0.0, 1.0]),\n            dt=0.03333333333333333,\n            real_dt=dict(config_a_2cam=0.06666666666666667),\n            split_list=dict(config_a_2cam=[[0, 155]]),\n            frame_gap=10,\n            cluster_cfg=dict(config_a_2cam=[\n                dict(downsample_rate=0.02),\n                dict(downsample_rate=0.2)\n            ]),\n            volume_scalar=dict(config_a_2cam=512),\n            aligned_scene=None,\n            max_frame=1003,\n            start_frame=0,\n            eval_start_frame=-1)))\noptimizer = dict(\n    type='Adam', lr=0.0004, betas=(0.9, 0.999), weight_decay=0, amsgrad=False)\noptimizer_config = dict(grad_clip=dict(max_norm=1.0))\ncheckpoint_config = dict(interval=1, by_epoch=True, max_keep_ckpts=10000)\nlog_config = dict(interval=100, hooks=[dict(type='CusTextLoggerHook')])\ndist_params = dict(backend='nccl')\nlog_level = 'INFO'\nload_from = None\nresume_from = None\nworkflow = [('train', 1)]\nseed = 5\nmax_seq = 1\nfind_unused_parameters = True\nlr_config = dict(\n    by_epoch=True, policy='Hood', decay_rate=0.5, decay_steps=2, step_start=14)\nrunner = dict(type='EpochRunner', max_epochs=46, max_iters=None)\nevaluation = dict(by_epoch=True, interval=1)\nwork_dir = '/data1/userdata/tcweng/projects/tcgs/outputs/deform360/stage1/config_a_seed5_normalizer_fix/'\ngpu_ids = range(0, 1)\n",
+    "env_info": "sys.platform: linux\nPython: 3.10.21 (main, Aug 27 2026, 14:42:07) [GCC 14.3.0]\nCUDA available: True\nGPU 0: NVIDIA GeForce RTX 5090\nCUDA_HOME: /usr/local/cuda-12.8\nNVCC: Cuda compilation tools, release 12.8, V12.8.93\nGCC: gcc (Ubuntu 11.4.0-1ubuntu1~22.04.3) 11.4.0\nPyTorch: 2.7.1+cu128\nPyTorch compiling details: PyTorch built with:\n  - GCC 11.2\n  - C++ Version: 201703\n  - Intel(R) oneAPI Math Kernel Library Version 2024.2-Product Build 20240605 for Intel(R) 64 architecture applications\n  - Intel(R) MKL-DNN v3.7.1 (Git Hash 8d263e693366ef8db40acc569cc7d8edf644556d)\n  - OpenMP 201511 (a.k.a. OpenMP 4.5)\n  - LAPACK is enabled (usually provided by MKL)\n  - NNPACK is enabled\n  - CPU capability usage: AVX512\n  - CUDA Runtime 12.8\n  - NVCC architecture flags: -gencode;arch=compute_75,code=sm_75;-gencode;arch=compute_80,code=sm_80;-gencode;arch=compute_86,code=sm_86;-gencode;arch=compute_90,code=sm_90;-gencode;arch=compute_100,code=sm_100;-gencode;arch=compute_120,code=sm_120;-gencode;arch=compute_120,code=compute_120\n  - CuDNN 90.7.1\n  - Magma 2.6.1\n  - Build settings: BLAS_INFO=mkl, BUILD_TYPE=Release, COMMIT_SHA=e2d141dbde55c2a4370fac5165b0561b6af4798b, CUDA_VERSION=12.8, CUDNN_VERSION=9.7.1, CXX_COMPILER=/opt/rh/gcc-toolset-11/root/usr/bin/c++, CXX_FLAGS= -D_GLIBCXX_USE_CXX11_ABI=1 -fvisibility-inlines-hidden -DUSE_PTHREADPOOL -DNDEBUG -DUSE_KINETO -DLIBKINETO_NOROCTRACER -DLIBKINETO_NOXPUPTI=ON -DUSE_FBGEMM -DUSE_PYTORCH_QNNPACK -DUSE_XNNPACK -DSYMBOLICATE_MOBILE_DEBUG_HANDLE -O2 -fPIC -Wall -Wextra -Werror=return-type -Werror=non-virtual-dtor -Werror=range-loop-construct -Werror=bool-operation -Wnarrowing -Wno-missing-field-initializers -Wno-unknown-pragmas -Wno-unused-parameter -Wno-strict-overflow -Wno-strict-aliasing -Wno-stringop-overflow -Wsuggest-override -Wno-psabi -Wno-error=old-style-cast -fdiagnostics-color=always -faligned-new -Wno-maybe-uninitialized -fno-math-errno -fno-trapping-math -Werror=format -Wno-stringop-overflow, LAPACK_INFO=mkl, PERF_WITH_AVX=1, PERF_WITH_AVX2=1, TORCH_VERSION=2.7.1, USE_CUDA=ON, USE_CUDNN=ON, USE_CUSPARSELT=1, USE_GFLAGS=OFF, USE_GLOG=OFF, USE_GLOO=ON, USE_MKL=ON, USE_MKLDNN=ON, USE_MPI=OFF, USE_NCCL=1, USE_NNPACK=ON, USE_OPENMP=ON, USE_ROCM=OFF, USE_ROCM_KERNEL_ASSERT=OFF, \n\nTorchVision: 0.22.1+cu128\nOpenCV: 4.9.0\nMMCV: 1.7.2\nMMCV Compiler: GCC 11.4\nMMCV CUDA Compiler: 12.8\nMMGraphDynamics: 0.1.0+0a628fa",
+    "seed": 5,
+    "epoch": 46,
+    "iter": 2300,
+    "mmcv_version": "1.7.2",
+    "time": "Sun Sep 27 02:21:51 2026",
+    "hook_msgs": {
+      "last_ckpt": "/data1/userdata/tcweng/projects/tcgs/outputs/deform360/stage1/config_a_seed5_normalizer_fix_resume_epoch2/epoch_45.pth"
+    }
+  },
+  "cuda_initialized": false
+}

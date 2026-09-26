@@ -1,0 +1,1650 @@
+{
+  "status": "PASS",
+  "cuda_initialized": false,
+  "model_or_dataset_instantiated": false,
+  "config_expanded": {
+    "optimizer": {
+      "type": "Adam",
+      "lr": 0.0004,
+      "betas": [
+        0.9,
+        0.999
+      ],
+      "weight_decay": 0,
+      "amsgrad": false
+    },
+    "optimizer_config": {
+      "grad_clip": {
+        "max_norm": 1.0
+      }
+    },
+    "checkpoint_config": {
+      "interval": 1,
+      "by_epoch": true,
+      "max_keep_ckpts": 10000
+    },
+    "log_config": {
+      "interval": 100,
+      "hooks": [
+        {
+          "type": "CusTextLoggerHook"
+        }
+      ]
+    },
+    "dist_params": {
+      "backend": "nccl"
+    },
+    "log_level": "INFO",
+    "load_from": "/data1/userdata/tcweng/projects/tcgs/outputs/deform360/stage1/config_a_seed5_normalizer_fix_resume_epoch2/epoch_46.pth",
+    "resume_from": null,
+    "workflow": [
+      [
+        "train",
+        1
+      ]
+    ],
+    "seed": 5,
+    "find_unused_parameters": true,
+    "model": {
+      "type": "GsSimulatorEmbodiedS2",
+      "cluster_cfg": {
+        "config_a_2cam": [
+          {
+            "downsample_rate": 0.02
+          },
+          {
+            "downsample_rate": 0.2
+          }
+        ]
+      },
+      "processor_cfg": [
+        {
+          "type": "GsHieEmbodiedDGLProcessor",
+          "anchor_prefix": "anchor_",
+          "radius": [
+            0.03,
+            0.2,
+            0.5
+          ],
+          "group_cfg": {
+            "max_radius": null,
+            "min_radius": 0.0,
+            "sample_num": 16,
+            "use_xyz": true,
+            "normalize_xyz": false,
+            "return_grouped_xyz": false,
+            "return_grouped_idx": true,
+            "return_unique_cnt": false
+          }
+        }
+      ],
+      "accumulate_gradient": false,
+      "dt": 0.06666666666666667,
+      "backbone": {
+        "type": "MeshGraphNetHieEmbodied",
+        "attr_dim": 5,
+        "state_dim": 6,
+        "position_dim": 3,
+        "num_frames": 2,
+        "embed_dims": 128,
+        "num_encoder_layers": 16,
+        "dropout": 0.0,
+        "eps": 1e-07,
+        "num_fcs": 3,
+        "act_cfg": {
+          "type": "SiLU",
+          "inplace": true
+        },
+        "norm_cfg": {
+          "type": "LN"
+        },
+        "pre_norm": true,
+        "norm_acc_steps": null,
+        "edge_mode": "ratio",
+        "edge_theta": true,
+        "fix_bug": true,
+        "dt": 0.06666666666666667
+      },
+      "decode_head": {
+        "type": "AccDecoder",
+        "in_channels": 128,
+        "out_channels": 11,
+        "add_residual": false,
+        "init_quant": 1.0,
+        "loss_decode": [
+          {
+            "type": "MSELoss",
+            "reduction": "sum",
+            "loss_weight": 1.0,
+            "loss_name": "loss_mse_momentum"
+          },
+          {
+            "type": "SSIMLoss",
+            "reduction": "sum",
+            "kernel_size": 5,
+            "loss_weight": 0.1,
+            "loss_name": "loss_ssim_render"
+          },
+          {
+            "type": "L2Loss",
+            "reduction": "sum",
+            "loss_weight": 0.9,
+            "loss_name": "loss_l2_render"
+          },
+          {
+            "type": "MSELoss",
+            "reduction": "sum",
+            "loss_weight": 1.0,
+            "loss_name": "loss_mse_static"
+          },
+          {
+            "type": "SpatialLoss",
+            "reduction": "sum",
+            "loss_weight": 1.0,
+            "loss_name": "loss_spatial"
+          },
+          {
+            "type": "L2Loss",
+            "reduction": "sum",
+            "loss_weight": 0.9,
+            "loss_name": "loss_l2_bounding"
+          },
+          {
+            "type": "SSIMLoss",
+            "reduction": "sum",
+            "kernel_size": 5,
+            "loss_weight": 0.1,
+            "loss_name": "loss_ssim_bounding"
+          }
+        ],
+        "accuracy": [
+          {
+            "type": "L2Accuracy",
+            "reduction": "mean",
+            "acc_name": "acc_l2_render"
+          },
+          {
+            "type": "L1Accuracy",
+            "reduction": "mean",
+            "acc_name": "acc_l1_render"
+          },
+          {
+            "type": "SSIMAccuracy",
+            "reduction": "mean",
+            "acc_name": "acc_ssim_render"
+          },
+          {
+            "type": "PSNRAccuracy",
+            "reduction": "mean",
+            "acc_name": "acc_psnr_render"
+          }
+        ],
+        "dt": 0.06666666666666667
+      },
+      "gs_scene": [
+        {
+          "name": "config_a_2cam",
+          "model_path": "/data1/userdata/tcweng/projects/tcgs/datasets/deform360/derived/t17_scene_packages/pink_cloth_episode_0/config_a_2cam/pi3/gs/point_cloud/iteration_10000/point_cloud.ply",
+          "sh_degree": 0,
+          "num_seq": 1,
+          "attr_name": "rope"
+        }
+      ],
+      "forward_last_layer": false,
+      "share_weight": true,
+      "opt_sim": true,
+      "opt_vel": true,
+      "checkpoint_rollout": 20,
+      "selfsup_loss": false,
+      "pred_vel": true,
+      "use_rotation": false,
+      "fix_bug": true,
+      "frame_gap": 10,
+      "test_rollout_mode": "segmented",
+      "flag_save_gaussian": false,
+      "flag_update_gaussian": false,
+      "flag_update_gaussian_train": false,
+      "data_dir": "/data1/userdata/tcweng/projects/tcgs/datasets/deform360/derived/008-pink-cloth/episode_0/t27_stage1_cache_gap10",
+      "controller_cfg": {
+        "config_a_2cam": [
+          {
+            "num_cluster": 10
+          },
+          {
+            "downsample_rate": 0.5
+          }
+        ]
+      },
+      "static_loss": false,
+      "avg_loss": true,
+      "render_mov_only": true,
+      "train_cfg": {
+        "by_epoch": true,
+        "step_increase_interval": 1,
+        "step_increase_magnitude": 3,
+        "step_initial": 3,
+        "max_rollout_step": 1000
+      },
+      "test_cfg": {
+        "by_epoch": true,
+        "step_increase_interval": 1,
+        "step_increase_magnitude": 3,
+        "step_initial": 3,
+        "max_rollout_step": 1000
+      }
+    },
+    "data": {
+      "samples_per_gpu": 1,
+      "workers_per_gpu": 0,
+      "train": {
+        "type": "RepeatDataset",
+        "times": 40,
+        "dataset": {
+          "type": "EmbodiedDataset",
+          "phase": "all",
+          "env_cfg": {
+            "data_dir": "/data1/userdata/tcweng/projects/tcgs/datasets/deform360/derived/t17_scene_packages/pink_cloth_episode_0",
+            "scene_list": [
+              "config_a_2cam"
+            ],
+            "sub_img_dir": "color",
+            "sub_video_dir": "color",
+            "cam_transform_fn": null,
+            "resolution": [
+              360,
+              640
+            ],
+            "load_imgs": false,
+            "scale_x_angle": 1.0,
+            "max_cam_num": 2,
+            "max_cam_total": 2,
+            "max_seq": 15,
+            "pad_cam": false,
+            "llffhold": 0,
+            "tracking_pcd": "track_process_data.pkl",
+            "prompt_dict": {
+              "object": [
+                "cloth"
+              ],
+              "obstacle": []
+            },
+            "bounding_box": null,
+            "use_random_background": {
+              "config_a_2cam": false
+            },
+            "const_white_bg": {
+              "config_a_2cam": false
+            },
+            "controller_cfg": {
+              "config_a_2cam": [
+                {
+                  "num_cluster": 10
+                },
+                {
+                  "downsample_rate": 0.5
+                }
+              ]
+            },
+            "cluster_type": "dis_split",
+            "gravity": [
+              0.0,
+              0.0,
+              -9.8
+            ],
+            "rot_est": {
+              "config_a_2cam": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ]
+            },
+            "dt": 0.03333333333333333,
+            "real_dt": {
+              "config_a_2cam": 0.06666666666666667
+            },
+            "split_list": {
+              "config_a_2cam": [
+                [
+                  0,
+                  13
+                ],
+                [
+                  10,
+                  23
+                ],
+                [
+                  20,
+                  33
+                ],
+                [
+                  30,
+                  43
+                ],
+                [
+                  40,
+                  53
+                ],
+                [
+                  50,
+                  63
+                ],
+                [
+                  60,
+                  73
+                ],
+                [
+                  70,
+                  83
+                ],
+                [
+                  80,
+                  93
+                ],
+                [
+                  90,
+                  103
+                ],
+                [
+                  100,
+                  113
+                ],
+                [
+                  110,
+                  123
+                ],
+                [
+                  120,
+                  133
+                ],
+                [
+                  130,
+                  143
+                ],
+                [
+                  140,
+                  150
+                ]
+              ]
+            },
+            "frame_gap": 1,
+            "cluster_cfg": {
+              "config_a_2cam": [
+                {
+                  "downsample_rate": 0.02
+                },
+                {
+                  "downsample_rate": 0.2
+                }
+              ]
+            },
+            "volume_scalar": {
+              "config_a_2cam": 512
+            },
+            "aligned_scene": null,
+            "max_frame": 1001,
+            "start_frame": 0,
+            "interact": false
+          }
+        }
+      },
+      "val": {
+        "type": "EmbodiedDataset",
+        "phase": "all",
+        "env_cfg": {
+          "data_dir": "/data1/userdata/tcweng/projects/tcgs/datasets/deform360/derived/t17_scene_packages/pink_cloth_episode_0",
+          "scene_list": [
+            "config_a_2cam"
+          ],
+          "sub_img_dir": "color",
+          "sub_video_dir": "color",
+          "cam_transform_fn": null,
+          "resolution": [
+            360,
+            640
+          ],
+          "load_imgs": false,
+          "scale_x_angle": 1.0,
+          "max_cam_num": 2,
+          "max_cam_total": 2,
+          "max_seq": 15,
+          "pad_cam": false,
+          "llffhold": 0,
+          "tracking_pcd": "track_process_data.pkl",
+          "prompt_dict": {
+            "object": [
+              "cloth"
+            ],
+            "obstacle": []
+          },
+          "bounding_box": null,
+          "use_random_background": {
+            "config_a_2cam": false
+          },
+          "const_white_bg": {
+            "config_a_2cam": false
+          },
+          "controller_cfg": {
+            "config_a_2cam": [
+              {
+                "num_cluster": 10
+              },
+              {
+                "downsample_rate": 0.5
+              }
+            ]
+          },
+          "cluster_type": "dis_split",
+          "gravity": [
+            0.0,
+            0.0,
+            -9.8
+          ],
+          "rot_est": {
+            "config_a_2cam": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          },
+          "dt": 0.03333333333333333,
+          "real_dt": {
+            "config_a_2cam": 0.06666666666666667
+          },
+          "split_list": {
+            "config_a_2cam": [
+              [
+                0,
+                13
+              ],
+              [
+                10,
+                23
+              ],
+              [
+                20,
+                33
+              ],
+              [
+                30,
+                43
+              ],
+              [
+                40,
+                53
+              ],
+              [
+                50,
+                63
+              ],
+              [
+                60,
+                73
+              ],
+              [
+                70,
+                83
+              ],
+              [
+                80,
+                93
+              ],
+              [
+                90,
+                103
+              ],
+              [
+                100,
+                113
+              ],
+              [
+                110,
+                123
+              ],
+              [
+                120,
+                133
+              ],
+              [
+                130,
+                143
+              ],
+              [
+                140,
+                150
+              ]
+            ]
+          },
+          "frame_gap": 1,
+          "cluster_cfg": {
+            "config_a_2cam": [
+              {
+                "downsample_rate": 0.02
+              },
+              {
+                "downsample_rate": 0.2
+              }
+            ]
+          },
+          "volume_scalar": {
+            "config_a_2cam": 512
+          },
+          "aligned_scene": null,
+          "max_frame": 1003,
+          "start_frame": 0,
+          "eval_start_frame": -1,
+          "interact": false
+        }
+      },
+      "test": {
+        "type": "EmbodiedDataset",
+        "phase": "all",
+        "env_cfg": {
+          "data_dir": "/data1/userdata/tcweng/projects/tcgs/datasets/deform360/derived/t17_scene_packages/pink_cloth_episode_0",
+          "scene_list": [
+            "config_a_2cam"
+          ],
+          "sub_img_dir": "color",
+          "sub_video_dir": "color",
+          "cam_transform_fn": null,
+          "resolution": [
+            360,
+            640
+          ],
+          "load_imgs": false,
+          "scale_x_angle": 1.0,
+          "max_cam_num": 2,
+          "max_cam_total": 2,
+          "max_seq": 15,
+          "pad_cam": false,
+          "llffhold": 0,
+          "tracking_pcd": "track_process_data.pkl",
+          "prompt_dict": {
+            "object": [
+              "cloth"
+            ],
+            "obstacle": []
+          },
+          "bounding_box": null,
+          "use_random_background": {
+            "config_a_2cam": false
+          },
+          "const_white_bg": {
+            "config_a_2cam": false
+          },
+          "controller_cfg": {
+            "config_a_2cam": [
+              {
+                "num_cluster": 10
+              },
+              {
+                "downsample_rate": 0.5
+              }
+            ]
+          },
+          "cluster_type": "dis_split",
+          "gravity": [
+            0.0,
+            0.0,
+            -9.8
+          ],
+          "rot_est": {
+            "config_a_2cam": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          },
+          "dt": 0.03333333333333333,
+          "real_dt": {
+            "config_a_2cam": 0.06666666666666667
+          },
+          "split_list": {
+            "config_a_2cam": [
+              [
+                0,
+                13
+              ],
+              [
+                10,
+                23
+              ],
+              [
+                20,
+                33
+              ],
+              [
+                30,
+                43
+              ],
+              [
+                40,
+                53
+              ],
+              [
+                50,
+                63
+              ],
+              [
+                60,
+                73
+              ],
+              [
+                70,
+                83
+              ],
+              [
+                80,
+                93
+              ],
+              [
+                90,
+                103
+              ],
+              [
+                100,
+                113
+              ],
+              [
+                110,
+                123
+              ],
+              [
+                120,
+                133
+              ],
+              [
+                130,
+                143
+              ],
+              [
+                140,
+                150
+              ]
+            ]
+          },
+          "frame_gap": 1,
+          "cluster_cfg": {
+            "config_a_2cam": [
+              {
+                "downsample_rate": 0.02
+              },
+              {
+                "downsample_rate": 0.2
+              }
+            ]
+          },
+          "volume_scalar": {
+            "config_a_2cam": 512
+          },
+          "aligned_scene": null,
+          "max_frame": 1003,
+          "start_frame": 0,
+          "eval_start_frame": -1,
+          "interact": false
+        }
+      }
+    },
+    "lr_config": {
+      "by_epoch": true,
+      "policy": "Hood",
+      "decay_rate": 0.5,
+      "decay_steps": 2,
+      "step_start": -1
+    },
+    "runner": {
+      "type": "EpochRunner",
+      "max_epochs": 61,
+      "max_iters": null
+    },
+    "evaluation": {
+      "by_epoch": true,
+      "interval": 1
+    },
+    "work_dir": "/data1/userdata/tcweng/projects/tcgs/outputs/deform360/stage2/config_a_seed5/"
+  },
+  "schedule": [
+    {
+      "relative_epoch": 0,
+      "official_zero_based_epoch": 15,
+      "official_display_epoch": 16,
+      "requested_rollout": 3,
+      "effective_first14": 3,
+      "effective_last": 3,
+      "lr": 0.000404
+    },
+    {
+      "relative_epoch": 1,
+      "official_zero_based_epoch": 16,
+      "official_display_epoch": 17,
+      "requested_rollout": 6,
+      "effective_first14": 6,
+      "effective_last": 6,
+      "lr": 0.00020400000000000003
+    },
+    {
+      "relative_epoch": 2,
+      "official_zero_based_epoch": 17,
+      "official_display_epoch": 18,
+      "requested_rollout": 9,
+      "effective_first14": 9,
+      "effective_last": 9,
+      "lr": 0.00020400000000000003
+    },
+    {
+      "relative_epoch": 3,
+      "official_zero_based_epoch": 18,
+      "official_display_epoch": 19,
+      "requested_rollout": 12,
+      "effective_first14": 12,
+      "effective_last": 9,
+      "lr": 0.00010400000000000001
+    },
+    {
+      "relative_epoch": 4,
+      "official_zero_based_epoch": 19,
+      "official_display_epoch": 20,
+      "requested_rollout": 15,
+      "effective_first14": 12,
+      "effective_last": 9,
+      "lr": 0.00010400000000000001
+    },
+    {
+      "relative_epoch": 5,
+      "official_zero_based_epoch": 20,
+      "official_display_epoch": 21,
+      "requested_rollout": 18,
+      "effective_first14": 12,
+      "effective_last": 9,
+      "lr": 5.4000000000000005e-05
+    },
+    {
+      "relative_epoch": 6,
+      "official_zero_based_epoch": 21,
+      "official_display_epoch": 22,
+      "requested_rollout": 21,
+      "effective_first14": 12,
+      "effective_last": 9,
+      "lr": 5.4000000000000005e-05
+    },
+    {
+      "relative_epoch": 7,
+      "official_zero_based_epoch": 22,
+      "official_display_epoch": 23,
+      "requested_rollout": 24,
+      "effective_first14": 12,
+      "effective_last": 9,
+      "lr": 2.9e-05
+    },
+    {
+      "relative_epoch": 8,
+      "official_zero_based_epoch": 23,
+      "official_display_epoch": 24,
+      "requested_rollout": 27,
+      "effective_first14": 12,
+      "effective_last": 9,
+      "lr": 2.9e-05
+    },
+    {
+      "relative_epoch": 9,
+      "official_zero_based_epoch": 24,
+      "official_display_epoch": 25,
+      "requested_rollout": 30,
+      "effective_first14": 12,
+      "effective_last": 9,
+      "lr": 1.65e-05
+    },
+    {
+      "relative_epoch": 10,
+      "official_zero_based_epoch": 25,
+      "official_display_epoch": 26,
+      "requested_rollout": 33,
+      "effective_first14": 12,
+      "effective_last": 9,
+      "lr": 1.65e-05
+    },
+    {
+      "relative_epoch": 11,
+      "official_zero_based_epoch": 26,
+      "official_display_epoch": 27,
+      "requested_rollout": 36,
+      "effective_first14": 12,
+      "effective_last": 9,
+      "lr": 1.0250000000000002e-05
+    },
+    {
+      "relative_epoch": 12,
+      "official_zero_based_epoch": 27,
+      "official_display_epoch": 28,
+      "requested_rollout": 39,
+      "effective_first14": 12,
+      "effective_last": 9,
+      "lr": 1.0250000000000002e-05
+    },
+    {
+      "relative_epoch": 13,
+      "official_zero_based_epoch": 28,
+      "official_display_epoch": 29,
+      "requested_rollout": 42,
+      "effective_first14": 12,
+      "effective_last": 9,
+      "lr": 7.125000000000001e-06
+    },
+    {
+      "relative_epoch": 14,
+      "official_zero_based_epoch": 29,
+      "official_display_epoch": 30,
+      "requested_rollout": 45,
+      "effective_first14": 12,
+      "effective_last": 9,
+      "lr": 7.125000000000001e-06
+    },
+    {
+      "relative_epoch": 15,
+      "official_zero_based_epoch": 30,
+      "official_display_epoch": 31,
+      "requested_rollout": 48,
+      "effective_first14": 12,
+      "effective_last": 9,
+      "lr": 5.5625000000000005e-06
+    },
+    {
+      "relative_epoch": 16,
+      "official_zero_based_epoch": 31,
+      "official_display_epoch": 32,
+      "requested_rollout": 51,
+      "effective_first14": 12,
+      "effective_last": 9,
+      "lr": 5.5625000000000005e-06
+    },
+    {
+      "relative_epoch": 17,
+      "official_zero_based_epoch": 32,
+      "official_display_epoch": 33,
+      "requested_rollout": 54,
+      "effective_first14": 12,
+      "effective_last": 9,
+      "lr": 4.78125e-06
+    },
+    {
+      "relative_epoch": 18,
+      "official_zero_based_epoch": 33,
+      "official_display_epoch": 34,
+      "requested_rollout": 57,
+      "effective_first14": 12,
+      "effective_last": 9,
+      "lr": 4.78125e-06
+    },
+    {
+      "relative_epoch": 19,
+      "official_zero_based_epoch": 34,
+      "official_display_epoch": 35,
+      "requested_rollout": 60,
+      "effective_first14": 12,
+      "effective_last": 9,
+      "lr": 4.390625e-06
+    },
+    {
+      "relative_epoch": 20,
+      "official_zero_based_epoch": 35,
+      "official_display_epoch": 36,
+      "requested_rollout": 63,
+      "effective_first14": 12,
+      "effective_last": 9,
+      "lr": 4.390625e-06
+    },
+    {
+      "relative_epoch": 21,
+      "official_zero_based_epoch": 36,
+      "official_display_epoch": 37,
+      "requested_rollout": 66,
+      "effective_first14": 12,
+      "effective_last": 9,
+      "lr": 4.1953125e-06
+    },
+    {
+      "relative_epoch": 22,
+      "official_zero_based_epoch": 37,
+      "official_display_epoch": 38,
+      "requested_rollout": 69,
+      "effective_first14": 12,
+      "effective_last": 9,
+      "lr": 4.1953125e-06
+    },
+    {
+      "relative_epoch": 23,
+      "official_zero_based_epoch": 38,
+      "official_display_epoch": 39,
+      "requested_rollout": 72,
+      "effective_first14": 12,
+      "effective_last": 9,
+      "lr": 4.09765625e-06
+    },
+    {
+      "relative_epoch": 24,
+      "official_zero_based_epoch": 39,
+      "official_display_epoch": 40,
+      "requested_rollout": 75,
+      "effective_first14": 12,
+      "effective_last": 9,
+      "lr": 4.09765625e-06
+    },
+    {
+      "relative_epoch": 25,
+      "official_zero_based_epoch": 40,
+      "official_display_epoch": 41,
+      "requested_rollout": 78,
+      "effective_first14": 12,
+      "effective_last": 9,
+      "lr": 4.048828125e-06
+    },
+    {
+      "relative_epoch": 26,
+      "official_zero_based_epoch": 41,
+      "official_display_epoch": 42,
+      "requested_rollout": 81,
+      "effective_first14": 12,
+      "effective_last": 9,
+      "lr": 4.048828125e-06
+    },
+    {
+      "relative_epoch": 27,
+      "official_zero_based_epoch": 42,
+      "official_display_epoch": 43,
+      "requested_rollout": 84,
+      "effective_first14": 12,
+      "effective_last": 9,
+      "lr": 4.0244140625000005e-06
+    },
+    {
+      "relative_epoch": 28,
+      "official_zero_based_epoch": 43,
+      "official_display_epoch": 44,
+      "requested_rollout": 87,
+      "effective_first14": 12,
+      "effective_last": 9,
+      "lr": 4.0244140625000005e-06
+    },
+    {
+      "relative_epoch": 29,
+      "official_zero_based_epoch": 44,
+      "official_display_epoch": 45,
+      "requested_rollout": 90,
+      "effective_first14": 12,
+      "effective_last": 9,
+      "lr": 4.01220703125e-06
+    },
+    {
+      "relative_epoch": 30,
+      "official_zero_based_epoch": 45,
+      "official_display_epoch": 46,
+      "requested_rollout": 93,
+      "effective_first14": 12,
+      "effective_last": 9,
+      "lr": 4.01220703125e-06
+    },
+    {
+      "relative_epoch": 31,
+      "official_zero_based_epoch": 46,
+      "official_display_epoch": 47,
+      "requested_rollout": 96,
+      "effective_first14": 12,
+      "effective_last": 9,
+      "lr": 4.006103515625e-06
+    },
+    {
+      "relative_epoch": 32,
+      "official_zero_based_epoch": 47,
+      "official_display_epoch": 48,
+      "requested_rollout": 99,
+      "effective_first14": 12,
+      "effective_last": 9,
+      "lr": 4.006103515625e-06
+    },
+    {
+      "relative_epoch": 33,
+      "official_zero_based_epoch": 48,
+      "official_display_epoch": 49,
+      "requested_rollout": 102,
+      "effective_first14": 12,
+      "effective_last": 9,
+      "lr": 4.0030517578125e-06
+    },
+    {
+      "relative_epoch": 34,
+      "official_zero_based_epoch": 49,
+      "official_display_epoch": 50,
+      "requested_rollout": 105,
+      "effective_first14": 12,
+      "effective_last": 9,
+      "lr": 4.0030517578125e-06
+    },
+    {
+      "relative_epoch": 35,
+      "official_zero_based_epoch": 50,
+      "official_display_epoch": 51,
+      "requested_rollout": 108,
+      "effective_first14": 12,
+      "effective_last": 9,
+      "lr": 4.0015258789062505e-06
+    },
+    {
+      "relative_epoch": 36,
+      "official_zero_based_epoch": 51,
+      "official_display_epoch": 52,
+      "requested_rollout": 111,
+      "effective_first14": 12,
+      "effective_last": 9,
+      "lr": 4.0015258789062505e-06
+    },
+    {
+      "relative_epoch": 37,
+      "official_zero_based_epoch": 52,
+      "official_display_epoch": 53,
+      "requested_rollout": 114,
+      "effective_first14": 12,
+      "effective_last": 9,
+      "lr": 4.000762939453126e-06
+    },
+    {
+      "relative_epoch": 38,
+      "official_zero_based_epoch": 53,
+      "official_display_epoch": 54,
+      "requested_rollout": 117,
+      "effective_first14": 12,
+      "effective_last": 9,
+      "lr": 4.000762939453126e-06
+    },
+    {
+      "relative_epoch": 39,
+      "official_zero_based_epoch": 54,
+      "official_display_epoch": 55,
+      "requested_rollout": 120,
+      "effective_first14": 12,
+      "effective_last": 9,
+      "lr": 4.000381469726563e-06
+    },
+    {
+      "relative_epoch": 40,
+      "official_zero_based_epoch": 55,
+      "official_display_epoch": 56,
+      "requested_rollout": 123,
+      "effective_first14": 12,
+      "effective_last": 9,
+      "lr": 4.000381469726563e-06
+    },
+    {
+      "relative_epoch": 41,
+      "official_zero_based_epoch": 56,
+      "official_display_epoch": 57,
+      "requested_rollout": 126,
+      "effective_first14": 12,
+      "effective_last": 9,
+      "lr": 4.0001907348632815e-06
+    },
+    {
+      "relative_epoch": 42,
+      "official_zero_based_epoch": 57,
+      "official_display_epoch": 58,
+      "requested_rollout": 129,
+      "effective_first14": 12,
+      "effective_last": 9,
+      "lr": 4.0001907348632815e-06
+    },
+    {
+      "relative_epoch": 43,
+      "official_zero_based_epoch": 58,
+      "official_display_epoch": 59,
+      "requested_rollout": 132,
+      "effective_first14": 12,
+      "effective_last": 9,
+      "lr": 4.000095367431641e-06
+    },
+    {
+      "relative_epoch": 44,
+      "official_zero_based_epoch": 59,
+      "official_display_epoch": 60,
+      "requested_rollout": 135,
+      "effective_first14": 12,
+      "effective_last": 9,
+      "lr": 4.000095367431641e-06
+    },
+    {
+      "relative_epoch": 45,
+      "official_zero_based_epoch": 60,
+      "official_display_epoch": 61,
+      "requested_rollout": 138,
+      "effective_first14": 12,
+      "effective_last": 9,
+      "lr": 4.000047683715821e-06
+    },
+    {
+      "relative_epoch": 46,
+      "official_zero_based_epoch": 61,
+      "official_display_epoch": 62,
+      "requested_rollout": 141,
+      "effective_first14": 12,
+      "effective_last": 9,
+      "lr": 4.000047683715821e-06
+    },
+    {
+      "relative_epoch": 47,
+      "official_zero_based_epoch": 62,
+      "official_display_epoch": 63,
+      "requested_rollout": 144,
+      "effective_first14": 12,
+      "effective_last": 9,
+      "lr": 4.000023841857911e-06
+    },
+    {
+      "relative_epoch": 48,
+      "official_zero_based_epoch": 63,
+      "official_display_epoch": 64,
+      "requested_rollout": 147,
+      "effective_first14": 12,
+      "effective_last": 9,
+      "lr": 4.000023841857911e-06
+    },
+    {
+      "relative_epoch": 49,
+      "official_zero_based_epoch": 64,
+      "official_display_epoch": 65,
+      "requested_rollout": 150,
+      "effective_first14": 12,
+      "effective_last": 9,
+      "lr": 4.000011920928955e-06
+    },
+    {
+      "relative_epoch": 50,
+      "official_zero_based_epoch": 65,
+      "official_display_epoch": 66,
+      "requested_rollout": 153,
+      "effective_first14": 12,
+      "effective_last": 9,
+      "lr": 4.000011920928955e-06
+    },
+    {
+      "relative_epoch": 51,
+      "official_zero_based_epoch": 66,
+      "official_display_epoch": 67,
+      "requested_rollout": 156,
+      "effective_first14": 12,
+      "effective_last": 9,
+      "lr": 4.0000059604644776e-06
+    },
+    {
+      "relative_epoch": 52,
+      "official_zero_based_epoch": 67,
+      "official_display_epoch": 68,
+      "requested_rollout": 159,
+      "effective_first14": 12,
+      "effective_last": 9,
+      "lr": 4.0000059604644776e-06
+    },
+    {
+      "relative_epoch": 53,
+      "official_zero_based_epoch": 68,
+      "official_display_epoch": 69,
+      "requested_rollout": 162,
+      "effective_first14": 12,
+      "effective_last": 9,
+      "lr": 4.000002980232239e-06
+    },
+    {
+      "relative_epoch": 54,
+      "official_zero_based_epoch": 69,
+      "official_display_epoch": 70,
+      "requested_rollout": 165,
+      "effective_first14": 12,
+      "effective_last": 9,
+      "lr": 4.000002980232239e-06
+    },
+    {
+      "relative_epoch": 55,
+      "official_zero_based_epoch": 70,
+      "official_display_epoch": 71,
+      "requested_rollout": 168,
+      "effective_first14": 12,
+      "effective_last": 9,
+      "lr": 4.00000149011612e-06
+    },
+    {
+      "relative_epoch": 56,
+      "official_zero_based_epoch": 71,
+      "official_display_epoch": 72,
+      "requested_rollout": 171,
+      "effective_first14": 12,
+      "effective_last": 9,
+      "lr": 4.00000149011612e-06
+    },
+    {
+      "relative_epoch": 57,
+      "official_zero_based_epoch": 72,
+      "official_display_epoch": 73,
+      "requested_rollout": 174,
+      "effective_first14": 12,
+      "effective_last": 9,
+      "lr": 4.00000074505806e-06
+    },
+    {
+      "relative_epoch": 58,
+      "official_zero_based_epoch": 73,
+      "official_display_epoch": 74,
+      "requested_rollout": 177,
+      "effective_first14": 12,
+      "effective_last": 9,
+      "lr": 4.00000074505806e-06
+    },
+    {
+      "relative_epoch": 59,
+      "official_zero_based_epoch": 74,
+      "official_display_epoch": 75,
+      "requested_rollout": 180,
+      "effective_first14": 12,
+      "effective_last": 9,
+      "lr": 4.00000037252903e-06
+    },
+    {
+      "relative_epoch": 60,
+      "official_zero_based_epoch": 75,
+      "official_display_epoch": 76,
+      "requested_rollout": 183,
+      "effective_first14": 12,
+      "effective_last": 9,
+      "lr": 4.00000037252903e-06
+    }
+  ],
+  "windows": [
+    {
+      "local": [
+        0,
+        13
+      ],
+      "source": [
+        113,
+        126
+      ],
+      "cache_key": 0,
+      "dense_targets": [
+        114,
+        115,
+        116,
+        117,
+        118,
+        119,
+        120,
+        121,
+        122,
+        123,
+        124,
+        125
+      ]
+    },
+    {
+      "local": [
+        10,
+        23
+      ],
+      "source": [
+        123,
+        136
+      ],
+      "cache_key": 10,
+      "dense_targets": [
+        124,
+        125,
+        126,
+        127,
+        128,
+        129,
+        130,
+        131,
+        132,
+        133,
+        134,
+        135
+      ]
+    },
+    {
+      "local": [
+        20,
+        33
+      ],
+      "source": [
+        133,
+        146
+      ],
+      "cache_key": 20,
+      "dense_targets": [
+        134,
+        135,
+        136,
+        137,
+        138,
+        139,
+        140,
+        141,
+        142,
+        143,
+        144,
+        145
+      ]
+    },
+    {
+      "local": [
+        30,
+        43
+      ],
+      "source": [
+        143,
+        156
+      ],
+      "cache_key": 30,
+      "dense_targets": [
+        144,
+        145,
+        146,
+        147,
+        148,
+        149,
+        150,
+        151,
+        152,
+        153,
+        154,
+        155
+      ]
+    },
+    {
+      "local": [
+        40,
+        53
+      ],
+      "source": [
+        153,
+        166
+      ],
+      "cache_key": 40,
+      "dense_targets": [
+        154,
+        155,
+        156,
+        157,
+        158,
+        159,
+        160,
+        161,
+        162,
+        163,
+        164,
+        165
+      ]
+    },
+    {
+      "local": [
+        50,
+        63
+      ],
+      "source": [
+        163,
+        176
+      ],
+      "cache_key": 50,
+      "dense_targets": [
+        164,
+        165,
+        166,
+        167,
+        168,
+        169,
+        170,
+        171,
+        172,
+        173,
+        174,
+        175
+      ]
+    },
+    {
+      "local": [
+        60,
+        73
+      ],
+      "source": [
+        173,
+        186
+      ],
+      "cache_key": 60,
+      "dense_targets": [
+        174,
+        175,
+        176,
+        177,
+        178,
+        179,
+        180,
+        181,
+        182,
+        183,
+        184,
+        185
+      ]
+    },
+    {
+      "local": [
+        70,
+        83
+      ],
+      "source": [
+        183,
+        196
+      ],
+      "cache_key": 70,
+      "dense_targets": [
+        184,
+        185,
+        186,
+        187,
+        188,
+        189,
+        190,
+        191,
+        192,
+        193,
+        194,
+        195
+      ]
+    },
+    {
+      "local": [
+        80,
+        93
+      ],
+      "source": [
+        193,
+        206
+      ],
+      "cache_key": 80,
+      "dense_targets": [
+        194,
+        195,
+        196,
+        197,
+        198,
+        199,
+        200,
+        201,
+        202,
+        203,
+        204,
+        205
+      ]
+    },
+    {
+      "local": [
+        90,
+        103
+      ],
+      "source": [
+        203,
+        216
+      ],
+      "cache_key": 90,
+      "dense_targets": [
+        204,
+        205,
+        206,
+        207,
+        208,
+        209,
+        210,
+        211,
+        212,
+        213,
+        214,
+        215
+      ]
+    },
+    {
+      "local": [
+        100,
+        113
+      ],
+      "source": [
+        213,
+        226
+      ],
+      "cache_key": 100,
+      "dense_targets": [
+        214,
+        215,
+        216,
+        217,
+        218,
+        219,
+        220,
+        221,
+        222,
+        223,
+        224,
+        225
+      ]
+    },
+    {
+      "local": [
+        110,
+        123
+      ],
+      "source": [
+        223,
+        236
+      ],
+      "cache_key": 110,
+      "dense_targets": [
+        224,
+        225,
+        226,
+        227,
+        228,
+        229,
+        230,
+        231,
+        232,
+        233,
+        234,
+        235
+      ]
+    },
+    {
+      "local": [
+        120,
+        133
+      ],
+      "source": [
+        233,
+        246
+      ],
+      "cache_key": 120,
+      "dense_targets": [
+        234,
+        235,
+        236,
+        237,
+        238,
+        239,
+        240,
+        241,
+        242,
+        243,
+        244,
+        245
+      ]
+    },
+    {
+      "local": [
+        130,
+        143
+      ],
+      "source": [
+        243,
+        256
+      ],
+      "cache_key": 130,
+      "dense_targets": [
+        244,
+        245,
+        246,
+        247,
+        248,
+        249,
+        250,
+        251,
+        252,
+        253,
+        254,
+        255
+      ]
+    },
+    {
+      "local": [
+        140,
+        150
+      ],
+      "source": [
+        253,
+        263
+      ],
+      "cache_key": 140,
+      "dense_targets": [
+        254,
+        255,
+        256,
+        257,
+        258,
+        259,
+        260,
+        261,
+        262
+      ]
+    }
+  ],
+  "dataset_length": 15,
+  "repeat": 40,
+  "steps_per_epoch": 600,
+  "total_steps": 36600,
+  "runner_source": {
+    "run": "    def run(self,\n            data_loaders: List[DataLoader],\n            workflow: List[Tuple[str, int]],\n            max_epochs: Optional[int] = None,\n            **kwargs) -> None:\n        \"\"\"Start running.\n\n        Args:\n            data_loaders (list[:obj:`DataLoader`]): Dataloaders for training\n                and validation.\n            workflow (list[tuple]): A list of (phase, epochs) to specify the\n                running order and epochs. E.g, [('train', 2), ('val', 1)] means\n                running 2 epochs for training and 1 epoch for validation,\n                iteratively.\n        \"\"\"\n        assert isinstance(data_loaders, list)\n        assert mmcv.is_list_of(workflow, tuple)\n        assert len(data_loaders) == len(workflow)\n        if max_epochs is not None:\n            warnings.warn(\n                'setting max_epochs in run is deprecated, '\n                'please set max_epochs in runner_config', DeprecationWarning)\n            self._max_epochs = max_epochs\n\n        assert self._max_epochs is not None, (\n            'max_epochs must be specified during instantiation')\n\n        for i, flow in enumerate(workflow):\n            mode, epochs = flow\n            if mode == 'train':\n                self._max_iters = self._max_epochs * len(data_loaders[i])\n                break\n\n        work_dir = self.work_dir if self.work_dir is not None else 'NONE'\n        self.logger.info('Start running, host: %s, work_dir: %s',\n                         get_host_info(), work_dir)\n        self.logger.info('Hooks will be executed in the following order:\\n%s',\n                         self.get_hook_info())\n        self.logger.info('workflow: %s, max: %d epochs', workflow,\n                         self._max_epochs)\n        self.call_hook('before_run')\n\n        while self.epoch < self._max_epochs:\n            for i, flow in enumerate(workflow):\n                mode, epochs = flow\n                if isinstance(mode, str):  # self.train()\n                    if not hasattr(self, mode):\n                        raise ValueError(\n                            f'runner has no method named \"{mode}\" to run an '\n                            'epoch')\n                    epoch_runner = getattr(self, mode)\n                else:\n                    raise TypeError(\n                        'mode in workflow must be a str, but got {}'.format(\n                            type(mode)))\n\n                for _ in range(epochs):\n                    if mode == 'train' and self.epoch >= self._max_epochs:\n                        break\n                    epoch_runner(data_loaders[i], **kwargs)\n\n        time.sleep(1)  # wait for some hooks like loggers to finish\n        self.call_hook('after_run')\n",
+    "train": "    def train(self, data_loader, **kwargs):\n        self.model.train()\n        self.mode = 'train'\n        self.data_loader = data_loader\n        self._max_iters = self._max_epochs * len(self.data_loader)\n        self.call_hook('before_train_epoch')\n        time.sleep(2)  # Prevent possible deadlock during epoch transition\n        for i, data_batch in enumerate(self.data_loader):\n            self.data_batch = data_batch\n            self._inner_iter = i\n            self.call_hook('before_train_iter')\n            self.run_iter(data_batch, train_mode=True, **kwargs)\n            self.call_hook('after_train_iter')\n            del self.data_batch\n            self._iter += 1\n\n        self.call_hook('after_train_epoch')\n        self._epoch += 1\n",
+    "load_checkpoint": "    def load_checkpoint(\n        self,\n        filename: str,\n        map_location: Union[str, Callable] = 'cpu',\n        strict: bool = False,\n        revise_keys: List = [(r'^module.', '')],\n    ) -> Union[Dict, OrderedDict]:\n        return load_checkpoint(\n            self.model,\n            filename,\n            map_location,\n            strict,\n            self.logger,\n            revise_keys=revise_keys)\n"
+  },
+  "source_hashes": {
+    "configs/SoMA/cloth_lift_stage2.py": "542f2529da661854a7184081149f6326c6368ff938ca1308292c91722c1ad8e0",
+    "mmgs/core/lr_updater/hooks.py": "035253b63f4660bbcf6321085774ce7eddcc97b2e4c7744de6829a41eb3daf6e",
+    "mmgs/models/simulators/gs_simulator_embodied_stage2.py": "d51957abac7ff7dd68f09ecda900c09e04434fc798b328741199ec0d0af8af8e",
+    "mmgs/datasets/embodied_dataset.py": "ed74d81ca80e051491aa9045b83ab9caa5f7f3e7b44a8ec6f82026e5359f7858",
+    "mmgs/apis/train.py": "2761c794a5ccf64c3d5d6f852163dd84b33524f40a67d80fa6908b81e0d9b009",
+    "mmgs/models/utils/normalization.py": "f78712dd0760fcf16a58431d7fdfd240a2e38cba89c400b405df93798f364220"
+  }
+}
