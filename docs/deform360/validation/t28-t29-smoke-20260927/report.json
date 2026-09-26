@@ -1,0 +1,468 @@
+{
+  "T28": {
+    "status": "PASS",
+    "cache_key": 0,
+    "cache_path": "/data1/userdata/tcweng/projects/tcgs/datasets/deform360/derived/008-pink-cloth/episode_0/t27_stage1_cache_gap10/config_a_2cam/pred_stage1/frame_0.pth",
+    "cache_sha256": "548b31b06a1d974689a86ad4fd039a4df22fdf9cbc22ee4fc2a7df4ce364b241",
+    "loaded_pred_pos_hash": "f4ba7c55907595989a1518d6253a5d6b57710fc984653017ed90a3d1db9526b7",
+    "loaded_pred_cov_hash": "ed25464a19a5306a14ae9da5073729de74c9fd78ef64f05049043ec9c42c770b",
+    "local_window_inclusive": [
+      0,
+      12
+    ],
+    "source_window_inclusive": [
+      113,
+      125
+    ],
+    "dense_target_local": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12
+    ],
+    "dense_target_source": [
+      114,
+      115,
+      116,
+      117,
+      118,
+      119,
+      120,
+      121,
+      122,
+      123,
+      124,
+      125
+    ],
+    "controller_local_endpoints": [
+      0,
+      12
+    ],
+    "GT_local_endpoints": [
+      0,
+      12
+    ],
+    "dense_steps": 12,
+    "shapes": {
+      "pred_pos": [
+        12861,
+        3
+      ],
+      "pred_cov": [
+        12861,
+        6
+      ]
+    },
+    "dtypes": {
+      "pred_pos": "torch.float32",
+      "pred_cov": "torch.float32"
+    },
+    "camera_ids": [
+      "brics-odroid-023_cam0",
+      "brics-odroid-009_cam1"
+    ],
+    "cache_loaded_exact": true,
+    "no_tail_truncation": true,
+    "all_inputs_finite": true
+  },
+  "T29": {
+    "status": "PASS",
+    "forward": {
+      "pred_pos_shape": [
+        12861,
+        3
+      ],
+      "pred_cov_shape": [
+        12861,
+        6
+      ],
+      "render_shapes": [
+        [
+          3,
+          360,
+          640
+        ],
+        [
+          3,
+          360,
+          640
+        ]
+      ],
+      "finite": true
+    },
+    "losses": {
+      "decode.loss_mse_momentum_config_a_2cam": 5.551250457763672,
+      "decode.loss_ssim_render_config_a_2cam": 1869.05859375,
+      "decode.loss_l2_render_config_a_2cam": 3531.87939453125,
+      "decode.acc_l2_render.acc_config_a_2cam_frame0": 0.02636953443288803,
+      "decode.acc_l1_render.acc_config_a_2cam_frame0": 0.04219822958111763,
+      "decode.acc_ssim_render.acc_config_a_2cam_frame0": 0.9729592204093933,
+      "decode.acc_psnr_render.acc_config_a_2cam_frame0": 23.44622039794922,
+      "decode.loss_mse_static_config_a_2cam": 0.0,
+      "loss": 5406.4892578125
+    },
+    "LR": [
+      0.000404
+    ],
+    "gradients": {
+      "count": 275,
+      "finite_count": 275,
+      "counts": {
+        "NaN": 0,
+        "+Inf": 0,
+        "-Inf": 0
+      },
+      "first_bad_parameter": null
+    },
+    "preclip_norm": 152467.81639960504,
+    "clip_return": 152467.8125,
+    "postclip_norm": 1.0000000410807994,
+    "step_count": 1,
+    "updated_parameter_count": 275,
+    "model_optimizer_runtime_finite": true,
+    "cache_and_source_hashes_unchanged": true,
+    "provenance": [
+      {
+        "current_source": 113,
+        "target_source": 114,
+        "model_input_cache_exact": true
+      }
+    ],
+    "peak_allocated": 1447921664,
+    "peak_reserved": 1568669696,
+    "normalizer_dtypes": {
+      "backbone.node_normalizer._acc_count": "torch.float64",
+      "backbone.node_normalizer._num_accumulations": "torch.float64",
+      "backbone.node_normalizer._acc_sum": "torch.float64",
+      "backbone.node_normalizer._acc_sum_squared": "torch.float64",
+      "backbone.anchor_normalizer._acc_count": "torch.float64",
+      "backbone.anchor_normalizer._num_accumulations": "torch.float64",
+      "backbone.anchor_normalizer._acc_sum": "torch.float64",
+      "backbone.anchor_normalizer._acc_sum_squared": "torch.float64",
+      "backbone.edge_normalizer._acc_count": "torch.float64",
+      "backbone.edge_normalizer._num_accumulations": "torch.float64",
+      "backbone.edge_normalizer._acc_sum": "torch.float64",
+      "backbone.edge_normalizer._acc_sum_squared": "torch.float64"
+    }
+  },
+  "job_id": "25873",
+  "git_commit": "3683f12e938ad6893493bab06d36154ae2abe992",
+  "tool_sha256": "0566a750ed5b5268230d934da85fbbfe725395a452c5e1b0a3934ae7de310658",
+  "configuration": {
+    "official_source": "/data1/userdata/tcweng/projects/tcgs/SoMA/configs/SoMA/cloth_lift_stage2.py",
+    "official_sha256": "542f2529da661854a7184081149f6326c6368ff938ca1308292c91722c1ad8e0",
+    "coarse_gap": 10,
+    "dense_gap": 1,
+    "model_dt": 0.06666666666666667,
+    "dataset_dt": 0.03333333333333333,
+    "optimizer": {
+      "type": "Adam",
+      "lr": 0.0004,
+      "betas": [
+        0.9,
+        0.999
+      ],
+      "weight_decay": 0,
+      "amsgrad": false
+    },
+    "clip": {
+      "grad_clip": {
+        "max_norm": 1.0
+      }
+    },
+    "scheduler": {
+      "by_epoch": true,
+      "policy": "Hood",
+      "decay_rate": 0.5,
+      "decay_steps": 2,
+      "step_start": 14
+    },
+    "smoke_epoch_zero_based": 15,
+    "smoke_override": "one dense step via max_rollout_step=1/interval=0; fresh optimizer, Stage1 final learned weights; not formal resume or Stage2 protocol",
+    "model": {
+      "type": "GsSimulatorEmbodiedS2",
+      "cluster_cfg": {
+        "config_a_2cam": [
+          {
+            "downsample_rate": 0.02
+          },
+          {
+            "downsample_rate": 0.2
+          }
+        ]
+      },
+      "processor_cfg": [
+        {
+          "type": "GsHieEmbodiedDGLProcessor",
+          "anchor_prefix": "anchor_",
+          "radius": [
+            0.03,
+            0.2,
+            0.5
+          ],
+          "group_cfg": {
+            "max_radius": null,
+            "min_radius": 0.0,
+            "sample_num": 16,
+            "use_xyz": true,
+            "normalize_xyz": false,
+            "return_grouped_xyz": false,
+            "return_grouped_idx": true,
+            "return_unique_cnt": false
+          }
+        }
+      ],
+      "accumulate_gradient": false,
+      "dt": 0.06666666666666667,
+      "backbone": {
+        "type": "MeshGraphNetHieEmbodied",
+        "attr_dim": 5,
+        "state_dim": 6,
+        "position_dim": 3,
+        "num_frames": 2,
+        "embed_dims": 128,
+        "num_encoder_layers": 16,
+        "dropout": 0.0,
+        "eps": 1e-07,
+        "num_fcs": 3,
+        "act_cfg": {
+          "type": "SiLU",
+          "inplace": true
+        },
+        "norm_cfg": {
+          "type": "LN"
+        },
+        "pre_norm": true,
+        "norm_acc_steps": null,
+        "edge_mode": "ratio",
+        "edge_theta": true,
+        "fix_bug": true,
+        "dt": 0.06666666666666667
+      },
+      "decode_head": {
+        "type": "AccDecoder",
+        "in_channels": 128,
+        "out_channels": 11,
+        "add_residual": false,
+        "init_quant": 1.0,
+        "loss_decode": [
+          {
+            "type": "MSELoss",
+            "reduction": "sum",
+            "loss_weight": 1.0,
+            "loss_name": "loss_mse_momentum"
+          },
+          {
+            "type": "SSIMLoss",
+            "reduction": "sum",
+            "kernel_size": 5,
+            "loss_weight": 0.1,
+            "loss_name": "loss_ssim_render"
+          },
+          {
+            "type": "L2Loss",
+            "reduction": "sum",
+            "loss_weight": 0.9,
+            "loss_name": "loss_l2_render"
+          },
+          {
+            "type": "MSELoss",
+            "reduction": "sum",
+            "loss_weight": 1.0,
+            "loss_name": "loss_mse_static"
+          },
+          {
+            "type": "SpatialLoss",
+            "reduction": "sum",
+            "loss_weight": 1.0,
+            "loss_name": "loss_spatial"
+          },
+          {
+            "type": "L2Loss",
+            "reduction": "sum",
+            "loss_weight": 0.9,
+            "loss_name": "loss_l2_bounding"
+          },
+          {
+            "type": "SSIMLoss",
+            "reduction": "sum",
+            "kernel_size": 5,
+            "loss_weight": 0.1,
+            "loss_name": "loss_ssim_bounding"
+          }
+        ],
+        "accuracy": [
+          {
+            "type": "L2Accuracy",
+            "reduction": "mean",
+            "acc_name": "acc_l2_render"
+          },
+          {
+            "type": "L1Accuracy",
+            "reduction": "mean",
+            "acc_name": "acc_l1_render"
+          },
+          {
+            "type": "SSIMAccuracy",
+            "reduction": "mean",
+            "acc_name": "acc_ssim_render"
+          },
+          {
+            "type": "PSNRAccuracy",
+            "reduction": "mean",
+            "acc_name": "acc_psnr_render"
+          }
+        ],
+        "dt": 0.06666666666666667
+      },
+      "gs_scene": [
+        {
+          "name": "config_a_2cam",
+          "model_path": "/data1/userdata/tcweng/projects/tcgs/datasets/deform360/derived/t17_scene_packages/pink_cloth_episode_0/config_a_2cam/pi3/gs/point_cloud/iteration_10000/point_cloud.ply",
+          "sh_degree": 0,
+          "num_seq": 1,
+          "attr_name": "rope"
+        }
+      ],
+      "forward_last_layer": false,
+      "share_weight": true,
+      "opt_sim": true,
+      "opt_vel": true,
+      "checkpoint_rollout": 20,
+      "selfsup_loss": false,
+      "pred_vel": true,
+      "use_rotation": false,
+      "fix_bug": true,
+      "frame_gap": 10,
+      "test_rollout_mode": "segmented",
+      "flag_save_gaussian": false,
+      "flag_update_gaussian": true,
+      "flag_update_gaussian_train": false,
+      "data_dir": "/data1/userdata/tcweng/projects/tcgs/datasets/deform360/derived/008-pink-cloth/episode_0/t27_stage1_cache_gap10",
+      "controller_cfg": {
+        "config_a_2cam": [
+          {
+            "num_cluster": 10
+          },
+          {
+            "downsample_rate": 0.5
+          }
+        ]
+      },
+      "static_loss": false,
+      "avg_loss": true,
+      "render_mov_only": true,
+      "train_cfg": {
+        "by_epoch": true,
+        "step_increase_interval": 0,
+        "step_increase_magnitude": 3,
+        "step_initial": -42,
+        "max_rollout_step": 1
+      },
+      "test_cfg": {
+        "by_epoch": true,
+        "step_increase_interval": 1,
+        "step_increase_magnitude": 3,
+        "step_initial": -42,
+        "max_rollout_step": 1000
+      }
+    },
+    "dataset_env": {
+      "data_dir": "/data1/userdata/tcweng/projects/tcgs/datasets/deform360/derived/t17_scene_packages/pink_cloth_episode_0",
+      "scene_list": [
+        "config_a_2cam"
+      ],
+      "sub_img_dir": "color",
+      "sub_video_dir": "color",
+      "cam_transform_fn": null,
+      "resolution": [
+        360,
+        640
+      ],
+      "load_imgs": false,
+      "scale_x_angle": 1.0,
+      "max_cam_num": 2,
+      "max_cam_total": 2,
+      "max_seq": 1,
+      "pad_cam": false,
+      "llffhold": 0,
+      "tracking_pcd": "track_process_data.pkl",
+      "prompt_dict": {
+        "object": [
+          "cloth"
+        ],
+        "obstacle": []
+      },
+      "bounding_box": null,
+      "use_random_background": {
+        "config_a_2cam": false
+      },
+      "const_white_bg": {
+        "config_a_2cam": false
+      },
+      "controller_cfg": {
+        "config_a_2cam": [
+          {
+            "num_cluster": 10
+          },
+          {
+            "downsample_rate": 0.5
+          }
+        ]
+      },
+      "cluster_type": "dis_split",
+      "gravity": [
+        0.0,
+        0.0,
+        -9.8
+      ],
+      "rot_est": {
+        "config_a_2cam": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      },
+      "dt": 0.03333333333333333,
+      "real_dt": {
+        "config_a_2cam": 0.06666666666666667
+      },
+      "split_list": {
+        "config_a_2cam": [
+          [
+            0,
+            13
+          ]
+        ]
+      },
+      "frame_gap": 1,
+      "cluster_cfg": {
+        "config_a_2cam": [
+          {
+            "downsample_rate": 0.02
+          },
+          {
+            "downsample_rate": 0.2
+          }
+        ]
+      },
+      "volume_scalar": {
+        "config_a_2cam": 512
+      },
+      "aligned_scene": null,
+      "max_frame": 1003,
+      "start_frame": 0,
+      "eval_start_frame": -1,
+      "interact": false
+    }
+  }
+}

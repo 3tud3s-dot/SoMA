@@ -27,7 +27,7 @@ Deform360 HEAD:
 d8522a4403b766aeb387510c04e89032a56fdf35
 
 Current task:
-T27
+T29
 
 Current status:
 PASS
@@ -163,8 +163,8 @@ tcgs root Git 仅用于 workspace-level 资产。除非明确说明，不在 tcg
 | T26.4 | Normalizer numerical-stability fix / layered regression | PASS |
 | T26.5 | formal first-step regression（Blocking smoke test） | PASS |
 | T27 | 只生成并核验 Stage-1 cache | PASS |
-| T28 | 只串联一个 Stage 2 子窗口 | TODO |
-| T29 | 只验证 Stage 2 一个优化步骤 | TODO |
+| T28 | 只串联一个 Stage 2 子窗口 | PASS |
+| T29 | 只验证 Stage 2 一个优化步骤 | PASS |
 | T30 | 执行固定预算的 Stage 2 训练 | TODO |
 | T31 | 验证真正的 continuous rollout | TODO |
 | T32 | 汇总首个 no-tactile baseline 结果 | TODO |
@@ -2075,7 +2075,7 @@ Slurm25872 COMPLETED/0:0、11s；新server-only目录 `datasets/deform360/derive
 
 ### T28：只串联一个 Stage 2 子窗口
 
-Status: TODO
+Status: PASS
 
 **问题：** dense frame 与 coarse cache 起点是否正确对应？
 
@@ -2102,15 +2102,17 @@ Status: TODO
 
 #### Result
 
-Not executed.
+2026-09-27：PASS。T27以3683f12e938ad6893493bab06d36154ae2abe992提交/push，两端同HEAD/clean/0-0后，Slurm25873真实EmbodiedDataset与GsSimulatorEmbodiedS2 cache初始化通过。官方首窗口[0,13)：local0…12/source113…125，dense targets1…12/114…125，coarse cache frame_0。pred_pos[12861,3]/pred_cov[12861,6]float32，cache逐值加载匹配；controller全13帧与T11一致，GT全13帧与canonical RGB/mask一致，Config A顺序保持，全部finite，无tail truncation/重复offset/gap混淆。T28先PASS并写report才进入T29。
 
 #### Evidence
 
-Not executed.
+- [独立gated报告](validation/t28-t29-smoke-20260927/README.md)、[完整配置/结果](validation/t28-t29-smoke-20260927/report.json)。
+- [T28 contract](contracts/008-pink-cloth/episode_0/stage2_subwindow_contract.json)、[T29 contract](contracts/008-pink-cloth/episode_0/stage2_optimizer_smoke_contract.json)。
+- 所属SoMA/deform360-adaptation；本项未commit/push，后续经Git同步；server repo clean。
 
 ### T29：只验证 Stage 2 一个优化步骤
 
-Status: TODO
+Status: PASS
 
 **问题：** Stage 2 的 dense-step 梯度路径是否成立？
 
@@ -2136,11 +2138,13 @@ Status: TODO
 
 #### Result
 
-Not executed.
+2026-09-27：PASS。Slurm25873 COMPLETED/0:0、8s，同一T28 batch真实Stage2 forward_train→combined backward→OptimizerHook clip1→一次Adam.step。source113→114，preprocess position/covariance与T27frame_0逐值一致，无future-Ply reset。显式one-dense-step smoke override；载入T26epoch46权重，fresh optimizer，官方Stage2 entry counter15/Hood/baseLR.0004给actualLR.000404；不是正式Stage2 protocol或完整resume。total loss5406.4892578，275/275gradient finite、NaN/Inf0，preclip152467.8164/postclip1.0000000411；275参数更新，model/Adam/runtime finite，12NormalizerFP64。peak allocated1447921664B/reserved1568669696B；cache/source hashes不变。未改核心源码、未执行额外batch/T30。
 
 #### Evidence
 
-Not executed.
+- [独立gated报告](validation/t28-t29-smoke-20260927/README.md)、[完整配置/结果](validation/t28-t29-smoke-20260927/report.json)。
+- [T28 contract](contracts/008-pink-cloth/episode_0/stage2_subwindow_contract.json)、[T29 contract](contracts/008-pink-cloth/episode_0/stage2_optimizer_smoke_contract.json)。
+- 所属SoMA/deform360-adaptation；本项未commit/push，后续经Git同步；server repo clean。
 
 ### T30：执行固定预算的 Stage 2 训练
 
