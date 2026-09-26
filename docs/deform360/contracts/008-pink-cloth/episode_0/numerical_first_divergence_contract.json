@@ -1,0 +1,211 @@
+{
+  "schema_version": 1,
+  "todo": "T24.5",
+  "classification": "PARTIALLY_ATTRIBUTED",
+  "non_gating": true,
+  "t24_unchanged": "PASS — checkpoint state recovery",
+  "t25_plus_blocked_by_this": false,
+  "canonical_setup": {
+    "config": "A",
+    "camera_ids": [
+      "brics-odroid-023_cam0",
+      "brics-odroid-009_cam1"
+    ],
+    "initial_source_frame": 113,
+    "target_source_frame": 123,
+    "controller": "candidate_7mm",
+    "grouping": [
+      30,
+      10,
+      2,
+      1
+    ],
+    "external_gravity": [
+      0,
+      0,
+      -39.2
+    ],
+    "frame_gap": 10,
+    "mode": "eval/no_grad",
+    "training_steps": 0,
+    "optimizer_steps": 0
+  },
+  "checkpoint": {
+    "workspace_relative_path": "outputs/deform360/t24-same-process-20260926/epoch_1.pth",
+    "bytes": 30024957,
+    "sha256": "421070e708ca8920de7b661a2708ec974ec4008c7469e80f7585e17a571a7979",
+    "modified": false
+  },
+  "result": "Identical ordered graph edges and feature tensors enter DGL _gspmm(copy_lhs, sum); the returned sum is the first non-identical observed tensor. Both offending mean aggregations call this sum before degree division.",
+  "first_boundaries": [
+    {
+      "pair": [
+        "A_M0_first",
+        "A_M0_repeat"
+      ],
+      "last_exact_stage": "013:native_spmm.external.copy_lhs.sum.input:0",
+      "first_non_equal_stage": "014:native_spmm.external.copy_lhs.sum.output:0",
+      "output_comparisons": {
+        "014:native_spmm.external.copy_lhs.sum.output:0/0": {
+          "bitwise_equal": false,
+          "max_abs_diff": 0.000244140625,
+          "mean_abs_diff": 2.50400641025641e-07,
+          "shape": [
+            650,
+            3
+          ],
+          "dtype": "torch.float32",
+          "original_tolerance_pass": true
+        }
+      },
+      "operation_metadata": {
+        "site": "native_spmm.external.copy_lhs.sum",
+        "context": {
+          "message": "copy_u",
+          "reduce": "mean",
+          "output_field": "external"
+        },
+        "formats": {
+          "created": [
+            "coo"
+          ],
+          "not created": [
+            "csr",
+            "csc"
+          ]
+        },
+        "num_nodes": [
+          12891,
+          650
+        ],
+        "native_call": "dgl._sparse_ops._gspmm -> _CAPI_DGLKernelSpMM"
+      }
+    },
+    {
+      "pair": [
+        "A_M0_first",
+        "A_M1_first"
+      ],
+      "last_exact_stage": "007:native_spmm.attr.copy_lhs.sum.input:0",
+      "first_non_equal_stage": "008:native_spmm.attr.copy_lhs.sum.output:0",
+      "output_comparisons": {
+        "008:native_spmm.attr.copy_lhs.sum.output:0/0": {
+          "bitwise_equal": false,
+          "max_abs_diff": 1.862645149230957e-09,
+          "mean_abs_diff": 2.292486337515024e-12,
+          "shape": [
+            650,
+            5
+          ],
+          "dtype": "torch.float32",
+          "original_tolerance_pass": true
+        }
+      },
+      "operation_metadata": {
+        "site": "native_spmm.attr.copy_lhs.sum",
+        "context": {
+          "message": "copy_u",
+          "reduce": "mean",
+          "output_field": "attr"
+        },
+        "formats": {
+          "created": [
+            "coo"
+          ],
+          "not created": [
+            "csr",
+            "csc"
+          ]
+        },
+        "num_nodes": [
+          12891,
+          650
+        ],
+        "native_call": "dgl._sparse_ops._gspmm -> _CAPI_DGLKernelSpMM"
+      }
+    }
+  ],
+  "rng": {
+    "streams": [
+      "Python",
+      "NumPy",
+      "torch CPU",
+      "torch CUDA"
+    ],
+    "traced_forwards": 12,
+    "all_before_after_equal": true,
+    "conclusion": "These observed fixed forwards did not consume these RNG streams. This does not exclude initialization-time RNG influence in other paths."
+  },
+  "known_limitations": [
+    "Prior training-derived objects no longer exist. All M0/M1 here are fresh restored objects; no training was done. This is not a recreation of the former S0.",
+    "Snapshots synchronize/copy tensors to CPU and may perturb timing, allocation or execution history. Observed boundaries apply to this instrumented fixed-inference path; old uninstrumented A/B evidence is retained.",
+    "Exact kernel-internal mechanism (including atomics/reduction order) is not established.",
+    "This does not uniquely explain every historical training/process/object comparison.",
+    "Downstream render differences are measured, but sole causality from this one op is not proven by intervention."
+  ],
+  "source_call_sites": [
+    {
+      "file": "mmgs/models/simulators/gs_simulator_embodied.py",
+      "line": 257,
+      "function": "GsSimulatorEmbodied._preprocess"
+    },
+    {
+      "file": "mmgs/models/utils/dgl_graph.py",
+      "line": 493,
+      "function": "GsHieEmbodiedDGLProcessor._preprocess_hierarchy",
+      "field": "attr",
+      "operation": "copy_u / mean"
+    },
+    {
+      "file": "mmgs/models/utils/dgl_graph.py",
+      "line": 509,
+      "function": "GsHieEmbodiedDGLProcessor._preprocess_hierarchy",
+      "field": "external",
+      "operation": "copy_u / mean"
+    },
+    {
+      "file": "dgl/ops/spmm.py",
+      "line": 79,
+      "function": "gspmm",
+      "operation": "mean implemented as sum, then divide at line 114"
+    },
+    {
+      "file": "dgl/backend/pytorch/sparse.py",
+      "line": 165,
+      "function": "GSpMM.forward",
+      "operation": "_gspmm"
+    },
+    {
+      "file": "dgl/_sparse_ops.py",
+      "line": 239,
+      "function": "_gspmm",
+      "operation": "_CAPI_DGLKernelSpMM",
+      "type": "DGL native CUDA boundary"
+    }
+  ],
+  "summary": {
+    "path": "docs/deform360/validation/t24_5-first-divergence-20260926/summary.json",
+    "sha256": "ed1b58bfac79a5a45a278614af46d78a498c6a20687a670d15d46379fd212211"
+  },
+  "evidence_directory": "docs/deform360/validation/t24_5-first-divergence-20260926",
+  "server_only_tensor_traces": [
+    "outputs/deform360/t24_5-coarse-20260926/",
+    "outputs/deform360/t24_5-fine-20260926/"
+  ],
+  "tools": {
+    "tools/deform360_adapter/trace_numerical_divergence.py": "602e8c681e59dc3cbc74f610fc41a2c8b3ef60951aa87adbb28961ec92b37914",
+    "tools/deform360_adapter/compare_divergence_trace.py": "c115baa7bc1062e31ff8e86ed090b0c81a0af4beace825ff792c9a91e28823f7"
+  },
+  "no_changes": [
+    "algorithm",
+    "model",
+    "runner",
+    "checkpoint contents",
+    "normalizer state",
+    "tolerance",
+    "renderer",
+    "TF32/cuBLAS flags",
+    "deterministic algorithms"
+  ],
+  "follow_up": "No fix in this diagnostic. Any repair or subsequent experiment requires separate authorization; unresolved kernel cause does not gate T25+."
+}

@@ -1,0 +1,6812 @@
+{
+  "left": "A_M0_first",
+  "right": "A_M1_first",
+  "first_non_equal_stage": "002:preprocess.output:0",
+  "last_exact_stage_before_first": "001:preprocess.input:0",
+  "stages": {
+    "000:fixed_input:0": {
+      "bitwise_equal": true,
+      "non_equal_tensors": []
+    },
+    "001:preprocess.input:0": {
+      "bitwise_equal": true,
+      "non_equal_tensors": []
+    },
+    "002:preprocess.output:0": {
+      "bitwise_equal": false,
+      "non_equal_tensors": [
+        "002:preprocess.output:0/0/1/node/attr",
+        "002:preprocess.output:0/0/1/node/external",
+        "002:preprocess.output:0/0/2/node/attr",
+        "002:preprocess.output:0/0/2/node/external",
+        "002:preprocess.output:0/0/3/node/attr",
+        "002:preprocess.output:0/1/0/node/attr",
+        "002:preprocess.output:0/1/0/node/external",
+        "002:preprocess.output:0/1/1/node/attr",
+        "002:preprocess.output:0/1/1/node/external",
+        "002:preprocess.output:0/1/2/node/attr",
+        "002:preprocess.output:0/1/2/node/external"
+      ]
+    },
+    "003:simulator.input:0": {
+      "bitwise_equal": false,
+      "non_equal_tensors": [
+        "003:simulator.input:0/connections/0/node/attr",
+        "003:simulator.input:0/connections/0/node/external",
+        "003:simulator.input:0/connections/1/node/attr",
+        "003:simulator.input:0/connections/1/node/external",
+        "003:simulator.input:0/connections/2/node/attr",
+        "003:simulator.input:0/connections/2/node/external",
+        "003:simulator.input:0/graphs/1/node/attr",
+        "003:simulator.input:0/graphs/1/node/external",
+        "003:simulator.input:0/graphs/2/node/attr",
+        "003:simulator.input:0/graphs/2/node/external",
+        "003:simulator.input:0/graphs/3/node/attr"
+      ]
+    },
+    "004:backbone.input:0": {
+      "bitwise_equal": false,
+      "non_equal_tensors": [
+        "004:backbone.input:0/0/node/attr",
+        "004:backbone.input:0/0/node/external",
+        "004:backbone.input:0/1/node/attr",
+        "004:backbone.input:0/1/node/external"
+      ]
+    },
+    "005:encoder.input:0": {
+      "bitwise_equal": false,
+      "non_equal_tensors": [
+        "005:encoder.input:0/0/node/attr",
+        "005:encoder.input:0/0/node/external",
+        "005:encoder.input:0/0/node/out_node"
+      ]
+    },
+    "006:encoder.output:0": {
+      "bitwise_equal": false,
+      "non_equal_tensors": [
+        "006:encoder.output:0/node/attr",
+        "006:encoder.output:0/node/external",
+        "006:encoder.output:0/node/out_edge",
+        "006:encoder.output:0/node/out_node",
+        "006:encoder.output:0/edge/out_edge"
+      ]
+    },
+    "007:backbone.output:0": {
+      "bitwise_equal": false,
+      "non_equal_tensors": [
+        "007:backbone.output:0/node/attr",
+        "007:backbone.output:0/node/external",
+        "007:backbone.output:0/node/out_edge",
+        "007:backbone.output:0/node/out_node",
+        "007:backbone.output:0/edge/out_edge"
+      ]
+    },
+    "008:decoder.input:0": {
+      "bitwise_equal": false,
+      "non_equal_tensors": [
+        "008:decoder.input:0/0/0/node/attr",
+        "008:decoder.input:0/0/0/node/external",
+        "008:decoder.input:0/0/0/node/out_edge",
+        "008:decoder.input:0/0/0/node/out_node",
+        "008:decoder.input:0/0/0/edge/out_edge"
+      ]
+    },
+    "009:dynamic_proj.input:0": {
+      "bitwise_equal": false,
+      "non_equal_tensors": [
+        "009:dynamic_proj.input:0/0/0"
+      ]
+    },
+    "010:dynamic_proj.output:0": {
+      "bitwise_equal": false,
+      "non_equal_tensors": [
+        "010:dynamic_proj.output:0"
+      ]
+    },
+    "011:decoder.output:0": {
+      "bitwise_equal": false,
+      "non_equal_tensors": [
+        "011:decoder.output:0/0",
+        "011:decoder.output:0/1",
+        "011:decoder.output:0/2",
+        "011:decoder.output:0/3/node/attr",
+        "011:decoder.output:0/3/node/external",
+        "011:decoder.output:0/3/node/out_edge",
+        "011:decoder.output:0/3/node/out_node",
+        "011:decoder.output:0/3/node/pred_dg",
+        "011:decoder.output:0/3/node/pred_dg_mat",
+        "011:decoder.output:0/3/node/pred_pos",
+        "011:decoder.output:0/3/edge/out_edge"
+      ]
+    },
+    "012:backbone.input:1": {
+      "bitwise_equal": false,
+      "non_equal_tensors": [
+        "012:backbone.input:1/0/node/anchor_next_state",
+        "012:backbone.input:1/0/node/anchor_template_state",
+        "012:backbone.input:1/0/node/attr",
+        "012:backbone.input:1/0/node/cur_state",
+        "012:backbone.input:1/0/node/external",
+        "012:backbone.input:1/0/node/hie_pred_dg",
+        "012:backbone.input:1/0/node/hie_pred_dg_mat",
+        "012:backbone.input:1/0/node/template_state",
+        "012:backbone.input:1/1/node/anchor_next_state",
+        "012:backbone.input:1/1/node/attr",
+        "012:backbone.input:1/1/node/external",
+        "012:backbone.input:1/1/node/hie_pred_dg",
+        "012:backbone.input:1/1/node/hie_pred_dg_mat"
+      ]
+    },
+    "013:encoder.input:1": {
+      "bitwise_equal": false,
+      "non_equal_tensors": [
+        "013:encoder.input:1/0/node/anchor_next_state",
+        "013:encoder.input:1/0/node/anchor_template_state",
+        "013:encoder.input:1/0/node/attr",
+        "013:encoder.input:1/0/node/cur_state",
+        "013:encoder.input:1/0/node/external",
+        "013:encoder.input:1/0/node/hie_pred_dg",
+        "013:encoder.input:1/0/node/hie_pred_dg_mat",
+        "013:encoder.input:1/0/node/out_node",
+        "013:encoder.input:1/0/node/template_state",
+        "013:encoder.input:1/0/edge/out_edge"
+      ]
+    },
+    "014:encoder.output:1": {
+      "bitwise_equal": false,
+      "non_equal_tensors": [
+        "014:encoder.output:1/node/anchor_next_state",
+        "014:encoder.output:1/node/anchor_template_state",
+        "014:encoder.output:1/node/attr",
+        "014:encoder.output:1/node/cur_state",
+        "014:encoder.output:1/node/external",
+        "014:encoder.output:1/node/hie_pred_dg",
+        "014:encoder.output:1/node/hie_pred_dg_mat",
+        "014:encoder.output:1/node/out_edge",
+        "014:encoder.output:1/node/out_node",
+        "014:encoder.output:1/node/template_state",
+        "014:encoder.output:1/edge/out_edge"
+      ]
+    },
+    "015:backbone.output:1": {
+      "bitwise_equal": false,
+      "non_equal_tensors": [
+        "015:backbone.output:1/node/anchor_next_state",
+        "015:backbone.output:1/node/anchor_template_state",
+        "015:backbone.output:1/node/attr",
+        "015:backbone.output:1/node/cur_state",
+        "015:backbone.output:1/node/external",
+        "015:backbone.output:1/node/hie_pred_dg",
+        "015:backbone.output:1/node/hie_pred_dg_mat",
+        "015:backbone.output:1/node/out_edge",
+        "015:backbone.output:1/node/out_node",
+        "015:backbone.output:1/node/template_state",
+        "015:backbone.output:1/edge/out_edge"
+      ]
+    },
+    "016:decoder.input:1": {
+      "bitwise_equal": false,
+      "non_equal_tensors": [
+        "016:decoder.input:1/0/0/node/anchor_next_state",
+        "016:decoder.input:1/0/0/node/anchor_template_state",
+        "016:decoder.input:1/0/0/node/attr",
+        "016:decoder.input:1/0/0/node/cur_state",
+        "016:decoder.input:1/0/0/node/external",
+        "016:decoder.input:1/0/0/node/hie_pred_dg",
+        "016:decoder.input:1/0/0/node/hie_pred_dg_mat",
+        "016:decoder.input:1/0/0/node/out_edge",
+        "016:decoder.input:1/0/0/node/out_node",
+        "016:decoder.input:1/0/0/node/template_state",
+        "016:decoder.input:1/0/0/edge/out_edge"
+      ]
+    },
+    "017:dynamic_proj.input:1": {
+      "bitwise_equal": false,
+      "non_equal_tensors": [
+        "017:dynamic_proj.input:1/0/0"
+      ]
+    },
+    "018:dynamic_proj.output:1": {
+      "bitwise_equal": false,
+      "non_equal_tensors": [
+        "018:dynamic_proj.output:1"
+      ]
+    },
+    "019:decoder.output:1": {
+      "bitwise_equal": false,
+      "non_equal_tensors": [
+        "019:decoder.output:1/0",
+        "019:decoder.output:1/1",
+        "019:decoder.output:1/2",
+        "019:decoder.output:1/3/node/anchor_next_state",
+        "019:decoder.output:1/3/node/anchor_template_state",
+        "019:decoder.output:1/3/node/attr",
+        "019:decoder.output:1/3/node/cur_state",
+        "019:decoder.output:1/3/node/external",
+        "019:decoder.output:1/3/node/hie_pred_dg",
+        "019:decoder.output:1/3/node/hie_pred_dg_mat",
+        "019:decoder.output:1/3/node/out_edge",
+        "019:decoder.output:1/3/node/out_node",
+        "019:decoder.output:1/3/node/pred_dg",
+        "019:decoder.output:1/3/node/pred_dg_mat",
+        "019:decoder.output:1/3/node/pred_pos",
+        "019:decoder.output:1/3/node/template_state",
+        "019:decoder.output:1/3/edge/out_edge"
+      ]
+    },
+    "020:render.input:0": {
+      "bitwise_equal": false,
+      "non_equal_tensors": [
+        "020:render.input:0/cov",
+        "020:render.input:0/pos"
+      ]
+    },
+    "021:render.output:0": {
+      "bitwise_equal": false,
+      "non_equal_tensors": [
+        "021:render.output:0/0",
+        "021:render.output:0/1"
+      ]
+    },
+    "022:render.input:1": {
+      "bitwise_equal": false,
+      "non_equal_tensors": [
+        "022:render.input:1/cov",
+        "022:render.input:1/pos"
+      ]
+    },
+    "023:render.output:1": {
+      "bitwise_equal": false,
+      "non_equal_tensors": [
+        "023:render.output:1/0",
+        "023:render.output:1/1"
+      ]
+    },
+    "024:simulator.output:0": {
+      "bitwise_equal": false,
+      "non_equal_tensors": [
+        "024:simulator.output:0/deformation/0",
+        "024:simulator.output:0/deformation/1",
+        "024:simulator.output:0/images/0",
+        "024:simulator.output:0/images/1",
+        "024:simulator.output:0/loss_regularization/decode.loss_mse_momentum",
+        "024:simulator.output:0/pred_cov",
+        "024:simulator.output:0/pred_pos"
+      ]
+    },
+    "025:image_loss.input:0": {
+      "bitwise_equal": false,
+      "non_equal_tensors": [
+        "025:image_loss.input:0/0/0/0",
+        "025:image_loss.input:0/0/0/1"
+      ]
+    },
+    "026:image_loss.output:0": {
+      "bitwise_equal": false,
+      "non_equal_tensors": [
+        "026:image_loss.output:0/decode.acc_l1_render.acc",
+        "026:image_loss.output:0/decode.acc_psnr_render.acc",
+        "026:image_loss.output:0/decode.loss_l2_render",
+        "026:image_loss.output:0/decode.loss_ssim_render"
+      ]
+    },
+    "027:final:0": {
+      "bitwise_equal": false,
+      "non_equal_tensors": [
+        "027:final:0/loss/decode.acc_l1_render.acc",
+        "027:final:0/loss/decode.acc_psnr_render.acc",
+        "027:final:0/loss/decode.loss_l2_render",
+        "027:final:0/loss/decode.loss_mse_momentum",
+        "027:final:0/loss/decode.loss_ssim_render",
+        "027:final:0/steps/0/pred_cov",
+        "027:final:0/steps/0/pred_pos",
+        "027:final:0/steps/0/render/0",
+        "027:final:0/steps/0/render/1"
+      ]
+    }
+  },
+  "tensors": {
+    "000:fixed_input:0/camera/0/camera_center": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        3
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "000:fixed_input:0/camera/0/full_proj_transform": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        4,
+        4
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "000:fixed_input:0/camera/0/world_view_transform": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        4,
+        4
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "000:fixed_input:0/camera/1/camera_center": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        3
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "000:fixed_input:0/camera/1/full_proj_transform": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        4,
+        4
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "000:fixed_input:0/camera/1/world_view_transform": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        4,
+        4
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "000:fixed_input:0/controller": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        16,
+        30,
+        3
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "000:fixed_input:0/external": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        1,
+        1,
+        3
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "000:fixed_input:0/gaussian/_features_dc": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        12861,
+        1,
+        3
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "000:fixed_input:0/gaussian/_features_rest": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        12861,
+        0,
+        3
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "000:fixed_input:0/gaussian/_opacity": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        12861,
+        1
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "000:fixed_input:0/gaussian/_rotation": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        12861,
+        4
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "000:fixed_input:0/gaussian/_scaling": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        12861,
+        3
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "000:fixed_input:0/gaussian/_xyz": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        12861,
+        3
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "000:fixed_input:0/gt/0": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        1,
+        16,
+        3,
+        360,
+        640
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "000:fixed_input:0/gt/1": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        1,
+        16,
+        3,
+        360,
+        640
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "000:fixed_input:0/mapping/0/0": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        30
+      ],
+      "dtype": "torch.int64",
+      "original_tolerance_pass": true
+    },
+    "000:fixed_input:0/mapping/0/1": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        12861
+      ],
+      "dtype": "torch.int64",
+      "original_tolerance_pass": true
+    },
+    "000:fixed_input:0/mapping/1/0": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        10
+      ],
+      "dtype": "torch.int64",
+      "original_tolerance_pass": true
+    },
+    "000:fixed_input:0/mapping/1/1": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        640
+      ],
+      "dtype": "torch.int64",
+      "original_tolerance_pass": true
+    },
+    "000:fixed_input:0/mapping/2/0": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        2
+      ],
+      "dtype": "torch.int64",
+      "original_tolerance_pass": true
+    },
+    "000:fixed_input:0/mapping/2/1": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        7
+      ],
+      "dtype": "torch.int64",
+      "original_tolerance_pass": true
+    },
+    "000:fixed_input:0/mapping/3/0": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        1
+      ],
+      "dtype": "torch.int64",
+      "original_tolerance_pass": true
+    },
+    "000:fixed_input:0/mapping/3/1": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        1
+      ],
+      "dtype": "torch.int64",
+      "original_tolerance_pass": true
+    },
+    "001:preprocess.input:0/0/0": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        12861,
+        3
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "001:preprocess.input:0/0/1": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        12861,
+        3
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "001:preprocess.input:0/0/2": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        12861,
+        3
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "001:preprocess.input:0/0/3": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        30,
+        3
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "001:preprocess.input:0/0/4": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        30,
+        3
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "001:preprocess.input:0/0/5": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        30,
+        3
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "001:preprocess.input:0/0/6": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        12861,
+        5
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "001:preprocess.input:0/0/7": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        12861,
+        1
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "001:preprocess.input:0/0/8": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        12861,
+        6
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "001:preprocess.input:0/0/9": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        1,
+        3
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "001:preprocess.input:0/0/10/0/0": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        30
+      ],
+      "dtype": "torch.int64",
+      "original_tolerance_pass": true
+    },
+    "001:preprocess.input:0/0/10/0/1": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        12861
+      ],
+      "dtype": "torch.int64",
+      "original_tolerance_pass": true
+    },
+    "001:preprocess.input:0/0/10/1/0": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        10
+      ],
+      "dtype": "torch.int64",
+      "original_tolerance_pass": true
+    },
+    "001:preprocess.input:0/0/10/1/1": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        640
+      ],
+      "dtype": "torch.int64",
+      "original_tolerance_pass": true
+    },
+    "001:preprocess.input:0/0/10/2/0": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        2
+      ],
+      "dtype": "torch.int64",
+      "original_tolerance_pass": true
+    },
+    "001:preprocess.input:0/0/10/2/1": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        7
+      ],
+      "dtype": "torch.int64",
+      "original_tolerance_pass": true
+    },
+    "001:preprocess.input:0/0/10/3/0": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        1
+      ],
+      "dtype": "torch.int64",
+      "original_tolerance_pass": true
+    },
+    "001:preprocess.input:0/0/10/3/1": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        1
+      ],
+      "dtype": "torch.int64",
+      "original_tolerance_pass": true
+    },
+    "001:preprocess.input:0/1/pin_mask": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        12891,
+        1
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "002:preprocess.output:0/0/0/src": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        0
+      ],
+      "dtype": "torch.int64",
+      "original_tolerance_pass": true
+    },
+    "002:preprocess.output:0/0/0/dst": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        0
+      ],
+      "dtype": "torch.int64",
+      "original_tolerance_pass": true
+    },
+    "002:preprocess.output:0/0/0/node/anchor_cur_state": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        12891,
+        3
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "002:preprocess.output:0/0/0/node/anchor_orig_template_state": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        12891,
+        3
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "002:preprocess.output:0/0/0/node/anchor_prev_state": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        12891,
+        3
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "002:preprocess.output:0/0/0/node/anchor_template_state": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        12891,
+        3
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "002:preprocess.output:0/0/0/node/attr": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        12891,
+        5
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "002:preprocess.output:0/0/0/node/cur_cov": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        12891,
+        6
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "002:preprocess.output:0/0/0/node/cur_state": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        12891,
+        3
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "002:preprocess.output:0/0/0/node/diag_volume": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        12891,
+        1
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "002:preprocess.output:0/0/0/node/external": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        12891,
+        3
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "002:preprocess.output:0/0/0/node/orig_template_state": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        12891,
+        3
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "002:preprocess.output:0/0/0/node/pin_mask": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        12891,
+        1
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "002:preprocess.output:0/0/0/node/prev_state": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        12891,
+        3
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "002:preprocess.output:0/0/0/node/template_state": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        12891,
+        3
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "002:preprocess.output:0/0/1/src": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        9768
+      ],
+      "dtype": "torch.int64",
+      "original_tolerance_pass": true
+    },
+    "002:preprocess.output:0/0/1/dst": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        9768
+      ],
+      "dtype": "torch.int64",
+      "original_tolerance_pass": true
+    },
+    "002:preprocess.output:0/0/1/node/anchor_cur_state": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        650,
+        3
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "002:preprocess.output:0/0/1/node/anchor_orig_template_state": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        650,
+        3
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "002:preprocess.output:0/0/1/node/anchor_prev_state": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        650,
+        3
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "002:preprocess.output:0/0/1/node/anchor_template_state": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        650,
+        3
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "002:preprocess.output:0/0/1/node/attr": {
+      "bitwise_equal": false,
+      "max_abs_diff": 5.820766091346741e-11,
+      "mean_abs_diff": 8.059522280326256e-14,
+      "shape": [
+        650,
+        5
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "002:preprocess.output:0/0/1/node/cur_state": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        650,
+        3
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "002:preprocess.output:0/0/1/node/diag_volume": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        650,
+        1
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "002:preprocess.output:0/0/1/node/external": {
+      "bitwise_equal": false,
+      "max_abs_diff": 3.814697265625e-06,
+      "mean_abs_diff": 1.9562550080128205e-09,
+      "shape": [
+        650,
+        3
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "002:preprocess.output:0/0/1/node/orig_template_state": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        650,
+        3
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "002:preprocess.output:0/0/1/node/pin_mask": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        650,
+        1
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "002:preprocess.output:0/0/1/node/prev_state": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        650,
+        3
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "002:preprocess.output:0/0/1/node/template_state": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        650,
+        3
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "002:preprocess.output:0/0/2/src": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        72
+      ],
+      "dtype": "torch.int64",
+      "original_tolerance_pass": true
+    },
+    "002:preprocess.output:0/0/2/dst": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        72
+      ],
+      "dtype": "torch.int64",
+      "original_tolerance_pass": true
+    },
+    "002:preprocess.output:0/0/2/node/anchor_cur_state": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        9,
+        3
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "002:preprocess.output:0/0/2/node/anchor_orig_template_state": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        9,
+        3
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "002:preprocess.output:0/0/2/node/anchor_prev_state": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        9,
+        3
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "002:preprocess.output:0/0/2/node/anchor_template_state": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        9,
+        3
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "002:preprocess.output:0/0/2/node/attr": {
+      "bitwise_equal": false,
+      "max_abs_diff": 2.9103830456733704e-11,
+      "mean_abs_diff": 3.880510727564494e-12,
+      "shape": [
+        9,
+        5
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "002:preprocess.output:0/0/2/node/cur_state": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        9,
+        3
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "002:preprocess.output:0/0/2/node/diag_volume": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        9,
+        1
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "002:preprocess.output:0/0/2/node/external": {
+      "bitwise_equal": false,
+      "max_abs_diff": 3.814697265625e-06,
+      "mean_abs_diff": 1.4128508391203703e-07,
+      "shape": [
+        9,
+        3
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "002:preprocess.output:0/0/2/node/orig_template_state": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        9,
+        3
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "002:preprocess.output:0/0/2/node/pin_mask": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        9,
+        1
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "002:preprocess.output:0/0/2/node/prev_state": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        9,
+        3
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "002:preprocess.output:0/0/2/node/template_state": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        9,
+        3
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "002:preprocess.output:0/0/3/src": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        2
+      ],
+      "dtype": "torch.int64",
+      "original_tolerance_pass": true
+    },
+    "002:preprocess.output:0/0/3/dst": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        2
+      ],
+      "dtype": "torch.int64",
+      "original_tolerance_pass": true
+    },
+    "002:preprocess.output:0/0/3/node/attr": {
+      "bitwise_equal": false,
+      "max_abs_diff": 2.9103830456733704e-11,
+      "mean_abs_diff": 1.1641532182693482e-11,
+      "shape": [
+        2,
+        5
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "002:preprocess.output:0/0/3/node/cur_state": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        2,
+        3
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "002:preprocess.output:0/0/3/node/diag_volume": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        2,
+        1
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "002:preprocess.output:0/0/3/node/external": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        2,
+        3
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "002:preprocess.output:0/0/3/node/orig_template_state": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        2,
+        3
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "002:preprocess.output:0/0/3/node/pin_mask": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        2,
+        1
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "002:preprocess.output:0/0/3/node/prev_state": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        2,
+        3
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "002:preprocess.output:0/0/3/node/template_state": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        2,
+        3
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "002:preprocess.output:0/1/0/src": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        25782
+      ],
+      "dtype": "torch.int64",
+      "original_tolerance_pass": true
+    },
+    "002:preprocess.output:0/1/0/dst": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        25782
+      ],
+      "dtype": "torch.int64",
+      "original_tolerance_pass": true
+    },
+    "002:preprocess.output:0/1/0/node/anchor_cur_state": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        13541,
+        3
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "002:preprocess.output:0/1/0/node/anchor_orig_template_state": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        13541,
+        3
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "002:preprocess.output:0/1/0/node/anchor_prev_state": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        13541,
+        3
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "002:preprocess.output:0/1/0/node/anchor_template_state": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        13541,
+        3
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "002:preprocess.output:0/1/0/node/attr": {
+      "bitwise_equal": false,
+      "max_abs_diff": 5.820766091346741e-11,
+      "mean_abs_diff": 3.868761156644315e-15,
+      "shape": [
+        13541,
+        5
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "002:preprocess.output:0/1/0/node/cluster_mask": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        13541,
+        1
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "002:preprocess.output:0/1/0/node/cur_state": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        13541,
+        3
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "002:preprocess.output:0/1/0/node/density": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        13541,
+        1
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "002:preprocess.output:0/1/0/node/diag_volume": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        13541,
+        1
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "002:preprocess.output:0/1/0/node/external": {
+      "bitwise_equal": false,
+      "max_abs_diff": 3.814697265625e-06,
+      "mean_abs_diff": 9.390486339327474e-11,
+      "shape": [
+        13541,
+        3
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "002:preprocess.output:0/1/0/node/orig_template_state": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        13541,
+        3
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "002:preprocess.output:0/1/0/node/pin_mask": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        13541,
+        1
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "002:preprocess.output:0/1/0/node/point_mask": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        13541,
+        1
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "002:preprocess.output:0/1/0/node/prev_state": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        13541,
+        3
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "002:preprocess.output:0/1/0/node/template_state": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        13541,
+        3
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "002:preprocess.output:0/1/0/edge/c2p_mask": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        25782,
+        1
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "002:preprocess.output:0/1/0/edge/p2c_mask": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        25782,
+        1
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "002:preprocess.output:0/1/1/src": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        1300
+      ],
+      "dtype": "torch.int64",
+      "original_tolerance_pass": true
+    },
+    "002:preprocess.output:0/1/1/dst": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        1300
+      ],
+      "dtype": "torch.int64",
+      "original_tolerance_pass": true
+    },
+    "002:preprocess.output:0/1/1/node/anchor_cur_state": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        659,
+        3
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "002:preprocess.output:0/1/1/node/anchor_orig_template_state": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        659,
+        3
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "002:preprocess.output:0/1/1/node/anchor_prev_state": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        659,
+        3
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "002:preprocess.output:0/1/1/node/anchor_template_state": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        659,
+        3
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "002:preprocess.output:0/1/1/node/attr": {
+      "bitwise_equal": false,
+      "max_abs_diff": 5.820766091346741e-11,
+      "mean_abs_diff": 1.3249088220060867e-13,
+      "shape": [
+        659,
+        5
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "002:preprocess.output:0/1/1/node/cluster_mask": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        659,
+        1
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "002:preprocess.output:0/1/1/node/cur_state": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        659,
+        3
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "002:preprocess.output:0/1/1/node/density": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        659,
+        1
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "002:preprocess.output:0/1/1/node/diag_volume": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        659,
+        1
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "002:preprocess.output:0/1/1/node/external": {
+      "bitwise_equal": false,
+      "max_abs_diff": 3.814697265625e-06,
+      "mean_abs_diff": 3.859076647066262e-09,
+      "shape": [
+        659,
+        3
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "002:preprocess.output:0/1/1/node/orig_template_state": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        659,
+        3
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "002:preprocess.output:0/1/1/node/pin_mask": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        659,
+        1
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "002:preprocess.output:0/1/1/node/point_mask": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        659,
+        1
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "002:preprocess.output:0/1/1/node/prev_state": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        659,
+        3
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "002:preprocess.output:0/1/1/node/template_state": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        659,
+        3
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "002:preprocess.output:0/1/1/edge/c2p_mask": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        1300,
+        1
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "002:preprocess.output:0/1/1/edge/p2c_mask": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        1300,
+        1
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "002:preprocess.output:0/1/2/src": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        18
+      ],
+      "dtype": "torch.int64",
+      "original_tolerance_pass": true
+    },
+    "002:preprocess.output:0/1/2/dst": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        18
+      ],
+      "dtype": "torch.int64",
+      "original_tolerance_pass": true
+    },
+    "002:preprocess.output:0/1/2/node/anchor_cur_state": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        11,
+        3
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "002:preprocess.output:0/1/2/node/anchor_orig_template_state": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        11,
+        3
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "002:preprocess.output:0/1/2/node/anchor_prev_state": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        11,
+        3
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "002:preprocess.output:0/1/2/node/anchor_template_state": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        11,
+        3
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "002:preprocess.output:0/1/2/node/attr": {
+      "bitwise_equal": false,
+      "max_abs_diff": 2.9103830456733704e-11,
+      "mean_abs_diff": 5.291605537587946e-12,
+      "shape": [
+        11,
+        5
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "002:preprocess.output:0/1/2/node/cluster_mask": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        11,
+        1
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "002:preprocess.output:0/1/2/node/cur_state": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        11,
+        3
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "002:preprocess.output:0/1/2/node/density": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        11,
+        1
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "002:preprocess.output:0/1/2/node/diag_volume": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        11,
+        1
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "002:preprocess.output:0/1/2/node/external": {
+      "bitwise_equal": false,
+      "max_abs_diff": 3.814697265625e-06,
+      "mean_abs_diff": 1.1559688683712122e-07,
+      "shape": [
+        11,
+        3
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "002:preprocess.output:0/1/2/node/orig_template_state": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        11,
+        3
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "002:preprocess.output:0/1/2/node/pin_mask": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        11,
+        1
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "002:preprocess.output:0/1/2/node/point_mask": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        11,
+        1
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "002:preprocess.output:0/1/2/node/prev_state": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        11,
+        3
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "002:preprocess.output:0/1/2/node/template_state": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        11,
+        3
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "002:preprocess.output:0/1/2/edge/c2p_mask": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        18,
+        1
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "002:preprocess.output:0/1/2/edge/p2c_mask": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        18,
+        1
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "003:simulator.input:0/connections/0/src": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        25782
+      ],
+      "dtype": "torch.int64",
+      "original_tolerance_pass": true
+    },
+    "003:simulator.input:0/connections/0/dst": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        25782
+      ],
+      "dtype": "torch.int64",
+      "original_tolerance_pass": true
+    },
+    "003:simulator.input:0/connections/0/node/anchor_cur_state": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        13541,
+        3
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "003:simulator.input:0/connections/0/node/anchor_orig_template_state": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        13541,
+        3
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "003:simulator.input:0/connections/0/node/anchor_prev_state": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        13541,
+        3
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "003:simulator.input:0/connections/0/node/anchor_template_state": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        13541,
+        3
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "003:simulator.input:0/connections/0/node/attr": {
+      "bitwise_equal": false,
+      "max_abs_diff": 5.820766091346741e-11,
+      "mean_abs_diff": 3.868761156644315e-15,
+      "shape": [
+        13541,
+        5
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "003:simulator.input:0/connections/0/node/cluster_mask": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        13541,
+        1
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "003:simulator.input:0/connections/0/node/cur_state": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        13541,
+        3
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "003:simulator.input:0/connections/0/node/density": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        13541,
+        1
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "003:simulator.input:0/connections/0/node/diag_volume": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        13541,
+        1
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "003:simulator.input:0/connections/0/node/external": {
+      "bitwise_equal": false,
+      "max_abs_diff": 3.814697265625e-06,
+      "mean_abs_diff": 9.390486339327474e-11,
+      "shape": [
+        13541,
+        3
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "003:simulator.input:0/connections/0/node/orig_template_state": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        13541,
+        3
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "003:simulator.input:0/connections/0/node/pin_mask": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        13541,
+        1
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "003:simulator.input:0/connections/0/node/point_mask": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        13541,
+        1
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "003:simulator.input:0/connections/0/node/prev_state": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        13541,
+        3
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "003:simulator.input:0/connections/0/node/template_state": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        13541,
+        3
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "003:simulator.input:0/connections/0/edge/c2p_mask": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        25782,
+        1
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "003:simulator.input:0/connections/0/edge/p2c_mask": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        25782,
+        1
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "003:simulator.input:0/connections/1/src": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        1300
+      ],
+      "dtype": "torch.int64",
+      "original_tolerance_pass": true
+    },
+    "003:simulator.input:0/connections/1/dst": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        1300
+      ],
+      "dtype": "torch.int64",
+      "original_tolerance_pass": true
+    },
+    "003:simulator.input:0/connections/1/node/anchor_cur_state": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        659,
+        3
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "003:simulator.input:0/connections/1/node/anchor_orig_template_state": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        659,
+        3
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "003:simulator.input:0/connections/1/node/anchor_prev_state": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        659,
+        3
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "003:simulator.input:0/connections/1/node/anchor_template_state": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        659,
+        3
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "003:simulator.input:0/connections/1/node/attr": {
+      "bitwise_equal": false,
+      "max_abs_diff": 5.820766091346741e-11,
+      "mean_abs_diff": 1.3249088220060867e-13,
+      "shape": [
+        659,
+        5
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "003:simulator.input:0/connections/1/node/cluster_mask": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        659,
+        1
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "003:simulator.input:0/connections/1/node/cur_state": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        659,
+        3
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "003:simulator.input:0/connections/1/node/density": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        659,
+        1
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "003:simulator.input:0/connections/1/node/diag_volume": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        659,
+        1
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "003:simulator.input:0/connections/1/node/external": {
+      "bitwise_equal": false,
+      "max_abs_diff": 3.814697265625e-06,
+      "mean_abs_diff": 3.859076647066262e-09,
+      "shape": [
+        659,
+        3
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "003:simulator.input:0/connections/1/node/orig_template_state": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        659,
+        3
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "003:simulator.input:0/connections/1/node/pin_mask": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        659,
+        1
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "003:simulator.input:0/connections/1/node/point_mask": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        659,
+        1
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "003:simulator.input:0/connections/1/node/prev_state": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        659,
+        3
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "003:simulator.input:0/connections/1/node/template_state": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        659,
+        3
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "003:simulator.input:0/connections/1/edge/c2p_mask": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        1300,
+        1
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "003:simulator.input:0/connections/1/edge/p2c_mask": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        1300,
+        1
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "003:simulator.input:0/connections/2/src": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        18
+      ],
+      "dtype": "torch.int64",
+      "original_tolerance_pass": true
+    },
+    "003:simulator.input:0/connections/2/dst": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        18
+      ],
+      "dtype": "torch.int64",
+      "original_tolerance_pass": true
+    },
+    "003:simulator.input:0/connections/2/node/anchor_cur_state": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        11,
+        3
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "003:simulator.input:0/connections/2/node/anchor_orig_template_state": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        11,
+        3
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "003:simulator.input:0/connections/2/node/anchor_prev_state": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        11,
+        3
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "003:simulator.input:0/connections/2/node/anchor_template_state": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        11,
+        3
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "003:simulator.input:0/connections/2/node/attr": {
+      "bitwise_equal": false,
+      "max_abs_diff": 2.9103830456733704e-11,
+      "mean_abs_diff": 5.291605537587946e-12,
+      "shape": [
+        11,
+        5
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "003:simulator.input:0/connections/2/node/cluster_mask": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        11,
+        1
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "003:simulator.input:0/connections/2/node/cur_state": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        11,
+        3
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "003:simulator.input:0/connections/2/node/density": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        11,
+        1
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "003:simulator.input:0/connections/2/node/diag_volume": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        11,
+        1
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "003:simulator.input:0/connections/2/node/external": {
+      "bitwise_equal": false,
+      "max_abs_diff": 3.814697265625e-06,
+      "mean_abs_diff": 1.1559688683712122e-07,
+      "shape": [
+        11,
+        3
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "003:simulator.input:0/connections/2/node/orig_template_state": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        11,
+        3
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "003:simulator.input:0/connections/2/node/pin_mask": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        11,
+        1
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "003:simulator.input:0/connections/2/node/point_mask": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        11,
+        1
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "003:simulator.input:0/connections/2/node/prev_state": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        11,
+        3
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "003:simulator.input:0/connections/2/node/template_state": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        11,
+        3
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "003:simulator.input:0/connections/2/edge/c2p_mask": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        18,
+        1
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "003:simulator.input:0/connections/2/edge/p2c_mask": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        18,
+        1
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "003:simulator.input:0/graphs/0/src": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        0
+      ],
+      "dtype": "torch.int64",
+      "original_tolerance_pass": true
+    },
+    "003:simulator.input:0/graphs/0/dst": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        0
+      ],
+      "dtype": "torch.int64",
+      "original_tolerance_pass": true
+    },
+    "003:simulator.input:0/graphs/0/node/anchor_cur_state": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        12891,
+        3
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "003:simulator.input:0/graphs/0/node/anchor_orig_template_state": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        12891,
+        3
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "003:simulator.input:0/graphs/0/node/anchor_prev_state": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        12891,
+        3
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "003:simulator.input:0/graphs/0/node/anchor_template_state": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        12891,
+        3
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "003:simulator.input:0/graphs/0/node/attr": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        12891,
+        5
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "003:simulator.input:0/graphs/0/node/cur_cov": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        12891,
+        6
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "003:simulator.input:0/graphs/0/node/cur_state": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        12891,
+        3
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "003:simulator.input:0/graphs/0/node/diag_volume": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        12891,
+        1
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "003:simulator.input:0/graphs/0/node/external": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        12891,
+        3
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "003:simulator.input:0/graphs/0/node/orig_template_state": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        12891,
+        3
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "003:simulator.input:0/graphs/0/node/pin_mask": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        12891,
+        1
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "003:simulator.input:0/graphs/0/node/prev_state": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        12891,
+        3
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "003:simulator.input:0/graphs/0/node/template_state": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        12891,
+        3
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "003:simulator.input:0/graphs/1/src": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        9768
+      ],
+      "dtype": "torch.int64",
+      "original_tolerance_pass": true
+    },
+    "003:simulator.input:0/graphs/1/dst": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        9768
+      ],
+      "dtype": "torch.int64",
+      "original_tolerance_pass": true
+    },
+    "003:simulator.input:0/graphs/1/node/anchor_cur_state": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        650,
+        3
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "003:simulator.input:0/graphs/1/node/anchor_orig_template_state": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        650,
+        3
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "003:simulator.input:0/graphs/1/node/anchor_prev_state": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        650,
+        3
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "003:simulator.input:0/graphs/1/node/anchor_template_state": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        650,
+        3
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "003:simulator.input:0/graphs/1/node/attr": {
+      "bitwise_equal": false,
+      "max_abs_diff": 5.820766091346741e-11,
+      "mean_abs_diff": 8.059522280326256e-14,
+      "shape": [
+        650,
+        5
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "003:simulator.input:0/graphs/1/node/cur_state": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        650,
+        3
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "003:simulator.input:0/graphs/1/node/diag_volume": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        650,
+        1
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "003:simulator.input:0/graphs/1/node/external": {
+      "bitwise_equal": false,
+      "max_abs_diff": 3.814697265625e-06,
+      "mean_abs_diff": 1.9562550080128205e-09,
+      "shape": [
+        650,
+        3
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "003:simulator.input:0/graphs/1/node/orig_template_state": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        650,
+        3
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "003:simulator.input:0/graphs/1/node/pin_mask": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        650,
+        1
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "003:simulator.input:0/graphs/1/node/prev_state": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        650,
+        3
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "003:simulator.input:0/graphs/1/node/template_state": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        650,
+        3
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "003:simulator.input:0/graphs/2/src": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        72
+      ],
+      "dtype": "torch.int64",
+      "original_tolerance_pass": true
+    },
+    "003:simulator.input:0/graphs/2/dst": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        72
+      ],
+      "dtype": "torch.int64",
+      "original_tolerance_pass": true
+    },
+    "003:simulator.input:0/graphs/2/node/anchor_cur_state": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        9,
+        3
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "003:simulator.input:0/graphs/2/node/anchor_orig_template_state": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        9,
+        3
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "003:simulator.input:0/graphs/2/node/anchor_prev_state": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        9,
+        3
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "003:simulator.input:0/graphs/2/node/anchor_template_state": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        9,
+        3
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "003:simulator.input:0/graphs/2/node/attr": {
+      "bitwise_equal": false,
+      "max_abs_diff": 2.9103830456733704e-11,
+      "mean_abs_diff": 3.880510727564494e-12,
+      "shape": [
+        9,
+        5
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "003:simulator.input:0/graphs/2/node/cur_state": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        9,
+        3
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "003:simulator.input:0/graphs/2/node/diag_volume": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        9,
+        1
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "003:simulator.input:0/graphs/2/node/external": {
+      "bitwise_equal": false,
+      "max_abs_diff": 3.814697265625e-06,
+      "mean_abs_diff": 1.4128508391203703e-07,
+      "shape": [
+        9,
+        3
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "003:simulator.input:0/graphs/2/node/orig_template_state": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        9,
+        3
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "003:simulator.input:0/graphs/2/node/pin_mask": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        9,
+        1
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "003:simulator.input:0/graphs/2/node/prev_state": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        9,
+        3
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "003:simulator.input:0/graphs/2/node/template_state": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        9,
+        3
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "003:simulator.input:0/graphs/3/src": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        2
+      ],
+      "dtype": "torch.int64",
+      "original_tolerance_pass": true
+    },
+    "003:simulator.input:0/graphs/3/dst": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        2
+      ],
+      "dtype": "torch.int64",
+      "original_tolerance_pass": true
+    },
+    "003:simulator.input:0/graphs/3/node/attr": {
+      "bitwise_equal": false,
+      "max_abs_diff": 2.9103830456733704e-11,
+      "mean_abs_diff": 1.1641532182693482e-11,
+      "shape": [
+        2,
+        5
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "003:simulator.input:0/graphs/3/node/cur_state": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        2,
+        3
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "003:simulator.input:0/graphs/3/node/diag_volume": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        2,
+        1
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "003:simulator.input:0/graphs/3/node/external": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        2,
+        3
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "003:simulator.input:0/graphs/3/node/orig_template_state": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        2,
+        3
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "003:simulator.input:0/graphs/3/node/pin_mask": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        2,
+        1
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "003:simulator.input:0/graphs/3/node/prev_state": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        2,
+        3
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "003:simulator.input:0/graphs/3/node/template_state": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        2,
+        3
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "004:backbone.input:0/0/src": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        72
+      ],
+      "dtype": "torch.int64",
+      "original_tolerance_pass": true
+    },
+    "004:backbone.input:0/0/dst": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        72
+      ],
+      "dtype": "torch.int64",
+      "original_tolerance_pass": true
+    },
+    "004:backbone.input:0/0/node/anchor_cur_state": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        9,
+        3
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "004:backbone.input:0/0/node/anchor_next_state": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        9,
+        3
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "004:backbone.input:0/0/node/anchor_orig_template_state": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        9,
+        3
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "004:backbone.input:0/0/node/anchor_prev_state": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        9,
+        3
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "004:backbone.input:0/0/node/anchor_template_state": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        9,
+        3
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "004:backbone.input:0/0/node/attr": {
+      "bitwise_equal": false,
+      "max_abs_diff": 2.9103830456733704e-11,
+      "mean_abs_diff": 3.880510727564494e-12,
+      "shape": [
+        9,
+        5
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "004:backbone.input:0/0/node/cur_state": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        9,
+        3
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "004:backbone.input:0/0/node/diag_volume": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        9,
+        1
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "004:backbone.input:0/0/node/external": {
+      "bitwise_equal": false,
+      "max_abs_diff": 3.814697265625e-06,
+      "mean_abs_diff": 1.4128508391203703e-07,
+      "shape": [
+        9,
+        3
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "004:backbone.input:0/0/node/orig_template_state": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        9,
+        3
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "004:backbone.input:0/0/node/pin_mask": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        9,
+        1
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "004:backbone.input:0/0/node/prev_state": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        9,
+        3
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "004:backbone.input:0/0/node/template_state": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        9,
+        3
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "004:backbone.input:0/1/src": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        18
+      ],
+      "dtype": "torch.int64",
+      "original_tolerance_pass": true
+    },
+    "004:backbone.input:0/1/dst": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        18
+      ],
+      "dtype": "torch.int64",
+      "original_tolerance_pass": true
+    },
+    "004:backbone.input:0/1/node/anchor_cur_state": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        11,
+        3
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "004:backbone.input:0/1/node/anchor_next_state": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        11,
+        3
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "004:backbone.input:0/1/node/anchor_orig_template_state": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        11,
+        3
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "004:backbone.input:0/1/node/anchor_prev_state": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        11,
+        3
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "004:backbone.input:0/1/node/anchor_template_state": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        11,
+        3
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "004:backbone.input:0/1/node/attr": {
+      "bitwise_equal": false,
+      "max_abs_diff": 2.9103830456733704e-11,
+      "mean_abs_diff": 5.291605537587946e-12,
+      "shape": [
+        11,
+        5
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "004:backbone.input:0/1/node/cluster_mask": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        11,
+        1
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "004:backbone.input:0/1/node/cur_state": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        11,
+        3
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "004:backbone.input:0/1/node/density": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        11,
+        1
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "004:backbone.input:0/1/node/diag_volume": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        11,
+        1
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "004:backbone.input:0/1/node/external": {
+      "bitwise_equal": false,
+      "max_abs_diff": 3.814697265625e-06,
+      "mean_abs_diff": 1.1559688683712122e-07,
+      "shape": [
+        11,
+        3
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "004:backbone.input:0/1/node/orig_template_state": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        11,
+        3
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "004:backbone.input:0/1/node/pin_mask": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        11,
+        1
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "004:backbone.input:0/1/node/point_mask": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        11,
+        1
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "004:backbone.input:0/1/node/prev_state": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        11,
+        3
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "004:backbone.input:0/1/node/template_state": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        11,
+        3
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "004:backbone.input:0/1/edge/c2p_mask": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        18,
+        1
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "004:backbone.input:0/1/edge/p2c_mask": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        18,
+        1
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "005:encoder.input:0/0/src": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        72
+      ],
+      "dtype": "torch.int64",
+      "original_tolerance_pass": true
+    },
+    "005:encoder.input:0/0/dst": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        72
+      ],
+      "dtype": "torch.int64",
+      "original_tolerance_pass": true
+    },
+    "005:encoder.input:0/0/node/anchor_cur_state": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        9,
+        3
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "005:encoder.input:0/0/node/anchor_next_state": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        9,
+        3
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "005:encoder.input:0/0/node/anchor_orig_template_state": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        9,
+        3
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "005:encoder.input:0/0/node/anchor_prev_state": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        9,
+        3
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "005:encoder.input:0/0/node/anchor_template_state": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        9,
+        3
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "005:encoder.input:0/0/node/attr": {
+      "bitwise_equal": false,
+      "max_abs_diff": 2.9103830456733704e-11,
+      "mean_abs_diff": 3.880510727564494e-12,
+      "shape": [
+        9,
+        5
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "005:encoder.input:0/0/node/cur_state": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        9,
+        3
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "005:encoder.input:0/0/node/diag_volume": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        9,
+        1
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "005:encoder.input:0/0/node/external": {
+      "bitwise_equal": false,
+      "max_abs_diff": 3.814697265625e-06,
+      "mean_abs_diff": 1.4128508391203703e-07,
+      "shape": [
+        9,
+        3
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "005:encoder.input:0/0/node/orig_template_state": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        9,
+        3
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "005:encoder.input:0/0/node/out_node": {
+      "bitwise_equal": false,
+      "max_abs_diff": 1.4901161193847656e-08,
+      "mean_abs_diff": 7.356801587674353e-11,
+      "shape": [
+        9,
+        128
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "005:encoder.input:0/0/node/pin_mask": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        9,
+        1
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "005:encoder.input:0/0/node/prev_state": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        9,
+        3
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "005:encoder.input:0/0/node/template_state": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        9,
+        3
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "005:encoder.input:0/0/edge/out_edge": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        72,
+        128
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "006:encoder.output:0/src": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        72
+      ],
+      "dtype": "torch.int64",
+      "original_tolerance_pass": true
+    },
+    "006:encoder.output:0/dst": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        72
+      ],
+      "dtype": "torch.int64",
+      "original_tolerance_pass": true
+    },
+    "006:encoder.output:0/node/anchor_cur_state": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        9,
+        3
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "006:encoder.output:0/node/anchor_next_state": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        9,
+        3
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "006:encoder.output:0/node/anchor_orig_template_state": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        9,
+        3
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "006:encoder.output:0/node/anchor_prev_state": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        9,
+        3
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "006:encoder.output:0/node/anchor_template_state": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        9,
+        3
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "006:encoder.output:0/node/attr": {
+      "bitwise_equal": false,
+      "max_abs_diff": 2.9103830456733704e-11,
+      "mean_abs_diff": 3.880510727564494e-12,
+      "shape": [
+        9,
+        5
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "006:encoder.output:0/node/cur_state": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        9,
+        3
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "006:encoder.output:0/node/diag_volume": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        9,
+        1
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "006:encoder.output:0/node/external": {
+      "bitwise_equal": false,
+      "max_abs_diff": 3.814697265625e-06,
+      "mean_abs_diff": 1.4128508391203703e-07,
+      "shape": [
+        9,
+        3
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "006:encoder.output:0/node/orig_template_state": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        9,
+        3
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "006:encoder.output:0/node/out_edge": {
+      "bitwise_equal": false,
+      "max_abs_diff": 1.5497207641601562e-06,
+      "mean_abs_diff": 3.456290061068204e-07,
+      "shape": [
+        9,
+        128
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "006:encoder.output:0/node/out_node": {
+      "bitwise_equal": false,
+      "max_abs_diff": 2.682209014892578e-07,
+      "mean_abs_diff": 5.97420795303252e-08,
+      "shape": [
+        9,
+        128
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "006:encoder.output:0/node/pin_mask": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        9,
+        1
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "006:encoder.output:0/node/prev_state": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        9,
+        3
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "006:encoder.output:0/node/template_state": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        9,
+        3
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "006:encoder.output:0/edge/out_edge": {
+      "bitwise_equal": false,
+      "max_abs_diff": 4.76837158203125e-07,
+      "mean_abs_diff": 1.0015888720873691e-07,
+      "shape": [
+        72,
+        128
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "007:backbone.output:0/src": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        72
+      ],
+      "dtype": "torch.int64",
+      "original_tolerance_pass": true
+    },
+    "007:backbone.output:0/dst": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        72
+      ],
+      "dtype": "torch.int64",
+      "original_tolerance_pass": true
+    },
+    "007:backbone.output:0/node/anchor_cur_state": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        9,
+        3
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "007:backbone.output:0/node/anchor_next_state": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        9,
+        3
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "007:backbone.output:0/node/anchor_orig_template_state": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        9,
+        3
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "007:backbone.output:0/node/anchor_prev_state": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        9,
+        3
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "007:backbone.output:0/node/anchor_template_state": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        9,
+        3
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "007:backbone.output:0/node/attr": {
+      "bitwise_equal": false,
+      "max_abs_diff": 2.9103830456733704e-11,
+      "mean_abs_diff": 3.880510727564494e-12,
+      "shape": [
+        9,
+        5
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "007:backbone.output:0/node/cur_state": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        9,
+        3
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "007:backbone.output:0/node/diag_volume": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        9,
+        1
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "007:backbone.output:0/node/external": {
+      "bitwise_equal": false,
+      "max_abs_diff": 3.814697265625e-06,
+      "mean_abs_diff": 1.4128508391203703e-07,
+      "shape": [
+        9,
+        3
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "007:backbone.output:0/node/orig_template_state": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        9,
+        3
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "007:backbone.output:0/node/out_edge": {
+      "bitwise_equal": false,
+      "max_abs_diff": 1.5497207641601562e-06,
+      "mean_abs_diff": 3.456290061068204e-07,
+      "shape": [
+        9,
+        128
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "007:backbone.output:0/node/out_node": {
+      "bitwise_equal": false,
+      "max_abs_diff": 2.682209014892578e-07,
+      "mean_abs_diff": 5.97420795303252e-08,
+      "shape": [
+        9,
+        128
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "007:backbone.output:0/node/pin_mask": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        9,
+        1
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "007:backbone.output:0/node/prev_state": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        9,
+        3
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "007:backbone.output:0/node/template_state": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        9,
+        3
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "007:backbone.output:0/edge/out_edge": {
+      "bitwise_equal": false,
+      "max_abs_diff": 4.76837158203125e-07,
+      "mean_abs_diff": 1.0015888720873691e-07,
+      "shape": [
+        72,
+        128
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "008:decoder.input:0/0/0/src": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        72
+      ],
+      "dtype": "torch.int64",
+      "original_tolerance_pass": true
+    },
+    "008:decoder.input:0/0/0/dst": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        72
+      ],
+      "dtype": "torch.int64",
+      "original_tolerance_pass": true
+    },
+    "008:decoder.input:0/0/0/node/anchor_cur_state": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        9,
+        3
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "008:decoder.input:0/0/0/node/anchor_next_state": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        9,
+        3
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "008:decoder.input:0/0/0/node/anchor_orig_template_state": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        9,
+        3
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "008:decoder.input:0/0/0/node/anchor_prev_state": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        9,
+        3
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "008:decoder.input:0/0/0/node/anchor_template_state": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        9,
+        3
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "008:decoder.input:0/0/0/node/attr": {
+      "bitwise_equal": false,
+      "max_abs_diff": 2.9103830456733704e-11,
+      "mean_abs_diff": 3.880510727564494e-12,
+      "shape": [
+        9,
+        5
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "008:decoder.input:0/0/0/node/cur_state": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        9,
+        3
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "008:decoder.input:0/0/0/node/diag_volume": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        9,
+        1
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "008:decoder.input:0/0/0/node/external": {
+      "bitwise_equal": false,
+      "max_abs_diff": 3.814697265625e-06,
+      "mean_abs_diff": 1.4128508391203703e-07,
+      "shape": [
+        9,
+        3
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "008:decoder.input:0/0/0/node/orig_template_state": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        9,
+        3
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "008:decoder.input:0/0/0/node/out_edge": {
+      "bitwise_equal": false,
+      "max_abs_diff": 1.5497207641601562e-06,
+      "mean_abs_diff": 3.456290061068204e-07,
+      "shape": [
+        9,
+        128
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "008:decoder.input:0/0/0/node/out_node": {
+      "bitwise_equal": false,
+      "max_abs_diff": 2.682209014892578e-07,
+      "mean_abs_diff": 5.97420795303252e-08,
+      "shape": [
+        9,
+        128
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "008:decoder.input:0/0/0/node/pin_mask": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        9,
+        1
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "008:decoder.input:0/0/0/node/prev_state": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        9,
+        3
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "008:decoder.input:0/0/0/node/template_state": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        9,
+        3
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "008:decoder.input:0/0/0/edge/out_edge": {
+      "bitwise_equal": false,
+      "max_abs_diff": 4.76837158203125e-07,
+      "mean_abs_diff": 1.0015888720873691e-07,
+      "shape": [
+        72,
+        128
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "009:dynamic_proj.input:0/0/0": {
+      "bitwise_equal": false,
+      "max_abs_diff": 2.682209014892578e-07,
+      "mean_abs_diff": 5.97420795303252e-08,
+      "shape": [
+        9,
+        128
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "010:dynamic_proj.output:0": {
+      "bitwise_equal": false,
+      "max_abs_diff": 2.9802322387695312e-08,
+      "mean_abs_diff": 7.939760131065292e-09,
+      "shape": [
+        9,
+        11
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "011:decoder.output:0/0": {
+      "bitwise_equal": false,
+      "max_abs_diff": 1.4901161193847656e-08,
+      "mean_abs_diff": 3.01817501032794e-09,
+      "shape": [
+        9,
+        3
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "011:decoder.output:0/1": {
+      "bitwise_equal": false,
+      "max_abs_diff": 3.3527612686157227e-08,
+      "mean_abs_diff": 4.214469832603377e-09,
+      "shape": [
+        9,
+        11
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "011:decoder.output:0/2": {
+      "bitwise_equal": false,
+      "max_abs_diff": 1.1920928955078125e-07,
+      "mean_abs_diff": 2.3662492080971048e-08,
+      "shape": [
+        9,
+        3,
+        3
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "011:decoder.output:0/3/src": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        72
+      ],
+      "dtype": "torch.int64",
+      "original_tolerance_pass": true
+    },
+    "011:decoder.output:0/3/dst": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        72
+      ],
+      "dtype": "torch.int64",
+      "original_tolerance_pass": true
+    },
+    "011:decoder.output:0/3/node/anchor_cur_state": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        9,
+        3
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "011:decoder.output:0/3/node/anchor_next_state": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        9,
+        3
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "011:decoder.output:0/3/node/anchor_orig_template_state": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        9,
+        3
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "011:decoder.output:0/3/node/anchor_prev_state": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        9,
+        3
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "011:decoder.output:0/3/node/anchor_template_state": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        9,
+        3
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "011:decoder.output:0/3/node/attr": {
+      "bitwise_equal": false,
+      "max_abs_diff": 2.9103830456733704e-11,
+      "mean_abs_diff": 3.880510727564494e-12,
+      "shape": [
+        9,
+        5
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "011:decoder.output:0/3/node/cur_state": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        9,
+        3
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "011:decoder.output:0/3/node/diag_volume": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        9,
+        1
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "011:decoder.output:0/3/node/external": {
+      "bitwise_equal": false,
+      "max_abs_diff": 3.814697265625e-06,
+      "mean_abs_diff": 1.4128508391203703e-07,
+      "shape": [
+        9,
+        3
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "011:decoder.output:0/3/node/orig_template_state": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        9,
+        3
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "011:decoder.output:0/3/node/out_edge": {
+      "bitwise_equal": false,
+      "max_abs_diff": 1.5497207641601562e-06,
+      "mean_abs_diff": 3.456290061068204e-07,
+      "shape": [
+        9,
+        128
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "011:decoder.output:0/3/node/out_node": {
+      "bitwise_equal": false,
+      "max_abs_diff": 2.682209014892578e-07,
+      "mean_abs_diff": 5.97420795303252e-08,
+      "shape": [
+        9,
+        128
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "011:decoder.output:0/3/node/pin_mask": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        9,
+        1
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "011:decoder.output:0/3/node/pred_dg": {
+      "bitwise_equal": false,
+      "max_abs_diff": 3.3527612686157227e-08,
+      "mean_abs_diff": 4.214469832603377e-09,
+      "shape": [
+        9,
+        11
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "011:decoder.output:0/3/node/pred_dg_mat": {
+      "bitwise_equal": false,
+      "max_abs_diff": 1.1920928955078125e-07,
+      "mean_abs_diff": 2.3662492080971048e-08,
+      "shape": [
+        9,
+        3,
+        3
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "011:decoder.output:0/3/node/pred_pos": {
+      "bitwise_equal": false,
+      "max_abs_diff": 1.4901161193847656e-08,
+      "mean_abs_diff": 3.01817501032794e-09,
+      "shape": [
+        9,
+        3
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "011:decoder.output:0/3/node/prev_state": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        9,
+        3
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "011:decoder.output:0/3/node/template_state": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        9,
+        3
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "011:decoder.output:0/3/edge/out_edge": {
+      "bitwise_equal": false,
+      "max_abs_diff": 4.76837158203125e-07,
+      "mean_abs_diff": 1.0015888720873691e-07,
+      "shape": [
+        72,
+        128
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "012:backbone.input:1/0/src": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        9768
+      ],
+      "dtype": "torch.int64",
+      "original_tolerance_pass": true
+    },
+    "012:backbone.input:1/0/dst": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        9768
+      ],
+      "dtype": "torch.int64",
+      "original_tolerance_pass": true
+    },
+    "012:backbone.input:1/0/node/anchor_cur_state": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        650,
+        3
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "012:backbone.input:1/0/node/anchor_next_state": {
+      "bitwise_equal": false,
+      "max_abs_diff": 1.4901161193847656e-08,
+      "mean_abs_diff": 3.5375929795778716e-09,
+      "shape": [
+        650,
+        3
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "012:backbone.input:1/0/node/anchor_orig_template_state": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        650,
+        3
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "012:backbone.input:1/0/node/anchor_prev_state": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        650,
+        3
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "012:backbone.input:1/0/node/anchor_template_state": {
+      "bitwise_equal": false,
+      "max_abs_diff": 1.4901161193847656e-08,
+      "mean_abs_diff": 3.5375929795778716e-09,
+      "shape": [
+        650,
+        3
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "012:backbone.input:1/0/node/attr": {
+      "bitwise_equal": false,
+      "max_abs_diff": 5.820766091346741e-11,
+      "mean_abs_diff": 8.059522280326256e-14,
+      "shape": [
+        650,
+        5
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "012:backbone.input:1/0/node/cur_state": {
+      "bitwise_equal": false,
+      "max_abs_diff": 4.470348358154297e-08,
+      "mean_abs_diff": 3.0301415767425144e-09,
+      "shape": [
+        650,
+        3
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "012:backbone.input:1/0/node/diag_volume": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        650,
+        1
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "012:backbone.input:1/0/node/external": {
+      "bitwise_equal": false,
+      "max_abs_diff": 3.814697265625e-06,
+      "mean_abs_diff": 1.9562550080128205e-09,
+      "shape": [
+        650,
+        3
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "012:backbone.input:1/0/node/hie_anchor_next_state": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        650,
+        3
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "012:backbone.input:1/0/node/hie_anchor_template_state": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        650,
+        3
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "012:backbone.input:1/0/node/hie_pred_dg": {
+      "bitwise_equal": false,
+      "max_abs_diff": 3.3527612686157227e-08,
+      "mean_abs_diff": 4.584712165218967e-09,
+      "shape": [
+        650,
+        11
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "012:backbone.input:1/0/node/hie_pred_dg_mat": {
+      "bitwise_equal": false,
+      "max_abs_diff": 1.1920928955078125e-07,
+      "mean_abs_diff": 2.397877028864673e-08,
+      "shape": [
+        650,
+        3,
+        3
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "012:backbone.input:1/0/node/orig_template_state": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        650,
+        3
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "012:backbone.input:1/0/node/pin_mask": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        650,
+        1
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "012:backbone.input:1/0/node/prev_state": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        650,
+        3
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "012:backbone.input:1/0/node/template_state": {
+      "bitwise_equal": false,
+      "max_abs_diff": 4.470348358154297e-08,
+      "mean_abs_diff": 3.0301415767425144e-09,
+      "shape": [
+        650,
+        3
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "012:backbone.input:1/1/src": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        1300
+      ],
+      "dtype": "torch.int64",
+      "original_tolerance_pass": true
+    },
+    "012:backbone.input:1/1/dst": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        1300
+      ],
+      "dtype": "torch.int64",
+      "original_tolerance_pass": true
+    },
+    "012:backbone.input:1/1/node/anchor_cur_state": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        659,
+        3
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "012:backbone.input:1/1/node/anchor_next_state": {
+      "bitwise_equal": false,
+      "max_abs_diff": 1.4901161193847656e-08,
+      "mean_abs_diff": 3.5304992592087527e-09,
+      "shape": [
+        659,
+        3
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "012:backbone.input:1/1/node/anchor_orig_template_state": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        659,
+        3
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "012:backbone.input:1/1/node/anchor_prev_state": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        659,
+        3
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "012:backbone.input:1/1/node/anchor_template_state": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        659,
+        3
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "012:backbone.input:1/1/node/attr": {
+      "bitwise_equal": false,
+      "max_abs_diff": 5.820766091346741e-11,
+      "mean_abs_diff": 1.3249088220060867e-13,
+      "shape": [
+        659,
+        5
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "012:backbone.input:1/1/node/cluster_mask": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        659,
+        1
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "012:backbone.input:1/1/node/cur_state": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        659,
+        3
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "012:backbone.input:1/1/node/density": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        659,
+        1
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "012:backbone.input:1/1/node/diag_volume": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        659,
+        1
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "012:backbone.input:1/1/node/external": {
+      "bitwise_equal": false,
+      "max_abs_diff": 3.814697265625e-06,
+      "mean_abs_diff": 3.859076647066262e-09,
+      "shape": [
+        659,
+        3
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "012:backbone.input:1/1/node/hie_anchor_next_state": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        659,
+        3
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "012:backbone.input:1/1/node/hie_anchor_template_state": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        659,
+        3
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "012:backbone.input:1/1/node/hie_pred_dg": {
+      "bitwise_equal": false,
+      "max_abs_diff": 3.3527612686157227e-08,
+      "mean_abs_diff": 4.57965574489493e-09,
+      "shape": [
+        659,
+        11
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "012:backbone.input:1/1/node/hie_pred_dg_mat": {
+      "bitwise_equal": false,
+      "max_abs_diff": 1.1920928955078125e-07,
+      "mean_abs_diff": 2.397445085940685e-08,
+      "shape": [
+        659,
+        3,
+        3
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "012:backbone.input:1/1/node/orig_template_state": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        659,
+        3
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "012:backbone.input:1/1/node/pin_mask": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        659,
+        1
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "012:backbone.input:1/1/node/point_mask": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        659,
+        1
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "012:backbone.input:1/1/node/prev_state": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        659,
+        3
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "012:backbone.input:1/1/node/template_state": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        659,
+        3
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "012:backbone.input:1/1/edge/c2p_mask": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        1300,
+        1
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "012:backbone.input:1/1/edge/p2c_mask": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        1300,
+        1
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "013:encoder.input:1/0/src": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        9768
+      ],
+      "dtype": "torch.int64",
+      "original_tolerance_pass": true
+    },
+    "013:encoder.input:1/0/dst": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        9768
+      ],
+      "dtype": "torch.int64",
+      "original_tolerance_pass": true
+    },
+    "013:encoder.input:1/0/node/anchor_cur_state": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        650,
+        3
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "013:encoder.input:1/0/node/anchor_next_state": {
+      "bitwise_equal": false,
+      "max_abs_diff": 1.4901161193847656e-08,
+      "mean_abs_diff": 3.5375929795778716e-09,
+      "shape": [
+        650,
+        3
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "013:encoder.input:1/0/node/anchor_orig_template_state": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        650,
+        3
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "013:encoder.input:1/0/node/anchor_prev_state": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        650,
+        3
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "013:encoder.input:1/0/node/anchor_template_state": {
+      "bitwise_equal": false,
+      "max_abs_diff": 1.4901161193847656e-08,
+      "mean_abs_diff": 3.5375929795778716e-09,
+      "shape": [
+        650,
+        3
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "013:encoder.input:1/0/node/attr": {
+      "bitwise_equal": false,
+      "max_abs_diff": 5.820766091346741e-11,
+      "mean_abs_diff": 8.059522280326256e-14,
+      "shape": [
+        650,
+        5
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "013:encoder.input:1/0/node/cur_state": {
+      "bitwise_equal": false,
+      "max_abs_diff": 4.470348358154297e-08,
+      "mean_abs_diff": 3.0301415767425144e-09,
+      "shape": [
+        650,
+        3
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "013:encoder.input:1/0/node/diag_volume": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        650,
+        1
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "013:encoder.input:1/0/node/external": {
+      "bitwise_equal": false,
+      "max_abs_diff": 3.814697265625e-06,
+      "mean_abs_diff": 1.9562550080128205e-09,
+      "shape": [
+        650,
+        3
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "013:encoder.input:1/0/node/hie_anchor_next_state": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        650,
+        3
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "013:encoder.input:1/0/node/hie_anchor_template_state": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        650,
+        3
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "013:encoder.input:1/0/node/hie_pred_dg": {
+      "bitwise_equal": false,
+      "max_abs_diff": 3.3527612686157227e-08,
+      "mean_abs_diff": 4.584712165218967e-09,
+      "shape": [
+        650,
+        11
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "013:encoder.input:1/0/node/hie_pred_dg_mat": {
+      "bitwise_equal": false,
+      "max_abs_diff": 1.1920928955078125e-07,
+      "mean_abs_diff": 2.397877028864673e-08,
+      "shape": [
+        650,
+        3,
+        3
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "013:encoder.input:1/0/node/orig_template_state": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        650,
+        3
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "013:encoder.input:1/0/node/out_node": {
+      "bitwise_equal": false,
+      "max_abs_diff": 2.2351741790771484e-08,
+      "mean_abs_diff": 4.758252404057062e-10,
+      "shape": [
+        650,
+        128
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "013:encoder.input:1/0/node/pin_mask": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        650,
+        1
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "013:encoder.input:1/0/node/prev_state": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        650,
+        3
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "013:encoder.input:1/0/node/template_state": {
+      "bitwise_equal": false,
+      "max_abs_diff": 4.470348358154297e-08,
+      "mean_abs_diff": 3.0301415767425144e-09,
+      "shape": [
+        650,
+        3
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "013:encoder.input:1/0/edge/out_edge": {
+      "bitwise_equal": false,
+      "max_abs_diff": 7.897615432739258e-07,
+      "mean_abs_diff": 1.1557030017850263e-08,
+      "shape": [
+        9768,
+        128
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "014:encoder.output:1/src": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        9768
+      ],
+      "dtype": "torch.int64",
+      "original_tolerance_pass": true
+    },
+    "014:encoder.output:1/dst": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        9768
+      ],
+      "dtype": "torch.int64",
+      "original_tolerance_pass": true
+    },
+    "014:encoder.output:1/node/anchor_cur_state": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        650,
+        3
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "014:encoder.output:1/node/anchor_next_state": {
+      "bitwise_equal": false,
+      "max_abs_diff": 1.4901161193847656e-08,
+      "mean_abs_diff": 3.5375929795778716e-09,
+      "shape": [
+        650,
+        3
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "014:encoder.output:1/node/anchor_orig_template_state": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        650,
+        3
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "014:encoder.output:1/node/anchor_prev_state": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        650,
+        3
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "014:encoder.output:1/node/anchor_template_state": {
+      "bitwise_equal": false,
+      "max_abs_diff": 1.4901161193847656e-08,
+      "mean_abs_diff": 3.5375929795778716e-09,
+      "shape": [
+        650,
+        3
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "014:encoder.output:1/node/attr": {
+      "bitwise_equal": false,
+      "max_abs_diff": 5.820766091346741e-11,
+      "mean_abs_diff": 8.059522280326256e-14,
+      "shape": [
+        650,
+        5
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "014:encoder.output:1/node/cur_state": {
+      "bitwise_equal": false,
+      "max_abs_diff": 4.470348358154297e-08,
+      "mean_abs_diff": 3.0301415767425144e-09,
+      "shape": [
+        650,
+        3
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "014:encoder.output:1/node/diag_volume": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        650,
+        1
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "014:encoder.output:1/node/external": {
+      "bitwise_equal": false,
+      "max_abs_diff": 3.814697265625e-06,
+      "mean_abs_diff": 1.9562550080128205e-09,
+      "shape": [
+        650,
+        3
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "014:encoder.output:1/node/hie_anchor_next_state": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        650,
+        3
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "014:encoder.output:1/node/hie_anchor_template_state": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        650,
+        3
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "014:encoder.output:1/node/hie_pred_dg": {
+      "bitwise_equal": false,
+      "max_abs_diff": 3.3527612686157227e-08,
+      "mean_abs_diff": 4.584712165218967e-09,
+      "shape": [
+        650,
+        11
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "014:encoder.output:1/node/hie_pred_dg_mat": {
+      "bitwise_equal": false,
+      "max_abs_diff": 1.1920928955078125e-07,
+      "mean_abs_diff": 2.397877028864673e-08,
+      "shape": [
+        650,
+        3,
+        3
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "014:encoder.output:1/node/orig_template_state": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        650,
+        3
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "014:encoder.output:1/node/out_edge": {
+      "bitwise_equal": false,
+      "max_abs_diff": 5.7220458984375e-06,
+      "mean_abs_diff": 7.132522520036079e-07,
+      "shape": [
+        650,
+        128
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "014:encoder.output:1/node/out_node": {
+      "bitwise_equal": false,
+      "max_abs_diff": 5.364418029785156e-07,
+      "mean_abs_diff": 8.555476177627078e-08,
+      "shape": [
+        650,
+        128
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "014:encoder.output:1/node/pin_mask": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        650,
+        1
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "014:encoder.output:1/node/prev_state": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        650,
+        3
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "014:encoder.output:1/node/template_state": {
+      "bitwise_equal": false,
+      "max_abs_diff": 4.470348358154297e-08,
+      "mean_abs_diff": 3.0301415767425144e-09,
+      "shape": [
+        650,
+        3
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "014:encoder.output:1/edge/out_edge": {
+      "bitwise_equal": false,
+      "max_abs_diff": 1.1622905731201172e-06,
+      "mean_abs_diff": 1.1809623470201882e-07,
+      "shape": [
+        9768,
+        128
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "015:backbone.output:1/src": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        9768
+      ],
+      "dtype": "torch.int64",
+      "original_tolerance_pass": true
+    },
+    "015:backbone.output:1/dst": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        9768
+      ],
+      "dtype": "torch.int64",
+      "original_tolerance_pass": true
+    },
+    "015:backbone.output:1/node/anchor_cur_state": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        650,
+        3
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "015:backbone.output:1/node/anchor_next_state": {
+      "bitwise_equal": false,
+      "max_abs_diff": 1.4901161193847656e-08,
+      "mean_abs_diff": 3.5375929795778716e-09,
+      "shape": [
+        650,
+        3
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "015:backbone.output:1/node/anchor_orig_template_state": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        650,
+        3
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "015:backbone.output:1/node/anchor_prev_state": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        650,
+        3
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "015:backbone.output:1/node/anchor_template_state": {
+      "bitwise_equal": false,
+      "max_abs_diff": 1.4901161193847656e-08,
+      "mean_abs_diff": 3.5375929795778716e-09,
+      "shape": [
+        650,
+        3
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "015:backbone.output:1/node/attr": {
+      "bitwise_equal": false,
+      "max_abs_diff": 5.820766091346741e-11,
+      "mean_abs_diff": 8.059522280326256e-14,
+      "shape": [
+        650,
+        5
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "015:backbone.output:1/node/cur_state": {
+      "bitwise_equal": false,
+      "max_abs_diff": 4.470348358154297e-08,
+      "mean_abs_diff": 3.0301415767425144e-09,
+      "shape": [
+        650,
+        3
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "015:backbone.output:1/node/diag_volume": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        650,
+        1
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "015:backbone.output:1/node/external": {
+      "bitwise_equal": false,
+      "max_abs_diff": 3.814697265625e-06,
+      "mean_abs_diff": 1.9562550080128205e-09,
+      "shape": [
+        650,
+        3
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "015:backbone.output:1/node/hie_anchor_next_state": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        650,
+        3
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "015:backbone.output:1/node/hie_anchor_template_state": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        650,
+        3
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "015:backbone.output:1/node/hie_pred_dg": {
+      "bitwise_equal": false,
+      "max_abs_diff": 3.3527612686157227e-08,
+      "mean_abs_diff": 4.584712165218967e-09,
+      "shape": [
+        650,
+        11
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "015:backbone.output:1/node/hie_pred_dg_mat": {
+      "bitwise_equal": false,
+      "max_abs_diff": 1.1920928955078125e-07,
+      "mean_abs_diff": 2.397877028864673e-08,
+      "shape": [
+        650,
+        3,
+        3
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "015:backbone.output:1/node/orig_template_state": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        650,
+        3
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "015:backbone.output:1/node/out_edge": {
+      "bitwise_equal": false,
+      "max_abs_diff": 5.7220458984375e-06,
+      "mean_abs_diff": 7.132522520036079e-07,
+      "shape": [
+        650,
+        128
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "015:backbone.output:1/node/out_node": {
+      "bitwise_equal": false,
+      "max_abs_diff": 5.364418029785156e-07,
+      "mean_abs_diff": 8.555476177627078e-08,
+      "shape": [
+        650,
+        128
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "015:backbone.output:1/node/pin_mask": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        650,
+        1
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "015:backbone.output:1/node/prev_state": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        650,
+        3
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "015:backbone.output:1/node/template_state": {
+      "bitwise_equal": false,
+      "max_abs_diff": 4.470348358154297e-08,
+      "mean_abs_diff": 3.0301415767425144e-09,
+      "shape": [
+        650,
+        3
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "015:backbone.output:1/edge/out_edge": {
+      "bitwise_equal": false,
+      "max_abs_diff": 1.1622905731201172e-06,
+      "mean_abs_diff": 1.1809623470201882e-07,
+      "shape": [
+        9768,
+        128
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "016:decoder.input:1/0/0/src": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        9768
+      ],
+      "dtype": "torch.int64",
+      "original_tolerance_pass": true
+    },
+    "016:decoder.input:1/0/0/dst": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        9768
+      ],
+      "dtype": "torch.int64",
+      "original_tolerance_pass": true
+    },
+    "016:decoder.input:1/0/0/node/anchor_cur_state": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        650,
+        3
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "016:decoder.input:1/0/0/node/anchor_next_state": {
+      "bitwise_equal": false,
+      "max_abs_diff": 1.4901161193847656e-08,
+      "mean_abs_diff": 3.5375929795778716e-09,
+      "shape": [
+        650,
+        3
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "016:decoder.input:1/0/0/node/anchor_orig_template_state": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        650,
+        3
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "016:decoder.input:1/0/0/node/anchor_prev_state": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        650,
+        3
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "016:decoder.input:1/0/0/node/anchor_template_state": {
+      "bitwise_equal": false,
+      "max_abs_diff": 1.4901161193847656e-08,
+      "mean_abs_diff": 3.5375929795778716e-09,
+      "shape": [
+        650,
+        3
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "016:decoder.input:1/0/0/node/attr": {
+      "bitwise_equal": false,
+      "max_abs_diff": 5.820766091346741e-11,
+      "mean_abs_diff": 8.059522280326256e-14,
+      "shape": [
+        650,
+        5
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "016:decoder.input:1/0/0/node/cur_state": {
+      "bitwise_equal": false,
+      "max_abs_diff": 4.470348358154297e-08,
+      "mean_abs_diff": 3.0301415767425144e-09,
+      "shape": [
+        650,
+        3
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "016:decoder.input:1/0/0/node/diag_volume": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        650,
+        1
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "016:decoder.input:1/0/0/node/external": {
+      "bitwise_equal": false,
+      "max_abs_diff": 3.814697265625e-06,
+      "mean_abs_diff": 1.9562550080128205e-09,
+      "shape": [
+        650,
+        3
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "016:decoder.input:1/0/0/node/hie_anchor_next_state": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        650,
+        3
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "016:decoder.input:1/0/0/node/hie_anchor_template_state": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        650,
+        3
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "016:decoder.input:1/0/0/node/hie_pred_dg": {
+      "bitwise_equal": false,
+      "max_abs_diff": 3.3527612686157227e-08,
+      "mean_abs_diff": 4.584712165218967e-09,
+      "shape": [
+        650,
+        11
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "016:decoder.input:1/0/0/node/hie_pred_dg_mat": {
+      "bitwise_equal": false,
+      "max_abs_diff": 1.1920928955078125e-07,
+      "mean_abs_diff": 2.397877028864673e-08,
+      "shape": [
+        650,
+        3,
+        3
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "016:decoder.input:1/0/0/node/orig_template_state": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        650,
+        3
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "016:decoder.input:1/0/0/node/out_edge": {
+      "bitwise_equal": false,
+      "max_abs_diff": 5.7220458984375e-06,
+      "mean_abs_diff": 7.132522520036079e-07,
+      "shape": [
+        650,
+        128
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "016:decoder.input:1/0/0/node/out_node": {
+      "bitwise_equal": false,
+      "max_abs_diff": 5.364418029785156e-07,
+      "mean_abs_diff": 8.555476177627078e-08,
+      "shape": [
+        650,
+        128
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "016:decoder.input:1/0/0/node/pin_mask": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        650,
+        1
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "016:decoder.input:1/0/0/node/prev_state": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        650,
+        3
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "016:decoder.input:1/0/0/node/template_state": {
+      "bitwise_equal": false,
+      "max_abs_diff": 4.470348358154297e-08,
+      "mean_abs_diff": 3.0301415767425144e-09,
+      "shape": [
+        650,
+        3
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "016:decoder.input:1/0/0/edge/out_edge": {
+      "bitwise_equal": false,
+      "max_abs_diff": 1.1622905731201172e-06,
+      "mean_abs_diff": 1.1809623470201882e-07,
+      "shape": [
+        9768,
+        128
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "017:dynamic_proj.input:1/0/0": {
+      "bitwise_equal": false,
+      "max_abs_diff": 5.364418029785156e-07,
+      "mean_abs_diff": 8.555476177627078e-08,
+      "shape": [
+        650,
+        128
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "018:dynamic_proj.output:1": {
+      "bitwise_equal": false,
+      "max_abs_diff": 5.960464477539063e-08,
+      "mean_abs_diff": 1.0981270066508047e-08,
+      "shape": [
+        650,
+        11
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "019:decoder.output:1/0": {
+      "bitwise_equal": false,
+      "max_abs_diff": 5.960464477539063e-08,
+      "mean_abs_diff": 4.319605441429676e-09,
+      "shape": [
+        650,
+        3
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "019:decoder.output:1/1": {
+      "bitwise_equal": false,
+      "max_abs_diff": 1.7881393432617188e-07,
+      "mean_abs_diff": 1.015441192613615e-08,
+      "shape": [
+        650,
+        11
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "019:decoder.output:1/2": {
+      "bitwise_equal": false,
+      "max_abs_diff": 3.5762786865234375e-07,
+      "mean_abs_diff": 3.15802729027903e-08,
+      "shape": [
+        650,
+        3,
+        3
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "019:decoder.output:1/3/src": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        9768
+      ],
+      "dtype": "torch.int64",
+      "original_tolerance_pass": true
+    },
+    "019:decoder.output:1/3/dst": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        9768
+      ],
+      "dtype": "torch.int64",
+      "original_tolerance_pass": true
+    },
+    "019:decoder.output:1/3/node/anchor_cur_state": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        650,
+        3
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "019:decoder.output:1/3/node/anchor_next_state": {
+      "bitwise_equal": false,
+      "max_abs_diff": 1.4901161193847656e-08,
+      "mean_abs_diff": 3.5375929795778716e-09,
+      "shape": [
+        650,
+        3
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "019:decoder.output:1/3/node/anchor_orig_template_state": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        650,
+        3
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "019:decoder.output:1/3/node/anchor_prev_state": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        650,
+        3
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "019:decoder.output:1/3/node/anchor_template_state": {
+      "bitwise_equal": false,
+      "max_abs_diff": 1.4901161193847656e-08,
+      "mean_abs_diff": 3.5375929795778716e-09,
+      "shape": [
+        650,
+        3
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "019:decoder.output:1/3/node/attr": {
+      "bitwise_equal": false,
+      "max_abs_diff": 5.820766091346741e-11,
+      "mean_abs_diff": 8.059522280326256e-14,
+      "shape": [
+        650,
+        5
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "019:decoder.output:1/3/node/cur_state": {
+      "bitwise_equal": false,
+      "max_abs_diff": 4.470348358154297e-08,
+      "mean_abs_diff": 3.0301415767425144e-09,
+      "shape": [
+        650,
+        3
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "019:decoder.output:1/3/node/diag_volume": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        650,
+        1
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "019:decoder.output:1/3/node/external": {
+      "bitwise_equal": false,
+      "max_abs_diff": 3.814697265625e-06,
+      "mean_abs_diff": 1.9562550080128205e-09,
+      "shape": [
+        650,
+        3
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "019:decoder.output:1/3/node/hie_anchor_next_state": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        650,
+        3
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "019:decoder.output:1/3/node/hie_anchor_template_state": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        650,
+        3
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "019:decoder.output:1/3/node/hie_pred_dg": {
+      "bitwise_equal": false,
+      "max_abs_diff": 3.3527612686157227e-08,
+      "mean_abs_diff": 4.584712165218967e-09,
+      "shape": [
+        650,
+        11
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "019:decoder.output:1/3/node/hie_pred_dg_mat": {
+      "bitwise_equal": false,
+      "max_abs_diff": 1.1920928955078125e-07,
+      "mean_abs_diff": 2.397877028864673e-08,
+      "shape": [
+        650,
+        3,
+        3
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "019:decoder.output:1/3/node/orig_template_state": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        650,
+        3
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "019:decoder.output:1/3/node/out_edge": {
+      "bitwise_equal": false,
+      "max_abs_diff": 5.7220458984375e-06,
+      "mean_abs_diff": 7.132522520036079e-07,
+      "shape": [
+        650,
+        128
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "019:decoder.output:1/3/node/out_node": {
+      "bitwise_equal": false,
+      "max_abs_diff": 5.364418029785156e-07,
+      "mean_abs_diff": 8.555476177627078e-08,
+      "shape": [
+        650,
+        128
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "019:decoder.output:1/3/node/pin_mask": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        650,
+        1
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "019:decoder.output:1/3/node/pred_dg": {
+      "bitwise_equal": false,
+      "max_abs_diff": 1.7881393432617188e-07,
+      "mean_abs_diff": 1.015441192613615e-08,
+      "shape": [
+        650,
+        11
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "019:decoder.output:1/3/node/pred_dg_mat": {
+      "bitwise_equal": false,
+      "max_abs_diff": 3.5762786865234375e-07,
+      "mean_abs_diff": 3.15802729027903e-08,
+      "shape": [
+        650,
+        3,
+        3
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "019:decoder.output:1/3/node/pred_pos": {
+      "bitwise_equal": false,
+      "max_abs_diff": 5.960464477539063e-08,
+      "mean_abs_diff": 4.319605441429676e-09,
+      "shape": [
+        650,
+        3
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "019:decoder.output:1/3/node/prev_state": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        650,
+        3
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "019:decoder.output:1/3/node/template_state": {
+      "bitwise_equal": false,
+      "max_abs_diff": 4.470348358154297e-08,
+      "mean_abs_diff": 3.0301415767425144e-09,
+      "shape": [
+        650,
+        3
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "019:decoder.output:1/3/edge/out_edge": {
+      "bitwise_equal": false,
+      "max_abs_diff": 1.1622905731201172e-06,
+      "mean_abs_diff": 1.1809623470201882e-07,
+      "shape": [
+        9768,
+        128
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "020:render.input:0/cov": {
+      "bitwise_equal": false,
+      "max_abs_diff": 2.9103830456733704e-11,
+      "mean_abs_diff": 8.858853867383398e-13,
+      "shape": [
+        12861,
+        6
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "020:render.input:0/features": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        12861,
+        1,
+        3
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "020:render.input:0/opacity": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        12861,
+        1
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "020:render.input:0/pos": {
+      "bitwise_equal": false,
+      "max_abs_diff": 5.960464477539063e-08,
+      "mean_abs_diff": 4.992831021752395e-09,
+      "shape": [
+        12861,
+        3
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "021:render.output:0/0": {
+      "bitwise_equal": false,
+      "max_abs_diff": 0.0002465248107910156,
+      "mean_abs_diff": 3.614573432531432e-08,
+      "shape": [
+        3,
+        360,
+        640
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": false
+    },
+    "021:render.output:0/1": {
+      "bitwise_equal": false,
+      "max_abs_diff": 0.00020110607147216797,
+      "mean_abs_diff": 7.661903711980105e-08,
+      "shape": [
+        1,
+        360,
+        640
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": false
+    },
+    "022:render.input:1/cov": {
+      "bitwise_equal": false,
+      "max_abs_diff": 2.9103830456733704e-11,
+      "mean_abs_diff": 8.858853867383398e-13,
+      "shape": [
+        12861,
+        6
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "022:render.input:1/features": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        12861,
+        1,
+        3
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "022:render.input:1/opacity": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        12861,
+        1
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "022:render.input:1/pos": {
+      "bitwise_equal": false,
+      "max_abs_diff": 5.960464477539063e-08,
+      "mean_abs_diff": 4.992831021752395e-09,
+      "shape": [
+        12861,
+        3
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "023:render.output:1/0": {
+      "bitwise_equal": false,
+      "max_abs_diff": 0.002740725874900818,
+      "mean_abs_diff": 4.3029811894046834e-08,
+      "shape": [
+        3,
+        360,
+        640
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": false
+    },
+    "023:render.output:1/1": {
+      "bitwise_equal": false,
+      "max_abs_diff": 0.005341261625289917,
+      "mean_abs_diff": 1.250249806616921e-07,
+      "shape": [
+        1,
+        360,
+        640
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": false
+    },
+    "024:simulator.output:0/deformation/0": {
+      "bitwise_equal": false,
+      "max_abs_diff": 3.5762786865234375e-07,
+      "mean_abs_diff": 3.0879589813835834e-08,
+      "shape": [
+        12891,
+        3,
+        3
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "024:simulator.output:0/deformation/1": {
+      "bitwise_equal": false,
+      "max_abs_diff": 1.1920928955078125e-07,
+      "mean_abs_diff": 2.501585142853241e-08,
+      "shape": [
+        12891,
+        3,
+        3
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "024:simulator.output:0/images/0": {
+      "bitwise_equal": false,
+      "max_abs_diff": 0.0002465248107910156,
+      "mean_abs_diff": 3.614573432531432e-08,
+      "shape": [
+        3,
+        360,
+        640
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": false
+    },
+    "024:simulator.output:0/images/1": {
+      "bitwise_equal": false,
+      "max_abs_diff": 0.002740725874900818,
+      "mean_abs_diff": 4.3029811894046834e-08,
+      "shape": [
+        3,
+        360,
+        640
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": false
+    },
+    "024:simulator.output:0/loss_regularization/decode.loss_mse_momentum": {
+      "bitwise_equal": false,
+      "max_abs_diff": 7.30752944946289e-05,
+      "mean_abs_diff": 7.30752944946289e-05,
+      "shape": [],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": false
+    },
+    "024:simulator.output:0/pred_cov": {
+      "bitwise_equal": false,
+      "max_abs_diff": 2.9103830456733704e-11,
+      "mean_abs_diff": 8.850055073381804e-13,
+      "shape": [
+        12891,
+        6
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "024:simulator.output:0/pred_pos": {
+      "bitwise_equal": false,
+      "max_abs_diff": 5.960464477539063e-08,
+      "mean_abs_diff": 4.983547632767315e-09,
+      "shape": [
+        12891,
+        3
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "025:image_loss.input:0/0/0/0": {
+      "bitwise_equal": false,
+      "max_abs_diff": 0.0002465248107910156,
+      "mean_abs_diff": 3.614573432531432e-08,
+      "shape": [
+        3,
+        360,
+        640
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": false
+    },
+    "025:image_loss.input:0/0/0/1": {
+      "bitwise_equal": false,
+      "max_abs_diff": 0.002740725874900818,
+      "mean_abs_diff": 4.3029811894046834e-08,
+      "shape": [
+        3,
+        360,
+        640
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": false
+    },
+    "025:image_loss.input:0/0/1/0": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        3,
+        360,
+        640
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "025:image_loss.input:0/0/1/1": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        3,
+        360,
+        640
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "025:image_loss.input:0/0/2/0": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        1,
+        360,
+        640
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "025:image_loss.input:0/0/2/1": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        1,
+        360,
+        640
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "025:image_loss.input:0/0/3": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [
+        2,
+        4
+      ],
+      "dtype": "torch.int32",
+      "original_tolerance_pass": true
+    },
+    "026:image_loss.output:0/decode.acc_l1_render.acc": {
+      "bitwise_equal": false,
+      "max_abs_diff": 1.4901161193847656e-08,
+      "mean_abs_diff": 1.4901161193847656e-08,
+      "shape": [],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "026:image_loss.output:0/decode.acc_l2_render.acc": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "026:image_loss.output:0/decode.acc_psnr_render.acc": {
+      "bitwise_equal": false,
+      "max_abs_diff": 1.9073486328125e-06,
+      "mean_abs_diff": 1.9073486328125e-06,
+      "shape": [],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "026:image_loss.output:0/decode.acc_ssim_render.acc": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "026:image_loss.output:0/decode.loss_l2_render": {
+      "bitwise_equal": false,
+      "max_abs_diff": 0.00390625,
+      "mean_abs_diff": 0.00390625,
+      "shape": [],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "026:image_loss.output:0/decode.loss_ssim_render": {
+      "bitwise_equal": false,
+      "max_abs_diff": 0.00048828125,
+      "mean_abs_diff": 0.00048828125,
+      "shape": [],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "027:final:0/loss/decode.acc_l1_render.acc": {
+      "bitwise_equal": false,
+      "max_abs_diff": 1.4901161193847656e-08,
+      "mean_abs_diff": 1.4901161193847656e-08,
+      "shape": [],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "027:final:0/loss/decode.acc_l2_render.acc": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "027:final:0/loss/decode.acc_psnr_render.acc": {
+      "bitwise_equal": false,
+      "max_abs_diff": 1.9073486328125e-06,
+      "mean_abs_diff": 1.9073486328125e-06,
+      "shape": [],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "027:final:0/loss/decode.acc_ssim_render.acc": {
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "shape": [],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "027:final:0/loss/decode.loss_l2_render": {
+      "bitwise_equal": false,
+      "max_abs_diff": 0.00390625,
+      "mean_abs_diff": 0.00390625,
+      "shape": [],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "027:final:0/loss/decode.loss_mse_momentum": {
+      "bitwise_equal": false,
+      "max_abs_diff": 7.30752944946289e-05,
+      "mean_abs_diff": 7.30752944946289e-05,
+      "shape": [],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": false
+    },
+    "027:final:0/loss/decode.loss_ssim_render": {
+      "bitwise_equal": false,
+      "max_abs_diff": 0.00048828125,
+      "mean_abs_diff": 0.00048828125,
+      "shape": [],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "027:final:0/steps/0/pred_cov": {
+      "bitwise_equal": false,
+      "max_abs_diff": 2.9103830456733704e-11,
+      "mean_abs_diff": 8.850055073381804e-13,
+      "shape": [
+        12891,
+        6
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "027:final:0/steps/0/pred_pos": {
+      "bitwise_equal": false,
+      "max_abs_diff": 5.960464477539063e-08,
+      "mean_abs_diff": 4.983547632767315e-09,
+      "shape": [
+        12891,
+        3
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": true
+    },
+    "027:final:0/steps/0/render/0": {
+      "bitwise_equal": false,
+      "max_abs_diff": 0.0002465248107910156,
+      "mean_abs_diff": 3.614573432531432e-08,
+      "shape": [
+        3,
+        360,
+        640
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": false
+    },
+    "027:final:0/steps/0/render/1": {
+      "bitwise_equal": false,
+      "max_abs_diff": 0.002740725874900818,
+      "mean_abs_diff": 4.3029811894046834e-08,
+      "shape": [
+        3,
+        360,
+        640
+      ],
+      "dtype": "torch.float32",
+      "original_tolerance_pass": false
+    }
+  },
+  "non_equal_tensor_count": 162
+}

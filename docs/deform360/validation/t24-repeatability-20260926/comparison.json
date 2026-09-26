@@ -1,0 +1,348 @@
+{
+  "matched_provenance_keys": [
+    "seed",
+    "tool_sha256",
+    "checkpoint_sha256",
+    "config_sha256",
+    "fixed_input_sha256",
+    "model_sha256",
+    "optimizer_sha256",
+    "initial_gaussian_sha256",
+    "backend",
+    "counters",
+    "runtime"
+  ],
+  "processes": {
+    "A": {
+      "pid": 1143490,
+      "job_id": "25840"
+    },
+    "B": {
+      "pid": 1143618,
+      "job_id": "25841"
+    }
+  },
+  "comparisons": {
+    "A_vs_B": {
+      "output/steps/0/pred_pos": {
+        "shape": [
+          12891,
+          3
+        ],
+        "dtype": "torch.float32",
+        "max_abs_diff": 0.0,
+        "mean_abs_diff": 0.0,
+        "bitwise_equal": true,
+        "original_tolerance_pass": true
+      },
+      "output/steps/0/pred_cov": {
+        "shape": [
+          12891,
+          6
+        ],
+        "dtype": "torch.float32",
+        "max_abs_diff": 0.0,
+        "mean_abs_diff": 0.0,
+        "bitwise_equal": true,
+        "original_tolerance_pass": true
+      },
+      "output/steps/0/render/0": {
+        "shape": [
+          3,
+          360,
+          640
+        ],
+        "dtype": "torch.float32",
+        "max_abs_diff": 0.0,
+        "mean_abs_diff": 0.0,
+        "bitwise_equal": true,
+        "original_tolerance_pass": true
+      },
+      "output/steps/0/render/1": {
+        "shape": [
+          3,
+          360,
+          640
+        ],
+        "dtype": "torch.float32",
+        "max_abs_diff": 0.0,
+        "mean_abs_diff": 0.0,
+        "bitwise_equal": true,
+        "original_tolerance_pass": true
+      },
+      "output/loss/decode.loss_mse_momentum": {
+        "shape": [],
+        "dtype": "torch.float32",
+        "max_abs_diff": 0.0,
+        "mean_abs_diff": 0.0,
+        "bitwise_equal": true,
+        "original_tolerance_pass": true
+      },
+      "output/loss/decode.loss_ssim_render": {
+        "shape": [],
+        "dtype": "torch.float32",
+        "max_abs_diff": 0.0,
+        "mean_abs_diff": 0.0,
+        "bitwise_equal": true,
+        "original_tolerance_pass": true
+      },
+      "output/loss/decode.loss_l2_render": {
+        "shape": [],
+        "dtype": "torch.float32",
+        "max_abs_diff": 0.0,
+        "mean_abs_diff": 0.0,
+        "bitwise_equal": true,
+        "original_tolerance_pass": true
+      },
+      "output/loss/decode.acc_l2_render.acc": {
+        "shape": [],
+        "dtype": "torch.float32",
+        "max_abs_diff": 0.0,
+        "mean_abs_diff": 0.0,
+        "bitwise_equal": true,
+        "original_tolerance_pass": true
+      },
+      "output/loss/decode.acc_l1_render.acc": {
+        "shape": [],
+        "dtype": "torch.float32",
+        "max_abs_diff": 0.0,
+        "mean_abs_diff": 0.0,
+        "bitwise_equal": true,
+        "original_tolerance_pass": true
+      },
+      "output/loss/decode.acc_ssim_render.acc": {
+        "shape": [],
+        "dtype": "torch.float32",
+        "max_abs_diff": 0.0,
+        "mean_abs_diff": 0.0,
+        "bitwise_equal": true,
+        "original_tolerance_pass": true
+      },
+      "output/loss/decode.acc_psnr_render.acc": {
+        "shape": [],
+        "dtype": "torch.float32",
+        "max_abs_diff": 0.0,
+        "mean_abs_diff": 0.0,
+        "bitwise_equal": true,
+        "original_tolerance_pass": true
+      }
+    },
+    "presave_vs_A": {
+      "output/steps/0/pred_pos": {
+        "shape": [
+          12891,
+          3
+        ],
+        "dtype": "torch.float32",
+        "max_abs_diff": 5.960464477539063e-08,
+        "mean_abs_diff": 4.309909814614748e-09,
+        "bitwise_equal": false,
+        "original_tolerance_pass": true
+      },
+      "output/steps/0/pred_cov": {
+        "shape": [
+          12891,
+          6
+        ],
+        "dtype": "torch.float32",
+        "max_abs_diff": 4.3655745685100555e-11,
+        "mean_abs_diff": 9.115150849039588e-13,
+        "bitwise_equal": false,
+        "original_tolerance_pass": true
+      },
+      "output/steps/0/render/0": {
+        "shape": [
+          3,
+          360,
+          640
+        ],
+        "dtype": "torch.float32",
+        "max_abs_diff": 0.00018256902694702148,
+        "mean_abs_diff": 3.2954325416977994e-08,
+        "bitwise_equal": false,
+        "original_tolerance_pass": false
+      },
+      "output/steps/0/render/1": {
+        "shape": [
+          3,
+          360,
+          640
+        ],
+        "dtype": "torch.float32",
+        "max_abs_diff": 8.32974910736084e-05,
+        "mean_abs_diff": 3.2147387695726205e-08,
+        "bitwise_equal": false,
+        "original_tolerance_pass": false
+      },
+      "output/loss/decode.loss_mse_momentum": {
+        "shape": [],
+        "dtype": "torch.float32",
+        "max_abs_diff": 0.00011563301086425781,
+        "mean_abs_diff": 0.00011563301086425781,
+        "bitwise_equal": false,
+        "original_tolerance_pass": false
+      },
+      "output/loss/decode.loss_ssim_render": {
+        "shape": [],
+        "dtype": "torch.float32",
+        "max_abs_diff": 0.00048828125,
+        "mean_abs_diff": 0.00048828125,
+        "bitwise_equal": false,
+        "original_tolerance_pass": true
+      },
+      "output/loss/decode.loss_l2_render": {
+        "shape": [],
+        "dtype": "torch.float32",
+        "max_abs_diff": 0.0,
+        "mean_abs_diff": 0.0,
+        "bitwise_equal": true,
+        "original_tolerance_pass": true
+      },
+      "output/loss/decode.acc_l2_render.acc": {
+        "shape": [],
+        "dtype": "torch.float32",
+        "max_abs_diff": 0.0,
+        "mean_abs_diff": 0.0,
+        "bitwise_equal": true,
+        "original_tolerance_pass": true
+      },
+      "output/loss/decode.acc_l1_render.acc": {
+        "shape": [],
+        "dtype": "torch.float32",
+        "max_abs_diff": 0.0,
+        "mean_abs_diff": 0.0,
+        "bitwise_equal": true,
+        "original_tolerance_pass": true
+      },
+      "output/loss/decode.acc_ssim_render.acc": {
+        "shape": [],
+        "dtype": "torch.float32",
+        "max_abs_diff": 0.0,
+        "mean_abs_diff": 0.0,
+        "bitwise_equal": true,
+        "original_tolerance_pass": true
+      },
+      "output/loss/decode.acc_psnr_render.acc": {
+        "shape": [],
+        "dtype": "torch.float32",
+        "max_abs_diff": 0.0,
+        "mean_abs_diff": 0.0,
+        "bitwise_equal": true,
+        "original_tolerance_pass": true
+      }
+    },
+    "presave_vs_B": {
+      "output/steps/0/pred_pos": {
+        "shape": [
+          12891,
+          3
+        ],
+        "dtype": "torch.float32",
+        "max_abs_diff": 5.960464477539063e-08,
+        "mean_abs_diff": 4.309909814614748e-09,
+        "bitwise_equal": false,
+        "original_tolerance_pass": true
+      },
+      "output/steps/0/pred_cov": {
+        "shape": [
+          12891,
+          6
+        ],
+        "dtype": "torch.float32",
+        "max_abs_diff": 4.3655745685100555e-11,
+        "mean_abs_diff": 9.115150849039588e-13,
+        "bitwise_equal": false,
+        "original_tolerance_pass": true
+      },
+      "output/steps/0/render/0": {
+        "shape": [
+          3,
+          360,
+          640
+        ],
+        "dtype": "torch.float32",
+        "max_abs_diff": 0.00018256902694702148,
+        "mean_abs_diff": 3.2954325416977994e-08,
+        "bitwise_equal": false,
+        "original_tolerance_pass": false
+      },
+      "output/steps/0/render/1": {
+        "shape": [
+          3,
+          360,
+          640
+        ],
+        "dtype": "torch.float32",
+        "max_abs_diff": 8.32974910736084e-05,
+        "mean_abs_diff": 3.2147387695726205e-08,
+        "bitwise_equal": false,
+        "original_tolerance_pass": false
+      },
+      "output/loss/decode.loss_mse_momentum": {
+        "shape": [],
+        "dtype": "torch.float32",
+        "max_abs_diff": 0.00011563301086425781,
+        "mean_abs_diff": 0.00011563301086425781,
+        "bitwise_equal": false,
+        "original_tolerance_pass": false
+      },
+      "output/loss/decode.loss_ssim_render": {
+        "shape": [],
+        "dtype": "torch.float32",
+        "max_abs_diff": 0.00048828125,
+        "mean_abs_diff": 0.00048828125,
+        "bitwise_equal": false,
+        "original_tolerance_pass": true
+      },
+      "output/loss/decode.loss_l2_render": {
+        "shape": [],
+        "dtype": "torch.float32",
+        "max_abs_diff": 0.0,
+        "mean_abs_diff": 0.0,
+        "bitwise_equal": true,
+        "original_tolerance_pass": true
+      },
+      "output/loss/decode.acc_l2_render.acc": {
+        "shape": [],
+        "dtype": "torch.float32",
+        "max_abs_diff": 0.0,
+        "mean_abs_diff": 0.0,
+        "bitwise_equal": true,
+        "original_tolerance_pass": true
+      },
+      "output/loss/decode.acc_l1_render.acc": {
+        "shape": [],
+        "dtype": "torch.float32",
+        "max_abs_diff": 0.0,
+        "mean_abs_diff": 0.0,
+        "bitwise_equal": true,
+        "original_tolerance_pass": true
+      },
+      "output/loss/decode.acc_ssim_render.acc": {
+        "shape": [],
+        "dtype": "torch.float32",
+        "max_abs_diff": 0.0,
+        "mean_abs_diff": 0.0,
+        "bitwise_equal": true,
+        "original_tolerance_pass": true
+      },
+      "output/loss/decode.acc_psnr_render.acc": {
+        "shape": [],
+        "dtype": "torch.float32",
+        "max_abs_diff": 0.0,
+        "mean_abs_diff": 0.0,
+        "bitwise_equal": true,
+        "original_tolerance_pass": true
+      }
+    }
+  },
+  "original_tolerance": {
+    "atol": 1e-05,
+    "rtol": 1e-05
+  },
+  "artifact_hashes": {
+    "A_output.pt": "e70062a9dddf9b40f0a0a671d45e474da60663101cc17edea7944a1827d7ecc2",
+    "B_output.pt": "0e41f7edc770dbc4c62e10fb60f0836e5ec6382eba9e7b24765b9f51469b787b",
+    "reference_output.pt": "5d41900543a4f83a69f38bcf53fc32a1c4123e4439d2c02f31fe3a90c422bcc4"
+  }
+}

@@ -1,0 +1,1190 @@
+/data1/userdata/tcweng/miniconda3/envs/soma/lib/python3.10/site-packages/mmcv/__init__.py:20: UserWarning: On January 1, 2023, MMCV will release v2.0.0, in which it will remove components related to the training process and add a data transformation module. In addition, it will rename the package names mmcv to mmcv-lite and mmcv-full to mmcv. See https://github.com/open-mmlab/mmcv/blob/master/docs/en/compatibility.md for more details.
+  warnings.warn(
+/data1/userdata/tcweng/miniconda3/envs/soma/lib/python3.10/site-packages/torchdata/datapipes/__init__.py:18: UserWarning: 
+################################################################################
+WARNING!
+The 'datapipes', 'dataloader2' modules are deprecated and will be removed in a
+future torchdata release! Please see https://github.com/pytorch/data/issues/1196
+to learn more and leave feedback.
+################################################################################
+
+  deprecation_warning()
+2026-09-26 10:38:23,357 - mmcv - INFO - 
+scene_attr.rope - torch.Size([1, 5]): 
+The value is the same before and after calling `init_weights` of GsSimulatorEmbodied  
+ 
+2026-09-26 10:38:23,357 - mmcv - INFO - 
+backbone.node_encoder.layers.0.0.weight - torch.Size([128, 11]): 
+The value is the same before and after calling `init_weights` of GsSimulatorEmbodied  
+ 
+2026-09-26 10:38:23,357 - mmcv - INFO - 
+backbone.node_encoder.layers.0.0.bias - torch.Size([128]): 
+The value is the same before and after calling `init_weights` of GsSimulatorEmbodied  
+ 
+2026-09-26 10:38:23,357 - mmcv - INFO - 
+backbone.node_encoder.layers.1.0.weight - torch.Size([128, 128]): 
+The value is the same before and after calling `init_weights` of GsSimulatorEmbodied  
+ 
+2026-09-26 10:38:23,357 - mmcv - INFO - 
+backbone.node_encoder.layers.1.0.bias - torch.Size([128]): 
+The value is the same before and after calling `init_weights` of GsSimulatorEmbodied  
+ 
+2026-09-26 10:38:23,357 - mmcv - INFO - 
+backbone.node_encoder.layers.2.weight - torch.Size([128, 128]): 
+The value is the same before and after calling `init_weights` of GsSimulatorEmbodied  
+ 
+2026-09-26 10:38:23,357 - mmcv - INFO - 
+backbone.node_encoder.layers.2.bias - torch.Size([128]): 
+The value is the same before and after calling `init_weights` of GsSimulatorEmbodied  
+ 
+2026-09-26 10:38:23,357 - mmcv - INFO - 
+backbone.node_normalizer._acc_count - torch.Size([1]): 
+The value is the same before and after calling `init_weights` of GsSimulatorEmbodied  
+ 
+2026-09-26 10:38:23,357 - mmcv - INFO - 
+backbone.node_normalizer._num_accumulations - torch.Size([1]): 
+The value is the same before and after calling `init_weights` of GsSimulatorEmbodied  
+ 
+2026-09-26 10:38:23,357 - mmcv - INFO - 
+backbone.node_normalizer._acc_sum - torch.Size([1, 3]): 
+The value is the same before and after calling `init_weights` of GsSimulatorEmbodied  
+ 
+2026-09-26 10:38:23,357 - mmcv - INFO - 
+backbone.node_normalizer._acc_sum_squared - torch.Size([1, 3]): 
+The value is the same before and after calling `init_weights` of GsSimulatorEmbodied  
+ 
+2026-09-26 10:38:23,357 - mmcv - INFO - 
+backbone.anchor_normalizer._acc_count - torch.Size([1]): 
+The value is the same before and after calling `init_weights` of GsSimulatorEmbodied  
+ 
+2026-09-26 10:38:23,357 - mmcv - INFO - 
+backbone.anchor_normalizer._num_accumulations - torch.Size([1]): 
+The value is the same before and after calling `init_weights` of GsSimulatorEmbodied  
+ 
+2026-09-26 10:38:23,357 - mmcv - INFO - 
+backbone.anchor_normalizer._acc_sum - torch.Size([1, 3]): 
+The value is the same before and after calling `init_weights` of GsSimulatorEmbodied  
+ 
+2026-09-26 10:38:23,357 - mmcv - INFO - 
+backbone.anchor_normalizer._acc_sum_squared - torch.Size([1, 3]): 
+The value is the same before and after calling `init_weights` of GsSimulatorEmbodied  
+ 
+2026-09-26 10:38:23,357 - mmcv - INFO - 
+backbone.edge_encoder.layers.0.0.weight - torch.Size([128, 9]): 
+The value is the same before and after calling `init_weights` of GsSimulatorEmbodied  
+ 
+2026-09-26 10:38:23,357 - mmcv - INFO - 
+backbone.edge_encoder.layers.0.0.bias - torch.Size([128]): 
+The value is the same before and after calling `init_weights` of GsSimulatorEmbodied  
+ 
+2026-09-26 10:38:23,357 - mmcv - INFO - 
+backbone.edge_encoder.layers.1.0.weight - torch.Size([128, 128]): 
+The value is the same before and after calling `init_weights` of GsSimulatorEmbodied  
+ 
+2026-09-26 10:38:23,357 - mmcv - INFO - 
+backbone.edge_encoder.layers.1.0.bias - torch.Size([128]): 
+The value is the same before and after calling `init_weights` of GsSimulatorEmbodied  
+ 
+2026-09-26 10:38:23,357 - mmcv - INFO - 
+backbone.edge_encoder.layers.2.weight - torch.Size([128, 128]): 
+The value is the same before and after calling `init_weights` of GsSimulatorEmbodied  
+ 
+2026-09-26 10:38:23,357 - mmcv - INFO - 
+backbone.edge_encoder.layers.2.bias - torch.Size([128]): 
+The value is the same before and after calling `init_weights` of GsSimulatorEmbodied  
+ 
+2026-09-26 10:38:23,357 - mmcv - INFO - 
+backbone.edge_normalizer._acc_count - torch.Size([1]): 
+The value is the same before and after calling `init_weights` of GsSimulatorEmbodied  
+ 
+2026-09-26 10:38:23,357 - mmcv - INFO - 
+backbone.edge_normalizer._num_accumulations - torch.Size([1]): 
+The value is the same before and after calling `init_weights` of GsSimulatorEmbodied  
+ 
+2026-09-26 10:38:23,357 - mmcv - INFO - 
+backbone.edge_normalizer._acc_sum - torch.Size([1, 7]): 
+The value is the same before and after calling `init_weights` of GsSimulatorEmbodied  
+ 
+2026-09-26 10:38:23,357 - mmcv - INFO - 
+backbone.edge_normalizer._acc_sum_squared - torch.Size([1, 7]): 
+The value is the same before and after calling `init_weights` of GsSimulatorEmbodied  
+ 
+2026-09-26 10:38:23,357 - mmcv - INFO - 
+backbone.encoder.layers.0.norms.0.weight - torch.Size([384]): 
+The value is the same before and after calling `init_weights` of GsSimulatorEmbodied  
+ 
+2026-09-26 10:38:23,357 - mmcv - INFO - 
+backbone.encoder.layers.0.norms.0.bias - torch.Size([384]): 
+The value is the same before and after calling `init_weights` of GsSimulatorEmbodied  
+ 
+2026-09-26 10:38:23,358 - mmcv - INFO - 
+backbone.encoder.layers.0.norms.1.weight - torch.Size([256]): 
+The value is the same before and after calling `init_weights` of GsSimulatorEmbodied  
+ 
+2026-09-26 10:38:23,358 - mmcv - INFO - 
+backbone.encoder.layers.0.norms.1.bias - torch.Size([256]): 
+The value is the same before and after calling `init_weights` of GsSimulatorEmbodied  
+ 
+2026-09-26 10:38:23,358 - mmcv - INFO - 
+backbone.encoder.layers.0.edge_weight.layers.0.0.weight - torch.Size([128, 384]): 
+The value is the same before and after calling `init_weights` of GsSimulatorEmbodied  
+ 
+2026-09-26 10:38:23,358 - mmcv - INFO - 
+backbone.encoder.layers.0.edge_weight.layers.0.0.bias - torch.Size([128]): 
+The value is the same before and after calling `init_weights` of GsSimulatorEmbodied  
+ 
+2026-09-26 10:38:23,358 - mmcv - INFO - 
+backbone.encoder.layers.0.edge_weight.layers.1.0.weight - torch.Size([128, 128]): 
+The value is the same before and after calling `init_weights` of GsSimulatorEmbodied  
+ 
+2026-09-26 10:38:23,358 - mmcv - INFO - 
+backbone.encoder.layers.0.edge_weight.layers.1.0.bias - torch.Size([128]): 
+The value is the same before and after calling `init_weights` of GsSimulatorEmbodied  
+ 
+2026-09-26 10:38:23,358 - mmcv - INFO - 
+backbone.encoder.layers.0.edge_weight.layers.2.weight - torch.Size([128, 128]): 
+The value is the same before and after calling `init_weights` of GsSimulatorEmbodied  
+ 
+2026-09-26 10:38:23,358 - mmcv - INFO - 
+backbone.encoder.layers.0.edge_weight.layers.2.bias - torch.Size([128]): 
+The value is the same before and after calling `init_weights` of GsSimulatorEmbodied  
+ 
+2026-09-26 10:38:23,358 - mmcv - INFO - 
+backbone.encoder.layers.0.node_weight.layers.0.0.weight - torch.Size([128, 256]): 
+The value is the same before and after calling `init_weights` of GsSimulatorEmbodied  
+ 
+2026-09-26 10:38:23,358 - mmcv - INFO - 
+backbone.encoder.layers.0.node_weight.layers.0.0.bias - torch.Size([128]): 
+The value is the same before and after calling `init_weights` of GsSimulatorEmbodied  
+ 
+2026-09-26 10:38:23,358 - mmcv - INFO - 
+backbone.encoder.layers.0.node_weight.layers.1.0.weight - torch.Size([128, 128]): 
+The value is the same before and after calling `init_weights` of GsSimulatorEmbodied  
+ 
+2026-09-26 10:38:23,358 - mmcv - INFO - 
+backbone.encoder.layers.0.node_weight.layers.1.0.bias - torch.Size([128]): 
+The value is the same before and after calling `init_weights` of GsSimulatorEmbodied  
+ 
+2026-09-26 10:38:23,358 - mmcv - INFO - 
+backbone.encoder.layers.0.node_weight.layers.2.weight - torch.Size([128, 128]): 
+The value is the same before and after calling `init_weights` of GsSimulatorEmbodied  
+ 
+2026-09-26 10:38:23,358 - mmcv - INFO - 
+backbone.encoder.layers.0.node_weight.layers.2.bias - torch.Size([128]): 
+The value is the same before and after calling `init_weights` of GsSimulatorEmbodied  
+ 
+2026-09-26 10:38:23,358 - mmcv - INFO - 
+backbone.encoder.layers.1.norms.0.weight - torch.Size([384]): 
+The value is the same before and after calling `init_weights` of GsSimulatorEmbodied  
+ 
+2026-09-26 10:38:23,358 - mmcv - INFO - 
+backbone.encoder.layers.1.norms.0.bias - torch.Size([384]): 
+The value is the same before and after calling `init_weights` of GsSimulatorEmbodied  
+ 
+2026-09-26 10:38:23,358 - mmcv - INFO - 
+backbone.encoder.layers.1.norms.1.weight - torch.Size([256]): 
+The value is the same before and after calling `init_weights` of GsSimulatorEmbodied  
+ 
+2026-09-26 10:38:23,358 - mmcv - INFO - 
+backbone.encoder.layers.1.norms.1.bias - torch.Size([256]): 
+The value is the same before and after calling `init_weights` of GsSimulatorEmbodied  
+ 
+2026-09-26 10:38:23,358 - mmcv - INFO - 
+backbone.encoder.layers.1.edge_weight.layers.0.0.weight - torch.Size([128, 384]): 
+The value is the same before and after calling `init_weights` of GsSimulatorEmbodied  
+ 
+2026-09-26 10:38:23,358 - mmcv - INFO - 
+backbone.encoder.layers.1.edge_weight.layers.0.0.bias - torch.Size([128]): 
+The value is the same before and after calling `init_weights` of GsSimulatorEmbodied  
+ 
+2026-09-26 10:38:23,358 - mmcv - INFO - 
+backbone.encoder.layers.1.edge_weight.layers.1.0.weight - torch.Size([128, 128]): 
+The value is the same before and after calling `init_weights` of GsSimulatorEmbodied  
+ 
+2026-09-26 10:38:23,358 - mmcv - INFO - 
+backbone.encoder.layers.1.edge_weight.layers.1.0.bias - torch.Size([128]): 
+The value is the same before and after calling `init_weights` of GsSimulatorEmbodied  
+ 
+2026-09-26 10:38:23,358 - mmcv - INFO - 
+backbone.encoder.layers.1.edge_weight.layers.2.weight - torch.Size([128, 128]): 
+The value is the same before and after calling `init_weights` of GsSimulatorEmbodied  
+ 
+2026-09-26 10:38:23,358 - mmcv - INFO - 
+backbone.encoder.layers.1.edge_weight.layers.2.bias - torch.Size([128]): 
+The value is the same before and after calling `init_weights` of GsSimulatorEmbodied  
+ 
+2026-09-26 10:38:23,358 - mmcv - INFO - 
+backbone.encoder.layers.1.node_weight.layers.0.0.weight - torch.Size([128, 256]): 
+The value is the same before and after calling `init_weights` of GsSimulatorEmbodied  
+ 
+2026-09-26 10:38:23,358 - mmcv - INFO - 
+backbone.encoder.layers.1.node_weight.layers.0.0.bias - torch.Size([128]): 
+The value is the same before and after calling `init_weights` of GsSimulatorEmbodied  
+ 
+2026-09-26 10:38:23,358 - mmcv - INFO - 
+backbone.encoder.layers.1.node_weight.layers.1.0.weight - torch.Size([128, 128]): 
+The value is the same before and after calling `init_weights` of GsSimulatorEmbodied  
+ 
+2026-09-26 10:38:23,358 - mmcv - INFO - 
+backbone.encoder.layers.1.node_weight.layers.1.0.bias - torch.Size([128]): 
+The value is the same before and after calling `init_weights` of GsSimulatorEmbodied  
+ 
+2026-09-26 10:38:23,358 - mmcv - INFO - 
+backbone.encoder.layers.1.node_weight.layers.2.weight - torch.Size([128, 128]): 
+The value is the same before and after calling `init_weights` of GsSimulatorEmbodied  
+ 
+2026-09-26 10:38:23,358 - mmcv - INFO - 
+backbone.encoder.layers.1.node_weight.layers.2.bias - torch.Size([128]): 
+The value is the same before and after calling `init_weights` of GsSimulatorEmbodied  
+ 
+2026-09-26 10:38:23,358 - mmcv - INFO - 
+backbone.encoder.layers.2.norms.0.weight - torch.Size([384]): 
+The value is the same before and after calling `init_weights` of GsSimulatorEmbodied  
+ 
+2026-09-26 10:38:23,358 - mmcv - INFO - 
+backbone.encoder.layers.2.norms.0.bias - torch.Size([384]): 
+The value is the same before and after calling `init_weights` of GsSimulatorEmbodied  
+ 
+2026-09-26 10:38:23,358 - mmcv - INFO - 
+backbone.encoder.layers.2.norms.1.weight - torch.Size([256]): 
+The value is the same before and after calling `init_weights` of GsSimulatorEmbodied  
+ 
+2026-09-26 10:38:23,358 - mmcv - INFO - 
+backbone.encoder.layers.2.norms.1.bias - torch.Size([256]): 
+The value is the same before and after calling `init_weights` of GsSimulatorEmbodied  
+ 
+2026-09-26 10:38:23,358 - mmcv - INFO - 
+backbone.encoder.layers.2.edge_weight.layers.0.0.weight - torch.Size([128, 384]): 
+The value is the same before and after calling `init_weights` of GsSimulatorEmbodied  
+ 
+2026-09-26 10:38:23,358 - mmcv - INFO - 
+backbone.encoder.layers.2.edge_weight.layers.0.0.bias - torch.Size([128]): 
+The value is the same before and after calling `init_weights` of GsSimulatorEmbodied  
+ 
+2026-09-26 10:38:23,358 - mmcv - INFO - 
+backbone.encoder.layers.2.edge_weight.layers.1.0.weight - torch.Size([128, 128]): 
+The value is the same before and after calling `init_weights` of GsSimulatorEmbodied  
+ 
+2026-09-26 10:38:23,359 - mmcv - INFO - 
+backbone.encoder.layers.2.edge_weight.layers.1.0.bias - torch.Size([128]): 
+The value is the same before and after calling `init_weights` of GsSimulatorEmbodied  
+ 
+2026-09-26 10:38:23,359 - mmcv - INFO - 
+backbone.encoder.layers.2.edge_weight.layers.2.weight - torch.Size([128, 128]): 
+The value is the same before and after calling `init_weights` of GsSimulatorEmbodied  
+ 
+2026-09-26 10:38:23,359 - mmcv - INFO - 
+backbone.encoder.layers.2.edge_weight.layers.2.bias - torch.Size([128]): 
+The value is the same before and after calling `init_weights` of GsSimulatorEmbodied  
+ 
+2026-09-26 10:38:23,359 - mmcv - INFO - 
+backbone.encoder.layers.2.node_weight.layers.0.0.weight - torch.Size([128, 256]): 
+The value is the same before and after calling `init_weights` of GsSimulatorEmbodied  
+ 
+2026-09-26 10:38:23,359 - mmcv - INFO - 
+backbone.encoder.layers.2.node_weight.layers.0.0.bias - torch.Size([128]): 
+The value is the same before and after calling `init_weights` of GsSimulatorEmbodied  
+ 
+2026-09-26 10:38:23,359 - mmcv - INFO - 
+backbone.encoder.layers.2.node_weight.layers.1.0.weight - torch.Size([128, 128]): 
+The value is the same before and after calling `init_weights` of GsSimulatorEmbodied  
+ 
+2026-09-26 10:38:23,359 - mmcv - INFO - 
+backbone.encoder.layers.2.node_weight.layers.1.0.bias - torch.Size([128]): 
+The value is the same before and after calling `init_weights` of GsSimulatorEmbodied  
+ 
+2026-09-26 10:38:23,359 - mmcv - INFO - 
+backbone.encoder.layers.2.node_weight.layers.2.weight - torch.Size([128, 128]): 
+The value is the same before and after calling `init_weights` of GsSimulatorEmbodied  
+ 
+2026-09-26 10:38:23,359 - mmcv - INFO - 
+backbone.encoder.layers.2.node_weight.layers.2.bias - torch.Size([128]): 
+The value is the same before and after calling `init_weights` of GsSimulatorEmbodied  
+ 
+2026-09-26 10:38:23,359 - mmcv - INFO - 
+backbone.encoder.layers.3.norms.0.weight - torch.Size([384]): 
+The value is the same before and after calling `init_weights` of GsSimulatorEmbodied  
+ 
+2026-09-26 10:38:23,359 - mmcv - INFO - 
+backbone.encoder.layers.3.norms.0.bias - torch.Size([384]): 
+The value is the same before and after calling `init_weights` of GsSimulatorEmbodied  
+ 
+2026-09-26 10:38:23,359 - mmcv - INFO - 
+backbone.encoder.layers.3.norms.1.weight - torch.Size([256]): 
+The value is the same before and after calling `init_weights` of GsSimulatorEmbodied  
+ 
+2026-09-26 10:38:23,359 - mmcv - INFO - 
+backbone.encoder.layers.3.norms.1.bias - torch.Size([256]): 
+The value is the same before and after calling `init_weights` of GsSimulatorEmbodied  
+ 
+2026-09-26 10:38:23,359 - mmcv - INFO - 
+backbone.encoder.layers.3.edge_weight.layers.0.0.weight - torch.Size([128, 384]): 
+The value is the same before and after calling `init_weights` of GsSimulatorEmbodied  
+ 
+2026-09-26 10:38:23,359 - mmcv - INFO - 
+backbone.encoder.layers.3.edge_weight.layers.0.0.bias - torch.Size([128]): 
+The value is the same before and after calling `init_weights` of GsSimulatorEmbodied  
+ 
+2026-09-26 10:38:23,359 - mmcv - INFO - 
+backbone.encoder.layers.3.edge_weight.layers.1.0.weight - torch.Size([128, 128]): 
+The value is the same before and after calling `init_weights` of GsSimulatorEmbodied  
+ 
+2026-09-26 10:38:23,359 - mmcv - INFO - 
+backbone.encoder.layers.3.edge_weight.layers.1.0.bias - torch.Size([128]): 
+The value is the same before and after calling `init_weights` of GsSimulatorEmbodied  
+ 
+2026-09-26 10:38:23,359 - mmcv - INFO - 
+backbone.encoder.layers.3.edge_weight.layers.2.weight - torch.Size([128, 128]): 
+The value is the same before and after calling `init_weights` of GsSimulatorEmbodied  
+ 
+2026-09-26 10:38:23,359 - mmcv - INFO - 
+backbone.encoder.layers.3.edge_weight.layers.2.bias - torch.Size([128]): 
+The value is the same before and after calling `init_weights` of GsSimulatorEmbodied  
+ 
+2026-09-26 10:38:23,359 - mmcv - INFO - 
+backbone.encoder.layers.3.node_weight.layers.0.0.weight - torch.Size([128, 256]): 
+The value is the same before and after calling `init_weights` of GsSimulatorEmbodied  
+ 
+2026-09-26 10:38:23,359 - mmcv - INFO - 
+backbone.encoder.layers.3.node_weight.layers.0.0.bias - torch.Size([128]): 
+The value is the same before and after calling `init_weights` of GsSimulatorEmbodied  
+ 
+2026-09-26 10:38:23,359 - mmcv - INFO - 
+backbone.encoder.layers.3.node_weight.layers.1.0.weight - torch.Size([128, 128]): 
+The value is the same before and after calling `init_weights` of GsSimulatorEmbodied  
+ 
+2026-09-26 10:38:23,359 - mmcv - INFO - 
+backbone.encoder.layers.3.node_weight.layers.1.0.bias - torch.Size([128]): 
+The value is the same before and after calling `init_weights` of GsSimulatorEmbodied  
+ 
+2026-09-26 10:38:23,359 - mmcv - INFO - 
+backbone.encoder.layers.3.node_weight.layers.2.weight - torch.Size([128, 128]): 
+The value is the same before and after calling `init_weights` of GsSimulatorEmbodied  
+ 
+2026-09-26 10:38:23,359 - mmcv - INFO - 
+backbone.encoder.layers.3.node_weight.layers.2.bias - torch.Size([128]): 
+The value is the same before and after calling `init_weights` of GsSimulatorEmbodied  
+ 
+2026-09-26 10:38:23,359 - mmcv - INFO - 
+backbone.encoder.layers.4.norms.0.weight - torch.Size([384]): 
+The value is the same before and after calling `init_weights` of GsSimulatorEmbodied  
+ 
+2026-09-26 10:38:23,359 - mmcv - INFO - 
+backbone.encoder.layers.4.norms.0.bias - torch.Size([384]): 
+The value is the same before and after calling `init_weights` of GsSimulatorEmbodied  
+ 
+2026-09-26 10:38:23,359 - mmcv - INFO - 
+backbone.encoder.layers.4.norms.1.weight - torch.Size([256]): 
+The value is the same before and after calling `init_weights` of GsSimulatorEmbodied  
+ 
+2026-09-26 10:38:23,359 - mmcv - INFO - 
+backbone.encoder.layers.4.norms.1.bias - torch.Size([256]): 
+The value is the same before and after calling `init_weights` of GsSimulatorEmbodied  
+ 
+2026-09-26 10:38:23,359 - mmcv - INFO - 
+backbone.encoder.layers.4.edge_weight.layers.0.0.weight - torch.Size([128, 384]): 
+The value is the same before and after calling `init_weights` of GsSimulatorEmbodied  
+ 
+2026-09-26 10:38:23,359 - mmcv - INFO - 
+backbone.encoder.layers.4.edge_weight.layers.0.0.bias - torch.Size([128]): 
+The value is the same before and after calling `init_weights` of GsSimulatorEmbodied  
+ 
+2026-09-26 10:38:23,359 - mmcv - INFO - 
+backbone.encoder.layers.4.edge_weight.layers.1.0.weight - torch.Size([128, 128]): 
+The value is the same before and after calling `init_weights` of GsSimulatorEmbodied  
+ 
+2026-09-26 10:38:23,359 - mmcv - INFO - 
+backbone.encoder.layers.4.edge_weight.layers.1.0.bias - torch.Size([128]): 
+The value is the same before and after calling `init_weights` of GsSimulatorEmbodied  
+ 
+2026-09-26 10:38:23,359 - mmcv - INFO - 
+backbone.encoder.layers.4.edge_weight.layers.2.weight - torch.Size([128, 128]): 
+The value is the same before and after calling `init_weights` of GsSimulatorEmbodied  
+ 
+2026-09-26 10:38:23,359 - mmcv - INFO - 
+backbone.encoder.layers.4.edge_weight.layers.2.bias - torch.Size([128]): 
+The value is the same before and after calling `init_weights` of GsSimulatorEmbodied  
+ 
+2026-09-26 10:38:23,359 - mmcv - INFO - 
+backbone.encoder.layers.4.node_weight.layers.0.0.weight - torch.Size([128, 256]): 
+The value is the same before and after calling `init_weights` of GsSimulatorEmbodied  
+ 
+2026-09-26 10:38:23,359 - mmcv - INFO - 
+backbone.encoder.layers.4.node_weight.layers.0.0.bias - torch.Size([128]): 
+The value is the same before and after calling `init_weights` of GsSimulatorEmbodied  
+ 
+2026-09-26 10:38:23,360 - mmcv - INFO - 
+backbone.encoder.layers.4.node_weight.layers.1.0.weight - torch.Size([128, 128]): 
+The value is the same before and after calling `init_weights` of GsSimulatorEmbodied  
+ 
+2026-09-26 10:38:23,360 - mmcv - INFO - 
+backbone.encoder.layers.4.node_weight.layers.1.0.bias - torch.Size([128]): 
+The value is the same before and after calling `init_weights` of GsSimulatorEmbodied  
+ 
+2026-09-26 10:38:23,360 - mmcv - INFO - 
+backbone.encoder.layers.4.node_weight.layers.2.weight - torch.Size([128, 128]): 
+The value is the same before and after calling `init_weights` of GsSimulatorEmbodied  
+ 
+2026-09-26 10:38:23,360 - mmcv - INFO - 
+backbone.encoder.layers.4.node_weight.layers.2.bias - torch.Size([128]): 
+The value is the same before and after calling `init_weights` of GsSimulatorEmbodied  
+ 
+2026-09-26 10:38:23,360 - mmcv - INFO - 
+backbone.encoder.layers.5.norms.0.weight - torch.Size([384]): 
+The value is the same before and after calling `init_weights` of GsSimulatorEmbodied  
+ 
+2026-09-26 10:38:23,360 - mmcv - INFO - 
+backbone.encoder.layers.5.norms.0.bias - torch.Size([384]): 
+The value is the same before and after calling `init_weights` of GsSimulatorEmbodied  
+ 
+2026-09-26 10:38:23,360 - mmcv - INFO - 
+backbone.encoder.layers.5.norms.1.weight - torch.Size([256]): 
+The value is the same before and after calling `init_weights` of GsSimulatorEmbodied  
+ 
+2026-09-26 10:38:23,360 - mmcv - INFO - 
+backbone.encoder.layers.5.norms.1.bias - torch.Size([256]): 
+The value is the same before and after calling `init_weights` of GsSimulatorEmbodied  
+ 
+2026-09-26 10:38:23,360 - mmcv - INFO - 
+backbone.encoder.layers.5.edge_weight.layers.0.0.weight - torch.Size([128, 384]): 
+The value is the same before and after calling `init_weights` of GsSimulatorEmbodied  
+ 
+2026-09-26 10:38:23,360 - mmcv - INFO - 
+backbone.encoder.layers.5.edge_weight.layers.0.0.bias - torch.Size([128]): 
+The value is the same before and after calling `init_weights` of GsSimulatorEmbodied  
+ 
+2026-09-26 10:38:23,360 - mmcv - INFO - 
+backbone.encoder.layers.5.edge_weight.layers.1.0.weight - torch.Size([128, 128]): 
+The value is the same before and after calling `init_weights` of GsSimulatorEmbodied  
+ 
+2026-09-26 10:38:23,360 - mmcv - INFO - 
+backbone.encoder.layers.5.edge_weight.layers.1.0.bias - torch.Size([128]): 
+The value is the same before and after calling `init_weights` of GsSimulatorEmbodied  
+ 
+2026-09-26 10:38:23,360 - mmcv - INFO - 
+backbone.encoder.layers.5.edge_weight.layers.2.weight - torch.Size([128, 128]): 
+The value is the same before and after calling `init_weights` of GsSimulatorEmbodied  
+ 
+2026-09-26 10:38:23,360 - mmcv - INFO - 
+backbone.encoder.layers.5.edge_weight.layers.2.bias - torch.Size([128]): 
+The value is the same before and after calling `init_weights` of GsSimulatorEmbodied  
+ 
+2026-09-26 10:38:23,360 - mmcv - INFO - 
+backbone.encoder.layers.5.node_weight.layers.0.0.weight - torch.Size([128, 256]): 
+The value is the same before and after calling `init_weights` of GsSimulatorEmbodied  
+ 
+2026-09-26 10:38:23,360 - mmcv - INFO - 
+backbone.encoder.layers.5.node_weight.layers.0.0.bias - torch.Size([128]): 
+The value is the same before and after calling `init_weights` of GsSimulatorEmbodied  
+ 
+2026-09-26 10:38:23,360 - mmcv - INFO - 
+backbone.encoder.layers.5.node_weight.layers.1.0.weight - torch.Size([128, 128]): 
+The value is the same before and after calling `init_weights` of GsSimulatorEmbodied  
+ 
+2026-09-26 10:38:23,360 - mmcv - INFO - 
+backbone.encoder.layers.5.node_weight.layers.1.0.bias - torch.Size([128]): 
+The value is the same before and after calling `init_weights` of GsSimulatorEmbodied  
+ 
+2026-09-26 10:38:23,360 - mmcv - INFO - 
+backbone.encoder.layers.5.node_weight.layers.2.weight - torch.Size([128, 128]): 
+The value is the same before and after calling `init_weights` of GsSimulatorEmbodied  
+ 
+2026-09-26 10:38:23,360 - mmcv - INFO - 
+backbone.encoder.layers.5.node_weight.layers.2.bias - torch.Size([128]): 
+The value is the same before and after calling `init_weights` of GsSimulatorEmbodied  
+ 
+2026-09-26 10:38:23,360 - mmcv - INFO - 
+backbone.encoder.layers.6.norms.0.weight - torch.Size([384]): 
+The value is the same before and after calling `init_weights` of GsSimulatorEmbodied  
+ 
+2026-09-26 10:38:23,360 - mmcv - INFO - 
+backbone.encoder.layers.6.norms.0.bias - torch.Size([384]): 
+The value is the same before and after calling `init_weights` of GsSimulatorEmbodied  
+ 
+2026-09-26 10:38:23,360 - mmcv - INFO - 
+backbone.encoder.layers.6.norms.1.weight - torch.Size([256]): 
+The value is the same before and after calling `init_weights` of GsSimulatorEmbodied  
+ 
+2026-09-26 10:38:23,360 - mmcv - INFO - 
+backbone.encoder.layers.6.norms.1.bias - torch.Size([256]): 
+The value is the same before and after calling `init_weights` of GsSimulatorEmbodied  
+ 
+2026-09-26 10:38:23,360 - mmcv - INFO - 
+backbone.encoder.layers.6.edge_weight.layers.0.0.weight - torch.Size([128, 384]): 
+The value is the same before and after calling `init_weights` of GsSimulatorEmbodied  
+ 
+2026-09-26 10:38:23,360 - mmcv - INFO - 
+backbone.encoder.layers.6.edge_weight.layers.0.0.bias - torch.Size([128]): 
+The value is the same before and after calling `init_weights` of GsSimulatorEmbodied  
+ 
+2026-09-26 10:38:23,360 - mmcv - INFO - 
+backbone.encoder.layers.6.edge_weight.layers.1.0.weight - torch.Size([128, 128]): 
+The value is the same before and after calling `init_weights` of GsSimulatorEmbodied  
+ 
+2026-09-26 10:38:23,360 - mmcv - INFO - 
+backbone.encoder.layers.6.edge_weight.layers.1.0.bias - torch.Size([128]): 
+The value is the same before and after calling `init_weights` of GsSimulatorEmbodied  
+ 
+2026-09-26 10:38:23,360 - mmcv - INFO - 
+backbone.encoder.layers.6.edge_weight.layers.2.weight - torch.Size([128, 128]): 
+The value is the same before and after calling `init_weights` of GsSimulatorEmbodied  
+ 
+2026-09-26 10:38:23,360 - mmcv - INFO - 
+backbone.encoder.layers.6.edge_weight.layers.2.bias - torch.Size([128]): 
+The value is the same before and after calling `init_weights` of GsSimulatorEmbodied  
+ 
+2026-09-26 10:38:23,360 - mmcv - INFO - 
+backbone.encoder.layers.6.node_weight.layers.0.0.weight - torch.Size([128, 256]): 
+The value is the same before and after calling `init_weights` of GsSimulatorEmbodied  
+ 
+2026-09-26 10:38:23,360 - mmcv - INFO - 
+backbone.encoder.layers.6.node_weight.layers.0.0.bias - torch.Size([128]): 
+The value is the same before and after calling `init_weights` of GsSimulatorEmbodied  
+ 
+2026-09-26 10:38:23,360 - mmcv - INFO - 
+backbone.encoder.layers.6.node_weight.layers.1.0.weight - torch.Size([128, 128]): 
+The value is the same before and after calling `init_weights` of GsSimulatorEmbodied  
+ 
+2026-09-26 10:38:23,360 - mmcv - INFO - 
+backbone.encoder.layers.6.node_weight.layers.1.0.bias - torch.Size([128]): 
+The value is the same before and after calling `init_weights` of GsSimulatorEmbodied  
+ 
+2026-09-26 10:38:23,360 - mmcv - INFO - 
+backbone.encoder.layers.6.node_weight.layers.2.weight - torch.Size([128, 128]): 
+The value is the same before and after calling `init_weights` of GsSimulatorEmbodied  
+ 
+2026-09-26 10:38:23,360 - mmcv - INFO - 
+backbone.encoder.layers.6.node_weight.layers.2.bias - torch.Size([128]): 
+The value is the same before and after calling `init_weights` of GsSimulatorEmbodied  
+ 
+2026-09-26 10:38:23,360 - mmcv - INFO - 
+backbone.encoder.layers.7.norms.0.weight - torch.Size([384]): 
+The value is the same before and after calling `init_weights` of GsSimulatorEmbodied  
+ 
+2026-09-26 10:38:23,360 - mmcv - INFO - 
+backbone.encoder.layers.7.norms.0.bias - torch.Size([384]): 
+The value is the same before and after calling `init_weights` of GsSimulatorEmbodied  
+ 
+2026-09-26 10:38:23,361 - mmcv - INFO - 
+backbone.encoder.layers.7.norms.1.weight - torch.Size([256]): 
+The value is the same before and after calling `init_weights` of GsSimulatorEmbodied  
+ 
+2026-09-26 10:38:23,361 - mmcv - INFO - 
+backbone.encoder.layers.7.norms.1.bias - torch.Size([256]): 
+The value is the same before and after calling `init_weights` of GsSimulatorEmbodied  
+ 
+2026-09-26 10:38:23,361 - mmcv - INFO - 
+backbone.encoder.layers.7.edge_weight.layers.0.0.weight - torch.Size([128, 384]): 
+The value is the same before and after calling `init_weights` of GsSimulatorEmbodied  
+ 
+2026-09-26 10:38:23,361 - mmcv - INFO - 
+backbone.encoder.layers.7.edge_weight.layers.0.0.bias - torch.Size([128]): 
+The value is the same before and after calling `init_weights` of GsSimulatorEmbodied  
+ 
+2026-09-26 10:38:23,361 - mmcv - INFO - 
+backbone.encoder.layers.7.edge_weight.layers.1.0.weight - torch.Size([128, 128]): 
+The value is the same before and after calling `init_weights` of GsSimulatorEmbodied  
+ 
+2026-09-26 10:38:23,361 - mmcv - INFO - 
+backbone.encoder.layers.7.edge_weight.layers.1.0.bias - torch.Size([128]): 
+The value is the same before and after calling `init_weights` of GsSimulatorEmbodied  
+ 
+2026-09-26 10:38:23,361 - mmcv - INFO - 
+backbone.encoder.layers.7.edge_weight.layers.2.weight - torch.Size([128, 128]): 
+The value is the same before and after calling `init_weights` of GsSimulatorEmbodied  
+ 
+2026-09-26 10:38:23,361 - mmcv - INFO - 
+backbone.encoder.layers.7.edge_weight.layers.2.bias - torch.Size([128]): 
+The value is the same before and after calling `init_weights` of GsSimulatorEmbodied  
+ 
+2026-09-26 10:38:23,361 - mmcv - INFO - 
+backbone.encoder.layers.7.node_weight.layers.0.0.weight - torch.Size([128, 256]): 
+The value is the same before and after calling `init_weights` of GsSimulatorEmbodied  
+ 
+2026-09-26 10:38:23,361 - mmcv - INFO - 
+backbone.encoder.layers.7.node_weight.layers.0.0.bias - torch.Size([128]): 
+The value is the same before and after calling `init_weights` of GsSimulatorEmbodied  
+ 
+2026-09-26 10:38:23,361 - mmcv - INFO - 
+backbone.encoder.layers.7.node_weight.layers.1.0.weight - torch.Size([128, 128]): 
+The value is the same before and after calling `init_weights` of GsSimulatorEmbodied  
+ 
+2026-09-26 10:38:23,361 - mmcv - INFO - 
+backbone.encoder.layers.7.node_weight.layers.1.0.bias - torch.Size([128]): 
+The value is the same before and after calling `init_weights` of GsSimulatorEmbodied  
+ 
+2026-09-26 10:38:23,361 - mmcv - INFO - 
+backbone.encoder.layers.7.node_weight.layers.2.weight - torch.Size([128, 128]): 
+The value is the same before and after calling `init_weights` of GsSimulatorEmbodied  
+ 
+2026-09-26 10:38:23,361 - mmcv - INFO - 
+backbone.encoder.layers.7.node_weight.layers.2.bias - torch.Size([128]): 
+The value is the same before and after calling `init_weights` of GsSimulatorEmbodied  
+ 
+2026-09-26 10:38:23,361 - mmcv - INFO - 
+backbone.encoder.layers.8.norms.0.weight - torch.Size([384]): 
+The value is the same before and after calling `init_weights` of GsSimulatorEmbodied  
+ 
+2026-09-26 10:38:23,361 - mmcv - INFO - 
+backbone.encoder.layers.8.norms.0.bias - torch.Size([384]): 
+The value is the same before and after calling `init_weights` of GsSimulatorEmbodied  
+ 
+2026-09-26 10:38:23,361 - mmcv - INFO - 
+backbone.encoder.layers.8.norms.1.weight - torch.Size([256]): 
+The value is the same before and after calling `init_weights` of GsSimulatorEmbodied  
+ 
+2026-09-26 10:38:23,361 - mmcv - INFO - 
+backbone.encoder.layers.8.norms.1.bias - torch.Size([256]): 
+The value is the same before and after calling `init_weights` of GsSimulatorEmbodied  
+ 
+2026-09-26 10:38:23,361 - mmcv - INFO - 
+backbone.encoder.layers.8.edge_weight.layers.0.0.weight - torch.Size([128, 384]): 
+The value is the same before and after calling `init_weights` of GsSimulatorEmbodied  
+ 
+2026-09-26 10:38:23,361 - mmcv - INFO - 
+backbone.encoder.layers.8.edge_weight.layers.0.0.bias - torch.Size([128]): 
+The value is the same before and after calling `init_weights` of GsSimulatorEmbodied  
+ 
+2026-09-26 10:38:23,361 - mmcv - INFO - 
+backbone.encoder.layers.8.edge_weight.layers.1.0.weight - torch.Size([128, 128]): 
+The value is the same before and after calling `init_weights` of GsSimulatorEmbodied  
+ 
+2026-09-26 10:38:23,361 - mmcv - INFO - 
+backbone.encoder.layers.8.edge_weight.layers.1.0.bias - torch.Size([128]): 
+The value is the same before and after calling `init_weights` of GsSimulatorEmbodied  
+ 
+2026-09-26 10:38:23,361 - mmcv - INFO - 
+backbone.encoder.layers.8.edge_weight.layers.2.weight - torch.Size([128, 128]): 
+The value is the same before and after calling `init_weights` of GsSimulatorEmbodied  
+ 
+2026-09-26 10:38:23,361 - mmcv - INFO - 
+backbone.encoder.layers.8.edge_weight.layers.2.bias - torch.Size([128]): 
+The value is the same before and after calling `init_weights` of GsSimulatorEmbodied  
+ 
+2026-09-26 10:38:23,361 - mmcv - INFO - 
+backbone.encoder.layers.8.node_weight.layers.0.0.weight - torch.Size([128, 256]): 
+The value is the same before and after calling `init_weights` of GsSimulatorEmbodied  
+ 
+2026-09-26 10:38:23,361 - mmcv - INFO - 
+backbone.encoder.layers.8.node_weight.layers.0.0.bias - torch.Size([128]): 
+The value is the same before and after calling `init_weights` of GsSimulatorEmbodied  
+ 
+2026-09-26 10:38:23,361 - mmcv - INFO - 
+backbone.encoder.layers.8.node_weight.layers.1.0.weight - torch.Size([128, 128]): 
+The value is the same before and after calling `init_weights` of GsSimulatorEmbodied  
+ 
+2026-09-26 10:38:23,361 - mmcv - INFO - 
+backbone.encoder.layers.8.node_weight.layers.1.0.bias - torch.Size([128]): 
+The value is the same before and after calling `init_weights` of GsSimulatorEmbodied  
+ 
+2026-09-26 10:38:23,361 - mmcv - INFO - 
+backbone.encoder.layers.8.node_weight.layers.2.weight - torch.Size([128, 128]): 
+The value is the same before and after calling `init_weights` of GsSimulatorEmbodied  
+ 
+2026-09-26 10:38:23,361 - mmcv - INFO - 
+backbone.encoder.layers.8.node_weight.layers.2.bias - torch.Size([128]): 
+The value is the same before and after calling `init_weights` of GsSimulatorEmbodied  
+ 
+2026-09-26 10:38:23,361 - mmcv - INFO - 
+backbone.encoder.layers.9.norms.0.weight - torch.Size([384]): 
+The value is the same before and after calling `init_weights` of GsSimulatorEmbodied  
+ 
+2026-09-26 10:38:23,361 - mmcv - INFO - 
+backbone.encoder.layers.9.norms.0.bias - torch.Size([384]): 
+The value is the same before and after calling `init_weights` of GsSimulatorEmbodied  
+ 
+2026-09-26 10:38:23,361 - mmcv - INFO - 
+backbone.encoder.layers.9.norms.1.weight - torch.Size([256]): 
+The value is the same before and after calling `init_weights` of GsSimulatorEmbodied  
+ 
+2026-09-26 10:38:23,361 - mmcv - INFO - 
+backbone.encoder.layers.9.norms.1.bias - torch.Size([256]): 
+The value is the same before and after calling `init_weights` of GsSimulatorEmbodied  
+ 
+2026-09-26 10:38:23,361 - mmcv - INFO - 
+backbone.encoder.layers.9.edge_weight.layers.0.0.weight - torch.Size([128, 384]): 
+The value is the same before and after calling `init_weights` of GsSimulatorEmbodied  
+ 
+2026-09-26 10:38:23,361 - mmcv - INFO - 
+backbone.encoder.layers.9.edge_weight.layers.0.0.bias - torch.Size([128]): 
+The value is the same before and after calling `init_weights` of GsSimulatorEmbodied  
+ 
+2026-09-26 10:38:23,361 - mmcv - INFO - 
+backbone.encoder.layers.9.edge_weight.layers.1.0.weight - torch.Size([128, 128]): 
+The value is the same before and after calling `init_weights` of GsSimulatorEmbodied  
+ 
+2026-09-26 10:38:23,361 - mmcv - INFO - 
+backbone.encoder.layers.9.edge_weight.layers.1.0.bias - torch.Size([128]): 
+The value is the same before and after calling `init_weights` of GsSimulatorEmbodied  
+ 
+2026-09-26 10:38:23,362 - mmcv - INFO - 
+backbone.encoder.layers.9.edge_weight.layers.2.weight - torch.Size([128, 128]): 
+The value is the same before and after calling `init_weights` of GsSimulatorEmbodied  
+ 
+2026-09-26 10:38:23,362 - mmcv - INFO - 
+backbone.encoder.layers.9.edge_weight.layers.2.bias - torch.Size([128]): 
+The value is the same before and after calling `init_weights` of GsSimulatorEmbodied  
+ 
+2026-09-26 10:38:23,362 - mmcv - INFO - 
+backbone.encoder.layers.9.node_weight.layers.0.0.weight - torch.Size([128, 256]): 
+The value is the same before and after calling `init_weights` of GsSimulatorEmbodied  
+ 
+2026-09-26 10:38:23,362 - mmcv - INFO - 
+backbone.encoder.layers.9.node_weight.layers.0.0.bias - torch.Size([128]): 
+The value is the same before and after calling `init_weights` of GsSimulatorEmbodied  
+ 
+2026-09-26 10:38:23,362 - mmcv - INFO - 
+backbone.encoder.layers.9.node_weight.layers.1.0.weight - torch.Size([128, 128]): 
+The value is the same before and after calling `init_weights` of GsSimulatorEmbodied  
+ 
+2026-09-26 10:38:23,362 - mmcv - INFO - 
+backbone.encoder.layers.9.node_weight.layers.1.0.bias - torch.Size([128]): 
+The value is the same before and after calling `init_weights` of GsSimulatorEmbodied  
+ 
+2026-09-26 10:38:23,362 - mmcv - INFO - 
+backbone.encoder.layers.9.node_weight.layers.2.weight - torch.Size([128, 128]): 
+The value is the same before and after calling `init_weights` of GsSimulatorEmbodied  
+ 
+2026-09-26 10:38:23,362 - mmcv - INFO - 
+backbone.encoder.layers.9.node_weight.layers.2.bias - torch.Size([128]): 
+The value is the same before and after calling `init_weights` of GsSimulatorEmbodied  
+ 
+2026-09-26 10:38:23,362 - mmcv - INFO - 
+backbone.encoder.layers.10.norms.0.weight - torch.Size([384]): 
+The value is the same before and after calling `init_weights` of GsSimulatorEmbodied  
+ 
+2026-09-26 10:38:23,362 - mmcv - INFO - 
+backbone.encoder.layers.10.norms.0.bias - torch.Size([384]): 
+The value is the same before and after calling `init_weights` of GsSimulatorEmbodied  
+ 
+2026-09-26 10:38:23,362 - mmcv - INFO - 
+backbone.encoder.layers.10.norms.1.weight - torch.Size([256]): 
+The value is the same before and after calling `init_weights` of GsSimulatorEmbodied  
+ 
+2026-09-26 10:38:23,362 - mmcv - INFO - 
+backbone.encoder.layers.10.norms.1.bias - torch.Size([256]): 
+The value is the same before and after calling `init_weights` of GsSimulatorEmbodied  
+ 
+2026-09-26 10:38:23,362 - mmcv - INFO - 
+backbone.encoder.layers.10.edge_weight.layers.0.0.weight - torch.Size([128, 384]): 
+The value is the same before and after calling `init_weights` of GsSimulatorEmbodied  
+ 
+2026-09-26 10:38:23,362 - mmcv - INFO - 
+backbone.encoder.layers.10.edge_weight.layers.0.0.bias - torch.Size([128]): 
+The value is the same before and after calling `init_weights` of GsSimulatorEmbodied  
+ 
+2026-09-26 10:38:23,362 - mmcv - INFO - 
+backbone.encoder.layers.10.edge_weight.layers.1.0.weight - torch.Size([128, 128]): 
+The value is the same before and after calling `init_weights` of GsSimulatorEmbodied  
+ 
+2026-09-26 10:38:23,362 - mmcv - INFO - 
+backbone.encoder.layers.10.edge_weight.layers.1.0.bias - torch.Size([128]): 
+The value is the same before and after calling `init_weights` of GsSimulatorEmbodied  
+ 
+2026-09-26 10:38:23,362 - mmcv - INFO - 
+backbone.encoder.layers.10.edge_weight.layers.2.weight - torch.Size([128, 128]): 
+The value is the same before and after calling `init_weights` of GsSimulatorEmbodied  
+ 
+2026-09-26 10:38:23,362 - mmcv - INFO - 
+backbone.encoder.layers.10.edge_weight.layers.2.bias - torch.Size([128]): 
+The value is the same before and after calling `init_weights` of GsSimulatorEmbodied  
+ 
+2026-09-26 10:38:23,362 - mmcv - INFO - 
+backbone.encoder.layers.10.node_weight.layers.0.0.weight - torch.Size([128, 256]): 
+The value is the same before and after calling `init_weights` of GsSimulatorEmbodied  
+ 
+2026-09-26 10:38:23,362 - mmcv - INFO - 
+backbone.encoder.layers.10.node_weight.layers.0.0.bias - torch.Size([128]): 
+The value is the same before and after calling `init_weights` of GsSimulatorEmbodied  
+ 
+2026-09-26 10:38:23,362 - mmcv - INFO - 
+backbone.encoder.layers.10.node_weight.layers.1.0.weight - torch.Size([128, 128]): 
+The value is the same before and after calling `init_weights` of GsSimulatorEmbodied  
+ 
+2026-09-26 10:38:23,362 - mmcv - INFO - 
+backbone.encoder.layers.10.node_weight.layers.1.0.bias - torch.Size([128]): 
+The value is the same before and after calling `init_weights` of GsSimulatorEmbodied  
+ 
+2026-09-26 10:38:23,362 - mmcv - INFO - 
+backbone.encoder.layers.10.node_weight.layers.2.weight - torch.Size([128, 128]): 
+The value is the same before and after calling `init_weights` of GsSimulatorEmbodied  
+ 
+2026-09-26 10:38:23,362 - mmcv - INFO - 
+backbone.encoder.layers.10.node_weight.layers.2.bias - torch.Size([128]): 
+The value is the same before and after calling `init_weights` of GsSimulatorEmbodied  
+ 
+2026-09-26 10:38:23,362 - mmcv - INFO - 
+backbone.encoder.layers.11.norms.0.weight - torch.Size([384]): 
+The value is the same before and after calling `init_weights` of GsSimulatorEmbodied  
+ 
+2026-09-26 10:38:23,362 - mmcv - INFO - 
+backbone.encoder.layers.11.norms.0.bias - torch.Size([384]): 
+The value is the same before and after calling `init_weights` of GsSimulatorEmbodied  
+ 
+2026-09-26 10:38:23,362 - mmcv - INFO - 
+backbone.encoder.layers.11.norms.1.weight - torch.Size([256]): 
+The value is the same before and after calling `init_weights` of GsSimulatorEmbodied  
+ 
+2026-09-26 10:38:23,362 - mmcv - INFO - 
+backbone.encoder.layers.11.norms.1.bias - torch.Size([256]): 
+The value is the same before and after calling `init_weights` of GsSimulatorEmbodied  
+ 
+2026-09-26 10:38:23,362 - mmcv - INFO - 
+backbone.encoder.layers.11.edge_weight.layers.0.0.weight - torch.Size([128, 384]): 
+The value is the same before and after calling `init_weights` of GsSimulatorEmbodied  
+ 
+2026-09-26 10:38:23,362 - mmcv - INFO - 
+backbone.encoder.layers.11.edge_weight.layers.0.0.bias - torch.Size([128]): 
+The value is the same before and after calling `init_weights` of GsSimulatorEmbodied  
+ 
+2026-09-26 10:38:23,362 - mmcv - INFO - 
+backbone.encoder.layers.11.edge_weight.layers.1.0.weight - torch.Size([128, 128]): 
+The value is the same before and after calling `init_weights` of GsSimulatorEmbodied  
+ 
+2026-09-26 10:38:23,362 - mmcv - INFO - 
+backbone.encoder.layers.11.edge_weight.layers.1.0.bias - torch.Size([128]): 
+The value is the same before and after calling `init_weights` of GsSimulatorEmbodied  
+ 
+2026-09-26 10:38:23,362 - mmcv - INFO - 
+backbone.encoder.layers.11.edge_weight.layers.2.weight - torch.Size([128, 128]): 
+The value is the same before and after calling `init_weights` of GsSimulatorEmbodied  
+ 
+2026-09-26 10:38:23,362 - mmcv - INFO - 
+backbone.encoder.layers.11.edge_weight.layers.2.bias - torch.Size([128]): 
+The value is the same before and after calling `init_weights` of GsSimulatorEmbodied  
+ 
+2026-09-26 10:38:23,362 - mmcv - INFO - 
+backbone.encoder.layers.11.node_weight.layers.0.0.weight - torch.Size([128, 256]): 
+The value is the same before and after calling `init_weights` of GsSimulatorEmbodied  
+ 
+2026-09-26 10:38:23,362 - mmcv - INFO - 
+backbone.encoder.layers.11.node_weight.layers.0.0.bias - torch.Size([128]): 
+The value is the same before and after calling `init_weights` of GsSimulatorEmbodied  
+ 
+2026-09-26 10:38:23,362 - mmcv - INFO - 
+backbone.encoder.layers.11.node_weight.layers.1.0.weight - torch.Size([128, 128]): 
+The value is the same before and after calling `init_weights` of GsSimulatorEmbodied  
+ 
+2026-09-26 10:38:23,363 - mmcv - INFO - 
+backbone.encoder.layers.11.node_weight.layers.1.0.bias - torch.Size([128]): 
+The value is the same before and after calling `init_weights` of GsSimulatorEmbodied  
+ 
+2026-09-26 10:38:23,363 - mmcv - INFO - 
+backbone.encoder.layers.11.node_weight.layers.2.weight - torch.Size([128, 128]): 
+The value is the same before and after calling `init_weights` of GsSimulatorEmbodied  
+ 
+2026-09-26 10:38:23,363 - mmcv - INFO - 
+backbone.encoder.layers.11.node_weight.layers.2.bias - torch.Size([128]): 
+The value is the same before and after calling `init_weights` of GsSimulatorEmbodied  
+ 
+2026-09-26 10:38:23,363 - mmcv - INFO - 
+backbone.encoder.layers.12.norms.0.weight - torch.Size([384]): 
+The value is the same before and after calling `init_weights` of GsSimulatorEmbodied  
+ 
+2026-09-26 10:38:23,363 - mmcv - INFO - 
+backbone.encoder.layers.12.norms.0.bias - torch.Size([384]): 
+The value is the same before and after calling `init_weights` of GsSimulatorEmbodied  
+ 
+2026-09-26 10:38:23,363 - mmcv - INFO - 
+backbone.encoder.layers.12.norms.1.weight - torch.Size([256]): 
+The value is the same before and after calling `init_weights` of GsSimulatorEmbodied  
+ 
+2026-09-26 10:38:23,363 - mmcv - INFO - 
+backbone.encoder.layers.12.norms.1.bias - torch.Size([256]): 
+The value is the same before and after calling `init_weights` of GsSimulatorEmbodied  
+ 
+2026-09-26 10:38:23,363 - mmcv - INFO - 
+backbone.encoder.layers.12.edge_weight.layers.0.0.weight - torch.Size([128, 384]): 
+The value is the same before and after calling `init_weights` of GsSimulatorEmbodied  
+ 
+2026-09-26 10:38:23,363 - mmcv - INFO - 
+backbone.encoder.layers.12.edge_weight.layers.0.0.bias - torch.Size([128]): 
+The value is the same before and after calling `init_weights` of GsSimulatorEmbodied  
+ 
+2026-09-26 10:38:23,363 - mmcv - INFO - 
+backbone.encoder.layers.12.edge_weight.layers.1.0.weight - torch.Size([128, 128]): 
+The value is the same before and after calling `init_weights` of GsSimulatorEmbodied  
+ 
+2026-09-26 10:38:23,363 - mmcv - INFO - 
+backbone.encoder.layers.12.edge_weight.layers.1.0.bias - torch.Size([128]): 
+The value is the same before and after calling `init_weights` of GsSimulatorEmbodied  
+ 
+2026-09-26 10:38:23,363 - mmcv - INFO - 
+backbone.encoder.layers.12.edge_weight.layers.2.weight - torch.Size([128, 128]): 
+The value is the same before and after calling `init_weights` of GsSimulatorEmbodied  
+ 
+2026-09-26 10:38:23,363 - mmcv - INFO - 
+backbone.encoder.layers.12.edge_weight.layers.2.bias - torch.Size([128]): 
+The value is the same before and after calling `init_weights` of GsSimulatorEmbodied  
+ 
+2026-09-26 10:38:23,363 - mmcv - INFO - 
+backbone.encoder.layers.12.node_weight.layers.0.0.weight - torch.Size([128, 256]): 
+The value is the same before and after calling `init_weights` of GsSimulatorEmbodied  
+ 
+2026-09-26 10:38:23,363 - mmcv - INFO - 
+backbone.encoder.layers.12.node_weight.layers.0.0.bias - torch.Size([128]): 
+The value is the same before and after calling `init_weights` of GsSimulatorEmbodied  
+ 
+2026-09-26 10:38:23,363 - mmcv - INFO - 
+backbone.encoder.layers.12.node_weight.layers.1.0.weight - torch.Size([128, 128]): 
+The value is the same before and after calling `init_weights` of GsSimulatorEmbodied  
+ 
+2026-09-26 10:38:23,363 - mmcv - INFO - 
+backbone.encoder.layers.12.node_weight.layers.1.0.bias - torch.Size([128]): 
+The value is the same before and after calling `init_weights` of GsSimulatorEmbodied  
+ 
+2026-09-26 10:38:23,363 - mmcv - INFO - 
+backbone.encoder.layers.12.node_weight.layers.2.weight - torch.Size([128, 128]): 
+The value is the same before and after calling `init_weights` of GsSimulatorEmbodied  
+ 
+2026-09-26 10:38:23,363 - mmcv - INFO - 
+backbone.encoder.layers.12.node_weight.layers.2.bias - torch.Size([128]): 
+The value is the same before and after calling `init_weights` of GsSimulatorEmbodied  
+ 
+2026-09-26 10:38:23,363 - mmcv - INFO - 
+backbone.encoder.layers.13.norms.0.weight - torch.Size([384]): 
+The value is the same before and after calling `init_weights` of GsSimulatorEmbodied  
+ 
+2026-09-26 10:38:23,363 - mmcv - INFO - 
+backbone.encoder.layers.13.norms.0.bias - torch.Size([384]): 
+The value is the same before and after calling `init_weights` of GsSimulatorEmbodied  
+ 
+2026-09-26 10:38:23,363 - mmcv - INFO - 
+backbone.encoder.layers.13.norms.1.weight - torch.Size([256]): 
+The value is the same before and after calling `init_weights` of GsSimulatorEmbodied  
+ 
+2026-09-26 10:38:23,363 - mmcv - INFO - 
+backbone.encoder.layers.13.norms.1.bias - torch.Size([256]): 
+The value is the same before and after calling `init_weights` of GsSimulatorEmbodied  
+ 
+2026-09-26 10:38:23,363 - mmcv - INFO - 
+backbone.encoder.layers.13.edge_weight.layers.0.0.weight - torch.Size([128, 384]): 
+The value is the same before and after calling `init_weights` of GsSimulatorEmbodied  
+ 
+2026-09-26 10:38:23,363 - mmcv - INFO - 
+backbone.encoder.layers.13.edge_weight.layers.0.0.bias - torch.Size([128]): 
+The value is the same before and after calling `init_weights` of GsSimulatorEmbodied  
+ 
+2026-09-26 10:38:23,363 - mmcv - INFO - 
+backbone.encoder.layers.13.edge_weight.layers.1.0.weight - torch.Size([128, 128]): 
+The value is the same before and after calling `init_weights` of GsSimulatorEmbodied  
+ 
+2026-09-26 10:38:23,363 - mmcv - INFO - 
+backbone.encoder.layers.13.edge_weight.layers.1.0.bias - torch.Size([128]): 
+The value is the same before and after calling `init_weights` of GsSimulatorEmbodied  
+ 
+2026-09-26 10:38:23,363 - mmcv - INFO - 
+backbone.encoder.layers.13.edge_weight.layers.2.weight - torch.Size([128, 128]): 
+The value is the same before and after calling `init_weights` of GsSimulatorEmbodied  
+ 
+2026-09-26 10:38:23,363 - mmcv - INFO - 
+backbone.encoder.layers.13.edge_weight.layers.2.bias - torch.Size([128]): 
+The value is the same before and after calling `init_weights` of GsSimulatorEmbodied  
+ 
+2026-09-26 10:38:23,363 - mmcv - INFO - 
+backbone.encoder.layers.13.node_weight.layers.0.0.weight - torch.Size([128, 256]): 
+The value is the same before and after calling `init_weights` of GsSimulatorEmbodied  
+ 
+2026-09-26 10:38:23,363 - mmcv - INFO - 
+backbone.encoder.layers.13.node_weight.layers.0.0.bias - torch.Size([128]): 
+The value is the same before and after calling `init_weights` of GsSimulatorEmbodied  
+ 
+2026-09-26 10:38:23,363 - mmcv - INFO - 
+backbone.encoder.layers.13.node_weight.layers.1.0.weight - torch.Size([128, 128]): 
+The value is the same before and after calling `init_weights` of GsSimulatorEmbodied  
+ 
+2026-09-26 10:38:23,363 - mmcv - INFO - 
+backbone.encoder.layers.13.node_weight.layers.1.0.bias - torch.Size([128]): 
+The value is the same before and after calling `init_weights` of GsSimulatorEmbodied  
+ 
+2026-09-26 10:38:23,363 - mmcv - INFO - 
+backbone.encoder.layers.13.node_weight.layers.2.weight - torch.Size([128, 128]): 
+The value is the same before and after calling `init_weights` of GsSimulatorEmbodied  
+ 
+2026-09-26 10:38:23,363 - mmcv - INFO - 
+backbone.encoder.layers.13.node_weight.layers.2.bias - torch.Size([128]): 
+The value is the same before and after calling `init_weights` of GsSimulatorEmbodied  
+ 
+2026-09-26 10:38:23,363 - mmcv - INFO - 
+backbone.encoder.layers.14.norms.0.weight - torch.Size([384]): 
+The value is the same before and after calling `init_weights` of GsSimulatorEmbodied  
+ 
+2026-09-26 10:38:23,363 - mmcv - INFO - 
+backbone.encoder.layers.14.norms.0.bias - torch.Size([384]): 
+The value is the same before and after calling `init_weights` of GsSimulatorEmbodied  
+ 
+2026-09-26 10:38:23,363 - mmcv - INFO - 
+backbone.encoder.layers.14.norms.1.weight - torch.Size([256]): 
+The value is the same before and after calling `init_weights` of GsSimulatorEmbodied  
+ 
+2026-09-26 10:38:23,364 - mmcv - INFO - 
+backbone.encoder.layers.14.norms.1.bias - torch.Size([256]): 
+The value is the same before and after calling `init_weights` of GsSimulatorEmbodied  
+ 
+2026-09-26 10:38:23,364 - mmcv - INFO - 
+backbone.encoder.layers.14.edge_weight.layers.0.0.weight - torch.Size([128, 384]): 
+The value is the same before and after calling `init_weights` of GsSimulatorEmbodied  
+ 
+2026-09-26 10:38:23,364 - mmcv - INFO - 
+backbone.encoder.layers.14.edge_weight.layers.0.0.bias - torch.Size([128]): 
+The value is the same before and after calling `init_weights` of GsSimulatorEmbodied  
+ 
+2026-09-26 10:38:23,364 - mmcv - INFO - 
+backbone.encoder.layers.14.edge_weight.layers.1.0.weight - torch.Size([128, 128]): 
+The value is the same before and after calling `init_weights` of GsSimulatorEmbodied  
+ 
+2026-09-26 10:38:23,364 - mmcv - INFO - 
+backbone.encoder.layers.14.edge_weight.layers.1.0.bias - torch.Size([128]): 
+The value is the same before and after calling `init_weights` of GsSimulatorEmbodied  
+ 
+2026-09-26 10:38:23,364 - mmcv - INFO - 
+backbone.encoder.layers.14.edge_weight.layers.2.weight - torch.Size([128, 128]): 
+The value is the same before and after calling `init_weights` of GsSimulatorEmbodied  
+ 
+2026-09-26 10:38:23,364 - mmcv - INFO - 
+backbone.encoder.layers.14.edge_weight.layers.2.bias - torch.Size([128]): 
+The value is the same before and after calling `init_weights` of GsSimulatorEmbodied  
+ 
+2026-09-26 10:38:23,364 - mmcv - INFO - 
+backbone.encoder.layers.14.node_weight.layers.0.0.weight - torch.Size([128, 256]): 
+The value is the same before and after calling `init_weights` of GsSimulatorEmbodied  
+ 
+2026-09-26 10:38:23,364 - mmcv - INFO - 
+backbone.encoder.layers.14.node_weight.layers.0.0.bias - torch.Size([128]): 
+The value is the same before and after calling `init_weights` of GsSimulatorEmbodied  
+ 
+2026-09-26 10:38:23,364 - mmcv - INFO - 
+backbone.encoder.layers.14.node_weight.layers.1.0.weight - torch.Size([128, 128]): 
+The value is the same before and after calling `init_weights` of GsSimulatorEmbodied  
+ 
+2026-09-26 10:38:23,364 - mmcv - INFO - 
+backbone.encoder.layers.14.node_weight.layers.1.0.bias - torch.Size([128]): 
+The value is the same before and after calling `init_weights` of GsSimulatorEmbodied  
+ 
+2026-09-26 10:38:23,364 - mmcv - INFO - 
+backbone.encoder.layers.14.node_weight.layers.2.weight - torch.Size([128, 128]): 
+The value is the same before and after calling `init_weights` of GsSimulatorEmbodied  
+ 
+2026-09-26 10:38:23,364 - mmcv - INFO - 
+backbone.encoder.layers.14.node_weight.layers.2.bias - torch.Size([128]): 
+The value is the same before and after calling `init_weights` of GsSimulatorEmbodied  
+ 
+2026-09-26 10:38:23,364 - mmcv - INFO - 
+backbone.encoder.layers.15.norms.0.weight - torch.Size([384]): 
+The value is the same before and after calling `init_weights` of GsSimulatorEmbodied  
+ 
+2026-09-26 10:38:23,364 - mmcv - INFO - 
+backbone.encoder.layers.15.norms.0.bias - torch.Size([384]): 
+The value is the same before and after calling `init_weights` of GsSimulatorEmbodied  
+ 
+2026-09-26 10:38:23,364 - mmcv - INFO - 
+backbone.encoder.layers.15.norms.1.weight - torch.Size([256]): 
+The value is the same before and after calling `init_weights` of GsSimulatorEmbodied  
+ 
+2026-09-26 10:38:23,364 - mmcv - INFO - 
+backbone.encoder.layers.15.norms.1.bias - torch.Size([256]): 
+The value is the same before and after calling `init_weights` of GsSimulatorEmbodied  
+ 
+2026-09-26 10:38:23,364 - mmcv - INFO - 
+backbone.encoder.layers.15.edge_weight.layers.0.0.weight - torch.Size([128, 384]): 
+The value is the same before and after calling `init_weights` of GsSimulatorEmbodied  
+ 
+2026-09-26 10:38:23,364 - mmcv - INFO - 
+backbone.encoder.layers.15.edge_weight.layers.0.0.bias - torch.Size([128]): 
+The value is the same before and after calling `init_weights` of GsSimulatorEmbodied  
+ 
+2026-09-26 10:38:23,364 - mmcv - INFO - 
+backbone.encoder.layers.15.edge_weight.layers.1.0.weight - torch.Size([128, 128]): 
+The value is the same before and after calling `init_weights` of GsSimulatorEmbodied  
+ 
+2026-09-26 10:38:23,364 - mmcv - INFO - 
+backbone.encoder.layers.15.edge_weight.layers.1.0.bias - torch.Size([128]): 
+The value is the same before and after calling `init_weights` of GsSimulatorEmbodied  
+ 
+2026-09-26 10:38:23,364 - mmcv - INFO - 
+backbone.encoder.layers.15.edge_weight.layers.2.weight - torch.Size([128, 128]): 
+The value is the same before and after calling `init_weights` of GsSimulatorEmbodied  
+ 
+2026-09-26 10:38:23,364 - mmcv - INFO - 
+backbone.encoder.layers.15.edge_weight.layers.2.bias - torch.Size([128]): 
+The value is the same before and after calling `init_weights` of GsSimulatorEmbodied  
+ 
+2026-09-26 10:38:23,364 - mmcv - INFO - 
+backbone.encoder.layers.15.node_weight.layers.0.0.weight - torch.Size([128, 256]): 
+The value is the same before and after calling `init_weights` of GsSimulatorEmbodied  
+ 
+2026-09-26 10:38:23,364 - mmcv - INFO - 
+backbone.encoder.layers.15.node_weight.layers.0.0.bias - torch.Size([128]): 
+The value is the same before and after calling `init_weights` of GsSimulatorEmbodied  
+ 
+2026-09-26 10:38:23,364 - mmcv - INFO - 
+backbone.encoder.layers.15.node_weight.layers.1.0.weight - torch.Size([128, 128]): 
+The value is the same before and after calling `init_weights` of GsSimulatorEmbodied  
+ 
+2026-09-26 10:38:23,364 - mmcv - INFO - 
+backbone.encoder.layers.15.node_weight.layers.1.0.bias - torch.Size([128]): 
+The value is the same before and after calling `init_weights` of GsSimulatorEmbodied  
+ 
+2026-09-26 10:38:23,364 - mmcv - INFO - 
+backbone.encoder.layers.15.node_weight.layers.2.weight - torch.Size([128, 128]): 
+The value is the same before and after calling `init_weights` of GsSimulatorEmbodied  
+ 
+2026-09-26 10:38:23,364 - mmcv - INFO - 
+backbone.encoder.layers.15.node_weight.layers.2.bias - torch.Size([128]): 
+The value is the same before and after calling `init_weights` of GsSimulatorEmbodied  
+ 
+2026-09-26 10:38:23,364 - mmcv - INFO - 
+backbone.encoder.emb_norm.weight - torch.Size([128]): 
+The value is the same before and after calling `init_weights` of GsSimulatorEmbodied  
+ 
+2026-09-26 10:38:23,364 - mmcv - INFO - 
+backbone.encoder.emb_norm.bias - torch.Size([128]): 
+The value is the same before and after calling `init_weights` of GsSimulatorEmbodied  
+ 
+2026-09-26 10:38:23,364 - mmcv - INFO - 
+decode_head.dynamic_proj.layers.0.0.weight - torch.Size([64, 128]): 
+The value is the same before and after calling `init_weights` of GsSimulatorEmbodied  
+ 
+2026-09-26 10:38:23,364 - mmcv - INFO - 
+decode_head.dynamic_proj.layers.0.0.bias - torch.Size([64]): 
+The value is the same before and after calling `init_weights` of GsSimulatorEmbodied  
+ 
+2026-09-26 10:38:23,364 - mmcv - INFO - 
+decode_head.dynamic_proj.layers.1.0.weight - torch.Size([32, 64]): 
+The value is the same before and after calling `init_weights` of GsSimulatorEmbodied  
+ 
+2026-09-26 10:38:23,364 - mmcv - INFO - 
+decode_head.dynamic_proj.layers.1.0.bias - torch.Size([32]): 
+The value is the same before and after calling `init_weights` of GsSimulatorEmbodied  
+ 
+2026-09-26 10:38:23,364 - mmcv - INFO - 
+decode_head.dynamic_proj.layers.2.weight - torch.Size([11, 32]): 
+The value is the same before and after calling `init_weights` of GsSimulatorEmbodied  
+ 
+2026-09-26 10:38:23,364 - mmcv - INFO - 
+decode_head.dynamic_proj.layers.2.bias - torch.Size([11]): 
+The value is the same before and after calling `init_weights` of GsSimulatorEmbodied  
+ 
+=> loading config_a_2cam camera from embodied format
+Loading images' information...
+Initializing gaussian scene: /data1/userdata/tcweng/projects/tcgs/datasets/deform360/derived/t17_scene_packages/pink_cloth_episode_0/config_a_2cam/pi3/gs/point_cloud/iteration_10000/point_cloud.ply
+T24 reload FAIL
+Traceback (most recent call last):
+  File "/tmp/tcgs_t24_finite_recovery_v3_20260926.py", line 264, in <module>
+    if __name__=='__main__':main()
+  File "/tmp/tcgs_t24_finite_recovery_v3_20260926.py", line 31, in main
+    execute(args,root,repo,cp,report)
+  File "/tmp/tcgs_t24_finite_recovery_v3_20260926.py", line 252, in execute
+    close(expected,actual)
+  File "/tmp/tcgs_t24_finite_recovery_v3_20260926.py", line 247, in close
+    for k in a:close(a[k],b[k],path+'/'+str(k))
+  File "/tmp/tcgs_t24_finite_recovery_v3_20260926.py", line 250, in close
+    for i,(x,y) in enumerate(zip(a,b)):close(x,y,path+'/'+str(i))
+  File "/tmp/tcgs_t24_finite_recovery_v3_20260926.py", line 247, in close
+    for k in a:close(a[k],b[k],path+'/'+str(k))
+  File "/tmp/tcgs_t24_finite_recovery_v3_20260926.py", line 250, in close
+    for i,(x,y) in enumerate(zip(a,b)):close(x,y,path+'/'+str(i))
+  File "/tmp/tcgs_t24_finite_recovery_v3_20260926.py", line 244, in close
+    assert torch.allclose(a,b,atol=1e-5,rtol=1e-5),path
+AssertionError: output/steps/0/render/0
+srun: error: amax: task 0: Exited with exit code 1

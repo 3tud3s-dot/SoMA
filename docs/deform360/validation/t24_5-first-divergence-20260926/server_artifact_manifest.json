@@ -1,0 +1,104 @@
+{
+  "installed_sources": {
+    "/data1/userdata/tcweng/miniconda3/envs/soma/lib/python3.10/site-packages/dgl/_sparse_ops.py": "41c531185a6d98a01414d0e37324de91bd5c8ced7e790c096d4a04ed194ec24c",
+    "/data1/userdata/tcweng/miniconda3/envs/soma/lib/python3.10/site-packages/dgl/ops/spmm.py": "a2a46766c12e5a3c395bb478a2ef4913d0a4218afd07a8506e5441adc92726bf",
+    "/data1/userdata/tcweng/miniconda3/envs/soma/lib/python3.10/site-packages/dgl/backend/pytorch/sparse.py": "2d1ef7b7e0c4c28d6553d4f518131fc08da7215227df625409ead807a7e27c7e",
+    "/data1/userdata/tcweng/miniconda3/envs/soma/lib/python3.10/site-packages/dgl/core.py": "16a40cf6949f51897186fd23cf231ef114da64d9b2681492b5760008e3141fae"
+  },
+  "coarse": {
+    "total_bytes": 1332934500,
+    "json_files": {
+      "A_M0_first_trace.json": {
+        "bytes": 297422,
+        "sha256": "70d4a7750a33db71e5cd0135b526c35a3b525bd484ade5c797fd9408ac279d9e"
+      },
+      "A_M0_first_vs_A_M1_first.json": {
+        "bytes": 171806,
+        "sha256": "b2533a308386ed7cc61fd003afcc3d16036df446bd04f8b55a1e9d5447cf6dca"
+      },
+      "B_M0_repeat_trace.json": {
+        "bytes": 297428,
+        "sha256": "5d50ae26f65385d52689e221fce7e0924cd8c91b694f2b622e244df829c14585"
+      },
+      "B_M0_first_trace.json": {
+        "bytes": 297430,
+        "sha256": "0bdf839d8c75c5120778f392d76ac81f62a81166894a32e0fa32c0921e763bbb"
+      },
+      "A_M0_first_vs_A_M0_repeat.json": {
+        "bytes": 169655,
+        "sha256": "38ddec9686b4f072dbbc02c3917e82076fbd972bd3db0c99fdeb65368f299b67"
+      },
+      "A_M0_repeat_trace.json": {
+        "bytes": 297427,
+        "sha256": "b0814fe9758d9c4824849bb84b9983ace18bbdd73c3a068221edd3d0e3e4e73e"
+      },
+      "B_report.json": {
+        "bytes": 31345,
+        "sha256": "77e6c89b4fe1884e8974f7b9a4416d2e26b551fddf6c517b7204cab97330cda7"
+      },
+      "B_M1_first_trace.json": {
+        "bytes": 297412,
+        "sha256": "bcd97e9151d4d3433f5408ec75074bf153282f8cf7d04991c1427143da1d77f1"
+      },
+      "A_report.json": {
+        "bytes": 31345,
+        "sha256": "3cc3fc8cee53310d85e051b0eab15fa40721978dd3f195cfd0eada57c934853c"
+      },
+      "B_M0_after_M1_trace.json": {
+        "bytes": 297407,
+        "sha256": "d7e6d3f6522f4036193d5fd766fe8ebb5eeba20c7f8ef7b809438075145b1c87"
+      },
+      "A_M0_first_vs_B_M0_first.json": {
+        "bytes": 158972,
+        "sha256": "1ee0b62d912f41fa733ab73a3520f5b027eb2f3555b127f78dba2d987183ed95"
+      },
+      "A_M0_after_M1_trace.json": {
+        "bytes": 297415,
+        "sha256": "565275877a4e9f998dcada6fa910f6facbedb31984603f308f6342d7589b0b23"
+      },
+      "A_M1_first_trace.json": {
+        "bytes": 297412,
+        "sha256": "687156f44c9d089392dd44f0650b13882b6385a0627bb8c03a7451c4a96c7d52"
+      }
+    }
+  },
+  "fine": {
+    "total_bytes": 715613439,
+    "json_files": {
+      "A_M0_first_trace.json": {
+        "bytes": 456749,
+        "sha256": "6e6c60b38c103e7c90849421bb9d672cee59c6f157f8f2d7b4a4c4b6c51ecb77"
+      },
+      "A_M0_first_vs_A_M1_first.json": {
+        "bytes": 270085,
+        "sha256": "f4c187b934a825e501b81459ab968ac164941769629500534f9d179ef85bd6ce"
+      },
+      "A_M0_first_vs_A_M0_repeat.json": {
+        "bytes": 266423,
+        "sha256": "5498a94ed4891351a2263e7fd00ca62b16186674be31e199211b37a755669091"
+      },
+      "A_M0_repeat_trace.json": {
+        "bytes": 456725,
+        "sha256": "6e340ec2ac0149f08e2a9850d2193c49a772d3b133065b0ce885ea4c3db647c8"
+      },
+      "A_report.json": {
+        "bytes": 137445,
+        "sha256": "4968fc2b731c09234aefcdb0cae184e76faeeaca2d601d7552ab491b2c4d654b"
+      },
+      "A_M0_after_M1_trace.json": {
+        "bytes": 456707,
+        "sha256": "be59f79573b634aca81334d7d3c054415f4a8d585a60ae5f1f0b894e9361b46d"
+      },
+      "A_M1_first_trace.json": {
+        "bytes": 456717,
+        "sha256": "7335efaf6ed236615f4e9274e78f997a94fc19274bf3fe87c97b70fc71b78ce0"
+      }
+    }
+  },
+  "soma_environment_versions": {
+    "torch": "2.7.1+cu128",
+    "dgl": "2.1.0",
+    "mmcv-full": "1.7.2",
+    "numpy": "1.26.4"
+  }
+}

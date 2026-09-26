@@ -27,10 +27,10 @@ Deform360 HEAD:
 d8522a4403b766aeb387510c04e89032a56fdf35
 
 Current task:
-T23
+T24.5
 
 Current status:
-PASS
+PARTIALLY_ATTRIBUTED
 ```
 
 以上 HEAD 为本 roadmap 建立时的源码基线。T0–T11 已 PASS，具体结论及证据保留于各项历史 Result / Evidence。T11 checkpoint 已提交并推送；T12 已按人工确认采用 30→10→2→1 grouping contract 并验证 PASS；此前默认分组 FAIL 历史保留，不进入 T13。
@@ -42,7 +42,7 @@ PASS
 - 执行前读取本文件和适用的 AGENTS.md，确认当前任务及前置依赖。前置依赖以既定顺序、各项输入文件和正文引用的 TODO 产物为准。
 - 每次只解决对应 TODO 的问题，遵守该项允许修改的范围；FAIL 时仅定位当前问题，不自动进入下一项。
 - 不因执行一个 TODO 而删减、合并、重排或重写 roadmap，不提前改变技术方案。
-- 状态只允许使用：`TODO`、`IN_PROGRESS`、`PASS`、`FAIL`、`BLOCKED`。
+- 主线状态只允许使用：`TODO`、`IN_PROGRESS`、`PASS`、`FAIL`、`BLOCKED`。用户授权的独立 Non-gating diagnostic T24.5 使用 `ATTRIBUTED`、`PARTIALLY_ATTRIBUTED`、`UNRESOLVED`；其分类不改变 T24 PASS，也不阻塞 T25+。
 - 历史审计和聊天中的分析不是执行结果。T0–T6 的执行结果见对应 Result / Evidence；后续任务以各自 Status / Result / Evidence 为准。
 
 ### 后续更新规则
@@ -153,7 +153,8 @@ tcgs root Git 仅用于 workspace-level 资产。除非明确说明，不在 tcg
 | T21 | 只运行一次 forward/render/loss | PASS |
 | T22 | 只验证一次 backward 与 optimizer step | PASS |
 | T23 | 只验证 rollout=3 | PASS |
-| T24 | 验证 checkpoint 保存与恢复 | TODO |
+| T24 | 验证 checkpoint 保存与恢复 | PASS |
+| T24.5 | 数值重复性 first-divergence audit（Non-gating） | PARTIALLY_ATTRIBUTED |
 | T25 | 冻结首个 baseline 的运行协议 | TODO |
 | T26 | 执行约定预算的 Stage 1 训练 | TODO |
 | T27 | 只生成并核验 Stage-1 cache | TODO |
@@ -1601,7 +1602,7 @@ Status: PASS
 
 ### T24：验证 checkpoint 保存与恢复
 
-Status: TODO
+Status: PASS
 
 **问题：** 训练状态能否可靠恢复？
 
@@ -1617,19 +1618,115 @@ Status: TODO
 
 **最小修改：** 只增加 save/reload 验证，不继续训练。
 
-**验证方法：** 比较恢复前后的参数、optimizer/计数器，以及固定输入的输出。
+**验证方法（用户批准的最终范围）：** 通过真实 runner save/resume 比较 model state、optimizer/Adam buffers、12 个 normalizer 统计 tensor、runner epoch/iter，检查保存/恢复 tensor finite 与 Gaussian/source assets 未被 optimizer 修改。固定输入输出比较作为 numerical reproducibility 诊断证据保留，不再作为 checkpoint integrity 的硬性 gate。
 
-**PASS：** 需要恢复的状态一致，预测在预先约定的数值容差内一致。
+**PASS（最终验收）：** PASS — checkpoint state recovery。真实 runner checkpoint save/resume 成功；model state、optimizer state/Adam buffers、normalizer 12 个统计 tensor exact restore；runner epoch/iter 正确恢复；saved/restored tensors finite；Gaussian/source assets 未被 optimizer 修改。
+
+**验收范围修正说明：** 用户明确批准结束数值重复性追查。原判据“需要恢复的状态一致，预测在预先约定的数值容差内一致”保留为历史验收依据；其下所有 FAIL/比较数值仍有效。本次不改算法或 atol/rtol=1e-5，而是将 fixed-output <1e-5 从 checkpoint integrity 的硬性 PASS 条件中移除。此 PASS 不追认非有限值的 rollout=3 checkpoint 为有效，也不表示所有 Python 属性都被序列化。
 
 **FAIL 后检查：** checkpoint 缺项、scene 初始化、normalizer 状态和随机性。
 
 #### Result
 
-Not executed.
+2026-09-26：BLOCKED（前置状态未持久化，尚未执行 checkpoint save/reload）。T23 使用的模型更新、optimizer 和 normalizer/runtime 状态仅存在于已退出的 Slurm 进程，未保存 checkpoint。现有 JSON/report 和日志不能恢复该状态，因此不能对原 T23 状态进行逐项恢复验证，也不能以重新随机初始化的模型冒充恢复成功。
+
+遵守本次串行 gate，停止整个 batch；T25/T26/T27 未执行，保持 TODO，未执行 T28。未启动新的 CUDA 作业、训练或修改源码。最小后续方案是另行授权重建一次相同 canonical setup 的短运行状态，在同一进程退出前通过真实 runner 保存，再独立 reload 比较参数、optimizer、计数器、normalizer/runtime 与固定输入输出；必须明确这是新一次短运行，而不是恢复 job 25824 的丢失状态。
+
+2026-09-26 后续执行：FAIL。用户授权重建新短运行（不是恢复 job 25824）。Slurm 25826 / RTX 5090 使用 seed=5、Config A、canonical geometry/grouping/gravity，真实 EpochRunner + OptimizerHook + CheckpointHook 完成 1 epoch / 1 batch / 1 optimizer step，rollout=3，targets=123/133/143。原 runner 写出 epoch_1.pth 后，梯度 finite 断言失败；独立只读检查发现 275 个 model tensor 和 550 个 optimizer buffer 含 NaN/Inf。立即停止，未运行新进程 resume 或 fixed-input comparison，未执行 T25–T28。
+
+该失败文件不能作为有效 checkpoint。此新运行直接从初始化状态做 rollout=3，没有先重复旧 T21/T22 的 normalizer 累积及参数更新；这是否导致非有限值尚未验证，不将其写成已确认原因。未修改核心源码或修复后重跑。旧 BLOCKED 历史保留。
+
+2026-09-26 finite retry：FAIL（本次失败点是输出容差，不是 NaN/Inf）。保留 previous FAIL：random-init rollout=3 optimizer step produced nonfinite gradients/state；current retry deliberately uses previously validated T22-style rollout=1 finite step to isolate checkpoint semantics。先复用一次 T21-style no-update forward，再经真实 EpochRunner/model.train_step 做一次 rollout=1 更新（source113→123）。验证工具在 Adam.step 前确认 gradients finite，step 后确认 model/Adam/normalizer finite，随后原 CheckpointHook 保存。Job 25837 保存成功；新进程 job 25838 通过真实 resume 恢复。model state、optimizer groups/IDs/name order/buffers/step、12 个 normalizer 统计 tensor、runner epoch=1/iter=1 均逐项一致。
+
+固定输入 eval/no_grad 比较确认没有更新 model/normalizer/optimizer。只读量化 job 25839：pred_pos max diff=5.960464477539063e-08；pred_cov=4.3655745685100555e-11；023 render=0.00018256902694702148；009 render=8.32974910736084e-05；momentum loss=0.00011563301086425781。两个 render 和 momentum loss 未通过预设 atol=rtol=1e-5，所有输出 finite。原因尚未确定；未放宽容差、未修改 checkpoint、未继续训练；未分析旧 rollout=3 稳定性，未执行 T25–T28。
+
+Runtime 边界：global_step 在当前配置中不存在；iters_per_epoch=None/is_est_vel=True 一致。model.num_iter/num_epoch 的每次调用镜像未序列化（1→0），真实进度由已恢复 runner counters 管理，forward_train:638 在使用前重写镜像；不声称所有 Python 属性均恢复。工具 job 25835 因 batch_processor 接口限制在训练前失败，25836 在有限更新后因读取不存在的 global_step 失败，均未保存 checkpoint；报告保留，未复用其状态。
+
+2026-09-26 determinism baseline audit：Case 2，T24 保持 FAIL。两个完全独立的新进程 A（Slurm 25840）/B（25841）分别 resume 同一 finite checkpoint，各执行一次 eval/no_grad fixed forward，零 optimizer step。A/B 的 pred_pos、pred_cov、023/009 render 以及所有 loss/metric 全部 bitwise equal，max/mean abs diff 均为 0；seed/config/input/model/optimizer/initial Gaussian/checkpoint hashes 及 backend flags 一致，且各自对保存 reference 的 model/optimizer/normalizer/counters exact 检查通过。
+
+pre-save 与 A/B 仍有相同非零差异（render max 1.8256902694702148e-4 / 8.32974910736084e-5），不能据本次实验将 1e-4 归因为实测的 A/B numerical floor；原 atol=rtol=1e-5 不变。差异在 pred_pos/cov 阶段已存在，范围缩小为训练后进程与 fresh resume 的执行状态差异；尚未找到已证实遗漏的 runtime field，不能声称已证明 checkpoint 丢失参数。只读源码确认 num_iter/num_epoch 镜像不被当前 direct fixed-output 路径读取；已恢复 normalizer 统计在 eval 中不更新。后续定位需比较 graph/feature 中间量及未序列化执行状态，本轮未扩大实验。
+
+2026-09-26 post-save reference audit：Case B，T24 保持 FAIL。新有限短状态 job 25842：一次 warmup forward → rollout=1 train forward → backward → gradient finite guard → Adam.step → model/Adam/normalizer finite guard → 原 CheckpointHook save → eval/no_grad reference S；事件顺序逐项记录。独立 job 25843/25844 resume 后各计算 A/B。结果 S≠A=B；S/A 和 S/B 的 pred_pos max=8.940696716308594e-08、pred_cov=3.637978807091713e-11、023 render=8.868575096130371e-4、009 render=5.335211753845215e-4、momentum loss=1.7082691192626953e-4。A/B 全输出 bitwise equal；原 atol=rtol=1e-5 不变。
+
+S/A/B 的目标输入、参数/Normalizer/scene Gaussian 的值与布局、eval flags、render pipeline、backend flags 一致；每次 fixed forward 前后定向状态快照不变。只观察到 model.num_iter/num_epoch 调用镜像及 Python RNG 不同；镜像不被 direct one_step forward 读取，Python RNG 在 A/B 间也不同且所有 RNG 在 forward 中未推进，不能认定为原因。scene_init_* 指定候选属性在此实际配置中不存在。未找到具有因果证据的遗漏 mutable runtime field；未修改算法、未放宽判据、未盲查全部属性。
+
+旧 R 原样保留。审阅旧工具确认 R 原本也在 checkpoint 保存后、eval/no_grad 中生成，“pre-save reference”此前措辞不精确。新旧短运行的 checkpoint model 并非全 exact，因此 R/S 比较不能单独证明 reference 捕获时机问题。四组完整 max/mean/bitwise/loss/metric 比较均已记录。未执行 T25–T28。
+
+2026-09-26 same-process fresh instance audit：Case 3，T24 保持 FAIL。Job 25845（PID 1148289）沿既有 finite rollout=1 路径建立 M0，一次 warmup forward + 一次 guarded Adam update，真实 runner 保存 C；M0→S0，同进程新建 M1/optimizer/runner 并 resume C→S1，随后 M0→S0_repeat、M1→S1_repeat。两对象同时保留且 object ID 不同。进程退出后 job 25846（PID 1148551）独立 resume C→A。没有 reseed/empty_cache/backend 干预、逐层 instrumentation 或算法改动。
+
+结果：S1 不等于 S0，也不等于 A，均未通过原 render tolerance；S0/S0_repeat 同样不逐位一致，而 S1/S1_repeat 全输出 bitwise equal。S0/S1 的 pred_pos max=2.9802322387695312e-08、023/009 render max=7.564425468444824e-4 / 1.3486146926879883e-3；S1/A 的 pred_pos max=8.940696716308594e-08、023/009 render max=7.56487250328064e-4 / 2.740606665611267e-3。全部输出 finite，atol=rtol=1e-5 不变。
+
+每次推理前 model/optimizer/normalizer exact、checkpoint hash、runner epoch=1/iter=1、输入/camera/controller/Gaussian、eval flags、dtype/device/layout 与 forward 实参核验通过；每次推理前后定向快照不变。S0_repeat 按要求发生在 M1 构造和推理之后，不能将其差异直接解释为永久 object-local defect。当前不是简单 Case 1 或 Case 2；不再猜测 Python field 或 CUDA history。下一步应独立授权 first-divergence tracing，本轮未执行，也未执行 T25–T28。
+
+2026-09-26 用户批准的最终收口：**PASS — checkpoint state recovery**。依据已有 finite rollout=1 证据：真实 runner save/resume 成功，model state exact、optimizer state/Adam buffers exact、normalizer 12 个统计 tensor exact、runner epoch/iter 正确恢复；保存/恢复 tensors finite；Gaussian/source assets 未被 optimizer 修改。本次仅修正文档验收范围，没有新 CUDA 实验。
+
+**Known limitation / follow-up：numerical reproducibility。** 固定输出不保证 bitwise 或 1e-5 级跨运行一致性；同一原 model object 的 repeated forward 也观察到小的数值差异。fixed-output <1e-5 不再是 checkpoint integrity 的硬性 PASS 条件，原比较 tolerance 和所有实验数值不变。不宣称已确定差异来源，也不宣称差异绝对无影响。停止 Case 3 追查及 first-divergence tracing；历史中提出的追查建议不再是当前待执行任务。只有后续 resume training 出现系统性 trajectory / metric discontinuity 时再重新开启此问题。T24 完成后停止，等待 T25 授权。
 
 #### Evidence
 
-Not executed.
+- [T20–T23 README](validation/t20-t23-smoke-20260926/README.md) 第 51 行明确记录未保存 checkpoint，optimizer 更新仅存在于已退出的进程内。
+- [smoke tool](../../tools/deform360_adapter/smoke_dynamics_batch.py) 第 36 行声明无 checkpoint；第 39 行 `save()` 只写 JSON report；第 189 行执行 optimizer step，但工具没有模型/optimizer checkpoint 保存调用。
+- 服务器 `sacct -j 25824 --format=JobID,State,ExitCode --noheader`：25824 及 25824.0 均为 `COMPLETED 0:0`。保留的 `/tmp/tcgs_t20_t23_report.json`（136867 bytes）及 `/tmp/tcgs_t20_t23.log`（60455 bytes）是诊断记录，不包含可恢复训练状态。
+- T20–T23 checkpoint 已提交并 push：`92107be55dd5403eb591a3538d9d1d8742df6264`。开始本次检查前 Mac HEAD 与 origin 一致、ahead/behind=0/0、working tree clean；服务器从 `2cd8dd6` clean fast-forward 至同一提交。
+- 本次仅修改 SoMA/deform360-adaptation 中本 roadmap（Git tracked），尚未 commit/push；该 BLOCKED 记录尚需后续同步至服务器。
+
+- 新增 [T24 contract](contracts/008-pink-cloth/episode_0/checkpoint_recovery_contract.json)、[运行报告](validation/t24-checkpoint-20260926/save_report.json)、[失败 checkpoint 检查](validation/t24-checkpoint-20260926/checkpoint_inspection.json)、[日志](validation/t24-checkpoint-20260926/run.txt)。Slurm 25826 FAILED / exit 1:0 / elapsed 11 秒。
+- Server-only checkpoint：`outputs/deform360/t24-recovery-20260926/epoch_1.pth`，30025021 bytes，SHA256 `57323ae9bceff44fa413e0f2d43c9aa5f1521984b49690558154131f3cea7333`；meta epoch=1 / iter=1，289 model keys、275 optimizer states。保存成功不表示数值有效或恢复成功。
+- 76 个输入/源码文件 hash 核验无变化；Gaussian 在 optimizer 之外。checkpoint 未同步 Mac。新工具、contract、小型证据属于 SoMA/deform360-adaptation，未 commit/push；服务器 checkout clean，工具在 `/tmp` 执行；小型版本管理文件待后续 Git 同步。
+
+- 新一轮 [finite recovery evidence](validation/t24-finite-recovery-20260926/README.md)：save/reload/差异 reports、reference manifest、日志及工具检查错误记录。原失败证据未修改。
+- 当前 finite checkpoint：`outputs/deform360/t24-finite-recovery-v3-20260926/epoch_1.pth`，30024957 bytes；SHA256 `2df68bbe34e0a5f3f6c23e56d6ecd924eb47aa51466ff347045ee8b3f3ac730f`，仅 server-only。成功保存有限状态，但完整 T24 尚未 PASS。
+- 小型工具/contract/roadmap/evidence 属于 SoMA/deform360-adaptation，未 commit/push，待后续 Git 同步；原 `t24-checkpoint-20260926.zip` 未操作。
+
+- [A/B determinism audit](validation/t24-repeatability-20260926/README.md) 与 [完整 max/mean/bitwise 比较](validation/t24-repeatability-20260926/comparison.json)。两份输出 tensor 仅留服务器 `outputs/deform360/t24-repeatability-20260926/`。
+- 新增独立 A/B audit 与 CPU comparison 工具；checkpoint/model/runner/旧验证 tolerance 均未修改，旧 BLOCKED/FAIL 历史保留。未 commit/push，未执行 T25–T28。
+
+- [Post-save S/A/B event/state audit](validation/t24-postsave-reference-20260926/README.md)、[全部比较](validation/t24-postsave-reference-20260926/comparison.json)。新增工具 `audit_checkpoint_reference_state.py` / `compare_checkpoint_reference_state.py`，仅验证用途。
+- 新 server-only checkpoint：`outputs/deform360/t24-postsave-reference-20260926/epoch_1.pth`；30024957 bytes；SHA256 `95e54bd6f97fd3508fb5e3dd75129a3b5a978a3dc28376c504c01e68b2e39723`。旧 checkpoint/reference 未改。
+- SoMA/deform360-adaptation 小型工具/roadmap/contract/evidence 尚未 commit/push；新增内容待 Git 同步。既有 BLOCKED/FAIL 历史完整保留。
+
+- [Same-process isolation report](validation/t24-same-process-20260926/README.md) 包含全部 5 组输出的 max/mean/bitwise/original-gate 数值与精确事件顺序；JSON reports/state snapshots/logs 同目录。
+- 新 server-only C：`outputs/deform360/t24-same-process-20260926/epoch_1.pth`，30024957 bytes，SHA256 `421070e708ca8920de7b661a2708ec974ec4008c7469e80f7585e17a571a7979`。所有旧 checkpoint/reference 保留。
+- 新增独立验证工具 `audit_checkpoint_same_process.py` / `compare_checkpoint_same_process.py`；SoMA/deform360-adaptation 的小型变更尚未 commit/push，待后续 Git 同步，服务器 checkout clean。历史 BLOCKED/FAIL 不改写。
+
+- 最终 PASS 为用户批准的 **acceptance-scope revision**，不是新实验或旧 FAIL 的改写。依据 [finite save/resume evidence](validation/t24-finite-recovery-20260926/README.md)（jobs 25837/25838）及 [same-process exact-state checks](validation/t24-same-process-20260926/README.md)（jobs 25845/25846）。原 output-gate FAIL 与 BLOCKED / rollout=3 FAIL / repeatability audit 全部保留。
+- [Checkpoint recovery contract](contracts/008-pink-cloth/episode_0/checkpoint_recovery_contract.json) 顶层 status=PASS，新增最终 PASS criterion、numerical reproducibility limitation 和条件性 follow-up；各历史 attempt/audit status 保持不变。本次仅修改这两个文档文件，SoMA/deform360-adaptation，未 commit/push；待后续 Git 同步。Current task 仍为 T24，T25 未执行。
+
+---
+
+### T24.5：数值重复性 first-divergence audit
+
+Status: PARTIALLY_ATTRIBUTED
+
+**Non-gating diagnostic。** T24 保持 **PASS — checkpoint state recovery**。T24.5 的 ATTRIBUTED / PARTIALLY_ATTRIBUTED / UNRESOLVED 分类均不影响 T25–T27 推进，不将 T25 标记 BLOCKED；下一 TODO 仍需单独授权。本项是 2026-09-26 用户新授权的独立诊断，不改写 T24 中当时结束追查的历史决定。
+
+**问题 / motivation：** checkpoint state exact restore 后仍观察到数值重复性差异，最早在哪个真实 stage/module/native operation boundary 分叉？只定位，不修复。
+
+**前置依赖与输入：** T24 已 PASS；现有有限 checkpoint `outputs/deform360/t24-same-process-20260926/epoch_1.pth`；T19–T23 canonical Config A；source 113→123 的相同 Gaussian/controller/camera/GT。
+
+**预计涉及文件 / 最小修改：** 新增独立 `trace_numerical_divergence.py`、CPU 比较工具、小型诊断 contract / reports；只做观察性 wrappers，不修改 model/runner/checkpoint、normalizer、renderer、算法、precision/backend flags 或 tolerance。CUDA 全部通过 Slurm，不训练、不 optimizer.step。
+
+**Experiment：** 先记录 `_preprocess`、backbone/message-passing encoder、decoder/raw deformation parameters、pred_pos/cov、render input/output 和 loss 等真实边界；仅在首次不同的 preprocessing 内做一次细追踪，直到 DGL native SpMM 边界。保存 shape/dtype/device/layout、finite、统计与 SHA256，并比较 exact/max/mean diff；记录四类 RNG 前后状态。历史训练对象已退出，本轮 fresh resumed M0/M1/repeats 不冒充旧 S0。
+
+**结果分类：** ATTRIBUTED 需要完整因果链及足以解释变化的 execution semantics；PARTIALLY_ATTRIBUTED 用于 identical input→native op→first nonidentical output，但内部原因未证明；无法稳定定位则 UNRESOLVED。三者均非后续 TODO gate。
+
+#### Result
+
+2026-09-26：**PARTIALLY_ATTRIBUTED**。Slurm 25847/25848（coarse）、25849（唯一一次 preprocessing-only fine trace），RTX 5090；12 次 eval/no_grad fixed forward，0 training / optimizer step。粗追踪最后 exact 为 `_preprocess` 输入，首先不同为第一层 hierarchy graph 输出，早于 encoder/renderer。
+
+Fine 同对象 `M0_first vs M0_repeat`：最后 exact 为 `native_spmm.external.copy_lhs.sum.input`；第一个非 exact 为其 sum 输出 `[650,3] float32`，max abs diff=0.000244140625，mean abs diff=2.50400641025641e-7。同进程 fresh `M0_first vs M1_first`：在 `attr.copy_lhs.sum` 首次分叉，输出 `[650,5] float32`，max=1.862645149230957e-9，mean=2.292486337515024e-12。两组对应的有序边索引、feature 值、layout/COO format 一致，此前全部已记录阶段 exact。
+
+调用点为 `GsHieEmbodiedDGLProcessor._preprocess_hierarchy`，`mmgs/models/utils/dgl_graph.py:493`（attr）/`:509`（external）的 `copy_u + mean`；DGL mean 先执行 sum，`dgl._sparse_ops._gspmm` 调 native `_CAPI_DGLKernelSpMM`，随后才做 degree division。上述 external 差异是 sum 阶段数值，不代表修改 gravity。未证明 kernel 内部是否为 atomic/reduction-order 等原因，因此不标 ATTRIBUTED。
+
+12 次 forward 的 Python / NumPy / torch CPU / torch CUDA RNG 前后均未推进；observed tensors 全 finite；registered state/normalizer 未改变；checkpoint、源码和所检查输入 hash 不变。保留原 atol=rtol=1e-5 的比较，未要求输出通过该 gate。未训练、未修复，未执行 T25–T28。
+
+**Known limitation：** snapshots 会改变同步、时序与分配历史；本结果定位 instrumented fixed-inference 的最早分叉，不独占解释旧 S0/S1/A 全部差异，也不改写旧 fresh A/B bitwise-equal 证据。未确认 native 内部原因，未宣称数值差异绝对无影响。T24 的 PASS 及全部 BLOCKED/FAIL/audit 历史保持原样；T24.5 不阻塞后续协议/训练/cache 工作。
+
+#### Evidence
+
+- [完整审计报告](validation/t24_5-first-divergence-20260926/README.md)、[边界与输出比较](validation/t24_5-first-divergence-20260926/summary.json)、[小型 contract](contracts/008-pink-cloth/episode_0/numerical_first_divergence_contract.json)。逐张量统计/哈希、全部 coarse/fine stages、RNG 和来源见报告目录。
+- checkpoint SHA256 `421070e708ca8920de7b661a2708ec974ec4008c7469e80f7585e17a571a7979`；完整 tensor traces 保持 server-only：`outputs/deform360/t24_5-coarse-20260926/`、`outputs/deform360/t24_5-fine-20260926/`，各 trace path/bytes/hash 可追溯。
+- [观测工具](../../tools/deform360_adapter/trace_numerical_divergence.py)、[CPU 比较工具](../../tools/deform360_adapter/compare_divergence_trace.py)。属于 SoMA/deform360-adaptation；roadmap tracked，新增文件尚未 tracked，未 commit/push。服务器 checkout clean，以 `/tmp` 工具副本执行；小型文件待未来 Git checkpoint 同步。未执行 T25。
 
 ---
 

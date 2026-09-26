@@ -1,0 +1,4560 @@
+{
+  "process": "A",
+  "status": "PASS",
+  "job_id": "25849",
+  "pid": 1170265,
+  "tool_sha256": "602e8c681e59dc3cbc74f610fc41a2c8b3ef60951aa87adbb28961ec92b37914",
+  "seed": 5,
+  "scope": "T24.5 fresh resumed instances/repeats only; no training",
+  "trace_level": "preprocess-fine",
+  "targets": [
+    123
+  ],
+  "head": "92107be55dd5403eb591a3538d9d1d8742df6264",
+  "gpu": "NVIDIA GeForce RTX 5090, 32607 MiB",
+  "source_sha256": {
+    "mmgs/models/simulators/gs_simulator_embodied.py": "30658653e7205df17bc80f40a324de7180c8000b65c2d76dfb91d962a0cc89cc",
+    "mmgs/models/utils/dgl_graph.py": "86b4406818bb1d0ebf4529c553a73cd958a4596f918e412baaa59738baea4594",
+    "mmgs/models/heads/acc_decoder.py": "22816b7f8a3ca487ecb07f6361ab0671fb4f69313634d3b2ec7be77bd5d558fd",
+    "mmgs/datasets/embodied_dataset.py": "ed74d81ca80e051491aa9045b83ab9caa5f7f3e7b44a8ec6f82026e5359f7858"
+  },
+  "model_config": {
+    "type": "GsSimulatorEmbodied",
+    "cluster_cfg": {
+      "config_a_2cam": [
+        {
+          "downsample_rate": 0.02
+        },
+        {
+          "downsample_rate": 0.2
+        }
+      ]
+    },
+    "processor_cfg": [
+      {
+        "type": "GsHieEmbodiedDGLProcessor",
+        "anchor_prefix": "anchor_",
+        "radius": [
+          0.03,
+          0.2,
+          0.5
+        ],
+        "group_cfg": {
+          "max_radius": null,
+          "min_radius": 0.0,
+          "sample_num": 16,
+          "use_xyz": true,
+          "normalize_xyz": false,
+          "return_grouped_xyz": false,
+          "return_grouped_idx": true,
+          "return_unique_cnt": false
+        }
+      }
+    ],
+    "accumulate_gradient": false,
+    "dt": 0.06666666666666667,
+    "backbone": {
+      "type": "MeshGraphNetHieEmbodied",
+      "attr_dim": 5,
+      "state_dim": 6,
+      "position_dim": 3,
+      "num_frames": 2,
+      "embed_dims": 128,
+      "num_encoder_layers": 16,
+      "dropout": 0.0,
+      "eps": 1e-07,
+      "num_fcs": 3,
+      "act_cfg": {
+        "type": "SiLU",
+        "inplace": true
+      },
+      "norm_cfg": {
+        "type": "LN"
+      },
+      "pre_norm": true,
+      "norm_acc_steps": null,
+      "edge_mode": "ratio",
+      "edge_theta": true,
+      "fix_bug": true,
+      "dt": 0.06666666666666667
+    },
+    "decode_head": {
+      "type": "AccDecoder",
+      "in_channels": 128,
+      "out_channels": 11,
+      "add_residual": false,
+      "init_quant": 1.0,
+      "loss_decode": [
+        {
+          "type": "MSELoss",
+          "reduction": "sum",
+          "loss_weight": 1.0,
+          "loss_name": "loss_mse_momentum"
+        },
+        {
+          "type": "SSIMLoss",
+          "reduction": "sum",
+          "kernel_size": 5,
+          "loss_weight": 0.1,
+          "loss_name": "loss_ssim_render"
+        },
+        {
+          "type": "L2Loss",
+          "reduction": "sum",
+          "loss_weight": 0.9,
+          "loss_name": "loss_l2_render"
+        },
+        {
+          "type": "MSELoss",
+          "reduction": "sum",
+          "loss_weight": 1.0,
+          "loss_name": "loss_mse_static"
+        },
+        {
+          "type": "SpatialLoss",
+          "reduction": "sum",
+          "loss_weight": 1.0,
+          "loss_name": "loss_spatial"
+        },
+        {
+          "type": "L2Loss",
+          "reduction": "sum",
+          "loss_weight": 0.9,
+          "loss_name": "loss_l2_bounding"
+        },
+        {
+          "type": "SSIMLoss",
+          "reduction": "sum",
+          "kernel_size": 5,
+          "loss_weight": 0.1,
+          "loss_name": "loss_ssim_bounding"
+        }
+      ],
+      "accuracy": [
+        {
+          "type": "L2Accuracy",
+          "reduction": "mean",
+          "acc_name": "acc_l2_render"
+        },
+        {
+          "type": "L1Accuracy",
+          "reduction": "mean",
+          "acc_name": "acc_l1_render"
+        },
+        {
+          "type": "SSIMAccuracy",
+          "reduction": "mean",
+          "acc_name": "acc_ssim_render"
+        },
+        {
+          "type": "PSNRAccuracy",
+          "reduction": "mean",
+          "acc_name": "acc_psnr_render"
+        }
+      ],
+      "dt": 0.06666666666666667
+    },
+    "gs_scene": [
+      {
+        "name": "config_a_2cam",
+        "model_path": "/data1/userdata/tcweng/projects/tcgs/datasets/deform360/derived/t17_scene_packages/pink_cloth_episode_0/config_a_2cam/pi3/gs/point_cloud/iteration_10000/point_cloud.ply",
+        "sh_degree": 0,
+        "num_seq": 1,
+        "attr_name": "rope"
+      }
+    ],
+    "forward_last_layer": false,
+    "share_weight": true,
+    "opt_sim": true,
+    "opt_vel": true,
+    "checkpoint_rollout": 20,
+    "selfsup_loss": false,
+    "pred_vel": true,
+    "use_rotation": false,
+    "fix_bug": true,
+    "controller_cfg": {
+      "config_a_2cam": [
+        {
+          "num_cluster": 10
+        },
+        {
+          "downsample_rate": 0.5
+        }
+      ]
+    },
+    "static_loss": false,
+    "avg_loss": true,
+    "render_mov_only": true,
+    "train_cfg": {
+      "by_epoch": true,
+      "step_increase_interval": 1,
+      "step_increase_magnitude": 3,
+      "step_initial": 1,
+      "max_rollout_step": 1
+    },
+    "test_cfg": {
+      "by_epoch": true,
+      "step_increase_interval": 1,
+      "step_increase_magnitude": 3,
+      "step_initial": 3,
+      "max_rollout_step": 1000
+    }
+  },
+  "dataset_env_cfg": {
+    "data_dir": "/data1/userdata/tcweng/projects/tcgs/datasets/deform360/derived/t17_scene_packages/pink_cloth_episode_0",
+    "scene_list": [
+      "config_a_2cam"
+    ],
+    "sub_img_dir": "color",
+    "sub_video_dir": "color",
+    "cam_transform_fn": null,
+    "resolution": [
+      360,
+      640
+    ],
+    "load_imgs": false,
+    "scale_x_angle": 1.0,
+    "max_cam_num": 2,
+    "max_cam_total": 2,
+    "max_seq": 1,
+    "pad_cam": false,
+    "llffhold": 0,
+    "tracking_pcd": "track_process_data.pkl",
+    "prompt_dict": {
+      "object": [
+        "cloth"
+      ],
+      "obstacle": []
+    },
+    "bounding_box": null,
+    "use_random_background": {
+      "config_a_2cam": false
+    },
+    "const_white_bg": {
+      "config_a_2cam": false
+    },
+    "controller_cfg": {
+      "config_a_2cam": [
+        {
+          "num_cluster": 10
+        },
+        {
+          "downsample_rate": 0.5
+        }
+      ]
+    },
+    "cluster_type": "dis_split",
+    "gravity": [
+      0.0,
+      0.0,
+      -9.8
+    ],
+    "rot_est": {
+      "config_a_2cam": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    "dt": 0.03333333333333333,
+    "real_dt": {
+      "config_a_2cam": 0.06666666666666667
+    },
+    "split_list": {
+      "config_a_2cam": [
+        [
+          0,
+          155
+        ]
+      ]
+    },
+    "frame_gap": 10,
+    "cluster_cfg": {
+      "config_a_2cam": [
+        {
+          "downsample_rate": 0.02
+        },
+        {
+          "downsample_rate": 0.2
+        }
+      ]
+    },
+    "volume_scalar": {
+      "config_a_2cam": 512
+    }
+  },
+  "config_provenance": {
+    "path": "/data1/userdata/tcweng/projects/tcgs/environment/soma-stage1-20260923/cloth_lift_stage1_external_data.py",
+    "sha256": "c3da910b06287372e578486831cf523a07487a12494dde651ffe2237af9ddaff",
+    "basis": "Official cloth_lift stage1 with sample data paths relocated; scene/cluster/controller and rollout only overridden for this check."
+  },
+  "optimizer_parameter_names": [
+    "scene_attr.rope",
+    "backbone.node_encoder.layers.0.0.weight",
+    "backbone.node_encoder.layers.0.0.bias",
+    "backbone.node_encoder.layers.1.0.weight",
+    "backbone.node_encoder.layers.1.0.bias",
+    "backbone.node_encoder.layers.2.weight",
+    "backbone.node_encoder.layers.2.bias",
+    "backbone.edge_encoder.layers.0.0.weight",
+    "backbone.edge_encoder.layers.0.0.bias",
+    "backbone.edge_encoder.layers.1.0.weight",
+    "backbone.edge_encoder.layers.1.0.bias",
+    "backbone.edge_encoder.layers.2.weight",
+    "backbone.edge_encoder.layers.2.bias",
+    "backbone.encoder.layers.0.norms.0.weight",
+    "backbone.encoder.layers.0.norms.0.bias",
+    "backbone.encoder.layers.0.norms.1.weight",
+    "backbone.encoder.layers.0.norms.1.bias",
+    "backbone.encoder.layers.0.edge_weight.layers.0.0.weight",
+    "backbone.encoder.layers.0.edge_weight.layers.0.0.bias",
+    "backbone.encoder.layers.0.edge_weight.layers.1.0.weight",
+    "backbone.encoder.layers.0.edge_weight.layers.1.0.bias",
+    "backbone.encoder.layers.0.edge_weight.layers.2.weight",
+    "backbone.encoder.layers.0.edge_weight.layers.2.bias",
+    "backbone.encoder.layers.0.node_weight.layers.0.0.weight",
+    "backbone.encoder.layers.0.node_weight.layers.0.0.bias",
+    "backbone.encoder.layers.0.node_weight.layers.1.0.weight",
+    "backbone.encoder.layers.0.node_weight.layers.1.0.bias",
+    "backbone.encoder.layers.0.node_weight.layers.2.weight",
+    "backbone.encoder.layers.0.node_weight.layers.2.bias",
+    "backbone.encoder.layers.1.norms.0.weight",
+    "backbone.encoder.layers.1.norms.0.bias",
+    "backbone.encoder.layers.1.norms.1.weight",
+    "backbone.encoder.layers.1.norms.1.bias",
+    "backbone.encoder.layers.1.edge_weight.layers.0.0.weight",
+    "backbone.encoder.layers.1.edge_weight.layers.0.0.bias",
+    "backbone.encoder.layers.1.edge_weight.layers.1.0.weight",
+    "backbone.encoder.layers.1.edge_weight.layers.1.0.bias",
+    "backbone.encoder.layers.1.edge_weight.layers.2.weight",
+    "backbone.encoder.layers.1.edge_weight.layers.2.bias",
+    "backbone.encoder.layers.1.node_weight.layers.0.0.weight",
+    "backbone.encoder.layers.1.node_weight.layers.0.0.bias",
+    "backbone.encoder.layers.1.node_weight.layers.1.0.weight",
+    "backbone.encoder.layers.1.node_weight.layers.1.0.bias",
+    "backbone.encoder.layers.1.node_weight.layers.2.weight",
+    "backbone.encoder.layers.1.node_weight.layers.2.bias",
+    "backbone.encoder.layers.2.norms.0.weight",
+    "backbone.encoder.layers.2.norms.0.bias",
+    "backbone.encoder.layers.2.norms.1.weight",
+    "backbone.encoder.layers.2.norms.1.bias",
+    "backbone.encoder.layers.2.edge_weight.layers.0.0.weight",
+    "backbone.encoder.layers.2.edge_weight.layers.0.0.bias",
+    "backbone.encoder.layers.2.edge_weight.layers.1.0.weight",
+    "backbone.encoder.layers.2.edge_weight.layers.1.0.bias",
+    "backbone.encoder.layers.2.edge_weight.layers.2.weight",
+    "backbone.encoder.layers.2.edge_weight.layers.2.bias",
+    "backbone.encoder.layers.2.node_weight.layers.0.0.weight",
+    "backbone.encoder.layers.2.node_weight.layers.0.0.bias",
+    "backbone.encoder.layers.2.node_weight.layers.1.0.weight",
+    "backbone.encoder.layers.2.node_weight.layers.1.0.bias",
+    "backbone.encoder.layers.2.node_weight.layers.2.weight",
+    "backbone.encoder.layers.2.node_weight.layers.2.bias",
+    "backbone.encoder.layers.3.norms.0.weight",
+    "backbone.encoder.layers.3.norms.0.bias",
+    "backbone.encoder.layers.3.norms.1.weight",
+    "backbone.encoder.layers.3.norms.1.bias",
+    "backbone.encoder.layers.3.edge_weight.layers.0.0.weight",
+    "backbone.encoder.layers.3.edge_weight.layers.0.0.bias",
+    "backbone.encoder.layers.3.edge_weight.layers.1.0.weight",
+    "backbone.encoder.layers.3.edge_weight.layers.1.0.bias",
+    "backbone.encoder.layers.3.edge_weight.layers.2.weight",
+    "backbone.encoder.layers.3.edge_weight.layers.2.bias",
+    "backbone.encoder.layers.3.node_weight.layers.0.0.weight",
+    "backbone.encoder.layers.3.node_weight.layers.0.0.bias",
+    "backbone.encoder.layers.3.node_weight.layers.1.0.weight",
+    "backbone.encoder.layers.3.node_weight.layers.1.0.bias",
+    "backbone.encoder.layers.3.node_weight.layers.2.weight",
+    "backbone.encoder.layers.3.node_weight.layers.2.bias",
+    "backbone.encoder.layers.4.norms.0.weight",
+    "backbone.encoder.layers.4.norms.0.bias",
+    "backbone.encoder.layers.4.norms.1.weight",
+    "backbone.encoder.layers.4.norms.1.bias",
+    "backbone.encoder.layers.4.edge_weight.layers.0.0.weight",
+    "backbone.encoder.layers.4.edge_weight.layers.0.0.bias",
+    "backbone.encoder.layers.4.edge_weight.layers.1.0.weight",
+    "backbone.encoder.layers.4.edge_weight.layers.1.0.bias",
+    "backbone.encoder.layers.4.edge_weight.layers.2.weight",
+    "backbone.encoder.layers.4.edge_weight.layers.2.bias",
+    "backbone.encoder.layers.4.node_weight.layers.0.0.weight",
+    "backbone.encoder.layers.4.node_weight.layers.0.0.bias",
+    "backbone.encoder.layers.4.node_weight.layers.1.0.weight",
+    "backbone.encoder.layers.4.node_weight.layers.1.0.bias",
+    "backbone.encoder.layers.4.node_weight.layers.2.weight",
+    "backbone.encoder.layers.4.node_weight.layers.2.bias",
+    "backbone.encoder.layers.5.norms.0.weight",
+    "backbone.encoder.layers.5.norms.0.bias",
+    "backbone.encoder.layers.5.norms.1.weight",
+    "backbone.encoder.layers.5.norms.1.bias",
+    "backbone.encoder.layers.5.edge_weight.layers.0.0.weight",
+    "backbone.encoder.layers.5.edge_weight.layers.0.0.bias",
+    "backbone.encoder.layers.5.edge_weight.layers.1.0.weight",
+    "backbone.encoder.layers.5.edge_weight.layers.1.0.bias",
+    "backbone.encoder.layers.5.edge_weight.layers.2.weight",
+    "backbone.encoder.layers.5.edge_weight.layers.2.bias",
+    "backbone.encoder.layers.5.node_weight.layers.0.0.weight",
+    "backbone.encoder.layers.5.node_weight.layers.0.0.bias",
+    "backbone.encoder.layers.5.node_weight.layers.1.0.weight",
+    "backbone.encoder.layers.5.node_weight.layers.1.0.bias",
+    "backbone.encoder.layers.5.node_weight.layers.2.weight",
+    "backbone.encoder.layers.5.node_weight.layers.2.bias",
+    "backbone.encoder.layers.6.norms.0.weight",
+    "backbone.encoder.layers.6.norms.0.bias",
+    "backbone.encoder.layers.6.norms.1.weight",
+    "backbone.encoder.layers.6.norms.1.bias",
+    "backbone.encoder.layers.6.edge_weight.layers.0.0.weight",
+    "backbone.encoder.layers.6.edge_weight.layers.0.0.bias",
+    "backbone.encoder.layers.6.edge_weight.layers.1.0.weight",
+    "backbone.encoder.layers.6.edge_weight.layers.1.0.bias",
+    "backbone.encoder.layers.6.edge_weight.layers.2.weight",
+    "backbone.encoder.layers.6.edge_weight.layers.2.bias",
+    "backbone.encoder.layers.6.node_weight.layers.0.0.weight",
+    "backbone.encoder.layers.6.node_weight.layers.0.0.bias",
+    "backbone.encoder.layers.6.node_weight.layers.1.0.weight",
+    "backbone.encoder.layers.6.node_weight.layers.1.0.bias",
+    "backbone.encoder.layers.6.node_weight.layers.2.weight",
+    "backbone.encoder.layers.6.node_weight.layers.2.bias",
+    "backbone.encoder.layers.7.norms.0.weight",
+    "backbone.encoder.layers.7.norms.0.bias",
+    "backbone.encoder.layers.7.norms.1.weight",
+    "backbone.encoder.layers.7.norms.1.bias",
+    "backbone.encoder.layers.7.edge_weight.layers.0.0.weight",
+    "backbone.encoder.layers.7.edge_weight.layers.0.0.bias",
+    "backbone.encoder.layers.7.edge_weight.layers.1.0.weight",
+    "backbone.encoder.layers.7.edge_weight.layers.1.0.bias",
+    "backbone.encoder.layers.7.edge_weight.layers.2.weight",
+    "backbone.encoder.layers.7.edge_weight.layers.2.bias",
+    "backbone.encoder.layers.7.node_weight.layers.0.0.weight",
+    "backbone.encoder.layers.7.node_weight.layers.0.0.bias",
+    "backbone.encoder.layers.7.node_weight.layers.1.0.weight",
+    "backbone.encoder.layers.7.node_weight.layers.1.0.bias",
+    "backbone.encoder.layers.7.node_weight.layers.2.weight",
+    "backbone.encoder.layers.7.node_weight.layers.2.bias",
+    "backbone.encoder.layers.8.norms.0.weight",
+    "backbone.encoder.layers.8.norms.0.bias",
+    "backbone.encoder.layers.8.norms.1.weight",
+    "backbone.encoder.layers.8.norms.1.bias",
+    "backbone.encoder.layers.8.edge_weight.layers.0.0.weight",
+    "backbone.encoder.layers.8.edge_weight.layers.0.0.bias",
+    "backbone.encoder.layers.8.edge_weight.layers.1.0.weight",
+    "backbone.encoder.layers.8.edge_weight.layers.1.0.bias",
+    "backbone.encoder.layers.8.edge_weight.layers.2.weight",
+    "backbone.encoder.layers.8.edge_weight.layers.2.bias",
+    "backbone.encoder.layers.8.node_weight.layers.0.0.weight",
+    "backbone.encoder.layers.8.node_weight.layers.0.0.bias",
+    "backbone.encoder.layers.8.node_weight.layers.1.0.weight",
+    "backbone.encoder.layers.8.node_weight.layers.1.0.bias",
+    "backbone.encoder.layers.8.node_weight.layers.2.weight",
+    "backbone.encoder.layers.8.node_weight.layers.2.bias",
+    "backbone.encoder.layers.9.norms.0.weight",
+    "backbone.encoder.layers.9.norms.0.bias",
+    "backbone.encoder.layers.9.norms.1.weight",
+    "backbone.encoder.layers.9.norms.1.bias",
+    "backbone.encoder.layers.9.edge_weight.layers.0.0.weight",
+    "backbone.encoder.layers.9.edge_weight.layers.0.0.bias",
+    "backbone.encoder.layers.9.edge_weight.layers.1.0.weight",
+    "backbone.encoder.layers.9.edge_weight.layers.1.0.bias",
+    "backbone.encoder.layers.9.edge_weight.layers.2.weight",
+    "backbone.encoder.layers.9.edge_weight.layers.2.bias",
+    "backbone.encoder.layers.9.node_weight.layers.0.0.weight",
+    "backbone.encoder.layers.9.node_weight.layers.0.0.bias",
+    "backbone.encoder.layers.9.node_weight.layers.1.0.weight",
+    "backbone.encoder.layers.9.node_weight.layers.1.0.bias",
+    "backbone.encoder.layers.9.node_weight.layers.2.weight",
+    "backbone.encoder.layers.9.node_weight.layers.2.bias",
+    "backbone.encoder.layers.10.norms.0.weight",
+    "backbone.encoder.layers.10.norms.0.bias",
+    "backbone.encoder.layers.10.norms.1.weight",
+    "backbone.encoder.layers.10.norms.1.bias",
+    "backbone.encoder.layers.10.edge_weight.layers.0.0.weight",
+    "backbone.encoder.layers.10.edge_weight.layers.0.0.bias",
+    "backbone.encoder.layers.10.edge_weight.layers.1.0.weight",
+    "backbone.encoder.layers.10.edge_weight.layers.1.0.bias",
+    "backbone.encoder.layers.10.edge_weight.layers.2.weight",
+    "backbone.encoder.layers.10.edge_weight.layers.2.bias",
+    "backbone.encoder.layers.10.node_weight.layers.0.0.weight",
+    "backbone.encoder.layers.10.node_weight.layers.0.0.bias",
+    "backbone.encoder.layers.10.node_weight.layers.1.0.weight",
+    "backbone.encoder.layers.10.node_weight.layers.1.0.bias",
+    "backbone.encoder.layers.10.node_weight.layers.2.weight",
+    "backbone.encoder.layers.10.node_weight.layers.2.bias",
+    "backbone.encoder.layers.11.norms.0.weight",
+    "backbone.encoder.layers.11.norms.0.bias",
+    "backbone.encoder.layers.11.norms.1.weight",
+    "backbone.encoder.layers.11.norms.1.bias",
+    "backbone.encoder.layers.11.edge_weight.layers.0.0.weight",
+    "backbone.encoder.layers.11.edge_weight.layers.0.0.bias",
+    "backbone.encoder.layers.11.edge_weight.layers.1.0.weight",
+    "backbone.encoder.layers.11.edge_weight.layers.1.0.bias",
+    "backbone.encoder.layers.11.edge_weight.layers.2.weight",
+    "backbone.encoder.layers.11.edge_weight.layers.2.bias",
+    "backbone.encoder.layers.11.node_weight.layers.0.0.weight",
+    "backbone.encoder.layers.11.node_weight.layers.0.0.bias",
+    "backbone.encoder.layers.11.node_weight.layers.1.0.weight",
+    "backbone.encoder.layers.11.node_weight.layers.1.0.bias",
+    "backbone.encoder.layers.11.node_weight.layers.2.weight",
+    "backbone.encoder.layers.11.node_weight.layers.2.bias",
+    "backbone.encoder.layers.12.norms.0.weight",
+    "backbone.encoder.layers.12.norms.0.bias",
+    "backbone.encoder.layers.12.norms.1.weight",
+    "backbone.encoder.layers.12.norms.1.bias",
+    "backbone.encoder.layers.12.edge_weight.layers.0.0.weight",
+    "backbone.encoder.layers.12.edge_weight.layers.0.0.bias",
+    "backbone.encoder.layers.12.edge_weight.layers.1.0.weight",
+    "backbone.encoder.layers.12.edge_weight.layers.1.0.bias",
+    "backbone.encoder.layers.12.edge_weight.layers.2.weight",
+    "backbone.encoder.layers.12.edge_weight.layers.2.bias",
+    "backbone.encoder.layers.12.node_weight.layers.0.0.weight",
+    "backbone.encoder.layers.12.node_weight.layers.0.0.bias",
+    "backbone.encoder.layers.12.node_weight.layers.1.0.weight",
+    "backbone.encoder.layers.12.node_weight.layers.1.0.bias",
+    "backbone.encoder.layers.12.node_weight.layers.2.weight",
+    "backbone.encoder.layers.12.node_weight.layers.2.bias",
+    "backbone.encoder.layers.13.norms.0.weight",
+    "backbone.encoder.layers.13.norms.0.bias",
+    "backbone.encoder.layers.13.norms.1.weight",
+    "backbone.encoder.layers.13.norms.1.bias",
+    "backbone.encoder.layers.13.edge_weight.layers.0.0.weight",
+    "backbone.encoder.layers.13.edge_weight.layers.0.0.bias",
+    "backbone.encoder.layers.13.edge_weight.layers.1.0.weight",
+    "backbone.encoder.layers.13.edge_weight.layers.1.0.bias",
+    "backbone.encoder.layers.13.edge_weight.layers.2.weight",
+    "backbone.encoder.layers.13.edge_weight.layers.2.bias",
+    "backbone.encoder.layers.13.node_weight.layers.0.0.weight",
+    "backbone.encoder.layers.13.node_weight.layers.0.0.bias",
+    "backbone.encoder.layers.13.node_weight.layers.1.0.weight",
+    "backbone.encoder.layers.13.node_weight.layers.1.0.bias",
+    "backbone.encoder.layers.13.node_weight.layers.2.weight",
+    "backbone.encoder.layers.13.node_weight.layers.2.bias",
+    "backbone.encoder.layers.14.norms.0.weight",
+    "backbone.encoder.layers.14.norms.0.bias",
+    "backbone.encoder.layers.14.norms.1.weight",
+    "backbone.encoder.layers.14.norms.1.bias",
+    "backbone.encoder.layers.14.edge_weight.layers.0.0.weight",
+    "backbone.encoder.layers.14.edge_weight.layers.0.0.bias",
+    "backbone.encoder.layers.14.edge_weight.layers.1.0.weight",
+    "backbone.encoder.layers.14.edge_weight.layers.1.0.bias",
+    "backbone.encoder.layers.14.edge_weight.layers.2.weight",
+    "backbone.encoder.layers.14.edge_weight.layers.2.bias",
+    "backbone.encoder.layers.14.node_weight.layers.0.0.weight",
+    "backbone.encoder.layers.14.node_weight.layers.0.0.bias",
+    "backbone.encoder.layers.14.node_weight.layers.1.0.weight",
+    "backbone.encoder.layers.14.node_weight.layers.1.0.bias",
+    "backbone.encoder.layers.14.node_weight.layers.2.weight",
+    "backbone.encoder.layers.14.node_weight.layers.2.bias",
+    "backbone.encoder.layers.15.norms.0.weight",
+    "backbone.encoder.layers.15.norms.0.bias",
+    "backbone.encoder.layers.15.norms.1.weight",
+    "backbone.encoder.layers.15.norms.1.bias",
+    "backbone.encoder.layers.15.edge_weight.layers.0.0.weight",
+    "backbone.encoder.layers.15.edge_weight.layers.0.0.bias",
+    "backbone.encoder.layers.15.edge_weight.layers.1.0.weight",
+    "backbone.encoder.layers.15.edge_weight.layers.1.0.bias",
+    "backbone.encoder.layers.15.edge_weight.layers.2.weight",
+    "backbone.encoder.layers.15.edge_weight.layers.2.bias",
+    "backbone.encoder.layers.15.node_weight.layers.0.0.weight",
+    "backbone.encoder.layers.15.node_weight.layers.0.0.bias",
+    "backbone.encoder.layers.15.node_weight.layers.1.0.weight",
+    "backbone.encoder.layers.15.node_weight.layers.1.0.bias",
+    "backbone.encoder.layers.15.node_weight.layers.2.weight",
+    "backbone.encoder.layers.15.node_weight.layers.2.bias",
+    "backbone.encoder.emb_norm.weight",
+    "backbone.encoder.emb_norm.bias",
+    "decode_head.dynamic_proj.layers.0.0.weight",
+    "decode_head.dynamic_proj.layers.0.0.bias",
+    "decode_head.dynamic_proj.layers.1.0.weight",
+    "decode_head.dynamic_proj.layers.1.0.bias",
+    "decode_head.dynamic_proj.layers.2.weight",
+    "decode_head.dynamic_proj.layers.2.bias"
+  ],
+  "absent_runtime_attributes": [
+    "global_step"
+  ],
+  "checkpoint_sha256": "421070e708ca8920de7b661a2708ec974ec4008c7469e80f7585e17a571a7979",
+  "optimizer_steps": 0,
+  "traces": [
+    {
+      "label": "M0_first",
+      "stages": [
+        "000:fixed_input:0",
+        "001:preprocess.input:0",
+        "002:graph_base.input:0",
+        "003:graph_base.output:0",
+        "004:graph_hierarchy.input:0",
+        "005:native_spmm.diag_volume.copy_lhs.sum.input:0",
+        "006:native_spmm.diag_volume.copy_lhs.sum.output:0",
+        "007:native_spmm.attr.copy_lhs.sum.input:0",
+        "008:native_spmm.attr.copy_lhs.sum.output:0",
+        "009:native_spmm.density.copy_rhs.sum.input:0",
+        "010:native_spmm.density.copy_rhs.sum.output:0",
+        "011:native_spmm.pin_mask.copy_lhs.max.input:0",
+        "012:native_spmm.pin_mask.copy_lhs.max.output:0",
+        "013:native_spmm.external.copy_lhs.sum.input:0",
+        "014:native_spmm.external.copy_lhs.sum.output:0",
+        "015:native_spmm.prev_state.copy_rhs.sum.input:0",
+        "016:native_spmm.prev_state.copy_rhs.sum.output:0",
+        "017:native_spmm.cur_state.copy_rhs.sum.input:0",
+        "018:native_spmm.cur_state.copy_rhs.sum.output:0",
+        "019:native_spmm.template_state.copy_rhs.sum.input:0",
+        "020:native_spmm.template_state.copy_rhs.sum.output:0",
+        "021:native_spmm.orig_template_state.copy_rhs.sum.input:0",
+        "022:native_spmm.orig_template_state.copy_rhs.sum.output:0",
+        "023:graph_hierarchy.output:0",
+        "024:graph_hierarchy.input:1",
+        "025:native_spmm.diag_volume.copy_lhs.sum.input:1",
+        "026:native_spmm.diag_volume.copy_lhs.sum.output:1",
+        "027:native_spmm.attr.copy_lhs.sum.input:1",
+        "028:native_spmm.attr.copy_lhs.sum.output:1",
+        "029:native_spmm.density.copy_rhs.sum.input:1",
+        "030:native_spmm.density.copy_rhs.sum.output:1",
+        "031:native_spmm.pin_mask.copy_lhs.max.input:1",
+        "032:native_spmm.pin_mask.copy_lhs.max.output:1",
+        "033:native_spmm.external.copy_lhs.sum.input:1",
+        "034:native_spmm.external.copy_lhs.sum.output:1",
+        "035:native_spmm.prev_state.copy_rhs.sum.input:1",
+        "036:native_spmm.prev_state.copy_rhs.sum.output:1",
+        "037:native_spmm.cur_state.copy_rhs.sum.input:1",
+        "038:native_spmm.cur_state.copy_rhs.sum.output:1",
+        "039:native_spmm.template_state.copy_rhs.sum.input:1",
+        "040:native_spmm.template_state.copy_rhs.sum.output:1",
+        "041:native_spmm.orig_template_state.copy_rhs.sum.input:1",
+        "042:native_spmm.orig_template_state.copy_rhs.sum.output:1",
+        "043:graph_hierarchy.output:1",
+        "044:graph_hierarchy.input:2",
+        "045:native_spmm.diag_volume.copy_lhs.sum.input:2",
+        "046:native_spmm.diag_volume.copy_lhs.sum.output:2",
+        "047:native_spmm.attr.copy_lhs.sum.input:2",
+        "048:native_spmm.attr.copy_lhs.sum.output:2",
+        "049:native_spmm.density.copy_rhs.sum.input:2",
+        "050:native_spmm.density.copy_rhs.sum.output:2",
+        "051:native_spmm.pin_mask.copy_lhs.max.input:2",
+        "052:native_spmm.pin_mask.copy_lhs.max.output:2",
+        "053:native_spmm.external.copy_lhs.sum.input:2",
+        "054:native_spmm.external.copy_lhs.sum.output:2",
+        "055:native_spmm.prev_state.copy_rhs.sum.input:2",
+        "056:native_spmm.prev_state.copy_rhs.sum.output:2",
+        "057:native_spmm.cur_state.copy_rhs.sum.input:2",
+        "058:native_spmm.cur_state.copy_rhs.sum.output:2",
+        "059:native_spmm.template_state.copy_rhs.sum.input:2",
+        "060:native_spmm.template_state.copy_rhs.sum.output:2",
+        "061:native_spmm.orig_template_state.copy_rhs.sum.input:2",
+        "062:native_spmm.orig_template_state.copy_rhs.sum.output:2",
+        "063:graph_hierarchy.output:2",
+        "064:native_spmm.anchor_prev_state.copy_lhs.sum.input:0",
+        "065:native_spmm.anchor_prev_state.copy_lhs.sum.output:0",
+        "066:native_spmm.anchor_cur_state.copy_lhs.sum.input:0",
+        "067:native_spmm.anchor_cur_state.copy_lhs.sum.output:0",
+        "068:native_spmm.anchor_template_state.copy_lhs.sum.input:0",
+        "069:native_spmm.anchor_template_state.copy_lhs.sum.output:0",
+        "070:native_spmm.anchor_orig_template_state.copy_lhs.sum.input:0",
+        "071:native_spmm.anchor_orig_template_state.copy_lhs.sum.output:0",
+        "072:native_spmm.anchor_prev_state.copy_lhs.sum.input:1",
+        "073:native_spmm.anchor_prev_state.copy_lhs.sum.output:1",
+        "074:native_spmm.anchor_cur_state.copy_lhs.sum.input:1",
+        "075:native_spmm.anchor_cur_state.copy_lhs.sum.output:1",
+        "076:native_spmm.anchor_template_state.copy_lhs.sum.input:1",
+        "077:native_spmm.anchor_template_state.copy_lhs.sum.output:1",
+        "078:native_spmm.anchor_orig_template_state.copy_lhs.sum.input:1",
+        "079:native_spmm.anchor_orig_template_state.copy_lhs.sum.output:1",
+        "080:native_spmm.anchor_prev_state.copy_lhs.sum.input:2",
+        "081:native_spmm.anchor_prev_state.copy_lhs.sum.output:2",
+        "082:native_spmm.anchor_cur_state.copy_lhs.sum.input:2",
+        "083:native_spmm.anchor_cur_state.copy_lhs.sum.output:2",
+        "084:native_spmm.anchor_template_state.copy_lhs.sum.input:2",
+        "085:native_spmm.anchor_template_state.copy_lhs.sum.output:2",
+        "086:native_spmm.anchor_orig_template_state.copy_lhs.sum.input:2",
+        "087:native_spmm.anchor_orig_template_state.copy_lhs.sum.output:2",
+        "088:preprocess.output:0",
+        "089:simulator.input:0",
+        "090:backbone.input:0",
+        "091:encoder.input:0",
+        "092:encoder.output:0",
+        "093:backbone.output:0",
+        "094:decoder.input:0",
+        "095:dynamic_proj.input:0",
+        "096:dynamic_proj.output:0",
+        "097:decoder.output:0",
+        "098:backbone.input:1",
+        "099:encoder.input:1",
+        "100:encoder.output:1",
+        "101:backbone.output:1",
+        "102:decoder.input:1",
+        "103:dynamic_proj.input:1",
+        "104:dynamic_proj.output:1",
+        "105:decoder.output:1",
+        "106:render.input:0",
+        "107:render.output:0",
+        "108:render.input:1",
+        "109:render.output:1",
+        "110:simulator.output:0",
+        "111:image_loss.input:0",
+        "112:image_loss.output:0",
+        "113:final:0"
+      ],
+      "rng_before": {
+        "python": "eca6278d0450fe0c3bfe2b66e9c8fe080e3f4886b6c2da09d7186989600d970c",
+        "numpy": "17bc8525907b3a284ce2bf8bb38c12525e572d8acd55f1d9c43c8ab08db10b2c",
+        "torch_cpu": "a051e9d112aa2346b36a81cd5ead4a2c4312a0f35fc7fdd9031f543588294b3f",
+        "torch_cuda": "966a28d35016032ee27b1860df4a9b16b6c007da76b2e4f94e7526e31c48959b"
+      },
+      "rng_after": {
+        "python": "eca6278d0450fe0c3bfe2b66e9c8fe080e3f4886b6c2da09d7186989600d970c",
+        "numpy": "17bc8525907b3a284ce2bf8bb38c12525e572d8acd55f1d9c43c8ab08db10b2c",
+        "torch_cpu": "a051e9d112aa2346b36a81cd5ead4a2c4312a0f35fc7fdd9031f543588294b3f",
+        "torch_cuda": "966a28d35016032ee27b1860df4a9b16b6c007da76b2e4f94e7526e31c48959b"
+      },
+      "rng_consumed": false,
+      "trace_path": "/data1/userdata/tcweng/projects/tcgs/outputs/deform360/t24_5-fine-20260926/A_M0_first_trace.pt",
+      "trace_bytes": 178276964,
+      "sha256": "b6097e67c5c9e3168341b008305d264c6549aabbe845810f3358e6a8c5c5f8cc",
+      "op_metadata": [
+        {
+          "site": "native_spmm.diag_volume.copy_lhs.sum",
+          "context": {
+            "message": "copy_u",
+            "reduce": "sum",
+            "output_field": "diag_volume"
+          },
+          "formats": {
+            "created": [
+              "coo"
+            ],
+            "not created": [
+              "csr",
+              "csc"
+            ]
+          },
+          "num_nodes": [
+            12891,
+            650
+          ],
+          "native_call": "dgl._sparse_ops._gspmm -> _CAPI_DGLKernelSpMM"
+        },
+        {
+          "site": "native_spmm.attr.copy_lhs.sum",
+          "context": {
+            "message": "copy_u",
+            "reduce": "mean",
+            "output_field": "attr"
+          },
+          "formats": {
+            "created": [
+              "coo"
+            ],
+            "not created": [
+              "csr",
+              "csc"
+            ]
+          },
+          "num_nodes": [
+            12891,
+            650
+          ],
+          "native_call": "dgl._sparse_ops._gspmm -> _CAPI_DGLKernelSpMM"
+        },
+        {
+          "site": "native_spmm.density.copy_rhs.sum",
+          "context": {
+            "message": "copy_e",
+            "reduce": "sum",
+            "output_field": "density"
+          },
+          "formats": {
+            "created": [
+              "coo"
+            ],
+            "not created": [
+              "csr",
+              "csc"
+            ]
+          },
+          "num_nodes": [
+            12891,
+            650
+          ],
+          "native_call": "dgl._sparse_ops._gspmm -> _CAPI_DGLKernelSpMM"
+        },
+        {
+          "site": "native_spmm.pin_mask.copy_lhs.max",
+          "context": {
+            "message": "copy_u",
+            "reduce": "max",
+            "output_field": "pin_mask"
+          },
+          "formats": {
+            "created": [
+              "coo"
+            ],
+            "not created": [
+              "csr",
+              "csc"
+            ]
+          },
+          "num_nodes": [
+            12891,
+            650
+          ],
+          "native_call": "dgl._sparse_ops._gspmm -> _CAPI_DGLKernelSpMM"
+        },
+        {
+          "site": "native_spmm.external.copy_lhs.sum",
+          "context": {
+            "message": "copy_u",
+            "reduce": "mean",
+            "output_field": "external"
+          },
+          "formats": {
+            "created": [
+              "coo"
+            ],
+            "not created": [
+              "csr",
+              "csc"
+            ]
+          },
+          "num_nodes": [
+            12891,
+            650
+          ],
+          "native_call": "dgl._sparse_ops._gspmm -> _CAPI_DGLKernelSpMM"
+        },
+        {
+          "site": "native_spmm.prev_state.copy_rhs.sum",
+          "context": {
+            "message": "copy_e",
+            "reduce": "sum",
+            "output_field": "prev_state"
+          },
+          "formats": {
+            "created": [
+              "coo"
+            ],
+            "not created": [
+              "csr",
+              "csc"
+            ]
+          },
+          "num_nodes": [
+            12891,
+            650
+          ],
+          "native_call": "dgl._sparse_ops._gspmm -> _CAPI_DGLKernelSpMM"
+        },
+        {
+          "site": "native_spmm.cur_state.copy_rhs.sum",
+          "context": {
+            "message": "copy_e",
+            "reduce": "sum",
+            "output_field": "cur_state"
+          },
+          "formats": {
+            "created": [
+              "coo"
+            ],
+            "not created": [
+              "csr",
+              "csc"
+            ]
+          },
+          "num_nodes": [
+            12891,
+            650
+          ],
+          "native_call": "dgl._sparse_ops._gspmm -> _CAPI_DGLKernelSpMM"
+        },
+        {
+          "site": "native_spmm.template_state.copy_rhs.sum",
+          "context": {
+            "message": "copy_e",
+            "reduce": "sum",
+            "output_field": "template_state"
+          },
+          "formats": {
+            "created": [
+              "coo"
+            ],
+            "not created": [
+              "csr",
+              "csc"
+            ]
+          },
+          "num_nodes": [
+            12891,
+            650
+          ],
+          "native_call": "dgl._sparse_ops._gspmm -> _CAPI_DGLKernelSpMM"
+        },
+        {
+          "site": "native_spmm.orig_template_state.copy_rhs.sum",
+          "context": {
+            "message": "copy_e",
+            "reduce": "sum",
+            "output_field": "orig_template_state"
+          },
+          "formats": {
+            "created": [
+              "coo"
+            ],
+            "not created": [
+              "csr",
+              "csc"
+            ]
+          },
+          "num_nodes": [
+            12891,
+            650
+          ],
+          "native_call": "dgl._sparse_ops._gspmm -> _CAPI_DGLKernelSpMM"
+        },
+        {
+          "site": "native_spmm.diag_volume.copy_lhs.sum",
+          "context": {
+            "message": "copy_u",
+            "reduce": "sum",
+            "output_field": "diag_volume"
+          },
+          "formats": {
+            "created": [
+              "coo"
+            ],
+            "not created": [
+              "csr",
+              "csc"
+            ]
+          },
+          "num_nodes": [
+            650,
+            9
+          ],
+          "native_call": "dgl._sparse_ops._gspmm -> _CAPI_DGLKernelSpMM"
+        },
+        {
+          "site": "native_spmm.attr.copy_lhs.sum",
+          "context": {
+            "message": "copy_u",
+            "reduce": "mean",
+            "output_field": "attr"
+          },
+          "formats": {
+            "created": [
+              "coo"
+            ],
+            "not created": [
+              "csr",
+              "csc"
+            ]
+          },
+          "num_nodes": [
+            650,
+            9
+          ],
+          "native_call": "dgl._sparse_ops._gspmm -> _CAPI_DGLKernelSpMM"
+        },
+        {
+          "site": "native_spmm.density.copy_rhs.sum",
+          "context": {
+            "message": "copy_e",
+            "reduce": "sum",
+            "output_field": "density"
+          },
+          "formats": {
+            "created": [
+              "coo"
+            ],
+            "not created": [
+              "csr",
+              "csc"
+            ]
+          },
+          "num_nodes": [
+            650,
+            9
+          ],
+          "native_call": "dgl._sparse_ops._gspmm -> _CAPI_DGLKernelSpMM"
+        },
+        {
+          "site": "native_spmm.pin_mask.copy_lhs.max",
+          "context": {
+            "message": "copy_u",
+            "reduce": "max",
+            "output_field": "pin_mask"
+          },
+          "formats": {
+            "created": [
+              "coo"
+            ],
+            "not created": [
+              "csr",
+              "csc"
+            ]
+          },
+          "num_nodes": [
+            650,
+            9
+          ],
+          "native_call": "dgl._sparse_ops._gspmm -> _CAPI_DGLKernelSpMM"
+        },
+        {
+          "site": "native_spmm.external.copy_lhs.sum",
+          "context": {
+            "message": "copy_u",
+            "reduce": "mean",
+            "output_field": "external"
+          },
+          "formats": {
+            "created": [
+              "coo"
+            ],
+            "not created": [
+              "csr",
+              "csc"
+            ]
+          },
+          "num_nodes": [
+            650,
+            9
+          ],
+          "native_call": "dgl._sparse_ops._gspmm -> _CAPI_DGLKernelSpMM"
+        },
+        {
+          "site": "native_spmm.prev_state.copy_rhs.sum",
+          "context": {
+            "message": "copy_e",
+            "reduce": "sum",
+            "output_field": "prev_state"
+          },
+          "formats": {
+            "created": [
+              "coo"
+            ],
+            "not created": [
+              "csr",
+              "csc"
+            ]
+          },
+          "num_nodes": [
+            650,
+            9
+          ],
+          "native_call": "dgl._sparse_ops._gspmm -> _CAPI_DGLKernelSpMM"
+        },
+        {
+          "site": "native_spmm.cur_state.copy_rhs.sum",
+          "context": {
+            "message": "copy_e",
+            "reduce": "sum",
+            "output_field": "cur_state"
+          },
+          "formats": {
+            "created": [
+              "coo"
+            ],
+            "not created": [
+              "csr",
+              "csc"
+            ]
+          },
+          "num_nodes": [
+            650,
+            9
+          ],
+          "native_call": "dgl._sparse_ops._gspmm -> _CAPI_DGLKernelSpMM"
+        },
+        {
+          "site": "native_spmm.template_state.copy_rhs.sum",
+          "context": {
+            "message": "copy_e",
+            "reduce": "sum",
+            "output_field": "template_state"
+          },
+          "formats": {
+            "created": [
+              "coo"
+            ],
+            "not created": [
+              "csr",
+              "csc"
+            ]
+          },
+          "num_nodes": [
+            650,
+            9
+          ],
+          "native_call": "dgl._sparse_ops._gspmm -> _CAPI_DGLKernelSpMM"
+        },
+        {
+          "site": "native_spmm.orig_template_state.copy_rhs.sum",
+          "context": {
+            "message": "copy_e",
+            "reduce": "sum",
+            "output_field": "orig_template_state"
+          },
+          "formats": {
+            "created": [
+              "coo"
+            ],
+            "not created": [
+              "csr",
+              "csc"
+            ]
+          },
+          "num_nodes": [
+            650,
+            9
+          ],
+          "native_call": "dgl._sparse_ops._gspmm -> _CAPI_DGLKernelSpMM"
+        },
+        {
+          "site": "native_spmm.diag_volume.copy_lhs.sum",
+          "context": {
+            "message": "copy_u",
+            "reduce": "sum",
+            "output_field": "diag_volume"
+          },
+          "formats": {
+            "created": [
+              "coo"
+            ],
+            "not created": [
+              "csr",
+              "csc"
+            ]
+          },
+          "num_nodes": [
+            9,
+            2
+          ],
+          "native_call": "dgl._sparse_ops._gspmm -> _CAPI_DGLKernelSpMM"
+        },
+        {
+          "site": "native_spmm.attr.copy_lhs.sum",
+          "context": {
+            "message": "copy_u",
+            "reduce": "mean",
+            "output_field": "attr"
+          },
+          "formats": {
+            "created": [
+              "coo"
+            ],
+            "not created": [
+              "csr",
+              "csc"
+            ]
+          },
+          "num_nodes": [
+            9,
+            2
+          ],
+          "native_call": "dgl._sparse_ops._gspmm -> _CAPI_DGLKernelSpMM"
+        },
+        {
+          "site": "native_spmm.density.copy_rhs.sum",
+          "context": {
+            "message": "copy_e",
+            "reduce": "sum",
+            "output_field": "density"
+          },
+          "formats": {
+            "created": [
+              "coo"
+            ],
+            "not created": [
+              "csr",
+              "csc"
+            ]
+          },
+          "num_nodes": [
+            9,
+            2
+          ],
+          "native_call": "dgl._sparse_ops._gspmm -> _CAPI_DGLKernelSpMM"
+        },
+        {
+          "site": "native_spmm.pin_mask.copy_lhs.max",
+          "context": {
+            "message": "copy_u",
+            "reduce": "max",
+            "output_field": "pin_mask"
+          },
+          "formats": {
+            "created": [
+              "coo"
+            ],
+            "not created": [
+              "csr",
+              "csc"
+            ]
+          },
+          "num_nodes": [
+            9,
+            2
+          ],
+          "native_call": "dgl._sparse_ops._gspmm -> _CAPI_DGLKernelSpMM"
+        },
+        {
+          "site": "native_spmm.external.copy_lhs.sum",
+          "context": {
+            "message": "copy_u",
+            "reduce": "mean",
+            "output_field": "external"
+          },
+          "formats": {
+            "created": [
+              "coo"
+            ],
+            "not created": [
+              "csr",
+              "csc"
+            ]
+          },
+          "num_nodes": [
+            9,
+            2
+          ],
+          "native_call": "dgl._sparse_ops._gspmm -> _CAPI_DGLKernelSpMM"
+        },
+        {
+          "site": "native_spmm.prev_state.copy_rhs.sum",
+          "context": {
+            "message": "copy_e",
+            "reduce": "sum",
+            "output_field": "prev_state"
+          },
+          "formats": {
+            "created": [
+              "coo"
+            ],
+            "not created": [
+              "csr",
+              "csc"
+            ]
+          },
+          "num_nodes": [
+            9,
+            2
+          ],
+          "native_call": "dgl._sparse_ops._gspmm -> _CAPI_DGLKernelSpMM"
+        },
+        {
+          "site": "native_spmm.cur_state.copy_rhs.sum",
+          "context": {
+            "message": "copy_e",
+            "reduce": "sum",
+            "output_field": "cur_state"
+          },
+          "formats": {
+            "created": [
+              "coo"
+            ],
+            "not created": [
+              "csr",
+              "csc"
+            ]
+          },
+          "num_nodes": [
+            9,
+            2
+          ],
+          "native_call": "dgl._sparse_ops._gspmm -> _CAPI_DGLKernelSpMM"
+        },
+        {
+          "site": "native_spmm.template_state.copy_rhs.sum",
+          "context": {
+            "message": "copy_e",
+            "reduce": "sum",
+            "output_field": "template_state"
+          },
+          "formats": {
+            "created": [
+              "coo"
+            ],
+            "not created": [
+              "csr",
+              "csc"
+            ]
+          },
+          "num_nodes": [
+            9,
+            2
+          ],
+          "native_call": "dgl._sparse_ops._gspmm -> _CAPI_DGLKernelSpMM"
+        },
+        {
+          "site": "native_spmm.orig_template_state.copy_rhs.sum",
+          "context": {
+            "message": "copy_e",
+            "reduce": "sum",
+            "output_field": "orig_template_state"
+          },
+          "formats": {
+            "created": [
+              "coo"
+            ],
+            "not created": [
+              "csr",
+              "csc"
+            ]
+          },
+          "num_nodes": [
+            9,
+            2
+          ],
+          "native_call": "dgl._sparse_ops._gspmm -> _CAPI_DGLKernelSpMM"
+        },
+        {
+          "site": "native_spmm.anchor_prev_state.copy_lhs.sum",
+          "context": {
+            "message": "copy_u",
+            "reduce": "mean",
+            "output_field": "anchor_prev_state"
+          },
+          "formats": {
+            "created": [
+              "coo"
+            ],
+            "not created": [
+              "csr",
+              "csc"
+            ]
+          },
+          "num_nodes": [
+            650,
+            12891
+          ],
+          "native_call": "dgl._sparse_ops._gspmm -> _CAPI_DGLKernelSpMM"
+        },
+        {
+          "site": "native_spmm.anchor_cur_state.copy_lhs.sum",
+          "context": {
+            "message": "copy_u",
+            "reduce": "mean",
+            "output_field": "anchor_cur_state"
+          },
+          "formats": {
+            "created": [
+              "coo"
+            ],
+            "not created": [
+              "csr",
+              "csc"
+            ]
+          },
+          "num_nodes": [
+            650,
+            12891
+          ],
+          "native_call": "dgl._sparse_ops._gspmm -> _CAPI_DGLKernelSpMM"
+        },
+        {
+          "site": "native_spmm.anchor_template_state.copy_lhs.sum",
+          "context": {
+            "message": "copy_u",
+            "reduce": "mean",
+            "output_field": "anchor_template_state"
+          },
+          "formats": {
+            "created": [
+              "coo"
+            ],
+            "not created": [
+              "csr",
+              "csc"
+            ]
+          },
+          "num_nodes": [
+            650,
+            12891
+          ],
+          "native_call": "dgl._sparse_ops._gspmm -> _CAPI_DGLKernelSpMM"
+        },
+        {
+          "site": "native_spmm.anchor_orig_template_state.copy_lhs.sum",
+          "context": {
+            "message": "copy_u",
+            "reduce": "mean",
+            "output_field": "anchor_orig_template_state"
+          },
+          "formats": {
+            "created": [
+              "coo"
+            ],
+            "not created": [
+              "csr",
+              "csc"
+            ]
+          },
+          "num_nodes": [
+            650,
+            12891
+          ],
+          "native_call": "dgl._sparse_ops._gspmm -> _CAPI_DGLKernelSpMM"
+        },
+        {
+          "site": "native_spmm.anchor_prev_state.copy_lhs.sum",
+          "context": {
+            "message": "copy_u",
+            "reduce": "mean",
+            "output_field": "anchor_prev_state"
+          },
+          "formats": {
+            "created": [
+              "coo"
+            ],
+            "not created": [
+              "csr",
+              "csc"
+            ]
+          },
+          "num_nodes": [
+            9,
+            650
+          ],
+          "native_call": "dgl._sparse_ops._gspmm -> _CAPI_DGLKernelSpMM"
+        },
+        {
+          "site": "native_spmm.anchor_cur_state.copy_lhs.sum",
+          "context": {
+            "message": "copy_u",
+            "reduce": "mean",
+            "output_field": "anchor_cur_state"
+          },
+          "formats": {
+            "created": [
+              "coo"
+            ],
+            "not created": [
+              "csr",
+              "csc"
+            ]
+          },
+          "num_nodes": [
+            9,
+            650
+          ],
+          "native_call": "dgl._sparse_ops._gspmm -> _CAPI_DGLKernelSpMM"
+        },
+        {
+          "site": "native_spmm.anchor_template_state.copy_lhs.sum",
+          "context": {
+            "message": "copy_u",
+            "reduce": "mean",
+            "output_field": "anchor_template_state"
+          },
+          "formats": {
+            "created": [
+              "coo"
+            ],
+            "not created": [
+              "csr",
+              "csc"
+            ]
+          },
+          "num_nodes": [
+            9,
+            650
+          ],
+          "native_call": "dgl._sparse_ops._gspmm -> _CAPI_DGLKernelSpMM"
+        },
+        {
+          "site": "native_spmm.anchor_orig_template_state.copy_lhs.sum",
+          "context": {
+            "message": "copy_u",
+            "reduce": "mean",
+            "output_field": "anchor_orig_template_state"
+          },
+          "formats": {
+            "created": [
+              "coo"
+            ],
+            "not created": [
+              "csr",
+              "csc"
+            ]
+          },
+          "num_nodes": [
+            9,
+            650
+          ],
+          "native_call": "dgl._sparse_ops._gspmm -> _CAPI_DGLKernelSpMM"
+        },
+        {
+          "site": "native_spmm.anchor_prev_state.copy_lhs.sum",
+          "context": {
+            "message": "copy_u",
+            "reduce": "mean",
+            "output_field": "anchor_prev_state"
+          },
+          "formats": {
+            "created": [
+              "coo"
+            ],
+            "not created": [
+              "csr",
+              "csc"
+            ]
+          },
+          "num_nodes": [
+            2,
+            9
+          ],
+          "native_call": "dgl._sparse_ops._gspmm -> _CAPI_DGLKernelSpMM"
+        },
+        {
+          "site": "native_spmm.anchor_cur_state.copy_lhs.sum",
+          "context": {
+            "message": "copy_u",
+            "reduce": "mean",
+            "output_field": "anchor_cur_state"
+          },
+          "formats": {
+            "created": [
+              "coo"
+            ],
+            "not created": [
+              "csr",
+              "csc"
+            ]
+          },
+          "num_nodes": [
+            2,
+            9
+          ],
+          "native_call": "dgl._sparse_ops._gspmm -> _CAPI_DGLKernelSpMM"
+        },
+        {
+          "site": "native_spmm.anchor_template_state.copy_lhs.sum",
+          "context": {
+            "message": "copy_u",
+            "reduce": "mean",
+            "output_field": "anchor_template_state"
+          },
+          "formats": {
+            "created": [
+              "coo"
+            ],
+            "not created": [
+              "csr",
+              "csc"
+            ]
+          },
+          "num_nodes": [
+            2,
+            9
+          ],
+          "native_call": "dgl._sparse_ops._gspmm -> _CAPI_DGLKernelSpMM"
+        },
+        {
+          "site": "native_spmm.anchor_orig_template_state.copy_lhs.sum",
+          "context": {
+            "message": "copy_u",
+            "reduce": "mean",
+            "output_field": "anchor_orig_template_state"
+          },
+          "formats": {
+            "created": [
+              "coo"
+            ],
+            "not created": [
+              "csr",
+              "csc"
+            ]
+          },
+          "num_nodes": [
+            2,
+            9
+          ],
+          "native_call": "dgl._sparse_ops._gspmm -> _CAPI_DGLKernelSpMM"
+        }
+      ]
+    },
+    {
+      "label": "M0_repeat",
+      "stages": [
+        "000:fixed_input:0",
+        "001:preprocess.input:0",
+        "002:graph_base.input:0",
+        "003:graph_base.output:0",
+        "004:graph_hierarchy.input:0",
+        "005:native_spmm.diag_volume.copy_lhs.sum.input:0",
+        "006:native_spmm.diag_volume.copy_lhs.sum.output:0",
+        "007:native_spmm.attr.copy_lhs.sum.input:0",
+        "008:native_spmm.attr.copy_lhs.sum.output:0",
+        "009:native_spmm.density.copy_rhs.sum.input:0",
+        "010:native_spmm.density.copy_rhs.sum.output:0",
+        "011:native_spmm.pin_mask.copy_lhs.max.input:0",
+        "012:native_spmm.pin_mask.copy_lhs.max.output:0",
+        "013:native_spmm.external.copy_lhs.sum.input:0",
+        "014:native_spmm.external.copy_lhs.sum.output:0",
+        "015:native_spmm.prev_state.copy_rhs.sum.input:0",
+        "016:native_spmm.prev_state.copy_rhs.sum.output:0",
+        "017:native_spmm.cur_state.copy_rhs.sum.input:0",
+        "018:native_spmm.cur_state.copy_rhs.sum.output:0",
+        "019:native_spmm.template_state.copy_rhs.sum.input:0",
+        "020:native_spmm.template_state.copy_rhs.sum.output:0",
+        "021:native_spmm.orig_template_state.copy_rhs.sum.input:0",
+        "022:native_spmm.orig_template_state.copy_rhs.sum.output:0",
+        "023:graph_hierarchy.output:0",
+        "024:graph_hierarchy.input:1",
+        "025:native_spmm.diag_volume.copy_lhs.sum.input:1",
+        "026:native_spmm.diag_volume.copy_lhs.sum.output:1",
+        "027:native_spmm.attr.copy_lhs.sum.input:1",
+        "028:native_spmm.attr.copy_lhs.sum.output:1",
+        "029:native_spmm.density.copy_rhs.sum.input:1",
+        "030:native_spmm.density.copy_rhs.sum.output:1",
+        "031:native_spmm.pin_mask.copy_lhs.max.input:1",
+        "032:native_spmm.pin_mask.copy_lhs.max.output:1",
+        "033:native_spmm.external.copy_lhs.sum.input:1",
+        "034:native_spmm.external.copy_lhs.sum.output:1",
+        "035:native_spmm.prev_state.copy_rhs.sum.input:1",
+        "036:native_spmm.prev_state.copy_rhs.sum.output:1",
+        "037:native_spmm.cur_state.copy_rhs.sum.input:1",
+        "038:native_spmm.cur_state.copy_rhs.sum.output:1",
+        "039:native_spmm.template_state.copy_rhs.sum.input:1",
+        "040:native_spmm.template_state.copy_rhs.sum.output:1",
+        "041:native_spmm.orig_template_state.copy_rhs.sum.input:1",
+        "042:native_spmm.orig_template_state.copy_rhs.sum.output:1",
+        "043:graph_hierarchy.output:1",
+        "044:graph_hierarchy.input:2",
+        "045:native_spmm.diag_volume.copy_lhs.sum.input:2",
+        "046:native_spmm.diag_volume.copy_lhs.sum.output:2",
+        "047:native_spmm.attr.copy_lhs.sum.input:2",
+        "048:native_spmm.attr.copy_lhs.sum.output:2",
+        "049:native_spmm.density.copy_rhs.sum.input:2",
+        "050:native_spmm.density.copy_rhs.sum.output:2",
+        "051:native_spmm.pin_mask.copy_lhs.max.input:2",
+        "052:native_spmm.pin_mask.copy_lhs.max.output:2",
+        "053:native_spmm.external.copy_lhs.sum.input:2",
+        "054:native_spmm.external.copy_lhs.sum.output:2",
+        "055:native_spmm.prev_state.copy_rhs.sum.input:2",
+        "056:native_spmm.prev_state.copy_rhs.sum.output:2",
+        "057:native_spmm.cur_state.copy_rhs.sum.input:2",
+        "058:native_spmm.cur_state.copy_rhs.sum.output:2",
+        "059:native_spmm.template_state.copy_rhs.sum.input:2",
+        "060:native_spmm.template_state.copy_rhs.sum.output:2",
+        "061:native_spmm.orig_template_state.copy_rhs.sum.input:2",
+        "062:native_spmm.orig_template_state.copy_rhs.sum.output:2",
+        "063:graph_hierarchy.output:2",
+        "064:native_spmm.anchor_prev_state.copy_lhs.sum.input:0",
+        "065:native_spmm.anchor_prev_state.copy_lhs.sum.output:0",
+        "066:native_spmm.anchor_cur_state.copy_lhs.sum.input:0",
+        "067:native_spmm.anchor_cur_state.copy_lhs.sum.output:0",
+        "068:native_spmm.anchor_template_state.copy_lhs.sum.input:0",
+        "069:native_spmm.anchor_template_state.copy_lhs.sum.output:0",
+        "070:native_spmm.anchor_orig_template_state.copy_lhs.sum.input:0",
+        "071:native_spmm.anchor_orig_template_state.copy_lhs.sum.output:0",
+        "072:native_spmm.anchor_prev_state.copy_lhs.sum.input:1",
+        "073:native_spmm.anchor_prev_state.copy_lhs.sum.output:1",
+        "074:native_spmm.anchor_cur_state.copy_lhs.sum.input:1",
+        "075:native_spmm.anchor_cur_state.copy_lhs.sum.output:1",
+        "076:native_spmm.anchor_template_state.copy_lhs.sum.input:1",
+        "077:native_spmm.anchor_template_state.copy_lhs.sum.output:1",
+        "078:native_spmm.anchor_orig_template_state.copy_lhs.sum.input:1",
+        "079:native_spmm.anchor_orig_template_state.copy_lhs.sum.output:1",
+        "080:native_spmm.anchor_prev_state.copy_lhs.sum.input:2",
+        "081:native_spmm.anchor_prev_state.copy_lhs.sum.output:2",
+        "082:native_spmm.anchor_cur_state.copy_lhs.sum.input:2",
+        "083:native_spmm.anchor_cur_state.copy_lhs.sum.output:2",
+        "084:native_spmm.anchor_template_state.copy_lhs.sum.input:2",
+        "085:native_spmm.anchor_template_state.copy_lhs.sum.output:2",
+        "086:native_spmm.anchor_orig_template_state.copy_lhs.sum.input:2",
+        "087:native_spmm.anchor_orig_template_state.copy_lhs.sum.output:2",
+        "088:preprocess.output:0",
+        "089:simulator.input:0",
+        "090:backbone.input:0",
+        "091:encoder.input:0",
+        "092:encoder.output:0",
+        "093:backbone.output:0",
+        "094:decoder.input:0",
+        "095:dynamic_proj.input:0",
+        "096:dynamic_proj.output:0",
+        "097:decoder.output:0",
+        "098:backbone.input:1",
+        "099:encoder.input:1",
+        "100:encoder.output:1",
+        "101:backbone.output:1",
+        "102:decoder.input:1",
+        "103:dynamic_proj.input:1",
+        "104:dynamic_proj.output:1",
+        "105:decoder.output:1",
+        "106:render.input:0",
+        "107:render.output:0",
+        "108:render.input:1",
+        "109:render.output:1",
+        "110:simulator.output:0",
+        "111:image_loss.input:0",
+        "112:image_loss.output:0",
+        "113:final:0"
+      ],
+      "rng_before": {
+        "python": "eca6278d0450fe0c3bfe2b66e9c8fe080e3f4886b6c2da09d7186989600d970c",
+        "numpy": "17bc8525907b3a284ce2bf8bb38c12525e572d8acd55f1d9c43c8ab08db10b2c",
+        "torch_cpu": "a051e9d112aa2346b36a81cd5ead4a2c4312a0f35fc7fdd9031f543588294b3f",
+        "torch_cuda": "966a28d35016032ee27b1860df4a9b16b6c007da76b2e4f94e7526e31c48959b"
+      },
+      "rng_after": {
+        "python": "eca6278d0450fe0c3bfe2b66e9c8fe080e3f4886b6c2da09d7186989600d970c",
+        "numpy": "17bc8525907b3a284ce2bf8bb38c12525e572d8acd55f1d9c43c8ab08db10b2c",
+        "torch_cpu": "a051e9d112aa2346b36a81cd5ead4a2c4312a0f35fc7fdd9031f543588294b3f",
+        "torch_cuda": "966a28d35016032ee27b1860df4a9b16b6c007da76b2e4f94e7526e31c48959b"
+      },
+      "rng_consumed": false,
+      "trace_path": "/data1/userdata/tcweng/projects/tcgs/outputs/deform360/t24_5-fine-20260926/A_M0_repeat_trace.pt",
+      "trace_bytes": 178277891,
+      "sha256": "5e2e7ce3676fc39aeb28c388ea34678199d7a8c10946c4e27c7dfe34edf80d14",
+      "op_metadata": [
+        {
+          "site": "native_spmm.diag_volume.copy_lhs.sum",
+          "context": {
+            "message": "copy_u",
+            "reduce": "sum",
+            "output_field": "diag_volume"
+          },
+          "formats": {
+            "created": [
+              "coo"
+            ],
+            "not created": [
+              "csr",
+              "csc"
+            ]
+          },
+          "num_nodes": [
+            12891,
+            650
+          ],
+          "native_call": "dgl._sparse_ops._gspmm -> _CAPI_DGLKernelSpMM"
+        },
+        {
+          "site": "native_spmm.attr.copy_lhs.sum",
+          "context": {
+            "message": "copy_u",
+            "reduce": "mean",
+            "output_field": "attr"
+          },
+          "formats": {
+            "created": [
+              "coo"
+            ],
+            "not created": [
+              "csr",
+              "csc"
+            ]
+          },
+          "num_nodes": [
+            12891,
+            650
+          ],
+          "native_call": "dgl._sparse_ops._gspmm -> _CAPI_DGLKernelSpMM"
+        },
+        {
+          "site": "native_spmm.density.copy_rhs.sum",
+          "context": {
+            "message": "copy_e",
+            "reduce": "sum",
+            "output_field": "density"
+          },
+          "formats": {
+            "created": [
+              "coo"
+            ],
+            "not created": [
+              "csr",
+              "csc"
+            ]
+          },
+          "num_nodes": [
+            12891,
+            650
+          ],
+          "native_call": "dgl._sparse_ops._gspmm -> _CAPI_DGLKernelSpMM"
+        },
+        {
+          "site": "native_spmm.pin_mask.copy_lhs.max",
+          "context": {
+            "message": "copy_u",
+            "reduce": "max",
+            "output_field": "pin_mask"
+          },
+          "formats": {
+            "created": [
+              "coo"
+            ],
+            "not created": [
+              "csr",
+              "csc"
+            ]
+          },
+          "num_nodes": [
+            12891,
+            650
+          ],
+          "native_call": "dgl._sparse_ops._gspmm -> _CAPI_DGLKernelSpMM"
+        },
+        {
+          "site": "native_spmm.external.copy_lhs.sum",
+          "context": {
+            "message": "copy_u",
+            "reduce": "mean",
+            "output_field": "external"
+          },
+          "formats": {
+            "created": [
+              "coo"
+            ],
+            "not created": [
+              "csr",
+              "csc"
+            ]
+          },
+          "num_nodes": [
+            12891,
+            650
+          ],
+          "native_call": "dgl._sparse_ops._gspmm -> _CAPI_DGLKernelSpMM"
+        },
+        {
+          "site": "native_spmm.prev_state.copy_rhs.sum",
+          "context": {
+            "message": "copy_e",
+            "reduce": "sum",
+            "output_field": "prev_state"
+          },
+          "formats": {
+            "created": [
+              "coo"
+            ],
+            "not created": [
+              "csr",
+              "csc"
+            ]
+          },
+          "num_nodes": [
+            12891,
+            650
+          ],
+          "native_call": "dgl._sparse_ops._gspmm -> _CAPI_DGLKernelSpMM"
+        },
+        {
+          "site": "native_spmm.cur_state.copy_rhs.sum",
+          "context": {
+            "message": "copy_e",
+            "reduce": "sum",
+            "output_field": "cur_state"
+          },
+          "formats": {
+            "created": [
+              "coo"
+            ],
+            "not created": [
+              "csr",
+              "csc"
+            ]
+          },
+          "num_nodes": [
+            12891,
+            650
+          ],
+          "native_call": "dgl._sparse_ops._gspmm -> _CAPI_DGLKernelSpMM"
+        },
+        {
+          "site": "native_spmm.template_state.copy_rhs.sum",
+          "context": {
+            "message": "copy_e",
+            "reduce": "sum",
+            "output_field": "template_state"
+          },
+          "formats": {
+            "created": [
+              "coo"
+            ],
+            "not created": [
+              "csr",
+              "csc"
+            ]
+          },
+          "num_nodes": [
+            12891,
+            650
+          ],
+          "native_call": "dgl._sparse_ops._gspmm -> _CAPI_DGLKernelSpMM"
+        },
+        {
+          "site": "native_spmm.orig_template_state.copy_rhs.sum",
+          "context": {
+            "message": "copy_e",
+            "reduce": "sum",
+            "output_field": "orig_template_state"
+          },
+          "formats": {
+            "created": [
+              "coo"
+            ],
+            "not created": [
+              "csr",
+              "csc"
+            ]
+          },
+          "num_nodes": [
+            12891,
+            650
+          ],
+          "native_call": "dgl._sparse_ops._gspmm -> _CAPI_DGLKernelSpMM"
+        },
+        {
+          "site": "native_spmm.diag_volume.copy_lhs.sum",
+          "context": {
+            "message": "copy_u",
+            "reduce": "sum",
+            "output_field": "diag_volume"
+          },
+          "formats": {
+            "created": [
+              "coo"
+            ],
+            "not created": [
+              "csr",
+              "csc"
+            ]
+          },
+          "num_nodes": [
+            650,
+            9
+          ],
+          "native_call": "dgl._sparse_ops._gspmm -> _CAPI_DGLKernelSpMM"
+        },
+        {
+          "site": "native_spmm.attr.copy_lhs.sum",
+          "context": {
+            "message": "copy_u",
+            "reduce": "mean",
+            "output_field": "attr"
+          },
+          "formats": {
+            "created": [
+              "coo"
+            ],
+            "not created": [
+              "csr",
+              "csc"
+            ]
+          },
+          "num_nodes": [
+            650,
+            9
+          ],
+          "native_call": "dgl._sparse_ops._gspmm -> _CAPI_DGLKernelSpMM"
+        },
+        {
+          "site": "native_spmm.density.copy_rhs.sum",
+          "context": {
+            "message": "copy_e",
+            "reduce": "sum",
+            "output_field": "density"
+          },
+          "formats": {
+            "created": [
+              "coo"
+            ],
+            "not created": [
+              "csr",
+              "csc"
+            ]
+          },
+          "num_nodes": [
+            650,
+            9
+          ],
+          "native_call": "dgl._sparse_ops._gspmm -> _CAPI_DGLKernelSpMM"
+        },
+        {
+          "site": "native_spmm.pin_mask.copy_lhs.max",
+          "context": {
+            "message": "copy_u",
+            "reduce": "max",
+            "output_field": "pin_mask"
+          },
+          "formats": {
+            "created": [
+              "coo"
+            ],
+            "not created": [
+              "csr",
+              "csc"
+            ]
+          },
+          "num_nodes": [
+            650,
+            9
+          ],
+          "native_call": "dgl._sparse_ops._gspmm -> _CAPI_DGLKernelSpMM"
+        },
+        {
+          "site": "native_spmm.external.copy_lhs.sum",
+          "context": {
+            "message": "copy_u",
+            "reduce": "mean",
+            "output_field": "external"
+          },
+          "formats": {
+            "created": [
+              "coo"
+            ],
+            "not created": [
+              "csr",
+              "csc"
+            ]
+          },
+          "num_nodes": [
+            650,
+            9
+          ],
+          "native_call": "dgl._sparse_ops._gspmm -> _CAPI_DGLKernelSpMM"
+        },
+        {
+          "site": "native_spmm.prev_state.copy_rhs.sum",
+          "context": {
+            "message": "copy_e",
+            "reduce": "sum",
+            "output_field": "prev_state"
+          },
+          "formats": {
+            "created": [
+              "coo"
+            ],
+            "not created": [
+              "csr",
+              "csc"
+            ]
+          },
+          "num_nodes": [
+            650,
+            9
+          ],
+          "native_call": "dgl._sparse_ops._gspmm -> _CAPI_DGLKernelSpMM"
+        },
+        {
+          "site": "native_spmm.cur_state.copy_rhs.sum",
+          "context": {
+            "message": "copy_e",
+            "reduce": "sum",
+            "output_field": "cur_state"
+          },
+          "formats": {
+            "created": [
+              "coo"
+            ],
+            "not created": [
+              "csr",
+              "csc"
+            ]
+          },
+          "num_nodes": [
+            650,
+            9
+          ],
+          "native_call": "dgl._sparse_ops._gspmm -> _CAPI_DGLKernelSpMM"
+        },
+        {
+          "site": "native_spmm.template_state.copy_rhs.sum",
+          "context": {
+            "message": "copy_e",
+            "reduce": "sum",
+            "output_field": "template_state"
+          },
+          "formats": {
+            "created": [
+              "coo"
+            ],
+            "not created": [
+              "csr",
+              "csc"
+            ]
+          },
+          "num_nodes": [
+            650,
+            9
+          ],
+          "native_call": "dgl._sparse_ops._gspmm -> _CAPI_DGLKernelSpMM"
+        },
+        {
+          "site": "native_spmm.orig_template_state.copy_rhs.sum",
+          "context": {
+            "message": "copy_e",
+            "reduce": "sum",
+            "output_field": "orig_template_state"
+          },
+          "formats": {
+            "created": [
+              "coo"
+            ],
+            "not created": [
+              "csr",
+              "csc"
+            ]
+          },
+          "num_nodes": [
+            650,
+            9
+          ],
+          "native_call": "dgl._sparse_ops._gspmm -> _CAPI_DGLKernelSpMM"
+        },
+        {
+          "site": "native_spmm.diag_volume.copy_lhs.sum",
+          "context": {
+            "message": "copy_u",
+            "reduce": "sum",
+            "output_field": "diag_volume"
+          },
+          "formats": {
+            "created": [
+              "coo"
+            ],
+            "not created": [
+              "csr",
+              "csc"
+            ]
+          },
+          "num_nodes": [
+            9,
+            2
+          ],
+          "native_call": "dgl._sparse_ops._gspmm -> _CAPI_DGLKernelSpMM"
+        },
+        {
+          "site": "native_spmm.attr.copy_lhs.sum",
+          "context": {
+            "message": "copy_u",
+            "reduce": "mean",
+            "output_field": "attr"
+          },
+          "formats": {
+            "created": [
+              "coo"
+            ],
+            "not created": [
+              "csr",
+              "csc"
+            ]
+          },
+          "num_nodes": [
+            9,
+            2
+          ],
+          "native_call": "dgl._sparse_ops._gspmm -> _CAPI_DGLKernelSpMM"
+        },
+        {
+          "site": "native_spmm.density.copy_rhs.sum",
+          "context": {
+            "message": "copy_e",
+            "reduce": "sum",
+            "output_field": "density"
+          },
+          "formats": {
+            "created": [
+              "coo"
+            ],
+            "not created": [
+              "csr",
+              "csc"
+            ]
+          },
+          "num_nodes": [
+            9,
+            2
+          ],
+          "native_call": "dgl._sparse_ops._gspmm -> _CAPI_DGLKernelSpMM"
+        },
+        {
+          "site": "native_spmm.pin_mask.copy_lhs.max",
+          "context": {
+            "message": "copy_u",
+            "reduce": "max",
+            "output_field": "pin_mask"
+          },
+          "formats": {
+            "created": [
+              "coo"
+            ],
+            "not created": [
+              "csr",
+              "csc"
+            ]
+          },
+          "num_nodes": [
+            9,
+            2
+          ],
+          "native_call": "dgl._sparse_ops._gspmm -> _CAPI_DGLKernelSpMM"
+        },
+        {
+          "site": "native_spmm.external.copy_lhs.sum",
+          "context": {
+            "message": "copy_u",
+            "reduce": "mean",
+            "output_field": "external"
+          },
+          "formats": {
+            "created": [
+              "coo"
+            ],
+            "not created": [
+              "csr",
+              "csc"
+            ]
+          },
+          "num_nodes": [
+            9,
+            2
+          ],
+          "native_call": "dgl._sparse_ops._gspmm -> _CAPI_DGLKernelSpMM"
+        },
+        {
+          "site": "native_spmm.prev_state.copy_rhs.sum",
+          "context": {
+            "message": "copy_e",
+            "reduce": "sum",
+            "output_field": "prev_state"
+          },
+          "formats": {
+            "created": [
+              "coo"
+            ],
+            "not created": [
+              "csr",
+              "csc"
+            ]
+          },
+          "num_nodes": [
+            9,
+            2
+          ],
+          "native_call": "dgl._sparse_ops._gspmm -> _CAPI_DGLKernelSpMM"
+        },
+        {
+          "site": "native_spmm.cur_state.copy_rhs.sum",
+          "context": {
+            "message": "copy_e",
+            "reduce": "sum",
+            "output_field": "cur_state"
+          },
+          "formats": {
+            "created": [
+              "coo"
+            ],
+            "not created": [
+              "csr",
+              "csc"
+            ]
+          },
+          "num_nodes": [
+            9,
+            2
+          ],
+          "native_call": "dgl._sparse_ops._gspmm -> _CAPI_DGLKernelSpMM"
+        },
+        {
+          "site": "native_spmm.template_state.copy_rhs.sum",
+          "context": {
+            "message": "copy_e",
+            "reduce": "sum",
+            "output_field": "template_state"
+          },
+          "formats": {
+            "created": [
+              "coo"
+            ],
+            "not created": [
+              "csr",
+              "csc"
+            ]
+          },
+          "num_nodes": [
+            9,
+            2
+          ],
+          "native_call": "dgl._sparse_ops._gspmm -> _CAPI_DGLKernelSpMM"
+        },
+        {
+          "site": "native_spmm.orig_template_state.copy_rhs.sum",
+          "context": {
+            "message": "copy_e",
+            "reduce": "sum",
+            "output_field": "orig_template_state"
+          },
+          "formats": {
+            "created": [
+              "coo"
+            ],
+            "not created": [
+              "csr",
+              "csc"
+            ]
+          },
+          "num_nodes": [
+            9,
+            2
+          ],
+          "native_call": "dgl._sparse_ops._gspmm -> _CAPI_DGLKernelSpMM"
+        },
+        {
+          "site": "native_spmm.anchor_prev_state.copy_lhs.sum",
+          "context": {
+            "message": "copy_u",
+            "reduce": "mean",
+            "output_field": "anchor_prev_state"
+          },
+          "formats": {
+            "created": [
+              "coo"
+            ],
+            "not created": [
+              "csr",
+              "csc"
+            ]
+          },
+          "num_nodes": [
+            650,
+            12891
+          ],
+          "native_call": "dgl._sparse_ops._gspmm -> _CAPI_DGLKernelSpMM"
+        },
+        {
+          "site": "native_spmm.anchor_cur_state.copy_lhs.sum",
+          "context": {
+            "message": "copy_u",
+            "reduce": "mean",
+            "output_field": "anchor_cur_state"
+          },
+          "formats": {
+            "created": [
+              "coo"
+            ],
+            "not created": [
+              "csr",
+              "csc"
+            ]
+          },
+          "num_nodes": [
+            650,
+            12891
+          ],
+          "native_call": "dgl._sparse_ops._gspmm -> _CAPI_DGLKernelSpMM"
+        },
+        {
+          "site": "native_spmm.anchor_template_state.copy_lhs.sum",
+          "context": {
+            "message": "copy_u",
+            "reduce": "mean",
+            "output_field": "anchor_template_state"
+          },
+          "formats": {
+            "created": [
+              "coo"
+            ],
+            "not created": [
+              "csr",
+              "csc"
+            ]
+          },
+          "num_nodes": [
+            650,
+            12891
+          ],
+          "native_call": "dgl._sparse_ops._gspmm -> _CAPI_DGLKernelSpMM"
+        },
+        {
+          "site": "native_spmm.anchor_orig_template_state.copy_lhs.sum",
+          "context": {
+            "message": "copy_u",
+            "reduce": "mean",
+            "output_field": "anchor_orig_template_state"
+          },
+          "formats": {
+            "created": [
+              "coo"
+            ],
+            "not created": [
+              "csr",
+              "csc"
+            ]
+          },
+          "num_nodes": [
+            650,
+            12891
+          ],
+          "native_call": "dgl._sparse_ops._gspmm -> _CAPI_DGLKernelSpMM"
+        },
+        {
+          "site": "native_spmm.anchor_prev_state.copy_lhs.sum",
+          "context": {
+            "message": "copy_u",
+            "reduce": "mean",
+            "output_field": "anchor_prev_state"
+          },
+          "formats": {
+            "created": [
+              "coo"
+            ],
+            "not created": [
+              "csr",
+              "csc"
+            ]
+          },
+          "num_nodes": [
+            9,
+            650
+          ],
+          "native_call": "dgl._sparse_ops._gspmm -> _CAPI_DGLKernelSpMM"
+        },
+        {
+          "site": "native_spmm.anchor_cur_state.copy_lhs.sum",
+          "context": {
+            "message": "copy_u",
+            "reduce": "mean",
+            "output_field": "anchor_cur_state"
+          },
+          "formats": {
+            "created": [
+              "coo"
+            ],
+            "not created": [
+              "csr",
+              "csc"
+            ]
+          },
+          "num_nodes": [
+            9,
+            650
+          ],
+          "native_call": "dgl._sparse_ops._gspmm -> _CAPI_DGLKernelSpMM"
+        },
+        {
+          "site": "native_spmm.anchor_template_state.copy_lhs.sum",
+          "context": {
+            "message": "copy_u",
+            "reduce": "mean",
+            "output_field": "anchor_template_state"
+          },
+          "formats": {
+            "created": [
+              "coo"
+            ],
+            "not created": [
+              "csr",
+              "csc"
+            ]
+          },
+          "num_nodes": [
+            9,
+            650
+          ],
+          "native_call": "dgl._sparse_ops._gspmm -> _CAPI_DGLKernelSpMM"
+        },
+        {
+          "site": "native_spmm.anchor_orig_template_state.copy_lhs.sum",
+          "context": {
+            "message": "copy_u",
+            "reduce": "mean",
+            "output_field": "anchor_orig_template_state"
+          },
+          "formats": {
+            "created": [
+              "coo"
+            ],
+            "not created": [
+              "csr",
+              "csc"
+            ]
+          },
+          "num_nodes": [
+            9,
+            650
+          ],
+          "native_call": "dgl._sparse_ops._gspmm -> _CAPI_DGLKernelSpMM"
+        },
+        {
+          "site": "native_spmm.anchor_prev_state.copy_lhs.sum",
+          "context": {
+            "message": "copy_u",
+            "reduce": "mean",
+            "output_field": "anchor_prev_state"
+          },
+          "formats": {
+            "created": [
+              "coo"
+            ],
+            "not created": [
+              "csr",
+              "csc"
+            ]
+          },
+          "num_nodes": [
+            2,
+            9
+          ],
+          "native_call": "dgl._sparse_ops._gspmm -> _CAPI_DGLKernelSpMM"
+        },
+        {
+          "site": "native_spmm.anchor_cur_state.copy_lhs.sum",
+          "context": {
+            "message": "copy_u",
+            "reduce": "mean",
+            "output_field": "anchor_cur_state"
+          },
+          "formats": {
+            "created": [
+              "coo"
+            ],
+            "not created": [
+              "csr",
+              "csc"
+            ]
+          },
+          "num_nodes": [
+            2,
+            9
+          ],
+          "native_call": "dgl._sparse_ops._gspmm -> _CAPI_DGLKernelSpMM"
+        },
+        {
+          "site": "native_spmm.anchor_template_state.copy_lhs.sum",
+          "context": {
+            "message": "copy_u",
+            "reduce": "mean",
+            "output_field": "anchor_template_state"
+          },
+          "formats": {
+            "created": [
+              "coo"
+            ],
+            "not created": [
+              "csr",
+              "csc"
+            ]
+          },
+          "num_nodes": [
+            2,
+            9
+          ],
+          "native_call": "dgl._sparse_ops._gspmm -> _CAPI_DGLKernelSpMM"
+        },
+        {
+          "site": "native_spmm.anchor_orig_template_state.copy_lhs.sum",
+          "context": {
+            "message": "copy_u",
+            "reduce": "mean",
+            "output_field": "anchor_orig_template_state"
+          },
+          "formats": {
+            "created": [
+              "coo"
+            ],
+            "not created": [
+              "csr",
+              "csc"
+            ]
+          },
+          "num_nodes": [
+            2,
+            9
+          ],
+          "native_call": "dgl._sparse_ops._gspmm -> _CAPI_DGLKernelSpMM"
+        }
+      ]
+    },
+    {
+      "label": "M1_first",
+      "stages": [
+        "000:fixed_input:0",
+        "001:preprocess.input:0",
+        "002:graph_base.input:0",
+        "003:graph_base.output:0",
+        "004:graph_hierarchy.input:0",
+        "005:native_spmm.diag_volume.copy_lhs.sum.input:0",
+        "006:native_spmm.diag_volume.copy_lhs.sum.output:0",
+        "007:native_spmm.attr.copy_lhs.sum.input:0",
+        "008:native_spmm.attr.copy_lhs.sum.output:0",
+        "009:native_spmm.density.copy_rhs.sum.input:0",
+        "010:native_spmm.density.copy_rhs.sum.output:0",
+        "011:native_spmm.pin_mask.copy_lhs.max.input:0",
+        "012:native_spmm.pin_mask.copy_lhs.max.output:0",
+        "013:native_spmm.external.copy_lhs.sum.input:0",
+        "014:native_spmm.external.copy_lhs.sum.output:0",
+        "015:native_spmm.prev_state.copy_rhs.sum.input:0",
+        "016:native_spmm.prev_state.copy_rhs.sum.output:0",
+        "017:native_spmm.cur_state.copy_rhs.sum.input:0",
+        "018:native_spmm.cur_state.copy_rhs.sum.output:0",
+        "019:native_spmm.template_state.copy_rhs.sum.input:0",
+        "020:native_spmm.template_state.copy_rhs.sum.output:0",
+        "021:native_spmm.orig_template_state.copy_rhs.sum.input:0",
+        "022:native_spmm.orig_template_state.copy_rhs.sum.output:0",
+        "023:graph_hierarchy.output:0",
+        "024:graph_hierarchy.input:1",
+        "025:native_spmm.diag_volume.copy_lhs.sum.input:1",
+        "026:native_spmm.diag_volume.copy_lhs.sum.output:1",
+        "027:native_spmm.attr.copy_lhs.sum.input:1",
+        "028:native_spmm.attr.copy_lhs.sum.output:1",
+        "029:native_spmm.density.copy_rhs.sum.input:1",
+        "030:native_spmm.density.copy_rhs.sum.output:1",
+        "031:native_spmm.pin_mask.copy_lhs.max.input:1",
+        "032:native_spmm.pin_mask.copy_lhs.max.output:1",
+        "033:native_spmm.external.copy_lhs.sum.input:1",
+        "034:native_spmm.external.copy_lhs.sum.output:1",
+        "035:native_spmm.prev_state.copy_rhs.sum.input:1",
+        "036:native_spmm.prev_state.copy_rhs.sum.output:1",
+        "037:native_spmm.cur_state.copy_rhs.sum.input:1",
+        "038:native_spmm.cur_state.copy_rhs.sum.output:1",
+        "039:native_spmm.template_state.copy_rhs.sum.input:1",
+        "040:native_spmm.template_state.copy_rhs.sum.output:1",
+        "041:native_spmm.orig_template_state.copy_rhs.sum.input:1",
+        "042:native_spmm.orig_template_state.copy_rhs.sum.output:1",
+        "043:graph_hierarchy.output:1",
+        "044:graph_hierarchy.input:2",
+        "045:native_spmm.diag_volume.copy_lhs.sum.input:2",
+        "046:native_spmm.diag_volume.copy_lhs.sum.output:2",
+        "047:native_spmm.attr.copy_lhs.sum.input:2",
+        "048:native_spmm.attr.copy_lhs.sum.output:2",
+        "049:native_spmm.density.copy_rhs.sum.input:2",
+        "050:native_spmm.density.copy_rhs.sum.output:2",
+        "051:native_spmm.pin_mask.copy_lhs.max.input:2",
+        "052:native_spmm.pin_mask.copy_lhs.max.output:2",
+        "053:native_spmm.external.copy_lhs.sum.input:2",
+        "054:native_spmm.external.copy_lhs.sum.output:2",
+        "055:native_spmm.prev_state.copy_rhs.sum.input:2",
+        "056:native_spmm.prev_state.copy_rhs.sum.output:2",
+        "057:native_spmm.cur_state.copy_rhs.sum.input:2",
+        "058:native_spmm.cur_state.copy_rhs.sum.output:2",
+        "059:native_spmm.template_state.copy_rhs.sum.input:2",
+        "060:native_spmm.template_state.copy_rhs.sum.output:2",
+        "061:native_spmm.orig_template_state.copy_rhs.sum.input:2",
+        "062:native_spmm.orig_template_state.copy_rhs.sum.output:2",
+        "063:graph_hierarchy.output:2",
+        "064:native_spmm.anchor_prev_state.copy_lhs.sum.input:0",
+        "065:native_spmm.anchor_prev_state.copy_lhs.sum.output:0",
+        "066:native_spmm.anchor_cur_state.copy_lhs.sum.input:0",
+        "067:native_spmm.anchor_cur_state.copy_lhs.sum.output:0",
+        "068:native_spmm.anchor_template_state.copy_lhs.sum.input:0",
+        "069:native_spmm.anchor_template_state.copy_lhs.sum.output:0",
+        "070:native_spmm.anchor_orig_template_state.copy_lhs.sum.input:0",
+        "071:native_spmm.anchor_orig_template_state.copy_lhs.sum.output:0",
+        "072:native_spmm.anchor_prev_state.copy_lhs.sum.input:1",
+        "073:native_spmm.anchor_prev_state.copy_lhs.sum.output:1",
+        "074:native_spmm.anchor_cur_state.copy_lhs.sum.input:1",
+        "075:native_spmm.anchor_cur_state.copy_lhs.sum.output:1",
+        "076:native_spmm.anchor_template_state.copy_lhs.sum.input:1",
+        "077:native_spmm.anchor_template_state.copy_lhs.sum.output:1",
+        "078:native_spmm.anchor_orig_template_state.copy_lhs.sum.input:1",
+        "079:native_spmm.anchor_orig_template_state.copy_lhs.sum.output:1",
+        "080:native_spmm.anchor_prev_state.copy_lhs.sum.input:2",
+        "081:native_spmm.anchor_prev_state.copy_lhs.sum.output:2",
+        "082:native_spmm.anchor_cur_state.copy_lhs.sum.input:2",
+        "083:native_spmm.anchor_cur_state.copy_lhs.sum.output:2",
+        "084:native_spmm.anchor_template_state.copy_lhs.sum.input:2",
+        "085:native_spmm.anchor_template_state.copy_lhs.sum.output:2",
+        "086:native_spmm.anchor_orig_template_state.copy_lhs.sum.input:2",
+        "087:native_spmm.anchor_orig_template_state.copy_lhs.sum.output:2",
+        "088:preprocess.output:0",
+        "089:simulator.input:0",
+        "090:backbone.input:0",
+        "091:encoder.input:0",
+        "092:encoder.output:0",
+        "093:backbone.output:0",
+        "094:decoder.input:0",
+        "095:dynamic_proj.input:0",
+        "096:dynamic_proj.output:0",
+        "097:decoder.output:0",
+        "098:backbone.input:1",
+        "099:encoder.input:1",
+        "100:encoder.output:1",
+        "101:backbone.output:1",
+        "102:decoder.input:1",
+        "103:dynamic_proj.input:1",
+        "104:dynamic_proj.output:1",
+        "105:decoder.output:1",
+        "106:render.input:0",
+        "107:render.output:0",
+        "108:render.input:1",
+        "109:render.output:1",
+        "110:simulator.output:0",
+        "111:image_loss.input:0",
+        "112:image_loss.output:0",
+        "113:final:0"
+      ],
+      "rng_before": {
+        "python": "eca6278d0450fe0c3bfe2b66e9c8fe080e3f4886b6c2da09d7186989600d970c",
+        "numpy": "17bc8525907b3a284ce2bf8bb38c12525e572d8acd55f1d9c43c8ab08db10b2c",
+        "torch_cpu": "ae9229ee2b1914f6f551b0a02f5b6462f16d6269f8c598b1ecc0a47f17265a4a",
+        "torch_cuda": "966a28d35016032ee27b1860df4a9b16b6c007da76b2e4f94e7526e31c48959b"
+      },
+      "rng_after": {
+        "python": "eca6278d0450fe0c3bfe2b66e9c8fe080e3f4886b6c2da09d7186989600d970c",
+        "numpy": "17bc8525907b3a284ce2bf8bb38c12525e572d8acd55f1d9c43c8ab08db10b2c",
+        "torch_cpu": "ae9229ee2b1914f6f551b0a02f5b6462f16d6269f8c598b1ecc0a47f17265a4a",
+        "torch_cuda": "966a28d35016032ee27b1860df4a9b16b6c007da76b2e4f94e7526e31c48959b"
+      },
+      "rng_consumed": false,
+      "trace_path": "/data1/userdata/tcweng/projects/tcgs/outputs/deform360/t24_5-fine-20260926/A_M1_first_trace.pt",
+      "trace_bytes": 178276964,
+      "sha256": "5bfece40b3ad1db5daa84b3cc5ddfb0a7eda7da2dde159cc3147a530ea0bc42c",
+      "op_metadata": [
+        {
+          "site": "native_spmm.diag_volume.copy_lhs.sum",
+          "context": {
+            "message": "copy_u",
+            "reduce": "sum",
+            "output_field": "diag_volume"
+          },
+          "formats": {
+            "created": [
+              "coo"
+            ],
+            "not created": [
+              "csr",
+              "csc"
+            ]
+          },
+          "num_nodes": [
+            12891,
+            650
+          ],
+          "native_call": "dgl._sparse_ops._gspmm -> _CAPI_DGLKernelSpMM"
+        },
+        {
+          "site": "native_spmm.attr.copy_lhs.sum",
+          "context": {
+            "message": "copy_u",
+            "reduce": "mean",
+            "output_field": "attr"
+          },
+          "formats": {
+            "created": [
+              "coo"
+            ],
+            "not created": [
+              "csr",
+              "csc"
+            ]
+          },
+          "num_nodes": [
+            12891,
+            650
+          ],
+          "native_call": "dgl._sparse_ops._gspmm -> _CAPI_DGLKernelSpMM"
+        },
+        {
+          "site": "native_spmm.density.copy_rhs.sum",
+          "context": {
+            "message": "copy_e",
+            "reduce": "sum",
+            "output_field": "density"
+          },
+          "formats": {
+            "created": [
+              "coo"
+            ],
+            "not created": [
+              "csr",
+              "csc"
+            ]
+          },
+          "num_nodes": [
+            12891,
+            650
+          ],
+          "native_call": "dgl._sparse_ops._gspmm -> _CAPI_DGLKernelSpMM"
+        },
+        {
+          "site": "native_spmm.pin_mask.copy_lhs.max",
+          "context": {
+            "message": "copy_u",
+            "reduce": "max",
+            "output_field": "pin_mask"
+          },
+          "formats": {
+            "created": [
+              "coo"
+            ],
+            "not created": [
+              "csr",
+              "csc"
+            ]
+          },
+          "num_nodes": [
+            12891,
+            650
+          ],
+          "native_call": "dgl._sparse_ops._gspmm -> _CAPI_DGLKernelSpMM"
+        },
+        {
+          "site": "native_spmm.external.copy_lhs.sum",
+          "context": {
+            "message": "copy_u",
+            "reduce": "mean",
+            "output_field": "external"
+          },
+          "formats": {
+            "created": [
+              "coo"
+            ],
+            "not created": [
+              "csr",
+              "csc"
+            ]
+          },
+          "num_nodes": [
+            12891,
+            650
+          ],
+          "native_call": "dgl._sparse_ops._gspmm -> _CAPI_DGLKernelSpMM"
+        },
+        {
+          "site": "native_spmm.prev_state.copy_rhs.sum",
+          "context": {
+            "message": "copy_e",
+            "reduce": "sum",
+            "output_field": "prev_state"
+          },
+          "formats": {
+            "created": [
+              "coo"
+            ],
+            "not created": [
+              "csr",
+              "csc"
+            ]
+          },
+          "num_nodes": [
+            12891,
+            650
+          ],
+          "native_call": "dgl._sparse_ops._gspmm -> _CAPI_DGLKernelSpMM"
+        },
+        {
+          "site": "native_spmm.cur_state.copy_rhs.sum",
+          "context": {
+            "message": "copy_e",
+            "reduce": "sum",
+            "output_field": "cur_state"
+          },
+          "formats": {
+            "created": [
+              "coo"
+            ],
+            "not created": [
+              "csr",
+              "csc"
+            ]
+          },
+          "num_nodes": [
+            12891,
+            650
+          ],
+          "native_call": "dgl._sparse_ops._gspmm -> _CAPI_DGLKernelSpMM"
+        },
+        {
+          "site": "native_spmm.template_state.copy_rhs.sum",
+          "context": {
+            "message": "copy_e",
+            "reduce": "sum",
+            "output_field": "template_state"
+          },
+          "formats": {
+            "created": [
+              "coo"
+            ],
+            "not created": [
+              "csr",
+              "csc"
+            ]
+          },
+          "num_nodes": [
+            12891,
+            650
+          ],
+          "native_call": "dgl._sparse_ops._gspmm -> _CAPI_DGLKernelSpMM"
+        },
+        {
+          "site": "native_spmm.orig_template_state.copy_rhs.sum",
+          "context": {
+            "message": "copy_e",
+            "reduce": "sum",
+            "output_field": "orig_template_state"
+          },
+          "formats": {
+            "created": [
+              "coo"
+            ],
+            "not created": [
+              "csr",
+              "csc"
+            ]
+          },
+          "num_nodes": [
+            12891,
+            650
+          ],
+          "native_call": "dgl._sparse_ops._gspmm -> _CAPI_DGLKernelSpMM"
+        },
+        {
+          "site": "native_spmm.diag_volume.copy_lhs.sum",
+          "context": {
+            "message": "copy_u",
+            "reduce": "sum",
+            "output_field": "diag_volume"
+          },
+          "formats": {
+            "created": [
+              "coo"
+            ],
+            "not created": [
+              "csr",
+              "csc"
+            ]
+          },
+          "num_nodes": [
+            650,
+            9
+          ],
+          "native_call": "dgl._sparse_ops._gspmm -> _CAPI_DGLKernelSpMM"
+        },
+        {
+          "site": "native_spmm.attr.copy_lhs.sum",
+          "context": {
+            "message": "copy_u",
+            "reduce": "mean",
+            "output_field": "attr"
+          },
+          "formats": {
+            "created": [
+              "coo"
+            ],
+            "not created": [
+              "csr",
+              "csc"
+            ]
+          },
+          "num_nodes": [
+            650,
+            9
+          ],
+          "native_call": "dgl._sparse_ops._gspmm -> _CAPI_DGLKernelSpMM"
+        },
+        {
+          "site": "native_spmm.density.copy_rhs.sum",
+          "context": {
+            "message": "copy_e",
+            "reduce": "sum",
+            "output_field": "density"
+          },
+          "formats": {
+            "created": [
+              "coo"
+            ],
+            "not created": [
+              "csr",
+              "csc"
+            ]
+          },
+          "num_nodes": [
+            650,
+            9
+          ],
+          "native_call": "dgl._sparse_ops._gspmm -> _CAPI_DGLKernelSpMM"
+        },
+        {
+          "site": "native_spmm.pin_mask.copy_lhs.max",
+          "context": {
+            "message": "copy_u",
+            "reduce": "max",
+            "output_field": "pin_mask"
+          },
+          "formats": {
+            "created": [
+              "coo"
+            ],
+            "not created": [
+              "csr",
+              "csc"
+            ]
+          },
+          "num_nodes": [
+            650,
+            9
+          ],
+          "native_call": "dgl._sparse_ops._gspmm -> _CAPI_DGLKernelSpMM"
+        },
+        {
+          "site": "native_spmm.external.copy_lhs.sum",
+          "context": {
+            "message": "copy_u",
+            "reduce": "mean",
+            "output_field": "external"
+          },
+          "formats": {
+            "created": [
+              "coo"
+            ],
+            "not created": [
+              "csr",
+              "csc"
+            ]
+          },
+          "num_nodes": [
+            650,
+            9
+          ],
+          "native_call": "dgl._sparse_ops._gspmm -> _CAPI_DGLKernelSpMM"
+        },
+        {
+          "site": "native_spmm.prev_state.copy_rhs.sum",
+          "context": {
+            "message": "copy_e",
+            "reduce": "sum",
+            "output_field": "prev_state"
+          },
+          "formats": {
+            "created": [
+              "coo"
+            ],
+            "not created": [
+              "csr",
+              "csc"
+            ]
+          },
+          "num_nodes": [
+            650,
+            9
+          ],
+          "native_call": "dgl._sparse_ops._gspmm -> _CAPI_DGLKernelSpMM"
+        },
+        {
+          "site": "native_spmm.cur_state.copy_rhs.sum",
+          "context": {
+            "message": "copy_e",
+            "reduce": "sum",
+            "output_field": "cur_state"
+          },
+          "formats": {
+            "created": [
+              "coo"
+            ],
+            "not created": [
+              "csr",
+              "csc"
+            ]
+          },
+          "num_nodes": [
+            650,
+            9
+          ],
+          "native_call": "dgl._sparse_ops._gspmm -> _CAPI_DGLKernelSpMM"
+        },
+        {
+          "site": "native_spmm.template_state.copy_rhs.sum",
+          "context": {
+            "message": "copy_e",
+            "reduce": "sum",
+            "output_field": "template_state"
+          },
+          "formats": {
+            "created": [
+              "coo"
+            ],
+            "not created": [
+              "csr",
+              "csc"
+            ]
+          },
+          "num_nodes": [
+            650,
+            9
+          ],
+          "native_call": "dgl._sparse_ops._gspmm -> _CAPI_DGLKernelSpMM"
+        },
+        {
+          "site": "native_spmm.orig_template_state.copy_rhs.sum",
+          "context": {
+            "message": "copy_e",
+            "reduce": "sum",
+            "output_field": "orig_template_state"
+          },
+          "formats": {
+            "created": [
+              "coo"
+            ],
+            "not created": [
+              "csr",
+              "csc"
+            ]
+          },
+          "num_nodes": [
+            650,
+            9
+          ],
+          "native_call": "dgl._sparse_ops._gspmm -> _CAPI_DGLKernelSpMM"
+        },
+        {
+          "site": "native_spmm.diag_volume.copy_lhs.sum",
+          "context": {
+            "message": "copy_u",
+            "reduce": "sum",
+            "output_field": "diag_volume"
+          },
+          "formats": {
+            "created": [
+              "coo"
+            ],
+            "not created": [
+              "csr",
+              "csc"
+            ]
+          },
+          "num_nodes": [
+            9,
+            2
+          ],
+          "native_call": "dgl._sparse_ops._gspmm -> _CAPI_DGLKernelSpMM"
+        },
+        {
+          "site": "native_spmm.attr.copy_lhs.sum",
+          "context": {
+            "message": "copy_u",
+            "reduce": "mean",
+            "output_field": "attr"
+          },
+          "formats": {
+            "created": [
+              "coo"
+            ],
+            "not created": [
+              "csr",
+              "csc"
+            ]
+          },
+          "num_nodes": [
+            9,
+            2
+          ],
+          "native_call": "dgl._sparse_ops._gspmm -> _CAPI_DGLKernelSpMM"
+        },
+        {
+          "site": "native_spmm.density.copy_rhs.sum",
+          "context": {
+            "message": "copy_e",
+            "reduce": "sum",
+            "output_field": "density"
+          },
+          "formats": {
+            "created": [
+              "coo"
+            ],
+            "not created": [
+              "csr",
+              "csc"
+            ]
+          },
+          "num_nodes": [
+            9,
+            2
+          ],
+          "native_call": "dgl._sparse_ops._gspmm -> _CAPI_DGLKernelSpMM"
+        },
+        {
+          "site": "native_spmm.pin_mask.copy_lhs.max",
+          "context": {
+            "message": "copy_u",
+            "reduce": "max",
+            "output_field": "pin_mask"
+          },
+          "formats": {
+            "created": [
+              "coo"
+            ],
+            "not created": [
+              "csr",
+              "csc"
+            ]
+          },
+          "num_nodes": [
+            9,
+            2
+          ],
+          "native_call": "dgl._sparse_ops._gspmm -> _CAPI_DGLKernelSpMM"
+        },
+        {
+          "site": "native_spmm.external.copy_lhs.sum",
+          "context": {
+            "message": "copy_u",
+            "reduce": "mean",
+            "output_field": "external"
+          },
+          "formats": {
+            "created": [
+              "coo"
+            ],
+            "not created": [
+              "csr",
+              "csc"
+            ]
+          },
+          "num_nodes": [
+            9,
+            2
+          ],
+          "native_call": "dgl._sparse_ops._gspmm -> _CAPI_DGLKernelSpMM"
+        },
+        {
+          "site": "native_spmm.prev_state.copy_rhs.sum",
+          "context": {
+            "message": "copy_e",
+            "reduce": "sum",
+            "output_field": "prev_state"
+          },
+          "formats": {
+            "created": [
+              "coo"
+            ],
+            "not created": [
+              "csr",
+              "csc"
+            ]
+          },
+          "num_nodes": [
+            9,
+            2
+          ],
+          "native_call": "dgl._sparse_ops._gspmm -> _CAPI_DGLKernelSpMM"
+        },
+        {
+          "site": "native_spmm.cur_state.copy_rhs.sum",
+          "context": {
+            "message": "copy_e",
+            "reduce": "sum",
+            "output_field": "cur_state"
+          },
+          "formats": {
+            "created": [
+              "coo"
+            ],
+            "not created": [
+              "csr",
+              "csc"
+            ]
+          },
+          "num_nodes": [
+            9,
+            2
+          ],
+          "native_call": "dgl._sparse_ops._gspmm -> _CAPI_DGLKernelSpMM"
+        },
+        {
+          "site": "native_spmm.template_state.copy_rhs.sum",
+          "context": {
+            "message": "copy_e",
+            "reduce": "sum",
+            "output_field": "template_state"
+          },
+          "formats": {
+            "created": [
+              "coo"
+            ],
+            "not created": [
+              "csr",
+              "csc"
+            ]
+          },
+          "num_nodes": [
+            9,
+            2
+          ],
+          "native_call": "dgl._sparse_ops._gspmm -> _CAPI_DGLKernelSpMM"
+        },
+        {
+          "site": "native_spmm.orig_template_state.copy_rhs.sum",
+          "context": {
+            "message": "copy_e",
+            "reduce": "sum",
+            "output_field": "orig_template_state"
+          },
+          "formats": {
+            "created": [
+              "coo"
+            ],
+            "not created": [
+              "csr",
+              "csc"
+            ]
+          },
+          "num_nodes": [
+            9,
+            2
+          ],
+          "native_call": "dgl._sparse_ops._gspmm -> _CAPI_DGLKernelSpMM"
+        },
+        {
+          "site": "native_spmm.anchor_prev_state.copy_lhs.sum",
+          "context": {
+            "message": "copy_u",
+            "reduce": "mean",
+            "output_field": "anchor_prev_state"
+          },
+          "formats": {
+            "created": [
+              "coo"
+            ],
+            "not created": [
+              "csr",
+              "csc"
+            ]
+          },
+          "num_nodes": [
+            650,
+            12891
+          ],
+          "native_call": "dgl._sparse_ops._gspmm -> _CAPI_DGLKernelSpMM"
+        },
+        {
+          "site": "native_spmm.anchor_cur_state.copy_lhs.sum",
+          "context": {
+            "message": "copy_u",
+            "reduce": "mean",
+            "output_field": "anchor_cur_state"
+          },
+          "formats": {
+            "created": [
+              "coo"
+            ],
+            "not created": [
+              "csr",
+              "csc"
+            ]
+          },
+          "num_nodes": [
+            650,
+            12891
+          ],
+          "native_call": "dgl._sparse_ops._gspmm -> _CAPI_DGLKernelSpMM"
+        },
+        {
+          "site": "native_spmm.anchor_template_state.copy_lhs.sum",
+          "context": {
+            "message": "copy_u",
+            "reduce": "mean",
+            "output_field": "anchor_template_state"
+          },
+          "formats": {
+            "created": [
+              "coo"
+            ],
+            "not created": [
+              "csr",
+              "csc"
+            ]
+          },
+          "num_nodes": [
+            650,
+            12891
+          ],
+          "native_call": "dgl._sparse_ops._gspmm -> _CAPI_DGLKernelSpMM"
+        },
+        {
+          "site": "native_spmm.anchor_orig_template_state.copy_lhs.sum",
+          "context": {
+            "message": "copy_u",
+            "reduce": "mean",
+            "output_field": "anchor_orig_template_state"
+          },
+          "formats": {
+            "created": [
+              "coo"
+            ],
+            "not created": [
+              "csr",
+              "csc"
+            ]
+          },
+          "num_nodes": [
+            650,
+            12891
+          ],
+          "native_call": "dgl._sparse_ops._gspmm -> _CAPI_DGLKernelSpMM"
+        },
+        {
+          "site": "native_spmm.anchor_prev_state.copy_lhs.sum",
+          "context": {
+            "message": "copy_u",
+            "reduce": "mean",
+            "output_field": "anchor_prev_state"
+          },
+          "formats": {
+            "created": [
+              "coo"
+            ],
+            "not created": [
+              "csr",
+              "csc"
+            ]
+          },
+          "num_nodes": [
+            9,
+            650
+          ],
+          "native_call": "dgl._sparse_ops._gspmm -> _CAPI_DGLKernelSpMM"
+        },
+        {
+          "site": "native_spmm.anchor_cur_state.copy_lhs.sum",
+          "context": {
+            "message": "copy_u",
+            "reduce": "mean",
+            "output_field": "anchor_cur_state"
+          },
+          "formats": {
+            "created": [
+              "coo"
+            ],
+            "not created": [
+              "csr",
+              "csc"
+            ]
+          },
+          "num_nodes": [
+            9,
+            650
+          ],
+          "native_call": "dgl._sparse_ops._gspmm -> _CAPI_DGLKernelSpMM"
+        },
+        {
+          "site": "native_spmm.anchor_template_state.copy_lhs.sum",
+          "context": {
+            "message": "copy_u",
+            "reduce": "mean",
+            "output_field": "anchor_template_state"
+          },
+          "formats": {
+            "created": [
+              "coo"
+            ],
+            "not created": [
+              "csr",
+              "csc"
+            ]
+          },
+          "num_nodes": [
+            9,
+            650
+          ],
+          "native_call": "dgl._sparse_ops._gspmm -> _CAPI_DGLKernelSpMM"
+        },
+        {
+          "site": "native_spmm.anchor_orig_template_state.copy_lhs.sum",
+          "context": {
+            "message": "copy_u",
+            "reduce": "mean",
+            "output_field": "anchor_orig_template_state"
+          },
+          "formats": {
+            "created": [
+              "coo"
+            ],
+            "not created": [
+              "csr",
+              "csc"
+            ]
+          },
+          "num_nodes": [
+            9,
+            650
+          ],
+          "native_call": "dgl._sparse_ops._gspmm -> _CAPI_DGLKernelSpMM"
+        },
+        {
+          "site": "native_spmm.anchor_prev_state.copy_lhs.sum",
+          "context": {
+            "message": "copy_u",
+            "reduce": "mean",
+            "output_field": "anchor_prev_state"
+          },
+          "formats": {
+            "created": [
+              "coo"
+            ],
+            "not created": [
+              "csr",
+              "csc"
+            ]
+          },
+          "num_nodes": [
+            2,
+            9
+          ],
+          "native_call": "dgl._sparse_ops._gspmm -> _CAPI_DGLKernelSpMM"
+        },
+        {
+          "site": "native_spmm.anchor_cur_state.copy_lhs.sum",
+          "context": {
+            "message": "copy_u",
+            "reduce": "mean",
+            "output_field": "anchor_cur_state"
+          },
+          "formats": {
+            "created": [
+              "coo"
+            ],
+            "not created": [
+              "csr",
+              "csc"
+            ]
+          },
+          "num_nodes": [
+            2,
+            9
+          ],
+          "native_call": "dgl._sparse_ops._gspmm -> _CAPI_DGLKernelSpMM"
+        },
+        {
+          "site": "native_spmm.anchor_template_state.copy_lhs.sum",
+          "context": {
+            "message": "copy_u",
+            "reduce": "mean",
+            "output_field": "anchor_template_state"
+          },
+          "formats": {
+            "created": [
+              "coo"
+            ],
+            "not created": [
+              "csr",
+              "csc"
+            ]
+          },
+          "num_nodes": [
+            2,
+            9
+          ],
+          "native_call": "dgl._sparse_ops._gspmm -> _CAPI_DGLKernelSpMM"
+        },
+        {
+          "site": "native_spmm.anchor_orig_template_state.copy_lhs.sum",
+          "context": {
+            "message": "copy_u",
+            "reduce": "mean",
+            "output_field": "anchor_orig_template_state"
+          },
+          "formats": {
+            "created": [
+              "coo"
+            ],
+            "not created": [
+              "csr",
+              "csc"
+            ]
+          },
+          "num_nodes": [
+            2,
+            9
+          ],
+          "native_call": "dgl._sparse_ops._gspmm -> _CAPI_DGLKernelSpMM"
+        }
+      ]
+    },
+    {
+      "label": "M0_after_M1",
+      "stages": [
+        "000:fixed_input:0",
+        "001:preprocess.input:0",
+        "002:graph_base.input:0",
+        "003:graph_base.output:0",
+        "004:graph_hierarchy.input:0",
+        "005:native_spmm.diag_volume.copy_lhs.sum.input:0",
+        "006:native_spmm.diag_volume.copy_lhs.sum.output:0",
+        "007:native_spmm.attr.copy_lhs.sum.input:0",
+        "008:native_spmm.attr.copy_lhs.sum.output:0",
+        "009:native_spmm.density.copy_rhs.sum.input:0",
+        "010:native_spmm.density.copy_rhs.sum.output:0",
+        "011:native_spmm.pin_mask.copy_lhs.max.input:0",
+        "012:native_spmm.pin_mask.copy_lhs.max.output:0",
+        "013:native_spmm.external.copy_lhs.sum.input:0",
+        "014:native_spmm.external.copy_lhs.sum.output:0",
+        "015:native_spmm.prev_state.copy_rhs.sum.input:0",
+        "016:native_spmm.prev_state.copy_rhs.sum.output:0",
+        "017:native_spmm.cur_state.copy_rhs.sum.input:0",
+        "018:native_spmm.cur_state.copy_rhs.sum.output:0",
+        "019:native_spmm.template_state.copy_rhs.sum.input:0",
+        "020:native_spmm.template_state.copy_rhs.sum.output:0",
+        "021:native_spmm.orig_template_state.copy_rhs.sum.input:0",
+        "022:native_spmm.orig_template_state.copy_rhs.sum.output:0",
+        "023:graph_hierarchy.output:0",
+        "024:graph_hierarchy.input:1",
+        "025:native_spmm.diag_volume.copy_lhs.sum.input:1",
+        "026:native_spmm.diag_volume.copy_lhs.sum.output:1",
+        "027:native_spmm.attr.copy_lhs.sum.input:1",
+        "028:native_spmm.attr.copy_lhs.sum.output:1",
+        "029:native_spmm.density.copy_rhs.sum.input:1",
+        "030:native_spmm.density.copy_rhs.sum.output:1",
+        "031:native_spmm.pin_mask.copy_lhs.max.input:1",
+        "032:native_spmm.pin_mask.copy_lhs.max.output:1",
+        "033:native_spmm.external.copy_lhs.sum.input:1",
+        "034:native_spmm.external.copy_lhs.sum.output:1",
+        "035:native_spmm.prev_state.copy_rhs.sum.input:1",
+        "036:native_spmm.prev_state.copy_rhs.sum.output:1",
+        "037:native_spmm.cur_state.copy_rhs.sum.input:1",
+        "038:native_spmm.cur_state.copy_rhs.sum.output:1",
+        "039:native_spmm.template_state.copy_rhs.sum.input:1",
+        "040:native_spmm.template_state.copy_rhs.sum.output:1",
+        "041:native_spmm.orig_template_state.copy_rhs.sum.input:1",
+        "042:native_spmm.orig_template_state.copy_rhs.sum.output:1",
+        "043:graph_hierarchy.output:1",
+        "044:graph_hierarchy.input:2",
+        "045:native_spmm.diag_volume.copy_lhs.sum.input:2",
+        "046:native_spmm.diag_volume.copy_lhs.sum.output:2",
+        "047:native_spmm.attr.copy_lhs.sum.input:2",
+        "048:native_spmm.attr.copy_lhs.sum.output:2",
+        "049:native_spmm.density.copy_rhs.sum.input:2",
+        "050:native_spmm.density.copy_rhs.sum.output:2",
+        "051:native_spmm.pin_mask.copy_lhs.max.input:2",
+        "052:native_spmm.pin_mask.copy_lhs.max.output:2",
+        "053:native_spmm.external.copy_lhs.sum.input:2",
+        "054:native_spmm.external.copy_lhs.sum.output:2",
+        "055:native_spmm.prev_state.copy_rhs.sum.input:2",
+        "056:native_spmm.prev_state.copy_rhs.sum.output:2",
+        "057:native_spmm.cur_state.copy_rhs.sum.input:2",
+        "058:native_spmm.cur_state.copy_rhs.sum.output:2",
+        "059:native_spmm.template_state.copy_rhs.sum.input:2",
+        "060:native_spmm.template_state.copy_rhs.sum.output:2",
+        "061:native_spmm.orig_template_state.copy_rhs.sum.input:2",
+        "062:native_spmm.orig_template_state.copy_rhs.sum.output:2",
+        "063:graph_hierarchy.output:2",
+        "064:native_spmm.anchor_prev_state.copy_lhs.sum.input:0",
+        "065:native_spmm.anchor_prev_state.copy_lhs.sum.output:0",
+        "066:native_spmm.anchor_cur_state.copy_lhs.sum.input:0",
+        "067:native_spmm.anchor_cur_state.copy_lhs.sum.output:0",
+        "068:native_spmm.anchor_template_state.copy_lhs.sum.input:0",
+        "069:native_spmm.anchor_template_state.copy_lhs.sum.output:0",
+        "070:native_spmm.anchor_orig_template_state.copy_lhs.sum.input:0",
+        "071:native_spmm.anchor_orig_template_state.copy_lhs.sum.output:0",
+        "072:native_spmm.anchor_prev_state.copy_lhs.sum.input:1",
+        "073:native_spmm.anchor_prev_state.copy_lhs.sum.output:1",
+        "074:native_spmm.anchor_cur_state.copy_lhs.sum.input:1",
+        "075:native_spmm.anchor_cur_state.copy_lhs.sum.output:1",
+        "076:native_spmm.anchor_template_state.copy_lhs.sum.input:1",
+        "077:native_spmm.anchor_template_state.copy_lhs.sum.output:1",
+        "078:native_spmm.anchor_orig_template_state.copy_lhs.sum.input:1",
+        "079:native_spmm.anchor_orig_template_state.copy_lhs.sum.output:1",
+        "080:native_spmm.anchor_prev_state.copy_lhs.sum.input:2",
+        "081:native_spmm.anchor_prev_state.copy_lhs.sum.output:2",
+        "082:native_spmm.anchor_cur_state.copy_lhs.sum.input:2",
+        "083:native_spmm.anchor_cur_state.copy_lhs.sum.output:2",
+        "084:native_spmm.anchor_template_state.copy_lhs.sum.input:2",
+        "085:native_spmm.anchor_template_state.copy_lhs.sum.output:2",
+        "086:native_spmm.anchor_orig_template_state.copy_lhs.sum.input:2",
+        "087:native_spmm.anchor_orig_template_state.copy_lhs.sum.output:2",
+        "088:preprocess.output:0",
+        "089:simulator.input:0",
+        "090:backbone.input:0",
+        "091:encoder.input:0",
+        "092:encoder.output:0",
+        "093:backbone.output:0",
+        "094:decoder.input:0",
+        "095:dynamic_proj.input:0",
+        "096:dynamic_proj.output:0",
+        "097:decoder.output:0",
+        "098:backbone.input:1",
+        "099:encoder.input:1",
+        "100:encoder.output:1",
+        "101:backbone.output:1",
+        "102:decoder.input:1",
+        "103:dynamic_proj.input:1",
+        "104:dynamic_proj.output:1",
+        "105:decoder.output:1",
+        "106:render.input:0",
+        "107:render.output:0",
+        "108:render.input:1",
+        "109:render.output:1",
+        "110:simulator.output:0",
+        "111:image_loss.input:0",
+        "112:image_loss.output:0",
+        "113:final:0"
+      ],
+      "rng_before": {
+        "python": "eca6278d0450fe0c3bfe2b66e9c8fe080e3f4886b6c2da09d7186989600d970c",
+        "numpy": "17bc8525907b3a284ce2bf8bb38c12525e572d8acd55f1d9c43c8ab08db10b2c",
+        "torch_cpu": "ae9229ee2b1914f6f551b0a02f5b6462f16d6269f8c598b1ecc0a47f17265a4a",
+        "torch_cuda": "966a28d35016032ee27b1860df4a9b16b6c007da76b2e4f94e7526e31c48959b"
+      },
+      "rng_after": {
+        "python": "eca6278d0450fe0c3bfe2b66e9c8fe080e3f4886b6c2da09d7186989600d970c",
+        "numpy": "17bc8525907b3a284ce2bf8bb38c12525e572d8acd55f1d9c43c8ab08db10b2c",
+        "torch_cpu": "ae9229ee2b1914f6f551b0a02f5b6462f16d6269f8c598b1ecc0a47f17265a4a",
+        "torch_cuda": "966a28d35016032ee27b1860df4a9b16b6c007da76b2e4f94e7526e31c48959b"
+      },
+      "rng_consumed": false,
+      "trace_path": "/data1/userdata/tcweng/projects/tcgs/outputs/deform360/t24_5-fine-20260926/A_M0_after_M1_trace.pt",
+      "trace_bytes": 178280769,
+      "sha256": "6377ede070fefa3bc22cdc03ea40ec19f87574db7738398d9ef5782ace7e310a",
+      "op_metadata": [
+        {
+          "site": "native_spmm.diag_volume.copy_lhs.sum",
+          "context": {
+            "message": "copy_u",
+            "reduce": "sum",
+            "output_field": "diag_volume"
+          },
+          "formats": {
+            "created": [
+              "coo"
+            ],
+            "not created": [
+              "csr",
+              "csc"
+            ]
+          },
+          "num_nodes": [
+            12891,
+            650
+          ],
+          "native_call": "dgl._sparse_ops._gspmm -> _CAPI_DGLKernelSpMM"
+        },
+        {
+          "site": "native_spmm.attr.copy_lhs.sum",
+          "context": {
+            "message": "copy_u",
+            "reduce": "mean",
+            "output_field": "attr"
+          },
+          "formats": {
+            "created": [
+              "coo"
+            ],
+            "not created": [
+              "csr",
+              "csc"
+            ]
+          },
+          "num_nodes": [
+            12891,
+            650
+          ],
+          "native_call": "dgl._sparse_ops._gspmm -> _CAPI_DGLKernelSpMM"
+        },
+        {
+          "site": "native_spmm.density.copy_rhs.sum",
+          "context": {
+            "message": "copy_e",
+            "reduce": "sum",
+            "output_field": "density"
+          },
+          "formats": {
+            "created": [
+              "coo"
+            ],
+            "not created": [
+              "csr",
+              "csc"
+            ]
+          },
+          "num_nodes": [
+            12891,
+            650
+          ],
+          "native_call": "dgl._sparse_ops._gspmm -> _CAPI_DGLKernelSpMM"
+        },
+        {
+          "site": "native_spmm.pin_mask.copy_lhs.max",
+          "context": {
+            "message": "copy_u",
+            "reduce": "max",
+            "output_field": "pin_mask"
+          },
+          "formats": {
+            "created": [
+              "coo"
+            ],
+            "not created": [
+              "csr",
+              "csc"
+            ]
+          },
+          "num_nodes": [
+            12891,
+            650
+          ],
+          "native_call": "dgl._sparse_ops._gspmm -> _CAPI_DGLKernelSpMM"
+        },
+        {
+          "site": "native_spmm.external.copy_lhs.sum",
+          "context": {
+            "message": "copy_u",
+            "reduce": "mean",
+            "output_field": "external"
+          },
+          "formats": {
+            "created": [
+              "coo"
+            ],
+            "not created": [
+              "csr",
+              "csc"
+            ]
+          },
+          "num_nodes": [
+            12891,
+            650
+          ],
+          "native_call": "dgl._sparse_ops._gspmm -> _CAPI_DGLKernelSpMM"
+        },
+        {
+          "site": "native_spmm.prev_state.copy_rhs.sum",
+          "context": {
+            "message": "copy_e",
+            "reduce": "sum",
+            "output_field": "prev_state"
+          },
+          "formats": {
+            "created": [
+              "coo"
+            ],
+            "not created": [
+              "csr",
+              "csc"
+            ]
+          },
+          "num_nodes": [
+            12891,
+            650
+          ],
+          "native_call": "dgl._sparse_ops._gspmm -> _CAPI_DGLKernelSpMM"
+        },
+        {
+          "site": "native_spmm.cur_state.copy_rhs.sum",
+          "context": {
+            "message": "copy_e",
+            "reduce": "sum",
+            "output_field": "cur_state"
+          },
+          "formats": {
+            "created": [
+              "coo"
+            ],
+            "not created": [
+              "csr",
+              "csc"
+            ]
+          },
+          "num_nodes": [
+            12891,
+            650
+          ],
+          "native_call": "dgl._sparse_ops._gspmm -> _CAPI_DGLKernelSpMM"
+        },
+        {
+          "site": "native_spmm.template_state.copy_rhs.sum",
+          "context": {
+            "message": "copy_e",
+            "reduce": "sum",
+            "output_field": "template_state"
+          },
+          "formats": {
+            "created": [
+              "coo"
+            ],
+            "not created": [
+              "csr",
+              "csc"
+            ]
+          },
+          "num_nodes": [
+            12891,
+            650
+          ],
+          "native_call": "dgl._sparse_ops._gspmm -> _CAPI_DGLKernelSpMM"
+        },
+        {
+          "site": "native_spmm.orig_template_state.copy_rhs.sum",
+          "context": {
+            "message": "copy_e",
+            "reduce": "sum",
+            "output_field": "orig_template_state"
+          },
+          "formats": {
+            "created": [
+              "coo"
+            ],
+            "not created": [
+              "csr",
+              "csc"
+            ]
+          },
+          "num_nodes": [
+            12891,
+            650
+          ],
+          "native_call": "dgl._sparse_ops._gspmm -> _CAPI_DGLKernelSpMM"
+        },
+        {
+          "site": "native_spmm.diag_volume.copy_lhs.sum",
+          "context": {
+            "message": "copy_u",
+            "reduce": "sum",
+            "output_field": "diag_volume"
+          },
+          "formats": {
+            "created": [
+              "coo"
+            ],
+            "not created": [
+              "csr",
+              "csc"
+            ]
+          },
+          "num_nodes": [
+            650,
+            9
+          ],
+          "native_call": "dgl._sparse_ops._gspmm -> _CAPI_DGLKernelSpMM"
+        },
+        {
+          "site": "native_spmm.attr.copy_lhs.sum",
+          "context": {
+            "message": "copy_u",
+            "reduce": "mean",
+            "output_field": "attr"
+          },
+          "formats": {
+            "created": [
+              "coo"
+            ],
+            "not created": [
+              "csr",
+              "csc"
+            ]
+          },
+          "num_nodes": [
+            650,
+            9
+          ],
+          "native_call": "dgl._sparse_ops._gspmm -> _CAPI_DGLKernelSpMM"
+        },
+        {
+          "site": "native_spmm.density.copy_rhs.sum",
+          "context": {
+            "message": "copy_e",
+            "reduce": "sum",
+            "output_field": "density"
+          },
+          "formats": {
+            "created": [
+              "coo"
+            ],
+            "not created": [
+              "csr",
+              "csc"
+            ]
+          },
+          "num_nodes": [
+            650,
+            9
+          ],
+          "native_call": "dgl._sparse_ops._gspmm -> _CAPI_DGLKernelSpMM"
+        },
+        {
+          "site": "native_spmm.pin_mask.copy_lhs.max",
+          "context": {
+            "message": "copy_u",
+            "reduce": "max",
+            "output_field": "pin_mask"
+          },
+          "formats": {
+            "created": [
+              "coo"
+            ],
+            "not created": [
+              "csr",
+              "csc"
+            ]
+          },
+          "num_nodes": [
+            650,
+            9
+          ],
+          "native_call": "dgl._sparse_ops._gspmm -> _CAPI_DGLKernelSpMM"
+        },
+        {
+          "site": "native_spmm.external.copy_lhs.sum",
+          "context": {
+            "message": "copy_u",
+            "reduce": "mean",
+            "output_field": "external"
+          },
+          "formats": {
+            "created": [
+              "coo"
+            ],
+            "not created": [
+              "csr",
+              "csc"
+            ]
+          },
+          "num_nodes": [
+            650,
+            9
+          ],
+          "native_call": "dgl._sparse_ops._gspmm -> _CAPI_DGLKernelSpMM"
+        },
+        {
+          "site": "native_spmm.prev_state.copy_rhs.sum",
+          "context": {
+            "message": "copy_e",
+            "reduce": "sum",
+            "output_field": "prev_state"
+          },
+          "formats": {
+            "created": [
+              "coo"
+            ],
+            "not created": [
+              "csr",
+              "csc"
+            ]
+          },
+          "num_nodes": [
+            650,
+            9
+          ],
+          "native_call": "dgl._sparse_ops._gspmm -> _CAPI_DGLKernelSpMM"
+        },
+        {
+          "site": "native_spmm.cur_state.copy_rhs.sum",
+          "context": {
+            "message": "copy_e",
+            "reduce": "sum",
+            "output_field": "cur_state"
+          },
+          "formats": {
+            "created": [
+              "coo"
+            ],
+            "not created": [
+              "csr",
+              "csc"
+            ]
+          },
+          "num_nodes": [
+            650,
+            9
+          ],
+          "native_call": "dgl._sparse_ops._gspmm -> _CAPI_DGLKernelSpMM"
+        },
+        {
+          "site": "native_spmm.template_state.copy_rhs.sum",
+          "context": {
+            "message": "copy_e",
+            "reduce": "sum",
+            "output_field": "template_state"
+          },
+          "formats": {
+            "created": [
+              "coo"
+            ],
+            "not created": [
+              "csr",
+              "csc"
+            ]
+          },
+          "num_nodes": [
+            650,
+            9
+          ],
+          "native_call": "dgl._sparse_ops._gspmm -> _CAPI_DGLKernelSpMM"
+        },
+        {
+          "site": "native_spmm.orig_template_state.copy_rhs.sum",
+          "context": {
+            "message": "copy_e",
+            "reduce": "sum",
+            "output_field": "orig_template_state"
+          },
+          "formats": {
+            "created": [
+              "coo"
+            ],
+            "not created": [
+              "csr",
+              "csc"
+            ]
+          },
+          "num_nodes": [
+            650,
+            9
+          ],
+          "native_call": "dgl._sparse_ops._gspmm -> _CAPI_DGLKernelSpMM"
+        },
+        {
+          "site": "native_spmm.diag_volume.copy_lhs.sum",
+          "context": {
+            "message": "copy_u",
+            "reduce": "sum",
+            "output_field": "diag_volume"
+          },
+          "formats": {
+            "created": [
+              "coo"
+            ],
+            "not created": [
+              "csr",
+              "csc"
+            ]
+          },
+          "num_nodes": [
+            9,
+            2
+          ],
+          "native_call": "dgl._sparse_ops._gspmm -> _CAPI_DGLKernelSpMM"
+        },
+        {
+          "site": "native_spmm.attr.copy_lhs.sum",
+          "context": {
+            "message": "copy_u",
+            "reduce": "mean",
+            "output_field": "attr"
+          },
+          "formats": {
+            "created": [
+              "coo"
+            ],
+            "not created": [
+              "csr",
+              "csc"
+            ]
+          },
+          "num_nodes": [
+            9,
+            2
+          ],
+          "native_call": "dgl._sparse_ops._gspmm -> _CAPI_DGLKernelSpMM"
+        },
+        {
+          "site": "native_spmm.density.copy_rhs.sum",
+          "context": {
+            "message": "copy_e",
+            "reduce": "sum",
+            "output_field": "density"
+          },
+          "formats": {
+            "created": [
+              "coo"
+            ],
+            "not created": [
+              "csr",
+              "csc"
+            ]
+          },
+          "num_nodes": [
+            9,
+            2
+          ],
+          "native_call": "dgl._sparse_ops._gspmm -> _CAPI_DGLKernelSpMM"
+        },
+        {
+          "site": "native_spmm.pin_mask.copy_lhs.max",
+          "context": {
+            "message": "copy_u",
+            "reduce": "max",
+            "output_field": "pin_mask"
+          },
+          "formats": {
+            "created": [
+              "coo"
+            ],
+            "not created": [
+              "csr",
+              "csc"
+            ]
+          },
+          "num_nodes": [
+            9,
+            2
+          ],
+          "native_call": "dgl._sparse_ops._gspmm -> _CAPI_DGLKernelSpMM"
+        },
+        {
+          "site": "native_spmm.external.copy_lhs.sum",
+          "context": {
+            "message": "copy_u",
+            "reduce": "mean",
+            "output_field": "external"
+          },
+          "formats": {
+            "created": [
+              "coo"
+            ],
+            "not created": [
+              "csr",
+              "csc"
+            ]
+          },
+          "num_nodes": [
+            9,
+            2
+          ],
+          "native_call": "dgl._sparse_ops._gspmm -> _CAPI_DGLKernelSpMM"
+        },
+        {
+          "site": "native_spmm.prev_state.copy_rhs.sum",
+          "context": {
+            "message": "copy_e",
+            "reduce": "sum",
+            "output_field": "prev_state"
+          },
+          "formats": {
+            "created": [
+              "coo"
+            ],
+            "not created": [
+              "csr",
+              "csc"
+            ]
+          },
+          "num_nodes": [
+            9,
+            2
+          ],
+          "native_call": "dgl._sparse_ops._gspmm -> _CAPI_DGLKernelSpMM"
+        },
+        {
+          "site": "native_spmm.cur_state.copy_rhs.sum",
+          "context": {
+            "message": "copy_e",
+            "reduce": "sum",
+            "output_field": "cur_state"
+          },
+          "formats": {
+            "created": [
+              "coo"
+            ],
+            "not created": [
+              "csr",
+              "csc"
+            ]
+          },
+          "num_nodes": [
+            9,
+            2
+          ],
+          "native_call": "dgl._sparse_ops._gspmm -> _CAPI_DGLKernelSpMM"
+        },
+        {
+          "site": "native_spmm.template_state.copy_rhs.sum",
+          "context": {
+            "message": "copy_e",
+            "reduce": "sum",
+            "output_field": "template_state"
+          },
+          "formats": {
+            "created": [
+              "coo"
+            ],
+            "not created": [
+              "csr",
+              "csc"
+            ]
+          },
+          "num_nodes": [
+            9,
+            2
+          ],
+          "native_call": "dgl._sparse_ops._gspmm -> _CAPI_DGLKernelSpMM"
+        },
+        {
+          "site": "native_spmm.orig_template_state.copy_rhs.sum",
+          "context": {
+            "message": "copy_e",
+            "reduce": "sum",
+            "output_field": "orig_template_state"
+          },
+          "formats": {
+            "created": [
+              "coo"
+            ],
+            "not created": [
+              "csr",
+              "csc"
+            ]
+          },
+          "num_nodes": [
+            9,
+            2
+          ],
+          "native_call": "dgl._sparse_ops._gspmm -> _CAPI_DGLKernelSpMM"
+        },
+        {
+          "site": "native_spmm.anchor_prev_state.copy_lhs.sum",
+          "context": {
+            "message": "copy_u",
+            "reduce": "mean",
+            "output_field": "anchor_prev_state"
+          },
+          "formats": {
+            "created": [
+              "coo"
+            ],
+            "not created": [
+              "csr",
+              "csc"
+            ]
+          },
+          "num_nodes": [
+            650,
+            12891
+          ],
+          "native_call": "dgl._sparse_ops._gspmm -> _CAPI_DGLKernelSpMM"
+        },
+        {
+          "site": "native_spmm.anchor_cur_state.copy_lhs.sum",
+          "context": {
+            "message": "copy_u",
+            "reduce": "mean",
+            "output_field": "anchor_cur_state"
+          },
+          "formats": {
+            "created": [
+              "coo"
+            ],
+            "not created": [
+              "csr",
+              "csc"
+            ]
+          },
+          "num_nodes": [
+            650,
+            12891
+          ],
+          "native_call": "dgl._sparse_ops._gspmm -> _CAPI_DGLKernelSpMM"
+        },
+        {
+          "site": "native_spmm.anchor_template_state.copy_lhs.sum",
+          "context": {
+            "message": "copy_u",
+            "reduce": "mean",
+            "output_field": "anchor_template_state"
+          },
+          "formats": {
+            "created": [
+              "coo"
+            ],
+            "not created": [
+              "csr",
+              "csc"
+            ]
+          },
+          "num_nodes": [
+            650,
+            12891
+          ],
+          "native_call": "dgl._sparse_ops._gspmm -> _CAPI_DGLKernelSpMM"
+        },
+        {
+          "site": "native_spmm.anchor_orig_template_state.copy_lhs.sum",
+          "context": {
+            "message": "copy_u",
+            "reduce": "mean",
+            "output_field": "anchor_orig_template_state"
+          },
+          "formats": {
+            "created": [
+              "coo"
+            ],
+            "not created": [
+              "csr",
+              "csc"
+            ]
+          },
+          "num_nodes": [
+            650,
+            12891
+          ],
+          "native_call": "dgl._sparse_ops._gspmm -> _CAPI_DGLKernelSpMM"
+        },
+        {
+          "site": "native_spmm.anchor_prev_state.copy_lhs.sum",
+          "context": {
+            "message": "copy_u",
+            "reduce": "mean",
+            "output_field": "anchor_prev_state"
+          },
+          "formats": {
+            "created": [
+              "coo"
+            ],
+            "not created": [
+              "csr",
+              "csc"
+            ]
+          },
+          "num_nodes": [
+            9,
+            650
+          ],
+          "native_call": "dgl._sparse_ops._gspmm -> _CAPI_DGLKernelSpMM"
+        },
+        {
+          "site": "native_spmm.anchor_cur_state.copy_lhs.sum",
+          "context": {
+            "message": "copy_u",
+            "reduce": "mean",
+            "output_field": "anchor_cur_state"
+          },
+          "formats": {
+            "created": [
+              "coo"
+            ],
+            "not created": [
+              "csr",
+              "csc"
+            ]
+          },
+          "num_nodes": [
+            9,
+            650
+          ],
+          "native_call": "dgl._sparse_ops._gspmm -> _CAPI_DGLKernelSpMM"
+        },
+        {
+          "site": "native_spmm.anchor_template_state.copy_lhs.sum",
+          "context": {
+            "message": "copy_u",
+            "reduce": "mean",
+            "output_field": "anchor_template_state"
+          },
+          "formats": {
+            "created": [
+              "coo"
+            ],
+            "not created": [
+              "csr",
+              "csc"
+            ]
+          },
+          "num_nodes": [
+            9,
+            650
+          ],
+          "native_call": "dgl._sparse_ops._gspmm -> _CAPI_DGLKernelSpMM"
+        },
+        {
+          "site": "native_spmm.anchor_orig_template_state.copy_lhs.sum",
+          "context": {
+            "message": "copy_u",
+            "reduce": "mean",
+            "output_field": "anchor_orig_template_state"
+          },
+          "formats": {
+            "created": [
+              "coo"
+            ],
+            "not created": [
+              "csr",
+              "csc"
+            ]
+          },
+          "num_nodes": [
+            9,
+            650
+          ],
+          "native_call": "dgl._sparse_ops._gspmm -> _CAPI_DGLKernelSpMM"
+        },
+        {
+          "site": "native_spmm.anchor_prev_state.copy_lhs.sum",
+          "context": {
+            "message": "copy_u",
+            "reduce": "mean",
+            "output_field": "anchor_prev_state"
+          },
+          "formats": {
+            "created": [
+              "coo"
+            ],
+            "not created": [
+              "csr",
+              "csc"
+            ]
+          },
+          "num_nodes": [
+            2,
+            9
+          ],
+          "native_call": "dgl._sparse_ops._gspmm -> _CAPI_DGLKernelSpMM"
+        },
+        {
+          "site": "native_spmm.anchor_cur_state.copy_lhs.sum",
+          "context": {
+            "message": "copy_u",
+            "reduce": "mean",
+            "output_field": "anchor_cur_state"
+          },
+          "formats": {
+            "created": [
+              "coo"
+            ],
+            "not created": [
+              "csr",
+              "csc"
+            ]
+          },
+          "num_nodes": [
+            2,
+            9
+          ],
+          "native_call": "dgl._sparse_ops._gspmm -> _CAPI_DGLKernelSpMM"
+        },
+        {
+          "site": "native_spmm.anchor_template_state.copy_lhs.sum",
+          "context": {
+            "message": "copy_u",
+            "reduce": "mean",
+            "output_field": "anchor_template_state"
+          },
+          "formats": {
+            "created": [
+              "coo"
+            ],
+            "not created": [
+              "csr",
+              "csc"
+            ]
+          },
+          "num_nodes": [
+            2,
+            9
+          ],
+          "native_call": "dgl._sparse_ops._gspmm -> _CAPI_DGLKernelSpMM"
+        },
+        {
+          "site": "native_spmm.anchor_orig_template_state.copy_lhs.sum",
+          "context": {
+            "message": "copy_u",
+            "reduce": "mean",
+            "output_field": "anchor_orig_template_state"
+          },
+          "formats": {
+            "created": [
+              "coo"
+            ],
+            "not created": [
+              "csr",
+              "csc"
+            ]
+          },
+          "num_nodes": [
+            2,
+            9
+          ],
+          "native_call": "dgl._sparse_ops._gspmm -> _CAPI_DGLKernelSpMM"
+        }
+      ]
+    }
+  ],
+  "input_checkpoint_source_unchanged": true,
+  "wall_seconds": 11.12202459902619
+}

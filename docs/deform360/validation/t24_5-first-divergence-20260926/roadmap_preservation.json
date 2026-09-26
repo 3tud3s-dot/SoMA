@@ -1,0 +1,8 @@
+{
+  "t24_section_byte_identical": true,
+  "t24_section_sha256": "5e7806b20b5c29930ed030d4f11b25a02686a078ba31ea7c0054d8c5b0695da5",
+  "t25_and_later_byte_identical": true,
+  "t25_and_later_sha256": "dfd2117ab27f1cc5d954040b304ce5251a194483395c00153532737a11679b89",
+  "t24_status": "PASS",
+  "t25_status": "TODO"
+}

@@ -1,0 +1,497 @@
+{
+  "comparisons": {
+    "S0_vs_S0_repeat": {
+      "/steps/0/pred_pos": {
+        "max_abs_diff": 2.9802322387695312e-08,
+        "mean_abs_diff": 1.5300067220978163e-09,
+        "bitwise_equal": false,
+        "within_original_tolerance": true
+      },
+      "/steps/0/pred_cov": {
+        "max_abs_diff": 2.1827872842550278e-11,
+        "mean_abs_diff": 5.753631954897838e-13,
+        "bitwise_equal": false,
+        "within_original_tolerance": true
+      },
+      "/steps/0/render/0": {
+        "max_abs_diff": 0.0007564425468444824,
+        "mean_abs_diff": 2.3315916492989615e-08,
+        "bitwise_equal": false,
+        "within_original_tolerance": false
+      },
+      "/steps/0/render/1": {
+        "max_abs_diff": 0.0013486146926879883,
+        "mean_abs_diff": 2.321128409608651e-08,
+        "bitwise_equal": false,
+        "within_original_tolerance": false
+      },
+      "/loss/decode.loss_mse_momentum": {
+        "max_abs_diff": 1.3113021850585938e-06,
+        "mean_abs_diff": 1.3113021850585938e-06,
+        "bitwise_equal": false,
+        "within_original_tolerance": true
+      },
+      "/loss/decode.loss_ssim_render": {
+        "max_abs_diff": 0.00048828125,
+        "mean_abs_diff": 0.00048828125,
+        "bitwise_equal": false,
+        "within_original_tolerance": true
+      },
+      "/loss/decode.loss_l2_render": {
+        "max_abs_diff": 0.001953125,
+        "mean_abs_diff": 0.001953125,
+        "bitwise_equal": false,
+        "within_original_tolerance": true
+      },
+      "/loss/decode.acc_l2_render.acc": {
+        "max_abs_diff": 7.450580596923828e-09,
+        "mean_abs_diff": 7.450580596923828e-09,
+        "bitwise_equal": false,
+        "within_original_tolerance": true
+      },
+      "/loss/decode.acc_l1_render.acc": {
+        "max_abs_diff": 7.450580596923828e-09,
+        "mean_abs_diff": 7.450580596923828e-09,
+        "bitwise_equal": false,
+        "within_original_tolerance": true
+      },
+      "/loss/decode.acc_ssim_render.acc": {
+        "max_abs_diff": 0.0,
+        "mean_abs_diff": 0.0,
+        "bitwise_equal": true,
+        "within_original_tolerance": true
+      },
+      "/loss/decode.acc_psnr_render.acc": {
+        "max_abs_diff": 0.0,
+        "mean_abs_diff": 0.0,
+        "bitwise_equal": true,
+        "within_original_tolerance": true
+      }
+    },
+    "S1_vs_S1_repeat": {
+      "/steps/0/pred_pos": {
+        "max_abs_diff": 0.0,
+        "mean_abs_diff": 0.0,
+        "bitwise_equal": true,
+        "within_original_tolerance": true
+      },
+      "/steps/0/pred_cov": {
+        "max_abs_diff": 0.0,
+        "mean_abs_diff": 0.0,
+        "bitwise_equal": true,
+        "within_original_tolerance": true
+      },
+      "/steps/0/render/0": {
+        "max_abs_diff": 0.0,
+        "mean_abs_diff": 0.0,
+        "bitwise_equal": true,
+        "within_original_tolerance": true
+      },
+      "/steps/0/render/1": {
+        "max_abs_diff": 0.0,
+        "mean_abs_diff": 0.0,
+        "bitwise_equal": true,
+        "within_original_tolerance": true
+      },
+      "/loss/decode.loss_mse_momentum": {
+        "max_abs_diff": 0.0,
+        "mean_abs_diff": 0.0,
+        "bitwise_equal": true,
+        "within_original_tolerance": true
+      },
+      "/loss/decode.loss_ssim_render": {
+        "max_abs_diff": 0.0,
+        "mean_abs_diff": 0.0,
+        "bitwise_equal": true,
+        "within_original_tolerance": true
+      },
+      "/loss/decode.loss_l2_render": {
+        "max_abs_diff": 0.0,
+        "mean_abs_diff": 0.0,
+        "bitwise_equal": true,
+        "within_original_tolerance": true
+      },
+      "/loss/decode.acc_l2_render.acc": {
+        "max_abs_diff": 0.0,
+        "mean_abs_diff": 0.0,
+        "bitwise_equal": true,
+        "within_original_tolerance": true
+      },
+      "/loss/decode.acc_l1_render.acc": {
+        "max_abs_diff": 0.0,
+        "mean_abs_diff": 0.0,
+        "bitwise_equal": true,
+        "within_original_tolerance": true
+      },
+      "/loss/decode.acc_ssim_render.acc": {
+        "max_abs_diff": 0.0,
+        "mean_abs_diff": 0.0,
+        "bitwise_equal": true,
+        "within_original_tolerance": true
+      },
+      "/loss/decode.acc_psnr_render.acc": {
+        "max_abs_diff": 0.0,
+        "mean_abs_diff": 0.0,
+        "bitwise_equal": true,
+        "within_original_tolerance": true
+      }
+    },
+    "S0_vs_S1": {
+      "/steps/0/pred_pos": {
+        "max_abs_diff": 2.9802322387695312e-08,
+        "mean_abs_diff": 1.5300067220978163e-09,
+        "bitwise_equal": false,
+        "within_original_tolerance": true
+      },
+      "/steps/0/pred_cov": {
+        "max_abs_diff": 2.1827872842550278e-11,
+        "mean_abs_diff": 5.753631954897838e-13,
+        "bitwise_equal": false,
+        "within_original_tolerance": true
+      },
+      "/steps/0/render/0": {
+        "max_abs_diff": 0.0007564425468444824,
+        "mean_abs_diff": 2.3315916492989615e-08,
+        "bitwise_equal": false,
+        "within_original_tolerance": false
+      },
+      "/steps/0/render/1": {
+        "max_abs_diff": 0.0013486146926879883,
+        "mean_abs_diff": 2.321128409608651e-08,
+        "bitwise_equal": false,
+        "within_original_tolerance": false
+      },
+      "/loss/decode.loss_mse_momentum": {
+        "max_abs_diff": 1.3113021850585938e-06,
+        "mean_abs_diff": 1.3113021850585938e-06,
+        "bitwise_equal": false,
+        "within_original_tolerance": true
+      },
+      "/loss/decode.loss_ssim_render": {
+        "max_abs_diff": 0.00048828125,
+        "mean_abs_diff": 0.00048828125,
+        "bitwise_equal": false,
+        "within_original_tolerance": true
+      },
+      "/loss/decode.loss_l2_render": {
+        "max_abs_diff": 0.001953125,
+        "mean_abs_diff": 0.001953125,
+        "bitwise_equal": false,
+        "within_original_tolerance": true
+      },
+      "/loss/decode.acc_l2_render.acc": {
+        "max_abs_diff": 7.450580596923828e-09,
+        "mean_abs_diff": 7.450580596923828e-09,
+        "bitwise_equal": false,
+        "within_original_tolerance": true
+      },
+      "/loss/decode.acc_l1_render.acc": {
+        "max_abs_diff": 7.450580596923828e-09,
+        "mean_abs_diff": 7.450580596923828e-09,
+        "bitwise_equal": false,
+        "within_original_tolerance": true
+      },
+      "/loss/decode.acc_ssim_render.acc": {
+        "max_abs_diff": 0.0,
+        "mean_abs_diff": 0.0,
+        "bitwise_equal": true,
+        "within_original_tolerance": true
+      },
+      "/loss/decode.acc_psnr_render.acc": {
+        "max_abs_diff": 0.0,
+        "mean_abs_diff": 0.0,
+        "bitwise_equal": true,
+        "within_original_tolerance": true
+      }
+    },
+    "S1_vs_A": {
+      "/steps/0/pred_pos": {
+        "max_abs_diff": 8.940696716308594e-08,
+        "mean_abs_diff": 6.154129235691627e-09,
+        "bitwise_equal": false,
+        "within_original_tolerance": true
+      },
+      "/steps/0/pred_cov": {
+        "max_abs_diff": 3.2741809263825417e-11,
+        "mean_abs_diff": 9.649982224278163e-13,
+        "bitwise_equal": false,
+        "within_original_tolerance": true
+      },
+      "/steps/0/render/0": {
+        "max_abs_diff": 0.000756487250328064,
+        "mean_abs_diff": 4.5470939885153375e-08,
+        "bitwise_equal": false,
+        "within_original_tolerance": false
+      },
+      "/steps/0/render/1": {
+        "max_abs_diff": 0.002740606665611267,
+        "mean_abs_diff": 5.148039901070189e-08,
+        "bitwise_equal": false,
+        "within_original_tolerance": false
+      },
+      "/loss/decode.loss_mse_momentum": {
+        "max_abs_diff": 4.124641418457031e-05,
+        "mean_abs_diff": 4.124641418457031e-05,
+        "bitwise_equal": false,
+        "within_original_tolerance": false
+      },
+      "/loss/decode.loss_ssim_render": {
+        "max_abs_diff": 0.00244140625,
+        "mean_abs_diff": 0.00244140625,
+        "bitwise_equal": false,
+        "within_original_tolerance": true
+      },
+      "/loss/decode.loss_l2_render": {
+        "max_abs_diff": 0.00390625,
+        "mean_abs_diff": 0.00390625,
+        "bitwise_equal": false,
+        "within_original_tolerance": true
+      },
+      "/loss/decode.acc_l2_render.acc": {
+        "max_abs_diff": 7.450580596923828e-09,
+        "mean_abs_diff": 7.450580596923828e-09,
+        "bitwise_equal": false,
+        "within_original_tolerance": true
+      },
+      "/loss/decode.acc_l1_render.acc": {
+        "max_abs_diff": 7.450580596923828e-09,
+        "mean_abs_diff": 7.450580596923828e-09,
+        "bitwise_equal": false,
+        "within_original_tolerance": true
+      },
+      "/loss/decode.acc_ssim_render.acc": {
+        "max_abs_diff": 0.0,
+        "mean_abs_diff": 0.0,
+        "bitwise_equal": true,
+        "within_original_tolerance": true
+      },
+      "/loss/decode.acc_psnr_render.acc": {
+        "max_abs_diff": 1.9073486328125e-06,
+        "mean_abs_diff": 1.9073486328125e-06,
+        "bitwise_equal": false,
+        "within_original_tolerance": true
+      }
+    },
+    "S0_vs_A": {
+      "/steps/0/pred_pos": {
+        "max_abs_diff": 8.940696716308594e-08,
+        "mean_abs_diff": 6.2127568262044235e-09,
+        "bitwise_equal": false,
+        "within_original_tolerance": true
+      },
+      "/steps/0/pred_cov": {
+        "max_abs_diff": 3.637978807091713e-11,
+        "mean_abs_diff": 9.616116316788492e-13,
+        "bitwise_equal": false,
+        "within_original_tolerance": true
+      },
+      "/steps/0/render/0": {
+        "max_abs_diff": 0.00029718875885009766,
+        "mean_abs_diff": 4.271724323930189e-08,
+        "bitwise_equal": false,
+        "within_original_tolerance": false
+      },
+      "/steps/0/render/1": {
+        "max_abs_diff": 0.0027406811714172363,
+        "mean_abs_diff": 5.589541817446136e-08,
+        "bitwise_equal": false,
+        "within_original_tolerance": false
+      },
+      "/loss/decode.loss_mse_momentum": {
+        "max_abs_diff": 4.2557716369628906e-05,
+        "mean_abs_diff": 4.2557716369628906e-05,
+        "bitwise_equal": false,
+        "within_original_tolerance": false
+      },
+      "/loss/decode.loss_ssim_render": {
+        "max_abs_diff": 0.001953125,
+        "mean_abs_diff": 0.001953125,
+        "bitwise_equal": false,
+        "within_original_tolerance": true
+      },
+      "/loss/decode.loss_l2_render": {
+        "max_abs_diff": 0.001953125,
+        "mean_abs_diff": 0.001953125,
+        "bitwise_equal": false,
+        "within_original_tolerance": true
+      },
+      "/loss/decode.acc_l2_render.acc": {
+        "max_abs_diff": 0.0,
+        "mean_abs_diff": 0.0,
+        "bitwise_equal": true,
+        "within_original_tolerance": true
+      },
+      "/loss/decode.acc_l1_render.acc": {
+        "max_abs_diff": 0.0,
+        "mean_abs_diff": 0.0,
+        "bitwise_equal": true,
+        "within_original_tolerance": true
+      },
+      "/loss/decode.acc_ssim_render.acc": {
+        "max_abs_diff": 0.0,
+        "mean_abs_diff": 0.0,
+        "bitwise_equal": true,
+        "within_original_tolerance": true
+      },
+      "/loss/decode.acc_psnr_render.acc": {
+        "max_abs_diff": 1.9073486328125e-06,
+        "mean_abs_diff": 1.9073486328125e-06,
+        "bitwise_equal": false,
+        "within_original_tolerance": true
+      }
+    }
+  },
+  "state_differences": {
+    "S0_vs_S0_repeat": [
+      {
+        "path": "/rng/torch_cpu",
+        "equal": false,
+        "detail": "RNG state differs"
+      }
+    ],
+    "S1_vs_S1_repeat": [],
+    "S0_vs_S1": [
+      {
+        "path": "/rng/torch_cpu",
+        "equal": false,
+        "detail": "RNG state differs"
+      },
+      {
+        "path": "/unregistered_module_attributes//num_epoch",
+        "left": 1,
+        "right": 0
+      },
+      {
+        "path": "/unregistered_module_attributes//num_iter",
+        "left": 1,
+        "right": 0
+      },
+      {
+        "path": "/unregistered_module_attributes/decode_head/render_background/sha256",
+        "left": "15ec7bf0b50732b49f8228e07d24365338f9e3ab994b00af08e5a3bffe55fd8b",
+        "right": "8a31a40ecac0ceb4d87b30bd156ca7a547e8e33dc071454b765fbc777d1c34a1"
+      }
+    ],
+    "S1_vs_A": [
+      {
+        "path": "/rng/python",
+        "equal": false,
+        "detail": "RNG state differs"
+      },
+      {
+        "path": "/rng/torch_cpu",
+        "equal": false,
+        "detail": "RNG state differs"
+      },
+      {
+        "path": "/unregistered_module_attributes/decode_head/render_background/sha256",
+        "left": "8a31a40ecac0ceb4d87b30bd156ca7a547e8e33dc071454b765fbc777d1c34a1",
+        "right": "15ec7bf0b50732b49f8228e07d24365338f9e3ab994b00af08e5a3bffe55fd8b"
+      }
+    ],
+    "S0_vs_A": [
+      {
+        "path": "/rng/python",
+        "equal": false,
+        "detail": "RNG state differs"
+      },
+      {
+        "path": "/unregistered_module_attributes//num_epoch",
+        "left": 1,
+        "right": 0
+      },
+      {
+        "path": "/unregistered_module_attributes//num_iter",
+        "left": 1,
+        "right": 0
+      }
+    ]
+  },
+  "tolerance": {
+    "atol": 1e-05,
+    "rtol": 1e-05
+  },
+  "during_forward_state_differences": {
+    "S0": [],
+    "S0_repeat": [],
+    "S1": [],
+    "S1_repeat": [],
+    "A": []
+  },
+  "required_state_groups_equal": {
+    "S0_vs_S0_repeat": {
+      "forward_arguments": true,
+      "module_modes": true,
+      "parameters": true,
+      "registered_buffers": true,
+      "scene_dictionaries": true,
+      "render_pipeline": true,
+      "input": true,
+      "backend": true
+    },
+    "S1_vs_S1_repeat": {
+      "forward_arguments": true,
+      "module_modes": true,
+      "parameters": true,
+      "registered_buffers": true,
+      "scene_dictionaries": true,
+      "render_pipeline": true,
+      "input": true,
+      "backend": true
+    },
+    "S0_vs_S1": {
+      "forward_arguments": true,
+      "module_modes": true,
+      "parameters": true,
+      "registered_buffers": true,
+      "scene_dictionaries": true,
+      "render_pipeline": true,
+      "input": true,
+      "backend": true
+    },
+    "S1_vs_A": {
+      "forward_arguments": true,
+      "module_modes": true,
+      "parameters": true,
+      "registered_buffers": true,
+      "scene_dictionaries": true,
+      "render_pipeline": true,
+      "input": true,
+      "backend": true
+    },
+    "S0_vs_A": {
+      "forward_arguments": true,
+      "module_modes": true,
+      "parameters": true,
+      "registered_buffers": true,
+      "scene_dictionaries": true,
+      "render_pipeline": true,
+      "input": true,
+      "backend": true
+    }
+  },
+  "summaries": {
+    "S0_vs_S0_repeat": {
+      "all_bitwise_equal": false,
+      "all_original_tolerance_pass": false
+    },
+    "S1_vs_S1_repeat": {
+      "all_bitwise_equal": true,
+      "all_original_tolerance_pass": true
+    },
+    "S0_vs_S1": {
+      "all_bitwise_equal": false,
+      "all_original_tolerance_pass": false
+    },
+    "S1_vs_A": {
+      "all_bitwise_equal": false,
+      "all_original_tolerance_pass": false
+    },
+    "S0_vs_A": {
+      "all_bitwise_equal": false,
+      "all_original_tolerance_pass": false
+    }
+  },
+  "case": 3,
+  "classification_basis": "all outputs bitwise equality; unchanged atol/rtol gates also reported"
+}

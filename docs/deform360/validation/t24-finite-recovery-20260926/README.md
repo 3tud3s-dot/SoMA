@@ -1,0 +1,10 @@
+# T24 finite-state checkpoint retry
+
+T24 finite retry = FAIL at fixed-output gate; no NaN/Inf in this saved state.
+Save job 25837: one T21-style no-update forward, one rollout=1 train step through original EpochRunner/model.train_step. A validation-only hook checks gradients before Adam.step and all model/optimizer/normalizer tensors after step. Original CheckpointHook saves only after guards pass.
+Reload job 25838: independent process through real runner.resume; model keys/shapes/dtypes/tensors, optimizer groups/IDs/name ordering/step/exp_avg/exp_avg_sq, and all 12 normalizer accumulators match exactly. Runner epoch=1/iter=1 restored.
+Read-only diagnostic job 25839 quantifies all differences without training or changing tolerance. pred_pos max diff=5.960464477539063e-08, pred_cov=4.3655745685100555e-11; render 023=0.00018256902694702148, render 009=8.32974910736084e-05; momentum loss=0.00011563301086425781. Both renders and momentum loss fail original atol=rtol=1e-5. Outputs all finite. Cause not established; eval/no_grad freezes normalizers but custom CUDA kernel determinism is not independently established.
+Runtime: global_step does not exist. iters_per_epoch=None and is_est_vel=True match. model.num_iter/num_epoch mirrors are not serialized (1→0); forward_train:638 overwrites them from runner inputs, with no dependency on old mirror values. Do not claim all Python attributes restored.
+Harness preflight job 25835 failed before training (MMCV prohibits batch_processor plus model.train_step); job 25836 performed a finite step but failed reading nonexistent global_step, before checkpoint save. Reports retained; neither state reused. These were tool-only corrections, not model changes or stability interventions.
+Finite checkpoint and tensor references remain server-only. Current tool adds exhaustive difference reporting; save/reload used server /tmp/tcgs_t24_finite_recovery_v3_20260926.py, exact tool hashes recorded in reports.
+No T25–T28, no commit/push. Old BLOCKED and rollout=3 FAIL history preserved. Existing unrelated ZIP untouched.
