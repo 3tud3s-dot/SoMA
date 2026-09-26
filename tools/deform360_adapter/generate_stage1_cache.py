@@ -33,6 +33,8 @@ def main():
     ds=build_dataset(cfg.data.test,default_args=dict(test_mode=True));assert len(ds)==1
     dl=build_dataloader(ds,samples_per_gpu=1,workers_per_gpu=0,num_gpus=1,dist=False,shuffle=False,round_up=False,sampler_cfg=None)
     mc=copy.deepcopy(cfg.model);mc.pretrained=None;mc.flag_save_gaussian=True;mc.data_dir=str(a.output)
+    # T6/T19/T25 dataset stride; Stage-1 uses this attribute only for cache keys.
+    mc.frame_gap = cfg.data.test.env_cfg.frame_gap
     model=build_simulator(mc);load_checkpoint(model,str(checkpoint),map_location='cpu',strict=True)
     assert all(torch.equal(model.state_dict()[k].cpu(),v) for k,v in ck['state_dict'].items())
     model=wrap_non_distributed_model(model,device='cuda',device_ids=[0]);model.eval();m=model.module

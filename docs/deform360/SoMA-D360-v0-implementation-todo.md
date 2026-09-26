@@ -30,7 +30,7 @@ Current task:
 T27
 
 Current status:
-BLOCKED
+PASS
 ```
 
 以上 HEAD 为本 roadmap 建立时的源码基线。T0–T11 已 PASS，具体结论及证据保留于各项历史 Result / Evidence。T11 checkpoint 已提交并推送；T12 已按人工确认采用 30→10→2→1 grouping contract 并验证 PASS；此前默认分组 FAIL 历史保留，不进入 T13。
@@ -162,7 +162,7 @@ tcgs root Git 仅用于 workspace-level 资产。除非明确说明，不在 tcg
 | T26.3 | random-init dynamics scale / normalization audit（Blocking） | SCALE_MISMATCH_ATTRIBUTED |
 | T26.4 | Normalizer numerical-stability fix / layered regression | PASS |
 | T26.5 | formal first-step regression（Blocking smoke test） | PASS |
-| T27 | 只生成并核验 Stage-1 cache | BLOCKED |
+| T27 | 只生成并核验 Stage-1 cache | PASS |
 | T28 | 只串联一个 Stage 2 子窗口 | TODO |
 | T29 | 只验证 Stage 2 一个优化步骤 | TODO |
 | T30 | 执行固定预算的 Stage 2 训练 | TODO |
@@ -2027,7 +2027,7 @@ D360 combined backward：total loss23109.26171875，275个gradient tensors finit
 
 ### T27：只生成并核验 Stage-1 cache
 
-Status: BLOCKED
+Status: PASS
 
 **问题：** Stage 2 需要按帧定位的预测初态。
 
@@ -2058,12 +2058,20 @@ Status: BLOCKED
 
 CPU只读readback全部16文件可读、finite、12861点；协方差全部PD。最小后续建议：独立cache helper显式model.frame_gap=10（只影响Stage1 cache命名），新目录重新生成；不修改frozen训练配置或核心源码。本轮未实施，未执行T28。
 
+2026-09-27：**PASS — canonical gap10 cache**。上述BLOCKED以 `b7bb92a0de8437796a6a2c8b832db5e8b580a2a9` 提交/push，两端同HEAD/clean后仅在helper增加 `mc.frame_gap = cfg.data.test.env_cfg.frame_gap`。只读确认Stage1 self.frame_gap唯一读取为save_gaussian:447的命名换算，controller/dynamics/covariance不受影响，未改核心源码/frozen config。
+
+Slurm25872 COMPLETED/0:0、11s；新server-only目录 `datasets/deform360/derived/008-pink-cloth/episode_0/t27_stage1_cache_gap10/config_a_2cam/pred_stage1/`。16文件7454328B，frame_0,10,…150→source113,123,…263；pred_pos=[12861,3]、pred_cov=[12861,6] float32，全部finite/PD12861/12861。initial+15真实自回归预测，无future-Ply reset、无point reorder；initial-covariance reuse语义未改。epoch46 checkpoint hash一致、model exact loaded、12FP64Normalizer及registered state前后exact不变。独立CPUreadback/schema/hash与旧文件hash核验通过。
+
+旧frame_i与新frame_10i不是全部bitwise equal；最大position差2.6747584e-6m、covariance差2.575689e-9；无明显sequence-scale改变，最大单步位移0.05037445m，无尺度爆炸。不宣称bitwise确定性，不重新归因差异。旧失败cache与BLOCKED历史保留，contract分failed_attempt/canonical。T27成功结果暂不commit/push，未执行T28。
+
 #### Evidence
 
 - [failed-attempt contract / per-file hashes](contracts/008-pink-cloth/episode_0/stage1_cache_contract.json)
 - [Slurm25870 log](validation/t27-cache-20260927/run.txt)
 - [cache helper](../../tools/deform360_adapter/generate_stage1_cache.py)
 - SoMA/deform360-adaptation新增小型文件与roadmap未commit/push；server repo仍clean，helper执行副本在outputs。
+
+- [gap10成功报告](validation/t27-cache-gap10-20260927/README.md)、[逐tensor新旧比较](validation/t27-cache-gap10-20260927/comparison.json)、[canonical原始报告](validation/t27-cache-gap10-20260927/canonical_report.json)、[Slurm日志](validation/t27-cache-gap10-20260927/run.txt)。
 
 ### T28：只串联一个 Stage 2 子窗口
 

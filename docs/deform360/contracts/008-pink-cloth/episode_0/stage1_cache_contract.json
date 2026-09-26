@@ -1,867 +1,2270 @@
 {
   "task": "T27",
-  "status": "BLOCKED",
-  "reason": "Cache key mismatch: frozen config sets dataset frame_gap=10 but omits model.frame_gap, default1; official save_gaussian therefore writes frame_0..15 instead of frame_0,10,..150. No renaming or retry.",
-  "job_id": 25870,
-  "git_commit": "c7a1bb294859a5cb22d56a18794406d7250145ab",
-  "checkpoint_sha256": "d4dbea360fa033bfbf0b1ec338ce3107d49c5549675effb481f817eb672932c4",
-  "checkpoint_path": "/data1/userdata/tcweng/projects/tcgs/outputs/deform360/stage1/config_a_seed5_normalizer_fix_resume_epoch2/epoch_46.pth",
-  "config_sha256": "e65d1c7848bd222f55c0e18050c464eec5922aef76c1bc62a06813359cca4930",
-  "normalizer_sha256": "f78712dd0760fcf16a58431d7fdfd240a2e38cba89c400b405df93798f364220",
-  "seed": 5,
-  "camera_ids": [
-    "brics-odroid-023_cam0",
-    "brics-odroid-009_cam1"
-  ],
-  "dataset_frame_gap": 10,
-  "model_cache_naming_frame_gap": 1,
-  "cache_server_path": "/data1/userdata/tcweng/projects/tcgs/datasets/deform360/derived/008-pink-cloth/episode_0/t27_stage1_cache/config_a_2cam/pred_stage1",
-  "file_count": 16,
-  "total_bytes": 7454208,
-  "frames": [
-    {
-      "actual_cache_key": "frame_0",
-      "required_cache_key": "frame_0",
-      "local_frame": 0,
-      "source_frame": 113,
-      "provenance": "initial canonical",
-      "path": "/data1/userdata/tcweng/projects/tcgs/datasets/deform360/derived/008-pink-cloth/episode_0/t27_stage1_cache/config_a_2cam/pred_stage1/frame_0.pth",
-      "bytes": 464805,
-      "sha256": "548b31b06a1d974689a86ad4fd039a4df22fdf9cbc22ee4fc2a7df4ce364b241",
-      "fields": {
-        "pred_pos": {
-          "shape": [
-            12861,
-            3
-          ],
-          "dtype": "torch.float32",
-          "finite": true
+  "status": "PASS",
+  "failed_attempt": {
+    "task": "T27",
+    "status": "BLOCKED",
+    "reason": "Cache key mismatch: frozen config sets dataset frame_gap=10 but omits model.frame_gap, default1; official save_gaussian therefore writes frame_0..15 instead of frame_0,10,..150. No renaming or retry.",
+    "job_id": 25870,
+    "git_commit": "c7a1bb294859a5cb22d56a18794406d7250145ab",
+    "checkpoint_sha256": "d4dbea360fa033bfbf0b1ec338ce3107d49c5549675effb481f817eb672932c4",
+    "checkpoint_path": "/data1/userdata/tcweng/projects/tcgs/outputs/deform360/stage1/config_a_seed5_normalizer_fix_resume_epoch2/epoch_46.pth",
+    "config_sha256": "e65d1c7848bd222f55c0e18050c464eec5922aef76c1bc62a06813359cca4930",
+    "normalizer_sha256": "f78712dd0760fcf16a58431d7fdfd240a2e38cba89c400b405df93798f364220",
+    "seed": 5,
+    "camera_ids": [
+      "brics-odroid-023_cam0",
+      "brics-odroid-009_cam1"
+    ],
+    "dataset_frame_gap": 10,
+    "model_cache_naming_frame_gap": 1,
+    "cache_server_path": "/data1/userdata/tcweng/projects/tcgs/datasets/deform360/derived/008-pink-cloth/episode_0/t27_stage1_cache/config_a_2cam/pred_stage1",
+    "file_count": 16,
+    "total_bytes": 7454208,
+    "frames": [
+      {
+        "actual_cache_key": "frame_0",
+        "required_cache_key": "frame_0",
+        "local_frame": 0,
+        "source_frame": 113,
+        "provenance": "initial canonical",
+        "path": "/data1/userdata/tcweng/projects/tcgs/datasets/deform360/derived/008-pink-cloth/episode_0/t27_stage1_cache/config_a_2cam/pred_stage1/frame_0.pth",
+        "bytes": 464805,
+        "sha256": "548b31b06a1d974689a86ad4fd039a4df22fdf9cbc22ee4fc2a7df4ce364b241",
+        "fields": {
+          "pred_pos": {
+            "shape": [
+              12861,
+              3
+            ],
+            "dtype": "torch.float32",
+            "finite": true
+          },
+          "pred_cov": {
+            "shape": [
+              12861,
+              6
+            ],
+            "dtype": "torch.float32",
+            "finite": true
+          }
         },
-        "pred_cov": {
-          "shape": [
-            12861,
-            6
-          ],
-          "dtype": "torch.float32",
-          "finite": true
+        "position_min": [
+          0.06101363152265549,
+          -0.04881995916366577,
+          -0.06714770197868347
+        ],
+        "position_max": [
+          0.41370803117752075,
+          0.0270664244890213,
+          0.3123859763145447
+        ],
+        "displacement_p50_p95_p99_max": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "covariance_PD_count": 12861,
+        "covariance_PD_fraction": 1.0,
+        "min_eigenvalue": 9.623179506212989e-09,
+        "condition_p50_p99_max": [
+          62.31077424613706,
+          98.24100556775328,
+          105.32270616916374
+        ]
+      },
+      {
+        "actual_cache_key": "frame_1",
+        "required_cache_key": "frame_10",
+        "local_frame": 10,
+        "source_frame": 123,
+        "provenance": "predicted from previous coarse state",
+        "path": "/data1/userdata/tcweng/projects/tcgs/datasets/deform360/derived/008-pink-cloth/episode_0/t27_stage1_cache/config_a_2cam/pred_stage1/frame_1.pth",
+        "bytes": 465957,
+        "sha256": "7b19922627cbfdf76498cbc982eb19ace9e33c6fb2a0bfdab4e4d9756e4b79c4",
+        "fields": {
+          "pred_pos": {
+            "shape": [
+              12861,
+              3
+            ],
+            "dtype": "torch.float32",
+            "finite": true
+          },
+          "pred_cov": {
+            "shape": [
+              12861,
+              6
+            ],
+            "dtype": "torch.float32",
+            "finite": true
+          }
+        },
+        "position_min": [
+          0.07013916969299316,
+          -0.059715669602155685,
+          -0.06212170422077179
+        ],
+        "position_max": [
+          0.41378915309906006,
+          0.024753054603934288,
+          0.314007431268692
+        ],
+        "displacement_p50_p95_p99_max": [
+          0.003191552473524527,
+          0.037242195014400806,
+          0.04799659114989978,
+          0.05037445409294265
+        ],
+        "covariance_PD_count": 12861,
+        "covariance_PD_fraction": 1.0,
+        "min_eigenvalue": 7.307213194857492e-09,
+        "condition_p50_p99_max": [
+          65.46765469780107,
+          213.34756397399957,
+          590.4626445355059
+        ]
+      },
+      {
+        "actual_cache_key": "frame_2",
+        "required_cache_key": "frame_20",
+        "local_frame": 20,
+        "source_frame": 133,
+        "provenance": "predicted from previous coarse state",
+        "path": "/data1/userdata/tcweng/projects/tcgs/datasets/deform360/derived/008-pink-cloth/episode_0/t27_stage1_cache/config_a_2cam/pred_stage1/frame_2.pth",
+        "bytes": 465957,
+        "sha256": "3eafd75984afd3b846d9323e994f9eb0a9b61fcfbf56509382fb69b8e8e45374",
+        "fields": {
+          "pred_pos": {
+            "shape": [
+              12861,
+              3
+            ],
+            "dtype": "torch.float32",
+            "finite": true
+          },
+          "pred_cov": {
+            "shape": [
+              12861,
+              6
+            ],
+            "dtype": "torch.float32",
+            "finite": true
+          }
+        },
+        "position_min": [
+          0.07266246527433395,
+          -0.06001667678356171,
+          -0.06236734986305237
+        ],
+        "position_max": [
+          0.4147997498512268,
+          0.02958195097744465,
+          0.3148568868637085
+        ],
+        "displacement_p50_p95_p99_max": [
+          0.0029892146650199476,
+          0.011252042149292046,
+          0.018902992005605836,
+          0.030170301120825315
+        ],
+        "covariance_PD_count": 12861,
+        "covariance_PD_fraction": 1.0,
+        "min_eigenvalue": 8.341083700479935e-09,
+        "condition_p50_p99_max": [
+          64.80824750939331,
+          189.33521443195514,
+          581.9002461342027
+        ]
+      },
+      {
+        "actual_cache_key": "frame_3",
+        "required_cache_key": "frame_30",
+        "local_frame": 30,
+        "source_frame": 143,
+        "provenance": "predicted from previous coarse state",
+        "path": "/data1/userdata/tcweng/projects/tcgs/datasets/deform360/derived/008-pink-cloth/episode_0/t27_stage1_cache/config_a_2cam/pred_stage1/frame_3.pth",
+        "bytes": 465957,
+        "sha256": "69885c03c29741c4cace1d5fe382a90a194c7e395f7dc83bcdb86c5a5bd384bf",
+        "fields": {
+          "pred_pos": {
+            "shape": [
+              12861,
+              3
+            ],
+            "dtype": "torch.float32",
+            "finite": true
+          },
+          "pred_cov": {
+            "shape": [
+              12861,
+              6
+            ],
+            "dtype": "torch.float32",
+            "finite": true
+          }
+        },
+        "position_min": [
+          0.0784224346280098,
+          -0.04926927760243416,
+          -0.06222226470708847
+        ],
+        "position_max": [
+          0.4150046706199646,
+          0.04018620774149895,
+          0.31393590569496155
+        ],
+        "displacement_p50_p95_p99_max": [
+          0.0029085961679965596,
+          0.012597166924508279,
+          0.015724904097262807,
+          0.04984966110016725
+        ],
+        "covariance_PD_count": 12861,
+        "covariance_PD_fraction": 1.0,
+        "min_eigenvalue": 9.375213433314788e-09,
+        "condition_p50_p99_max": [
+          63.78065374106144,
+          197.65064140548145,
+          586.8419492458773
+        ]
+      },
+      {
+        "actual_cache_key": "frame_4",
+        "required_cache_key": "frame_40",
+        "local_frame": 40,
+        "source_frame": 153,
+        "provenance": "predicted from previous coarse state",
+        "path": "/data1/userdata/tcweng/projects/tcgs/datasets/deform360/derived/008-pink-cloth/episode_0/t27_stage1_cache/config_a_2cam/pred_stage1/frame_4.pth",
+        "bytes": 465957,
+        "sha256": "662cda1d659caf7436f1fb6ce1f6f47d54e212823435303b9927c441a1d44ae8",
+        "fields": {
+          "pred_pos": {
+            "shape": [
+              12861,
+              3
+            ],
+            "dtype": "torch.float32",
+            "finite": true
+          },
+          "pred_cov": {
+            "shape": [
+              12861,
+              6
+            ],
+            "dtype": "torch.float32",
+            "finite": true
+          }
+        },
+        "position_min": [
+          0.08668605983257294,
+          -0.046281881630420685,
+          -0.06222034990787506
+        ],
+        "position_max": [
+          0.4150494933128357,
+          0.061888061463832855,
+          0.3150700330734253
+        ],
+        "displacement_p50_p95_p99_max": [
+          0.004399367757544259,
+          0.023653974894749318,
+          0.026750156465523565,
+          0.042093661294423726
+        ],
+        "covariance_PD_count": 12861,
+        "covariance_PD_fraction": 1.0,
+        "min_eigenvalue": 8.826777488223627e-09,
+        "condition_p50_p99_max": [
+          62.32619832612516,
+          240.72867221491686,
+          648.9385665420499
+        ]
+      },
+      {
+        "actual_cache_key": "frame_5",
+        "required_cache_key": "frame_50",
+        "local_frame": 50,
+        "source_frame": 163,
+        "provenance": "predicted from previous coarse state",
+        "path": "/data1/userdata/tcweng/projects/tcgs/datasets/deform360/derived/008-pink-cloth/episode_0/t27_stage1_cache/config_a_2cam/pred_stage1/frame_5.pth",
+        "bytes": 465957,
+        "sha256": "007ed98b8431906e70247270693090b87342b93350883c5eb9c1f44c47d5ba69",
+        "fields": {
+          "pred_pos": {
+            "shape": [
+              12861,
+              3
+            ],
+            "dtype": "torch.float32",
+            "finite": true
+          },
+          "pred_cov": {
+            "shape": [
+              12861,
+              6
+            ],
+            "dtype": "torch.float32",
+            "finite": true
+          }
+        },
+        "position_min": [
+          0.09236142039299011,
+          -0.03973984345793724,
+          -0.06313671916723251
+        ],
+        "position_max": [
+          0.4145885109901428,
+          0.07319265604019165,
+          0.31406262516975403
+        ],
+        "displacement_p50_p95_p99_max": [
+          0.0041608083258145995,
+          0.013965167739267573,
+          0.01653706456759518,
+          0.03640512073909661
+        ],
+        "covariance_PD_count": 12861,
+        "covariance_PD_fraction": 1.0,
+        "min_eigenvalue": 1.0002430501505461e-08,
+        "condition_p50_p99_max": [
+          61.04592864135733,
+          191.57737756790667,
+          750.4253769402078
+        ]
+      },
+      {
+        "actual_cache_key": "frame_6",
+        "required_cache_key": "frame_60",
+        "local_frame": 60,
+        "source_frame": 173,
+        "provenance": "predicted from previous coarse state",
+        "path": "/data1/userdata/tcweng/projects/tcgs/datasets/deform360/derived/008-pink-cloth/episode_0/t27_stage1_cache/config_a_2cam/pred_stage1/frame_6.pth",
+        "bytes": 465957,
+        "sha256": "3ff560dc987b27ea1b829a8d6392c8eb3c05a85aa18d9b7ed49b8f69c86b43de",
+        "fields": {
+          "pred_pos": {
+            "shape": [
+              12861,
+              3
+            ],
+            "dtype": "torch.float32",
+            "finite": true
+          },
+          "pred_cov": {
+            "shape": [
+              12861,
+              6
+            ],
+            "dtype": "torch.float32",
+            "finite": true
+          }
+        },
+        "position_min": [
+          0.10160189867019653,
+          -0.04709494486451149,
+          -0.06451407074928284
+        ],
+        "position_max": [
+          0.41435691714286804,
+          0.0899699479341507,
+          0.3145824372768402
+        ],
+        "displacement_p50_p95_p99_max": [
+          0.005239795583667206,
+          0.01908004225943174,
+          0.02083888342277329,
+          0.03709173619218979
+        ],
+        "covariance_PD_count": 12861,
+        "covariance_PD_fraction": 1.0,
+        "min_eigenvalue": 9.379630503458614e-09,
+        "condition_p50_p99_max": [
+          59.70296174887538,
+          236.6131127438549,
+          645.9058262205577
+        ]
+      },
+      {
+        "actual_cache_key": "frame_7",
+        "required_cache_key": "frame_70",
+        "local_frame": 70,
+        "source_frame": 183,
+        "provenance": "predicted from previous coarse state",
+        "path": "/data1/userdata/tcweng/projects/tcgs/datasets/deform360/derived/008-pink-cloth/episode_0/t27_stage1_cache/config_a_2cam/pred_stage1/frame_7.pth",
+        "bytes": 465957,
+        "sha256": "ffb2511e281402f331ac9f19563cf7014158f9272a0c1651609ccc951ca58767",
+        "fields": {
+          "pred_pos": {
+            "shape": [
+              12861,
+              3
+            ],
+            "dtype": "torch.float32",
+            "finite": true
+          },
+          "pred_cov": {
+            "shape": [
+              12861,
+              6
+            ],
+            "dtype": "torch.float32",
+            "finite": true
+          }
+        },
+        "position_min": [
+          0.10880839824676514,
+          -0.03755219280719757,
+          -0.06528196483850479
+        ],
+        "position_max": [
+          0.41328418254852295,
+          0.10411353409290314,
+          0.31388235092163086
+        ],
+        "displacement_p50_p95_p99_max": [
+          0.005261853882836077,
+          0.017428845516177273,
+          0.019209968007480017,
+          0.031048969995646148
+        ],
+        "covariance_PD_count": 12861,
+        "covariance_PD_fraction": 1.0,
+        "min_eigenvalue": 8.967516250639909e-09,
+        "condition_p50_p99_max": [
+          57.86951078916472,
+          210.13359225783424,
+          791.3999089910374
+        ]
+      },
+      {
+        "actual_cache_key": "frame_8",
+        "required_cache_key": "frame_80",
+        "local_frame": 80,
+        "source_frame": 193,
+        "provenance": "predicted from previous coarse state",
+        "path": "/data1/userdata/tcweng/projects/tcgs/datasets/deform360/derived/008-pink-cloth/episode_0/t27_stage1_cache/config_a_2cam/pred_stage1/frame_8.pth",
+        "bytes": 465957,
+        "sha256": "9fb0baa35bef3d6250bc31a0b7f5f3d6c9732685630961e7aa3a5392a6299d7d",
+        "fields": {
+          "pred_pos": {
+            "shape": [
+              12861,
+              3
+            ],
+            "dtype": "torch.float32",
+            "finite": true
+          },
+          "pred_cov": {
+            "shape": [
+              12861,
+              6
+            ],
+            "dtype": "torch.float32",
+            "finite": true
+          }
+        },
+        "position_min": [
+          0.12008199840784073,
+          -0.03537484630942345,
+          -0.06458641588687897
+        ],
+        "position_max": [
+          0.4130798578262329,
+          0.12120989710092545,
+          0.31928253173828125
+        ],
+        "displacement_p50_p95_p99_max": [
+          0.005328314188160223,
+          0.019195404867464756,
+          0.02130412255225022,
+          0.03188401489069706
+        ],
+        "covariance_PD_count": 12861,
+        "covariance_PD_fraction": 1.0,
+        "min_eigenvalue": 8.375746004089705e-09,
+        "condition_p50_p99_max": [
+          56.677380013438416,
+          216.3754604961302,
+          817.7069459603102
+        ]
+      },
+      {
+        "actual_cache_key": "frame_9",
+        "required_cache_key": "frame_90",
+        "local_frame": 90,
+        "source_frame": 203,
+        "provenance": "predicted from previous coarse state",
+        "path": "/data1/userdata/tcweng/projects/tcgs/datasets/deform360/derived/008-pink-cloth/episode_0/t27_stage1_cache/config_a_2cam/pred_stage1/frame_9.pth",
+        "bytes": 465957,
+        "sha256": "02dc9b183fa15159170075a4d20c2985ad561f461616a93fe3ff51be28edb527",
+        "fields": {
+          "pred_pos": {
+            "shape": [
+              12861,
+              3
+            ],
+            "dtype": "torch.float32",
+            "finite": true
+          },
+          "pred_cov": {
+            "shape": [
+              12861,
+              6
+            ],
+            "dtype": "torch.float32",
+            "finite": true
+          }
+        },
+        "position_min": [
+          0.13152754306793213,
+          -0.03429323434829712,
+          -0.06483712047338486
+        ],
+        "position_max": [
+          0.4116194248199463,
+          0.13668292760849,
+          0.31488102674484253
+        ],
+        "displacement_p50_p95_p99_max": [
+          0.007555429101438308,
+          0.019744255397380468,
+          0.021072514886093022,
+          0.029464561472162705
+        ],
+        "covariance_PD_count": 12861,
+        "covariance_PD_fraction": 1.0,
+        "min_eigenvalue": 7.962569736082422e-09,
+        "condition_p50_p99_max": [
+          56.090266537867635,
+          221.54646353817628,
+          747.4579550208413
+        ]
+      },
+      {
+        "actual_cache_key": "frame_10",
+        "required_cache_key": "frame_100",
+        "local_frame": 100,
+        "source_frame": 213,
+        "provenance": "predicted from previous coarse state",
+        "path": "/data1/userdata/tcweng/projects/tcgs/datasets/deform360/derived/008-pink-cloth/episode_0/t27_stage1_cache/config_a_2cam/pred_stage1/frame_10.pth",
+        "bytes": 465965,
+        "sha256": "c1c3168e8f85d718cdecbee2bcb5b5748b2d017338fb0b431cb288150ac469de",
+        "fields": {
+          "pred_pos": {
+            "shape": [
+              12861,
+              3
+            ],
+            "dtype": "torch.float32",
+            "finite": true
+          },
+          "pred_cov": {
+            "shape": [
+              12861,
+              6
+            ],
+            "dtype": "torch.float32",
+            "finite": true
+          }
+        },
+        "position_min": [
+          0.1368548423051834,
+          -0.035919029265642166,
+          -0.06557128578424454
+        ],
+        "position_max": [
+          0.410894513130188,
+          0.14739136397838593,
+          0.3190307319164276
+        ],
+        "displacement_p50_p95_p99_max": [
+          0.005605635017410534,
+          0.009651682829803825,
+          0.012873540706608068,
+          0.030053986222900342
+        ],
+        "covariance_PD_count": 12861,
+        "covariance_PD_fraction": 1.0,
+        "min_eigenvalue": 7.829133440126533e-09,
+        "condition_p50_p99_max": [
+          56.03112715852715,
+          222.93915736689328,
+          761.791823155044
+        ]
+      },
+      {
+        "actual_cache_key": "frame_11",
+        "required_cache_key": "frame_110",
+        "local_frame": 110,
+        "source_frame": 223,
+        "provenance": "predicted from previous coarse state",
+        "path": "/data1/userdata/tcweng/projects/tcgs/datasets/deform360/derived/008-pink-cloth/episode_0/t27_stage1_cache/config_a_2cam/pred_stage1/frame_11.pth",
+        "bytes": 465965,
+        "sha256": "ec6c9644cb5d94a11faf38534abf19db6afa86b73388d758dd8aa0a5722ae949",
+        "fields": {
+          "pred_pos": {
+            "shape": [
+              12861,
+              3
+            ],
+            "dtype": "torch.float32",
+            "finite": true
+          },
+          "pred_cov": {
+            "shape": [
+              12861,
+              6
+            ],
+            "dtype": "torch.float32",
+            "finite": true
+          }
+        },
+        "position_min": [
+          0.13488781452178955,
+          -0.04089941829442978,
+          -0.06570682674646378
+        ],
+        "position_max": [
+          0.4097200930118561,
+          0.14439398050308228,
+          0.3197733163833618
+        ],
+        "displacement_p50_p95_p99_max": [
+          0.002317422546988695,
+          0.005919515525027065,
+          0.010204362871841201,
+          0.03586348156403988
+        ],
+        "covariance_PD_count": 12861,
+        "covariance_PD_fraction": 1.0,
+        "min_eigenvalue": 7.894300943442935e-09,
+        "condition_p50_p99_max": [
+          56.22297888576093,
+          220.57729636000732,
+          738.7947222208853
+        ]
+      },
+      {
+        "actual_cache_key": "frame_12",
+        "required_cache_key": "frame_120",
+        "local_frame": 120,
+        "source_frame": 233,
+        "provenance": "predicted from previous coarse state",
+        "path": "/data1/userdata/tcweng/projects/tcgs/datasets/deform360/derived/008-pink-cloth/episode_0/t27_stage1_cache/config_a_2cam/pred_stage1/frame_12.pth",
+        "bytes": 465965,
+        "sha256": "6cb70a3ac33e2e4e8c7cbe68877c58755c38fd5ba9d2e9a418ac3a0e9d7fa5b5",
+        "fields": {
+          "pred_pos": {
+            "shape": [
+              12861,
+              3
+            ],
+            "dtype": "torch.float32",
+            "finite": true
+          },
+          "pred_cov": {
+            "shape": [
+              12861,
+              6
+            ],
+            "dtype": "torch.float32",
+            "finite": true
+          }
+        },
+        "position_min": [
+          0.12032192200422287,
+          -0.044093742966651917,
+          -0.06481005251407623
+        ],
+        "position_max": [
+          0.40852105617523193,
+          0.12018319964408875,
+          0.3192039430141449
+        ],
+        "displacement_p50_p95_p99_max": [
+          0.008749205526534016,
+          0.026254784043729624,
+          0.02927000561933405,
+          0.03199551318754617
+        ],
+        "covariance_PD_count": 12861,
+        "covariance_PD_fraction": 1.0,
+        "min_eigenvalue": 8.466973407976463e-09,
+        "condition_p50_p99_max": [
+          56.13872169988162,
+          182.26140895931698,
+          568.1273827773769
+        ]
+      },
+      {
+        "actual_cache_key": "frame_13",
+        "required_cache_key": "frame_130",
+        "local_frame": 130,
+        "source_frame": 243,
+        "provenance": "predicted from previous coarse state",
+        "path": "/data1/userdata/tcweng/projects/tcgs/datasets/deform360/derived/008-pink-cloth/episode_0/t27_stage1_cache/config_a_2cam/pred_stage1/frame_13.pth",
+        "bytes": 465965,
+        "sha256": "e9c169474304caaab386f01e3ec62dffb56048d6915064850f99577d46b282f3",
+        "fields": {
+          "pred_pos": {
+            "shape": [
+              12861,
+              3
+            ],
+            "dtype": "torch.float32",
+            "finite": true
+          },
+          "pred_cov": {
+            "shape": [
+              12861,
+              6
+            ],
+            "dtype": "torch.float32",
+            "finite": true
+          }
+        },
+        "position_min": [
+          0.10518138110637665,
+          -0.04758239537477493,
+          -0.06389091163873672
+        ],
+        "position_max": [
+          0.4081173539161682,
+          0.1004585400223732,
+          0.3133655786514282
+        ],
+        "displacement_p50_p95_p99_max": [
+          0.008084901902141985,
+          0.026141791973383517,
+          0.029132738372882543,
+          0.04324979183483897
+        ],
+        "covariance_PD_count": 12861,
+        "covariance_PD_fraction": 1.0,
+        "min_eigenvalue": 1.0680379476301726e-08,
+        "condition_p50_p99_max": [
+          56.84278518581583,
+          217.9064907020213,
+          638.3223007900285
+        ]
+      },
+      {
+        "actual_cache_key": "frame_14",
+        "required_cache_key": "frame_140",
+        "local_frame": 140,
+        "source_frame": 253,
+        "provenance": "predicted from previous coarse state",
+        "path": "/data1/userdata/tcweng/projects/tcgs/datasets/deform360/derived/008-pink-cloth/episode_0/t27_stage1_cache/config_a_2cam/pred_stage1/frame_14.pth",
+        "bytes": 465965,
+        "sha256": "a4b3104a8eacccadaf886dd435a56c5203e3dd6c1a99b523924fa7be84264148",
+        "fields": {
+          "pred_pos": {
+            "shape": [
+              12861,
+              3
+            ],
+            "dtype": "torch.float32",
+            "finite": true
+          },
+          "pred_cov": {
+            "shape": [
+              12861,
+              6
+            ],
+            "dtype": "torch.float32",
+            "finite": true
+          }
+        },
+        "position_min": [
+          0.08855129778385162,
+          -0.0503867007791996,
+          -0.0620122030377388
+        ],
+        "position_max": [
+          0.4103502333164215,
+          0.07117921859025955,
+          0.31444689631462097
+        ],
+        "displacement_p50_p95_p99_max": [
+          0.015324352484334707,
+          0.03366332830454877,
+          0.03706894000972767,
+          0.04290839011013839
+        ],
+        "covariance_PD_count": 12861,
+        "covariance_PD_fraction": 1.0,
+        "min_eigenvalue": 1.04108309324467e-08,
+        "condition_p50_p99_max": [
+          59.076142415295266,
+          205.48142720816804,
+          563.8645915630402
+        ]
+      },
+      {
+        "actual_cache_key": "frame_15",
+        "required_cache_key": "frame_150",
+        "local_frame": 150,
+        "source_frame": 263,
+        "provenance": "predicted from previous coarse state",
+        "path": "/data1/userdata/tcweng/projects/tcgs/datasets/deform360/derived/008-pink-cloth/episode_0/t27_stage1_cache/config_a_2cam/pred_stage1/frame_15.pth",
+        "bytes": 465965,
+        "sha256": "5684132a73e426b47d84fee74901665cc6e43933edc210e23e048d879aead075",
+        "fields": {
+          "pred_pos": {
+            "shape": [
+              12861,
+              3
+            ],
+            "dtype": "torch.float32",
+            "finite": true
+          },
+          "pred_cov": {
+            "shape": [
+              12861,
+              6
+            ],
+            "dtype": "torch.float32",
+            "finite": true
+          }
+        },
+        "position_min": [
+          0.0714239850640297,
+          -0.05677662789821625,
+          -0.06129026412963867
+        ],
+        "position_max": [
+          0.41213810443878174,
+          0.04781452938914299,
+          0.3136071562767029
+        ],
+        "displacement_p50_p95_p99_max": [
+          0.009024670364095148,
+          0.02744427548834868,
+          0.033796431871402625,
+          0.035971857821903756
+        ],
+        "covariance_PD_count": 12861,
+        "covariance_PD_fraction": 1.0,
+        "min_eigenvalue": 1.0013782706678194e-08,
+        "condition_p50_p99_max": [
+          63.07168326634038,
+          207.49389979043448,
+          571.1997888353743
+        ]
+      }
+    ],
+    "no_future_reconstructed_Gaussian_reset": true,
+    "registered_state_and_normalizer_unchanged": true,
+    "provenance_evidence": "Observer asserted all15 preprocessing cur/prev positions exact against preceding saved predictions; source orig exact; N/order retained by official controller-prefix slicing. Checks passed before filename assertion.",
+    "covariance_semantics": "Official simple_test resets cur_cov to initial covariance on every call; persisted pred_cov is actual output.",
+    "readback": "All16 files CPU-readable with exact required two-field schema; mapping incompatible with Stage2 expected filenames. These are failed-attempt artifacts, not approved Stage2 cache.",
+    "official_call_sites": [
+      "mmgs/apis/test.py:163-236",
+      "mmgs/models/simulators/gs_simulator_embodied.py:446-455,885-948",
+      "mmgs/models/simulators/gs_simulator_embodied_stage2.py:219-241,729-731"
+    ],
+    "minimal_proposal_not_applied": "Set model.frame_gap=10 only in cache-generation helper/config glue; keep frozen training config and core code unchanged; rerun into a new directory after authorization.",
+    "cuda_initialized": false
+  },
+  "canonical": {
+    "task": "T27",
+    "status": "PASS",
+    "job_id": "25872",
+    "git_commit": "b7bb92a0de8437796a6a2c8b832db5e8b580a2a9",
+    "checkpoint_path": "/data1/userdata/tcweng/projects/tcgs/outputs/deform360/stage1/config_a_seed5_normalizer_fix_resume_epoch2/epoch_46.pth",
+    "checkpoint_sha256": "d4dbea360fa033bfbf0b1ec338ce3107d49c5549675effb481f817eb672932c4",
+    "config_sha256": "e65d1c7848bd222f55c0e18050c464eec5922aef76c1bc62a06813359cca4930",
+    "normalizer_sha256": "f78712dd0760fcf16a58431d7fdfd240a2e38cba89c400b405df93798f364220",
+    "tool_sha256": "75ec900d6ebdb69cca3200b538f3cfb35639146495e02041f0c34ff7cdd28839",
+    "seed": 5,
+    "camera_ids": [
+      "brics-odroid-023_cam0",
+      "brics-odroid-009_cam1"
+    ],
+    "frame_gap": 10,
+    "cache_server_path": "/data1/userdata/tcweng/projects/tcgs/datasets/deform360/derived/008-pink-cloth/episode_0/t27_stage1_cache_gap10/config_a_2cam/pred_stage1",
+    "file_count": 16,
+    "total_bytes": 7454328,
+    "frames": [
+      {
+        "cache_key": "frame_0",
+        "local_frame": 0,
+        "source_frame": 113,
+        "provenance": "initial canonical",
+        "path": "/data1/userdata/tcweng/projects/tcgs/datasets/deform360/derived/008-pink-cloth/episode_0/t27_stage1_cache_gap10/config_a_2cam/pred_stage1/frame_0.pth",
+        "sha256": "548b31b06a1d974689a86ad4fd039a4df22fdf9cbc22ee4fc2a7df4ce364b241",
+        "bytes": 464805,
+        "fields": {
+          "pred_pos": {
+            "shape": [
+              12861,
+              3
+            ],
+            "dtype": "torch.float32",
+            "finite": true
+          },
+          "pred_cov": {
+            "shape": [
+              12861,
+              6
+            ],
+            "dtype": "torch.float32",
+            "finite": true
+          }
+        },
+        "position_min": [
+          0.06101363152265549,
+          -0.04881995916366577,
+          -0.06714770197868347
+        ],
+        "position_max": [
+          0.41370803117752075,
+          0.0270664244890213,
+          0.3123859763145447
+        ],
+        "displacement_p50_p95_p99_max": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "covariance_PD_count": 12861,
+        "covariance_PD_fraction": 1.0,
+        "minimum_eigenvalue": 9.623179506212989e-09,
+        "condition_p50_p99_max": [
+          62.31077424613706,
+          98.24100556775328,
+          105.32270616916374
+        ]
+      },
+      {
+        "cache_key": "frame_10",
+        "local_frame": 10,
+        "source_frame": 123,
+        "provenance": "predicted from previous coarse state",
+        "path": "/data1/userdata/tcweng/projects/tcgs/datasets/deform360/derived/008-pink-cloth/episode_0/t27_stage1_cache_gap10/config_a_2cam/pred_stage1/frame_10.pth",
+        "sha256": "7017a1f2194210aa91f89959f624f7629721c09045fba60b459f7f07c4da5745",
+        "bytes": 465965,
+        "fields": {
+          "pred_pos": {
+            "shape": [
+              12861,
+              3
+            ],
+            "dtype": "torch.float32",
+            "finite": true
+          },
+          "pred_cov": {
+            "shape": [
+              12861,
+              6
+            ],
+            "dtype": "torch.float32",
+            "finite": true
+          }
+        },
+        "position_min": [
+          0.07013917714357376,
+          -0.05971566215157509,
+          -0.06212170422077179
+        ],
+        "position_max": [
+          0.41378915309906006,
+          0.024753058329224586,
+          0.314007431268692
+        ],
+        "displacement_p50_p95_p99_max": [
+          0.0031915497061522093,
+          0.037242197928573355,
+          0.04799659067362616,
+          0.05037445409294265
+        ],
+        "covariance_PD_count": 12861,
+        "covariance_PD_fraction": 1.0,
+        "minimum_eigenvalue": 7.307218161853728e-09,
+        "condition_p50_p99_max": [
+          65.46764450104799,
+          213.34773741430124,
+          590.4645269733159
+        ]
+      },
+      {
+        "cache_key": "frame_20",
+        "local_frame": 20,
+        "source_frame": 133,
+        "provenance": "predicted from previous coarse state",
+        "path": "/data1/userdata/tcweng/projects/tcgs/datasets/deform360/derived/008-pink-cloth/episode_0/t27_stage1_cache_gap10/config_a_2cam/pred_stage1/frame_20.pth",
+        "sha256": "d25b818539d041713390778b200bbcb3c8a8b034163f1160773193583cb38618",
+        "bytes": 465965,
+        "fields": {
+          "pred_pos": {
+            "shape": [
+              12861,
+              3
+            ],
+            "dtype": "torch.float32",
+            "finite": true
+          },
+          "pred_cov": {
+            "shape": [
+              12861,
+              6
+            ],
+            "dtype": "torch.float32",
+            "finite": true
+          }
+        },
+        "position_min": [
+          0.07266246527433395,
+          -0.0600166842341423,
+          -0.06236736476421356
+        ],
+        "position_max": [
+          0.4147997498512268,
+          0.029581943526864052,
+          0.3148568868637085
+        ],
+        "displacement_p50_p95_p99_max": [
+          0.0029891948321045443,
+          0.01125204000081372,
+          0.0189029986662455,
+          0.03017028679992202
+        ],
+        "covariance_PD_count": 12861,
+        "covariance_PD_fraction": 1.0,
+        "minimum_eigenvalue": 8.341102138906456e-09,
+        "condition_p50_p99_max": [
+          64.80823851572919,
+          189.3359289915873,
+          581.9020217000261
+        ]
+      },
+      {
+        "cache_key": "frame_30",
+        "local_frame": 30,
+        "source_frame": 143,
+        "provenance": "predicted from previous coarse state",
+        "path": "/data1/userdata/tcweng/projects/tcgs/datasets/deform360/derived/008-pink-cloth/episode_0/t27_stage1_cache_gap10/config_a_2cam/pred_stage1/frame_30.pth",
+        "sha256": "438b417a2cce8f74319663f2933da7275191c8a58312d1199282235a4a19ae78",
+        "bytes": 465965,
+        "fields": {
+          "pred_pos": {
+            "shape": [
+              12861,
+              3
+            ],
+            "dtype": "torch.float32",
+            "finite": true
+          },
+          "pred_cov": {
+            "shape": [
+              12861,
+              6
+            ],
+            "dtype": "torch.float32",
+            "finite": true
+          }
+        },
+        "position_min": [
+          0.0784224420785904,
+          -0.04926926642656326,
+          -0.06222226470708847
+        ],
+        "position_max": [
+          0.4150046706199646,
+          0.04018620774149895,
+          0.31393590569496155
+        ],
+        "displacement_p50_p95_p99_max": [
+          0.0029086706370625506,
+          0.01259715310431844,
+          0.01572487649944355,
+          0.04984969954926841
+        ],
+        "covariance_PD_count": 12861,
+        "covariance_PD_fraction": 1.0,
+        "minimum_eigenvalue": 9.375202834179204e-09,
+        "condition_p50_p99_max": [
+          63.78078800238995,
+          197.64969848794954,
+          586.8443104828484
+        ]
+      },
+      {
+        "cache_key": "frame_40",
+        "local_frame": 40,
+        "source_frame": 153,
+        "provenance": "predicted from previous coarse state",
+        "path": "/data1/userdata/tcweng/projects/tcgs/datasets/deform360/derived/008-pink-cloth/episode_0/t27_stage1_cache_gap10/config_a_2cam/pred_stage1/frame_40.pth",
+        "sha256": "b0c366e8cc7213e46695c27db0884633ca00af540ef1fc0d7efe25f3e406cc7c",
+        "bytes": 465965,
+        "fields": {
+          "pred_pos": {
+            "shape": [
+              12861,
+              3
+            ],
+            "dtype": "torch.float32",
+            "finite": true
+          },
+          "pred_cov": {
+            "shape": [
+              12861,
+              6
+            ],
+            "dtype": "torch.float32",
+            "finite": true
+          }
+        },
+        "position_min": [
+          0.08668603003025055,
+          -0.04628191143274307,
+          -0.06222037971019745
+        ],
+        "position_max": [
+          0.4150494635105133,
+          0.061888039112091064,
+          0.3150700032711029
+        ],
+        "displacement_p50_p95_p99_max": [
+          0.004399360057384793,
+          0.023653965679285783,
+          0.026750148306535215,
+          0.04209376146683579
+        ],
+        "covariance_PD_count": 12861,
+        "covariance_PD_fraction": 1.0,
+        "minimum_eigenvalue": 8.826776933938797e-09,
+        "condition_p50_p99_max": [
+          62.32635107767243,
+          240.7292248118581,
+          648.9361540806111
+        ]
+      },
+      {
+        "cache_key": "frame_50",
+        "local_frame": 50,
+        "source_frame": 163,
+        "provenance": "predicted from previous coarse state",
+        "path": "/data1/userdata/tcweng/projects/tcgs/datasets/deform360/derived/008-pink-cloth/episode_0/t27_stage1_cache_gap10/config_a_2cam/pred_stage1/frame_50.pth",
+        "sha256": "87f03ee4f2f30289279c8fcba6dc0e54a7b460c8af4bfd86596bff849edc6562",
+        "bytes": 465965,
+        "fields": {
+          "pred_pos": {
+            "shape": [
+              12861,
+              3
+            ],
+            "dtype": "torch.float32",
+            "finite": true
+          },
+          "pred_cov": {
+            "shape": [
+              12861,
+              6
+            ],
+            "dtype": "torch.float32",
+            "finite": true
+          }
+        },
+        "position_min": [
+          0.09236140549182892,
+          -0.039739783853292465,
+          -0.06313671171665192
+        ],
+        "position_max": [
+          0.4145885109901428,
+          0.07319261133670807,
+          0.31406262516975403
+        ],
+        "displacement_p50_p95_p99_max": [
+          0.004160861378925916,
+          0.013965163140583905,
+          0.016537138275954193,
+          0.03640537982149644
+        ],
+        "covariance_PD_count": 12861,
+        "covariance_PD_fraction": 1.0,
+        "minimum_eigenvalue": 1.0002440431636817e-08,
+        "condition_p50_p99_max": [
+          61.045915129375814,
+          191.5784525566411,
+          750.4287965985662
+        ]
+      },
+      {
+        "cache_key": "frame_60",
+        "local_frame": 60,
+        "source_frame": 173,
+        "provenance": "predicted from previous coarse state",
+        "path": "/data1/userdata/tcweng/projects/tcgs/datasets/deform360/derived/008-pink-cloth/episode_0/t27_stage1_cache_gap10/config_a_2cam/pred_stage1/frame_60.pth",
+        "sha256": "3472cdf47365ca74c3072c3dd75417bfa68a7827c195e950860630c1b1b9b64c",
+        "bytes": 465965,
+        "fields": {
+          "pred_pos": {
+            "shape": [
+              12861,
+              3
+            ],
+            "dtype": "torch.float32",
+            "finite": true
+          },
+          "pred_cov": {
+            "shape": [
+              12861,
+              6
+            ],
+            "dtype": "torch.float32",
+            "finite": true
+          }
+        },
+        "position_min": [
+          0.10160185396671295,
+          -0.04709480330348015,
+          -0.0645141452550888
+        ],
+        "position_max": [
+          0.41435694694519043,
+          0.0899699330329895,
+          0.31458237767219543
+        ],
+        "displacement_p50_p95_p99_max": [
+          0.005239778830971509,
+          0.019080034815728703,
+          0.020838905150275432,
+          0.037091663966343544
+        ],
+        "covariance_PD_count": 12861,
+        "covariance_PD_fraction": 1.0,
+        "minimum_eigenvalue": 9.379632194807803e-09,
+        "condition_p50_p99_max": [
+          59.703021166783294,
+          236.61468496447603,
+          645.9083122555462
+        ]
+      },
+      {
+        "cache_key": "frame_70",
+        "local_frame": 70,
+        "source_frame": 183,
+        "provenance": "predicted from previous coarse state",
+        "path": "/data1/userdata/tcweng/projects/tcgs/datasets/deform360/derived/008-pink-cloth/episode_0/t27_stage1_cache_gap10/config_a_2cam/pred_stage1/frame_70.pth",
+        "sha256": "a01ffbf8a392d1821a5b433460083a2deca057b3ee41d6855eb73c0f3193383d",
+        "bytes": 465965,
+        "fields": {
+          "pred_pos": {
+            "shape": [
+              12861,
+              3
+            ],
+            "dtype": "torch.float32",
+            "finite": true
+          },
+          "pred_cov": {
+            "shape": [
+              12861,
+              6
+            ],
+            "dtype": "torch.float32",
+            "finite": true
+          }
+        },
+        "position_min": [
+          0.10880835354328156,
+          -0.03755215182900429,
+          -0.06528197973966599
+        ],
+        "position_max": [
+          0.4132840931415558,
+          0.10411343723535538,
+          0.31388232111930847
+        ],
+        "displacement_p50_p95_p99_max": [
+          0.005261841152951306,
+          0.01742879463244718,
+          0.01920988675018461,
+          0.031049415172471898
+        ],
+        "covariance_PD_count": 12861,
+        "covariance_PD_fraction": 1.0,
+        "minimum_eigenvalue": 8.96751939338905e-09,
+        "condition_p50_p99_max": [
+          57.869517828511796,
+          210.13332118805167,
+          791.4006048598325
+        ]
+      },
+      {
+        "cache_key": "frame_80",
+        "local_frame": 80,
+        "source_frame": 193,
+        "provenance": "predicted from previous coarse state",
+        "path": "/data1/userdata/tcweng/projects/tcgs/datasets/deform360/derived/008-pink-cloth/episode_0/t27_stage1_cache_gap10/config_a_2cam/pred_stage1/frame_80.pth",
+        "sha256": "b0499e0d0098f364735b4dcc6b5048767f5b8785834c0e3622836171c5c459ab",
+        "bytes": 465965,
+        "fields": {
+          "pred_pos": {
+            "shape": [
+              12861,
+              3
+            ],
+            "dtype": "torch.float32",
+            "finite": true
+          },
+          "pred_cov": {
+            "shape": [
+              12861,
+              6
+            ],
+            "dtype": "torch.float32",
+            "finite": true
+          }
+        },
+        "position_min": [
+          0.12008199095726013,
+          -0.0353749543428421,
+          -0.06458643078804016
+        ],
+        "position_max": [
+          0.41307979822158813,
+          0.12120994925498962,
+          0.31928250193595886
+        ],
+        "displacement_p50_p95_p99_max": [
+          0.00532829203178024,
+          0.01919550839953392,
+          0.021304301253202,
+          0.031884159027616626
+        ],
+        "covariance_PD_count": 12861,
+        "covariance_PD_fraction": 1.0,
+        "minimum_eigenvalue": 8.375782444716618e-09,
+        "condition_p50_p99_max": [
+          56.67717554311314,
+          216.37405860744792,
+          817.704661168109
+        ]
+      },
+      {
+        "cache_key": "frame_90",
+        "local_frame": 90,
+        "source_frame": 203,
+        "provenance": "predicted from previous coarse state",
+        "path": "/data1/userdata/tcweng/projects/tcgs/datasets/deform360/derived/008-pink-cloth/episode_0/t27_stage1_cache_gap10/config_a_2cam/pred_stage1/frame_90.pth",
+        "sha256": "f18c30fee57ae074725b753831a69955775d0a3267d605ba14e1a018199045ae",
+        "bytes": 465965,
+        "fields": {
+          "pred_pos": {
+            "shape": [
+              12861,
+              3
+            ],
+            "dtype": "torch.float32",
+            "finite": true
+          },
+          "pred_cov": {
+            "shape": [
+              12861,
+              6
+            ],
+            "dtype": "torch.float32",
+            "finite": true
+          }
+        },
+        "position_min": [
+          0.13152749836444855,
+          -0.03429315611720085,
+          -0.06483717262744904
+        ],
+        "position_max": [
+          0.4116194248199463,
+          0.13668283820152283,
+          0.31488099694252014
+        ],
+        "displacement_p50_p95_p99_max": [
+          0.007555287785371778,
+          0.019744090831026465,
+          0.021072397124129026,
+          0.029464776473337954
+        ],
+        "covariance_PD_count": 12861,
+        "covariance_PD_fraction": 1.0,
+        "minimum_eigenvalue": 7.962611774735103e-09,
+        "condition_p50_p99_max": [
+          56.0900788303036,
+          221.54675604276423,
+          747.4613902033856
+        ]
+      },
+      {
+        "cache_key": "frame_100",
+        "local_frame": 100,
+        "source_frame": 213,
+        "provenance": "predicted from previous coarse state",
+        "path": "/data1/userdata/tcweng/projects/tcgs/datasets/deform360/derived/008-pink-cloth/episode_0/t27_stage1_cache_gap10/config_a_2cam/pred_stage1/frame_100.pth",
+        "sha256": "ce84f292557c0538622283399c2ea36c84a9b7006a9a88041040d4044b84c4ce",
+        "bytes": 465973,
+        "fields": {
+          "pred_pos": {
+            "shape": [
+              12861,
+              3
+            ],
+            "dtype": "torch.float32",
+            "finite": true
+          },
+          "pred_cov": {
+            "shape": [
+              12861,
+              6
+            ],
+            "dtype": "torch.float32",
+            "finite": true
+          }
+        },
+        "position_min": [
+          0.1368548423051834,
+          -0.03591913729906082,
+          -0.06557128578424454
+        ],
+        "position_max": [
+          0.4108944833278656,
+          0.14739137887954712,
+          0.3190305829048157
+        ],
+        "displacement_p50_p95_p99_max": [
+          0.005605650070078036,
+          0.009651831113944633,
+          0.012873405606447978,
+          0.030054171754128663
+        ],
+        "covariance_PD_count": 12861,
+        "covariance_PD_fraction": 1.0,
+        "minimum_eigenvalue": 7.829146372373899e-09,
+        "condition_p50_p99_max": [
+          56.03103806045912,
+          222.93993553397206,
+          761.7991626028944
+        ]
+      },
+      {
+        "cache_key": "frame_110",
+        "local_frame": 110,
+        "source_frame": 223,
+        "provenance": "predicted from previous coarse state",
+        "path": "/data1/userdata/tcweng/projects/tcgs/datasets/deform360/derived/008-pink-cloth/episode_0/t27_stage1_cache_gap10/config_a_2cam/pred_stage1/frame_110.pth",
+        "sha256": "479204fd3d825a7ce52e2db7893b193fd3ce2a4471b68a1b623991bb132b7a81",
+        "bytes": 465973,
+        "fields": {
+          "pred_pos": {
+            "shape": [
+              12861,
+              3
+            ],
+            "dtype": "torch.float32",
+            "finite": true
+          },
+          "pred_cov": {
+            "shape": [
+              12861,
+              6
+            ],
+            "dtype": "torch.float32",
+            "finite": true
+          }
+        },
+        "position_min": [
+          0.13488785922527313,
+          -0.04089932143688202,
+          -0.06570691615343094
+        ],
+        "position_max": [
+          0.40972018241882324,
+          0.14439404010772705,
+          0.31977322697639465
+        ],
+        "displacement_p50_p95_p99_max": [
+          0.002317337963888579,
+          0.005919312180246475,
+          0.010204257470689482,
+          0.035863500040089175
+        ],
+        "covariance_PD_count": 12861,
+        "covariance_PD_fraction": 1.0,
+        "minimum_eigenvalue": 7.894306486789371e-09,
+        "condition_p50_p99_max": [
+          56.22311646722279,
+          220.57754243059154,
+          738.7916508178581
+        ]
+      },
+      {
+        "cache_key": "frame_120",
+        "local_frame": 120,
+        "source_frame": 233,
+        "provenance": "predicted from previous coarse state",
+        "path": "/data1/userdata/tcweng/projects/tcgs/datasets/deform360/derived/008-pink-cloth/episode_0/t27_stage1_cache_gap10/config_a_2cam/pred_stage1/frame_120.pth",
+        "sha256": "f89e7d934eb118fb394d17a1fb9f0cf470e6b4a81e065ccb538ee93ac8ef8cbe",
+        "bytes": 465973,
+        "fields": {
+          "pred_pos": {
+            "shape": [
+              12861,
+              3
+            ],
+            "dtype": "torch.float32",
+            "finite": true
+          },
+          "pred_cov": {
+            "shape": [
+              12861,
+              6
+            ],
+            "dtype": "torch.float32",
+            "finite": true
+          }
+        },
+        "position_min": [
+          0.12032198905944824,
+          -0.04409380257129669,
+          -0.06481008976697922
+        ],
+        "position_max": [
+          0.40852120518684387,
+          0.12018319964408875,
+          0.3192039132118225
+        ],
+        "displacement_p50_p95_p99_max": [
+          0.008749171750742813,
+          0.026254819248193003,
+          0.029270025170480017,
+          0.03199504922893899
+        ],
+        "covariance_PD_count": 12861,
+        "covariance_PD_fraction": 1.0,
+        "minimum_eigenvalue": 8.466969480606998e-09,
+        "condition_p50_p99_max": [
+          56.13893013142111,
+          182.2609922868793,
+          568.1217737286908
+        ]
+      },
+      {
+        "cache_key": "frame_130",
+        "local_frame": 130,
+        "source_frame": 243,
+        "provenance": "predicted from previous coarse state",
+        "path": "/data1/userdata/tcweng/projects/tcgs/datasets/deform360/derived/008-pink-cloth/episode_0/t27_stage1_cache_gap10/config_a_2cam/pred_stage1/frame_130.pth",
+        "sha256": "fbca6f28d2effdb68a2c6020e8f0127ff1c4950f66844d5d73197d2842b23bd4",
+        "bytes": 465973,
+        "fields": {
+          "pred_pos": {
+            "shape": [
+              12861,
+              3
+            ],
+            "dtype": "torch.float32",
+            "finite": true
+          },
+          "pred_cov": {
+            "shape": [
+              12861,
+              6
+            ],
+            "dtype": "torch.float32",
+            "finite": true
+          }
+        },
+        "position_min": [
+          0.10518142580986023,
+          -0.047582581639289856,
+          -0.0638909637928009
+        ],
+        "position_max": [
+          0.4081171452999115,
+          0.10045856982469559,
+          0.3133655786514282
+        ],
+        "displacement_p50_p95_p99_max": [
+          0.008084773213028862,
+          0.026141927248550027,
+          0.029132692255506305,
+          0.04324969740077003
+        ],
+        "covariance_PD_count": 12861,
+        "covariance_PD_fraction": 1.0,
+        "minimum_eigenvalue": 1.0680404392778528e-08,
+        "condition_p50_p99_max": [
+          56.8429645695869,
+          217.90865535074596,
+          638.332897723072
+        ]
+      },
+      {
+        "cache_key": "frame_140",
+        "local_frame": 140,
+        "source_frame": 253,
+        "provenance": "predicted from previous coarse state",
+        "path": "/data1/userdata/tcweng/projects/tcgs/datasets/deform360/derived/008-pink-cloth/episode_0/t27_stage1_cache_gap10/config_a_2cam/pred_stage1/frame_140.pth",
+        "sha256": "5f506bbae5d03ecdee3fd55a66255b0e70568ecefad151e9ce915b914f04d174",
+        "bytes": 465973,
+        "fields": {
+          "pred_pos": {
+            "shape": [
+              12861,
+              3
+            ],
+            "dtype": "torch.float32",
+            "finite": true
+          },
+          "pred_cov": {
+            "shape": [
+              12861,
+              6
+            ],
+            "dtype": "torch.float32",
+            "finite": true
+          }
+        },
+        "position_min": [
+          0.08855131268501282,
+          -0.05038682371377945,
+          -0.06201223284006119
+        ],
+        "position_max": [
+          0.4103502333164215,
+          0.07117917388677597,
+          0.3144468367099762
+        ],
+        "displacement_p50_p95_p99_max": [
+          0.015324425199603604,
+          0.03366360012430561,
+          0.03706885324437081,
+          0.042908219208181136
+        ],
+        "covariance_PD_count": 12861,
+        "covariance_PD_fraction": 1.0,
+        "minimum_eigenvalue": 1.0410859865099245e-08,
+        "condition_p50_p99_max": [
+          59.0762481955134,
+          205.480881919892,
+          563.8523807044289
+        ]
+      },
+      {
+        "cache_key": "frame_150",
+        "local_frame": 150,
+        "source_frame": 263,
+        "provenance": "predicted from previous coarse state",
+        "path": "/data1/userdata/tcweng/projects/tcgs/datasets/deform360/derived/008-pink-cloth/episode_0/t27_stage1_cache_gap10/config_a_2cam/pred_stage1/frame_150.pth",
+        "sha256": "f9c81787fab2b3da4a8b21c7e12a69ee150dc9315bc9e22c5d8f341dcb7c6e35",
+        "bytes": 465973,
+        "fields": {
+          "pred_pos": {
+            "shape": [
+              12861,
+              3
+            ],
+            "dtype": "torch.float32",
+            "finite": true
+          },
+          "pred_cov": {
+            "shape": [
+              12861,
+              6
+            ],
+            "dtype": "torch.float32",
+            "finite": true
+          }
+        },
+        "position_min": [
+          0.0714239627122879,
+          -0.05677659809589386,
+          -0.061290256679058075
+        ],
+        "position_max": [
+          0.41213807463645935,
+          0.04781447350978851,
+          0.3136070668697357
+        ],
+        "displacement_p50_p95_p99_max": [
+          0.009024855629880249,
+          0.027444208161813654,
+          0.03379634653099358,
+          0.035971757055904025
+        ],
+        "covariance_PD_count": 12861,
+        "covariance_PD_fraction": 1.0,
+        "minimum_eigenvalue": 1.001373717083887e-08,
+        "condition_p50_p99_max": [
+          63.07144991013489,
+          207.49515532098405,
+          571.1953683033764
+        ]
+      }
+    ],
+    "rollout_provenance": [
+      {
+        "step": 1,
+        "source_target": 123,
+        "position_from_previous_prediction": false
+      },
+      {
+        "step": 2,
+        "source_target": 133,
+        "position_from_previous_prediction": true
+      },
+      {
+        "step": 3,
+        "source_target": 143,
+        "position_from_previous_prediction": true
+      },
+      {
+        "step": 4,
+        "source_target": 153,
+        "position_from_previous_prediction": true
+      },
+      {
+        "step": 5,
+        "source_target": 163,
+        "position_from_previous_prediction": true
+      },
+      {
+        "step": 6,
+        "source_target": 173,
+        "position_from_previous_prediction": true
+      },
+      {
+        "step": 7,
+        "source_target": 183,
+        "position_from_previous_prediction": true
+      },
+      {
+        "step": 8,
+        "source_target": 193,
+        "position_from_previous_prediction": true
+      },
+      {
+        "step": 9,
+        "source_target": 203,
+        "position_from_previous_prediction": true
+      },
+      {
+        "step": 10,
+        "source_target": 213,
+        "position_from_previous_prediction": true
+      },
+      {
+        "step": 11,
+        "source_target": 223,
+        "position_from_previous_prediction": true
+      },
+      {
+        "step": 12,
+        "source_target": 233,
+        "position_from_previous_prediction": true
+      },
+      {
+        "step": 13,
+        "source_target": 243,
+        "position_from_previous_prediction": true
+      },
+      {
+        "step": 14,
+        "source_target": 253,
+        "position_from_previous_prediction": true
+      },
+      {
+        "step": 15,
+        "source_target": 263,
+        "position_from_previous_prediction": true
+      }
+    ],
+    "registered_state_and_learned_normalizer_unchanged": true,
+    "no_future_reconstructed_Gaussian_reset": true,
+    "point_order": "Official model slices controller prefix only; no Gaussian reordering; N=12861 throughout.",
+    "covariance_semantics": "Each simple_test step reuses canonical initial covariance; cache stores actual predicted covariance; positions autoregressive.",
+    "official_path": "mmgs.apis.single_gpu_test -> single_gpu_rollout -> GSSimulatorEmbodied.simple_test -> save_gaussian",
+    "stage2_consumer": "gs_simulator_embodied_stage2.py:219-241 loads pred_stage1/frame_<local>.pth, required pred_pos/pred_cov; previous position cloned from loaded position; :729-731 indexes gs_aligned_frame",
+    "readback_exact": true,
+    "model_frame_gap": 10,
+    "model_frame_gap_provenance": "cfg.data.test.env_cfg.frame_gap from frozen deform360_v0_stage1.py, T6/T19/T25; helper override only."
+  },
+  "frame_gap_semantics_audit": {
+    "class": "GsSimulatorEmbodied(BaseSimulator)",
+    "constructor_default": "mmgs/models/simulators/gs_simulator_embodied.py:71 frame_gap=1",
+    "assignments": [
+      100,
+      141
+    ],
+    "only_read_in_stage1_class": "save_gaussian:447 real_frame_idx=frame_idx*self.frame_gap",
+    "filename": "save_gaussian:450 frame_<real_frame_idx>.pth",
+    "controller_indexing": "simple_test:894-895 indexes frame_idx/frame_idx+1, not self.frame_gap",
+    "covariance": "simple_test:870 initial covariance and :940-945 position update; no frame_gap dependency",
+    "outer_rollout": "mmgs/apis/test.py:183,201-206,235-236 uses actual GT length and previous prediction",
+    "stage2_keys": "gs_simulator_embodied_stage2.py:226-240 preserves filename stem; :729-731 selects frame_<gs_aligned_frame>",
+    "conclusion": "Only Stage1 cache filename changes; no effect on dynamics/dataset/controller/covariance in this path. Stage2 has separate frame_gap semantics, unchanged."
+  },
+  "old_vs_new": {
+    "comparisons": [
+      {
+        "old_key": "frame_0",
+        "new_key": "frame_0",
+        "local_frame": 0,
+        "source_frame": 113,
+        "fields": {
+          "pred_pos": {
+            "bitwise_equal": true,
+            "max_abs_diff": 0.0,
+            "mean_abs_diff": 0.0,
+            "shape": [
+              12861,
+              3
+            ],
+            "dtype": "torch.float32"
+          },
+          "pred_cov": {
+            "bitwise_equal": true,
+            "max_abs_diff": 0.0,
+            "mean_abs_diff": 0.0,
+            "shape": [
+              12861,
+              6
+            ],
+            "dtype": "torch.float32"
+          }
         }
       },
-      "position_min": [
-        0.06101363152265549,
-        -0.04881995916366577,
-        -0.06714770197868347
-      ],
-      "position_max": [
-        0.41370803117752075,
-        0.0270664244890213,
-        0.3123859763145447
-      ],
-      "displacement_p50_p95_p99_max": [
-        0.0,
-        0.0,
-        0.0,
-        0.0
-      ],
-      "covariance_PD_count": 12861,
-      "covariance_PD_fraction": 1.0,
-      "min_eigenvalue": 9.623179506212989e-09,
-      "condition_p50_p99_max": [
-        62.31077424613706,
-        98.24100556775328,
-        105.32270616916374
-      ]
-    },
-    {
-      "actual_cache_key": "frame_1",
-      "required_cache_key": "frame_10",
-      "local_frame": 10,
-      "source_frame": 123,
-      "provenance": "predicted from previous coarse state",
-      "path": "/data1/userdata/tcweng/projects/tcgs/datasets/deform360/derived/008-pink-cloth/episode_0/t27_stage1_cache/config_a_2cam/pred_stage1/frame_1.pth",
-      "bytes": 465957,
-      "sha256": "7b19922627cbfdf76498cbc982eb19ace9e33c6fb2a0bfdab4e4d9756e4b79c4",
-      "fields": {
-        "pred_pos": {
-          "shape": [
-            12861,
-            3
-          ],
-          "dtype": "torch.float32",
-          "finite": true
-        },
-        "pred_cov": {
-          "shape": [
-            12861,
-            6
-          ],
-          "dtype": "torch.float32",
-          "finite": true
+      {
+        "old_key": "frame_1",
+        "new_key": "frame_10",
+        "local_frame": 10,
+        "source_frame": 123,
+        "fields": {
+          "pred_pos": {
+            "bitwise_equal": false,
+            "max_abs_diff": 2.9802322387695312e-08,
+            "mean_abs_diff": 1.934582896503014e-09,
+            "shape": [
+              12861,
+              3
+            ],
+            "dtype": "torch.float32"
+          },
+          "pred_cov": {
+            "bitwise_equal": false,
+            "max_abs_diff": 2.9103830456733704e-11,
+            "mean_abs_diff": 6.853382819945622e-13,
+            "shape": [
+              12861,
+              6
+            ],
+            "dtype": "torch.float32"
+          }
         }
       },
-      "position_min": [
-        0.07013916969299316,
-        -0.059715669602155685,
-        -0.06212170422077179
-      ],
-      "position_max": [
-        0.41378915309906006,
-        0.024753054603934288,
-        0.314007431268692
-      ],
-      "displacement_p50_p95_p99_max": [
-        0.003191552473524527,
-        0.037242195014400806,
-        0.04799659114989978,
-        0.05037445409294265
-      ],
-      "covariance_PD_count": 12861,
-      "covariance_PD_fraction": 1.0,
-      "min_eigenvalue": 7.307213194857492e-09,
-      "condition_p50_p99_max": [
-        65.46765469780107,
-        213.34756397399957,
-        590.4626445355059
-      ]
-    },
-    {
-      "actual_cache_key": "frame_2",
-      "required_cache_key": "frame_20",
-      "local_frame": 20,
-      "source_frame": 133,
-      "provenance": "predicted from previous coarse state",
-      "path": "/data1/userdata/tcweng/projects/tcgs/datasets/deform360/derived/008-pink-cloth/episode_0/t27_stage1_cache/config_a_2cam/pred_stage1/frame_2.pth",
-      "bytes": 465957,
-      "sha256": "3eafd75984afd3b846d9323e994f9eb0a9b61fcfbf56509382fb69b8e8e45374",
-      "fields": {
-        "pred_pos": {
-          "shape": [
-            12861,
-            3
-          ],
-          "dtype": "torch.float32",
-          "finite": true
-        },
-        "pred_cov": {
-          "shape": [
-            12861,
-            6
-          ],
-          "dtype": "torch.float32",
-          "finite": true
+      {
+        "old_key": "frame_2",
+        "new_key": "frame_20",
+        "local_frame": 20,
+        "source_frame": 133,
+        "fields": {
+          "pred_pos": {
+            "bitwise_equal": false,
+            "max_abs_diff": 8.940696716308594e-08,
+            "mean_abs_diff": 6.179410852346061e-09,
+            "shape": [
+              12861,
+              3
+            ],
+            "dtype": "torch.float32"
+          },
+          "pred_cov": {
+            "bitwise_equal": false,
+            "max_abs_diff": 1.382431946694851e-10,
+            "mean_abs_diff": 1.58088284850849e-12,
+            "shape": [
+              12861,
+              6
+            ],
+            "dtype": "torch.float32"
+          }
         }
       },
-      "position_min": [
-        0.07266246527433395,
-        -0.06001667678356171,
-        -0.06236734986305237
-      ],
-      "position_max": [
-        0.4147997498512268,
-        0.02958195097744465,
-        0.3148568868637085
-      ],
-      "displacement_p50_p95_p99_max": [
-        0.0029892146650199476,
-        0.011252042149292046,
-        0.018902992005605836,
-        0.030170301120825315
-      ],
-      "covariance_PD_count": 12861,
-      "covariance_PD_fraction": 1.0,
-      "min_eigenvalue": 8.341083700479935e-09,
-      "condition_p50_p99_max": [
-        64.80824750939331,
-        189.33521443195514,
-        581.9002461342027
-      ]
-    },
-    {
-      "actual_cache_key": "frame_3",
-      "required_cache_key": "frame_30",
-      "local_frame": 30,
-      "source_frame": 143,
-      "provenance": "predicted from previous coarse state",
-      "path": "/data1/userdata/tcweng/projects/tcgs/datasets/deform360/derived/008-pink-cloth/episode_0/t27_stage1_cache/config_a_2cam/pred_stage1/frame_3.pth",
-      "bytes": 465957,
-      "sha256": "69885c03c29741c4cace1d5fe382a90a194c7e395f7dc83bcdb86c5a5bd384bf",
-      "fields": {
-        "pred_pos": {
-          "shape": [
-            12861,
-            3
-          ],
-          "dtype": "torch.float32",
-          "finite": true
-        },
-        "pred_cov": {
-          "shape": [
-            12861,
-            6
-          ],
-          "dtype": "torch.float32",
-          "finite": true
+      {
+        "old_key": "frame_3",
+        "new_key": "frame_30",
+        "local_frame": 30,
+        "source_frame": 143,
+        "fields": {
+          "pred_pos": {
+            "bitwise_equal": false,
+            "max_abs_diff": 2.8312206268310547e-07,
+            "mean_abs_diff": 1.3360437614522647e-08,
+            "shape": [
+              12861,
+              3
+            ],
+            "dtype": "torch.float32"
+          },
+          "pred_cov": {
+            "bitwise_equal": false,
+            "max_abs_diff": 6.693881005048752e-10,
+            "mean_abs_diff": 4.352294715637038e-12,
+            "shape": [
+              12861,
+              6
+            ],
+            "dtype": "torch.float32"
+          }
         }
       },
-      "position_min": [
-        0.0784224346280098,
-        -0.04926927760243416,
-        -0.06222226470708847
-      ],
-      "position_max": [
-        0.4150046706199646,
-        0.04018620774149895,
-        0.31393590569496155
-      ],
-      "displacement_p50_p95_p99_max": [
-        0.0029085961679965596,
-        0.012597166924508279,
-        0.015724904097262807,
-        0.04984966110016725
-      ],
-      "covariance_PD_count": 12861,
-      "covariance_PD_fraction": 1.0,
-      "min_eigenvalue": 9.375213433314788e-09,
-      "condition_p50_p99_max": [
-        63.78065374106144,
-        197.65064140548145,
-        586.8419492458773
-      ]
-    },
-    {
-      "actual_cache_key": "frame_4",
-      "required_cache_key": "frame_40",
-      "local_frame": 40,
-      "source_frame": 153,
-      "provenance": "predicted from previous coarse state",
-      "path": "/data1/userdata/tcweng/projects/tcgs/datasets/deform360/derived/008-pink-cloth/episode_0/t27_stage1_cache/config_a_2cam/pred_stage1/frame_4.pth",
-      "bytes": 465957,
-      "sha256": "662cda1d659caf7436f1fb6ce1f6f47d54e212823435303b9927c441a1d44ae8",
-      "fields": {
-        "pred_pos": {
-          "shape": [
-            12861,
-            3
-          ],
-          "dtype": "torch.float32",
-          "finite": true
-        },
-        "pred_cov": {
-          "shape": [
-            12861,
-            6
-          ],
-          "dtype": "torch.float32",
-          "finite": true
+      {
+        "old_key": "frame_4",
+        "new_key": "frame_40",
+        "local_frame": 40,
+        "source_frame": 153,
+        "fields": {
+          "pred_pos": {
+            "bitwise_equal": false,
+            "max_abs_diff": 1.7881393432617188e-07,
+            "mean_abs_diff": 1.8870427930713165e-08,
+            "shape": [
+              12861,
+              3
+            ],
+            "dtype": "torch.float32"
+          },
+          "pred_cov": {
+            "bitwise_equal": false,
+            "max_abs_diff": 3.128661774098873e-10,
+            "mean_abs_diff": 4.877855000826692e-12,
+            "shape": [
+              12861,
+              6
+            ],
+            "dtype": "torch.float32"
+          }
         }
       },
-      "position_min": [
-        0.08668605983257294,
-        -0.046281881630420685,
-        -0.06222034990787506
-      ],
-      "position_max": [
-        0.4150494933128357,
-        0.061888061463832855,
-        0.3150700330734253
-      ],
-      "displacement_p50_p95_p99_max": [
-        0.004399367757544259,
-        0.023653974894749318,
-        0.026750156465523565,
-        0.042093661294423726
-      ],
-      "covariance_PD_count": 12861,
-      "covariance_PD_fraction": 1.0,
-      "min_eigenvalue": 8.826777488223627e-09,
-      "condition_p50_p99_max": [
-        62.32619832612516,
-        240.72867221491686,
-        648.9385665420499
-      ]
-    },
-    {
-      "actual_cache_key": "frame_5",
-      "required_cache_key": "frame_50",
-      "local_frame": 50,
-      "source_frame": 163,
-      "provenance": "predicted from previous coarse state",
-      "path": "/data1/userdata/tcweng/projects/tcgs/datasets/deform360/derived/008-pink-cloth/episode_0/t27_stage1_cache/config_a_2cam/pred_stage1/frame_5.pth",
-      "bytes": 465957,
-      "sha256": "007ed98b8431906e70247270693090b87342b93350883c5eb9c1f44c47d5ba69",
-      "fields": {
-        "pred_pos": {
-          "shape": [
-            12861,
-            3
-          ],
-          "dtype": "torch.float32",
-          "finite": true
-        },
-        "pred_cov": {
-          "shape": [
-            12861,
-            6
-          ],
-          "dtype": "torch.float32",
-          "finite": true
+      {
+        "old_key": "frame_5",
+        "new_key": "frame_50",
+        "local_frame": 50,
+        "source_frame": 163,
+        "fields": {
+          "pred_pos": {
+            "bitwise_equal": false,
+            "max_abs_diff": 5.718320608139038e-07,
+            "mean_abs_diff": 3.471414197748125e-08,
+            "shape": [
+              12861,
+              3
+            ],
+            "dtype": "torch.float32"
+          },
+          "pred_cov": {
+            "bitwise_equal": false,
+            "max_abs_diff": 1.0113581083714962e-09,
+            "mean_abs_diff": 1.0418059998358855e-11,
+            "shape": [
+              12861,
+              6
+            ],
+            "dtype": "torch.float32"
+          }
         }
       },
-      "position_min": [
-        0.09236142039299011,
-        -0.03973984345793724,
-        -0.06313671916723251
-      ],
-      "position_max": [
-        0.4145885109901428,
-        0.07319265604019165,
-        0.31406262516975403
-      ],
-      "displacement_p50_p95_p99_max": [
-        0.0041608083258145995,
-        0.013965167739267573,
-        0.01653706456759518,
-        0.03640512073909661
-      ],
-      "covariance_PD_count": 12861,
-      "covariance_PD_fraction": 1.0,
-      "min_eigenvalue": 1.0002430501505461e-08,
-      "condition_p50_p99_max": [
-        61.04592864135733,
-        191.57737756790667,
-        750.4253769402078
-      ]
-    },
-    {
-      "actual_cache_key": "frame_6",
-      "required_cache_key": "frame_60",
-      "local_frame": 60,
-      "source_frame": 173,
-      "provenance": "predicted from previous coarse state",
-      "path": "/data1/userdata/tcweng/projects/tcgs/datasets/deform360/derived/008-pink-cloth/episode_0/t27_stage1_cache/config_a_2cam/pred_stage1/frame_6.pth",
-      "bytes": 465957,
-      "sha256": "3ff560dc987b27ea1b829a8d6392c8eb3c05a85aa18d9b7ed49b8f69c86b43de",
-      "fields": {
-        "pred_pos": {
-          "shape": [
-            12861,
-            3
-          ],
-          "dtype": "torch.float32",
-          "finite": true
-        },
-        "pred_cov": {
-          "shape": [
-            12861,
-            6
-          ],
-          "dtype": "torch.float32",
-          "finite": true
+      {
+        "old_key": "frame_6",
+        "new_key": "frame_60",
+        "local_frame": 60,
+        "source_frame": 173,
+        "fields": {
+          "pred_pos": {
+            "bitwise_equal": false,
+            "max_abs_diff": 4.3958425521850586e-07,
+            "mean_abs_diff": 3.676771392697566e-08,
+            "shape": [
+              12861,
+              3
+            ],
+            "dtype": "torch.float32"
+          },
+          "pred_cov": {
+            "bitwise_equal": false,
+            "max_abs_diff": 7.566995918750763e-10,
+            "mean_abs_diff": 8.856802776888848e-12,
+            "shape": [
+              12861,
+              6
+            ],
+            "dtype": "torch.float32"
+          }
         }
       },
-      "position_min": [
-        0.10160189867019653,
-        -0.04709494486451149,
-        -0.06451407074928284
-      ],
-      "position_max": [
-        0.41435691714286804,
-        0.0899699479341507,
-        0.3145824372768402
-      ],
-      "displacement_p50_p95_p99_max": [
-        0.005239795583667206,
-        0.01908004225943174,
-        0.02083888342277329,
-        0.03709173619218979
-      ],
-      "covariance_PD_count": 12861,
-      "covariance_PD_fraction": 1.0,
-      "min_eigenvalue": 9.379630503458614e-09,
-      "condition_p50_p99_max": [
-        59.70296174887538,
-        236.6131127438549,
-        645.9058262205577
-      ]
-    },
-    {
-      "actual_cache_key": "frame_7",
-      "required_cache_key": "frame_70",
-      "local_frame": 70,
-      "source_frame": 183,
-      "provenance": "predicted from previous coarse state",
-      "path": "/data1/userdata/tcweng/projects/tcgs/datasets/deform360/derived/008-pink-cloth/episode_0/t27_stage1_cache/config_a_2cam/pred_stage1/frame_7.pth",
-      "bytes": 465957,
-      "sha256": "ffb2511e281402f331ac9f19563cf7014158f9272a0c1651609ccc951ca58767",
-      "fields": {
-        "pred_pos": {
-          "shape": [
-            12861,
-            3
-          ],
-          "dtype": "torch.float32",
-          "finite": true
-        },
-        "pred_cov": {
-          "shape": [
-            12861,
-            6
-          ],
-          "dtype": "torch.float32",
-          "finite": true
+      {
+        "old_key": "frame_7",
+        "new_key": "frame_70",
+        "local_frame": 70,
+        "source_frame": 183,
+        "fields": {
+          "pred_pos": {
+            "bitwise_equal": false,
+            "max_abs_diff": 6.109476089477539e-07,
+            "mean_abs_diff": 5.058733475048237e-08,
+            "shape": [
+              12861,
+              3
+            ],
+            "dtype": "torch.float32"
+          },
+          "pred_cov": {
+            "bitwise_equal": false,
+            "max_abs_diff": 1.1095835361629725e-09,
+            "mean_abs_diff": 1.177727959092987e-11,
+            "shape": [
+              12861,
+              6
+            ],
+            "dtype": "torch.float32"
+          }
         }
       },
-      "position_min": [
-        0.10880839824676514,
-        -0.03755219280719757,
-        -0.06528196483850479
-      ],
-      "position_max": [
-        0.41328418254852295,
-        0.10411353409290314,
-        0.31388235092163086
-      ],
-      "displacement_p50_p95_p99_max": [
-        0.005261853882836077,
-        0.017428845516177273,
-        0.019209968007480017,
-        0.031048969995646148
-      ],
-      "covariance_PD_count": 12861,
-      "covariance_PD_fraction": 1.0,
-      "min_eigenvalue": 8.967516250639909e-09,
-      "condition_p50_p99_max": [
-        57.86951078916472,
-        210.13359225783424,
-        791.3999089910374
-      ]
-    },
-    {
-      "actual_cache_key": "frame_8",
-      "required_cache_key": "frame_80",
-      "local_frame": 80,
-      "source_frame": 193,
-      "provenance": "predicted from previous coarse state",
-      "path": "/data1/userdata/tcweng/projects/tcgs/datasets/deform360/derived/008-pink-cloth/episode_0/t27_stage1_cache/config_a_2cam/pred_stage1/frame_8.pth",
-      "bytes": 465957,
-      "sha256": "9fb0baa35bef3d6250bc31a0b7f5f3d6c9732685630961e7aa3a5392a6299d7d",
-      "fields": {
-        "pred_pos": {
-          "shape": [
-            12861,
-            3
-          ],
-          "dtype": "torch.float32",
-          "finite": true
-        },
-        "pred_cov": {
-          "shape": [
-            12861,
-            6
-          ],
-          "dtype": "torch.float32",
-          "finite": true
+      {
+        "old_key": "frame_8",
+        "new_key": "frame_80",
+        "local_frame": 80,
+        "source_frame": 193,
+        "fields": {
+          "pred_pos": {
+            "bitwise_equal": false,
+            "max_abs_diff": 1.0952353477478027e-06,
+            "mean_abs_diff": 3.3651251351955694e-08,
+            "shape": [
+              12861,
+              3
+            ],
+            "dtype": "torch.float32"
+          },
+          "pred_cov": {
+            "bitwise_equal": false,
+            "max_abs_diff": 9.204086381942034e-10,
+            "mean_abs_diff": 8.339621276496811e-12,
+            "shape": [
+              12861,
+              6
+            ],
+            "dtype": "torch.float32"
+          }
         }
       },
-      "position_min": [
-        0.12008199840784073,
-        -0.03537484630942345,
-        -0.06458641588687897
-      ],
-      "position_max": [
-        0.4130798578262329,
-        0.12120989710092545,
-        0.31928253173828125
-      ],
-      "displacement_p50_p95_p99_max": [
-        0.005328314188160223,
-        0.019195404867464756,
-        0.02130412255225022,
-        0.03188401489069706
-      ],
-      "covariance_PD_count": 12861,
-      "covariance_PD_fraction": 1.0,
-      "min_eigenvalue": 8.375746004089705e-09,
-      "condition_p50_p99_max": [
-        56.677380013438416,
-        216.3754604961302,
-        817.7069459603102
-      ]
-    },
-    {
-      "actual_cache_key": "frame_9",
-      "required_cache_key": "frame_90",
-      "local_frame": 90,
-      "source_frame": 203,
-      "provenance": "predicted from previous coarse state",
-      "path": "/data1/userdata/tcweng/projects/tcgs/datasets/deform360/derived/008-pink-cloth/episode_0/t27_stage1_cache/config_a_2cam/pred_stage1/frame_9.pth",
-      "bytes": 465957,
-      "sha256": "02dc9b183fa15159170075a4d20c2985ad561f461616a93fe3ff51be28edb527",
-      "fields": {
-        "pred_pos": {
-          "shape": [
-            12861,
-            3
-          ],
-          "dtype": "torch.float32",
-          "finite": true
-        },
-        "pred_cov": {
-          "shape": [
-            12861,
-            6
-          ],
-          "dtype": "torch.float32",
-          "finite": true
+      {
+        "old_key": "frame_9",
+        "new_key": "frame_90",
+        "local_frame": 90,
+        "source_frame": 203,
+        "fields": {
+          "pred_pos": {
+            "bitwise_equal": false,
+            "max_abs_diff": 5.736947059631348e-07,
+            "mean_abs_diff": 3.939841567171948e-08,
+            "shape": [
+              12861,
+              3
+            ],
+            "dtype": "torch.float32"
+          },
+          "pred_cov": {
+            "bitwise_equal": false,
+            "max_abs_diff": 2.0372681319713593e-09,
+            "mean_abs_diff": 9.780177451925327e-12,
+            "shape": [
+              12861,
+              6
+            ],
+            "dtype": "torch.float32"
+          }
         }
       },
-      "position_min": [
-        0.13152754306793213,
-        -0.03429323434829712,
-        -0.06483712047338486
-      ],
-      "position_max": [
-        0.4116194248199463,
-        0.13668292760849,
-        0.31488102674484253
-      ],
-      "displacement_p50_p95_p99_max": [
-        0.007555429101438308,
-        0.019744255397380468,
-        0.021072514886093022,
-        0.029464561472162705
-      ],
-      "covariance_PD_count": 12861,
-      "covariance_PD_fraction": 1.0,
-      "min_eigenvalue": 7.962569736082422e-09,
-      "condition_p50_p99_max": [
-        56.090266537867635,
-        221.54646353817628,
-        747.4579550208413
-      ]
-    },
-    {
-      "actual_cache_key": "frame_10",
-      "required_cache_key": "frame_100",
-      "local_frame": 100,
-      "source_frame": 213,
-      "provenance": "predicted from previous coarse state",
-      "path": "/data1/userdata/tcweng/projects/tcgs/datasets/deform360/derived/008-pink-cloth/episode_0/t27_stage1_cache/config_a_2cam/pred_stage1/frame_10.pth",
-      "bytes": 465965,
-      "sha256": "c1c3168e8f85d718cdecbee2bcb5b5748b2d017338fb0b431cb288150ac469de",
-      "fields": {
-        "pred_pos": {
-          "shape": [
-            12861,
-            3
-          ],
-          "dtype": "torch.float32",
-          "finite": true
-        },
-        "pred_cov": {
-          "shape": [
-            12861,
-            6
-          ],
-          "dtype": "torch.float32",
-          "finite": true
+      {
+        "old_key": "frame_10",
+        "new_key": "frame_100",
+        "local_frame": 100,
+        "source_frame": 213,
+        "fields": {
+          "pred_pos": {
+            "bitwise_equal": false,
+            "max_abs_diff": 2.6747584342956543e-06,
+            "mean_abs_diff": 4.4531806962790954e-08,
+            "shape": [
+              12861,
+              3
+            ],
+            "dtype": "torch.float32"
+          },
+          "pred_cov": {
+            "bitwise_equal": false,
+            "max_abs_diff": 2.342858351767063e-09,
+            "mean_abs_diff": 1.2145115670515948e-11,
+            "shape": [
+              12861,
+              6
+            ],
+            "dtype": "torch.float32"
+          }
         }
       },
-      "position_min": [
-        0.1368548423051834,
-        -0.035919029265642166,
-        -0.06557128578424454
-      ],
-      "position_max": [
-        0.410894513130188,
-        0.14739136397838593,
-        0.3190307319164276
-      ],
-      "displacement_p50_p95_p99_max": [
-        0.005605635017410534,
-        0.009651682829803825,
-        0.012873540706608068,
-        0.030053986222900342
-      ],
-      "covariance_PD_count": 12861,
-      "covariance_PD_fraction": 1.0,
-      "min_eigenvalue": 7.829133440126533e-09,
-      "condition_p50_p99_max": [
-        56.03112715852715,
-        222.93915736689328,
-        761.791823155044
-      ]
-    },
-    {
-      "actual_cache_key": "frame_11",
-      "required_cache_key": "frame_110",
-      "local_frame": 110,
-      "source_frame": 223,
-      "provenance": "predicted from previous coarse state",
-      "path": "/data1/userdata/tcweng/projects/tcgs/datasets/deform360/derived/008-pink-cloth/episode_0/t27_stage1_cache/config_a_2cam/pred_stage1/frame_11.pth",
-      "bytes": 465965,
-      "sha256": "ec6c9644cb5d94a11faf38534abf19db6afa86b73388d758dd8aa0a5722ae949",
-      "fields": {
-        "pred_pos": {
-          "shape": [
-            12861,
-            3
-          ],
-          "dtype": "torch.float32",
-          "finite": true
-        },
-        "pred_cov": {
-          "shape": [
-            12861,
-            6
-          ],
-          "dtype": "torch.float32",
-          "finite": true
+      {
+        "old_key": "frame_11",
+        "new_key": "frame_110",
+        "local_frame": 110,
+        "source_frame": 223,
+        "fields": {
+          "pred_pos": {
+            "bitwise_equal": false,
+            "max_abs_diff": 1.0281801223754883e-06,
+            "mean_abs_diff": 5.3291567360968155e-08,
+            "shape": [
+              12861,
+              3
+            ],
+            "dtype": "torch.float32"
+          },
+          "pred_cov": {
+            "bitwise_equal": false,
+            "max_abs_diff": 1.4588295016437769e-09,
+            "mean_abs_diff": 1.4103802449190653e-11,
+            "shape": [
+              12861,
+              6
+            ],
+            "dtype": "torch.float32"
+          }
         }
       },
-      "position_min": [
-        0.13488781452178955,
-        -0.04089941829442978,
-        -0.06570682674646378
-      ],
-      "position_max": [
-        0.4097200930118561,
-        0.14439398050308228,
-        0.3197733163833618
-      ],
-      "displacement_p50_p95_p99_max": [
-        0.002317422546988695,
-        0.005919515525027065,
-        0.010204362871841201,
-        0.03586348156403988
-      ],
-      "covariance_PD_count": 12861,
-      "covariance_PD_fraction": 1.0,
-      "min_eigenvalue": 7.894300943442935e-09,
-      "condition_p50_p99_max": [
-        56.22297888576093,
-        220.57729636000732,
-        738.7947222208853
-      ]
-    },
-    {
-      "actual_cache_key": "frame_12",
-      "required_cache_key": "frame_120",
-      "local_frame": 120,
-      "source_frame": 233,
-      "provenance": "predicted from previous coarse state",
-      "path": "/data1/userdata/tcweng/projects/tcgs/datasets/deform360/derived/008-pink-cloth/episode_0/t27_stage1_cache/config_a_2cam/pred_stage1/frame_12.pth",
-      "bytes": 465965,
-      "sha256": "6cb70a3ac33e2e4e8c7cbe68877c58755c38fd5ba9d2e9a418ac3a0e9d7fa5b5",
-      "fields": {
-        "pred_pos": {
-          "shape": [
-            12861,
-            3
-          ],
-          "dtype": "torch.float32",
-          "finite": true
-        },
-        "pred_cov": {
-          "shape": [
-            12861,
-            6
-          ],
-          "dtype": "torch.float32",
-          "finite": true
+      {
+        "old_key": "frame_12",
+        "new_key": "frame_120",
+        "local_frame": 120,
+        "source_frame": 233,
+        "fields": {
+          "pred_pos": {
+            "bitwise_equal": false,
+            "max_abs_diff": 1.3709068298339844e-06,
+            "mean_abs_diff": 6.238606065674684e-08,
+            "shape": [
+              12861,
+              3
+            ],
+            "dtype": "torch.float32"
+          },
+          "pred_cov": {
+            "bitwise_equal": false,
+            "max_abs_diff": 2.0372681319713593e-09,
+            "mean_abs_diff": 1.4843102407876748e-11,
+            "shape": [
+              12861,
+              6
+            ],
+            "dtype": "torch.float32"
+          }
         }
       },
-      "position_min": [
-        0.12032192200422287,
-        -0.044093742966651917,
-        -0.06481005251407623
-      ],
-      "position_max": [
-        0.40852105617523193,
-        0.12018319964408875,
-        0.3192039430141449
-      ],
-      "displacement_p50_p95_p99_max": [
-        0.008749205526534016,
-        0.026254784043729624,
-        0.02927000561933405,
-        0.03199551318754617
-      ],
-      "covariance_PD_count": 12861,
-      "covariance_PD_fraction": 1.0,
-      "min_eigenvalue": 8.466973407976463e-09,
-      "condition_p50_p99_max": [
-        56.13872169988162,
-        182.26140895931698,
-        568.1273827773769
-      ]
-    },
-    {
-      "actual_cache_key": "frame_13",
-      "required_cache_key": "frame_130",
-      "local_frame": 130,
-      "source_frame": 243,
-      "provenance": "predicted from previous coarse state",
-      "path": "/data1/userdata/tcweng/projects/tcgs/datasets/deform360/derived/008-pink-cloth/episode_0/t27_stage1_cache/config_a_2cam/pred_stage1/frame_13.pth",
-      "bytes": 465965,
-      "sha256": "e9c169474304caaab386f01e3ec62dffb56048d6915064850f99577d46b282f3",
-      "fields": {
-        "pred_pos": {
-          "shape": [
-            12861,
-            3
-          ],
-          "dtype": "torch.float32",
-          "finite": true
-        },
-        "pred_cov": {
-          "shape": [
-            12861,
-            6
-          ],
-          "dtype": "torch.float32",
-          "finite": true
+      {
+        "old_key": "frame_13",
+        "new_key": "frame_130",
+        "local_frame": 130,
+        "source_frame": 243,
+        "fields": {
+          "pred_pos": {
+            "bitwise_equal": false,
+            "max_abs_diff": 7.860362529754639e-07,
+            "mean_abs_diff": 7.934444469658246e-08,
+            "shape": [
+              12861,
+              3
+            ],
+            "dtype": "torch.float32"
+          },
+          "pred_cov": {
+            "bitwise_equal": false,
+            "max_abs_diff": 1.102307578548789e-09,
+            "mean_abs_diff": 1.538031102575488e-11,
+            "shape": [
+              12861,
+              6
+            ],
+            "dtype": "torch.float32"
+          }
         }
       },
-      "position_min": [
-        0.10518138110637665,
-        -0.04758239537477493,
-        -0.06389091163873672
-      ],
-      "position_max": [
-        0.4081173539161682,
-        0.1004585400223732,
-        0.3133655786514282
-      ],
-      "displacement_p50_p95_p99_max": [
-        0.008084901902141985,
-        0.026141791973383517,
-        0.029132738372882543,
-        0.04324979183483897
-      ],
-      "covariance_PD_count": 12861,
-      "covariance_PD_fraction": 1.0,
-      "min_eigenvalue": 1.0680379476301726e-08,
-      "condition_p50_p99_max": [
-        56.84278518581583,
-        217.9064907020213,
-        638.3223007900285
-      ]
-    },
-    {
-      "actual_cache_key": "frame_14",
-      "required_cache_key": "frame_140",
-      "local_frame": 140,
-      "source_frame": 253,
-      "provenance": "predicted from previous coarse state",
-      "path": "/data1/userdata/tcweng/projects/tcgs/datasets/deform360/derived/008-pink-cloth/episode_0/t27_stage1_cache/config_a_2cam/pred_stage1/frame_14.pth",
-      "bytes": 465965,
-      "sha256": "a4b3104a8eacccadaf886dd435a56c5203e3dd6c1a99b523924fa7be84264148",
-      "fields": {
-        "pred_pos": {
-          "shape": [
-            12861,
-            3
-          ],
-          "dtype": "torch.float32",
-          "finite": true
-        },
-        "pred_cov": {
-          "shape": [
-            12861,
-            6
-          ],
-          "dtype": "torch.float32",
-          "finite": true
+      {
+        "old_key": "frame_14",
+        "new_key": "frame_140",
+        "local_frame": 140,
+        "source_frame": 253,
+        "fields": {
+          "pred_pos": {
+            "bitwise_equal": false,
+            "max_abs_diff": 1.1273659765720367e-06,
+            "mean_abs_diff": 7.586528214991249e-08,
+            "shape": [
+              12861,
+              3
+            ],
+            "dtype": "torch.float32"
+          },
+          "pred_cov": {
+            "bitwise_equal": false,
+            "max_abs_diff": 2.5756889954209328e-09,
+            "mean_abs_diff": 2.1594115445142798e-11,
+            "shape": [
+              12861,
+              6
+            ],
+            "dtype": "torch.float32"
+          }
         }
       },
-      "position_min": [
-        0.08855129778385162,
-        -0.0503867007791996,
-        -0.0620122030377388
-      ],
-      "position_max": [
-        0.4103502333164215,
-        0.07117921859025955,
-        0.31444689631462097
-      ],
-      "displacement_p50_p95_p99_max": [
-        0.015324352484334707,
-        0.03366332830454877,
-        0.03706894000972767,
-        0.04290839011013839
-      ],
-      "covariance_PD_count": 12861,
-      "covariance_PD_fraction": 1.0,
-      "min_eigenvalue": 1.04108309324467e-08,
-      "condition_p50_p99_max": [
-        59.076142415295266,
-        205.48142720816804,
-        563.8645915630402
-      ]
-    },
-    {
-      "actual_cache_key": "frame_15",
-      "required_cache_key": "frame_150",
-      "local_frame": 150,
-      "source_frame": 263,
-      "provenance": "predicted from previous coarse state",
-      "path": "/data1/userdata/tcweng/projects/tcgs/datasets/deform360/derived/008-pink-cloth/episode_0/t27_stage1_cache/config_a_2cam/pred_stage1/frame_15.pth",
-      "bytes": 465965,
-      "sha256": "5684132a73e426b47d84fee74901665cc6e43933edc210e23e048d879aead075",
-      "fields": {
-        "pred_pos": {
-          "shape": [
-            12861,
-            3
-          ],
-          "dtype": "torch.float32",
-          "finite": true
-        },
-        "pred_cov": {
-          "shape": [
-            12861,
-            6
-          ],
-          "dtype": "torch.float32",
-          "finite": true
+      {
+        "old_key": "frame_15",
+        "new_key": "frame_150",
+        "local_frame": 150,
+        "source_frame": 263,
+        "fields": {
+          "pred_pos": {
+            "bitwise_equal": false,
+            "max_abs_diff": 9.993091225624084e-07,
+            "mean_abs_diff": 6.076047636347055e-08,
+            "shape": [
+              12861,
+              3
+            ],
+            "dtype": "torch.float32"
+          },
+          "pred_cov": {
+            "bitwise_equal": false,
+            "max_abs_diff": 1.3023964129388332e-09,
+            "mean_abs_diff": 1.3486346497165285e-11,
+            "shape": [
+              12861,
+              6
+            ],
+            "dtype": "torch.float32"
+          }
         }
-      },
-      "position_min": [
-        0.0714239850640297,
-        -0.05677662789821625,
-        -0.06129026412963867
-      ],
-      "position_max": [
-        0.41213810443878174,
-        0.04781452938914299,
-        0.3136071562767029
-      ],
-      "displacement_p50_p95_p99_max": [
-        0.009024670364095148,
-        0.02744427548834868,
-        0.033796431871402625,
-        0.035971857821903756
-      ],
-      "covariance_PD_count": 12861,
-      "covariance_PD_fraction": 1.0,
-      "min_eigenvalue": 1.0013782706678194e-08,
-      "condition_p50_p99_max": [
-        63.07168326634038,
-        207.49389979043448,
-        571.1997888353743
-      ]
-    }
-  ],
-  "no_future_reconstructed_Gaussian_reset": true,
-  "registered_state_and_normalizer_unchanged": true,
-  "provenance_evidence": "Observer asserted all15 preprocessing cur/prev positions exact against preceding saved predictions; source orig exact; N/order retained by official controller-prefix slicing. Checks passed before filename assertion.",
-  "covariance_semantics": "Official simple_test resets cur_cov to initial covariance on every call; persisted pred_cov is actual output.",
-  "readback": "All16 files CPU-readable with exact required two-field schema; mapping incompatible with Stage2 expected filenames. These are failed-attempt artifacts, not approved Stage2 cache.",
-  "official_call_sites": [
-    "mmgs/apis/test.py:163-236",
-    "mmgs/models/simulators/gs_simulator_embodied.py:446-455,885-948",
-    "mmgs/models/simulators/gs_simulator_embodied_stage2.py:219-241,729-731"
-  ],
-  "minimal_proposal_not_applied": "Set model.frame_gap=10 only in cache-generation helper/config glue; keep frozen training config and core code unchanged; rerun into a new directory after authorization.",
-  "cuda_initialized": false
+      }
+    ],
+    "old_hashes_unchanged": true,
+    "new_hashes_stable": true,
+    "all_bitwise_equal": false,
+    "cuda_initialized": false,
+    "slurm": "25872|COMPLETED|00:00:11|0:0|amax\n25872.0|COMPLETED|00:00:11|0:0|amax\n",
+    "server_git_status": ""
+  },
+  "comparison_interpretation": "Not bitwise identical. Max position difference 2.6747584342956543e-6 m, covariance 2.5756889954209328e-9; small run-to-run numerical differences, no evident sequence-scale change. No tolerance/algorithm change or claim of bitwise determinism; exact cause not re-audited.",
+  "T28_executed": false
 }
