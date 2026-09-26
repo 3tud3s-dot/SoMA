@@ -1,0 +1,68 @@
+{
+  "status": "PASS",
+  "test_harness_note": "Initial AST extraction matched get_lr in multiple classes; narrowed to actual HoodLrUpdaterHook before successful CPU rerun. No CUDA/training was launched.",
+  "CPU_only": true,
+  "CUDA_initialized": false,
+  "serialization": {
+    "old_failure_reproduced": true,
+    "real_evaluate_frame_used": true,
+    "fixture_provenance": "same-structure/type fixture; exact interrupted metric payload unavailable",
+    "nested_types_roundtrip": true,
+    "event_and_finally_save": true,
+    "original_exception_propagated": true,
+    "nonfinite_policy": "Explicit strings nan/inf/-inf, existing semantics; not replaced by finite numbers. Training finite guards unchanged.",
+    "unsupported_object_raises": true,
+    "torch_dump_support_added": false,
+    "torch_reason": "Actual report paths convert tensors explicitly; evaluation path returns NumPy. No arbitrary tensor JSON conversion."
+  },
+  "checkpoint": {
+    "path": "/data1/userdata/tcweng/projects/tcgs/outputs/deform360/stage1/config_a_seed5_normalizer_fix/epoch_1.pth",
+    "sha256": "ac600808287c27277edf39dba59d0bf21a7d90204345cf479a06c8d00bf173ae",
+    "bytes": 30038461,
+    "epoch": 1,
+    "iter": 50,
+    "all_finite": true,
+    "normalizer_dtypes": {
+      "backbone.node_normalizer._acc_count": "torch.float64",
+      "backbone.node_normalizer._num_accumulations": "torch.float64",
+      "backbone.node_normalizer._acc_sum": "torch.float64",
+      "backbone.node_normalizer._acc_sum_squared": "torch.float64",
+      "backbone.anchor_normalizer._acc_count": "torch.float64",
+      "backbone.anchor_normalizer._num_accumulations": "torch.float64",
+      "backbone.anchor_normalizer._acc_sum": "torch.float64",
+      "backbone.anchor_normalizer._acc_sum_squared": "torch.float64",
+      "backbone.edge_normalizer._acc_count": "torch.float64",
+      "backbone.edge_normalizer._num_accumulations": "torch.float64",
+      "backbone.edge_normalizer._acc_sum": "torch.float64",
+      "backbone.edge_normalizer._acc_sum_squared": "torch.float64"
+    },
+    "Adam_steps": [
+      50
+    ],
+    "Adam_states": 275,
+    "initial_lr": 0.0004
+  },
+  "resume_semantics": {
+    "restored_epoch": 1,
+    "restored_iter": 50,
+    "next_human_epoch": 2,
+    "next_optimizer_iteration": 51,
+    "next_rollout": 6,
+    "next_LR": 0.000404,
+    "dataset_repeat": 50,
+    "remaining_steps": 2250,
+    "target_total_steps": 2300,
+    "source_refs": [
+      "tools/train.py:94-95",
+      "mmgs/apis/train.py:141-143",
+      "MMCV base_runner.py:359-407",
+      "mmgs/core/runner/epoch_runner.py:19",
+      "mmgs/models/simulators/gs_simulator_embodied.py:584-609,638-640",
+      "mmgs/core/lr_updater/hooks.py:164-177",
+      "MMCV hooks/lr_updater.py:111-139",
+      "MMCV epoch_based_runner.py:44-60"
+    ],
+    "actual_GPU_resume_exact_state_and_first_batch_gate": "required in submitted observer before continuation"
+  },
+  "observer_sha256": "38e0ae5a203fcc5bece1ac69ef5cd0ac4caaf720310855efcd97c2e27041f7ea"
+}

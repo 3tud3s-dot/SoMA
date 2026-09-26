@@ -1,0 +1,13 @@
+{
+  "job_id": 25868,
+  "last_reported_completed_epoch": 46,
+  "next_report_epoch": null,
+  "steps_at_last_report": 2300,
+  "median_recent_epoch_seconds": 222.3931539510013,
+  "estimated_remaining_minutes_at_last_report": 0,
+  "estimated_finish_at_last_report": "2026-09-27T02:21:57.884555+08:00",
+  "policy": "Report every 5 newly completed epochs with refreshed ETA; report terminal failure/completion even before threshold. No new training/resume/T27.",
+  "last_checked_at": "2026-09-27T02:16:06.503372+08:00",
+  "status": "PASS",
+  "automation_status": "PAUSED"
+}

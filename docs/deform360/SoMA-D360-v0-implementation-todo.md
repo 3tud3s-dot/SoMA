@@ -30,7 +30,7 @@ Current task:
 T26
 
 Current status:
-BLOCKED
+PASS
 ```
 
 以上 HEAD 为本 roadmap 建立时的源码基线。T0–T11 已 PASS，具体结论及证据保留于各项历史 Result / Evidence。T11 checkpoint 已提交并推送；T12 已按人工确认采用 30→10→2→1 grouping contract 并验证 PASS；此前默认分组 FAIL 历史保留，不进入 T13。
@@ -156,7 +156,7 @@ tcgs root Git 仅用于 workspace-level 资产。除非明确说明，不在 tcg
 | T24 | 验证 checkpoint 保存与恢复 | PASS |
 | T24.5 | 数值重复性 first-divergence audit（Non-gating） | PARTIALLY_ATTRIBUTED |
 | T25 | 冻结首个 baseline 的运行协议 | PASS |
-| T26 | 执行约定预算的 Stage 1 训练 | BLOCKED |
+| T26 | 执行约定预算的 Stage 1 训练 | PASS |
 | T26.1 | Stage-1 first nonfinite gradient audit（Blocking） | PARTIALLY_ATTRIBUTED |
 | T26.2 | row-3648 renderer degeneracy causal audit（Blocking） | PARTIALLY_ATTRIBUTED |
 | T26.3 | random-init dynamics scale / normalization audit（Blocking） | SCALE_MISMATCH_ATTRIBUTED |
@@ -1789,7 +1789,7 @@ Adam base LR=4e-4，betas=.9/.999、weight_decay=0、amsgrad=False；Hood按zero
 
 ### T26：执行约定预算的 Stage 1 训练
 
-Status: BLOCKED
+Status: PASS
 
 **问题：** 已贯通的流程能否完成一个有明确预算的训练运行？
 
@@ -1830,6 +1830,12 @@ peak allocated=3832729088B（3.570GiB），peak reserved=4066377728B（3.787GiB�
 
 唯一last-good checkpoint为 `outputs/deform360/stage1/config_a_seed5_normalizer_fix/epoch_1.pth`，30038461B，SHA256=`ac600808287c27277edf39dba59d0bf21a7d90204345cf479a06c8d00bf173ae`，metadata epoch1/iter50可读；独立CPU核验model/Adam finite、275组Adam step50、12个FP64统计finite。794项输入资产hash不变。无epoch_46，未满足T26 PASS；没有自动修改observer/算法、retry或resume，未执行T27。下一最小建议仅修JSON NumPy类型兼容并做CPU序列化测试，之后重新授权运行方式。
 
+2026-09-26：**resumed T26 — IN_PROGRESS**。job25867中断证据已提交/push `c8ec65ab672277b5bcb8f9d1bbb18313ff6feccd`，两端同HEAD、0/0、clean。仅在新观察器副本中增加NumPy scalar/array递归JSON转换；原失败文件不改写。CPU同结构真实evaluate_frame测试复现旧错误，新event/finally roundtrip通过，原训练异常不被吞掉，NaN/Inf仍显式非数字字符串。checkpoint SHA256不变、epoch1/iter50、275组Adam step50、12个FP64统计finite。实际源码推导下一epoch2/iter51、rollout6、LR0.000404；通过后提交sbatch **25868**，真实runner resume，从新日志/output目录 `outputs/deform360/stage1/config_a_seed5_normalizer_fix_resume_epoch2/` 继续，不重跑epoch1，不执行T27。作业内精确恢复和首batch gate通过后才可持续训练；本条不代表训练完成。
+
+2026-09-27：**resumed T26 最终 PASS**。job25868 COMPLETED/exit0:0，RTX5090，Slurm02:42:04，承接已核验epoch1/50steps后完成epoch2–46，总46epochs/2300steps。rollout3→6→9→12→15完整执行；loss/gradient/model/Adam/12个FP64统计finite，无OOM。peak allocated 16.918GiB / reserved 18.420GiB；监督source≤263，无test泄漏/future-Ply reset；frozen config与794项资产hash保持。授权resume只修观察器JSON类型兼容，不改变算法/protocol。历史initial FAIL、归因、observer BLOCKED均保留。
+
+最终server-only checkpoint `/data1/userdata/tcweng/projects/tcgs/outputs/deform360/stage1/config_a_seed5_normalizer_fix_resume_epoch2/epoch_46.pth`，30042493B，SHA256=`d4dbea360fa033bfbf0b1ec338ce3107d49c5549675effb481f817eb672932c4`；独立CPU读取epoch46/iter2300，289个model state entries finite、275组Adam step2300/finite、12个Normalizer FP64/finite；未初始化CUDA。原resume checkpoint hash不变。PASS仅表示完成固定预算和状态核验，不代表预测质量已评估。自动监控按用户要求PAUSED；不执行T27，不启动next run，暂不commit/push。
+
 #### Evidence
 
 - [T26 preflight record](validation/t26-stage1-20260926/preflight.json)：T25 push/clean gate、SSH 错误、未提交作业记录。
@@ -1845,6 +1851,11 @@ peak allocated=3832729088B（3.570GiB），peak reserved=4066377728B（3.787GiB�
 
 
 - [本轮最终报告](validation/t26-normalizer-fix-20260926/README.md)、[最终summary](validation/t26-normalizer-fix-20260926/summary.json)、[last-good checkpoint CPU核验](validation/t26-normalizer-fix-20260926/postrun_verification.json)、[完整异常](validation/t26-normalizer-fix-20260926/stderr.txt)。本轮roadmap/小型evidence尚未commit/push，后续需Git同步。server repo clean，checkpoint仅server-only。
+
+
+- [resume CPU preflight](validation/t26-observer-resume-20260926/cpu_preflight.json)、[CPU测试](validation/t26-observer-resume-20260926/check_cpu_preflight.py)、[修复后observer](validation/t26-observer-resume-20260926/run_stage1_observed.py)、[resume sbatch](validation/t26-observer-resume-20260926/stage1.sbatch)。
+
+- [T26最终resume报告](validation/t26-observer-resume-20260926/README.md)、[逐epoch loss/LR](validation/t26-observer-resume-20260926/epoch_trajectory.csv)、[最终checkpoint CPU核验](validation/t26-observer-resume-20260926/final_checkpoint_verification.json)。SoMA/deform360-adaptation本轮未commit/push；server production clean，小型文档待后续Git同步。
 
 ### T26.1：Stage-1 first nonfinite gradient audit
 
