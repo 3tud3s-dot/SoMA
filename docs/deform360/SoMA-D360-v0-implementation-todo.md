@@ -27,10 +27,10 @@ Deform360 HEAD:
 d8522a4403b766aeb387510c04e89032a56fdf35
 
 Current task:
-T26.5
+T26
 
 Current status:
-PASS
+BLOCKED
 ```
 
 以上 HEAD 为本 roadmap 建立时的源码基线。T0–T11 已 PASS，具体结论及证据保留于各项历史 Result / Evidence。T11 checkpoint 已提交并推送；T12 已按人工确认采用 30→10→2→1 grouping contract 并验证 PASS；此前默认分组 FAIL 历史保留，不进入 T13。
@@ -156,7 +156,7 @@ tcgs root Git 仅用于 workspace-level 资产。除非明确说明，不在 tcg
 | T24 | 验证 checkpoint 保存与恢复 | PASS |
 | T24.5 | 数值重复性 first-divergence audit（Non-gating） | PARTIALLY_ATTRIBUTED |
 | T25 | 冻结首个 baseline 的运行协议 | PASS |
-| T26 | 执行约定预算的 Stage 1 训练 | FAIL |
+| T26 | 执行约定预算的 Stage 1 训练 | BLOCKED |
 | T26.1 | Stage-1 first nonfinite gradient audit（Blocking） | PARTIALLY_ATTRIBUTED |
 | T26.2 | row-3648 renderer degeneracy causal audit（Blocking） | PARTIALLY_ATTRIBUTED |
 | T26.3 | random-init dynamics scale / normalization audit（Blocking） | SCALE_MISMATCH_ATTRIBUTED |
@@ -1789,7 +1789,7 @@ Adam base LR=4e-4，betas=.9/.999、weight_decay=0、amsgrad=False；Hood按zero
 
 ### T26：执行约定预算的 Stage 1 训练
 
-Status: FAIL
+Status: BLOCKED
 
 **问题：** 已贯通的流程能否完成一个有明确预算的训练运行？
 
@@ -1822,6 +1822,14 @@ Status: FAIL
 
 peak allocated=3832729088B（3.570GiB），peak reserved=4066377728B（3.787GiB）；停止时进程显存4578MiB。Slurm elapsed25s，观测器计时11.675s，exit1:0。两台camera实际加载source113…263，三步loss targets仅123/133/143，未使用source≥268。config/794项资产hash和Gaussian fields unchanged，服务器Git仍clean。failure_context.step=3仅表示最后完成的forward step，不声称nonfinite来自step3；未做稳定性修复或重跑。历史SSH事件保留，T24/T25 PASS不变，未执行T27。
 
+2026-09-26：**T26 rerun — IN_PROGRESS**。T26.4 Normalizer fix PASS 与 T26.5 formal first-step PASS 后，用户批准 fresh 正式重跑。T26.5 checkpoint `0a628fa4dec9d8d267b131187f06b9582bc18c7b` 已push，Mac/origin/server同commit、ahead/behind=0/0、clean；server Normalizer来自Git，无未提交patch。旧FAIL与归因历史保留。新sbatch job **25867**；独立work_dir `outputs/deform360/stage1/config_a_seed5_normalizer_fix/`，load_from/resume_from=None、seed5、fresh zero-history FP64统计；不resume旧T26或T26.5 state、不warm-up。frozen46epoch/2300step protocol保持，未执行T27。本条仅表示作业提交，不表示训练成功。
+
+2026-09-26：**T26 rerun 最终 BLOCKED/observer_logging**。job25867（sbatch、83秒、FAILED/exit1:0）完成epoch1全部50次optimizer更新及原train-only evaluation计算，但在evaluation结束记录NumPy float32 metric时，观察器JSON序列化报 `TypeError: Object of type float32 is not JSON serializable`。随后finally最终report写入亦失败，原training_report.json保留checkpoint后IN_PROGRESS快照；最终状态由stderr/Slurm及独立postrun核验确定，未改写原始快照。此为观察器类型兼容遗漏，不是NaN/Inf、不是OOM，不归咎模型/数据/Normalizer。
+
+本轮fresh zero-history FP64检查通过；训练rollout3、LR0.000404，完成1个训练epoch/50steps（不是46/2300）。total loss首/均/末23798.425781/8077.148311/5499.451172；全50次gradient/model/Adam/normalizer finite，preclip norm范围77383.49–430046.29，postclip max1.000000134。peak allocated3976059392B（3.703GiB）/reserved4271898624B（3.979GiB）。训练只监督source123/133/143；train-only evaluation覆盖至263，无test泄漏、无future-Ply reset。training rollout6/9/12/15未达到，不能把evaluation15当训练15 PASS。
+
+唯一last-good checkpoint为 `outputs/deform360/stage1/config_a_seed5_normalizer_fix/epoch_1.pth`，30038461B，SHA256=`ac600808287c27277edf39dba59d0bf21a7d90204345cf479a06c8d00bf173ae`，metadata epoch1/iter50可读；独立CPU核验model/Adam finite、275组Adam step50、12个FP64统计finite。794项输入资产hash不变。无epoch_46，未满足T26 PASS；没有自动修改observer/算法、retry或resume，未执行T27。下一最小建议仅修JSON NumPy类型兼容并做CPU序列化测试，之后重新授权运行方式。
+
 #### Evidence
 
 - [T26 preflight record](validation/t26-stage1-20260926/preflight.json)：T25 push/clean gate、SSH 错误、未提交作业记录。
@@ -1831,6 +1839,12 @@ peak allocated=3832729088B（3.570GiB），peak reserved=4066377728B（3.787GiB�
 - 本轮 [resumed preflight](validation/t26-stage1-20260926/resumed_preflight.json)、[真实展开配置](validation/t26-stage1-20260926/expanded_config.py)、[sbatch](validation/t26-stage1-20260926/stage1.sbatch)、[运行观测工具](validation/t26-stage1-20260926/run_stage1_observed.py)。观测器调用未修改的tools/train.py，无config override；原OptimizerHook/runner继续负责backward、clip、step和checkpoint，仅增加记录及finite-stop检查。
 
 - [T26最终报告](validation/t26-stage1-20260926/README.md)、[summary](validation/t26-stage1-20260926/summary.json)、[training report](validation/t26-stage1-20260926/training_report.json)、[逐步事件](validation/t26-stage1-20260926/events.jsonl)、[完整traceback](validation/t26-stage1-20260926/d360-stage1-seed5-25850.stderr.txt)。small evidence所属SoMA/deform360-adaptation，未commit/push；服务器执行副本在outputs目录。
+
+
+- 本次rerun [preflight](validation/t26-normalizer-fix-20260926/preflight.json)、[观察器](validation/t26-normalizer-fix-20260926/run_stage1_observed.py)、[sbatch](validation/t26-normalizer-fix-20260926/stage1.sbatch)、[展开配置](validation/t26-normalizer-fix-20260926/expanded_config.py)。非有限/OOM立即停止，不自动重跑。
+
+
+- [本轮最终报告](validation/t26-normalizer-fix-20260926/README.md)、[最终summary](validation/t26-normalizer-fix-20260926/summary.json)、[last-good checkpoint CPU核验](validation/t26-normalizer-fix-20260926/postrun_verification.json)、[完整异常](validation/t26-normalizer-fix-20260926/stderr.txt)。本轮roadmap/小型evidence尚未commit/push，后续需Git同步。server repo clean，checkpoint仅server-only。
 
 ### T26.1：Stage-1 first nonfinite gradient audit
 

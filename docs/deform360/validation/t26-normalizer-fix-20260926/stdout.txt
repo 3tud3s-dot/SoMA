@@ -1,0 +1,31 @@
+2026-09-26T23:21:05+08:00
+amax
+Sat Sep 26 23:21:05 2026       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 580.126.18             Driver Version: 580.126.18     CUDA Version: 13.0     |
++-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA GeForce RTX 5090        On  |   00000000:E1:00.0 Off |                  N/A |
+| 44%   36C    P8             15W /  450W |       0MiB /  32607MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+Initializing gaussian scene: /data1/userdata/tcweng/projects/tcgs/datasets/deform360/derived/t17_scene_packages/pink_cloth_episode_0/config_a_2cam/pi3/gs/point_cloud/iteration_10000/point_cloud.ply
+=> loading config_a_2cam camera from embodied format
+Loading images' information...
+Set dataloader info: iters_per_epoch: 50
+=> loading config_a_2cam camera from embodied format
+Loading images' information...
+[                                                  ] 0/1, elapsed: 0s, ETA:Resetting state for scene config_a_2cam
+[>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>] 1/1, 0.3 task/s, elapsed: 3s, ETA:     0s2026-09-26T23:22:27+08:00
+TRAIN_EXIT=1

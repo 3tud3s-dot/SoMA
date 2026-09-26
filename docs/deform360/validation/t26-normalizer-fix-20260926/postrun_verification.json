@@ -1,0 +1,56 @@
+{
+  "status": "BLOCKED/observer_logging",
+  "failure": "TypeError: Object of type float32 is not JSON serializable",
+  "phase": "epoch1 after train-only evaluation, event serialization; secondary final report serialization failure",
+  "job_id": 25867,
+  "Slurm_state": "FAILED",
+  "exit_code": "1:0",
+  "Slurm_elapsed_seconds": 83,
+  "original_training_report_is_stale": true,
+  "original_training_report_note": "IN_PROGRESS was last saved after epoch1 checkpoint; preserve unchanged; final status reconstructed from stderr/Slurm",
+  "completed_training_epochs": 1,
+  "optimizer_steps": 50,
+  "training_rollouts_reached": [
+    3
+  ],
+  "training_rollouts_not_reached": [
+    6,
+    9,
+    12,
+    15
+  ],
+  "last_good_checkpoint": {
+    "path": "/data1/userdata/tcweng/projects/tcgs/outputs/deform360/stage1/config_a_seed5_normalizer_fix/epoch_1.pth",
+    "bytes": 30038461,
+    "sha256": "ac600808287c27277edf39dba59d0bf21a7d90204345cf479a06c8d00bf173ae",
+    "epoch": 1,
+    "iter": 50,
+    "model_finite": true,
+    "optimizer_finite": true,
+    "normalizer_dtypes": {
+      "backbone.node_normalizer._acc_count": "torch.float64",
+      "backbone.node_normalizer._num_accumulations": "torch.float64",
+      "backbone.node_normalizer._acc_sum": "torch.float64",
+      "backbone.node_normalizer._acc_sum_squared": "torch.float64",
+      "backbone.anchor_normalizer._acc_count": "torch.float64",
+      "backbone.anchor_normalizer._num_accumulations": "torch.float64",
+      "backbone.anchor_normalizer._acc_sum": "torch.float64",
+      "backbone.anchor_normalizer._acc_sum_squared": "torch.float64",
+      "backbone.edge_normalizer._acc_count": "torch.float64",
+      "backbone.edge_normalizer._num_accumulations": "torch.float64",
+      "backbone.edge_normalizer._acc_sum": "torch.float64",
+      "backbone.edge_normalizer._acc_sum_squared": "torch.float64"
+    },
+    "Adam_state_count": 275,
+    "Adam_steps": [
+      50.0
+    ]
+  },
+  "assets_checked": 794,
+  "assets_unchanged": true,
+  "config_sha256": "e65d1c7848bd222f55c0e18050c464eec5922aef76c1bc62a06813359cca4930",
+  "normalizer_sha256": "f78712dd0760fcf16a58431d7fdfd240a2e38cba89c400b405df93798f364220",
+  "server_git_status": "",
+  "no_new_GPU_experiment": true,
+  "check": "CPU checkpoint reading and finite validation only; no model instantiation/resume"
+}
