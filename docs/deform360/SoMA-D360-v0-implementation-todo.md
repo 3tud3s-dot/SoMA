@@ -27,10 +27,10 @@ Deform360 HEAD:
 d8522a4403b766aeb387510c04e89032a56fdf35
 
 Current task:
-T30.1
+T30
 
 Current status:
-PASS
+BLOCKED
 ```
 
 以上 HEAD 为本 roadmap 建立时的源码基线。T0–T11 已 PASS，具体结论及证据保留于各项历史 Result / Evidence。T11 checkpoint 已提交并推送；T12 已按人工确认采用 30→10→2→1 grouping contract 并验证 PASS；此前默认分组 FAIL 历史保留，不进入 T13。
@@ -2178,10 +2178,14 @@ Status: BLOCKED
 
 另发现官方train-side eval flag_update_gaussian=True会更新同一model的scene_init_pos/cov/prev_pos，随后训练起点不再保证等于T27cache；与当前fixed T27来源约束冲突。建议仅Stage2配置关闭该在线更新，但尚未实施，需确定协议。CPU核验16cache/hash/schema/finite和epoch46checkpoint/12FP64stats通过；官方15窗口×repeat40=600steps/epoch，source≤262不越界。无CUDA训练/新checkpoint，不执行T31。
 
+2026-09-27 formal attempt：BLOCKED / entry-config。T30.1以1d54006提交/push后Mac/origin/server clean且0/0。按最新授权设置12h allocation，sbatch25874（amax/RTX5090）在7s后FAILED/1:0；tools/train.py:71读取缺失顶层cfg.max_seq，尚未构造dataset/model或执行任何训练batch，0epochs/0steps，无checkpoint。不是OOM/nonfinite；上一轮config/static验证漏检入口要求。保持冻结config和全部历史不变；未自动patch/retry。12h本轮实际未持续运行，待最小入口配置修正授权。T31未执行。
+
 #### Evidence
 
 - [protocol audit](validation/t30-protocol-audit-20260927/README.md)、[CPU preflight / actual MMCV resume source](validation/t30-protocol-audit-20260927/cpu_preflight.json)、[machine-readable unfrozen audit](contracts/008-pink-cloth/episode_0/stage2_protocol_audit.json)。
 - 所属SoMA/deform360-adaptation，本轮T30审计未commit/push；server源码clean；T31/T32正文保持不变。
+
+- [formal launch / entry failure](validation/t30-stage2-20260927/README.md)、[original report](validation/t30-stage2-20260927/training_report.json)、[CPU preflight](validation/t30-stage2-20260927/preflight.json)。本次观察器/证据未commit/push；server源码clean，输入/config hash未变。
 
 ### T30.1：冻结正式 Stage-2 protocol 与 config
 
