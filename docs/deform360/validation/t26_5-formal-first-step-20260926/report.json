@@ -1,0 +1,3263 @@
+{
+  "task": "T26.5",
+  "status": "PASS",
+  "head": "8b7c4507bc47eb5a033b9f707cbe898c7d76af5c",
+  "job_id": "25866",
+  "node": "amax",
+  "seed": 5,
+  "config_sha256": "e65d1c7848bd222f55c0e18050c464eec5922aef76c1bc62a06813359cca4930",
+  "tool_sha256": "66fe6a4006c69ce18424adc2c93b361df96a81b6d0bc39fb1171cba0d6a79110",
+  "steps": [
+    {
+      "step": 1,
+      "target_source": 123,
+      "input_source": "canonical source 113",
+      "covariance_input": "initial covariance reused by unchanged formal source",
+      "input_position_sha256": "f4ba7c55907595989a1518d6253a5d6b57710fc984653017ed90a3d1db9526b7",
+      "input_covariance_sha256": "ed25464a19a5306a14ae9da5073729de74c9fd78ef64f05049043ec9c42c770b",
+      "controller_sources": [
+        113,
+        123
+      ],
+      "rasterizer": [
+        {
+          "camera": "brics-odroid-023_cam0",
+          "positive_radius": 12861,
+          "radius": {
+            "count": 12861,
+            "finite": true,
+            "quantiles": {
+              "min": 3.0,
+              "p01": 3.0,
+              "p50": 9.0,
+              "p90": 14.0,
+              "p95": 16.0,
+              "p99": 19.0,
+              "max": 28.0
+            }
+          },
+          "render": {
+            "shape": [
+              3,
+              360,
+              640
+            ],
+            "dtype": "float32",
+            "finite": true,
+            "abs_max": 1.016869306564331,
+            "mean": 0.10755347165360768,
+            "std": 0.24711423842564825,
+            "p99_abs": 0.8903050625324249
+          },
+          "projected_covariance_invalid_rows": [],
+          "projected_det": {
+            "count": 12861,
+            "finite": true,
+            "quantiles": {
+              "min": 0.14805129170417786,
+              "p01": 0.38842822313308717,
+              "p50": 17.43665313720703,
+              "p90": 132.462890625,
+              "p95": 201.30833435058594,
+              "p99": 395.68062133789033,
+              "max": 1692.927490234375
+            }
+          },
+          "projection_method": "CPU fp32 recomputation of audited native formula, not kernel intermediate readback"
+        },
+        {
+          "camera": "brics-odroid-009_cam1",
+          "positive_radius": 12861,
+          "radius": {
+            "count": 12861,
+            "finite": true,
+            "quantiles": {
+              "min": 3.0,
+              "p01": 3.0,
+              "p50": 11.0,
+              "p90": 17.0,
+              "p95": 19.0,
+              "p99": 23.0,
+              "max": 36.0
+            }
+          },
+          "render": {
+            "shape": [
+              3,
+              360,
+              640
+            ],
+            "dtype": "float32",
+            "finite": true,
+            "abs_max": 0.9952030777931213,
+            "mean": 0.0682406725409994,
+            "std": 0.21059295798149902,
+            "p99_abs": 0.8997591942548753
+          },
+          "projected_covariance_invalid_rows": [],
+          "projected_det": {
+            "count": 12861,
+            "finite": true,
+            "quantiles": {
+              "min": 0.13308846950531006,
+              "p01": 0.32019284963607786,
+              "p50": 15.481112480163574,
+              "p90": 169.76634216308594,
+              "p95": 303.40179443359375,
+              "p99": 732.9822753906243,
+              "max": 3064.370849609375
+            }
+          },
+          "projection_method": "CPU fp32 recomputation of audited native formula, not kernel intermediate readback"
+        }
+      ],
+      "pred_pos": {
+        "shape": [
+          12861,
+          3
+        ],
+        "dtype": "float32",
+        "finite": true,
+        "abs_max": 0.4107513725757599,
+        "mean": 0.12105507310852211,
+        "std": 0.11535394596731081,
+        "p99_abs": 0.3735259819030762
+      },
+      "pred_cov": {
+        "shape": [
+          12861,
+          6
+        ],
+        "dtype": "float32",
+        "finite": true,
+        "abs_max": 0.00010074472083942965,
+        "mean": 5.204714908827341e-06,
+        "std": 8.443736286259676e-06,
+        "p99_abs": 3.5327809928276135e-05
+      },
+      "displacement": {
+        "count": 12861,
+        "finite": true,
+        "quantiles": {
+          "min": 0.0010778882698598833,
+          "p01": 0.004409665304000781,
+          "p50": 0.043054102322835866,
+          "p90": 0.0961019961070704,
+          "p95": 0.10486771597627238,
+          "p99": 0.12778487321925644,
+          "max": 0.1407891122306298
+        }
+      },
+      "displacement_from_initial": {
+        "count": 12861,
+        "finite": true,
+        "quantiles": {
+          "min": 0.0010778882698598833,
+          "p01": 0.004409665304000781,
+          "p50": 0.043054102322835866,
+          "p90": 0.0961019961070704,
+          "p95": 0.10486771597627238,
+          "p99": 0.12778487321925644,
+          "max": 0.1407891122306298
+        }
+      },
+      "F": [
+        {
+          "shape": [
+            12891,
+            3,
+            3
+          ],
+          "singular_values": {
+            "count": 38673,
+            "finite": true,
+            "quantiles": {
+              "min": 0.9310914711404009,
+              "p01": 0.932015767581539,
+              "p50": 0.9872823281036915,
+              "p90": 1.0804265219646092,
+              "p95": 1.082949439406235,
+              "p99": 1.0865096669275078,
+              "max": 1.0879501825072824
+            }
+          },
+          "max_singular": {
+            "count": 12891,
+            "finite": true,
+            "quantiles": {
+              "min": 1.068908547564504,
+              "p01": 1.0708196870774074,
+              "p50": 1.078512293761802,
+              "p90": 1.0840053672211636,
+              "p95": 1.085487939121193,
+              "p99": 1.087294827886482,
+              "max": 1.0879501825072824
+            }
+          },
+          "min_singular": {
+            "count": 12891,
+            "finite": true,
+            "quantiles": {
+              "min": 0.9310914711404009,
+              "p01": 0.931604215260977,
+              "p50": 0.9390131554668617,
+              "p90": 0.9432578608723876,
+              "p95": 0.9440410517521554,
+              "p99": 0.9458498026714908,
+              "max": 0.9513609900886508
+            }
+          },
+          "determinant": {
+            "count": 12891,
+            "finite": true,
+            "quantiles": {
+              "min": 0.9999995757736628,
+              "p01": 0.9999996071854292,
+              "p50": 0.9999999307562863,
+              "p90": 1.0000000676927077,
+              "p95": 1.0000001158280756,
+              "p99": 1.000000181359823,
+              "max": 1.0000002704986068
+            }
+          }
+        },
+        {
+          "shape": [
+            12891,
+            3,
+            3
+          ],
+          "singular_values": {
+            "count": 38673,
+            "finite": true,
+            "quantiles": {
+              "min": 0.9356899922868817,
+              "p01": 0.9376122157664598,
+              "p50": 0.9900388761718714,
+              "p90": 1.0780137003966161,
+              "p95": 1.0800714825258626,
+              "p99": 1.0807004875559911,
+              "max": 1.082913709590106
+            }
+          },
+          "max_singular": {
+            "count": 12891,
+            "finite": true,
+            "quantiles": {
+              "min": 1.067376142421681,
+              "p01": 1.0734925023808395,
+              "p50": 1.0762823525647482,
+              "p90": 1.0807004875559911,
+              "p95": 1.0807004875559911,
+              "p99": 1.0807004875559911,
+              "max": 1.082913709590106
+            }
+          },
+          "min_singular": {
+            "count": 12891,
+            "finite": true,
+            "quantiles": {
+              "min": 0.9356899922868817,
+              "p01": 0.9376122157664598,
+              "p50": 0.9384568689650179,
+              "p90": 0.9407435838900085,
+              "p95": 0.9407435838900085,
+              "p99": 0.9407435838900085,
+              "max": 0.9456288363969984
+            }
+          },
+          "determinant": {
+            "count": 12891,
+            "finite": true,
+            "quantiles": {
+              "min": 0.9999997813471285,
+              "p01": 0.9999997813471285,
+              "p50": 1.0000000399015305,
+              "p90": 1.0000001652290906,
+              "p95": 1.0000001652290906,
+              "p99": 1.0000001652290906,
+              "max": 1.0000001652290906
+            }
+          }
+        }
+      ],
+      "covariance": {
+        "count": 12861,
+        "PD_count": 12861,
+        "PSD_count": 12861,
+        "min_eigen": {
+          "count": 12861,
+          "finite": true,
+          "quantiles": {
+            "min": 8.272864876249195e-09,
+            "p01": 2.3172590355542487e-08,
+            "p50": 2.3638011165903068e-07,
+            "p90": 1.5432002219835674e-06,
+            "p95": 3.1401528466787413e-06,
+            "p99": 8.026040646371691e-06,
+            "max": 2.464961862030971e-05
+          }
+        },
+        "max_eigen": {
+          "count": 12861,
+          "finite": true,
+          "quantiles": {
+            "min": 2.69089669842042e-07,
+            "p01": 1.362252853921354e-06,
+            "p50": 1.537067888664132e-05,
+            "p90": 3.674367754308692e-05,
+            "p95": 4.635698366895223e-05,
+            "p99": 6.93863385236421e-05,
+            "max": 0.00013670138089766972
+          }
+        },
+        "condition": {
+          "count": 12861,
+          "finite": true,
+          "quantiles": {
+            "min": 1.4190839291934039,
+            "p01": 2.4660089689433624,
+            "p50": 68.52494122288947,
+            "p90": 105.30765106991532,
+            "p95": 114.4924052459649,
+            "p99": 132.39449595488978,
+            "max": 160.42124573714096
+          }
+        },
+        "magnitude": {
+          "shape": [
+            12861,
+            3,
+            3
+          ],
+          "dtype": "float64",
+          "finite": true,
+          "abs_max": 0.00010074472083942965,
+          "mean": 3.888557530747302e-06,
+          "std": 7.848278281441915e-06,
+          "p99_abs": 3.2058212673291606e-05
+        },
+        "asymmetry_absmax": 0.0,
+        "eigen_convention": "upper-triangle mirrored as actual final packed representation",
+        "symmetric_part_PD_count": 12861
+      },
+      "renders": [
+        {
+          "shape": [
+            3,
+            360,
+            640
+          ],
+          "dtype": "float32",
+          "finite": true,
+          "abs_max": 1.016869306564331,
+          "mean": 0.10755347165360768,
+          "std": 0.24711423842564825,
+          "p99_abs": 0.8903050625324249
+        },
+        {
+          "shape": [
+            3,
+            360,
+            640
+          ],
+          "dtype": "float32",
+          "finite": true,
+          "abs_max": 0.9952030777931213,
+          "mean": 0.0682406725409994,
+          "std": 0.21059295798149902,
+          "p99_abs": 0.8997591942548753
+        }
+      ],
+      "regularization_losses": {
+        "decode.loss_mse_momentum": 6.71912145614624
+      },
+      "loss_components": {
+        "decode.loss_ssim_render": 4094.86572265625,
+        "decode.loss_l2_render": 19007.673828125,
+        "decode.acc_l2_render.acc": 0.0923074334859848,
+        "decode.acc_l1_render.acc": 0.14914068579673767,
+        "decode.acc_ssim_render.acc": 0.940757155418396,
+        "decode.acc_psnr_render.acc": 15.377229690551758
+      }
+    },
+    {
+      "step": 2,
+      "target_source": 133,
+      "input_source": "previous prediction (detached, exact)",
+      "covariance_input": "initial covariance reused by unchanged formal source",
+      "input_position_sha256": "d1f9d3ea9c08512f387b78ea00be2a205808eca899651b6f948256d69c053c67",
+      "input_covariance_sha256": "ed25464a19a5306a14ae9da5073729de74c9fd78ef64f05049043ec9c42c770b",
+      "controller_sources": [
+        123,
+        133
+      ],
+      "rasterizer": [
+        {
+          "camera": "brics-odroid-023_cam0",
+          "positive_radius": 12861,
+          "radius": {
+            "count": 12861,
+            "finite": true,
+            "quantiles": {
+              "min": 3.0,
+              "p01": 3.0,
+              "p50": 9.0,
+              "p90": 14.0,
+              "p95": 16.0,
+              "p99": 19.0,
+              "max": 29.0
+            }
+          },
+          "render": {
+            "shape": [
+              3,
+              360,
+              640
+            ],
+            "dtype": "float32",
+            "finite": true,
+            "abs_max": 1.0197385549545288,
+            "mean": 0.10586914804728327,
+            "std": 0.24569128012723537,
+            "p99_abs": 0.8905532979965209
+          },
+          "projected_covariance_invalid_rows": [],
+          "projected_det": {
+            "count": 12861,
+            "finite": true,
+            "quantiles": {
+              "min": 0.1452421396970749,
+              "p01": 0.3749169290065765,
+              "p50": 17.125219345092773,
+              "p90": 129.09580993652344,
+              "p95": 195.06961059570312,
+              "p99": 388.22572021484353,
+              "max": 1710.540283203125
+            }
+          },
+          "projection_method": "CPU fp32 recomputation of audited native formula, not kernel intermediate readback"
+        },
+        {
+          "camera": "brics-odroid-009_cam1",
+          "positive_radius": 12826,
+          "radius": {
+            "count": 12826,
+            "finite": true,
+            "quantiles": {
+              "min": 3.0,
+              "p01": 3.0,
+              "p50": 11.0,
+              "p90": 17.0,
+              "p95": 19.0,
+              "p99": 23.0,
+              "max": 36.0
+            }
+          },
+          "render": {
+            "shape": [
+              3,
+              360,
+              640
+            ],
+            "dtype": "float32",
+            "finite": true,
+            "abs_max": 0.9704237580299377,
+            "mean": 0.0662251205637017,
+            "std": 0.20806752130764805,
+            "p99_abs": 0.8987083774805069
+          },
+          "projected_covariance_invalid_rows": [],
+          "projected_det": {
+            "count": 12826,
+            "finite": true,
+            "quantiles": {
+              "min": 0.1332026571035385,
+              "p01": 0.32854145765304565,
+              "p50": 15.632126808166504,
+              "p90": 171.47608184814453,
+              "p95": 304.1252746582031,
+              "p99": 744.2837066650391,
+              "max": 3047.60595703125
+            }
+          },
+          "projection_method": "CPU fp32 recomputation of audited native formula, not kernel intermediate readback"
+        }
+      ],
+      "pred_pos": {
+        "shape": [
+          12861,
+          3
+        ],
+        "dtype": "float32",
+        "finite": true,
+        "abs_max": 0.4082180857658386,
+        "mean": 0.12043409126077195,
+        "std": 0.11521847852243158,
+        "p99_abs": 0.3712148177623749
+      },
+      "pred_cov": {
+        "shape": [
+          12861,
+          6
+        ],
+        "dtype": "float32",
+        "finite": true,
+        "abs_max": 9.951223182724789e-05,
+        "mean": 5.1701686493794065e-06,
+        "std": 8.435887465913056e-06,
+        "p99_abs": 3.5255317561677726e-05
+      },
+      "displacement": {
+        "count": 12861,
+        "finite": true,
+        "quantiles": {
+          "min": 0.00014075159545401267,
+          "p01": 0.000335500907899665,
+          "p50": 0.004358014521151377,
+          "p90": 0.01017301806326784,
+          "p95": 0.013334062465756859,
+          "p99": 0.01781810328241435,
+          "max": 0.019395113020484064
+        }
+      },
+      "displacement_from_initial": {
+        "count": 12861,
+        "finite": true,
+        "quantiles": {
+          "min": 0.0009885541189581534,
+          "p01": 0.004226613465172943,
+          "p50": 0.04499487147638785,
+          "p90": 0.10183934157154818,
+          "p95": 0.11011787021383088,
+          "p99": 0.14248996980286066,
+          "max": 0.15636760821070483
+        }
+      },
+      "F": [
+        {
+          "shape": [
+            12891,
+            3,
+            3
+          ],
+          "singular_values": {
+            "count": 38673,
+            "finite": true,
+            "quantiles": {
+              "min": 0.9300800502510292,
+              "p01": 0.9308416378188361,
+              "p50": 0.9881310419513232,
+              "p90": 1.0809128127929584,
+              "p95": 1.0828115695961282,
+              "p99": 1.0866876696061174,
+              "max": 1.0893962479955308
+            }
+          },
+          "max_singular": {
+            "count": 12891,
+            "finite": true,
+            "quantiles": {
+              "min": 1.0672897723650085,
+              "p01": 1.0696396723868202,
+              "p50": 1.0791588406214325,
+              "p90": 1.084015503676197,
+              "p95": 1.0857661870959159,
+              "p99": 1.0885124633681416,
+              "max": 1.0893962479955308
+            }
+          },
+          "min_singular": {
+            "count": 12891,
+            "finite": true,
+            "quantiles": {
+              "min": 0.9300800502510292,
+              "p01": 0.9304770381668875,
+              "p50": 0.9380867539169292,
+              "p90": 0.9425224657074796,
+              "p95": 0.9433971553819561,
+              "p99": 0.9457929730095683,
+              "max": 0.9526407575361776
+            }
+          },
+          "determinant": {
+            "count": 12891,
+            "finite": true,
+            "quantiles": {
+              "min": 0.9999995749370527,
+              "p01": 0.9999996912870223,
+              "p50": 0.999999934756952,
+              "p90": 1.0000000658056725,
+              "p95": 1.000000106608779,
+              "p99": 1.0000001849017175,
+              "max": 1.000000270547263
+            }
+          }
+        },
+        {
+          "shape": [
+            12891,
+            3,
+            3
+          ],
+          "singular_values": {
+            "count": 38673,
+            "finite": true,
+            "quantiles": {
+              "min": 0.9371304780847237,
+              "p01": 0.9371304780847237,
+              "p50": 0.9858005651994087,
+              "p90": 1.078557026431919,
+              "p95": 1.083057414464036,
+              "p99": 1.083057414464036,
+              "max": 1.083057414464036
+            }
+          },
+          "max_singular": {
+            "count": 12891,
+            "finite": true,
+            "quantiles": {
+              "min": 1.064938408962917,
+              "p01": 1.0695840280267817,
+              "p50": 1.078354780392421,
+              "p90": 1.083057414464036,
+              "p95": 1.083057414464036,
+              "p99": 1.083057414464036,
+              "max": 1.083057414464036
+            }
+          },
+          "min_singular": {
+            "count": 12891,
+            "finite": true,
+            "quantiles": {
+              "min": 0.9371304780847237,
+              "p01": 0.9371304780847237,
+              "p50": 0.9392107725714539,
+              "p90": 0.9470031746463955,
+              "p95": 0.9470031746463955,
+              "p99": 0.9470031746463955,
+              "max": 0.957300655974716
+            }
+          },
+          "determinant": {
+            "count": 12891,
+            "finite": true,
+            "quantiles": {
+              "min": 0.9999997522452506,
+              "p01": 0.9999997522452506,
+              "p50": 0.9999999797579903,
+              "p90": 1.0000000666307656,
+              "p95": 1.0000000666307656,
+              "p99": 1.0000000666307656,
+              "max": 1.0000001392492461
+            }
+          }
+        }
+      ],
+      "covariance": {
+        "count": 12861,
+        "PD_count": 12861,
+        "PSD_count": 12861,
+        "min_eigen": {
+          "count": 12861,
+          "finite": true,
+          "quantiles": {
+            "min": 8.283076436487061e-09,
+            "p01": 2.3262416354326197e-08,
+            "p50": 2.3693024816011664e-07,
+            "p90": 1.5461714639296333e-06,
+            "p95": 3.14773405469441e-06,
+            "p99": 7.99403241530664e-06,
+            "max": 2.4228470470672253e-05
+          }
+        },
+        "max_eigen": {
+          "count": 12861,
+          "finite": true,
+          "quantiles": {
+            "min": 2.6686274227336833e-07,
+            "p01": 1.352821322291955e-06,
+            "p50": 1.532222458192917e-05,
+            "p90": 3.65979164649655e-05,
+            "p95": 4.62065218004111e-05,
+            "p99": 6.86083455642088e-05,
+            "max": 0.00013673130558470605
+          }
+        },
+        "condition": {
+          "count": 12861,
+          "finite": true,
+          "quantiles": {
+            "min": 1.4756020603585727,
+            "p01": 2.471869667867565,
+            "p50": 67.98650764550945,
+            "p90": 104.14599344525399,
+            "p95": 113.4368690033478,
+            "p99": 131.87206467193687,
+            "max": 160.0243878529108
+          }
+        },
+        "magnitude": {
+          "shape": [
+            12861,
+            3,
+            3
+          ],
+          "dtype": "float64",
+          "finite": true,
+          "abs_max": 9.951223182724789e-05,
+          "mean": 3.849746740161394e-06,
+          "std": 7.838718415059105e-06,
+          "p99_abs": 3.191122494172305e-05
+        },
+        "asymmetry_absmax": 0.0,
+        "eigen_convention": "upper-triangle mirrored as actual final packed representation",
+        "symmetric_part_PD_count": 12861
+      },
+      "renders": [
+        {
+          "shape": [
+            3,
+            360,
+            640
+          ],
+          "dtype": "float32",
+          "finite": true,
+          "abs_max": 1.0197385549545288,
+          "mean": 0.10586914804728327,
+          "std": 0.24569128012723537,
+          "p99_abs": 0.8905532979965209
+        },
+        {
+          "shape": [
+            3,
+            360,
+            640
+          ],
+          "dtype": "float32",
+          "finite": true,
+          "abs_max": 0.9704237580299377,
+          "mean": 0.0662251205637017,
+          "std": 0.20806752130764805,
+          "p99_abs": 0.8987083774805069
+        }
+      ],
+      "regularization_losses": {
+        "decode.loss_mse_momentum": 12.397653579711914
+      },
+      "loss_components": {
+        "decode.loss_ssim_render": 4172.03076171875,
+        "decode.loss_l2_render": 19821.326171875,
+        "decode.acc_l2_render.acc": 0.09531529992818832,
+        "decode.acc_l1_render.acc": 0.15377205610275269,
+        "decode.acc_ssim_render.acc": 0.9396407604217529,
+        "decode.acc_psnr_render.acc": 15.163400650024414
+      }
+    },
+    {
+      "step": 3,
+      "target_source": 143,
+      "input_source": "previous prediction (detached, exact)",
+      "covariance_input": "initial covariance reused by unchanged formal source",
+      "input_position_sha256": "f7d19baf2354f8617f84d77058121a6fa7c2de60b08ca050d07491b678dba749",
+      "input_covariance_sha256": "ed25464a19a5306a14ae9da5073729de74c9fd78ef64f05049043ec9c42c770b",
+      "controller_sources": [
+        133,
+        143
+      ],
+      "rasterizer": [
+        {
+          "camera": "brics-odroid-023_cam0",
+          "positive_radius": 12861,
+          "radius": {
+            "count": 12861,
+            "finite": true,
+            "quantiles": {
+              "min": 3.0,
+              "p01": 3.0,
+              "p50": 9.0,
+              "p90": 14.0,
+              "p95": 16.0,
+              "p99": 19.0,
+              "max": 29.0
+            }
+          },
+          "render": {
+            "shape": [
+              3,
+              360,
+              640
+            ],
+            "dtype": "float32",
+            "finite": true,
+            "abs_max": 1.0087811946868896,
+            "mean": 0.10604328882153208,
+            "std": 0.24536364829205007,
+            "p99_abs": 0.8895508819818497
+          },
+          "projected_covariance_invalid_rows": [],
+          "projected_det": {
+            "count": 12861,
+            "finite": true,
+            "quantiles": {
+              "min": 0.15069374442100525,
+              "p01": 0.3833724856376648,
+              "p50": 17.42521858215332,
+              "p90": 131.3614501953125,
+              "p95": 199.80328369140625,
+              "p99": 388.08839721679647,
+              "max": 1677.095458984375
+            }
+          },
+          "projection_method": "CPU fp32 recomputation of audited native formula, not kernel intermediate readback"
+        },
+        {
+          "camera": "brics-odroid-009_cam1",
+          "positive_radius": 12860,
+          "radius": {
+            "count": 12860,
+            "finite": true,
+            "quantiles": {
+              "min": 3.0,
+              "p01": 3.0,
+              "p50": 11.0,
+              "p90": 17.0,
+              "p95": 19.0,
+              "p99": 23.0,
+              "max": 35.0
+            }
+          },
+          "render": {
+            "shape": [
+              3,
+              360,
+              640
+            ],
+            "dtype": "float32",
+            "finite": true,
+            "abs_max": 0.9837642312049866,
+            "mean": 0.06951894097836704,
+            "std": 0.2117337065118316,
+            "p99_abs": 0.8997272902727128
+          },
+          "projected_covariance_invalid_rows": [],
+          "projected_det": {
+            "count": 12860,
+            "finite": true,
+            "quantiles": {
+              "min": 0.13463015854358673,
+              "p01": 0.32938937336206436,
+              "p50": 15.620026588439941,
+              "p90": 170.5323059082031,
+              "p95": 302.69631347656247,
+              "p99": 737.6532238769531,
+              "max": 3058.814697265625
+            }
+          },
+          "projection_method": "CPU fp32 recomputation of audited native formula, not kernel intermediate readback"
+        }
+      ],
+      "pred_pos": {
+        "shape": [
+          12861,
+          3
+        ],
+        "dtype": "float32",
+        "finite": true,
+        "abs_max": 0.40553826093673706,
+        "mean": 0.12080823377420508,
+        "std": 0.11603861064576189,
+        "p99_abs": 0.3687847149372101
+      },
+      "pred_cov": {
+        "shape": [
+          12861,
+          6
+        ],
+        "dtype": "float32",
+        "finite": true,
+        "abs_max": 0.00010043336806120351,
+        "mean": 5.216849242810637e-06,
+        "std": 8.457430185574219e-06,
+        "p99_abs": 3.5055579428444626e-05
+      },
+      "displacement": {
+        "count": 12861,
+        "finite": true,
+        "quantiles": {
+          "min": 0.0002572763192189403,
+          "p01": 0.0007791535326812805,
+          "p50": 0.006814852010958614,
+          "p90": 0.014437125125958327,
+          "p95": 0.01563525598732433,
+          "p99": 0.01733216194532497,
+          "max": 0.018546488284886684
+        }
+      },
+      "displacement_from_initial": {
+        "count": 12861,
+        "finite": true,
+        "quantiles": {
+          "min": 0.0010431541535621657,
+          "p01": 0.005052234177750476,
+          "p50": 0.044170442253522374,
+          "p90": 0.09380641931381878,
+          "p95": 0.10187526879764044,
+          "p99": 0.13317738082061742,
+          "max": 0.14697340354393473
+        }
+      },
+      "F": [
+        {
+          "shape": [
+            12891,
+            3,
+            3
+          ],
+          "singular_values": {
+            "count": 38673,
+            "finite": true,
+            "quantiles": {
+              "min": 0.9288557641911156,
+              "p01": 0.9313014556157063,
+              "p50": 0.9876758434866659,
+              "p90": 1.0800399457549466,
+              "p95": 1.0816228751603092,
+              "p99": 1.0865232946939898,
+              "max": 1.0934084029001572
+            }
+          },
+          "max_singular": {
+            "count": 12891,
+            "finite": true,
+            "quantiles": {
+              "min": 1.0655593565282182,
+              "p01": 1.0666800373572987,
+              "p50": 1.0784916583769126,
+              "p90": 1.0829471215180582,
+              "p95": 1.0854393056566187,
+              "p99": 1.090391592246539,
+              "max": 1.0934084029001572
+            }
+          },
+          "min_singular": {
+            "count": 12891,
+            "finite": true,
+            "quantiles": {
+              "min": 0.9288557641911156,
+              "p01": 0.929387448316349,
+              "p50": 0.9389334539745114,
+              "p90": 0.9429898811352415,
+              "p95": 0.9443605246507383,
+              "p99": 0.9471571412664015,
+              "max": 0.9504417172559392
+            }
+          },
+          "determinant": {
+            "count": 12891,
+            "finite": true,
+            "quantiles": {
+              "min": 0.9999995844698275,
+              "p01": 0.9999996966242932,
+              "p50": 0.9999999298425781,
+              "p90": 1.000000082948674,
+              "p95": 1.0000001180301814,
+              "p99": 1.0000001946270893,
+              "max": 1.0000002932519099
+            }
+          }
+        },
+        {
+          "shape": [
+            12891,
+            3,
+            3
+          ],
+          "singular_values": {
+            "count": 38673,
+            "finite": true,
+            "quantiles": {
+              "min": 0.934931230211686,
+              "p01": 0.934931230211686,
+              "p50": 0.9863770462176171,
+              "p90": 1.0871641568125858,
+              "p95": 1.090441718565786,
+              "p99": 1.090441718565786,
+              "max": 1.090441718565786
+            }
+          },
+          "max_singular": {
+            "count": 12891,
+            "finite": true,
+            "quantiles": {
+              "min": 1.0634985599760165,
+              "p01": 1.0716379148012618,
+              "p50": 1.0821354820786038,
+              "p90": 1.090441718565786,
+              "p95": 1.090441718565786,
+              "p99": 1.090441718565786,
+              "max": 1.090441718565786
+            }
+          },
+          "min_singular": {
+            "count": 12891,
+            "finite": true,
+            "quantiles": {
+              "min": 0.934931230211686,
+              "p01": 0.934931230211686,
+              "p50": 0.9364165315313215,
+              "p90": 0.9419090595023871,
+              "p95": 0.9419090595023871,
+              "p99": 0.9419090595023871,
+              "max": 0.9564051205916092
+            }
+          },
+          "determinant": {
+            "count": 12891,
+            "finite": true,
+            "quantiles": {
+              "min": 0.9999997681198083,
+              "p01": 0.9999997681198083,
+              "p50": 0.9999998848120273,
+              "p90": 1.000000027690856,
+              "p95": 1.000000027690856,
+              "p99": 1.000000027690856,
+              "max": 1.000000027690856
+            }
+          }
+        }
+      ],
+      "covariance": {
+        "count": 12861,
+        "PD_count": 12861,
+        "PSD_count": 12861,
+        "min_eigen": {
+          "count": 12861,
+          "finite": true,
+          "quantiles": {
+            "min": 8.036297414039805e-09,
+            "p01": 2.3079212322738412e-08,
+            "p50": 2.3525741341494036e-07,
+            "p90": 1.5501077010315622e-06,
+            "p95": 3.1323870907495355e-06,
+            "p99": 7.954618747510095e-06,
+            "max": 2.4584328301864414e-05
+          }
+        },
+        "max_eigen": {
+          "count": 12861,
+          "finite": true,
+          "quantiles": {
+            "min": 2.700187158799728e-07,
+            "p01": 1.3635163295573724e-06,
+            "p50": 1.5416484734380794e-05,
+            "p90": 3.678860935195088e-05,
+            "p95": 4.655585248736355e-05,
+            "p99": 6.926665932003684e-05,
+            "max": 0.00014148375554137195
+          }
+        },
+        "condition": {
+          "count": 12861,
+          "finite": true,
+          "quantiles": {
+            "min": 1.4329250752077092,
+            "p01": 2.452578210579526,
+            "p50": 68.80148195691203,
+            "p90": 105.74413009762924,
+            "p95": 115.3696458461046,
+            "p99": 133.43350895898678,
+            "max": 163.4553983881029
+          }
+        },
+        "magnitude": {
+          "shape": [
+            12861,
+            3,
+            3
+          ],
+          "dtype": "float64",
+          "finite": true,
+          "abs_max": 0.00010043336806120351,
+          "mean": 3.900206535215689e-06,
+          "std": 7.866433169064346e-06,
+          "p99_abs": 3.191339026670913e-05
+        },
+        "asymmetry_absmax": 0.0,
+        "eigen_convention": "upper-triangle mirrored as actual final packed representation",
+        "symmetric_part_PD_count": 12861
+      },
+      "renders": [
+        {
+          "shape": [
+            3,
+            360,
+            640
+          ],
+          "dtype": "float32",
+          "finite": true,
+          "abs_max": 1.0087811946868896,
+          "mean": 0.10604328882153208,
+          "std": 0.24536364829205007,
+          "p99_abs": 0.8895508819818497
+        },
+        {
+          "shape": [
+            3,
+            360,
+            640
+          ],
+          "dtype": "float32",
+          "finite": true,
+          "abs_max": 0.9837642312049866,
+          "mean": 0.06951894097836704,
+          "std": 0.2117337065118316,
+          "p99_abs": 0.8997272902727128
+        }
+      ],
+      "regularization_losses": {
+        "decode.loss_mse_momentum": 4.488535404205322
+      },
+      "loss_components": {
+        "decode.loss_ssim_render": 4236.29638671875,
+        "decode.loss_l2_render": 20039.47265625,
+        "decode.acc_l2_render.acc": 0.09658263623714447,
+        "decode.acc_l1_render.acc": 0.15589073300361633,
+        "decode.acc_ssim_render.acc": 0.9387109875679016,
+        "decode.acc_psnr_render.acc": 15.139886856079102
+      }
+    }
+  ],
+  "native_backward": [
+    {
+      "step": 3,
+      "camera_index": 1,
+      "incoming_color": {
+        "shape": [
+          3,
+          360,
+          640
+        ],
+        "dtype": "torch.float32",
+        "finite": true,
+        "nan": 0,
+        "posinf": 0,
+        "neginf": 0,
+        "finite_absmax": 1.0199522972106934
+      },
+      "incoming_depth": {
+        "shape": [
+          1,
+          360,
+          640
+        ],
+        "dtype": "torch.float32",
+        "finite": true,
+        "nan": 0,
+        "posinf": 0,
+        "neginf": 0,
+        "finite_absmax": 0.0
+      },
+      "returned": {
+        "means2D": {
+          "shape": [
+            12861,
+            3
+          ],
+          "dtype": "torch.float32",
+          "finite": true,
+          "nan": 0,
+          "posinf": 0,
+          "neginf": 0,
+          "finite_absmax": 520.2081909179688
+        },
+        "colors": {
+          "shape": [
+            12861,
+            3
+          ],
+          "dtype": "torch.float32",
+          "finite": true,
+          "nan": 0,
+          "posinf": 0,
+          "neginf": 0,
+          "finite_absmax": 17.460668563842773
+        },
+        "opacity": {
+          "shape": [
+            12861,
+            1
+          ],
+          "dtype": "torch.float32",
+          "finite": true,
+          "nan": 0,
+          "posinf": 0,
+          "neginf": 0,
+          "finite_absmax": 21.85552406311035
+        },
+        "means3D": {
+          "shape": [
+            12861,
+            3
+          ],
+          "dtype": "torch.float32",
+          "finite": true,
+          "nan": 0,
+          "posinf": 0,
+          "neginf": 0,
+          "finite_absmax": 1544.3465576171875
+        },
+        "covariance": {
+          "shape": [
+            12861,
+            6
+          ],
+          "dtype": "torch.float32",
+          "finite": true,
+          "nan": 0,
+          "posinf": 0,
+          "neginf": 0,
+          "finite_absmax": 2468573.0
+        },
+        "SH": {
+          "shape": [
+            12861,
+            0,
+            3
+          ],
+          "dtype": "torch.float32",
+          "finite": true,
+          "nan": 0,
+          "posinf": 0,
+          "neginf": 0,
+          "finite_absmax": null
+        },
+        "scales": {
+          "shape": [
+            12861,
+            3
+          ],
+          "dtype": "torch.float32",
+          "finite": true,
+          "nan": 0,
+          "posinf": 0,
+          "neginf": 0,
+          "finite_absmax": 0.0
+        },
+        "rotations": {
+          "shape": [
+            12861,
+            4
+          ],
+          "dtype": "torch.float32",
+          "finite": true,
+          "nan": 0,
+          "posinf": 0,
+          "neginf": 0,
+          "finite_absmax": 0.0
+        }
+      }
+    },
+    {
+      "step": 3,
+      "camera_index": 0,
+      "incoming_color": {
+        "shape": [
+          3,
+          360,
+          640
+        ],
+        "dtype": "torch.float32",
+        "finite": true,
+        "nan": 0,
+        "posinf": 0,
+        "neginf": 0,
+        "finite_absmax": 0.8080747127532959
+      },
+      "incoming_depth": {
+        "shape": [
+          1,
+          360,
+          640
+        ],
+        "dtype": "torch.float32",
+        "finite": true,
+        "nan": 0,
+        "posinf": 0,
+        "neginf": 0,
+        "finite_absmax": 0.0
+      },
+      "returned": {
+        "means2D": {
+          "shape": [
+            12861,
+            3
+          ],
+          "dtype": "torch.float32",
+          "finite": true,
+          "nan": 0,
+          "posinf": 0,
+          "neginf": 0,
+          "finite_absmax": 276.4073181152344
+        },
+        "colors": {
+          "shape": [
+            12861,
+            3
+          ],
+          "dtype": "torch.float32",
+          "finite": true,
+          "nan": 0,
+          "posinf": 0,
+          "neginf": 0,
+          "finite_absmax": 12.596552848815918
+        },
+        "opacity": {
+          "shape": [
+            12861,
+            1
+          ],
+          "dtype": "torch.float32",
+          "finite": true,
+          "nan": 0,
+          "posinf": 0,
+          "neginf": 0,
+          "finite_absmax": 11.678092956542969
+        },
+        "means3D": {
+          "shape": [
+            12861,
+            3
+          ],
+          "dtype": "torch.float32",
+          "finite": true,
+          "nan": 0,
+          "posinf": 0,
+          "neginf": 0,
+          "finite_absmax": 765.043701171875
+        },
+        "covariance": {
+          "shape": [
+            12861,
+            6
+          ],
+          "dtype": "torch.float32",
+          "finite": true,
+          "nan": 0,
+          "posinf": 0,
+          "neginf": 0,
+          "finite_absmax": 903834.5625
+        },
+        "SH": {
+          "shape": [
+            12861,
+            0,
+            3
+          ],
+          "dtype": "torch.float32",
+          "finite": true,
+          "nan": 0,
+          "posinf": 0,
+          "neginf": 0,
+          "finite_absmax": null
+        },
+        "scales": {
+          "shape": [
+            12861,
+            3
+          ],
+          "dtype": "torch.float32",
+          "finite": true,
+          "nan": 0,
+          "posinf": 0,
+          "neginf": 0,
+          "finite_absmax": 0.0
+        },
+        "rotations": {
+          "shape": [
+            12861,
+            4
+          ],
+          "dtype": "torch.float32",
+          "finite": true,
+          "nan": 0,
+          "posinf": 0,
+          "neginf": 0,
+          "finite_absmax": 0.0
+        }
+      }
+    },
+    {
+      "step": 2,
+      "camera_index": 1,
+      "incoming_color": {
+        "shape": [
+          3,
+          360,
+          640
+        ],
+        "dtype": "torch.float32",
+        "finite": true,
+        "nan": 0,
+        "posinf": 0,
+        "neginf": 0,
+        "finite_absmax": 0.9449598789215088
+      },
+      "incoming_depth": {
+        "shape": [
+          1,
+          360,
+          640
+        ],
+        "dtype": "torch.float32",
+        "finite": true,
+        "nan": 0,
+        "posinf": 0,
+        "neginf": 0,
+        "finite_absmax": 0.0
+      },
+      "returned": {
+        "means2D": {
+          "shape": [
+            12861,
+            3
+          ],
+          "dtype": "torch.float32",
+          "finite": true,
+          "nan": 0,
+          "posinf": 0,
+          "neginf": 0,
+          "finite_absmax": 516.8582153320312
+        },
+        "colors": {
+          "shape": [
+            12861,
+            3
+          ],
+          "dtype": "torch.float32",
+          "finite": true,
+          "nan": 0,
+          "posinf": 0,
+          "neginf": 0,
+          "finite_absmax": 18.23644256591797
+        },
+        "opacity": {
+          "shape": [
+            12861,
+            1
+          ],
+          "dtype": "torch.float32",
+          "finite": true,
+          "nan": 0,
+          "posinf": 0,
+          "neginf": 0,
+          "finite_absmax": 21.38837242126465
+        },
+        "means3D": {
+          "shape": [
+            12861,
+            3
+          ],
+          "dtype": "torch.float32",
+          "finite": true,
+          "nan": 0,
+          "posinf": 0,
+          "neginf": 0,
+          "finite_absmax": 1760.4208984375
+        },
+        "covariance": {
+          "shape": [
+            12861,
+            6
+          ],
+          "dtype": "torch.float32",
+          "finite": true,
+          "nan": 0,
+          "posinf": 0,
+          "neginf": 0,
+          "finite_absmax": 2076881.375
+        },
+        "SH": {
+          "shape": [
+            12861,
+            0,
+            3
+          ],
+          "dtype": "torch.float32",
+          "finite": true,
+          "nan": 0,
+          "posinf": 0,
+          "neginf": 0,
+          "finite_absmax": null
+        },
+        "scales": {
+          "shape": [
+            12861,
+            3
+          ],
+          "dtype": "torch.float32",
+          "finite": true,
+          "nan": 0,
+          "posinf": 0,
+          "neginf": 0,
+          "finite_absmax": 0.0
+        },
+        "rotations": {
+          "shape": [
+            12861,
+            4
+          ],
+          "dtype": "torch.float32",
+          "finite": true,
+          "nan": 0,
+          "posinf": 0,
+          "neginf": 0,
+          "finite_absmax": 0.0
+        }
+      }
+    },
+    {
+      "step": 2,
+      "camera_index": 0,
+      "incoming_color": {
+        "shape": [
+          3,
+          360,
+          640
+        ],
+        "dtype": "torch.float32",
+        "finite": true,
+        "nan": 0,
+        "posinf": 0,
+        "neginf": 0,
+        "finite_absmax": 0.8520641922950745
+      },
+      "incoming_depth": {
+        "shape": [
+          1,
+          360,
+          640
+        ],
+        "dtype": "torch.float32",
+        "finite": true,
+        "nan": 0,
+        "posinf": 0,
+        "neginf": 0,
+        "finite_absmax": 0.0
+      },
+      "returned": {
+        "means2D": {
+          "shape": [
+            12861,
+            3
+          ],
+          "dtype": "torch.float32",
+          "finite": true,
+          "nan": 0,
+          "posinf": 0,
+          "neginf": 0,
+          "finite_absmax": 266.0089416503906
+        },
+        "colors": {
+          "shape": [
+            12861,
+            3
+          ],
+          "dtype": "torch.float32",
+          "finite": true,
+          "nan": 0,
+          "posinf": 0,
+          "neginf": 0,
+          "finite_absmax": 12.842597007751465
+        },
+        "opacity": {
+          "shape": [
+            12861,
+            1
+          ],
+          "dtype": "torch.float32",
+          "finite": true,
+          "nan": 0,
+          "posinf": 0,
+          "neginf": 0,
+          "finite_absmax": 5.956522464752197
+        },
+        "means3D": {
+          "shape": [
+            12861,
+            3
+          ],
+          "dtype": "torch.float32",
+          "finite": true,
+          "nan": 0,
+          "posinf": 0,
+          "neginf": 0,
+          "finite_absmax": 691.4909057617188
+        },
+        "covariance": {
+          "shape": [
+            12861,
+            6
+          ],
+          "dtype": "torch.float32",
+          "finite": true,
+          "nan": 0,
+          "posinf": 0,
+          "neginf": 0,
+          "finite_absmax": 1063079.125
+        },
+        "SH": {
+          "shape": [
+            12861,
+            0,
+            3
+          ],
+          "dtype": "torch.float32",
+          "finite": true,
+          "nan": 0,
+          "posinf": 0,
+          "neginf": 0,
+          "finite_absmax": null
+        },
+        "scales": {
+          "shape": [
+            12861,
+            3
+          ],
+          "dtype": "torch.float32",
+          "finite": true,
+          "nan": 0,
+          "posinf": 0,
+          "neginf": 0,
+          "finite_absmax": 0.0
+        },
+        "rotations": {
+          "shape": [
+            12861,
+            4
+          ],
+          "dtype": "torch.float32",
+          "finite": true,
+          "nan": 0,
+          "posinf": 0,
+          "neginf": 0,
+          "finite_absmax": 0.0
+        }
+      }
+    },
+    {
+      "step": 1,
+      "camera_index": 1,
+      "incoming_color": {
+        "shape": [
+          3,
+          360,
+          640
+        ],
+        "dtype": "torch.float32",
+        "finite": true,
+        "nan": 0,
+        "posinf": 0,
+        "neginf": 0,
+        "finite_absmax": 1.00934898853302
+      },
+      "incoming_depth": {
+        "shape": [
+          1,
+          360,
+          640
+        ],
+        "dtype": "torch.float32",
+        "finite": true,
+        "nan": 0,
+        "posinf": 0,
+        "neginf": 0,
+        "finite_absmax": 0.0
+      },
+      "returned": {
+        "means2D": {
+          "shape": [
+            12861,
+            3
+          ],
+          "dtype": "torch.float32",
+          "finite": true,
+          "nan": 0,
+          "posinf": 0,
+          "neginf": 0,
+          "finite_absmax": 517.7802734375
+        },
+        "colors": {
+          "shape": [
+            12861,
+            3
+          ],
+          "dtype": "torch.float32",
+          "finite": true,
+          "nan": 0,
+          "posinf": 0,
+          "neginf": 0,
+          "finite_absmax": 17.39959144592285
+        },
+        "opacity": {
+          "shape": [
+            12861,
+            1
+          ],
+          "dtype": "torch.float32",
+          "finite": true,
+          "nan": 0,
+          "posinf": 0,
+          "neginf": 0,
+          "finite_absmax": 20.890718460083008
+        },
+        "means3D": {
+          "shape": [
+            12861,
+            3
+          ],
+          "dtype": "torch.float32",
+          "finite": true,
+          "nan": 0,
+          "posinf": 0,
+          "neginf": 0,
+          "finite_absmax": 1511.6070556640625
+        },
+        "covariance": {
+          "shape": [
+            12861,
+            6
+          ],
+          "dtype": "torch.float32",
+          "finite": true,
+          "nan": 0,
+          "posinf": 0,
+          "neginf": 0,
+          "finite_absmax": 1992034.0
+        },
+        "SH": {
+          "shape": [
+            12861,
+            0,
+            3
+          ],
+          "dtype": "torch.float32",
+          "finite": true,
+          "nan": 0,
+          "posinf": 0,
+          "neginf": 0,
+          "finite_absmax": null
+        },
+        "scales": {
+          "shape": [
+            12861,
+            3
+          ],
+          "dtype": "torch.float32",
+          "finite": true,
+          "nan": 0,
+          "posinf": 0,
+          "neginf": 0,
+          "finite_absmax": 0.0
+        },
+        "rotations": {
+          "shape": [
+            12861,
+            4
+          ],
+          "dtype": "torch.float32",
+          "finite": true,
+          "nan": 0,
+          "posinf": 0,
+          "neginf": 0,
+          "finite_absmax": 0.0
+        }
+      }
+    },
+    {
+      "step": 1,
+      "camera_index": 0,
+      "incoming_color": {
+        "shape": [
+          3,
+          360,
+          640
+        ],
+        "dtype": "torch.float32",
+        "finite": true,
+        "nan": 0,
+        "posinf": 0,
+        "neginf": 0,
+        "finite_absmax": 0.8627755045890808
+      },
+      "incoming_depth": {
+        "shape": [
+          1,
+          360,
+          640
+        ],
+        "dtype": "torch.float32",
+        "finite": true,
+        "nan": 0,
+        "posinf": 0,
+        "neginf": 0,
+        "finite_absmax": 0.0
+      },
+      "returned": {
+        "means2D": {
+          "shape": [
+            12861,
+            3
+          ],
+          "dtype": "torch.float32",
+          "finite": true,
+          "nan": 0,
+          "posinf": 0,
+          "neginf": 0,
+          "finite_absmax": 330.8299560546875
+        },
+        "colors": {
+          "shape": [
+            12861,
+            3
+          ],
+          "dtype": "torch.float32",
+          "finite": true,
+          "nan": 0,
+          "posinf": 0,
+          "neginf": 0,
+          "finite_absmax": 12.841718673706055
+        },
+        "opacity": {
+          "shape": [
+            12861,
+            1
+          ],
+          "dtype": "torch.float32",
+          "finite": true,
+          "nan": 0,
+          "posinf": 0,
+          "neginf": 0,
+          "finite_absmax": 8.2517671585083
+        },
+        "means3D": {
+          "shape": [
+            12861,
+            3
+          ],
+          "dtype": "torch.float32",
+          "finite": true,
+          "nan": 0,
+          "posinf": 0,
+          "neginf": 0,
+          "finite_absmax": 737.8983154296875
+        },
+        "covariance": {
+          "shape": [
+            12861,
+            6
+          ],
+          "dtype": "torch.float32",
+          "finite": true,
+          "nan": 0,
+          "posinf": 0,
+          "neginf": 0,
+          "finite_absmax": 900358.3125
+        },
+        "SH": {
+          "shape": [
+            12861,
+            0,
+            3
+          ],
+          "dtype": "torch.float32",
+          "finite": true,
+          "nan": 0,
+          "posinf": 0,
+          "neginf": 0,
+          "finite_absmax": null
+        },
+        "scales": {
+          "shape": [
+            12861,
+            3
+          ],
+          "dtype": "torch.float32",
+          "finite": true,
+          "nan": 0,
+          "posinf": 0,
+          "neginf": 0,
+          "finite_absmax": 0.0
+        },
+        "rotations": {
+          "shape": [
+            12861,
+            4
+          ],
+          "dtype": "torch.float32",
+          "finite": true,
+          "nan": 0,
+          "posinf": 0,
+          "neginf": 0,
+          "finite_absmax": 0.0
+        }
+      }
+    }
+  ],
+  "optimizer_steps": 1,
+  "events": [],
+  "helper_hashes": {
+    "check_normalizer_dynamics.py": "9f9026988e5fb6567c4c1a53f2dfc6f92b062caacfda236afaa33636d6e40641",
+    "audit_renderer_degeneracy.py": "4cc7a3b302bf38d37f75a0c8e3b5b0c2b14d1417dfe3e6ad64f5e6248a41391a"
+  },
+  "gpu": "NVIDIA GeForce RTX 5090",
+  "entrypoint_argv": [
+    "/data1/userdata/tcweng/projects/tcgs/SoMA/tools/train.py",
+    "/data1/userdata/tcweng/projects/tcgs/SoMA/configs/SoMA/deform360_v0_stage1.py",
+    "--seed",
+    "5",
+    "--gpus",
+    "1",
+    "--launcher",
+    "none",
+    "--work_dir",
+    "/data1/userdata/tcweng/projects/tcgs/outputs/deform360/t26_5-formal-first-step-20260926/run/runner"
+  ],
+  "video_ranges": {
+    "/data1/userdata/tcweng/projects/tcgs/datasets/deform360/derived/t17_scene_packages/pink_cloth_episode_0/config_a_2cam/color/0": [
+      113,
+      123,
+      133,
+      143,
+      153,
+      163,
+      173,
+      183,
+      193,
+      203,
+      213,
+      223,
+      233,
+      243,
+      253,
+      263
+    ],
+    "/data1/userdata/tcweng/projects/tcgs/datasets/deform360/derived/t17_scene_packages/pink_cloth_episode_0/config_a_2cam/color/1": [
+      113,
+      123,
+      133,
+      143,
+      153,
+      163,
+      173,
+      183,
+      193,
+      203,
+      213,
+      223,
+      233,
+      243,
+      253,
+      263
+    ]
+  },
+  "lr": [
+    0.000404
+  ],
+  "initial_normalizers": {
+    "backbone.node_normalizer": {
+      "training": true,
+      "is_training": true,
+      "count": [
+        0.0
+      ],
+      "accumulations": [
+        0.0
+      ],
+      "mean": [
+        [
+          0.0,
+          0.0,
+          0.0
+        ]
+      ],
+      "std": [
+        [
+          9.99999993922529e-09,
+          9.99999993922529e-09,
+          9.99999993922529e-09
+        ]
+      ],
+      "sum": [
+        [
+          0.0,
+          0.0,
+          0.0
+        ]
+      ],
+      "sum_squared": [
+        [
+          0.0,
+          0.0,
+          0.0
+        ]
+      ],
+      "epsilon": 9.99999993922529e-09,
+      "force_nonorm": false,
+      "statistics": {
+        "_acc_count": {
+          "shape": [
+            1
+          ],
+          "dtype": "torch.float64",
+          "finite": true,
+          "nan": 0,
+          "posinf": 0,
+          "neginf": 0,
+          "finite_absmax": 0.0
+        },
+        "_num_accumulations": {
+          "shape": [
+            1
+          ],
+          "dtype": "torch.float64",
+          "finite": true,
+          "nan": 0,
+          "posinf": 0,
+          "neginf": 0,
+          "finite_absmax": 0.0
+        },
+        "_acc_sum": {
+          "shape": [
+            1,
+            3
+          ],
+          "dtype": "torch.float64",
+          "finite": true,
+          "nan": 0,
+          "posinf": 0,
+          "neginf": 0,
+          "finite_absmax": 0.0
+        },
+        "_acc_sum_squared": {
+          "shape": [
+            1,
+            3
+          ],
+          "dtype": "torch.float64",
+          "finite": true,
+          "nan": 0,
+          "posinf": 0,
+          "neginf": 0,
+          "finite_absmax": 0.0
+        }
+      }
+    },
+    "backbone.anchor_normalizer": {
+      "training": true,
+      "is_training": true,
+      "count": [
+        0.0
+      ],
+      "accumulations": [
+        0.0
+      ],
+      "mean": [
+        [
+          0.0,
+          0.0,
+          0.0
+        ]
+      ],
+      "std": [
+        [
+          9.99999993922529e-09,
+          9.99999993922529e-09,
+          9.99999993922529e-09
+        ]
+      ],
+      "sum": [
+        [
+          0.0,
+          0.0,
+          0.0
+        ]
+      ],
+      "sum_squared": [
+        [
+          0.0,
+          0.0,
+          0.0
+        ]
+      ],
+      "epsilon": 9.99999993922529e-09,
+      "force_nonorm": false,
+      "statistics": {
+        "_acc_count": {
+          "shape": [
+            1
+          ],
+          "dtype": "torch.float64",
+          "finite": true,
+          "nan": 0,
+          "posinf": 0,
+          "neginf": 0,
+          "finite_absmax": 0.0
+        },
+        "_num_accumulations": {
+          "shape": [
+            1
+          ],
+          "dtype": "torch.float64",
+          "finite": true,
+          "nan": 0,
+          "posinf": 0,
+          "neginf": 0,
+          "finite_absmax": 0.0
+        },
+        "_acc_sum": {
+          "shape": [
+            1,
+            3
+          ],
+          "dtype": "torch.float64",
+          "finite": true,
+          "nan": 0,
+          "posinf": 0,
+          "neginf": 0,
+          "finite_absmax": 0.0
+        },
+        "_acc_sum_squared": {
+          "shape": [
+            1,
+            3
+          ],
+          "dtype": "torch.float64",
+          "finite": true,
+          "nan": 0,
+          "posinf": 0,
+          "neginf": 0,
+          "finite_absmax": 0.0
+        }
+      }
+    },
+    "backbone.edge_normalizer": {
+      "training": true,
+      "is_training": true,
+      "count": [
+        0.0
+      ],
+      "accumulations": [
+        0.0
+      ],
+      "mean": [
+        [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      ],
+      "std": [
+        [
+          9.99999993922529e-09,
+          9.99999993922529e-09,
+          9.99999993922529e-09,
+          9.99999993922529e-09,
+          9.99999993922529e-09,
+          9.99999993922529e-09,
+          9.99999993922529e-09
+        ]
+      ],
+      "sum": [
+        [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      ],
+      "sum_squared": [
+        [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      ],
+      "epsilon": 9.99999993922529e-09,
+      "force_nonorm": false,
+      "statistics": {
+        "_acc_count": {
+          "shape": [
+            1
+          ],
+          "dtype": "torch.float64",
+          "finite": true,
+          "nan": 0,
+          "posinf": 0,
+          "neginf": 0,
+          "finite_absmax": 0.0
+        },
+        "_num_accumulations": {
+          "shape": [
+            1
+          ],
+          "dtype": "torch.float64",
+          "finite": true,
+          "nan": 0,
+          "posinf": 0,
+          "neginf": 0,
+          "finite_absmax": 0.0
+        },
+        "_acc_sum": {
+          "shape": [
+            1,
+            7
+          ],
+          "dtype": "torch.float64",
+          "finite": true,
+          "nan": 0,
+          "posinf": 0,
+          "neginf": 0,
+          "finite_absmax": 0.0
+        },
+        "_acc_sum_squared": {
+          "shape": [
+            1,
+            7
+          ],
+          "dtype": "torch.float64",
+          "finite": true,
+          "nan": 0,
+          "posinf": 0,
+          "neginf": 0,
+          "finite_absmax": 0.0
+        }
+      }
+    }
+  },
+  "optimizer_class": "Adam",
+  "optimizer_groups": [
+    {
+      "lr": 0.000404,
+      "betas": [
+        0.9,
+        0.999
+      ],
+      "eps": 1e-08,
+      "weight_decay": 0,
+      "amsgrad": false,
+      "maximize": false,
+      "foreach": null,
+      "capturable": false,
+      "differentiable": false,
+      "fused": null,
+      "decoupled_weight_decay": false,
+      "initial_lr": 0.0004
+    }
+  ],
+  "sample": {
+    "source_frames": [
+      113,
+      123,
+      133,
+      143,
+      153,
+      163,
+      173,
+      183,
+      193,
+      203,
+      213,
+      223,
+      233,
+      243,
+      253,
+      263
+    ],
+    "targets": [
+      123,
+      133,
+      143
+    ],
+    "controller": {
+      "shape": [
+        1,
+        16,
+        30,
+        3
+      ],
+      "dtype": "float32",
+      "finite": true,
+      "abs_max": 0.1784648299217224,
+      "mean": 0.10434653811718009,
+      "std": 0.03456661634939716,
+      "p99_abs": 0.16305258303880685
+    },
+    "grouping": "30\u219210\u21922\u21921",
+    "external": [
+      [
+        [
+          0.0,
+          0.0,
+          -39.20000076293945
+        ]
+      ]
+    ],
+    "GT_shapes": [
+      [
+        1,
+        16,
+        3,
+        360,
+        640
+      ],
+      [
+        1,
+        16,
+        3,
+        360,
+        640
+      ]
+    ],
+    "target_hashes": [
+      [
+        "a5694d56c4232a45e20e791569534ba5669119f5c720cd7a9e41caf2747abb09",
+        "40f57a556588e54004f3be79858141b4e76d3b11c54043884ac0ac32cc506bce"
+      ],
+      [
+        "f8f7e54045846d812c025f92ae780077910d04ea4c6c7d84b5d110d0639a8023",
+        "bf866cda5b75c89975e10d141bd803cf5228df60123b31b99240ffcc54c1170a"
+      ],
+      [
+        "2d0580d3e846647d5cf782623fd03492188dd0bcd6b159897a97c48df70735ba",
+        "641efba419adfafba347e452ed94c2db977dd64ca0cc75c9c12c3ac6103e9158"
+      ]
+    ]
+  },
+  "losses": {
+    "decode.loss_mse_momentum_config_a_2cam": 7.868436813354492,
+    "decode.loss_ssim_render_config_a_2cam": 4167.7314453125,
+    "decode.loss_l2_render_config_a_2cam": 19622.826171875,
+    "decode.acc_l2_render.acc_config_a_2cam_frame0": 0.0923074334859848,
+    "decode.acc_l1_render.acc_config_a_2cam_frame0": 0.14914068579673767,
+    "decode.acc_ssim_render.acc_config_a_2cam_frame0": 0.940757155418396,
+    "decode.acc_psnr_render.acc_config_a_2cam_frame0": 15.377229690551758,
+    "decode.acc_l2_render.acc_config_a_2cam_frame1": 0.09531529992818832,
+    "decode.acc_l1_render.acc_config_a_2cam_frame1": 0.15377205610275269,
+    "decode.acc_ssim_render.acc_config_a_2cam_frame1": 0.9396407604217529,
+    "decode.acc_psnr_render.acc_config_a_2cam_frame1": 15.163400650024414,
+    "decode.acc_l2_render.acc_config_a_2cam_frame2": 0.09658263623714447,
+    "decode.acc_l1_render.acc_config_a_2cam_frame2": 0.15589073300361633,
+    "decode.acc_ssim_render.acc_config_a_2cam_frame2": 0.9387109875679016,
+    "decode.acc_psnr_render.acc_config_a_2cam_frame2": 15.139886856079102,
+    "decode.loss_mse_static_config_a_2cam": 0.0,
+    "loss": 23798.42578125
+  },
+  "pre_clip": {
+    "tensors": 275,
+    "finite_tensors": 275,
+    "nonfinite_tensors": 0,
+    "first_bad_parameter": null,
+    "nan": 0,
+    "posinf": 0,
+    "neginf": 0,
+    "unused": [
+      "backbone.encoder.emb_norm.weight",
+      "backbone.encoder.emb_norm.bias"
+    ],
+    "global_norm": 77384.46931221339,
+    "max_parameter_norm": 48978.274937407026,
+    "max_parameter": "decode_head.dynamic_proj.layers.2.bias"
+  },
+  "clip_config": {
+    "max_norm": 1.0
+  },
+  "clip_return": 77384.46875,
+  "post_clip": {
+    "tensors": 275,
+    "finite_tensors": 275,
+    "nonfinite_tensors": 0,
+    "first_bad_parameter": null,
+    "nan": 0,
+    "posinf": 0,
+    "neginf": 0,
+    "unused": [
+      "backbone.encoder.emb_norm.weight",
+      "backbone.encoder.emb_norm.bias"
+    ],
+    "global_norm": 1.000000029656491,
+    "max_parameter_norm": 0.6329212680904885,
+    "max_parameter": "decode_head.dynamic_proj.layers.2.bias"
+  },
+  "updated_parameters": [
+    "scene_attr.rope",
+    "backbone.node_encoder.layers.0.0.weight",
+    "backbone.node_encoder.layers.0.0.bias",
+    "backbone.node_encoder.layers.1.0.weight",
+    "backbone.node_encoder.layers.1.0.bias",
+    "backbone.node_encoder.layers.2.weight",
+    "backbone.node_encoder.layers.2.bias",
+    "backbone.edge_encoder.layers.0.0.weight",
+    "backbone.edge_encoder.layers.0.0.bias",
+    "backbone.edge_encoder.layers.1.0.weight",
+    "backbone.edge_encoder.layers.1.0.bias",
+    "backbone.edge_encoder.layers.2.weight",
+    "backbone.edge_encoder.layers.2.bias",
+    "backbone.encoder.layers.0.norms.0.weight",
+    "backbone.encoder.layers.0.norms.0.bias",
+    "backbone.encoder.layers.0.norms.1.weight",
+    "backbone.encoder.layers.0.norms.1.bias",
+    "backbone.encoder.layers.0.edge_weight.layers.0.0.weight",
+    "backbone.encoder.layers.0.edge_weight.layers.0.0.bias",
+    "backbone.encoder.layers.0.edge_weight.layers.1.0.weight",
+    "backbone.encoder.layers.0.edge_weight.layers.1.0.bias",
+    "backbone.encoder.layers.0.edge_weight.layers.2.weight",
+    "backbone.encoder.layers.0.edge_weight.layers.2.bias",
+    "backbone.encoder.layers.0.node_weight.layers.0.0.weight",
+    "backbone.encoder.layers.0.node_weight.layers.0.0.bias",
+    "backbone.encoder.layers.0.node_weight.layers.1.0.weight",
+    "backbone.encoder.layers.0.node_weight.layers.1.0.bias",
+    "backbone.encoder.layers.0.node_weight.layers.2.weight",
+    "backbone.encoder.layers.0.node_weight.layers.2.bias",
+    "backbone.encoder.layers.1.norms.0.weight",
+    "backbone.encoder.layers.1.norms.0.bias",
+    "backbone.encoder.layers.1.norms.1.weight",
+    "backbone.encoder.layers.1.norms.1.bias",
+    "backbone.encoder.layers.1.edge_weight.layers.0.0.weight",
+    "backbone.encoder.layers.1.edge_weight.layers.0.0.bias",
+    "backbone.encoder.layers.1.edge_weight.layers.1.0.weight",
+    "backbone.encoder.layers.1.edge_weight.layers.1.0.bias",
+    "backbone.encoder.layers.1.edge_weight.layers.2.weight",
+    "backbone.encoder.layers.1.edge_weight.layers.2.bias",
+    "backbone.encoder.layers.1.node_weight.layers.0.0.weight",
+    "backbone.encoder.layers.1.node_weight.layers.0.0.bias",
+    "backbone.encoder.layers.1.node_weight.layers.1.0.weight",
+    "backbone.encoder.layers.1.node_weight.layers.1.0.bias",
+    "backbone.encoder.layers.1.node_weight.layers.2.weight",
+    "backbone.encoder.layers.1.node_weight.layers.2.bias",
+    "backbone.encoder.layers.2.norms.0.weight",
+    "backbone.encoder.layers.2.norms.0.bias",
+    "backbone.encoder.layers.2.norms.1.weight",
+    "backbone.encoder.layers.2.norms.1.bias",
+    "backbone.encoder.layers.2.edge_weight.layers.0.0.weight",
+    "backbone.encoder.layers.2.edge_weight.layers.0.0.bias",
+    "backbone.encoder.layers.2.edge_weight.layers.1.0.weight",
+    "backbone.encoder.layers.2.edge_weight.layers.1.0.bias",
+    "backbone.encoder.layers.2.edge_weight.layers.2.weight",
+    "backbone.encoder.layers.2.edge_weight.layers.2.bias",
+    "backbone.encoder.layers.2.node_weight.layers.0.0.weight",
+    "backbone.encoder.layers.2.node_weight.layers.0.0.bias",
+    "backbone.encoder.layers.2.node_weight.layers.1.0.weight",
+    "backbone.encoder.layers.2.node_weight.layers.1.0.bias",
+    "backbone.encoder.layers.2.node_weight.layers.2.weight",
+    "backbone.encoder.layers.2.node_weight.layers.2.bias",
+    "backbone.encoder.layers.3.norms.0.weight",
+    "backbone.encoder.layers.3.norms.0.bias",
+    "backbone.encoder.layers.3.norms.1.weight",
+    "backbone.encoder.layers.3.norms.1.bias",
+    "backbone.encoder.layers.3.edge_weight.layers.0.0.weight",
+    "backbone.encoder.layers.3.edge_weight.layers.0.0.bias",
+    "backbone.encoder.layers.3.edge_weight.layers.1.0.weight",
+    "backbone.encoder.layers.3.edge_weight.layers.1.0.bias",
+    "backbone.encoder.layers.3.edge_weight.layers.2.weight",
+    "backbone.encoder.layers.3.edge_weight.layers.2.bias",
+    "backbone.encoder.layers.3.node_weight.layers.0.0.weight",
+    "backbone.encoder.layers.3.node_weight.layers.0.0.bias",
+    "backbone.encoder.layers.3.node_weight.layers.1.0.weight",
+    "backbone.encoder.layers.3.node_weight.layers.1.0.bias",
+    "backbone.encoder.layers.3.node_weight.layers.2.weight",
+    "backbone.encoder.layers.3.node_weight.layers.2.bias",
+    "backbone.encoder.layers.4.norms.0.weight",
+    "backbone.encoder.layers.4.norms.0.bias",
+    "backbone.encoder.layers.4.norms.1.weight",
+    "backbone.encoder.layers.4.norms.1.bias",
+    "backbone.encoder.layers.4.edge_weight.layers.0.0.weight",
+    "backbone.encoder.layers.4.edge_weight.layers.0.0.bias",
+    "backbone.encoder.layers.4.edge_weight.layers.1.0.weight",
+    "backbone.encoder.layers.4.edge_weight.layers.1.0.bias",
+    "backbone.encoder.layers.4.edge_weight.layers.2.weight",
+    "backbone.encoder.layers.4.edge_weight.layers.2.bias",
+    "backbone.encoder.layers.4.node_weight.layers.0.0.weight",
+    "backbone.encoder.layers.4.node_weight.layers.0.0.bias",
+    "backbone.encoder.layers.4.node_weight.layers.1.0.weight",
+    "backbone.encoder.layers.4.node_weight.layers.1.0.bias",
+    "backbone.encoder.layers.4.node_weight.layers.2.weight",
+    "backbone.encoder.layers.4.node_weight.layers.2.bias",
+    "backbone.encoder.layers.5.norms.0.weight",
+    "backbone.encoder.layers.5.norms.0.bias",
+    "backbone.encoder.layers.5.norms.1.weight",
+    "backbone.encoder.layers.5.norms.1.bias",
+    "backbone.encoder.layers.5.edge_weight.layers.0.0.weight",
+    "backbone.encoder.layers.5.edge_weight.layers.0.0.bias",
+    "backbone.encoder.layers.5.edge_weight.layers.1.0.weight",
+    "backbone.encoder.layers.5.edge_weight.layers.1.0.bias",
+    "backbone.encoder.layers.5.edge_weight.layers.2.weight",
+    "backbone.encoder.layers.5.edge_weight.layers.2.bias",
+    "backbone.encoder.layers.5.node_weight.layers.0.0.weight",
+    "backbone.encoder.layers.5.node_weight.layers.0.0.bias",
+    "backbone.encoder.layers.5.node_weight.layers.1.0.weight",
+    "backbone.encoder.layers.5.node_weight.layers.1.0.bias",
+    "backbone.encoder.layers.5.node_weight.layers.2.weight",
+    "backbone.encoder.layers.5.node_weight.layers.2.bias",
+    "backbone.encoder.layers.6.norms.0.weight",
+    "backbone.encoder.layers.6.norms.0.bias",
+    "backbone.encoder.layers.6.norms.1.weight",
+    "backbone.encoder.layers.6.norms.1.bias",
+    "backbone.encoder.layers.6.edge_weight.layers.0.0.weight",
+    "backbone.encoder.layers.6.edge_weight.layers.0.0.bias",
+    "backbone.encoder.layers.6.edge_weight.layers.1.0.weight",
+    "backbone.encoder.layers.6.edge_weight.layers.1.0.bias",
+    "backbone.encoder.layers.6.edge_weight.layers.2.weight",
+    "backbone.encoder.layers.6.edge_weight.layers.2.bias",
+    "backbone.encoder.layers.6.node_weight.layers.0.0.weight",
+    "backbone.encoder.layers.6.node_weight.layers.0.0.bias",
+    "backbone.encoder.layers.6.node_weight.layers.1.0.weight",
+    "backbone.encoder.layers.6.node_weight.layers.1.0.bias",
+    "backbone.encoder.layers.6.node_weight.layers.2.weight",
+    "backbone.encoder.layers.6.node_weight.layers.2.bias",
+    "backbone.encoder.layers.7.norms.0.weight",
+    "backbone.encoder.layers.7.norms.0.bias",
+    "backbone.encoder.layers.7.norms.1.weight",
+    "backbone.encoder.layers.7.norms.1.bias",
+    "backbone.encoder.layers.7.edge_weight.layers.0.0.weight",
+    "backbone.encoder.layers.7.edge_weight.layers.0.0.bias",
+    "backbone.encoder.layers.7.edge_weight.layers.1.0.weight",
+    "backbone.encoder.layers.7.edge_weight.layers.1.0.bias",
+    "backbone.encoder.layers.7.edge_weight.layers.2.weight",
+    "backbone.encoder.layers.7.edge_weight.layers.2.bias",
+    "backbone.encoder.layers.7.node_weight.layers.0.0.weight",
+    "backbone.encoder.layers.7.node_weight.layers.0.0.bias",
+    "backbone.encoder.layers.7.node_weight.layers.1.0.weight",
+    "backbone.encoder.layers.7.node_weight.layers.1.0.bias",
+    "backbone.encoder.layers.7.node_weight.layers.2.weight",
+    "backbone.encoder.layers.7.node_weight.layers.2.bias",
+    "backbone.encoder.layers.8.norms.0.weight",
+    "backbone.encoder.layers.8.norms.0.bias",
+    "backbone.encoder.layers.8.norms.1.weight",
+    "backbone.encoder.layers.8.norms.1.bias",
+    "backbone.encoder.layers.8.edge_weight.layers.0.0.weight",
+    "backbone.encoder.layers.8.edge_weight.layers.0.0.bias",
+    "backbone.encoder.layers.8.edge_weight.layers.1.0.weight",
+    "backbone.encoder.layers.8.edge_weight.layers.1.0.bias",
+    "backbone.encoder.layers.8.edge_weight.layers.2.weight",
+    "backbone.encoder.layers.8.edge_weight.layers.2.bias",
+    "backbone.encoder.layers.8.node_weight.layers.0.0.weight",
+    "backbone.encoder.layers.8.node_weight.layers.0.0.bias",
+    "backbone.encoder.layers.8.node_weight.layers.1.0.weight",
+    "backbone.encoder.layers.8.node_weight.layers.1.0.bias",
+    "backbone.encoder.layers.8.node_weight.layers.2.weight",
+    "backbone.encoder.layers.8.node_weight.layers.2.bias",
+    "backbone.encoder.layers.9.norms.0.weight",
+    "backbone.encoder.layers.9.norms.0.bias",
+    "backbone.encoder.layers.9.norms.1.weight",
+    "backbone.encoder.layers.9.norms.1.bias",
+    "backbone.encoder.layers.9.edge_weight.layers.0.0.weight",
+    "backbone.encoder.layers.9.edge_weight.layers.0.0.bias",
+    "backbone.encoder.layers.9.edge_weight.layers.1.0.weight",
+    "backbone.encoder.layers.9.edge_weight.layers.1.0.bias",
+    "backbone.encoder.layers.9.edge_weight.layers.2.weight",
+    "backbone.encoder.layers.9.edge_weight.layers.2.bias",
+    "backbone.encoder.layers.9.node_weight.layers.0.0.weight",
+    "backbone.encoder.layers.9.node_weight.layers.0.0.bias",
+    "backbone.encoder.layers.9.node_weight.layers.1.0.weight",
+    "backbone.encoder.layers.9.node_weight.layers.1.0.bias",
+    "backbone.encoder.layers.9.node_weight.layers.2.weight",
+    "backbone.encoder.layers.9.node_weight.layers.2.bias",
+    "backbone.encoder.layers.10.norms.0.weight",
+    "backbone.encoder.layers.10.norms.0.bias",
+    "backbone.encoder.layers.10.norms.1.weight",
+    "backbone.encoder.layers.10.norms.1.bias",
+    "backbone.encoder.layers.10.edge_weight.layers.0.0.weight",
+    "backbone.encoder.layers.10.edge_weight.layers.0.0.bias",
+    "backbone.encoder.layers.10.edge_weight.layers.1.0.weight",
+    "backbone.encoder.layers.10.edge_weight.layers.1.0.bias",
+    "backbone.encoder.layers.10.edge_weight.layers.2.weight",
+    "backbone.encoder.layers.10.edge_weight.layers.2.bias",
+    "backbone.encoder.layers.10.node_weight.layers.0.0.weight",
+    "backbone.encoder.layers.10.node_weight.layers.0.0.bias",
+    "backbone.encoder.layers.10.node_weight.layers.1.0.weight",
+    "backbone.encoder.layers.10.node_weight.layers.1.0.bias",
+    "backbone.encoder.layers.10.node_weight.layers.2.weight",
+    "backbone.encoder.layers.10.node_weight.layers.2.bias",
+    "backbone.encoder.layers.11.norms.0.weight",
+    "backbone.encoder.layers.11.norms.0.bias",
+    "backbone.encoder.layers.11.norms.1.weight",
+    "backbone.encoder.layers.11.norms.1.bias",
+    "backbone.encoder.layers.11.edge_weight.layers.0.0.weight",
+    "backbone.encoder.layers.11.edge_weight.layers.0.0.bias",
+    "backbone.encoder.layers.11.edge_weight.layers.1.0.weight",
+    "backbone.encoder.layers.11.edge_weight.layers.1.0.bias",
+    "backbone.encoder.layers.11.edge_weight.layers.2.weight",
+    "backbone.encoder.layers.11.edge_weight.layers.2.bias",
+    "backbone.encoder.layers.11.node_weight.layers.0.0.weight",
+    "backbone.encoder.layers.11.node_weight.layers.0.0.bias",
+    "backbone.encoder.layers.11.node_weight.layers.1.0.weight",
+    "backbone.encoder.layers.11.node_weight.layers.1.0.bias",
+    "backbone.encoder.layers.11.node_weight.layers.2.weight",
+    "backbone.encoder.layers.11.node_weight.layers.2.bias",
+    "backbone.encoder.layers.12.norms.0.weight",
+    "backbone.encoder.layers.12.norms.0.bias",
+    "backbone.encoder.layers.12.norms.1.weight",
+    "backbone.encoder.layers.12.norms.1.bias",
+    "backbone.encoder.layers.12.edge_weight.layers.0.0.weight",
+    "backbone.encoder.layers.12.edge_weight.layers.0.0.bias",
+    "backbone.encoder.layers.12.edge_weight.layers.1.0.weight",
+    "backbone.encoder.layers.12.edge_weight.layers.1.0.bias",
+    "backbone.encoder.layers.12.edge_weight.layers.2.weight",
+    "backbone.encoder.layers.12.edge_weight.layers.2.bias",
+    "backbone.encoder.layers.12.node_weight.layers.0.0.weight",
+    "backbone.encoder.layers.12.node_weight.layers.0.0.bias",
+    "backbone.encoder.layers.12.node_weight.layers.1.0.weight",
+    "backbone.encoder.layers.12.node_weight.layers.1.0.bias",
+    "backbone.encoder.layers.12.node_weight.layers.2.weight",
+    "backbone.encoder.layers.12.node_weight.layers.2.bias",
+    "backbone.encoder.layers.13.norms.0.weight",
+    "backbone.encoder.layers.13.norms.0.bias",
+    "backbone.encoder.layers.13.norms.1.weight",
+    "backbone.encoder.layers.13.norms.1.bias",
+    "backbone.encoder.layers.13.edge_weight.layers.0.0.weight",
+    "backbone.encoder.layers.13.edge_weight.layers.0.0.bias",
+    "backbone.encoder.layers.13.edge_weight.layers.1.0.weight",
+    "backbone.encoder.layers.13.edge_weight.layers.1.0.bias",
+    "backbone.encoder.layers.13.edge_weight.layers.2.weight",
+    "backbone.encoder.layers.13.edge_weight.layers.2.bias",
+    "backbone.encoder.layers.13.node_weight.layers.0.0.weight",
+    "backbone.encoder.layers.13.node_weight.layers.0.0.bias",
+    "backbone.encoder.layers.13.node_weight.layers.1.0.weight",
+    "backbone.encoder.layers.13.node_weight.layers.1.0.bias",
+    "backbone.encoder.layers.13.node_weight.layers.2.weight",
+    "backbone.encoder.layers.13.node_weight.layers.2.bias",
+    "backbone.encoder.layers.14.norms.0.weight",
+    "backbone.encoder.layers.14.norms.0.bias",
+    "backbone.encoder.layers.14.norms.1.weight",
+    "backbone.encoder.layers.14.norms.1.bias",
+    "backbone.encoder.layers.14.edge_weight.layers.0.0.weight",
+    "backbone.encoder.layers.14.edge_weight.layers.0.0.bias",
+    "backbone.encoder.layers.14.edge_weight.layers.1.0.weight",
+    "backbone.encoder.layers.14.edge_weight.layers.1.0.bias",
+    "backbone.encoder.layers.14.edge_weight.layers.2.weight",
+    "backbone.encoder.layers.14.edge_weight.layers.2.bias",
+    "backbone.encoder.layers.14.node_weight.layers.0.0.weight",
+    "backbone.encoder.layers.14.node_weight.layers.0.0.bias",
+    "backbone.encoder.layers.14.node_weight.layers.1.0.weight",
+    "backbone.encoder.layers.14.node_weight.layers.1.0.bias",
+    "backbone.encoder.layers.14.node_weight.layers.2.weight",
+    "backbone.encoder.layers.14.node_weight.layers.2.bias",
+    "backbone.encoder.layers.15.norms.0.weight",
+    "backbone.encoder.layers.15.norms.0.bias",
+    "backbone.encoder.layers.15.norms.1.weight",
+    "backbone.encoder.layers.15.norms.1.bias",
+    "backbone.encoder.layers.15.edge_weight.layers.0.0.weight",
+    "backbone.encoder.layers.15.edge_weight.layers.0.0.bias",
+    "backbone.encoder.layers.15.edge_weight.layers.1.0.weight",
+    "backbone.encoder.layers.15.edge_weight.layers.1.0.bias",
+    "backbone.encoder.layers.15.edge_weight.layers.2.weight",
+    "backbone.encoder.layers.15.edge_weight.layers.2.bias",
+    "backbone.encoder.layers.15.node_weight.layers.0.0.weight",
+    "backbone.encoder.layers.15.node_weight.layers.0.0.bias",
+    "backbone.encoder.layers.15.node_weight.layers.1.0.weight",
+    "backbone.encoder.layers.15.node_weight.layers.1.0.bias",
+    "backbone.encoder.layers.15.node_weight.layers.2.weight",
+    "backbone.encoder.layers.15.node_weight.layers.2.bias",
+    "decode_head.dynamic_proj.layers.0.0.weight",
+    "decode_head.dynamic_proj.layers.0.0.bias",
+    "decode_head.dynamic_proj.layers.1.0.weight",
+    "decode_head.dynamic_proj.layers.1.0.bias",
+    "decode_head.dynamic_proj.layers.2.weight",
+    "decode_head.dynamic_proj.layers.2.bias"
+  ],
+  "trainable_parameter_count": 277,
+  "adam": {
+    "state_count": 275,
+    "steps": [
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "exp_avg_finite": true,
+    "exp_avg_sq_finite": true
+  },
+  "final_normalizers": {
+    "backbone.node_normalizer": {
+      "training": true,
+      "is_training": true,
+      "count": [
+        1977.0
+      ],
+      "accumulations": [
+        6.0
+      ],
+      "mean": [
+        [
+          0.0002591536487370675,
+          -0.001563227892121992,
+          0.000865566822291711
+        ]
+      ],
+      "std": [
+        [
+          0.014501531892854634,
+          0.23022360898595567,
+          0.10719547808826993
+        ]
+      ],
+      "sum": [
+        [
+          0.5123467635531824,
+          -3.0905015427251783,
+          1.7112256076707126
+        ]
+      ],
+      "sum_squared": [
+        [
+          0.41588485918564555,
+          104.79158449415473,
+          22.7189322032378
+        ]
+      ],
+      "epsilon": 9.99999993922529e-09,
+      "force_nonorm": false,
+      "statistics": {
+        "_acc_count": {
+          "shape": [
+            1
+          ],
+          "dtype": "torch.float64",
+          "finite": true,
+          "nan": 0,
+          "posinf": 0,
+          "neginf": 0,
+          "finite_absmax": 1977.0
+        },
+        "_num_accumulations": {
+          "shape": [
+            1
+          ],
+          "dtype": "torch.float64",
+          "finite": true,
+          "nan": 0,
+          "posinf": 0,
+          "neginf": 0,
+          "finite_absmax": 6.0
+        },
+        "_acc_sum": {
+          "shape": [
+            1,
+            3
+          ],
+          "dtype": "torch.float64",
+          "finite": true,
+          "nan": 0,
+          "posinf": 0,
+          "neginf": 0,
+          "finite_absmax": 3.0905015427251783
+        },
+        "_acc_sum_squared": {
+          "shape": [
+            1,
+            3
+          ],
+          "dtype": "torch.float64",
+          "finite": true,
+          "nan": 0,
+          "posinf": 0,
+          "neginf": 0,
+          "finite_absmax": 104.79158449415473
+        }
+      }
+    },
+    "backbone.anchor_normalizer": {
+      "training": true,
+      "is_training": true,
+      "count": [
+        1977.0
+      ],
+      "accumulations": [
+        6.0
+      ],
+      "mean": [
+        [
+          0.0013258570544214397,
+          0.10146507705605627,
+          -39.25369325405308
+        ]
+      ],
+      "std": [
+        [
+          0.6660292679610962,
+          6.342586142718423,
+          1.086161344620408
+        ]
+      ],
+      "sum": [
+        [
+          2.6212193965911865,
+          200.59645733982325,
+          -77604.55156326294
+        ]
+      ],
+      "sum_squared": [
+        [
+          876.9907622508572,
+          79551.8983141192,
+          3048597.620947034
+        ]
+      ],
+      "epsilon": 9.99999993922529e-09,
+      "force_nonorm": false,
+      "statistics": {
+        "_acc_count": {
+          "shape": [
+            1
+          ],
+          "dtype": "torch.float64",
+          "finite": true,
+          "nan": 0,
+          "posinf": 0,
+          "neginf": 0,
+          "finite_absmax": 1977.0
+        },
+        "_num_accumulations": {
+          "shape": [
+            1
+          ],
+          "dtype": "torch.float64",
+          "finite": true,
+          "nan": 0,
+          "posinf": 0,
+          "neginf": 0,
+          "finite_absmax": 6.0
+        },
+        "_acc_sum": {
+          "shape": [
+            1,
+            3
+          ],
+          "dtype": "torch.float64",
+          "finite": true,
+          "nan": 0,
+          "posinf": 0,
+          "neginf": 0,
+          "finite_absmax": 77604.55156326294
+        },
+        "_acc_sum_squared": {
+          "shape": [
+            1,
+            3
+          ],
+          "dtype": "torch.float64",
+          "finite": true,
+          "nan": 0,
+          "posinf": 0,
+          "neginf": 0,
+          "finite_absmax": 3048597.620947034
+        }
+      }
+    },
+    "backbone.edge_normalizer": {
+      "training": true,
+      "is_training": true,
+      "count": [
+        32361.0
+      ],
+      "accumulations": [
+        6.0
+      ],
+      "mean": [
+        [
+          -0.0011525195935403261,
+          0.0035568432065920075,
+          -0.004986935069208565,
+          1.017093339518856,
+          0.0005018955772694793,
+          -4.5846950663917915e-05,
+          0.00031503388230576555
+        ]
+      ],
+      "std": [
+        [
+          0.6432464380764564,
+          0.4695520412227411,
+          0.6047446165118543,
+          0.07384639719294478,
+          0.0211619169206882,
+          0.13812438470175692,
+          0.09544002307078639
+        ]
+      ],
+      "sum": [
+        [
+          -37.29668656655849,
+          115.10300300852396,
+          -161.38220577465836,
+          32914.1575601697,
+          16.24184277601762,
+          -1.4836531704350477,
+          10.19481146529688
+        ]
+      ],
+      "sum_squared": [
+        [
+          13389.92386711499,
+          7135.334186769813,
+          11835.741935466982,
+          33653.24436025749,
+          14.500272446036169,
+          617.394411575995,
+          294.77302391046146
+        ]
+      ],
+      "epsilon": 9.99999993922529e-09,
+      "force_nonorm": false,
+      "statistics": {
+        "_acc_count": {
+          "shape": [
+            1
+          ],
+          "dtype": "torch.float64",
+          "finite": true,
+          "nan": 0,
+          "posinf": 0,
+          "neginf": 0,
+          "finite_absmax": 32361.0
+        },
+        "_num_accumulations": {
+          "shape": [
+            1
+          ],
+          "dtype": "torch.float64",
+          "finite": true,
+          "nan": 0,
+          "posinf": 0,
+          "neginf": 0,
+          "finite_absmax": 6.0
+        },
+        "_acc_sum": {
+          "shape": [
+            1,
+            7
+          ],
+          "dtype": "torch.float64",
+          "finite": true,
+          "nan": 0,
+          "posinf": 0,
+          "neginf": 0,
+          "finite_absmax": 32914.1575601697
+        },
+        "_acc_sum_squared": {
+          "shape": [
+            1,
+            7
+          ],
+          "dtype": "torch.float64",
+          "finite": true,
+          "nan": 0,
+          "posinf": 0,
+          "neginf": 0,
+          "finite_absmax": 33653.24436025749
+        }
+      }
+    }
+  },
+  "model_finite": true,
+  "runner_counter_at_stop": {
+    "epoch": 0,
+    "iter": 0,
+    "explanation": "Stop after optimizer hook, before runner increments iter; one optimizer step completed in epoch1/iteration1."
+  },
+  "wall_seconds": 14.649959075999504,
+  "memory": {
+    "peak_allocated": 3946289152,
+    "peak_reserved": 4185915392,
+    "allocated": 87321088,
+    "reserved": 4185915392
+  },
+  "assets_verified_count": 794,
+  "assets_unchanged": true,
+  "gaussian_fields_unchanged": true,
+  "config_unchanged": true,
+  "server_clean": true
+}

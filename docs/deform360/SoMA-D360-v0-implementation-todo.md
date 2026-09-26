@@ -27,7 +27,7 @@ Deform360 HEAD:
 d8522a4403b766aeb387510c04e89032a56fdf35
 
 Current task:
-T26.4
+T26.5
 
 Current status:
 PASS
@@ -161,6 +161,7 @@ tcgs root Git 仅用于 workspace-level 资产。除非明确说明，不在 tcg
 | T26.2 | row-3648 renderer degeneracy causal audit（Blocking） | PARTIALLY_ATTRIBUTED |
 | T26.3 | random-init dynamics scale / normalization audit（Blocking） | SCALE_MISMATCH_ATTRIBUTED |
 | T26.4 | Normalizer numerical-stability fix / layered regression | PASS |
+| T26.5 | formal first-step regression（Blocking smoke test） | PASS |
 | T27 | 只生成并核验 Stage-1 cache | TODO |
 | T28 | 只串联一个 Stage 2 子窗口 | TODO |
 | T29 | 只验证 Stage 2 一个优化步骤 | TODO |
@@ -1963,6 +1964,39 @@ D360 combined backward：total loss23109.26171875，275个gradient tensors finit
 - Production SHA256 `f78712dd0760fcf16a58431d7fdfd240a2e38cba89c400b405df93798f364220` 两端一致；794资产及T25 config未变。
 - T26.3已commit/push `f5212eb76821ac2264e0b3b2d4fb0b4c4c55b26d`；T26.4暂不commit/push。Mac有roadmap/源码修改与新tool/contract/reports，server保留同一未提交normalizer patch，后续同步必须先核验。训练checkpoint/数据不入Git。
 - 限制：只验证rollout1，gradient norm较大但finite；不证明更长rollout/46epochs/显存可行；旧统计失真不会自动恢复；未验证multi-GPU/half路径。T24/T24.5及T26历史保留。
+
+---
+
+### T26.5：formal first-step regression
+
+**Status:** PASS
+
+**Scope:** 恢复完整 T26 前最后一个 blocking smoke test。只执行一个正式首 batch；不执行46epoch训练或T27。T26历史FAIL保留。
+
+**问题 / 为什么现在解决：** T26.4只证明 fresh rollout1 backward；需验证原 T26 失败条件 rollout3 及真实 OptimizerHook 的 clipping/Adam.step。
+
+**输入 / 前置：** T25 frozen Config A，seed5，source113→targets123/133/143，canonical7mm/grouping30→10→2→1/gravity−39.2；T26.4提交并两端同步clean后执行。
+
+**最小修改 / 范围：** 仅独立观察工具、report、contract；不改 production source/config。原tools/train.py、原OptimizerHook执行一次backward→clip=1→Adam.step；不修改rollout、loss、LR、detach或renderer。
+
+**验证 / PASS：** 逐步有限且场景尺度合理、covariance有效、native renderer backward finite；clip前后梯度finite；Adam更新后model/Adam/12个FP64统计finite；无future-Ply reset、无protocol deviation。FAIL时停止，不自动修复或重跑。
+
+#### Result
+
+2026-09-26：**PASS**。job25866，amax/RTX5090，seed5/fresh zero-history，原first epoch/iteration、rollout3、actualLR0.000404。三步增量位移 p50/p99/max(m)：0.043054/0.127785/0.140789；0.004358/0.017818/0.019395；0.006815/0.017332/0.018546。F max分别1.087950/1.089396/1.093408；每步covariance PD=12861/12861。
+
+两camera全部forward/native backward finite，positive-radius投影协方差复算无非法项。combined loss23798.42578125（momentum7.868437/L2 19622.826172/SSIM4167.731445/static0）。275/275实际gradient finite，NaN/+Inf/−Inf=0/0/0；preclip norm77384.469312，原clip return77384.46875，postclip norm1.000000029656。原Adam.step一次，275个参数tensor更新，275组Adam状态finite且step=1；model与12个FP64统计全部finite。
+
+原首batch failure condition已在Normalizer patch后通过。step2/3 position精确来自前次prediction并保留原detach；原代码每步复用initial covariance，未改变该语义，也无future reconstructed PLY reset。执行后立即停止，没有第二batch/额外forward/checkpoint。T26历史FAIL不改为完整训练PASS。
+
+#### Evidence
+
+- T26.4 checkpoint：`8b7c4507bc47eb5a033b9f707cbe898c7d76af5c`，push成功，Mac/origin/server同commit、0/0、clean后启动。服务器同内容旧patch已备份并安全收敛至tracked版本。
+- [formal first-step contract](contracts/008-pink-cloth/episode_0/formal_first_step_contract.json)
+- [validation report / logs](validation/t26_5-formal-first-step-20260926/README.md)
+- [observer](../../tools/deform360_adapter/check_formal_first_step.py)：委托原OptimizerHook；原native backward返回逐项检查；clip前/后guard，不重写优化算法。
+- Slurm25866 COMPLETED/0:0，elapsed21s，observer14.650s；peak allocated3.6753GiB/reserved3.8984GiB。794项资产/Gaussian/config hash不变，训练监督仅source123/133/143。projection检查是已审计公式的CPU fp32复算，不是kernel中间量读回。
+- 本项SoMA/deform360-adaptation新增tool/contract/report未tracked，roadmap修改，暂不commit/push；后续小型文件需经Git同步server（当前server仍clean）。T24.5数值重复性limitation和既有所有FAIL历史保留。
 
 ---
 

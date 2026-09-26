@@ -1,0 +1,262 @@
+{
+  "task": "T26.5",
+  "status": "PASS",
+  "meaning": "Original formal T26 first-batch failure condition passes after Normalizer patch; not complete T26 training.",
+  "T26_historical_status": "FAIL retained; no 46-epoch restart",
+  "T26_4_commit": "8b7c4507bc47eb5a033b9f707cbe898c7d76af5c",
+  "prerequisite": {
+    "mac_origin_server_same_commit": true,
+    "ahead_behind": [
+      0,
+      0
+    ],
+    "clean_before_test": true,
+    "server_patch_committed": true,
+    "external_backup": "/data1/userdata/tcweng/projects/tcgs/outputs/deform360/t26_5-preflight-backup-20260926/"
+  },
+  "execution": {
+    "job_id": "25866",
+    "node": "amax",
+    "gpu": "NVIDIA GeForce RTX 5090",
+    "Slurm_elapsed_seconds": 21,
+    "observer_wall_seconds": 14.649959075999504,
+    "exit_code": "0:0",
+    "entrypoint": [
+      "/data1/userdata/tcweng/projects/tcgs/SoMA/tools/train.py",
+      "/data1/userdata/tcweng/projects/tcgs/SoMA/configs/SoMA/deform360_v0_stage1.py",
+      "--seed",
+      "5",
+      "--gpus",
+      "1",
+      "--launcher",
+      "none",
+      "--work_dir",
+      "/data1/userdata/tcweng/projects/tcgs/outputs/deform360/t26_5-formal-first-step-20260926/run/runner"
+    ],
+    "observer_only": true,
+    "real_OptimizerHook_delegated": true,
+    "optimizer_steps": 1,
+    "second_training_batch": false,
+    "post_step_forward": false,
+    "checkpoint_written": false
+  },
+  "protocol": {
+    "seed": 5,
+    "Config": "A",
+    "camera_order": [
+      "brics-odroid-023_cam0",
+      "brics-odroid-009_cam1"
+    ],
+    "fresh_model": true,
+    "zero_history_FP64_statistics": true,
+    "rollout": 3,
+    "initial_source": 113,
+    "targets": [
+      123,
+      133,
+      143
+    ],
+    "batch": 1,
+    "LR": [
+      0.000404
+    ],
+    "optimizer": "Adam",
+    "optimizer_groups": [
+      {
+        "lr": 0.000404,
+        "betas": [
+          0.9,
+          0.999
+        ],
+        "eps": 1e-08,
+        "weight_decay": 0,
+        "amsgrad": false,
+        "maximize": false,
+        "foreach": null,
+        "capturable": false,
+        "differentiable": false,
+        "fused": null,
+        "decoupled_weight_decay": false,
+        "initial_lr": 0.0004
+      }
+    ],
+    "clip": {
+      "max_norm": 1.0
+    },
+    "config_sha256": "e65d1c7848bd222f55c0e18050c464eec5922aef76c1bc62a06813359cca4930",
+    "train_frame_gap": 10,
+    "controller": "candidate_7mm",
+    "grouping": "30→10→2→1",
+    "external_gravity": [
+      0,
+      0,
+      -39.2
+    ],
+    "production_changes_since_frozen_protocol": [
+      "mmgs/models/utils/normalization.py"
+    ]
+  },
+  "steps": [
+    {
+      "step": 1,
+      "target_source": 123,
+      "displacement_m": {
+        "p50": 0.043054102322835866,
+        "p99": 0.12778487321925644,
+        "max": 0.1407891122306298
+      },
+      "F_max": 1.0879501825072824,
+      "F_p99_by_level": [
+        1.087294827886482,
+        1.0807004875559911
+      ],
+      "covariance_PD_count": 12861,
+      "Gaussian_count": 12861,
+      "renderers_finite": true,
+      "projected_covariance_invalid_count": 0
+    },
+    {
+      "step": 2,
+      "target_source": 133,
+      "displacement_m": {
+        "p50": 0.004358014521151377,
+        "p99": 0.01781810328241435,
+        "max": 0.019395113020484064
+      },
+      "F_max": 1.0893962479955308,
+      "F_p99_by_level": [
+        1.0885124633681416,
+        1.083057414464036
+      ],
+      "covariance_PD_count": 12861,
+      "Gaussian_count": 12861,
+      "renderers_finite": true,
+      "projected_covariance_invalid_count": 0
+    },
+    {
+      "step": 3,
+      "target_source": 143,
+      "displacement_m": {
+        "p50": 0.006814852010958614,
+        "p99": 0.01733216194532497,
+        "max": 0.018546488284886684
+      },
+      "F_max": 1.0934084029001572,
+      "F_p99_by_level": [
+        1.090391592246539,
+        1.090441718565786
+      ],
+      "covariance_PD_count": 12861,
+      "Gaussian_count": 12861,
+      "renderers_finite": true,
+      "projected_covariance_invalid_count": 0
+    }
+  ],
+  "losses": {
+    "decode.loss_mse_momentum_config_a_2cam": 7.868436813354492,
+    "decode.loss_ssim_render_config_a_2cam": 4167.7314453125,
+    "decode.loss_l2_render_config_a_2cam": 19622.826171875,
+    "decode.acc_l2_render.acc_config_a_2cam_frame0": 0.0923074334859848,
+    "decode.acc_l1_render.acc_config_a_2cam_frame0": 0.14914068579673767,
+    "decode.acc_ssim_render.acc_config_a_2cam_frame0": 0.940757155418396,
+    "decode.acc_psnr_render.acc_config_a_2cam_frame0": 15.377229690551758,
+    "decode.acc_l2_render.acc_config_a_2cam_frame1": 0.09531529992818832,
+    "decode.acc_l1_render.acc_config_a_2cam_frame1": 0.15377205610275269,
+    "decode.acc_ssim_render.acc_config_a_2cam_frame1": 0.9396407604217529,
+    "decode.acc_psnr_render.acc_config_a_2cam_frame1": 15.163400650024414,
+    "decode.acc_l2_render.acc_config_a_2cam_frame2": 0.09658263623714447,
+    "decode.acc_l1_render.acc_config_a_2cam_frame2": 0.15589073300361633,
+    "decode.acc_ssim_render.acc_config_a_2cam_frame2": 0.9387109875679016,
+    "decode.acc_psnr_render.acc_config_a_2cam_frame2": 15.139886856079102,
+    "decode.loss_mse_static_config_a_2cam": 0.0,
+    "loss": 23798.42578125
+  },
+  "gradients": {
+    "pre_clip": {
+      "tensors": 275,
+      "finite_tensors": 275,
+      "nonfinite_tensors": 0,
+      "first_bad_parameter": null,
+      "nan": 0,
+      "posinf": 0,
+      "neginf": 0,
+      "unused": [
+        "backbone.encoder.emb_norm.weight",
+        "backbone.encoder.emb_norm.bias"
+      ],
+      "global_norm": 77384.46931221339,
+      "max_parameter_norm": 48978.274937407026,
+      "max_parameter": "decode_head.dynamic_proj.layers.2.bias"
+    },
+    "clip_return": 77384.46875,
+    "post_clip": {
+      "tensors": 275,
+      "finite_tensors": 275,
+      "nonfinite_tensors": 0,
+      "first_bad_parameter": null,
+      "nan": 0,
+      "posinf": 0,
+      "neginf": 0,
+      "unused": [
+        "backbone.encoder.emb_norm.weight",
+        "backbone.encoder.emb_norm.bias"
+      ],
+      "global_norm": 1.000000029656491,
+      "max_parameter_norm": 0.6329212680904885,
+      "max_parameter": "decode_head.dynamic_proj.layers.2.bias"
+    }
+  },
+  "post_step": {
+    "model_finite": true,
+    "updated_parameter_tensors": 275,
+    "trainable_parameter_tensors": 277,
+    "Adam_state_count": 275,
+    "Adam_step": 1,
+    "Adam_exp_avg_finite": true,
+    "Adam_exp_avg_sq_finite": true,
+    "normalizer_groups": 3,
+    "FP64_statistics_tensors": 12,
+    "normalizer_finite": true,
+    "runner_counter_note": {
+      "epoch": 0,
+      "iter": 0,
+      "explanation": "Stop after optimizer hook, before runner increments iter; one optimizer step completed in epoch1/iteration1."
+    }
+  },
+  "memory": {
+    "peak_allocated": 3946289152,
+    "peak_reserved": 4185915392,
+    "allocated": 87321088,
+    "reserved": 4185915392
+  },
+  "integrity": {
+    "asset_hashes_checked": 794,
+    "assets_unchanged": true,
+    "Gaussian_fields_unchanged": true,
+    "Gaussian_not_in_optimizer": true,
+    "config_unchanged": true,
+    "server_clean": true,
+    "target_GT_hashes_checked": true,
+    "controller_values_and_point_order_exact": true
+  },
+  "state_transfer": {
+    "positions": "step2/3 input exact previous predicted object positions, original detach semantics",
+    "covariance": "unchanged formal source reuses initial covariance each step; no future reconstructed PLY",
+    "source_callsite": "mmgs/models/simulators/gs_simulator_embodied.py:690-744"
+  },
+  "limitations": [
+    "Single first batch only; long-horizon/multi-epoch stability and memory not established.",
+    "Projected covariance validation is CPU FP32 recomputation of audited native formula for positive-radius rows, not native intermediate readback.",
+    "T24.5 numerical repeatability limitation unchanged.",
+    "No extra post-step forward; post-step model/Adam/normalizer state checks only."
+  ],
+  "artifacts": {
+    "server_directory": "/data1/userdata/tcweng/projects/tcgs/outputs/deform360/t26_5-formal-first-step-20260926/",
+    "tool": "tools/deform360_adapter/check_formal_first_step.py",
+    "report": "docs/deform360/validation/t26_5-formal-first-step-20260926/report.json",
+    "report_sha256": "81846237a395bb8e17d63cb947d866af65ea89d3975d9369ca41f47fdc64aeee",
+    "tool_sha256": "66fe6a4006c69ce18424adc2c93b361df96a81b6d0bc39fb1171cba0d6a79110",
+    "log_sha256": "e367dec4d5af9809b816741b6764461b049d7c20aa0c8defaed8219672595853",
+    "log": "docs/deform360/validation/t26_5-formal-first-step-20260926/slurm.txt"
+  }
+}
