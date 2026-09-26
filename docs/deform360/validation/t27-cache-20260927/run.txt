@@ -1,0 +1,23 @@
+/data1/userdata/tcweng/miniconda3/envs/soma/lib/python3.10/site-packages/mmcv/__init__.py:20: UserWarning: On January 1, 2023, MMCV will release v2.0.0, in which it will remove components related to the training process and add a data transformation module. In addition, it will rename the package names mmcv to mmcv-lite and mmcv-full to mmcv. See https://github.com/open-mmlab/mmcv/blob/master/docs/en/compatibility.md for more details.
+  warnings.warn(
+/data1/userdata/tcweng/miniconda3/envs/soma/lib/python3.10/site-packages/torchdata/datapipes/__init__.py:18: UserWarning: 
+################################################################################
+WARNING!
+The 'datapipes', 'dataloader2' modules are deprecated and will be removed in a
+future torchdata release! Please see https://github.com/pytorch/data/issues/1196
+to learn more and leave feedback.
+################################################################################
+
+  deprecation_warning()
+=> loading config_a_2cam camera from embodied format
+Loading images' information...
+Initializing gaussian scene: /data1/userdata/tcweng/projects/tcgs/datasets/deform360/derived/t17_scene_packages/pink_cloth_episode_0/config_a_2cam/pi3/gs/point_cloud/iteration_10000/point_cloud.ply
+load checkpoint from local path: /data1/userdata/tcweng/projects/tcgs/outputs/deform360/stage1/config_a_seed5_normalizer_fix_resume_epoch2/epoch_46.pth
+[                                                  ] 0/1, elapsed: 0s, ETA:Resetting state for scene config_a_2cam
+Traceback (most recent call last):
+  File "/data1/userdata/tcweng/projects/tcgs/outputs/deform360/t27-cache-20260927/generate_stage1_cache.py", line 75, in <module>
+    if __name__=='__main__':main()
+  File "/data1/userdata/tcweng/projects/tcgs/outputs/deform360/t27-cache-20260927/generate_stage1_cache.py", line 61, in main
+    folder=a.output/'config_a_2cam/pred_stage1';assert {f.name for f in folder.iterdir()}=={f'frame_{i}.pth' for i in range(0,151,10)}
+AssertionError
+[>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>] 1/1, 0.3 task/s, elapsed: 4s, ETA:     0ssrun: error: amax: task 0: Exited with exit code 1

@@ -27,10 +27,10 @@ Deform360 HEAD:
 d8522a4403b766aeb387510c04e89032a56fdf35
 
 Current task:
-T26
+T27
 
 Current status:
-PASS
+BLOCKED
 ```
 
 以上 HEAD 为本 roadmap 建立时的源码基线。T0–T11 已 PASS，具体结论及证据保留于各项历史 Result / Evidence。T11 checkpoint 已提交并推送；T12 已按人工确认采用 30→10→2→1 grouping contract 并验证 PASS；此前默认分组 FAIL 历史保留，不进入 T13。
@@ -162,7 +162,7 @@ tcgs root Git 仅用于 workspace-level 资产。除非明确说明，不在 tcg
 | T26.3 | random-init dynamics scale / normalization audit（Blocking） | SCALE_MISMATCH_ATTRIBUTED |
 | T26.4 | Normalizer numerical-stability fix / layered regression | PASS |
 | T26.5 | formal first-step regression（Blocking smoke test） | PASS |
-| T27 | 只生成并核验 Stage-1 cache | TODO |
+| T27 | 只生成并核验 Stage-1 cache | BLOCKED |
 | T28 | 只串联一个 Stage 2 子窗口 | TODO |
 | T29 | 只验证 Stage 2 一个优化步骤 | TODO |
 | T30 | 执行固定预算的 Stage 2 训练 | TODO |
@@ -2027,7 +2027,7 @@ D360 combined backward：total loss23109.26171875，275个gradient tensors finit
 
 ### T27：只生成并核验 Stage-1 cache
 
-Status: TODO
+Status: BLOCKED
 
 **问题：** Stage 2 需要按帧定位的预测初态。
 
@@ -2052,11 +2052,18 @@ Status: TODO
 
 #### Result
 
-Not executed.
+2026-09-27：**BLOCKED — cache filename/frame-gap contract mismatch**。T26最终结果以 `c7a1bb294859a5cb22d56a18794406d7250145ab` 提交并push，Mac/origin/server同commit、0/0、clean后执行。Slurm25870经官方single_gpu_test→single_gpu_rollout→simple_test→save_gaussian，epoch46 checkpoint hash和registered state exact核验通过，15步预测完成，Normalizer/registered state未变化、无future-Ply reset。随后文件名gate失败，立即停止，无修改/重命名/重跑。
+
+真实schema只有pred_pos [12861,3]和pred_cov [12861,6]、float32；包含initial+15 predictions。实际写出frame_0…15，实际对应local0,10,…150/source113,123,…263。冻结config只给dataset设置frame_gap=10，model.frame_gap缺省为1；save_gaussian:447按model.frame_gap命名，因此与Stage2 frame_<gs_aligned_frame>契约冲突。此为cache路径/config glue缺口，不改写T26 PASS，不是训练NaN/OOM。失败产物保留server-only，不可直接交给Stage2。
+
+CPU只读readback全部16文件可读、finite、12861点；协方差全部PD。最小后续建议：独立cache helper显式model.frame_gap=10（只影响Stage1 cache命名），新目录重新生成；不修改frozen训练配置或核心源码。本轮未实施，未执行T28。
 
 #### Evidence
 
-Not executed.
+- [failed-attempt contract / per-file hashes](contracts/008-pink-cloth/episode_0/stage1_cache_contract.json)
+- [Slurm25870 log](validation/t27-cache-20260927/run.txt)
+- [cache helper](../../tools/deform360_adapter/generate_stage1_cache.py)
+- SoMA/deform360-adaptation新增小型文件与roadmap未commit/push；server repo仍clean，helper执行副本在outputs。
 
 ### T28：只串联一个 Stage 2 子窗口
 
