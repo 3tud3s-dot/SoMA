@@ -1,0 +1,37 @@
+{
+  "status": "PASS",
+  "config_sha256": "c4042fa409bdb4bc2746629a390f9763aa7f277a8ec54d2e43e314b30566e16a",
+  "only_config_change": "top-level max_seq=1",
+  "direct_cfg_reads": [
+    "checkpoint_config",
+    "data",
+    "dist_params",
+    "get",
+    "log_level",
+    "max_seq",
+    "merge_from_dict",
+    "model",
+    "pretty_text",
+    "work_dir",
+    "workflow"
+  ],
+  "created_fields": {
+    "gpu_ids": "set by actual CLI branch [0]",
+    "seed": "CLI --seed5"
+  },
+  "boundary": "actual main reaches build_simulator; injected sentinel stops before model/CUDA",
+  "mocked_side_effects": [
+    "mkdir",
+    "logger",
+    "collect_env",
+    "set_random_seed"
+  ],
+  "full_main_functions_from_actual_AST": true,
+  "CUDA_initialized": false,
+  "windows": 15,
+  "steps_per_epoch": 600,
+  "total_steps": 36600,
+  "all61schedule_rows_unchanged": true,
+  "first_rollout": 3,
+  "first_lr": 0.000404
+}

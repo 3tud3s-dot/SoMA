@@ -1,0 +1,62 @@
+{
+  "job_id": "25875",
+  "initialization_exact": true,
+  "initial_counters": {
+    "epoch": 0,
+    "iter": 0,
+    "Adam_state_count": 0,
+    "FP64_normalizer_count": 12
+  },
+  "first_batch": {
+    "event": "optimizer_step_complete",
+    "seconds": 11.269709483000042,
+    "phase": "train",
+    "epoch": 1,
+    "iteration": 1,
+    "requested_rollout": 3,
+    "effective_rollout": 3,
+    "step": 3,
+    "window_start": 70,
+    "cache_key": "frame_70",
+    "source_start": 183,
+    "operation": "post-step state guard",
+    "target_source": 186,
+    "losses": {
+      "decode.loss_mse_momentum_config_a_2cam": 69.34689331054688,
+      "decode.loss_ssim_render_config_a_2cam": 2671.47998046875,
+      "decode.loss_l2_render_config_a_2cam": 6690.53076171875,
+      "decode.acc_l2_render.acc_config_a_2cam_frame0": 0.04388326779007912,
+      "decode.acc_l1_render.acc_config_a_2cam_frame0": 0.07057259976863861,
+      "decode.acc_ssim_render.acc_config_a_2cam_frame0": 0.9629242420196533,
+      "decode.acc_psnr_render.acc_config_a_2cam_frame0": 20.86223602294922,
+      "decode.acc_l2_render.acc_config_a_2cam_frame1": 0.048024244606494904,
+      "decode.acc_l1_render.acc_config_a_2cam_frame1": 0.07737468183040619,
+      "decode.acc_ssim_render.acc_config_a_2cam_frame1": 0.9606766700744629,
+      "decode.acc_psnr_render.acc_config_a_2cam_frame1": 20.609119415283203,
+      "decode.acc_l2_render.acc_config_a_2cam_frame2": 0.050075821578502655,
+      "decode.acc_l1_render.acc_config_a_2cam_frame2": 0.08071118593215942,
+      "decode.acc_ssim_render.acc_config_a_2cam_frame2": 0.9604494571685791,
+      "decode.acc_psnr_render.acc_config_a_2cam_frame2": 20.104759216308594,
+      "decode.loss_mse_static_config_a_2cam": 0.0,
+      "loss": 9431.357421875
+    },
+    "preclip_norm": 192872.98352180913,
+    "postclip_norm": 0.9999999711029137,
+    "memory": {
+      "allocated": 87495680,
+      "reserved": 4137680896,
+      "peak_allocated": 3830231552,
+      "peak_reserved": 4137680896,
+      "free": 28788588544,
+      "total": 33668857856
+    }
+  },
+  "current_status": "IN_PROGRESS",
+  "steps_at_capture": 62,
+  "last_gradient_tensor_count": 275,
+  "gpu": "NVIDIA GeForce RTX 5090, GPU-aeb9a991-5bdb-6015-3fb4-cad9b29e54bb, 32607 MiB, 580.126.18",
+  "config_sha256": "c4042fa409bdb4bc2746629a390f9763aa7f277a8ec54d2e43e314b30566e16a",
+  "observer_sha256": "3b11a96e503fec1a59ed6a480a46dc65969246504f423f5fcfda30ec6a9f8c8b",
+  "canonical_cache_loaded_exact": true,
+  "slurm": "25875|RUNNING|1:28|12:00:00|amax\n"
+}

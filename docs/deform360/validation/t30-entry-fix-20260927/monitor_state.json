@@ -1,0 +1,50 @@
+{
+  "job_id": "25875",
+  "last_reported_epoch": 13,
+  "next_report_epoch": 18,
+  "first_batch_reported": true,
+  "control_dir": "/data1/userdata/tcweng/projects/tcgs/outputs/deform360/t30-entry-fixed-control-20260927",
+  "target_epochs": 61,
+  "target_steps": 36600,
+  "infrastructure_resume_authorized": false,
+  "last_reported_steps": 8309,
+  "last_check": {
+    "checked_at": "2026-09-27T02:39:39.126943+00:00",
+    "status": "IN_PROGRESS",
+    "epochs": 13,
+    "steps": 8309,
+    "requested_rollout": 42,
+    "effective_rollout": 12,
+    "median_epoch_seconds": 2047.819763462001,
+    "remaining_seconds": 96558.11488017245,
+    "estimated_finish": "2026-09-28T05:28:57.241823+00:00",
+    "checkpoint": {
+      "path": "/data1/userdata/tcweng/projects/tcgs/outputs/deform360/stage2/config_a_seed5/epoch_13.pth",
+      "bytes": 30039037,
+      "sha256": "5ca2f17fb17db99846db59fc640952c52fd656c6261a84983d987866c17dfe85",
+      "epoch": 13,
+      "iter": 7800,
+      "metadata_readable": true,
+      "model_optimizer_present": true
+    },
+    "lr": [
+      7.125000000000001e-06
+    ],
+    "last_epoch_loss": 2935.124735921224,
+    "peak_allocated": 13765430272,
+    "peak_reserved": 14900264960,
+    "all_gradient_finite": true,
+    "cache_unchanged": true
+  },
+  "current_user_instruction": "Wait for existing12h job25875 to finish naturally; verify last complete intermediate checkpoint; no automatic resubmission or T31 inference.",
+  "job_terminal_state": "TIMEOUT",
+  "checkpoint_verified": {
+    "path": "/data1/userdata/tcweng/projects/tcgs/outputs/deform360/stage2/config_a_seed5/epoch_22.pth",
+    "size": 30039037,
+    "sha256": "31223b8ca972db83a78412040ddee9dcf7e5836f63fb11cae54b5f91aec9380c",
+    "epoch": 22,
+    "iter": 13200
+  },
+  "automatic_resume": false,
+  "monitoring_complete": true
+}

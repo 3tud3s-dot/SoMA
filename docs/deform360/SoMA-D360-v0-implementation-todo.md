@@ -2180,12 +2180,20 @@ Status: BLOCKED
 
 2026-09-27 formal attempt：BLOCKED / entry-config。T30.1以1d54006提交/push后Mac/origin/server clean且0/0。按最新授权设置12h allocation，sbatch25874（amax/RTX5090）在7s后FAILED/1:0；tools/train.py:71读取缺失顶层cfg.max_seq，尚未构造dataset/model或执行任何训练batch，0epochs/0steps，无checkpoint。不是OOM/nonfinite；上一轮config/static验证漏检入口要求。保持冻结config和全部历史不变；未自动patch/retry。12h本轮实际未持续运行，待最小入口配置修正授权。T31未执行。
 
+2026-09-27 entry fix / formal restart：max_seq继承official顶层1，仅补入口字段，nested/window/schedule不变。CPU真实main函数配置路径至model边界PASS；61epoch rollout/LR等价仍成立。新sbatch25875，12h，fresh runner0/Adam，T26learned FP64stats exact load；首batchframe70/source183→184/185/186，rollout3/LR.000404、loss9431.3574，275grad finite、clip1、Adam.step PASS。T30 IN_PROGRESS，未宣称完整训练完成。旧25874失败证据以c6fd784提交/push并同步；本轮config修正和结果未commit。正常infrastructure中断允许真实Stage2resume，数值/OOM/schema异常停止不自动修复。
+
+2026-09-27 12h allocation结束：job25875 TIMEOUT；已完成22epochs，最后完整checkpoint迭代13200，中断前报告完成13388steps。用户要求等当前job结束后先验收中间结果，本轮未自动续跑。T30为BLOCKED/预算未完成（不是数值失败），不得作为61epochs完整PASS。CPU中间checkpoint验收PASS：model/Adam finite，275Adam states的step均13200，12FP64Normalizer finite，meta一致。checkpoint SHA256 31223b8ca972db83a78412040ddee9dcf7e5836f63fb11cae54b5f91aec9380c。保留此前所有历史；T31未执行。
+
 #### Evidence
 
 - [protocol audit](validation/t30-protocol-audit-20260927/README.md)、[CPU preflight / actual MMCV resume source](validation/t30-protocol-audit-20260927/cpu_preflight.json)、[machine-readable unfrozen audit](contracts/008-pink-cloth/episode_0/stage2_protocol_audit.json)。
 - 所属SoMA/deform360-adaptation，本轮T30审计未commit/push；server源码clean；T31/T32正文保持不变。
 
 - [formal launch / entry failure](validation/t30-stage2-20260927/README.md)、[original report](validation/t30-stage2-20260927/training_report.json)、[CPU preflight](validation/t30-stage2-20260927/preflight.json)。本次观察器/证据未commit/push；server源码clean，输入/config hash未变。
+
+- [entry fix / first batch](validation/t30-entry-fix-20260927/README.md)、[CPU entry preflight](validation/t30-entry-fix-20260927/static_preflight.json)、[first batch gate](validation/t30-entry-fix-20260927/first_batch_gate.json)。
+
+- [中间checkpoint CPU验收](validation/t30-entry-fix-20260927/intermediate_checkpoint_verification.json)、[epoch轨迹](validation/t30-entry-fix-20260927/intermediate_epoch_trajectory.csv)、[验收准备](validation/t30-entry-fix-20260927/acceptance_plan.md)。
 
 ### T30.1：冻结正式 Stage-2 protocol 与 config
 

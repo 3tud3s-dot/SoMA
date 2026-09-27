@@ -12,6 +12,9 @@ _base_ = ['../_base_/schedules/adam_hood.py', '../_base_/default_runtime.py']
 
 seed = 5
 
+# Official entrypoint sequence-cap sentinel; windows remain defined by split_list.
+max_seq = 1
+
 find_unused_parameters = True
 
 model = {'type': 'GsSimulatorEmbodiedS2',
