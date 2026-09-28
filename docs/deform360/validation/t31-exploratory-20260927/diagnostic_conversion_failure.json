@@ -1,0 +1,335 @@
+{
+  "task": "T31 exploratory",
+  "status": "FAIL",
+  "intermediate_checkpoint_only": true,
+  "not_final_baseline": true,
+  "T30": "INCOMPLETE/TIMEOUT",
+  "job_id": "25882",
+  "head": "9cd6fe0706f1b1ad4f4f1b0430bbaafb5dccd16e",
+  "checkpoint": {
+    "path": "/data1/userdata/tcweng/projects/tcgs/outputs/deform360/stage2/config_a_seed5/epoch_22.pth",
+    "sha256": "31223b8ca972db83a78412040ddee9dcf7e5836f63fb11cae54b5f91aec9380c",
+    "epoch": 22,
+    "iter": 13200
+  },
+  "steps": [],
+  "online_updates": [],
+  "files_read": [
+    "/data1/userdata/tcweng/projects/tcgs/outputs/deform360/stage2/config_a_seed5/epoch_22.pth",
+    "/data1/userdata/tcweng/projects/tcgs/datasets/deform360/derived/008-pink-cloth/episode_0/t27_stage1_cache_gap10/config_a_2cam/pred_stage1/frame_0.pth"
+  ],
+  "protocol": {
+    "local": [
+      0,
+      193
+    ],
+    "source": [
+      113,
+      306
+    ],
+    "transitions": 193,
+    "train_test_boundary": {
+      "last_train_source": 267,
+      "first_test_source": 268
+    },
+    "camera_ids": [
+      "brics-odroid-023_cam0",
+      "brics-odroid-009_cam1"
+    ],
+    "eval_overrides": {
+      "split_list": {
+        "config_a_2cam": [
+          [
+            0,
+            194
+          ]
+        ]
+      },
+      "frame_gap": 1,
+      "eval_start_frame": 0,
+      "test_rollout_mode": "continuous"
+    },
+    "core_source_changed": false,
+    "loop": "mmgs.apis.test.single_gpu_rollout",
+    "model": {
+      "type": "GsSimulatorEmbodiedS2",
+      "cluster_cfg": {
+        "config_a_2cam": [
+          {
+            "downsample_rate": 0.02
+          },
+          {
+            "downsample_rate": 0.2
+          }
+        ]
+      },
+      "processor_cfg": [
+        {
+          "type": "GsHieEmbodiedDGLProcessor",
+          "anchor_prefix": "anchor_",
+          "radius": [
+            0.03,
+            0.2,
+            0.5
+          ],
+          "group_cfg": {
+            "max_radius": null,
+            "min_radius": 0.0,
+            "sample_num": 16,
+            "use_xyz": true,
+            "normalize_xyz": false,
+            "return_grouped_xyz": false,
+            "return_grouped_idx": true,
+            "return_unique_cnt": false
+          }
+        }
+      ],
+      "accumulate_gradient": false,
+      "dt": 0.06666666666666667,
+      "backbone": {
+        "type": "MeshGraphNetHieEmbodied",
+        "attr_dim": 5,
+        "state_dim": 6,
+        "position_dim": 3,
+        "num_frames": 2,
+        "embed_dims": 128,
+        "num_encoder_layers": 16,
+        "dropout": 0.0,
+        "eps": 1e-07,
+        "num_fcs": 3,
+        "act_cfg": {
+          "type": "SiLU",
+          "inplace": true
+        },
+        "norm_cfg": {
+          "type": "LN"
+        },
+        "pre_norm": true,
+        "norm_acc_steps": null,
+        "edge_mode": "ratio",
+        "edge_theta": true,
+        "fix_bug": true,
+        "dt": 0.06666666666666667
+      },
+      "decode_head": {
+        "type": "AccDecoder",
+        "in_channels": 128,
+        "out_channels": 11,
+        "add_residual": false,
+        "init_quant": 1.0,
+        "loss_decode": [
+          {
+            "type": "MSELoss",
+            "reduction": "sum",
+            "loss_weight": 1.0,
+            "loss_name": "loss_mse_momentum"
+          },
+          {
+            "type": "SSIMLoss",
+            "reduction": "sum",
+            "kernel_size": 5,
+            "loss_weight": 0.1,
+            "loss_name": "loss_ssim_render"
+          },
+          {
+            "type": "L2Loss",
+            "reduction": "sum",
+            "loss_weight": 0.9,
+            "loss_name": "loss_l2_render"
+          },
+          {
+            "type": "MSELoss",
+            "reduction": "sum",
+            "loss_weight": 1.0,
+            "loss_name": "loss_mse_static"
+          },
+          {
+            "type": "SpatialLoss",
+            "reduction": "sum",
+            "loss_weight": 1.0,
+            "loss_name": "loss_spatial"
+          },
+          {
+            "type": "L2Loss",
+            "reduction": "sum",
+            "loss_weight": 0.9,
+            "loss_name": "loss_l2_bounding"
+          },
+          {
+            "type": "SSIMLoss",
+            "reduction": "sum",
+            "kernel_size": 5,
+            "loss_weight": 0.1,
+            "loss_name": "loss_ssim_bounding"
+          }
+        ],
+        "accuracy": [
+          {
+            "type": "L2Accuracy",
+            "reduction": "mean",
+            "acc_name": "acc_l2_render"
+          },
+          {
+            "type": "L1Accuracy",
+            "reduction": "mean",
+            "acc_name": "acc_l1_render"
+          },
+          {
+            "type": "SSIMAccuracy",
+            "reduction": "mean",
+            "acc_name": "acc_ssim_render"
+          },
+          {
+            "type": "PSNRAccuracy",
+            "reduction": "mean",
+            "acc_name": "acc_psnr_render"
+          }
+        ],
+        "dt": 0.06666666666666667
+      },
+      "gs_scene": [
+        {
+          "name": "config_a_2cam",
+          "model_path": "/data1/userdata/tcweng/projects/tcgs/datasets/deform360/derived/t17_scene_packages/pink_cloth_episode_0/config_a_2cam/pi3/gs/point_cloud/iteration_10000/point_cloud.ply",
+          "sh_degree": 0,
+          "num_seq": 1,
+          "attr_name": "rope"
+        }
+      ],
+      "forward_last_layer": false,
+      "share_weight": true,
+      "opt_sim": true,
+      "opt_vel": true,
+      "checkpoint_rollout": 20,
+      "selfsup_loss": false,
+      "pred_vel": true,
+      "use_rotation": false,
+      "fix_bug": true,
+      "frame_gap": 10,
+      "test_rollout_mode": "continuous",
+      "flag_save_gaussian": false,
+      "flag_update_gaussian": false,
+      "flag_update_gaussian_train": false,
+      "data_dir": "/data1/userdata/tcweng/projects/tcgs/datasets/deform360/derived/008-pink-cloth/episode_0/t27_stage1_cache_gap10",
+      "controller_cfg": {
+        "config_a_2cam": [
+          {
+            "num_cluster": 10
+          },
+          {
+            "downsample_rate": 0.5
+          }
+        ]
+      },
+      "static_loss": false,
+      "avg_loss": true,
+      "render_mov_only": true,
+      "train_cfg": {
+        "by_epoch": true,
+        "step_increase_interval": 1,
+        "step_increase_magnitude": 3,
+        "step_initial": 3,
+        "max_rollout_step": 1000
+      },
+      "test_cfg": {
+        "by_epoch": true,
+        "step_increase_interval": 1,
+        "step_increase_magnitude": 3,
+        "step_initial": 3,
+        "max_rollout_step": 1000
+      }
+    },
+    "dataset_env": {
+      "data_dir": "/data1/userdata/tcweng/projects/tcgs/datasets/deform360/derived/t17_scene_packages/pink_cloth_episode_0",
+      "scene_list": [
+        "config_a_2cam"
+      ],
+      "sub_img_dir": "color",
+      "sub_video_dir": "color",
+      "cam_transform_fn": null,
+      "resolution": [
+        360,
+        640
+      ],
+      "load_imgs": false,
+      "scale_x_angle": 1.0,
+      "max_cam_num": 2,
+      "max_cam_total": 2,
+      "max_seq": 15,
+      "pad_cam": false,
+      "llffhold": 0,
+      "tracking_pcd": "track_process_data.pkl",
+      "prompt_dict": {
+        "object": [
+          "cloth"
+        ],
+        "obstacle": []
+      },
+      "bounding_box": null,
+      "use_random_background": {
+        "config_a_2cam": false
+      },
+      "const_white_bg": {
+        "config_a_2cam": false
+      },
+      "controller_cfg": {
+        "config_a_2cam": [
+          {
+            "num_cluster": 10
+          },
+          {
+            "downsample_rate": 0.5
+          }
+        ]
+      },
+      "cluster_type": "dis_split",
+      "gravity": [
+        0.0,
+        0.0,
+        -9.8
+      ],
+      "rot_est": {
+        "config_a_2cam": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      },
+      "dt": 0.03333333333333333,
+      "real_dt": {
+        "config_a_2cam": 0.06666666666666667
+      },
+      "split_list": {
+        "config_a_2cam": [
+          [
+            0,
+            194
+          ]
+        ]
+      },
+      "frame_gap": 1,
+      "cluster_cfg": {
+        "config_a_2cam": [
+          {
+            "downsample_rate": 0.02
+          },
+          {
+            "downsample_rate": 0.2
+          }
+        ]
+      },
+      "volume_scalar": {
+        "config_a_2cam": 512
+      },
+      "aligned_scene": null,
+      "max_frame": 1003,
+      "start_frame": 0,
+      "eval_start_frame": 0,
+      "interact": false
+    }
+  },
+  "failure_step": null,
+  "traceback": "Traceback (most recent call last):\n  File \"/data1/userdata/tcweng/projects/tcgs/outputs/deform360/t31-exploratory-control-20260927/check_continuous_exploratory.py\", line 63, in <module>\n    assert np.array_equal(init,c['pred_pos'].numpy()) and torch.equal(m.scene_init_cov['config_a_2cam_frame_0'].cpu(),c['pred_cov'])\nRuntimeError: Can't call numpy() on Tensor that requires grad. Use tensor.detach().numpy() instead.\n",
+  "wall_seconds": 0.6843289919925155
+}

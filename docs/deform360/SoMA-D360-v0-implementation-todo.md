@@ -27,10 +27,10 @@ Deform360 HEAD:
 d8522a4403b766aeb387510c04e89032a56fdf35
 
 Current task:
-T30
+T31 exploratory
 
 Current status:
-BLOCKED
+SUCCESS
 ```
 
 以上 HEAD 为本 roadmap 建立时的源码基线。T0–T11 已 PASS，具体结论及证据保留于各项历史 Result / Evidence。T11 checkpoint 已提交并推送；T12 已按人工确认采用 30→10→2→1 grouping contract 并验证 PASS；此前默认分组 FAIL 历史保留，不进入 T13。
@@ -165,9 +165,10 @@ tcgs root Git 仅用于 workspace-level 资产。除非明确说明，不在 tcg
 | T27 | 只生成并核验 Stage-1 cache | PASS |
 | T28 | 只串联一个 Stage 2 子窗口 | PASS |
 | T29 | 只验证 Stage 2 一个优化步骤 | PASS |
-| T30 | 执行固定预算的 Stage 2 训练 | BLOCKED |
+| T30 | 执行固定预算的 Stage 2 训练 | IN_PROGRESS |
 | T30.1 | 冻结正式 Stage-2 protocol 与 config | PASS |
-| T31 | 验证真正的 continuous rollout | TODO |
+| T31 | 验证真正的 continuous rollout（本轮仅exploratory） | SUCCESS (exploratory only) |
+| T31.1 | Continuous rollout artifact export | PASS |
 | T32 | 汇总首个 no-tactile baseline 结果 | TODO |
 
 ## 路径与边界
@@ -2149,7 +2150,7 @@ Status: PASS
 
 ### T30：执行固定预算的 Stage 2 训练
 
-Status: BLOCKED
+Status: IN_PROGRESS
 
 **问题：** 能否得到用于连续 rollout 的 dense dynamics checkpoint？
 
@@ -2184,6 +2185,8 @@ Status: BLOCKED
 
 2026-09-27 12h allocation结束：job25875 TIMEOUT；已完成22epochs，最后完整checkpoint迭代13200，中断前报告完成13388steps。用户要求等当前job结束后先验收中间结果，本轮未自动续跑。T30为BLOCKED/预算未完成（不是数值失败），不得作为61epochs完整PASS。CPU中间checkpoint验收PASS：model/Adam finite，275Adam states的step均13200，12FP64Normalizer finite，meta一致。checkpoint SHA256 31223b8ca972db83a78412040ddee9dcf7e5836f63fb11cae54b5f91aec9380c。保留此前所有历史；T31未执行。
 
+2026-09-28：RESUMED — 用户授权再续24小时；job25884从epoch22/iter13200通过真实runner.resume恢复，model/Adam/12FP64stats逐项exact，275Adamstep13200；首batchepoch23/iter13201、rollout12（requested69）、LR4.1953125e-6、loss2874.183594，275grad finite，clip1/Adam成功。冻结61epochs/36600steps预算及全部算法/config不变，T30现为IN_PROGRESS，尚非PASS。旧TIMEOUT和所有失败历史保留；未恢复上次未保存188步，不宣称RNG/数值bitwise续接。新control目录t30-resume24h-control-20260928，未执行新的T31。
+
 #### Evidence
 
 - [protocol audit](validation/t30-protocol-audit-20260927/README.md)、[CPU preflight / actual MMCV resume source](validation/t30-protocol-audit-20260927/cpu_preflight.json)、[machine-readable unfrozen audit](contracts/008-pink-cloth/episode_0/stage2_protocol_audit.json)。
@@ -2194,6 +2197,8 @@ Status: BLOCKED
 - [entry fix / first batch](validation/t30-entry-fix-20260927/README.md)、[CPU entry preflight](validation/t30-entry-fix-20260927/static_preflight.json)、[first batch gate](validation/t30-entry-fix-20260927/first_batch_gate.json)。
 
 - [中间checkpoint CPU验收](validation/t30-entry-fix-20260927/intermediate_checkpoint_verification.json)、[epoch轨迹](validation/t30-entry-fix-20260927/intermediate_epoch_trajectory.csv)、[验收准备](validation/t30-entry-fix-20260927/acceptance_plan.md)。
+
+- [24小时续跑 / 首batch核验](validation/t30-resume24h-20260928/README.md)、[CPU preflight](validation/t30-resume24h-20260928/preflight.json)、[首batch](validation/t30-resume24h-20260928/first_resumed_batch.json)。
 
 ### T30.1：冻结正式 Stage-2 protocol 与 config
 
@@ -2225,7 +2230,7 @@ Status: PASS
 
 ### T31：验证真正的 continuous rollout
 
-Status: TODO
+Status: SUCCESS — exploratory only (intermediate epoch22; not final baseline)
 
 **问题：** 推理是否持续依赖预测状态，而非分段借用未来状态？
 
@@ -2252,11 +2257,39 @@ Status: TODO
 
 #### Result
 
-Not executed.
+2026-09-27：exploratory SUCCESS，非最终baseline。T30保持INCOMPLETE/TIMEOUT；使用epoch22/iter13200中间checkpoint（SHA25631223b8ca972db83a78412040ddee9dcf7e5836f63fb11cae54b5f91aec9380c）。job25883完成真实single_gpu_rollout/simple_test，source113→306共193步，267→268跨界，全部position连续精确来自前一步prediction，无futurePLY/GTGaussian/futurecache注入。全部12861covariance逐步PD，pred/render finite。发现并保留现有每10帧模板切换prev_state=current边界prediction的历史状态重设（不是位置/外部GTreset），不宣称严格二阶时间连续；未修复。图像误差后段较大，但没有数值爆炸；不据此调参/续训或作最终benchmark。
 
 #### Evidence
 
-Not executed.
+- [report](validation/t31-exploratory-20260927/README.md)、[逐步完整证据](validation/t31-exploratory-20260927/report.json)、[state provenance](validation/t31-exploratory-20260927/step_provenance.csv)、[contract](contracts/008-pink-cloth/episode_0/continuous_exploratory_contract.json)。
+- T30证据以9cd6fe0提交/push；本项仅新增观测工具和小型报告，未commit/push，未修改训练config/源码/loss/cache/renderer。25881launcher和25882诊断转换失败历史保留，25883成功。T32未执行。
+
+### T31.1：Continuous rollout artifact export
+
+Status: PASS
+
+**问题：** T31旧运行未保存逐帧render/state，无法制作真实预测对照视频。
+
+**范围 / 依赖：** T31同协议、epoch22/iter13200中间checkpoint；只在已有render之后序列化，不改模型/renderer/rollout/state update，不训练，不执行T32。原T31 exploratory SUCCESS保持不变。
+
+**输入：** epoch22 checkpoint；Config A；T27frame_0；T11controller；T14/T15 canonical RGB/mask。
+
+**最小修改：** 观察工具增加可选artifact writer与checkpoint/output参数；新增独立CPU视频脚本。
+
+**验证 / PASS：** 193预测transition加initial共194帧；388PNG解码成功、194NPZ的shape/dtype/finite正确；逐文件hash、位置来源链及193行已有指标转录核验通过。不存在额外forward/render或future state注入。
+
+**FAIL检查：** 帧计数/相机顺序、CHW/RGB转换、序列化schema/hash，不改算法补救。
+
+#### Result
+
+2026-09-28：PASS — artifact export。Slurm25886完成同协议推理并即时落盘，非事后恢复旧进程张量，非新的最终benchmark。local0来自已有initial render，local1–193为预测；193个prediction states + 1个initial，386 predicted PNG + 2 initial PNG。CPU视频194帧/10fps/1280×490，RGB|masked GT|render|display error。原19次prev_state模板边界重设限制保留；T31结论不变。大型产物server-only，未commit/push。
+
+#### Evidence
+
+- [导出contract](contracts/008-pink-cloth/episode_0/continuous_artifact_export_contract.json)、[说明与schema](validation/t31_1-artifact-export-20260928/README.md)、[读回验证](validation/t31_1-artifact-export-20260928/validation.json)。
+- 服务器：`outputs/deform360/t31-exploratory-epoch22-artifacts-20260928/`；manifest SHA256 `dd93d6d306f3609f9325a8f545a70dd271f44bec09f23d3e2ee33444340fac94`。
+
+---
 
 ### T32：汇总首个 no-tactile baseline 结果
 

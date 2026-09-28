@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "T31.1 continuous artifact manifest v1",
+  "type": "object",
+  "required": ["schema_version", "task", "status", "checkpoint", "config", "sequence", "artifact", "frames", "table_hashes", "limitations"],
+  "properties": {
+    "schema_version": {"const": 1},
+    "task": {"const": "T31.1"},
+    "status": {"const": "PASS"},
+    "checkpoint": {
+      "type": "object",
+      "required": ["path", "sha256", "epoch", "iter"],
+      "properties": {"sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"}, "epoch": {"type": "integer"}, "iter": {"type": "integer"}}
+    },
+    "sequence": {
+      "type": "object",
+      "required": ["start_source", "end_source", "num_steps", "total_frames"],
+      "properties": {"start_source": {"const": 113}, "end_source": {"const": 306}, "num_steps": {"const": 193}, "total_frames": {"const": 194}}
+    },
+    "frames": {
+      "type": "array", "minItems": 194, "maxItems": 194,
+      "items": {
+        "type": "object", "required": ["state", "cameras"],
+        "properties": {
+          "state": {"type": "object", "required": ["local_frame", "source_frame", "state_origin", "path", "sha256", "pos_hash", "cov_hash", "dtype", "pred_pos_shape", "pred_cov_shape"]},
+          "cameras": {"type": "array", "minItems": 2, "maxItems": 2, "items": {"type": "object", "required": ["local_frame", "source_frame", "camera_id", "render", "sha256", "origin", "rgb_source", "mask_source", "rgb_sha256", "mask_sha256"]}}
+        }
+      }
+    }
+  },
+  "$comment": "Cross-record order, decoded shape, finite values and hash correspondence are checked by validate_artifacts.py. Manifest hash is external in manifest.sha256; video has a separate JSON/SHA256 sidecar."
+}

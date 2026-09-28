@@ -1,0 +1,12 @@
+{
+  "path": "/data1/userdata/tcweng/projects/tcgs/outputs/deform360/t31-exploratory-epoch22-artifacts-20260928/rgb_gt_prediction_error.mp4",
+  "sha256": "7b65a1fe2b317ab0aab927bc78992d22354f7cd06369aef1c8b77c4d047fa121",
+  "bytes": 1381870,
+  "frames": 194,
+  "fps": 10,
+  "manifest_sha256": "dd93d6d306f3609f9325a8f545a70dd271f44bec09f23d3e2ee33444340fac94",
+  "layout": "2 cameras x RGB / masked GT / existing render / uint8 absolute error",
+  "no_model_execution": true,
+  "error_is_visualization_not_rescored_metric": true,
+  "playback_note": "10fps default is display pacing, not data timestamp/FPS"
+}

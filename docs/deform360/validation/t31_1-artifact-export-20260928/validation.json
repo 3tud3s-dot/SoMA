@@ -1,0 +1,78 @@
+{
+  "task": "T31.1",
+  "status": "PASS",
+  "artifact_directory": "/data1/userdata/tcweng/projects/tcgs/outputs/deform360/t31-exploratory-epoch22-artifacts-20260928",
+  "checkpoint": {
+    "path": "/data1/userdata/tcweng/projects/tcgs/outputs/deform360/stage2/config_a_seed5/epoch_22.pth",
+    "sha256": "31223b8ca972db83a78412040ddee9dcf7e5836f63fb11cae54b5f91aec9380c",
+    "epoch": 22,
+    "iter": 13200
+  },
+  "job_id": "25886",
+  "config": {
+    "git_commit": "9cd6fe0706f1b1ad4f4f1b0430bbaafb5dccd16e",
+    "path": "configs/SoMA/deform360_v0_stage2.py",
+    "sha256": "c4042fa409bdb4bc2746629a390f9763aa7f277a8ec54d2e43e314b30566e16a",
+    "camera_config": "camera_config_2cam.json",
+    "camera_config_sha256": "c4cce05912007b6213ba1ad458ee3e7d5b8d2a02dc576f1de60b7704db997e5f",
+    "evaluation_overrides": {
+      "split_list": {
+        "config_a_2cam": [
+          [
+            0,
+            194
+          ]
+        ]
+      },
+      "frame_gap": 1,
+      "eval_start_frame": 0,
+      "test_rollout_mode": "continuous"
+    },
+    "T27_cache_initial": {
+      "path": "/data1/userdata/tcweng/projects/tcgs/datasets/deform360/derived/008-pink-cloth/episode_0/t27_stage1_cache_gap10/config_a_2cam/pred_stage1/frame_0.pth",
+      "sha256": "548b31b06a1d974689a86ad4fd039a4df22fdf9cbc22ee4fc2a7df4ce364b241"
+    },
+    "T27_contract_sha256": "ffe35a6fb68fe78d644fb1a2a846b868ef966ec0749b4d605591c0eae1496197"
+  },
+  "sequence": {
+    "start_source": 113,
+    "end_source": 306,
+    "num_steps": 193,
+    "total_frames": 194,
+    "initial_frame": 0,
+    "predicted_local_frames": [
+      1,
+      193
+    ]
+  },
+  "counts": {
+    "render_count": 388,
+    "predicted_render_count": 386,
+    "initial_render_count": 2,
+    "state_count": 194,
+    "predicted_state_count": 193,
+    "initial_state_count": 1,
+    "camera_order": [
+      "brics-odroid-023_cam0",
+      "brics-odroid-009_cam1"
+    ]
+  },
+  "manifest_sha256": "dd93d6d306f3609f9325a8f545a70dd271f44bec09f23d3e2ee33444340fac94",
+  "report_sha256": "5a69d5f48fd0baa7ba98194b8417a1f41617fb1ff9c72081a76b9e64168bc753",
+  "all_artifact_hashes_verified": true,
+  "all_PNG_decoded": true,
+  "all_states_finite_float32": true,
+  "metrics_exactly_transcribed": true,
+  "position_chain_exact": true,
+  "future_PLY_read": false,
+  "future_cache_injection": false,
+  "known_previous_state_reassignments": 19,
+  "limitations": [
+    "existing continuous implementation replaces prev with same-boundary prediction at each10frame template switch; no external injection, not changed",
+    "This is a new same-protocol inference for export, not recovery of tensors from the old exited process.",
+    "No bitwise equality claim against old inference; registered state invariant checked.",
+    "Display PNG quantization/clipping is not a replacement for float-domain metrics.",
+    "Initial frame has no transition metric; metrics.csv contains193 rows."
+  ],
+  "total_bytes": 105488916
+}

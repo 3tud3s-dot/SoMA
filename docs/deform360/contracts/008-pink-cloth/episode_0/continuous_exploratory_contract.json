@@ -1,0 +1,176 @@
+{
+  "task": "T31 exploratory",
+  "classification": "SUCCESS",
+  "intermediate_checkpoint_only": true,
+  "not_final_baseline": true,
+  "T30_status": "INCOMPLETE/TIMEOUT",
+  "checkpoint": {
+    "path": "/data1/userdata/tcweng/projects/tcgs/outputs/deform360/stage2/config_a_seed5/epoch_22.pth",
+    "sha256": "31223b8ca972db83a78412040ddee9dcf7e5836f63fb11cae54b5f91aec9380c",
+    "epoch": 22,
+    "iter": 13200
+  },
+  "T30_evidence_commit": "9cd6fe0706f1b1ad4f4f1b0430bbaafb5dccd16e",
+  "job_id": "25883",
+  "slurm": "COMPLETED/0:0;76s",
+  "wall_seconds": 69.35096458099724,
+  "source_horizon": [
+    113,
+    306
+  ],
+  "local_horizon": [
+    0,
+    193
+  ],
+  "transitions": 193,
+  "train_test_transition": {
+    "step": 155,
+    "current_local": 154,
+    "current_source": 267,
+    "target_source": 268,
+    "current_origin": "model prediction",
+    "previous_state_local": 153,
+    "previous_state_source": 266,
+    "previous_origin": "model prediction",
+    "template_local": 150,
+    "template_origin": "online model prediction",
+    "current_hash": "863551d3b24f199b5a711c256dd5cf7b60ff59d5554802a5c6ba499d969f62ac",
+    "previous_hash": "47c16db4c2ff50d213649a761e5ced1d29bf2dd9997e997a9a7b0194230aab48",
+    "template_hash": "efbd5a0408bfa8b33ed056659ae9e0bb5afc8bd6709d2039b8204eed1d7633ca",
+    "covariance_origin": "online model prediction",
+    "template_boundary": false,
+    "position_continuity_exact": true,
+    "previous_state_is_current_at_template_boundary": false,
+    "pred_pos_finite": true,
+    "pred_cov_finite": true,
+    "PD_count": 12861,
+    "N": 12861,
+    "min_eigenvalue": 2.2606540034666892e-09,
+    "displacement": {
+      "p50": 0.0035168034955859184,
+      "p95": 0.009364600293338299,
+      "p99": 0.014131511375308034,
+      "max": 0.026636878028512
+    },
+    "from_initial": {
+      "p50": 0.026735801249742508,
+      "p95": 0.05921086296439171,
+      "p99": 0.08048545867204655,
+      "max": 0.1535094976425171
+    },
+    "centroid": [
+      0.20939917862415314,
+      0.0025581750087440014,
+      0.14887818694114685
+    ],
+    "bbox_extent": [
+      0.3655209243297577,
+      0.14976298809051514,
+      0.3997788727283478
+    ],
+    "renderer_finite": true,
+    "render_stats": [
+      {
+        "min": 0.0,
+        "max": 1.0149815082550049,
+        "mean": 0.11004313081502914
+      },
+      {
+        "min": 0.0,
+        "max": 0.9828133583068848,
+        "mean": 0.07940146327018738
+      }
+    ],
+    "regularization": {
+      "decode.loss_mse_momentum": 16.132322311401367
+    },
+    "prediction_hash": "e4625c43c45997f69ef42fe0707383f4adbfb26d168adbeda25ccad0fc204aff",
+    "covariance_hash": "6121f40db0a5e628bd758cefcf14b524edf341a721923c390f6d2f2cd891fe24",
+    "metrics": {
+      "acc_l2_render.acc_step1": 0.06071928143501282,
+      "acc_l1_render.acc_step1": 0.09734104573726654,
+      "acc_ssim_render.acc_step1": 0.9475817680358887,
+      "acc_psnr_render.acc_step1": 18.300430297851562,
+      "decode.loss_mse_momentum_step1": 16.132322311401367
+    }
+  },
+  "all_positions_continuous_exact": true,
+  "all_pred_finite": true,
+  "all_render_finite": true,
+  "min_PD_count": 12861,
+  "gaussian_count": 12861,
+  "max_single_step_displacement_m": 0.044981155544519424,
+  "final_displacement_from_initial_m": {
+    "p50": 0.03502427786588669,
+    "p95": 0.08811423927545547,
+    "p99": 0.10682097971439361,
+    "max": 0.17932824790477753
+  },
+  "first_metrics": {
+    "acc_l2_render.acc_step1": 0.019414294511079788,
+    "acc_l1_render.acc_step1": 0.03063800185918808,
+    "acc_ssim_render.acc_step1": 0.9793593883514404,
+    "acc_psnr_render.acc_step1": 25.776409149169922,
+    "decode.loss_mse_momentum_step1": 12.087419509887695
+  },
+  "final_metrics": {
+    "acc_l2_render.acc_step1": 0.07341496646404266,
+    "acc_l1_render.acc_step1": 0.1190868616104126,
+    "acc_ssim_render.acc_step1": 0.9396694898605347,
+    "acc_psnr_render.acc_step1": 17.64618682861328,
+    "decode.loss_mse_momentum_step1": 2.72953200340271
+  },
+  "future_reconstructed_PLY_reset": false,
+  "future_cache_injection": false,
+  "position_boundary_reset": false,
+  "previous_state_boundary_reassignment": true,
+  "previous_state_reset_frames": [
+    123,
+    133,
+    143,
+    153,
+    163,
+    173,
+    183,
+    193,
+    203,
+    213,
+    223,
+    233,
+    243,
+    253,
+    263,
+    273,
+    283,
+    293,
+    303
+  ],
+  "limitation": "At10frame template transitions, existing simple_test calls update_gaussian with cur_state already advanced; saved prev_pos equals predicted boundary current position. On next call prev_state is reassigned to this same boundary state instead of prior dense frame. No external/GT reset, but velocity-history continuity is not preserved at these boundaries. Not repaired.",
+  "source_sites": [
+    "mmgs/models/simulators/gs_simulator_embodied_stage2.py:941-978",
+    "mmgs/models/simulators/gs_simulator_embodied_stage2.py:1037-1053",
+    "mmgs/apis/test.py:197-235"
+  ],
+  "covariance_semantics": "Window/template covariance retained within10frame block; online predicted covariance becomes next template. Does not assert per-step covariance recurrence.",
+  "drift_interpretation": "No numerical explosion observed. Final image error higher than first; different GT frames, not a controlled accuracy/3D drift measurement. Displacement from initial is motion, not ground-truth error. No training/model decisions based on these test observations.",
+  "registered_state_unchanged": true,
+  "files_read_via_torch_load": [
+    "/data1/userdata/tcweng/projects/tcgs/outputs/deform360/stage2/config_a_seed5/epoch_22.pth",
+    "/data1/userdata/tcweng/projects/tcgs/datasets/deform360/derived/008-pink-cloth/episode_0/t27_stage1_cache_gap10/config_a_2cam/pred_stage1/frame_0.pth"
+  ],
+  "initial_T27_frame0_exact": true,
+  "peak_allocated": 2969759744,
+  "peak_reserved": 3028287488,
+  "failed_launches": [
+    {
+      "job": 25881,
+      "reason": "/bin/sh source not found; Python not started"
+    },
+    {
+      "job": 25882,
+      "reason": "diagnostic NumPy conversion missing detach;0rollout steps; diagnostic-only correction"
+    }
+  ],
+  "report": "validation/t31-exploratory-20260927/report.json",
+  "step_provenance": "validation/t31-exploratory-20260927/step_provenance.csv"
+}

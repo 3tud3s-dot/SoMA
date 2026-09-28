@@ -1,0 +1,18 @@
+{
+  "job_id": "25884",
+  "status": "IN_PROGRESS",
+  "control_dir": "/data1/userdata/tcweng/projects/tcgs/outputs/deform360/t30-resume24h-control-20260928",
+  "last_reported_epoch": 22,
+  "next_report_epoch": 27,
+  "last_reported_steps": 13201,
+  "target_epochs": 61,
+  "target_steps": 36600,
+  "allocation_hours": 24,
+  "automatic_further_submission": false,
+  "resume_checkpoint_epoch": 22,
+  "resume_checkpoint_iter": 13200,
+  "first_resumed_batch_gate": "PASS",
+  "previous_median_epoch_seconds": 2043.5462514319952,
+  "estimated_remaining_hours_at_start": 22.138417723846615,
+  "started_at_local": "2026-09-28T10:17:00+08:00"
+}
