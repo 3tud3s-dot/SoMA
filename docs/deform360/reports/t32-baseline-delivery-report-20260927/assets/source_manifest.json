@@ -1,0 +1,253 @@
+{
+  "date": "2026-09-27",
+  "repository": "SoMA",
+  "branch": "deform360-adaptation",
+  "HEAD": "9cd6fe0706f1b1ad4f4f1b0430bbaafb5dccd16e",
+  "scope": "只从既有记录整理，不重跑训练/推理/评估，不重新计算模型指标",
+  "inputs": [
+    {
+      "path": "docs/deform360/SoMA-D360-v0-implementation-todo.md",
+      "bytes": 208279,
+      "sha256": "4e1de90bb72a10cb91931971656f6b9e6bfd53fc68d6c7bbc5512deba47894cd"
+    },
+    {
+      "path": "docs/deform360/contracts/008-pink-cloth/episode_0/camera_config_2cam.json",
+      "bytes": 2000,
+      "sha256": "c4cce05912007b6213ba1ad458ee3e7d5b8d2a02dc576f1de60b7704db997e5f"
+    },
+    {
+      "path": "docs/deform360/contracts/008-pink-cloth/episode_0/camera_config_3cam.json",
+      "bytes": 3336,
+      "sha256": "4ed54cb6081bf0c27a92d7dcea7cd5d6456031cfc89edd5f70a4c44259f3802a"
+    },
+    {
+      "path": "docs/deform360/contracts/008-pink-cloth/episode_0/camera_extrinsics_contract.json",
+      "bytes": 22231,
+      "sha256": "eb9fc54cb1a029eeb1e502f6c4965dda2edf856d29e3c5ca8b86db4e196626dd"
+    },
+    {
+      "path": "docs/deform360/contracts/008-pink-cloth/episode_0/camera_intrinsics_contract.json",
+      "bytes": 16956,
+      "sha256": "3f4c3bbec096eb3ffb7dc3ee7928d68b464241bc9c383327dfc090ca9b393b97"
+    },
+    {
+      "path": "docs/deform360/contracts/008-pink-cloth/episode_0/camera_manifest.json",
+      "bytes": 4674,
+      "sha256": "2428032c7cf82e97171ea84f772e2843b19545a2e194c36b3565c01a0a679b19"
+    },
+    {
+      "path": "docs/deform360/contracts/008-pink-cloth/episode_0/checkpoint_recovery_contract.json",
+      "bytes": 322349,
+      "sha256": "22a495f4db4f414dac121eb58760f6115c9bacb34bf6dd4776d49d0262812a3d"
+    },
+    {
+      "path": "docs/deform360/contracts/008-pink-cloth/episode_0/continuous_exploratory_contract.json",
+      "bytes": 6246,
+      "sha256": "30475031bbb1bb86ae38f6162cd2fc3c440ff80b60b00b3599e7eebd0daf6b7d"
+    },
+    {
+      "path": "docs/deform360/contracts/008-pink-cloth/episode_0/controller_geometry_config.json",
+      "bytes": 14073,
+      "sha256": "0be8b35dbd22d82b41f5f3b3d2ef1582e60140ac6d4d8c9517f285c41cad202c"
+    },
+    {
+      "path": "docs/deform360/contracts/008-pink-cloth/episode_0/controller_grouping_audit.json",
+      "bytes": 50626,
+      "sha256": "d135a1ce70a6895bd1f3e331160eb15fa2060eb5883ddef94a11029ed4dac584"
+    },
+    {
+      "path": "docs/deform360/contracts/008-pink-cloth/episode_0/controller_grouping_contract.json",
+      "bytes": 25160,
+      "sha256": "975f93cb92fd638d5fe9eda94a7581e5aae5887813984e3982991297246f5645"
+    },
+    {
+      "path": "docs/deform360/contracts/008-pink-cloth/episode_0/controller_single_frame_contract.json",
+      "bytes": 30070,
+      "sha256": "a2aa7684e9612d4b80eeede253fb890a63b6f8dbd87665843222170d341d733a"
+    },
+    {
+      "path": "docs/deform360/contracts/008-pink-cloth/episode_0/controller_trajectory_contract.json",
+      "bytes": 7749,
+      "sha256": "96e73b1c0a2573e33a32f675b899c147e32c0f00b9d228a16034e4608a65d32d"
+    },
+    {
+      "path": "docs/deform360/contracts/008-pink-cloth/episode_0/dataset_sample_contract.json",
+      "bytes": 29632,
+      "sha256": "eee80b09a90a5e1b8e56183ec38fafe738178144a58d2f965674440198d441bf"
+    },
+    {
+      "path": "docs/deform360/contracts/008-pink-cloth/episode_0/dynamics_scale_normalization_contract.json",
+      "bytes": 62668,
+      "sha256": "995211d5563e1253e33699da72d8114fb12cf69ff9e24f6d120e8583a355b422"
+    },
+    {
+      "path": "docs/deform360/contracts/008-pink-cloth/episode_0/first_nonfinite_gradient_contract.json",
+      "bytes": 41516,
+      "sha256": "50478d5d1d9504a0f4af05dfe2ab4a02c93226dec0ac31d717abf225213b1f71"
+    },
+    {
+      "path": "docs/deform360/contracts/008-pink-cloth/episode_0/formal_first_step_contract.json",
+      "bytes": 8514,
+      "sha256": "da98d5e224fe91ee31e055f460765bc2ff3f9439f2a3d22f1d852b3740a846de"
+    },
+    {
+      "path": "docs/deform360/contracts/008-pink-cloth/episode_0/frame_manifest.json",
+      "bytes": 528101,
+      "sha256": "d48338cf7a606b1ee4bc2e5a560b5a53c017efdc9880a1db282a8494b1b013db"
+    },
+    {
+      "path": "docs/deform360/contracts/008-pink-cloth/episode_0/gaussian_sequence_sh0_contract.json",
+      "bytes": 151989,
+      "sha256": "63ee2ab48647503d1fb54a1907d3585fa31f72aea8b5518715ccf42f6e938df9"
+    },
+    {
+      "path": "docs/deform360/contracts/008-pink-cloth/episode_0/gravity_world_frame_contract.json",
+      "bytes": 13177,
+      "sha256": "e471f15cc562628608f711a5233d32186927d79eac5a68872eaaa40dbe45cd3d"
+    },
+    {
+      "path": "docs/deform360/contracts/008-pink-cloth/episode_0/mask_export_contract.json",
+      "bytes": 210110,
+      "sha256": "7a942fafbd53e36a3085ea2fe3b61329e840806f940de800a12e256e0077a577"
+    },
+    {
+      "path": "docs/deform360/contracts/008-pink-cloth/episode_0/normalizer_numerical_stability_contract.json",
+      "bytes": 19843,
+      "sha256": "7493dcd6f96b980c6925fe353bbbcf5d99d33deac565e30a40699a8e4ac837c1"
+    },
+    {
+      "path": "docs/deform360/contracts/008-pink-cloth/episode_0/numerical_first_divergence_contract.json",
+      "bytes": 6581,
+      "sha256": "cbf48998e3537e7f2ac0dcb495b07a769e4e124c5f4d5bedf55e56caec95dd91"
+    },
+    {
+      "path": "docs/deform360/contracts/008-pink-cloth/episode_0/renderer_degeneracy_contract.json",
+      "bytes": 64713,
+      "sha256": "edd068aeea4386a01c19946448a3607f9e9f4ae1deb1aed230fc5ca657087962"
+    },
+    {
+      "path": "docs/deform360/contracts/008-pink-cloth/episode_0/rgb_export_contract.json",
+      "bytes": 216908,
+      "sha256": "e73cab0c621a144d60d4c8acda2c96cad3538764da2e52e53d268896ee1b6b30"
+    },
+    {
+      "path": "docs/deform360/contracts/008-pink-cloth/episode_0/scene_package_contract.json",
+      "bytes": 22351,
+      "sha256": "dbcbe6d84426675e536e3cc996753047e3a71015f8c279b33c5316cc6ee36e11"
+    },
+    {
+      "path": "docs/deform360/contracts/008-pink-cloth/episode_0/split_contract.json",
+      "bytes": 10753,
+      "sha256": "fd1370b2202836c2c8be2589955bca33bbe88e38a067fb00bb937e48500debd1"
+    },
+    {
+      "path": "docs/deform360/contracts/008-pink-cloth/episode_0/stage1_cache_contract.json",
+      "bytes": 69013,
+      "sha256": "ffe35a6fb68fe78d644fb1a2a846b868ef966ec0749b4d605591c0eae1496197"
+    },
+    {
+      "path": "docs/deform360/contracts/008-pink-cloth/episode_0/stage1_protocol_audit.json",
+      "bytes": 55675,
+      "sha256": "ed71f7ac996514c19cadad4e8020b010a4b316d67eec8bc6dafdfb73108a22e8"
+    },
+    {
+      "path": "docs/deform360/contracts/008-pink-cloth/episode_0/stage1_protocol_contract.json",
+      "bytes": 43292,
+      "sha256": "84bb8fa034449a4f32980b32c5f3518e650dcfcb2663757c23c32b70ac5c6a32"
+    },
+    {
+      "path": "docs/deform360/contracts/008-pink-cloth/episode_0/stage2_optimizer_smoke_contract.json",
+      "bytes": 12699,
+      "sha256": "8705c0e74dd64419fa50b0deaf7c0eb8f47bf9337eac80a42c18ec92c8841f49"
+    },
+    {
+      "path": "docs/deform360/contracts/008-pink-cloth/episode_0/stage2_protocol_audit.json",
+      "bytes": 4603,
+      "sha256": "17e4d7990d7243211793d03b308ae5fb1440528d36a5bb571cbef821e6701665"
+    },
+    {
+      "path": "docs/deform360/contracts/008-pink-cloth/episode_0/stage2_protocol_contract.json",
+      "bytes": 28017,
+      "sha256": "2dc508deaa28d79d7b98ebecd7b2e0b3b4970c08d500efefabd87c062e68e858"
+    },
+    {
+      "path": "docs/deform360/contracts/008-pink-cloth/episode_0/stage2_subwindow_contract.json",
+      "bytes": 10175,
+      "sha256": "d8028b1a1f9212e9d47f1d0a73ec927953d6c9e78b49a271bd8058f605c3da4d"
+    },
+    {
+      "path": "docs/deform360/contracts/008-pink-cloth/episode_0/supervision_mask_contract.json",
+      "bytes": 8708,
+      "sha256": "fc5d58a863c24a0082f54f8c600ec33dca09dc29ce30803a4a267a99eb1fdf83"
+    },
+    {
+      "path": "docs/deform360/validation/t26-observer-resume-20260926/epoch_trajectory.csv",
+      "bytes": 11033,
+      "sha256": "89947ce5c49904f58daea7823a7131db12aca1cb06402d9aa201dcb543e3cc14"
+    },
+    {
+      "path": "docs/deform360/validation/t26-observer-resume-20260926/summary.json",
+      "bytes": 2097,
+      "sha256": "c25ce005f6b6898ae5c3487c62c7f29542d53e2733869011979e27bda263935d"
+    },
+    {
+      "path": "docs/deform360/validation/t26-observer-resume-20260926/training_report.json",
+      "bytes": 783280,
+      "sha256": "829296bf95f9e1c57573076404d26b10603fc90cc31027151259060bf22744af"
+    },
+    {
+      "path": "docs/deform360/validation/t30-entry-fix-20260927/intermediate_checkpoint_verification.json",
+      "bytes": 98645,
+      "sha256": "8dd39f7d124bc8197eca016c64e07da83db2489a1f1c61849c2e87125bfaab98"
+    },
+    {
+      "path": "docs/deform360/validation/t30-entry-fix-20260927/intermediate_epoch_trajectory.csv",
+      "bytes": 1216,
+      "sha256": "397e6fbe78ae49951f647af4457ba14b254b6de23a0f6462aefe24a4781bb1f5"
+    },
+    {
+      "path": "docs/deform360/validation/t31-exploratory-20260927/README.md",
+      "bytes": 4114,
+      "sha256": "bd29a00ab677926019c2e61b4abb164361f417d2955ba391f385f878f9dc2e1a"
+    },
+    {
+      "path": "docs/deform360/validation/t31-exploratory-20260927/report.json",
+      "bytes": 487874,
+      "sha256": "a62d832a1cd51784b9ec44b717f70d47b397b9b20f7179edaa4dc402c1e574ae"
+    },
+    {
+      "path": "docs/deform360/validation/t31-exploratory-20260927/step_provenance.csv",
+      "bytes": 28484,
+      "sha256": "3dc226afa4b55f74cc10db058438bf6624bdcb79afc348a7de82d0bba6aa9083"
+    },
+    {
+      "path": "docs/deform360/visualizations/t18-static-render-review-20260926/README.md",
+      "bytes": 2283,
+      "sha256": "177239c3921dd30cf82bb0d502b684534fba01885cd394cf6c6f682bbcee8e86"
+    },
+    {
+      "path": "docs/deform360/visualizations/t18-static-render-review-20260926/brics-odroid-009_cam1_comparison.jpg",
+      "bytes": 105480,
+      "sha256": "9e0e267e0a6064c556205300fabfbe92f75297b274526f331a7cdaf5b3086748"
+    },
+    {
+      "path": "docs/deform360/visualizations/t18-static-render-review-20260926/brics-odroid-023_cam0_comparison.jpg",
+      "bytes": 112860,
+      "sha256": "4bec8f6f42d53abb68bc900a771b937a4e119c321f864087d08fe9475e2b71a0"
+    },
+    {
+      "path": "docs/deform360/visualizations/t18-static-render-review-20260926/projection_diagnostics.json",
+      "bytes": 9717,
+      "sha256": "4ca922b718e18bf4363471104173d9aa839b6fba352c6ae5608fa88a01ca1c3d"
+    }
+  ],
+  "missing_media": {
+    "checked_server_directory": "outputs/deform360/t31-exploratory-epoch22-v2-20260927",
+    "observed_files": [
+      "report.json"
+    ],
+    "prediction_images_saved": false,
+    "new_rollout_executed": false,
+    "substitution": "数值回放视频仅可展示既有统计，不作为RGB/GT/render预测对照"
+  }
+}

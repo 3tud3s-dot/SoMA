@@ -1,0 +1,140 @@
+{
+  "stage1_cloud": {
+    "url": "https://wandb.ai/3tud3s-carnegie-mellon-university/SoMA-D360/runs/historical-3382d747651c28499bd7",
+    "state": "finished",
+    "rows": 2300,
+    "step_contiguous": true,
+    "epoch_mapping_correct": true,
+    "max_abs_diff_vs_imported_source": {
+      "optimization/iter": 0,
+      "optimization/epoch": 0,
+      "train/loss_total": 0.0,
+      "train/loss_momentum": 0.0,
+      "train/loss_l2": 0.0,
+      "train/loss_ssim": 0.0,
+      "optimization/lr": 0.0,
+      "optimization/grad_norm_preclip": 0.0
+    },
+    "uploaded_files": [
+      "artifact/3762554271/wandb_manifest.json",
+      "config.yaml",
+      "requirements.txt",
+      "wandb-summary.json"
+    ],
+    "checkpoint_file_uploaded": false
+  },
+  "validations": {
+    "wandb-stage1-historical-20260928": {
+      "step_count": 2300,
+      "first_step": 1,
+      "last_step": 2300,
+      "missing_steps": [],
+      "duplicate_steps": [],
+      "loss_ranges": {
+        "train/loss_total": {
+          "min": 2770.1103515625,
+          "max": 23798.42578125
+        },
+        "train/loss_momentum": {
+          "min": 0.08761929720640182,
+          "max": 156.3485565185547
+        },
+        "train/loss_l2": {
+          "min": 1208.7972412109375,
+          "max": 19622.826171875
+        },
+        "train/loss_ssim": {
+          "min": 1557.9100341796875,
+          "max": 4167.73046875
+        }
+      },
+      "sources": [
+        {
+          "path": "/data1/userdata/tcweng/projects/tcgs/outputs/deform360/t26-normalizer-fix-control-20260926/events.jsonl",
+          "snapshot_bytes": 354681,
+          "snapshot_sha256": "e5a180998329306937d72a2bff336b226aceddfd0ddf0e1118c2097b073cadd4"
+        },
+        {
+          "path": "/data1/userdata/tcweng/projects/tcgs/outputs/deform360/t26-resume-control-20260926/events.jsonl",
+          "snapshot_bytes": 62694302,
+          "snapshot_sha256": "765f27e410b152cf18f48053ef2ea95525466445c7a4f26a3fdd562b57222b96"
+        }
+      ],
+      "run_id": "historical-3382d747651c28499bd7",
+      "wandb_status": "offline_written_not_uploaded",
+      "wandb_directory": "/data1/userdata/tcweng/projects/tcgs/outputs/deform360/wandb-stage1-historical-20260928/wandb/offline-run-20260928_120145-historical-3382d747651c28499bd7"
+    },
+    "wandb-stage2-readiness-25875-20260928": {
+      "step_count": 13388,
+      "first_step": 1,
+      "last_step": 13388,
+      "missing_steps": [],
+      "duplicate_steps": [],
+      "loss_ranges": {
+        "train/loss_total": {
+          "min": 2360.197998046875,
+          "max": 9923.400390625
+        },
+        "train/loss_momentum": {
+          "min": 0.017602985724806786,
+          "max": 69.34689331054688
+        },
+        "train/loss_l2": {
+          "min": 952.1054077148438,
+          "max": 7222.203125
+        },
+        "train/loss_ssim": {
+          "min": 1405.3675537109375,
+          "max": 2671.47998046875
+        }
+      },
+      "sources": [
+        {
+          "path": "/data1/userdata/tcweng/projects/tcgs/outputs/deform360/t30-entry-fixed-control-20260927/events.jsonl",
+          "snapshot_bytes": 177529278,
+          "snapshot_sha256": "f6e9903e1a8001afd9268c82cff0d4cd189ca9a0db9e5ffdaaca4450b1a39275"
+        }
+      ],
+      "run_id": "historical-5942f1b712843f9c5880",
+      "wandb_status": "not_created"
+    },
+    "wandb-stage2-readiness-25884-20260928": {
+      "step_count": 1800,
+      "first_step": 13201,
+      "last_step": 15000,
+      "missing_steps": [],
+      "duplicate_steps": [],
+      "loss_ranges": {
+        "train/loss_total": {
+          "min": 2350.41162109375,
+          "max": 3275.6591796875
+        },
+        "train/loss_momentum": {
+          "min": 0.6625422835350037,
+          "max": 7.881617546081543
+        },
+        "train/loss_l2": {
+          "min": 944.8839721679688,
+          "max": 1517.9599609375
+        },
+        "train/loss_ssim": {
+          "min": 1402.61083984375,
+          "max": 1800.59033203125
+        }
+      },
+      "sources": [
+        {
+          "path": "/data1/userdata/tcweng/projects/tcgs/outputs/deform360/t30-resume24h-control-20260928/events.jsonl",
+          "snapshot_bytes": 25447208,
+          "snapshot_sha256": "580981c35d34bb154b42d0c6a8ef0b874ddc3d6b0923eda00478d230f840678b"
+        }
+      ],
+      "run_id": "historical-0960df6eafd5309bee88",
+      "wandb_status": "not_created"
+    }
+  },
+  "notes": [
+    "Stage1 validation.json records offline creation; stage1_cloud records later successful sync.",
+    "Stage2 snapshots validated only, not uploaded."
+  ]
+}

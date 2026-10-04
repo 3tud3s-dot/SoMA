@@ -58,3 +58,6 @@ gaussian-splatting/
 rjob_scripts/
 visualization/
 test/
+
+# Personal source-reading progress (not an implementation artifact)
+/docs/deform360/learning/source-reading-roadmap.md
